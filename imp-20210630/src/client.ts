@@ -11,13 +11,11 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddMemberRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
-  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
-      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -26,7 +24,6 @@ export class AddMemberRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
-      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -80,13 +77,11 @@ export class AddMemberResponse extends $tea.Model {
 export class AgreeLinkMicRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
-  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
-      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -95,7 +90,6 @@ export class AgreeLinkMicRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
-      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -148,12 +142,10 @@ export class AgreeLinkMicResponse extends $tea.Model {
 
 export class ApplyLinkMicRequest extends $tea.Model {
   conferenceId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -161,7 +153,6 @@ export class ApplyLinkMicRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -217,14 +208,12 @@ export class AttachStandardRoomHttpsCertificateRequest extends $tea.Model {
   certificatePrivateKey?: string;
   certificatePublicKey?: string;
   domainName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       certificatePrivateKey: 'CertificatePrivateKey',
       certificatePublicKey: 'CertificatePublicKey',
       domainName: 'DomainName',
-      regionId: 'RegionId',
     };
   }
 
@@ -234,7 +223,6 @@ export class AttachStandardRoomHttpsCertificateRequest extends $tea.Model {
       certificatePrivateKey: 'string',
       certificatePublicKey: 'string',
       domainName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -289,13 +277,11 @@ export class AttachStandardRoomHttpsCertificateResponse extends $tea.Model {
 
 export class BanAllCommentRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -304,7 +290,6 @@ export class BanAllCommentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -363,7 +348,6 @@ export class BanCommentRequest extends $tea.Model {
   appId?: string;
   banCommentTime?: number;
   banCommentUser?: string;
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -371,7 +355,6 @@ export class BanCommentRequest extends $tea.Model {
       appId: 'AppId',
       banCommentTime: 'BanCommentTime',
       banCommentUser: 'BanCommentUser',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -382,7 +365,6 @@ export class BanCommentRequest extends $tea.Model {
       appId: 'string',
       banCommentTime: 'number',
       banCommentUser: 'string',
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -439,12 +421,10 @@ export class BanCommentResponse extends $tea.Model {
 
 export class CancelApplyLinkMicRequest extends $tea.Model {
   conferenceId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -452,7 +432,6 @@ export class CancelApplyLinkMicRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -505,13 +484,11 @@ export class CancelApplyLinkMicResponse extends $tea.Model {
 
 export class CancelBanAllCommentRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -520,7 +497,6 @@ export class CancelBanAllCommentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -578,14 +554,12 @@ export class CancelBanAllCommentResponse extends $tea.Model {
 export class CancelBanCommentRequest extends $tea.Model {
   appId?: string;
   banCommentUser?: string;
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       banCommentUser: 'BanCommentUser',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -595,7 +569,6 @@ export class CancelBanCommentRequest extends $tea.Model {
     return {
       appId: 'string',
       banCommentUser: 'string',
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -653,12 +626,10 @@ export class CancelBanCommentResponse extends $tea.Model {
 export class CreateAppRequest extends $tea.Model {
   appName?: string;
   appTemplateId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       appTemplateId: 'AppTemplateId',
-      regionId: 'RegionId',
     };
   }
 
@@ -666,7 +637,6 @@ export class CreateAppRequest extends $tea.Model {
     return {
       appName: 'string',
       appTemplateId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -723,14 +693,12 @@ export class CreateAppTemplateRequest extends $tea.Model {
   appTemplateName?: string;
   componentList?: string[];
   integrationMode?: string;
-  regionId?: string;
   scene?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
       componentList: 'ComponentList',
       integrationMode: 'IntegrationMode',
-      regionId: 'RegionId',
       scene: 'Scene',
     };
   }
@@ -740,7 +708,6 @@ export class CreateAppTemplateRequest extends $tea.Model {
       appTemplateName: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
       integrationMode: 'string',
-      regionId: 'string',
       scene: 'string',
     };
   }
@@ -754,14 +721,12 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateName?: string;
   componentListShrink?: string;
   integrationMode?: string;
-  regionId?: string;
   scene?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
       componentListShrink: 'ComponentList',
       integrationMode: 'IntegrationMode',
-      regionId: 'RegionId',
       scene: 'Scene',
     };
   }
@@ -771,7 +736,6 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
       appTemplateName: 'string',
       componentListShrink: 'string',
       integrationMode: 'string',
-      regionId: 'string',
       scene: 'string',
     };
   }
@@ -829,14 +793,12 @@ export class CreateClassRequest extends $tea.Model {
   appId?: string;
   createNickname?: string;
   createUserId?: string;
-  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       createNickname: 'CreateNickname',
       createUserId: 'CreateUserId',
-      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -846,7 +808,6 @@ export class CreateClassRequest extends $tea.Model {
       appId: 'string',
       createNickname: 'string',
       createUserId: 'string',
-      regionId: 'string',
       title: 'string',
     };
   }
@@ -902,14 +863,12 @@ export class CreateClassResponse extends $tea.Model {
 
 export class CreateConferenceRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
   roomId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       title: 'Title',
       userId: 'UserId',
@@ -919,7 +878,6 @@ export class CreateConferenceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
       roomId: 'string',
       title: 'string',
       userId: 'string',
@@ -981,7 +939,6 @@ export class CreateLiveRequest extends $tea.Model {
   codeLevel?: number;
   introduction?: string;
   liveId?: string;
-  regionId?: string;
   roomId?: string;
   title?: string;
   userId?: string;
@@ -992,7 +949,6 @@ export class CreateLiveRequest extends $tea.Model {
       codeLevel: 'CodeLevel',
       introduction: 'Introduction',
       liveId: 'LiveId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       title: 'Title',
       userId: 'UserId',
@@ -1006,7 +962,6 @@ export class CreateLiveRequest extends $tea.Model {
       codeLevel: 'number',
       introduction: 'string',
       liveId: 'string',
-      regionId: 'string',
       roomId: 'string',
       title: 'string',
       userId: 'string',
@@ -1069,7 +1024,6 @@ export class CreateLiveRoomRequest extends $tea.Model {
   coverUrl?: string;
   extension?: { [key: string]: string };
   notice?: string;
-  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1080,7 +1034,6 @@ export class CreateLiveRoomRequest extends $tea.Model {
       coverUrl: 'CoverUrl',
       extension: 'Extension',
       notice: 'Notice',
-      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -1094,7 +1047,6 @@ export class CreateLiveRoomRequest extends $tea.Model {
       coverUrl: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
-      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -1112,7 +1064,6 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
   coverUrl?: string;
   extensionShrink?: string;
   notice?: string;
-  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1123,7 +1074,6 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
       coverUrl: 'CoverUrl',
       extensionShrink: 'Extension',
       notice: 'Notice',
-      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -1137,7 +1087,6 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
       coverUrl: 'string',
       extensionShrink: 'string',
       notice: 'string',
-      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -1196,7 +1145,6 @@ export class CreateRoomRequest extends $tea.Model {
   appId?: string;
   extension?: { [key: string]: string };
   notice?: string;
-  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   templateId?: string;
@@ -1206,7 +1154,6 @@ export class CreateRoomRequest extends $tea.Model {
       appId: 'AppId',
       extension: 'Extension',
       notice: 'Notice',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       templateId: 'TemplateId',
@@ -1219,7 +1166,6 @@ export class CreateRoomRequest extends $tea.Model {
       appId: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
-      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       templateId: 'string',
@@ -1236,7 +1182,6 @@ export class CreateRoomShrinkRequest extends $tea.Model {
   appId?: string;
   extensionShrink?: string;
   notice?: string;
-  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   templateId?: string;
@@ -1246,7 +1191,6 @@ export class CreateRoomShrinkRequest extends $tea.Model {
       appId: 'AppId',
       extensionShrink: 'Extension',
       notice: 'Notice',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       templateId: 'TemplateId',
@@ -1259,7 +1203,6 @@ export class CreateRoomShrinkRequest extends $tea.Model {
       appId: 'string',
       extensionShrink: 'string',
       notice: 'string',
-      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       templateId: 'string',
@@ -1318,18 +1261,15 @@ export class CreateRoomResponse extends $tea.Model {
 
 export class DeleteAppRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1381,18 +1321,15 @@ export class DeleteAppResponse extends $tea.Model {
 
 export class DeleteAppTemplateRequest extends $tea.Model {
   appTemplateId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appTemplateId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1445,13 +1382,11 @@ export class DeleteAppTemplateResponse extends $tea.Model {
 export class DeleteClassRequest extends $tea.Model {
   appId?: string;
   classId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       classId: 'ClassId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -1460,7 +1395,6 @@ export class DeleteClassRequest extends $tea.Model {
     return {
       appId: 'string',
       classId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -1514,14 +1448,12 @@ export class DeleteClassResponse extends $tea.Model {
 export class DeleteCommentRequest extends $tea.Model {
   appId?: string;
   commentIdList?: string[];
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       commentIdList: 'CommentIdList',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -1531,7 +1463,6 @@ export class DeleteCommentRequest extends $tea.Model {
     return {
       appId: 'string',
       commentIdList: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -1589,14 +1520,12 @@ export class DeleteCommentResponse extends $tea.Model {
 export class DeleteConferenceRequest extends $tea.Model {
   appId?: string;
   conferenceId?: string;
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       conferenceId: 'ConferenceId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -1606,7 +1535,6 @@ export class DeleteConferenceRequest extends $tea.Model {
     return {
       appId: 'string',
       conferenceId: 'string',
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -1660,18 +1588,15 @@ export class DeleteConferenceResponse extends $tea.Model {
 
 export class DeleteLiveRequest extends $tea.Model {
   liveId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveId: 'LiveId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1724,13 +1649,11 @@ export class DeleteLiveResponse extends $tea.Model {
 export class DeleteLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -1739,7 +1662,6 @@ export class DeleteLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -1792,12 +1714,10 @@ export class DeleteLiveRoomResponse extends $tea.Model {
 
 export class DeleteRoomRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -1805,7 +1725,6 @@ export class DeleteRoomRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -1856,20 +1775,89 @@ export class DeleteRoomResponse extends $tea.Model {
   }
 }
 
-export class GetAppRequest extends $tea.Model {
+export class DescribeMeterImpWatchTimeRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
+  endTime?: number;
+  interval?: string;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
+      endTime: 'number',
+      interval: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpWatchTimeResponseBody extends $tea.Model {
+  data?: DescribeMeterImpWatchTimeResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeMeterImpWatchTimeResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpWatchTimeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeMeterImpWatchTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeMeterImpWatchTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppRequest extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
     };
   }
 
@@ -1924,18 +1912,15 @@ export class GetAppResponse extends $tea.Model {
 
 export class GetAppTemplateRequest extends $tea.Model {
   appTemplateId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appTemplateId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1992,14 +1977,12 @@ export class GetAuthTokenRequest extends $tea.Model {
   appId?: string;
   appKey?: string;
   deviceId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appKey: 'AppKey',
       deviceId: 'DeviceId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -2009,7 +1992,6 @@ export class GetAuthTokenRequest extends $tea.Model {
       appId: 'string',
       appKey: 'string',
       deviceId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -2066,13 +2048,11 @@ export class GetAuthTokenResponse extends $tea.Model {
 export class GetClassDetailRequest extends $tea.Model {
   appId?: string;
   classId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       classId: 'ClassId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -2081,7 +2061,6 @@ export class GetClassDetailRequest extends $tea.Model {
     return {
       appId: 'string',
       classId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -2135,20 +2114,155 @@ export class GetClassDetailResponse extends $tea.Model {
   }
 }
 
+export class GetClassRecordRequest extends $tea.Model {
+  appId?: string;
+  classId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      classId: 'ClassId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      classId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassRecordResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetClassRecordResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetClassRecordResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetClassRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetClassRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCnameDetailRequest extends $tea.Model {
+  appId?: string;
+  domainName?: string;
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      domainName: 'DomainName',
+      productCode: 'ProductCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      domainName: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCnameDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetCnameDetailResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetCnameDetailResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCnameDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetCnameDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetCnameDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConferenceRequest extends $tea.Model {
   conferenceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2203,18 +2317,15 @@ export class GetConferenceResponse extends $tea.Model {
 
 export class GetDomainOwnerVerifyContentRequest extends $tea.Model {
   liveDomainName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveDomainName: 'LiveDomainName',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveDomainName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2259,25 +2370,6 @@ export class GetDomainOwnerVerifyContentResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetDomainOwnerVerifyContentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetImpProductStatusRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
     };
   }
 
@@ -2332,18 +2424,15 @@ export class GetImpProductStatusResponse extends $tea.Model {
 
 export class GetLiveRequest extends $tea.Model {
   liveId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveId: 'LiveId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2400,13 +2489,11 @@ export class GetLiveDomainStatusRequest extends $tea.Model {
   appId?: string;
   liveDomainList?: string[];
   liveDomainType?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveDomainList: 'LiveDomainList',
       liveDomainType: 'LiveDomainType',
-      regionId: 'RegionId',
     };
   }
 
@@ -2415,7 +2502,6 @@ export class GetLiveDomainStatusRequest extends $tea.Model {
       appId: 'string',
       liveDomainList: { 'type': 'array', 'itemType': 'string' },
       liveDomainType: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2428,13 +2514,11 @@ export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
   appId?: string;
   liveDomainListShrink?: string;
   liveDomainType?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveDomainListShrink: 'LiveDomainList',
       liveDomainType: 'LiveDomainType',
-      regionId: 'RegionId',
     };
   }
 
@@ -2443,7 +2527,6 @@ export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
       appId: 'string',
       liveDomainListShrink: 'string',
       liveDomainType: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2496,15 +2579,15 @@ export class GetLiveDomainStatusResponse extends $tea.Model {
   }
 }
 
-export class GetLiveRoomRequest extends $tea.Model {
+export class GetLiveRecordRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
-  regionId?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
-      regionId: 'RegionId',
+      userId: 'UserId',
     };
   }
 
@@ -2512,7 +2595,73 @@ export class GetLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
-      regionId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetLiveRecordResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetLiveRecordResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
     };
   }
 
@@ -2568,12 +2717,10 @@ export class GetLiveRoomResponse extends $tea.Model {
 export class GetLiveRoomStatisticsRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
-      regionId: 'RegionId',
     };
   }
 
@@ -2581,7 +2728,6 @@ export class GetLiveRoomStatisticsRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2639,14 +2785,12 @@ export class GetLiveRoomUserStatisticsRequest extends $tea.Model {
   liveId?: string;
   pageNumber?: string;
   pageSize?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -2656,7 +2800,6 @@ export class GetLiveRoomUserStatisticsRequest extends $tea.Model {
       liveId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2709,14 +2852,75 @@ export class GetLiveRoomUserStatisticsResponse extends $tea.Model {
   }
 }
 
+export class GetPageConfigRequest extends $tea.Model {
+  cloudUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cloudUid: 'CloudUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPageConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetPageConfigResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetPageConfigResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPageConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetPageConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetPageConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRoomRequest extends $tea.Model {
   appId?: string;
-  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -2724,7 +2928,6 @@ export class GetRoomRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -2780,18 +2983,15 @@ export class GetRoomResponse extends $tea.Model {
 
 export class GetStandardRoomHttpsCertificateRequest extends $tea.Model {
   certificateId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certificateId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2850,7 +3050,6 @@ export class GetStandardRoomJumpUrlRequest extends $tea.Model {
   bizId?: string;
   bizType?: string;
   platform?: string;
-  regionId?: string;
   userId?: string;
   userNick?: string;
   static names(): { [key: string]: string } {
@@ -2860,7 +3059,6 @@ export class GetStandardRoomJumpUrlRequest extends $tea.Model {
       bizId: 'BizId',
       bizType: 'BizType',
       platform: 'Platform',
-      regionId: 'RegionId',
       userId: 'UserId',
       userNick: 'UserNick',
     };
@@ -2873,7 +3071,6 @@ export class GetStandardRoomJumpUrlRequest extends $tea.Model {
       bizId: 'string',
       bizType: 'string',
       platform: 'string',
-      regionId: 'string',
       userId: 'string',
       userNick: 'string',
     };
@@ -2928,15 +3125,148 @@ export class GetStandardRoomJumpUrlResponse extends $tea.Model {
   }
 }
 
+export class GetUserInfoRequest extends $tea.Model {
+  cloudUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cloudUid: 'CloudUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetUserInfoResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetUserInfoResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KickRoomUserRequest extends $tea.Model {
+  appId?: string;
+  blockTime?: number;
+  kickUser?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      blockTime: 'BlockTime',
+      kickUser: 'KickUser',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      blockTime: 'number',
+      kickUser: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KickRoomUserResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KickRoomUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: KickRoomUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: KickRoomUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppTemplatesRequest extends $tea.Model {
   pageNumber?: string;
   pageSize?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -2944,7 +3274,6 @@ export class ListAppTemplatesRequest extends $tea.Model {
     return {
       pageNumber: 'string',
       pageSize: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3001,13 +3330,11 @@ export class ListApplyLinkMicUsersRequest extends $tea.Model {
   conferenceId?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -3016,7 +3343,6 @@ export class ListApplyLinkMicUsersRequest extends $tea.Model {
       conferenceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -3073,14 +3399,12 @@ export class ListAppsRequest extends $tea.Model {
   integrationMode?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       integrationMode: 'IntegrationMode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -3090,7 +3414,6 @@ export class ListAppsRequest extends $tea.Model {
       integrationMode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
       status: 'string',
     };
   }
@@ -3148,14 +3471,12 @@ export class ListClassesRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   status?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -3165,7 +3486,6 @@ export class ListClassesRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
       status: 'number',
     };
   }
@@ -3223,7 +3543,6 @@ export class ListCommentsRequest extends $tea.Model {
   appId?: string;
   pageNum?: number;
   pageSize?: number;
-  regionId?: string;
   roomId?: string;
   sortType?: number;
   userId?: string;
@@ -3232,7 +3551,6 @@ export class ListCommentsRequest extends $tea.Model {
       appId: 'AppId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       sortType: 'SortType',
       userId: 'UserId',
@@ -3244,7 +3562,6 @@ export class ListCommentsRequest extends $tea.Model {
       appId: 'string',
       pageNum: 'number',
       pageSize: 'number',
-      regionId: 'string',
       roomId: 'string',
       sortType: 'number',
       userId: 'string',
@@ -3303,12 +3620,10 @@ export class ListCommentsResponse extends $tea.Model {
 export class ListComponentsRequest extends $tea.Model {
   appId?: string;
   appTemplateId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appTemplateId: 'AppTemplateId',
-      regionId: 'RegionId',
     };
   }
 
@@ -3316,7 +3631,6 @@ export class ListComponentsRequest extends $tea.Model {
     return {
       appId: 'string',
       appTemplateId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3373,13 +3687,11 @@ export class ListConferenceUsersRequest extends $tea.Model {
   conferenceId?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -3388,7 +3700,6 @@ export class ListConferenceUsersRequest extends $tea.Model {
       conferenceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -3445,14 +3756,12 @@ export class ListLiveRoomsRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   status?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -3462,7 +3771,6 @@ export class ListLiveRoomsRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
       status: 'number',
     };
   }
@@ -3519,12 +3827,10 @@ export class ListLiveRoomsResponse extends $tea.Model {
 export class ListLiveRoomsByIdRequest extends $tea.Model {
   appId?: string;
   liveIdList?: string[];
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveIdList: 'LiveIdList',
-      regionId: 'RegionId',
     };
   }
 
@@ -3532,7 +3838,6 @@ export class ListLiveRoomsByIdRequest extends $tea.Model {
     return {
       appId: 'string',
       liveIdList: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
     };
   }
 
@@ -3544,12 +3849,10 @@ export class ListLiveRoomsByIdRequest extends $tea.Model {
 export class ListLiveRoomsByIdShrinkRequest extends $tea.Model {
   appId?: string;
   liveIdListShrink?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveIdListShrink: 'LiveIdList',
-      regionId: 'RegionId',
     };
   }
 
@@ -3557,7 +3860,6 @@ export class ListLiveRoomsByIdShrinkRequest extends $tea.Model {
     return {
       appId: 'string',
       liveIdListShrink: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3613,7 +3915,6 @@ export class ListLiveRoomsByIdResponse extends $tea.Model {
 export class ListRoomLivesRequest extends $tea.Model {
   appId?: string;
   queryTimestamp?: number;
-  regionId?: string;
   roomId?: string;
   roomIdList?: string[];
   size?: number;
@@ -3622,7 +3923,6 @@ export class ListRoomLivesRequest extends $tea.Model {
     return {
       appId: 'AppId',
       queryTimestamp: 'QueryTimestamp',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       roomIdList: 'RoomIdList',
       size: 'Size',
@@ -3634,7 +3934,6 @@ export class ListRoomLivesRequest extends $tea.Model {
     return {
       appId: 'string',
       queryTimestamp: 'number',
-      regionId: 'string',
       roomId: 'string',
       roomIdList: { 'type': 'array', 'itemType': 'string' },
       size: 'number',
@@ -3650,7 +3949,6 @@ export class ListRoomLivesRequest extends $tea.Model {
 export class ListRoomLivesShrinkRequest extends $tea.Model {
   appId?: string;
   queryTimestamp?: number;
-  regionId?: string;
   roomId?: string;
   roomIdListShrink?: string;
   size?: number;
@@ -3659,7 +3957,6 @@ export class ListRoomLivesShrinkRequest extends $tea.Model {
     return {
       appId: 'AppId',
       queryTimestamp: 'QueryTimestamp',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       roomIdListShrink: 'RoomIdList',
       size: 'Size',
@@ -3671,7 +3968,6 @@ export class ListRoomLivesShrinkRequest extends $tea.Model {
     return {
       appId: 'string',
       queryTimestamp: 'number',
-      regionId: 'string',
       roomId: 'string',
       roomIdListShrink: 'string',
       size: 'number',
@@ -3732,14 +4028,12 @@ export class ListRoomUsersRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -3749,7 +4043,6 @@ export class ListRoomUsersRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -3807,13 +4100,11 @@ export class ListRoomsRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -3822,7 +4113,6 @@ export class ListRoomsRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -3877,12 +4167,10 @@ export class ListRoomsResponse extends $tea.Model {
 
 export class PublishLiveRequest extends $tea.Model {
   liveId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       liveId: 'LiveId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -3890,7 +4178,6 @@ export class PublishLiveRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       liveId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -3947,13 +4234,11 @@ export class PublishLiveResponse extends $tea.Model {
 export class PublishLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -3962,7 +4247,6 @@ export class PublishLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -4019,13 +4303,11 @@ export class PublishLiveRoomResponse extends $tea.Model {
 export class RejectLinkMicRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
-  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
-      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -4034,7 +4316,6 @@ export class RejectLinkMicRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
-      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -4088,13 +4369,11 @@ export class RejectLinkMicResponse extends $tea.Model {
 export class RemoveMemberRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
-  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
-      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -4103,7 +4382,6 @@ export class RemoveMemberRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
-      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -4158,7 +4436,6 @@ export class SendCommentRequest extends $tea.Model {
   appId?: string;
   content?: string;
   extension?: { [key: string]: string };
-  regionId?: string;
   roomId?: string;
   senderId?: string;
   senderNick?: string;
@@ -4167,7 +4444,6 @@ export class SendCommentRequest extends $tea.Model {
       appId: 'AppId',
       content: 'Content',
       extension: 'Extension',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
@@ -4179,7 +4455,6 @@ export class SendCommentRequest extends $tea.Model {
       appId: 'string',
       content: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      regionId: 'string',
       roomId: 'string',
       senderId: 'string',
       senderNick: 'string',
@@ -4195,7 +4470,6 @@ export class SendCommentShrinkRequest extends $tea.Model {
   appId?: string;
   content?: string;
   extensionShrink?: string;
-  regionId?: string;
   roomId?: string;
   senderId?: string;
   senderNick?: string;
@@ -4204,7 +4478,6 @@ export class SendCommentShrinkRequest extends $tea.Model {
       appId: 'AppId',
       content: 'Content',
       extensionShrink: 'Extension',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
@@ -4216,7 +4489,6 @@ export class SendCommentShrinkRequest extends $tea.Model {
       appId: 'string',
       content: 'string',
       extensionShrink: 'string',
-      regionId: 'string',
       roomId: 'string',
       senderId: 'string',
       senderNick: 'string',
@@ -4275,13 +4547,11 @@ export class SendCommentResponse extends $tea.Model {
 export class SendCustomMessageToAllRequest extends $tea.Model {
   appId?: string;
   body?: string;
-  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       body: 'Body',
-      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -4290,7 +4560,6 @@ export class SendCustomMessageToAllRequest extends $tea.Model {
     return {
       appId: 'string',
       body: 'string',
-      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -4348,14 +4617,12 @@ export class SendCustomMessageToUsersRequest extends $tea.Model {
   appId?: string;
   body?: string;
   receiverList?: string[];
-  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       body: 'Body',
       receiverList: 'ReceiverList',
-      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -4365,7 +4632,6 @@ export class SendCustomMessageToUsersRequest extends $tea.Model {
       appId: 'string',
       body: 'string',
       receiverList: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -4422,13 +4688,11 @@ export class SendCustomMessageToUsersResponse extends $tea.Model {
 export class StopClassRequest extends $tea.Model {
   appId?: string;
   classId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       classId: 'ClassId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -4437,7 +4701,6 @@ export class StopClassRequest extends $tea.Model {
     return {
       appId: 'string',
       classId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -4491,14 +4754,12 @@ export class StopClassResponse extends $tea.Model {
 export class StopLiveRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
-  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -4508,7 +4769,6 @@ export class StopLiveRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
-      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -4563,13 +4823,11 @@ export class StopLiveResponse extends $tea.Model {
 export class StopLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
-  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
-      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -4578,7 +4836,6 @@ export class StopLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
-      regionId: 'string',
       userId: 'string',
     };
   }
@@ -4633,13 +4890,11 @@ export class UpdateAppRequest extends $tea.Model {
   appId?: string;
   appName?: string;
   appStatus?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
       appStatus: 'AppStatus',
-      regionId: 'RegionId',
     };
   }
 
@@ -4648,7 +4903,6 @@ export class UpdateAppRequest extends $tea.Model {
       appId: 'string',
       appName: 'string',
       appStatus: 'string',
-      regionId: 'string',
     };
   }
 
@@ -4702,13 +4956,11 @@ export class UpdateAppTemplateRequest extends $tea.Model {
   appTemplateId?: string;
   appTemplateName?: string;
   componentList?: string[];
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       appTemplateName: 'AppTemplateName',
       componentList: 'ComponentList',
-      regionId: 'RegionId',
     };
   }
 
@@ -4717,7 +4969,6 @@ export class UpdateAppTemplateRequest extends $tea.Model {
       appTemplateId: 'string',
       appTemplateName: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
     };
   }
 
@@ -4730,13 +4981,11 @@ export class UpdateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateId?: string;
   appTemplateName?: string;
   componentListShrink?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       appTemplateName: 'AppTemplateName',
       componentListShrink: 'ComponentList',
-      regionId: 'RegionId',
     };
   }
 
@@ -4745,7 +4994,6 @@ export class UpdateAppTemplateShrinkRequest extends $tea.Model {
       appTemplateId: 'string',
       appTemplateName: 'string',
       componentListShrink: 'string',
-      regionId: 'string',
     };
   }
 
@@ -4798,12 +5046,10 @@ export class UpdateAppTemplateResponse extends $tea.Model {
 export class UpdateAppTemplateConfigRequest extends $tea.Model {
   appTemplateId?: string;
   configList?: UpdateAppTemplateConfigRequestConfigList[];
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       configList: 'ConfigList',
-      regionId: 'RegionId',
     };
   }
 
@@ -4811,7 +5057,6 @@ export class UpdateAppTemplateConfigRequest extends $tea.Model {
     return {
       appTemplateId: 'string',
       configList: { 'type': 'array', 'itemType': UpdateAppTemplateConfigRequestConfigList },
-      regionId: 'string',
     };
   }
 
@@ -4823,12 +5068,10 @@ export class UpdateAppTemplateConfigRequest extends $tea.Model {
 export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
   appTemplateId?: string;
   configListShrink?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       configListShrink: 'ConfigList',
-      regionId: 'RegionId',
     };
   }
 
@@ -4836,7 +5079,6 @@ export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
     return {
       appTemplateId: 'string',
       configListShrink: 'string',
-      regionId: 'string',
     };
   }
 
@@ -4894,7 +5136,6 @@ export class UpdateClassRequest extends $tea.Model {
   classId?: string;
   createNickname?: string;
   createUserId?: string;
-  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4902,7 +5143,6 @@ export class UpdateClassRequest extends $tea.Model {
       classId: 'ClassId',
       createNickname: 'CreateNickname',
       createUserId: 'CreateUserId',
-      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -4913,7 +5153,6 @@ export class UpdateClassRequest extends $tea.Model {
       classId: 'string',
       createNickname: 'string',
       createUserId: 'string',
-      regionId: 'string',
       title: 'string',
     };
   }
@@ -4966,12 +5205,10 @@ export class UpdateClassResponse extends $tea.Model {
 
 export class UpdateConferenceRequest extends $tea.Model {
   conferenceId?: string;
-  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
-      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -4979,7 +5216,6 @@ export class UpdateConferenceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
-      regionId: 'string',
       title: 'string',
     };
   }
@@ -5033,13 +5269,11 @@ export class UpdateConferenceResponse extends $tea.Model {
 export class UpdateLiveRequest extends $tea.Model {
   introduction?: string;
   liveId?: string;
-  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       introduction: 'Introduction',
       liveId: 'LiveId',
-      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -5048,7 +5282,6 @@ export class UpdateLiveRequest extends $tea.Model {
     return {
       introduction: 'string',
       liveId: 'string',
-      regionId: 'string',
       title: 'string',
     };
   }
@@ -5107,7 +5340,6 @@ export class UpdateLiveRoomRequest extends $tea.Model {
   extension?: { [key: string]: string };
   liveId?: string;
   notice?: string;
-  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -5119,7 +5351,6 @@ export class UpdateLiveRoomRequest extends $tea.Model {
       extension: 'Extension',
       liveId: 'LiveId',
       notice: 'Notice',
-      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -5134,7 +5365,6 @@ export class UpdateLiveRoomRequest extends $tea.Model {
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveId: 'string',
       notice: 'string',
-      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -5153,7 +5383,6 @@ export class UpdateLiveRoomShrinkRequest extends $tea.Model {
   extensionShrink?: string;
   liveId?: string;
   notice?: string;
-  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -5165,7 +5394,6 @@ export class UpdateLiveRoomShrinkRequest extends $tea.Model {
       extensionShrink: 'Extension',
       liveId: 'LiveId',
       notice: 'Notice',
-      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -5180,7 +5408,6 @@ export class UpdateLiveRoomShrinkRequest extends $tea.Model {
       extensionShrink: 'string',
       liveId: 'string',
       notice: 'string',
-      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -5236,7 +5463,6 @@ export class UpdateRoomRequest extends $tea.Model {
   appId?: string;
   extension?: { [key: string]: string };
   notice?: string;
-  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   title?: string;
@@ -5245,7 +5471,6 @@ export class UpdateRoomRequest extends $tea.Model {
       appId: 'AppId',
       extension: 'Extension',
       notice: 'Notice',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       title: 'Title',
@@ -5257,7 +5482,6 @@ export class UpdateRoomRequest extends $tea.Model {
       appId: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
-      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       title: 'string',
@@ -5273,7 +5497,6 @@ export class UpdateRoomShrinkRequest extends $tea.Model {
   appId?: string;
   extensionShrink?: string;
   notice?: string;
-  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   title?: string;
@@ -5282,7 +5505,6 @@ export class UpdateRoomShrinkRequest extends $tea.Model {
       appId: 'AppId',
       extensionShrink: 'Extension',
       notice: 'Notice',
-      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       title: 'Title',
@@ -5294,7 +5516,6 @@ export class UpdateRoomShrinkRequest extends $tea.Model {
       appId: 'string',
       extensionShrink: 'string',
       notice: 'string',
-      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       title: 'string',
@@ -5349,18 +5570,15 @@ export class UpdateRoomResponse extends $tea.Model {
 
 export class VerifyDomainOwnerRequest extends $tea.Model {
   liveDomainName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveDomainName: 'LiveDomainName',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveDomainName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -5706,6 +5924,37 @@ export class DeleteCommentResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DescribeMeterImpWatchTimeResponseBodyData extends $tea.Model {
+  liveRtcDuration?: number;
+  liveRtmpDuration?: number;
+  liveRtsDuration?: number;
+  time?: number;
+  vodDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      liveRtcDuration: 'LiveRtcDuration',
+      liveRtmpDuration: 'LiveRtmpDuration',
+      liveRtsDuration: 'LiveRtsDuration',
+      time: 'Time',
+      vodDuration: 'VodDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveRtcDuration: 'number',
+      liveRtmpDuration: 'number',
+      liveRtsDuration: 'number',
+      time: 'number',
+      vodDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppResponseBodyResult extends $tea.Model {
   appConfigStatus?: string;
   appKey?: string;
@@ -5752,6 +6001,34 @@ export class GetAppResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetAppTemplateResponseBodyResultApps extends $tea.Model {
+  appId?: string;
+  appKey?: string;
+  appName?: string;
+  appStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appKey: 'AppKey',
+      appName: 'AppName',
+      appStatus: 'AppStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appKey: 'string',
+      appName: 'string',
+      appStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppTemplateResponseBodyResultConfigList extends $tea.Model {
   key?: string;
   value?: string;
@@ -5777,6 +6054,7 @@ export class GetAppTemplateResponseBodyResultConfigList extends $tea.Model {
 export class GetAppTemplateResponseBodyResult extends $tea.Model {
   appTemplateCreator?: string;
   appTemplateName?: string;
+  apps?: GetAppTemplateResponseBodyResultApps[];
   componentList?: string[];
   configList?: GetAppTemplateResponseBodyResultConfigList[];
   createTime?: string;
@@ -5789,6 +6067,7 @@ export class GetAppTemplateResponseBodyResult extends $tea.Model {
     return {
       appTemplateCreator: 'AppTemplateCreator',
       appTemplateName: 'AppTemplateName',
+      apps: 'Apps',
       componentList: 'ComponentList',
       configList: 'ConfigList',
       createTime: 'CreateTime',
@@ -5804,6 +6083,7 @@ export class GetAppTemplateResponseBodyResult extends $tea.Model {
     return {
       appTemplateCreator: 'string',
       appTemplateName: 'string',
+      apps: { 'type': 'array', 'itemType': GetAppTemplateResponseBodyResultApps },
       componentList: { 'type': 'array', 'itemType': 'string' },
       configList: { 'type': 'array', 'itemType': GetAppTemplateResponseBodyResultConfigList },
       createTime: 'string',
@@ -5889,6 +6169,69 @@ export class GetClassDetailResponseBodyResult extends $tea.Model {
       title: 'string',
       whiteboardId: 'string',
       whiteboardRecordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClassRecordResponseBodyResult extends $tea.Model {
+  playbackUrlMap?: { [key: string]: string[] };
+  static names(): { [key: string]: string } {
+    return {
+      playbackUrlMap: 'PlaybackUrlMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      playbackUrlMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCnameDetailResponseBodyResultData extends $tea.Model {
+  cname?: string;
+  domainName?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cname: 'Cname',
+      domainName: 'DomainName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cname: 'string',
+      domainName: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCnameDetailResponseBodyResult extends $tea.Model {
+  data?: GetCnameDetailResponseBodyResultData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetCnameDetailResponseBodyResultData },
     };
   }
 
@@ -6126,6 +6469,25 @@ export class GetLiveDomainStatusResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetLiveRecordResponseBodyResult extends $tea.Model {
+  playbackUrlMap?: { [key: string]: string[] };
+  static names(): { [key: string]: string } {
+    return {
+      playbackUrlMap: 'PlaybackUrlMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      playbackUrlMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLiveRoomResponseBodyResultArtcInfo extends $tea.Model {
   artcH5Url?: string;
   artcUrl?: string;
@@ -6187,15 +6549,19 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
   endTime?: number;
   extension?: { [key: string]: string };
   hlsUrl?: string;
+  hlsUrlHttps?: string;
   liveId?: string;
   liveUrl?: string;
+  liveUrlHttps?: string;
   notice?: string;
   onlineCount?: number;
   playbackUrl?: string;
+  playbackUrlHttps?: string;
   pluginInstanceInfoList?: GetLiveRoomResponseBodyResultPluginInstanceInfoList[];
   pushUrl?: string;
   pv?: number;
   roomId?: string;
+  rtmpUrl?: string;
   startTime?: number;
   status?: number;
   title?: string;
@@ -6212,15 +6578,19 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
       endTime: 'EndTime',
       extension: 'Extension',
       hlsUrl: 'HlsUrl',
+      hlsUrlHttps: 'HlsUrlHttps',
       liveId: 'LiveId',
       liveUrl: 'LiveUrl',
+      liveUrlHttps: 'LiveUrlHttps',
       notice: 'Notice',
       onlineCount: 'OnlineCount',
       playbackUrl: 'PlaybackUrl',
+      playbackUrlHttps: 'PlaybackUrlHttps',
       pluginInstanceInfoList: 'PluginInstanceInfoList',
       pushUrl: 'PushUrl',
       pv: 'Pv',
       roomId: 'RoomId',
+      rtmpUrl: 'RtmpUrl',
       startTime: 'StartTime',
       status: 'Status',
       title: 'Title',
@@ -6240,15 +6610,19 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
       endTime: 'number',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       hlsUrl: 'string',
+      hlsUrlHttps: 'string',
       liveId: 'string',
       liveUrl: 'string',
+      liveUrlHttps: 'string',
       notice: 'string',
       onlineCount: 'number',
       playbackUrl: 'string',
+      playbackUrlHttps: 'string',
       pluginInstanceInfoList: { 'type': 'array', 'itemType': GetLiveRoomResponseBodyResultPluginInstanceInfoList },
       pushUrl: 'string',
       pv: 'number',
       roomId: 'string',
+      rtmpUrl: 'string',
       startTime: 'number',
       status: 'number',
       title: 'string',
@@ -6352,6 +6726,59 @@ export class GetLiveRoomUserStatisticsResponseBodyResult extends $tea.Model {
       pageTotal: 'number',
       totalCount: 'number',
       userStatisticsList: { 'type': 'array', 'itemType': GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPageConfigResponseBodyResultAdList extends $tea.Model {
+  canNotBeenBought?: boolean;
+  detail?: string;
+  icon?: string;
+  jumpBuyLink?: string;
+  subTitle?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canNotBeenBought: 'CanNotBeenBought',
+      detail: 'Detail',
+      icon: 'Icon',
+      jumpBuyLink: 'JumpBuyLink',
+      subTitle: 'SubTitle',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canNotBeenBought: 'boolean',
+      detail: 'string',
+      icon: 'string',
+      jumpBuyLink: 'string',
+      subTitle: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPageConfigResponseBodyResult extends $tea.Model {
+  adList?: GetPageConfigResponseBodyResultAdList[];
+  static names(): { [key: string]: string } {
+    return {
+      adList: 'AdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adList: { 'type': 'array', 'itemType': GetPageConfigResponseBodyResultAdList },
     };
   }
 
@@ -6498,6 +6925,37 @@ export class GetStandardRoomJumpUrlResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       standardRoomJumpUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInfoResponseBodyResult extends $tea.Model {
+  enableCreateAppLimit?: boolean;
+  hasOrderedImp?: boolean;
+  isOverdue?: boolean;
+  isPayByWatchTimeLengthUser?: boolean;
+  maxCreateAppCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableCreateAppLimit: 'EnableCreateAppLimit',
+      hasOrderedImp: 'HasOrderedImp',
+      isOverdue: 'IsOverdue',
+      isPayByWatchTimeLengthUser: 'IsPayByWatchTimeLengthUser',
+      maxCreateAppCount: 'MaxCreateAppCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableCreateAppLimit: 'boolean',
+      hasOrderedImp: 'boolean',
+      isOverdue: 'boolean',
+      isPayByWatchTimeLengthUser: 'boolean',
+      maxCreateAppCount: 'number',
     };
   }
 
@@ -7698,8 +8156,21 @@ export default class Client extends OpenApi {
 
   async addMemberWithOptions(request: AddMemberRequest, runtime: $Util.RuntimeOptions): Promise<AddMemberResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.fromUserId)) {
+      body["FromUserId"] = request.fromUserId;
+    }
+
+    if (!Util.isUnset(request.toUserId)) {
+      body["ToUserId"] = request.toUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddMember",
@@ -7722,8 +8193,21 @@ export default class Client extends OpenApi {
 
   async agreeLinkMicWithOptions(request: AgreeLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<AgreeLinkMicResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.fromUserId)) {
+      body["FromUserId"] = request.fromUserId;
+    }
+
+    if (!Util.isUnset(request.toUserId)) {
+      body["ToUserId"] = request.toUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AgreeLinkMic",
@@ -7746,8 +8230,17 @@ export default class Client extends OpenApi {
 
   async applyLinkMicWithOptions(request: ApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<ApplyLinkMicResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ApplyLinkMic",
@@ -7770,8 +8263,25 @@ export default class Client extends OpenApi {
 
   async attachStandardRoomHttpsCertificateWithOptions(request: AttachStandardRoomHttpsCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AttachStandardRoomHttpsCertificateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.certificatePrivateKey)) {
+      body["CertificatePrivateKey"] = request.certificatePrivateKey;
+    }
+
+    if (!Util.isUnset(request.certificatePublicKey)) {
+      body["CertificatePublicKey"] = request.certificatePublicKey;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AttachStandardRoomHttpsCertificate",
@@ -7794,8 +8304,21 @@ export default class Client extends OpenApi {
 
   async banAllCommentWithOptions(request: BanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanAllCommentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BanAllComment",
@@ -7818,8 +8341,29 @@ export default class Client extends OpenApi {
 
   async banCommentWithOptions(request: BanCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanCommentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.banCommentTime)) {
+      body["BanCommentTime"] = request.banCommentTime;
+    }
+
+    if (!Util.isUnset(request.banCommentUser)) {
+      body["BanCommentUser"] = request.banCommentUser;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BanComment",
@@ -7842,8 +8386,17 @@ export default class Client extends OpenApi {
 
   async cancelApplyLinkMicWithOptions(request: CancelApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<CancelApplyLinkMicResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CancelApplyLinkMic",
@@ -7866,8 +8419,21 @@ export default class Client extends OpenApi {
 
   async cancelBanAllCommentWithOptions(request: CancelBanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanAllCommentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CancelBanAllComment",
@@ -7890,8 +8456,25 @@ export default class Client extends OpenApi {
 
   async cancelBanCommentWithOptions(request: CancelBanCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanCommentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.banCommentUser)) {
+      body["BanCommentUser"] = request.banCommentUser;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CancelBanComment",
@@ -7914,8 +8497,17 @@ export default class Client extends OpenApi {
 
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appTemplateId)) {
+      body["AppTemplateId"] = request.appTemplateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateApp",
@@ -7944,8 +8536,25 @@ export default class Client extends OpenApi {
       request.componentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentList, "ComponentList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appTemplateName)) {
+      body["AppTemplateName"] = request.appTemplateName;
+    }
+
+    if (!Util.isUnset(request.componentListShrink)) {
+      body["ComponentList"] = request.componentListShrink;
+    }
+
+    if (!Util.isUnset(request.integrationMode)) {
+      body["IntegrationMode"] = request.integrationMode;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateAppTemplate",
@@ -7968,8 +8577,25 @@ export default class Client extends OpenApi {
 
   async createClassWithOptions(request: CreateClassRequest, runtime: $Util.RuntimeOptions): Promise<CreateClassResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.createNickname)) {
+      body["CreateNickname"] = request.createNickname;
+    }
+
+    if (!Util.isUnset(request.createUserId)) {
+      body["CreateUserId"] = request.createUserId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateClass",
@@ -7992,8 +8618,25 @@ export default class Client extends OpenApi {
 
   async createConferenceWithOptions(request: CreateConferenceRequest, runtime: $Util.RuntimeOptions): Promise<CreateConferenceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateConference",
@@ -8016,8 +8659,41 @@ export default class Client extends OpenApi {
 
   async createLiveWithOptions(request: CreateLiveRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anchorId)) {
+      body["AnchorId"] = request.anchorId;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.codeLevel)) {
+      body["CodeLevel"] = request.codeLevel;
+    }
+
+    if (!Util.isUnset(request.introduction)) {
+      body["Introduction"] = request.introduction;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateLive",
@@ -8046,8 +8722,41 @@ export default class Client extends OpenApi {
       request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anchorId)) {
+      body["AnchorId"] = request.anchorId;
+    }
+
+    if (!Util.isUnset(request.anchorNick)) {
+      body["AnchorNick"] = request.anchorNick;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.coverUrl)) {
+      body["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    if (!Util.isUnset(request.notice)) {
+      body["Notice"] = request.notice;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateLiveRoom",
@@ -8076,8 +8785,37 @@ export default class Client extends OpenApi {
       request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    if (!Util.isUnset(request.notice)) {
+      body["Notice"] = request.notice;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.roomOwnerId)) {
+      body["RoomOwnerId"] = request.roomOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateRoom",
@@ -8100,8 +8838,13 @@ export default class Client extends OpenApi {
 
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteApp",
@@ -8124,8 +8867,13 @@ export default class Client extends OpenApi {
 
   async deleteAppTemplateWithOptions(request: DeleteAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppTemplateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appTemplateId)) {
+      body["AppTemplateId"] = request.appTemplateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAppTemplate",
@@ -8148,8 +8896,21 @@ export default class Client extends OpenApi {
 
   async deleteClassWithOptions(request: DeleteClassRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClassResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.classId)) {
+      body["ClassId"] = request.classId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteClass",
@@ -8172,8 +8933,30 @@ export default class Client extends OpenApi {
 
   async deleteCommentWithOptions(request: DeleteCommentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCommentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commentIdList)) {
+      bodyFlat["CommentIdList"] = request.commentIdList;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteComment",
@@ -8196,8 +8979,25 @@ export default class Client extends OpenApi {
 
   async deleteConferenceWithOptions(request: DeleteConferenceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConferenceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteConference",
@@ -8220,8 +9020,13 @@ export default class Client extends OpenApi {
 
   async deleteLiveWithOptions(request: DeleteLiveRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteLive",
@@ -8244,8 +9049,21 @@ export default class Client extends OpenApi {
 
   async deleteLiveRoomWithOptions(request: DeleteLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveRoomResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteLiveRoom",
@@ -8268,8 +9086,17 @@ export default class Client extends OpenApi {
 
   async deleteRoomWithOptions(request: DeleteRoomRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoomResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRoom",
@@ -8290,10 +9117,56 @@ export default class Client extends OpenApi {
     return await this.deleteRoomWithOptions(request, runtime);
   }
 
+  async describeMeterImpWatchTimeWithOptions(request: DescribeMeterImpWatchTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImpWatchTimeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMeterImpWatchTime",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMeterImpWatchTimeResponse>(await this.callApi(params, req, runtime), new DescribeMeterImpWatchTimeResponse({}));
+  }
+
+  async describeMeterImpWatchTime(request: DescribeMeterImpWatchTimeRequest): Promise<DescribeMeterImpWatchTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMeterImpWatchTimeWithOptions(request, runtime);
+  }
+
   async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetApp",
@@ -8316,8 +9189,13 @@ export default class Client extends OpenApi {
 
   async getAppTemplateWithOptions(request: GetAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetAppTemplateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appTemplateId)) {
+      body["AppTemplateId"] = request.appTemplateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetAppTemplate",
@@ -8340,8 +9218,25 @@ export default class Client extends OpenApi {
 
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      body["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetAuthToken",
@@ -8364,8 +9259,21 @@ export default class Client extends OpenApi {
 
   async getClassDetailWithOptions(request: GetClassDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetClassDetailResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.classId)) {
+      body["ClassId"] = request.classId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetClassDetail",
@@ -8386,10 +9294,77 @@ export default class Client extends OpenApi {
     return await this.getClassDetailWithOptions(request, runtime);
   }
 
+  async getClassRecordWithOptions(request: GetClassRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetClassRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.classId)) {
+      body["ClassId"] = request.classId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClassRecord",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClassRecordResponse>(await this.callApi(params, req, runtime), new GetClassRecordResponse({}));
+  }
+
+  async getClassRecord(request: GetClassRecordRequest): Promise<GetClassRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClassRecordWithOptions(request, runtime);
+  }
+
+  async getCnameDetailWithOptions(request: GetCnameDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCnameDetailResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCnameDetail",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCnameDetailResponse>(await this.callApi(params, req, runtime), new GetCnameDetailResponse({}));
+  }
+
+  async getCnameDetail(request: GetCnameDetailRequest): Promise<GetCnameDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCnameDetailWithOptions(request, runtime);
+  }
+
   async getConferenceWithOptions(request: GetConferenceRequest, runtime: $Util.RuntimeOptions): Promise<GetConferenceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetConference",
@@ -8412,8 +9387,13 @@ export default class Client extends OpenApi {
 
   async getDomainOwnerVerifyContentWithOptions(request: GetDomainOwnerVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<GetDomainOwnerVerifyContentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.liveDomainName)) {
+      body["LiveDomainName"] = request.liveDomainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDomainOwnerVerifyContent",
@@ -8434,11 +9414,8 @@ export default class Client extends OpenApi {
     return await this.getDomainOwnerVerifyContentWithOptions(request, runtime);
   }
 
-  async getImpProductStatusWithOptions(request: GetImpProductStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetImpProductStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getImpProductStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetImpProductStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetImpProductStatus",
       version: "2021-06-30",
@@ -8447,21 +9424,26 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetImpProductStatusResponse>(await this.callApi(params, req, runtime), new GetImpProductStatusResponse({}));
   }
 
-  async getImpProductStatus(request: GetImpProductStatusRequest): Promise<GetImpProductStatusResponse> {
+  async getImpProductStatus(): Promise<GetImpProductStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getImpProductStatusWithOptions(request, runtime);
+    return await this.getImpProductStatusWithOptions(runtime);
   }
 
   async getLiveWithOptions(request: GetLiveRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetLive",
@@ -8490,8 +9472,21 @@ export default class Client extends OpenApi {
       request.liveDomainListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.liveDomainList, "LiveDomainList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveDomainListShrink)) {
+      body["LiveDomainList"] = request.liveDomainListShrink;
+    }
+
+    if (!Util.isUnset(request.liveDomainType)) {
+      body["LiveDomainType"] = request.liveDomainType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetLiveDomainStatus",
@@ -8512,10 +9507,56 @@ export default class Client extends OpenApi {
     return await this.getLiveDomainStatusWithOptions(request, runtime);
   }
 
+  async getLiveRecordWithOptions(request: GetLiveRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRecordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLiveRecord",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveRecordResponse>(await this.callApi(params, req, runtime), new GetLiveRecordResponse({}));
+  }
+
+  async getLiveRecord(request: GetLiveRecordRequest): Promise<GetLiveRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveRecordWithOptions(request, runtime);
+  }
+
   async getLiveRoomWithOptions(request: GetLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRoomResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetLiveRoom",
@@ -8538,8 +9579,17 @@ export default class Client extends OpenApi {
 
   async getLiveRoomStatisticsWithOptions(request: GetLiveRoomStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRoomStatisticsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetLiveRoomStatistics",
@@ -8562,8 +9612,25 @@ export default class Client extends OpenApi {
 
   async getLiveRoomUserStatisticsWithOptions(request: GetLiveRoomUserStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRoomUserStatisticsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetLiveRoomUserStatistics",
@@ -8584,10 +9651,44 @@ export default class Client extends OpenApi {
     return await this.getLiveRoomUserStatisticsWithOptions(request, runtime);
   }
 
+  async getPageConfigWithOptions(request: GetPageConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPageConfigResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPageConfig",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPageConfigResponse>(await this.callApi(params, req, runtime), new GetPageConfigResponse({}));
+  }
+
+  async getPageConfig(request: GetPageConfigRequest): Promise<GetPageConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPageConfigWithOptions(request, runtime);
+  }
+
   async getRoomWithOptions(request: GetRoomRequest, runtime: $Util.RuntimeOptions): Promise<GetRoomResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetRoom",
@@ -8610,8 +9711,13 @@ export default class Client extends OpenApi {
 
   async getStandardRoomHttpsCertificateWithOptions(request: GetStandardRoomHttpsCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardRoomHttpsCertificateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certificateId)) {
+      body["CertificateId"] = request.certificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetStandardRoomHttpsCertificate",
@@ -8634,8 +9740,37 @@ export default class Client extends OpenApi {
 
   async getStandardRoomJumpUrlWithOptions(request: GetStandardRoomJumpUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardRoomJumpUrlResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userNick)) {
+      body["UserNick"] = request.userNick;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetStandardRoomJumpUrl",
@@ -8656,10 +9791,89 @@ export default class Client extends OpenApi {
     return await this.getStandardRoomJumpUrlWithOptions(request, runtime);
   }
 
+  async getUserInfoWithOptions(request: GetUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserInfo",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserInfoResponse>(await this.callApi(params, req, runtime), new GetUserInfoResponse({}));
+  }
+
+  async getUserInfo(request: GetUserInfoRequest): Promise<GetUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserInfoWithOptions(request, runtime);
+  }
+
+  async kickRoomUserWithOptions(request: KickRoomUserRequest, runtime: $Util.RuntimeOptions): Promise<KickRoomUserResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.blockTime)) {
+      body["BlockTime"] = request.blockTime;
+    }
+
+    if (!Util.isUnset(request.kickUser)) {
+      body["KickUser"] = request.kickUser;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "KickRoomUser",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<KickRoomUserResponse>(await this.callApi(params, req, runtime), new KickRoomUserResponse({}));
+  }
+
+  async kickRoomUser(request: KickRoomUserRequest): Promise<KickRoomUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.kickRoomUserWithOptions(request, runtime);
+  }
+
   async listAppTemplatesWithOptions(request: ListAppTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppTemplatesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListAppTemplates",
@@ -8682,8 +9896,21 @@ export default class Client extends OpenApi {
 
   async listApplyLinkMicUsersWithOptions(request: ListApplyLinkMicUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListApplyLinkMicUsersResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListApplyLinkMicUsers",
@@ -8706,8 +9933,25 @@ export default class Client extends OpenApi {
 
   async listAppsWithOptions(request: ListAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.integrationMode)) {
+      body["IntegrationMode"] = request.integrationMode;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListApps",
@@ -8730,8 +9974,25 @@ export default class Client extends OpenApi {
 
   async listClassesWithOptions(request: ListClassesRequest, runtime: $Util.RuntimeOptions): Promise<ListClassesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListClasses",
@@ -8754,8 +10015,33 @@ export default class Client extends OpenApi {
 
   async listCommentsWithOptions(request: ListCommentsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommentsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      body["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListComments",
@@ -8778,8 +10064,17 @@ export default class Client extends OpenApi {
 
   async listComponentsWithOptions(request: ListComponentsRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appTemplateId)) {
+      body["AppTemplateId"] = request.appTemplateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListComponents",
@@ -8802,8 +10097,21 @@ export default class Client extends OpenApi {
 
   async listConferenceUsersWithOptions(request: ListConferenceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListConferenceUsersResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListConferenceUsers",
@@ -8826,8 +10134,25 @@ export default class Client extends OpenApi {
 
   async listLiveRoomsWithOptions(request: ListLiveRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRoomsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListLiveRooms",
@@ -8856,8 +10181,17 @@ export default class Client extends OpenApi {
       request.liveIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.liveIdList, "LiveIdList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveIdListShrink)) {
+      body["LiveIdList"] = request.liveIdListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListLiveRoomsById",
@@ -8886,8 +10220,33 @@ export default class Client extends OpenApi {
       request.roomIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomIdList, "RoomIdList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.queryTimestamp)) {
+      body["QueryTimestamp"] = request.queryTimestamp;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.roomIdListShrink)) {
+      body["RoomIdList"] = request.roomIdListShrink;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListRoomLives",
@@ -8910,8 +10269,25 @@ export default class Client extends OpenApi {
 
   async listRoomUsersWithOptions(request: ListRoomUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomUsersResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListRoomUsers",
@@ -8934,8 +10310,21 @@ export default class Client extends OpenApi {
 
   async listRoomsWithOptions(request: ListRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListRooms",
@@ -8958,8 +10347,17 @@ export default class Client extends OpenApi {
 
   async publishLiveWithOptions(request: PublishLiveRequest, runtime: $Util.RuntimeOptions): Promise<PublishLiveResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PublishLive",
@@ -8982,8 +10380,21 @@ export default class Client extends OpenApi {
 
   async publishLiveRoomWithOptions(request: PublishLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<PublishLiveRoomResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PublishLiveRoom",
@@ -9006,8 +10417,21 @@ export default class Client extends OpenApi {
 
   async rejectLinkMicWithOptions(request: RejectLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<RejectLinkMicResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.fromUserId)) {
+      body["FromUserId"] = request.fromUserId;
+    }
+
+    if (!Util.isUnset(request.toUserId)) {
+      body["ToUserId"] = request.toUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RejectLinkMic",
@@ -9030,8 +10454,21 @@ export default class Client extends OpenApi {
 
   async removeMemberWithOptions(request: RemoveMemberRequest, runtime: $Util.RuntimeOptions): Promise<RemoveMemberResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.fromUserId)) {
+      body["FromUserId"] = request.fromUserId;
+    }
+
+    if (!Util.isUnset(request.toUserId)) {
+      body["ToUserId"] = request.toUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RemoveMember",
@@ -9060,8 +10497,33 @@ export default class Client extends OpenApi {
       request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.senderId)) {
+      body["SenderId"] = request.senderId;
+    }
+
+    if (!Util.isUnset(request.senderNick)) {
+      body["SenderNick"] = request.senderNick;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SendComment",
@@ -9084,8 +10546,21 @@ export default class Client extends OpenApi {
 
   async sendCustomMessageToAllWithOptions(request: SendCustomMessageToAllRequest, runtime: $Util.RuntimeOptions): Promise<SendCustomMessageToAllResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SendCustomMessageToAll",
@@ -9108,8 +10583,30 @@ export default class Client extends OpenApi {
 
   async sendCustomMessageToUsersWithOptions(request: SendCustomMessageToUsersRequest, runtime: $Util.RuntimeOptions): Promise<SendCustomMessageToUsersResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.receiverList)) {
+      bodyFlat["ReceiverList"] = request.receiverList;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SendCustomMessageToUsers",
@@ -9132,8 +10629,21 @@ export default class Client extends OpenApi {
 
   async stopClassWithOptions(request: StopClassRequest, runtime: $Util.RuntimeOptions): Promise<StopClassResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.classId)) {
+      body["ClassId"] = request.classId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StopClass",
@@ -9156,8 +10666,25 @@ export default class Client extends OpenApi {
 
   async stopLiveWithOptions(request: StopLiveRequest, runtime: $Util.RuntimeOptions): Promise<StopLiveResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StopLive",
@@ -9180,8 +10707,21 @@ export default class Client extends OpenApi {
 
   async stopLiveRoomWithOptions(request: StopLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<StopLiveRoomResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StopLiveRoom",
@@ -9204,8 +10744,21 @@ export default class Client extends OpenApi {
 
   async updateAppWithOptions(request: UpdateAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appStatus)) {
+      body["AppStatus"] = request.appStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateApp",
@@ -9234,8 +10787,21 @@ export default class Client extends OpenApi {
       request.componentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentList, "ComponentList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appTemplateId)) {
+      body["AppTemplateId"] = request.appTemplateId;
+    }
+
+    if (!Util.isUnset(request.appTemplateName)) {
+      body["AppTemplateName"] = request.appTemplateName;
+    }
+
+    if (!Util.isUnset(request.componentListShrink)) {
+      body["ComponentList"] = request.componentListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAppTemplate",
@@ -9264,8 +10830,17 @@ export default class Client extends OpenApi {
       request.configListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configList, "ConfigList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appTemplateId)) {
+      body["AppTemplateId"] = request.appTemplateId;
+    }
+
+    if (!Util.isUnset(request.configListShrink)) {
+      body["ConfigList"] = request.configListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAppTemplateConfig",
@@ -9288,8 +10863,29 @@ export default class Client extends OpenApi {
 
   async updateClassWithOptions(request: UpdateClassRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClassResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.classId)) {
+      body["ClassId"] = request.classId;
+    }
+
+    if (!Util.isUnset(request.createNickname)) {
+      body["CreateNickname"] = request.createNickname;
+    }
+
+    if (!Util.isUnset(request.createUserId)) {
+      body["CreateUserId"] = request.createUserId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateClass",
@@ -9312,8 +10908,17 @@ export default class Client extends OpenApi {
 
   async updateConferenceWithOptions(request: UpdateConferenceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConferenceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conferenceId)) {
+      body["ConferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateConference",
@@ -9336,8 +10941,21 @@ export default class Client extends OpenApi {
 
   async updateLiveWithOptions(request: UpdateLiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.introduction)) {
+      body["Introduction"] = request.introduction;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateLive",
@@ -9366,8 +10984,45 @@ export default class Client extends OpenApi {
       request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anchorId)) {
+      body["AnchorId"] = request.anchorId;
+    }
+
+    if (!Util.isUnset(request.anchorNick)) {
+      body["AnchorNick"] = request.anchorNick;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.coverUrl)) {
+      body["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.notice)) {
+      body["Notice"] = request.notice;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateLiveRoom",
@@ -9396,8 +11051,33 @@ export default class Client extends OpenApi {
       request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.extensionShrink)) {
+      body["Extension"] = request.extensionShrink;
+    }
+
+    if (!Util.isUnset(request.notice)) {
+      body["Notice"] = request.notice;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.roomOwnerId)) {
+      body["RoomOwnerId"] = request.roomOwnerId;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRoom",
@@ -9420,8 +11100,13 @@ export default class Client extends OpenApi {
 
   async verifyDomainOwnerWithOptions(request: VerifyDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDomainOwnerResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.liveDomainName)) {
+      body["LiveDomainName"] = request.liveDomainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "VerifyDomainOwner",
