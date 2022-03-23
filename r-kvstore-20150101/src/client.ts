@@ -1366,7 +1366,7 @@ export class DeleteShardingNodeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  shardCount?: string;
+  shardCount?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -1389,7 +1389,7 @@ export class DeleteShardingNodeRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
-      shardCount: 'string',
+      shardCount: 'number',
     };
   }
 
