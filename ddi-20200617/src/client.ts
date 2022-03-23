@@ -1738,6 +1738,7 @@ export class ListFlowResponse extends $tea.Model {
 
 export class ListFlowJobsRequest extends $tea.Model {
   adhoc?: boolean;
+  exactName?: string;
   id?: string;
   name?: string;
   pageNumber?: number;
@@ -1748,6 +1749,7 @@ export class ListFlowJobsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       adhoc: 'Adhoc',
+      exactName: 'ExactName',
       id: 'Id',
       name: 'Name',
       pageNumber: 'PageNumber',
@@ -1761,6 +1763,7 @@ export class ListFlowJobsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       adhoc: 'boolean',
+      exactName: 'string',
       id: 'string',
       name: 'string',
       pageNumber: 'number',
@@ -5352,6 +5355,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.adhoc)) {
       query["Adhoc"] = request.adhoc;
+    }
+
+    if (!Util.isUnset(request.exactName)) {
+      query["ExactName"] = request.exactName;
     }
 
     if (!Util.isUnset(request.id)) {
