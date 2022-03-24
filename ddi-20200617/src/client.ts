@@ -1229,6 +1229,84 @@ export class DescribeFlowResponse extends $tea.Model {
   }
 }
 
+export class DescribeFlowCategoryTreeRequest extends $tea.Model {
+  categoryId?: string;
+  keyword?: string;
+  mode?: string;
+  projectId?: string;
+  regionId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      keyword: 'Keyword',
+      mode: 'Mode',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      keyword: 'string',
+      mode: 'string',
+      projectId: 'string',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowCategoryTreeResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowCategoryTreeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFlowCategoryTreeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFlowCategoryTreeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFlowJobRequest extends $tea.Model {
   id?: string;
   projectId?: string;
@@ -1728,6 +1806,102 @@ export class ListFlowResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowJobHistoryRequest extends $tea.Model {
+  id?: string;
+  instanceId?: string;
+  jobType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  projectId?: string;
+  regionId?: string;
+  statusList?: string[];
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      instanceId: 'InstanceId',
+      jobType: 'JobType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      statusList: 'StatusList',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      instanceId: 'string',
+      jobType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      regionId: 'string',
+      statusList: { 'type': 'array', 'itemType': 'string' },
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowJobHistoryResponseBody extends $tea.Model {
+  nodeInstances?: ListFlowJobHistoryResponseBodyNodeInstances;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeInstances: 'NodeInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeInstances: ListFlowJobHistoryResponseBodyNodeInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowJobHistoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListFlowJobHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListFlowJobHistoryResponseBody,
     };
   }
 
@@ -3974,6 +4148,119 @@ export class ListFlowResponseBodyFlow extends $tea.Model {
   }
 }
 
+export class ListFlowJobHistoryResponseBodyNodeInstancesNodeInstance extends $tea.Model {
+  clusterId?: string;
+  endTime?: number;
+  envConf?: string;
+  externalId?: string;
+  externalInfo?: string;
+  externalStatus?: string;
+  failAct?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  hostName?: string;
+  id?: string;
+  jobId?: string;
+  jobName?: string;
+  jobParams?: string;
+  jobType?: string;
+  maxRetry?: number;
+  nodeName?: string;
+  paramConf?: string;
+  projectId?: string;
+  retries?: number;
+  retryInterval?: number;
+  runConf?: string;
+  startTime?: number;
+  status?: string;
+  type?: string;
+  pending?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      envConf: 'EnvConf',
+      externalId: 'ExternalId',
+      externalInfo: 'ExternalInfo',
+      externalStatus: 'ExternalStatus',
+      failAct: 'FailAct',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      hostName: 'HostName',
+      id: 'Id',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      jobParams: 'JobParams',
+      jobType: 'JobType',
+      maxRetry: 'MaxRetry',
+      nodeName: 'NodeName',
+      paramConf: 'ParamConf',
+      projectId: 'ProjectId',
+      retries: 'Retries',
+      retryInterval: 'RetryInterval',
+      runConf: 'RunConf',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
+      pending: 'pending',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      envConf: 'string',
+      externalId: 'string',
+      externalInfo: 'string',
+      externalStatus: 'string',
+      failAct: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      hostName: 'string',
+      id: 'string',
+      jobId: 'string',
+      jobName: 'string',
+      jobParams: 'string',
+      jobType: 'string',
+      maxRetry: 'number',
+      nodeName: 'string',
+      paramConf: 'string',
+      projectId: 'string',
+      retries: 'number',
+      retryInterval: 'number',
+      runConf: 'string',
+      startTime: 'number',
+      status: 'string',
+      type: 'string',
+      pending: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowJobHistoryResponseBodyNodeInstances extends $tea.Model {
+  nodeInstance?: ListFlowJobHistoryResponseBodyNodeInstancesNodeInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      nodeInstance: 'NodeInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeInstance: { 'type': 'array', 'itemType': ListFlowJobHistoryResponseBodyNodeInstancesNodeInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFlowJobsResponseBodyJobListJobResourceListResource extends $tea.Model {
   alias?: string;
   path?: string;
@@ -5093,6 +5380,55 @@ export default class Client extends OpenApi {
     return await this.describeFlowWithOptions(request, runtime);
   }
 
+  async describeFlowCategoryTreeWithOptions(request: DescribeFlowCategoryTreeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowCategoryTreeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFlowCategoryTree",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFlowCategoryTreeResponse>(await this.callApi(params, req, runtime), new DescribeFlowCategoryTreeResponse({}));
+  }
+
+  async describeFlowCategoryTree(request: DescribeFlowCategoryTreeRequest): Promise<DescribeFlowCategoryTreeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFlowCategoryTreeWithOptions(request, runtime);
+  }
+
   async describeFlowJobWithOptions(request: DescribeFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5348,6 +5684,67 @@ export default class Client extends OpenApi {
   async listFlow(request: ListFlowRequest): Promise<ListFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFlowWithOptions(request, runtime);
+  }
+
+  async listFlowJobHistoryWithOptions(request: ListFlowJobHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowJobHistoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFlowJobHistory",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlowJobHistoryResponse>(await this.callApi(params, req, runtime), new ListFlowJobHistoryResponse({}));
+  }
+
+  async listFlowJobHistory(request: ListFlowJobHistoryRequest): Promise<ListFlowJobHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFlowJobHistoryWithOptions(request, runtime);
   }
 
   async listFlowJobsWithOptions(request: ListFlowJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowJobsResponse> {
