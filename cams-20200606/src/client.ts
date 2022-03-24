@@ -8,6 +8,90 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CheckChatappContactsRequest extends $tea.Model {
+  channelType?: string;
+  contacts?: string;
+  from?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      contacts: 'Contacts',
+      from: 'From',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      contacts: 'string',
+      from: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckChatappContactsResponseBody extends $tea.Model {
+  code?: string;
+  data?: CheckChatappContactsResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': CheckChatappContactsResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckChatappContactsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CheckChatappContactsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CheckChatappContactsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckContactsRequest extends $tea.Model {
   channelType?: string;
   contacts?: string;
@@ -428,6 +512,111 @@ export class ListChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class SendChatappMessageRequest extends $tea.Model {
+  channelType?: string;
+  content?: string;
+  from?: string;
+  language?: string;
+  messageType?: string;
+  ownerId?: number;
+  payload?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateCode?: string;
+  templateParams?: string;
+  to?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      content: 'Content',
+      from: 'From',
+      language: 'Language',
+      messageType: 'MessageType',
+      ownerId: 'OwnerId',
+      payload: 'Payload',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateCode: 'TemplateCode',
+      templateParams: 'TemplateParams',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      content: 'string',
+      from: 'string',
+      language: 'string',
+      messageType: 'string',
+      ownerId: 'number',
+      payload: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateCode: 'string',
+      templateParams: 'string',
+      to: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendChatappMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendChatappMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendMessageRequest extends $tea.Model {
   caption?: string;
   channelType?: string;
@@ -542,6 +731,28 @@ export class SendMessageResponse extends $tea.Model {
   }
 }
 
+export class CheckChatappContactsResponseBodyData extends $tea.Model {
+  phoneNumber?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckContactsResponseBodyContacts extends $tea.Model {
   phoneNumber?: string;
   status?: string;
@@ -641,6 +852,55 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async checkChatappContactsWithOptions(request: CheckChatappContactsRequest, runtime: $Util.RuntimeOptions): Promise<CheckChatappContactsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.contacts)) {
+      query["Contacts"] = request.contacts;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckChatappContacts",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckChatappContactsResponse>(await this.callApi(params, req, runtime), new CheckChatappContactsResponse({}));
+  }
+
+  async checkChatappContacts(request: CheckChatappContactsRequest): Promise<CheckChatappContactsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkChatappContactsWithOptions(request, runtime);
   }
 
   async checkContactsWithOptions(request: CheckContactsRequest, runtime: $Util.RuntimeOptions): Promise<CheckContactsResponse> {
@@ -892,6 +1152,83 @@ export default class Client extends OpenApi {
   async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatappTemplateWithOptions(request, runtime);
+  }
+
+  async sendChatappMessageWithOptions(request: SendChatappMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMessageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payload)) {
+      query["Payload"] = request.payload;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateParams)) {
+      query["TemplateParams"] = request.templateParams;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendChatappMessage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendChatappMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMessageResponse({}));
+  }
+
+  async sendChatappMessage(request: SendChatappMessageRequest): Promise<SendChatappMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendChatappMessageWithOptions(request, runtime);
   }
 
   async sendMessageWithOptions(request: SendMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageResponse> {
