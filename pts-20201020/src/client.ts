@@ -2165,6 +2165,100 @@ export class SaveOpenJMeterSceneResponse extends $tea.Model {
   }
 }
 
+export class SavePtsSceneRequest extends $tea.Model {
+  scene?: SavePtsSceneRequestScene;
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'Scene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: SavePtsSceneRequestScene,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneShrinkRequest extends $tea.Model {
+  sceneShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneShrink: 'Scene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  sceneId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      sceneId: 'SceneId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      sceneId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SavePtsSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SavePtsSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDebugPtsSceneRequest extends $tea.Model {
   sceneId?: string;
   static names(): { [key: string]: string } {
@@ -4812,6 +4906,491 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   }
 }
 
+export class SavePtsSceneRequestSceneAdvanceSettingDomainBindingList extends $tea.Model {
+  domain?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      ips: 'Ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneAdvanceSetting extends $tea.Model {
+  connectionTimeoutInSecond?: number;
+  domainBindingList?: SavePtsSceneRequestSceneAdvanceSettingDomainBindingList[];
+  logRate?: number;
+  successCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionTimeoutInSecond: 'ConnectionTimeoutInSecond',
+      domainBindingList: 'DomainBindingList',
+      logRate: 'LogRate',
+      successCode: 'SuccessCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionTimeoutInSecond: 'number',
+      domainBindingList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneAdvanceSettingDomainBindingList },
+      logRate: 'number',
+      successCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneFileParameterList extends $tea.Model {
+  fileName?: string;
+  fileOssAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileOssAddress: 'FileOssAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileOssAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneGlobalParameterList extends $tea.Model {
+  paramName?: string;
+  paramValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramName: 'ParamName',
+      paramValue: 'ParamValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramName: 'string',
+      paramValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneLoadConfigApiLoadConfigList extends $tea.Model {
+  apiId?: string;
+  rpsBegin?: number;
+  rpsLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      rpsBegin: 'RpsBegin',
+      rpsLimit: 'RpsLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      rpsBegin: 'number',
+      rpsLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneLoadConfigConfiguration extends $tea.Model {
+  allConcurrencyBegin?: number;
+  allConcurrencyLimit?: number;
+  allRpsBegin?: number;
+  allRpsLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allConcurrencyBegin: 'AllConcurrencyBegin',
+      allConcurrencyLimit: 'AllConcurrencyLimit',
+      allRpsBegin: 'AllRpsBegin',
+      allRpsLimit: 'AllRpsLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allConcurrencyBegin: 'number',
+      allConcurrencyLimit: 'number',
+      allRpsBegin: 'number',
+      allRpsLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList extends $tea.Model {
+  concurrencyBegin?: number;
+  concurrencyLimit?: number;
+  relationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      concurrencyBegin: 'ConcurrencyBegin',
+      concurrencyLimit: 'ConcurrencyLimit',
+      relationId: 'RelationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrencyBegin: 'number',
+      concurrencyLimit: 'number',
+      relationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneLoadConfigVpcLoadConfig extends $tea.Model {
+  regionId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
+  agentCount?: number;
+  apiLoadConfigList?: SavePtsSceneRequestSceneLoadConfigApiLoadConfigList[];
+  autoStep?: boolean;
+  configuration?: SavePtsSceneRequestSceneLoadConfigConfiguration;
+  increment?: number;
+  keepTime?: number;
+  maxRunningTime?: number;
+  relationLoadConfigList?: SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList[];
+  testMode?: string;
+  vpcLoadConfig?: SavePtsSceneRequestSceneLoadConfigVpcLoadConfig;
+  static names(): { [key: string]: string } {
+    return {
+      agentCount: 'AgentCount',
+      apiLoadConfigList: 'ApiLoadConfigList',
+      autoStep: 'AutoStep',
+      configuration: 'Configuration',
+      increment: 'Increment',
+      keepTime: 'KeepTime',
+      maxRunningTime: 'MaxRunningTime',
+      relationLoadConfigList: 'RelationLoadConfigList',
+      testMode: 'TestMode',
+      vpcLoadConfig: 'VpcLoadConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentCount: 'number',
+      apiLoadConfigList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneLoadConfigApiLoadConfigList },
+      autoStep: 'boolean',
+      configuration: SavePtsSceneRequestSceneLoadConfigConfiguration,
+      increment: 'number',
+      keepTime: 'number',
+      maxRunningTime: 'number',
+      relationLoadConfigList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList },
+      testMode: 'string',
+      vpcLoadConfig: SavePtsSceneRequestSceneLoadConfigVpcLoadConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationListApiListBody extends $tea.Model {
+  bodyValue?: string;
+  contentType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bodyValue: 'BodyValue',
+      contentType: 'ContentType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyValue: 'string',
+      contentType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationListApiListCheckPointList extends $tea.Model {
+  checkPoint?: string;
+  checkType?: string;
+  expectValue?: string;
+  operator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkPoint: 'CheckPoint',
+      checkType: 'CheckType',
+      expectValue: 'ExpectValue',
+      operator: 'Operator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkPoint: 'string',
+      checkType: 'string',
+      expectValue: 'string',
+      operator: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationListApiListExportList extends $tea.Model {
+  count?: string;
+  exportName?: string;
+  exportType?: string;
+  exportValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      exportName: 'ExportName',
+      exportType: 'ExportType',
+      exportValue: 'ExportValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      exportName: 'string',
+      exportType: 'string',
+      exportValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationListApiListHeaderList extends $tea.Model {
+  headerName?: string;
+  headerValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerName: 'HeaderName',
+      headerValue: 'HeaderValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerName: 'string',
+      headerValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationListApiList extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  body?: SavePtsSceneRequestSceneRelationListApiListBody;
+  checkPointList?: SavePtsSceneRequestSceneRelationListApiListCheckPointList[];
+  exportList?: SavePtsSceneRequestSceneRelationListApiListExportList[];
+  headerList?: SavePtsSceneRequestSceneRelationListApiListHeaderList[];
+  method?: string;
+  redirectCountLimit?: number;
+  timeoutInSecond?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      body: 'Body',
+      checkPointList: 'CheckPointList',
+      exportList: 'ExportList',
+      headerList: 'HeaderList',
+      method: 'Method',
+      redirectCountLimit: 'RedirectCountLimit',
+      timeoutInSecond: 'TimeoutInSecond',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      body: SavePtsSceneRequestSceneRelationListApiListBody,
+      checkPointList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneRelationListApiListCheckPointList },
+      exportList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneRelationListApiListExportList },
+      headerList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneRelationListApiListHeaderList },
+      method: 'string',
+      redirectCountLimit: 'number',
+      timeoutInSecond: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationListFileParameterExplainList extends $tea.Model {
+  baseFile?: boolean;
+  cycleOnce?: boolean;
+  fileName?: string;
+  fileParamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseFile: 'BaseFile',
+      cycleOnce: 'CycleOnce',
+      fileName: 'FileName',
+      fileParamName: 'FileParamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseFile: 'boolean',
+      cycleOnce: 'boolean',
+      fileName: 'string',
+      fileParamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestSceneRelationList extends $tea.Model {
+  apiList?: SavePtsSceneRequestSceneRelationListApiList[];
+  fileParameterExplainList?: SavePtsSceneRequestSceneRelationListFileParameterExplainList[];
+  relationId?: string;
+  relationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiList: 'ApiList',
+      fileParameterExplainList: 'FileParameterExplainList',
+      relationId: 'RelationId',
+      relationName: 'RelationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneRelationListApiList },
+      fileParameterExplainList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneRelationListFileParameterExplainList },
+      relationId: 'string',
+      relationName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SavePtsSceneRequestScene extends $tea.Model {
+  advanceSetting?: SavePtsSceneRequestSceneAdvanceSetting;
+  fileParameterList?: SavePtsSceneRequestSceneFileParameterList[];
+  globalParameterList?: SavePtsSceneRequestSceneGlobalParameterList[];
+  loadConfig?: SavePtsSceneRequestSceneLoadConfig;
+  relationList?: SavePtsSceneRequestSceneRelationList[];
+  sceneId?: string;
+  sceneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceSetting: 'AdvanceSetting',
+      fileParameterList: 'FileParameterList',
+      globalParameterList: 'GlobalParameterList',
+      loadConfig: 'LoadConfig',
+      relationList: 'RelationList',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceSetting: SavePtsSceneRequestSceneAdvanceSetting,
+      fileParameterList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneFileParameterList },
+      globalParameterList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneGlobalParameterList },
+      loadConfig: SavePtsSceneRequestSceneLoadConfig,
+      relationList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneRelationList },
+      sceneId: 'string',
+      sceneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -5744,6 +6323,41 @@ export default class Client extends OpenApi {
   async saveOpenJMeterScene(request: SaveOpenJMeterSceneRequest): Promise<SaveOpenJMeterSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveOpenJMeterSceneWithOptions(request, runtime);
+  }
+
+  async savePtsSceneWithOptions(tmpReq: SavePtsSceneRequest, runtime: $Util.RuntimeOptions): Promise<SavePtsSceneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SavePtsSceneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.scene))) {
+      request.sceneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scene), "Scene", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.sceneShrink)) {
+      query["Scene"] = request.sceneShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SavePtsScene",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SavePtsSceneResponse>(await this.callApi(params, req, runtime), new SavePtsSceneResponse({}));
+  }
+
+  async savePtsScene(request: SavePtsSceneRequest): Promise<SavePtsSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.savePtsSceneWithOptions(request, runtime);
   }
 
   async startDebugPtsSceneWithOptions(request: StartDebugPtsSceneRequest, runtime: $Util.RuntimeOptions): Promise<StartDebugPtsSceneResponse> {
