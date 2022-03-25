@@ -15117,7 +15117,14 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
   clusterType?: string;
   createTime?: number;
   custerState?: string;
+  hcCount?: number;
   hostIp?: string;
+  image?: string;
+  imageDigest?: string;
+  imageRepoName?: string;
+  imageRepoNamespace?: string;
+  imageRepoTag?: string;
+  imageUuid?: string;
   instanceCount?: number;
   instanceId?: string;
   namespace?: string;
@@ -15137,7 +15144,14 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
       clusterType: 'ClusterType',
       createTime: 'CreateTime',
       custerState: 'CusterState',
+      hcCount: 'HcCount',
       hostIp: 'HostIp',
+      image: 'Image',
+      imageDigest: 'ImageDigest',
+      imageRepoName: 'ImageRepoName',
+      imageRepoNamespace: 'ImageRepoNamespace',
+      imageRepoTag: 'ImageRepoTag',
+      imageUuid: 'ImageUuid',
       instanceCount: 'InstanceCount',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
@@ -15160,7 +15174,14 @@ export class DescribeGroupedContainerInstancesResponseBodyGroupedContainerInstan
       clusterType: 'string',
       createTime: 'number',
       custerState: 'string',
+      hcCount: 'number',
       hostIp: 'string',
+      image: 'string',
+      imageDigest: 'string',
+      imageRepoName: 'string',
+      imageRepoNamespace: 'string',
+      imageRepoTag: 'string',
+      imageUuid: 'string',
       instanceCount: 'number',
       instanceId: 'string',
       namespace: 'string',
