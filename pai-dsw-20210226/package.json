@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/pai-dsw20210226",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -3517,6 +3517,7 @@ export class UpdateV3InstanceByUserResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
   success?: boolean;
+  userSet?: string[];
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3526,6 +3527,7 @@ export class UpdateV3InstanceByUserResponseBody extends $tea.Model {
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
+      userSet: 'UserSet',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -3538,6 +3540,7 @@ export class UpdateV3InstanceByUserResponseBody extends $tea.Model {
       message: 'string',
       requestId: 'string',
       success: 'boolean',
+      userSet: { 'type': 'array', 'itemType': 'string' },
       workspaceId: 'string',
     };
   }
