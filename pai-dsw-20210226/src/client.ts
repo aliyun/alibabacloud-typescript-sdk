@@ -892,78 +892,6 @@ export class Vpc extends $tea.Model {
   }
 }
 
-export class CreateImageRequest extends $tea.Model {
-  description?: string;
-  instanceId?: string;
-  name?: string;
-  repository?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      instanceId: 'InstanceId',
-      name: 'Name',
-      repository: 'Repository',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      instanceId: 'string',
-      name: 'string',
-      repository: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateImageResponseBody extends $tea.Model {
-  imageId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateInstanceRequest extends $tea.Model {
   datasetList?: Dataset[];
   ecsSpec?: string;
@@ -1123,6 +1051,72 @@ export class CreateInstanceShutdownTimerResponse extends $tea.Model {
   }
 }
 
+export class CreateInstanceShutdownTimerV2Request extends $tea.Model {
+  dueTime?: string;
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceShutdownTimerV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceShutdownTimerV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateInstanceShutdownTimerV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateInstanceShutdownTimerV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceSnapshotRequest extends $tea.Model {
   instanceSnapshotDescription?: string;
   instanceSnapshotName?: string;
@@ -1187,6 +1181,165 @@ export class CreateInstanceSnapshotResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateInstanceSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceSnapshotV2Request extends $tea.Model {
+  imageUrl?: string;
+  snapshotDescription?: string;
+  snapshotName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      snapshotDescription: 'SnapshotDescription',
+      snapshotName: 'SnapshotName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      snapshotDescription: 'string',
+      snapshotName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceSnapshotV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      snapshotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceSnapshotV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateInstanceSnapshotV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateInstanceSnapshotV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceV2Request extends $tea.Model {
+  accessibility?: string;
+  datasets?: CreateInstanceV2RequestDatasets[];
+  ecsSpec?: string;
+  environmentVariables?: { [key: string]: string };
+  imageId?: string;
+  imageUrl?: string;
+  instanceName?: string;
+  userVpc?: CreateInstanceV2RequestUserVpc;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      datasets: 'Datasets',
+      ecsSpec: 'EcsSpec',
+      environmentVariables: 'EnvironmentVariables',
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      instanceName: 'InstanceName',
+      userVpc: 'UserVpc',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      datasets: { 'type': 'array', 'itemType': CreateInstanceV2RequestDatasets },
+      ecsSpec: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      imageId: 'string',
+      imageUrl: 'string',
+      instanceName: 'string',
+      userVpc: CreateInstanceV2RequestUserVpc,
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateInstanceV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateInstanceV2ResponseBody,
     };
   }
 
@@ -1283,6 +1436,50 @@ export class DeleteInstanceShutdownTimerResponse extends $tea.Model {
   }
 }
 
+export class DeleteInstanceShutdownTimerV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceShutdownTimerV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteInstanceShutdownTimerV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteInstanceShutdownTimerV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInstanceSnapshotResponseBody extends $tea.Model {
   instanceId?: string;
   instanceSnapshotId?: string;
@@ -1322,6 +1519,160 @@ export class DeleteInstanceSnapshotResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteInstanceSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceSnapshotV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      snapshotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceSnapshotV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteInstanceSnapshotV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteInstanceSnapshotV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteInstanceV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteInstanceV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FoobarResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FoobarResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: FoobarResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: FoobarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Foobar1Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: any;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: 'any',
     };
   }
 
@@ -1535,50 +1886,6 @@ export class GetInstanceResponse extends $tea.Model {
   }
 }
 
-export class GetInstanceImageResponseBody extends $tea.Model {
-  image?: Image;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      image: 'Image',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      image: Image,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetInstanceImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetInstanceImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetInstanceShutdownTimerResponseBody extends $tea.Model {
   gmtCreateTime?: string;
   gmtModifiedTime?: string;
@@ -1624,6 +1931,62 @@ export class GetInstanceShutdownTimerResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetInstanceShutdownTimerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceShutdownTimerV2ResponseBody extends $tea.Model {
+  dueTime?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  instanceId?: string;
+  remainingTimeInMs?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceShutdownTimerV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetInstanceShutdownTimerV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetInstanceShutdownTimerV2ResponseBody,
     };
   }
 
@@ -1700,77 +2063,47 @@ export class GetInstanceSnapshotResponse extends $tea.Model {
   }
 }
 
-export class GetInstanceTypeResponseBody extends $tea.Model {
-  cpuCoreCount?: number;
-  discount?: number;
-  domesticPrice?: number;
-  GPUAmount?: number;
-  GPUSpec?: string;
-  instanceBandwidthRx?: number;
-  instanceBandwidthTx?: number;
-  instancePpsRx?: number;
-  instancePpsTx?: number;
-  instanceTypeFamily?: string;
-  instanceTypeId?: string;
-  international?: boolean;
-  localStorageCapacity?: number;
-  memorySize?: number;
-  price?: number;
-  priceCNY?: number;
-  priceUSD?: number;
+export class GetInstanceSnapshotV2ResponseBody extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageUrl?: string;
+  instanceId?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
   requestId?: string;
-  resourceType?: string;
-  systemDiskCategory?: string;
-  systemDiskSize?: number;
+  snapshotId?: string;
+  snapshotName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      cpuCoreCount: 'CpuCoreCount',
-      discount: 'Discount',
-      domesticPrice: 'DomesticPrice',
-      GPUAmount: 'GPUAmount',
-      GPUSpec: 'GPUSpec',
-      instanceBandwidthRx: 'InstanceBandwidthRx',
-      instanceBandwidthTx: 'InstanceBandwidthTx',
-      instancePpsRx: 'InstancePpsRx',
-      instancePpsTx: 'InstancePpsTx',
-      instanceTypeFamily: 'InstanceTypeFamily',
-      instanceTypeId: 'InstanceTypeId',
-      international: 'International',
-      localStorageCapacity: 'LocalStorageCapacity',
-      memorySize: 'MemorySize',
-      price: 'Price',
-      priceCNY: 'PriceCNY',
-      priceUSD: 'PriceUSD',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
-      resourceType: 'ResourceType',
-      systemDiskCategory: 'SystemDiskCategory',
-      systemDiskSize: 'SystemDiskSize',
+      snapshotId: 'SnapshotId',
+      snapshotName: 'SnapshotName',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cpuCoreCount: 'number',
-      discount: 'number',
-      domesticPrice: 'number',
-      GPUAmount: 'number',
-      GPUSpec: 'string',
-      instanceBandwidthRx: 'number',
-      instanceBandwidthTx: 'number',
-      instancePpsRx: 'number',
-      instancePpsTx: 'number',
-      instanceTypeFamily: 'string',
-      instanceTypeId: 'string',
-      international: 'boolean',
-      localStorageCapacity: 'number',
-      memorySize: 'number',
-      price: 'number',
-      priceCNY: 'number',
-      priceUSD: 'number',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
       requestId: 'string',
-      resourceType: 'string',
-      systemDiskCategory: 'string',
-      systemDiskSize: 'number',
+      snapshotId: 'string',
+      snapshotName: 'string',
+      status: 'string',
     };
   }
 
@@ -1779,9 +2112,9 @@ export class GetInstanceTypeResponseBody extends $tea.Model {
   }
 }
 
-export class GetInstanceTypeResponse extends $tea.Model {
+export class GetInstanceSnapshotV2Response extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetInstanceTypeResponseBody;
+  body: GetInstanceSnapshotV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1792,7 +2125,7 @@ export class GetInstanceTypeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetInstanceTypeResponseBody,
+      body: GetInstanceSnapshotV2ResponseBody,
     };
   }
 
@@ -1801,26 +2134,98 @@ export class GetInstanceTypeResponse extends $tea.Model {
   }
 }
 
-export class GetInstanceUrlResponseBody extends $tea.Model {
-  ide?: string;
-  lab?: string;
+export class GetInstanceV2ResponseBody extends $tea.Model {
+  acceleratorType?: string;
+  accessibility?: string;
+  accumulatedRunningTimeInMs?: number;
+  datasets?: GetInstanceV2ResponseBodyDatasets[];
+  ecsSpec?: string;
+  environmentVariables?: { [key: string]: string };
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceShutdownTimer?: GetInstanceV2ResponseBodyInstanceShutdownTimer;
+  instanceUrl?: string;
+  jupyterlabUrl?: string;
+  latestSnapshot?: GetInstanceV2ResponseBodyLatestSnapshot;
+  paymentType?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
   requestId?: string;
-  terminal?: string;
+  status?: string;
+  terminalUrl?: string;
+  userId?: string;
+  userVpc?: GetInstanceV2ResponseBodyUserVpc;
+  webIDEUrl?: string;
+  workspaceId?: string;
+  workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      ide: 'Ide',
-      lab: 'Lab',
+      acceleratorType: 'AcceleratorType',
+      accessibility: 'Accessibility',
+      accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      datasets: 'Datasets',
+      ecsSpec: 'EcsSpec',
+      environmentVariables: 'EnvironmentVariables',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceShutdownTimer: 'InstanceShutdownTimer',
+      instanceUrl: 'InstanceUrl',
+      jupyterlabUrl: 'JupyterlabUrl',
+      latestSnapshot: 'LatestSnapshot',
+      paymentType: 'PaymentType',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
-      terminal: 'Terminal',
+      status: 'Status',
+      terminalUrl: 'TerminalUrl',
+      userId: 'UserId',
+      userVpc: 'UserVpc',
+      webIDEUrl: 'WebIDEUrl',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ide: 'string',
-      lab: 'string',
+      acceleratorType: 'string',
+      accessibility: 'string',
+      accumulatedRunningTimeInMs: 'number',
+      datasets: { 'type': 'array', 'itemType': GetInstanceV2ResponseBodyDatasets },
+      ecsSpec: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceShutdownTimer: GetInstanceV2ResponseBodyInstanceShutdownTimer,
+      instanceUrl: 'string',
+      jupyterlabUrl: 'string',
+      latestSnapshot: GetInstanceV2ResponseBodyLatestSnapshot,
+      paymentType: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
       requestId: 'string',
-      terminal: 'string',
+      status: 'string',
+      terminalUrl: 'string',
+      userId: 'string',
+      userVpc: GetInstanceV2ResponseBodyUserVpc,
+      webIDEUrl: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
     };
   }
 
@@ -1829,9 +2234,9 @@ export class GetInstanceUrlResponseBody extends $tea.Model {
   }
 }
 
-export class GetInstanceUrlResponse extends $tea.Model {
+export class GetInstanceV2Response extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetInstanceUrlResponseBody;
+  body: GetInstanceV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1842,7 +2247,7 @@ export class GetInstanceUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetInstanceUrlResponseBody,
+      body: GetInstanceV2ResponseBody,
     };
   }
 
@@ -1914,139 +2319,20 @@ export class GetInstancesStatisticsResponse extends $tea.Model {
   }
 }
 
-export class GetUserConfigResponseBody extends $tea.Model {
-  currentFeatureVersion?: string;
-  enableEmrCluster?: boolean;
-  requestId?: string;
-  useOnSaleVersion?: boolean;
-  useV21Feature?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      currentFeatureVersion: 'CurrentFeatureVersion',
-      enableEmrCluster: 'EnableEmrCluster',
-      requestId: 'RequestId',
-      useOnSaleVersion: 'UseOnSaleVersion',
-      useV21Feature: 'UseV21Feature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentFeatureVersion: 'string',
-      enableEmrCluster: 'boolean',
-      requestId: 'string',
-      useOnSaleVersion: 'boolean',
-      useV21Feature: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResourceAuthorizationStatusResponseBody extends $tea.Model {
-  accountBalance?: number;
+export class GetUserConfigV2ResponseBody extends $tea.Model {
   accountSufficient?: boolean;
-  accountTopUpPage?: string;
-  allAuthorizationPage?: string;
-  buyPage?: string;
-  couponBalance?: number;
-  currentFeatureVersion?: string;
-  disableBalanceCheck?: boolean;
-  dswDefaultAuthorizationPage?: string;
-  env?: string;
-  essConsolePage?: string;
-  essServiceAvailable?: boolean;
-  hasAllAuthorization?: boolean;
-  hasDswDefaultAuthorization?: boolean;
-  international?: boolean;
-  isSubUser?: boolean;
-  nasConsolePage?: string;
-  realNameVerified?: boolean;
-  realNameVerifiedPage?: string;
-  region?: string;
   requestId?: string;
-  subUserAuthorizationPage?: string;
-  subUserAuthorized?: boolean;
-  totalBalance?: number;
   static names(): { [key: string]: string } {
     return {
-      accountBalance: 'AccountBalance',
       accountSufficient: 'AccountSufficient',
-      accountTopUpPage: 'AccountTopUpPage',
-      allAuthorizationPage: 'AllAuthorizationPage',
-      buyPage: 'BuyPage',
-      couponBalance: 'CouponBalance',
-      currentFeatureVersion: 'CurrentFeatureVersion',
-      disableBalanceCheck: 'DisableBalanceCheck',
-      dswDefaultAuthorizationPage: 'DswDefaultAuthorizationPage',
-      env: 'Env',
-      essConsolePage: 'EssConsolePage',
-      essServiceAvailable: 'EssServiceAvailable',
-      hasAllAuthorization: 'HasAllAuthorization',
-      hasDswDefaultAuthorization: 'HasDswDefaultAuthorization',
-      international: 'International',
-      isSubUser: 'IsSubUser',
-      nasConsolePage: 'NasConsolePage',
-      realNameVerified: 'RealNameVerified',
-      realNameVerifiedPage: 'RealNameVerifiedPage',
-      region: 'Region',
       requestId: 'RequestId',
-      subUserAuthorizationPage: 'SubUserAuthorizationPage',
-      subUserAuthorized: 'SubUserAuthorized',
-      totalBalance: 'TotalBalance',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountBalance: 'number',
       accountSufficient: 'boolean',
-      accountTopUpPage: 'string',
-      allAuthorizationPage: 'string',
-      buyPage: 'string',
-      couponBalance: 'number',
-      currentFeatureVersion: 'string',
-      disableBalanceCheck: 'boolean',
-      dswDefaultAuthorizationPage: 'string',
-      env: 'string',
-      essConsolePage: 'string',
-      essServiceAvailable: 'boolean',
-      hasAllAuthorization: 'boolean',
-      hasDswDefaultAuthorization: 'boolean',
-      international: 'boolean',
-      isSubUser: 'boolean',
-      nasConsolePage: 'string',
-      realNameVerified: 'boolean',
-      realNameVerifiedPage: 'string',
-      region: 'string',
       requestId: 'string',
-      subUserAuthorizationPage: 'string',
-      subUserAuthorized: 'boolean',
-      totalBalance: 'number',
     };
   }
 
@@ -2055,9 +2341,9 @@ export class GetUserResourceAuthorizationStatusResponseBody extends $tea.Model {
   }
 }
 
-export class GetUserResourceAuthorizationStatusResponse extends $tea.Model {
+export class GetUserConfigV2Response extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetUserResourceAuthorizationStatusResponseBody;
+  body: GetUserConfigV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2068,260 +2354,7 @@ export class GetUserResourceAuthorizationStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserResourceAuthorizationStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResourceStatusResponseBody extends $tea.Model {
-  accountBalance?: number;
-  accountSufficient?: boolean;
-  accountTopUpPage?: string;
-  allAuthorizationPage?: string;
-  couponBalance?: number;
-  env?: string;
-  hasAllAuthorization?: boolean;
-  international?: boolean;
-  realNameVerified?: boolean;
-  realNameVerifiedPage?: string;
-  region?: string;
-  requestId?: string;
-  totalBalance?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountBalance: 'AccountBalance',
-      accountSufficient: 'AccountSufficient',
-      accountTopUpPage: 'AccountTopUpPage',
-      allAuthorizationPage: 'AllAuthorizationPage',
-      couponBalance: 'CouponBalance',
-      env: 'Env',
-      hasAllAuthorization: 'HasAllAuthorization',
-      international: 'International',
-      realNameVerified: 'RealNameVerified',
-      realNameVerifiedPage: 'RealNameVerifiedPage',
-      region: 'Region',
-      requestId: 'RequestId',
-      totalBalance: 'TotalBalance',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountBalance: 'number',
-      accountSufficient: 'boolean',
-      accountTopUpPage: 'string',
-      allAuthorizationPage: 'string',
-      couponBalance: 'number',
-      env: 'string',
-      hasAllAuthorization: 'boolean',
-      international: 'boolean',
-      realNameVerified: 'boolean',
-      realNameVerifiedPage: 'string',
-      region: 'string',
-      requestId: 'string',
-      totalBalance: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserResourceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserResourceStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserResourceStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserSpecialVersionGpuResourceInfoRequest extends $tea.Model {
-  payType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      payType: 'PayType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserSpecialVersionGpuResourceInfoResponseBody extends $tea.Model {
-  gpuAvailableQuota?: number;
-  gpuTotalQuota?: number;
-  requestId?: string;
-  resources?: ResourceInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      gpuAvailableQuota: 'GpuAvailableQuota',
-      gpuTotalQuota: 'GpuTotalQuota',
-      requestId: 'RequestId',
-      resources: 'Resources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gpuAvailableQuota: 'number',
-      gpuTotalQuota: 'number',
-      requestId: 'string',
-      resources: { 'type': 'array', 'itemType': ResourceInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserSpecialVersionGpuResourceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserSpecialVersionGpuResourceInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserSpecialVersionGpuResourceInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigsResponseBody extends $tea.Model {
-  configs?: Config[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: { 'type': 'array', 'itemType': Config },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDatasetsRequest extends $tea.Model {
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDatasetsResponseBody extends $tea.Model {
-  datasets?: Dataset[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasets: 'Datasets',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasets: { 'type': 'array', 'itemType': Dataset },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDatasetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDatasetsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDatasetsResponseBody,
+      body: GetUserConfigV2ResponseBody,
     };
   }
 
@@ -2388,6 +2421,84 @@ export class ListEcsSpecsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListEcsSpecsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsV2Request extends $tea.Model {
+  acceleratorType?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsV2ResponseBody extends $tea.Model {
+  ecsSpecs?: ListEcsSpecsV2ResponseBodyEcsSpecs[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ecsSpecs: 'EcsSpecs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsSpecs: { 'type': 'array', 'itemType': ListEcsSpecsV2ResponseBodyEcsSpecs },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListEcsSpecsV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListEcsSpecsV2ResponseBody,
     };
   }
 
@@ -2471,6 +2582,81 @@ export class ListImagesResponse extends $tea.Model {
   }
 }
 
+export class ListInstanceSnapshotV2Request extends $tea.Model {
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceSnapshotV2ResponseBody extends $tea.Model {
+  requestId?: string;
+  snapshots?: ListInstanceSnapshotV2ResponseBodySnapshots[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      snapshots: 'Snapshots',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      snapshots: { 'type': 'array', 'itemType': ListInstanceSnapshotV2ResponseBodySnapshots },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceSnapshotV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListInstanceSnapshotV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListInstanceSnapshotV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceSnapshotsResponseBody extends $tea.Model {
   instanceSnapshots?: InstanceSnapshot[];
   requestId?: string;
@@ -2515,17 +2701,17 @@ export class ListInstanceSnapshotsResponse extends $tea.Model {
   }
 }
 
-export class ListInstanceTypesRequest extends $tea.Model {
-  acceleratorType?: string;
+export class ListInstanceStatisticsV2Request extends $tea.Model {
+  workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
-      acceleratorType: 'AcceleratorType',
+      workspaceIds: 'WorkspaceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      acceleratorType: 'string',
+      workspaceIds: 'string',
     };
   }
 
@@ -2534,20 +2720,20 @@ export class ListInstanceTypesRequest extends $tea.Model {
   }
 }
 
-export class ListInstanceTypesResponseBody extends $tea.Model {
-  instanceTypes?: InstanceType[];
+export class ListInstanceStatisticsV2ResponseBody extends $tea.Model {
   requestId?: string;
+  statistics?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
     return {
-      instanceTypes: 'InstanceTypes',
       requestId: 'RequestId',
+      statistics: 'Statistics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceTypes: { 'type': 'array', 'itemType': InstanceType },
       requestId: 'string',
+      statistics: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
     };
   }
 
@@ -2556,9 +2742,9 @@ export class ListInstanceTypesResponseBody extends $tea.Model {
   }
 }
 
-export class ListInstanceTypesResponse extends $tea.Model {
+export class ListInstanceStatisticsV2Response extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListInstanceTypesResponseBody;
+  body: ListInstanceStatisticsV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2569,7 +2755,7 @@ export class ListInstanceTypesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListInstanceTypesResponseBody,
+      body: ListInstanceStatisticsV2ResponseBody,
     };
   }
 
@@ -2734,20 +2920,35 @@ export class ListInstancesStatusResponse extends $tea.Model {
   }
 }
 
-export class ListNamespacesResponseBody extends $tea.Model {
-  namespaces?: ImageNamespace[];
-  requestId?: string;
+export class ListInstancesV2Request extends $tea.Model {
+  instanceName?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
+  status?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaces: 'Namespaces',
-      requestId: 'RequestId',
+      instanceName: 'InstanceName',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      status: 'Status',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaces: { 'type': 'array', 'itemType': ImageNamespace },
-      requestId: 'string',
+      instanceName: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      status: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -2756,9 +2957,34 @@ export class ListNamespacesResponseBody extends $tea.Model {
   }
 }
 
-export class ListNamespacesResponse extends $tea.Model {
+export class ListInstancesV2ResponseBody extends $tea.Model {
+  instances?: ListInstancesV2ResponseBodyInstances[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListInstancesV2ResponseBodyInstances },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesV2Response extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListNamespacesResponseBody;
+  body: ListInstancesV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2769,375 +2995,7 @@ export class ListNamespacesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNamespacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNasesResponseBody extends $tea.Model {
-  nases?: Nas[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nases: 'Nases',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nases: { 'type': 'array', 'itemType': Nas },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNasesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListNasesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNasesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkSecurityGroupsResponseBody extends $tea.Model {
-  requestId?: string;
-  securityGroups?: SecurityGroup[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      securityGroups: 'SecurityGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      securityGroups: { 'type': 'array', 'itemType': SecurityGroup },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkSecurityGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListNetworkSecurityGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNetworkSecurityGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkVSwitchesResponseBody extends $tea.Model {
-  requestId?: string;
-  vSwitches?: VSwitch[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      vSwitches: 'VSwitches',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      vSwitches: { 'type': 'array', 'itemType': VSwitch },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkVSwitchesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListNetworkVSwitchesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNetworkVSwitchesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkVpcsResponseBody extends $tea.Model {
-  requestId?: string;
-  vpcs?: Vpc[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      vpcs: 'Vpcs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      vpcs: { 'type': 'array', 'itemType': Vpc },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNetworkVpcsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListNetworkVpcsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListNetworkVpcsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsResponseBody extends $tea.Model {
-  regions?: Region[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': Region },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRepositoriesResponseBody extends $tea.Model {
-  repositories?: ImageRepository[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      repositories: 'Repositories',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      repositories: { 'type': 'array', 'itemType': ImageRepository },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRepositoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRepositoriesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRepositoriesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserClustersResponseBody extends $tea.Model {
-  clusters?: Cluster[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusters: 'Clusters',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusters: { 'type': 'array', 'itemType': Cluster },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListUserClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListUserClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserWorkNodesRequest extends $tea.Model {
-  clusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserWorkNodesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserWorkNodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListUserWorkNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListUserWorkNodesResponseBody,
+      body: ListInstancesV2ResponseBody,
     };
   }
 
@@ -3182,6 +3040,50 @@ export class StartInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StartInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartInstanceV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartInstanceV2ResponseBody,
     };
   }
 
@@ -3245,6 +3147,69 @@ export class StopInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StopInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInstanceV2Request extends $tea.Model {
+  saveImage?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      saveImage: 'SaveImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saveImage: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInstanceV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopInstanceV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopInstanceV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopInstanceV2ResponseBody,
     };
   }
 
@@ -3382,6 +3347,800 @@ export class UpdateInstanceSnapshotResponse extends $tea.Model {
   }
 }
 
+export class UpdateInstanceV2Request extends $tea.Model {
+  acceleratorType?: string;
+  accessibility?: string;
+  accumulatedRunningTimeInMs?: number;
+  datasets?: UpdateInstanceV2RequestDatasets[];
+  ecsSpec?: string;
+  environmentVariables?: { [key: string]: string };
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceShutdownTimer?: UpdateInstanceV2RequestInstanceShutdownTimer;
+  instanceUrl?: string;
+  jupyterlabUrl?: string;
+  latestSnapshot?: UpdateInstanceV2RequestLatestSnapshot;
+  paymentType?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  status?: string;
+  terminalUrl?: string;
+  userId?: string;
+  userVpc?: UpdateInstanceV2RequestUserVpc;
+  webIDEUrl?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      accessibility: 'Accessibility',
+      accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      datasets: 'Datasets',
+      ecsSpec: 'EcsSpec',
+      environmentVariables: 'EnvironmentVariables',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceShutdownTimer: 'InstanceShutdownTimer',
+      instanceUrl: 'InstanceUrl',
+      jupyterlabUrl: 'JupyterlabUrl',
+      latestSnapshot: 'LatestSnapshot',
+      paymentType: 'PaymentType',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      status: 'Status',
+      terminalUrl: 'TerminalUrl',
+      userId: 'UserId',
+      userVpc: 'UserVpc',
+      webIDEUrl: 'WebIDEUrl',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      accessibility: 'string',
+      accumulatedRunningTimeInMs: 'number',
+      datasets: { 'type': 'array', 'itemType': UpdateInstanceV2RequestDatasets },
+      ecsSpec: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceShutdownTimer: UpdateInstanceV2RequestInstanceShutdownTimer,
+      instanceUrl: 'string',
+      jupyterlabUrl: 'string',
+      latestSnapshot: UpdateInstanceV2RequestLatestSnapshot,
+      paymentType: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      status: 'string',
+      terminalUrl: 'string',
+      userId: 'string',
+      userVpc: UpdateInstanceV2RequestUserVpc,
+      webIDEUrl: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceV2ResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceV2Response extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateInstanceV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateInstanceV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateV3InstanceByUserRequest extends $tea.Model {
+  userId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateV3InstanceByUserResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  idList?: number[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      idList: 'IdList',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateV3InstanceByUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateV3InstanceByUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateV3InstanceByUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceV2RequestDatasets extends $tea.Model {
+  datasetId?: string;
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceV2RequestUserVpc extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceV2ResponseBodyDatasets extends $tea.Model {
+  datasetId?: string;
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceV2ResponseBodyInstanceShutdownTimer extends $tea.Model {
+  dueTime?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  instanceId?: string;
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceV2ResponseBodyLatestSnapshot extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  repositoryUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      repositoryUrl: 'RepositoryUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      repositoryUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceV2ResponseBodyUserVpc extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsV2ResponseBodyEcsSpecs extends $tea.Model {
+  acceleratorType?: string;
+  CPU?: number;
+  currency?: string;
+  GPU?: number;
+  GPUType?: string;
+  instanceBandwidthRx?: number;
+  instanceType?: string;
+  memory?: number;
+  price?: number;
+  systemDiskCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      CPU: 'CPU',
+      currency: 'Currency',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      instanceBandwidthRx: 'InstanceBandwidthRx',
+      instanceType: 'InstanceType',
+      memory: 'Memory',
+      price: 'Price',
+      systemDiskCapacity: 'SystemDiskCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      CPU: 'number',
+      currency: 'string',
+      GPU: 'number',
+      GPUType: 'string',
+      instanceBandwidthRx: 'number',
+      instanceType: 'string',
+      memory: 'number',
+      price: 'number',
+      systemDiskCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceSnapshotV2ResponseBodySnapshots extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageUrl?: string;
+  instanceId?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  snapshotId?: string;
+  snapshotName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      snapshotId: 'SnapshotId',
+      snapshotName: 'SnapshotName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      snapshotId: 'string',
+      snapshotName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesV2ResponseBodyInstancesDatasets extends $tea.Model {
+  datasetId?: string;
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesV2ResponseBodyInstancesInstanceShutdownTimer extends $tea.Model {
+  dueTime?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  instanceId?: string;
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesV2ResponseBodyInstancesLatestSnapshot extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  repositoryUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      repositoryUrl: 'RepositoryUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      repositoryUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesV2ResponseBodyInstancesUserVpc extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesV2ResponseBodyInstances extends $tea.Model {
+  acceleratorType?: string;
+  accessibility?: string;
+  accumulatedRunningTimeInMs?: number;
+  datasets?: ListInstancesV2ResponseBodyInstancesDatasets[];
+  ecsSpec?: string;
+  environmentVariables?: { [key: string]: string };
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceShutdownTimer?: ListInstancesV2ResponseBodyInstancesInstanceShutdownTimer;
+  instanceUrl?: string;
+  jupyterlabUrl?: string;
+  latestSnapshot?: ListInstancesV2ResponseBodyInstancesLatestSnapshot;
+  paymentType?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  status?: string;
+  terminalUrl?: string;
+  userId?: string;
+  userVpc?: ListInstancesV2ResponseBodyInstancesUserVpc;
+  webIDEUrl?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      accessibility: 'Accessibility',
+      accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      datasets: 'Datasets',
+      ecsSpec: 'EcsSpec',
+      environmentVariables: 'EnvironmentVariables',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceShutdownTimer: 'InstanceShutdownTimer',
+      instanceUrl: 'InstanceUrl',
+      jupyterlabUrl: 'JupyterlabUrl',
+      latestSnapshot: 'LatestSnapshot',
+      paymentType: 'PaymentType',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      status: 'Status',
+      terminalUrl: 'TerminalUrl',
+      userId: 'UserId',
+      userVpc: 'UserVpc',
+      webIDEUrl: 'WebIDEUrl',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      accessibility: 'string',
+      accumulatedRunningTimeInMs: 'number',
+      datasets: { 'type': 'array', 'itemType': ListInstancesV2ResponseBodyInstancesDatasets },
+      ecsSpec: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceShutdownTimer: ListInstancesV2ResponseBodyInstancesInstanceShutdownTimer,
+      instanceUrl: 'string',
+      jupyterlabUrl: 'string',
+      latestSnapshot: ListInstancesV2ResponseBodyInstancesLatestSnapshot,
+      paymentType: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      status: 'string',
+      terminalUrl: 'string',
+      userId: 'string',
+      userVpc: ListInstancesV2ResponseBodyInstancesUserVpc,
+      webIDEUrl: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceV2RequestDatasets extends $tea.Model {
+  datasetId?: string;
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceV2RequestInstanceShutdownTimer extends $tea.Model {
+  dueTime?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  instanceId?: string;
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceV2RequestLatestSnapshot extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageUrl?: string;
+  repositoryUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      repositoryUrl: 'RepositoryUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      repositoryUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceV2RequestUserVpc extends $tea.Model {
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3403,38 +4162,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async createImage(request: CreateImageRequest): Promise<CreateImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createImageWithOptions(request, headers, runtime);
-  }
-
-  async createImageWithOptions(request: CreateImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateImageResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
-      body["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      body["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.repository)) {
-      body["Repository"] = request.repository;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    return $tea.cast<CreateImageResponse>(await this.doROARequest("CreateImage", "2021-02-26", "HTTPS", "POST", "AK", `/api/v1/images`, "json", req, runtime), new CreateImageResponse({}));
   }
 
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
@@ -3494,7 +4221,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateInstanceResponse>(await this.doROARequest("CreateInstance", "2021-02-26", "HTTPS", "POST", "AK", `/api/v1/instances/`, "json", req, runtime), new CreateInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstance",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
   async createInstanceShutdownTimer(InstanceId: string, request: CreateInstanceShutdownTimerRequest): Promise<CreateInstanceShutdownTimerResponse> {
@@ -3519,7 +4257,54 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateInstanceShutdownTimerResponse>(await this.doROARequest("CreateInstanceShutdownTimer", "2021-02-26", "HTTPS", "POST", "AK", `/api/v1/instances/${InstanceId}/shutdownTimer`, "json", req, runtime), new CreateInstanceShutdownTimerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceShutdownTimer",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/shutdownTimer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
+  }
+
+  async createInstanceShutdownTimerV2(InstanceId: string, request: CreateInstanceShutdownTimerV2Request): Promise<CreateInstanceShutdownTimerV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceShutdownTimerV2WithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async createInstanceShutdownTimerV2WithOptions(InstanceId: string, request: CreateInstanceShutdownTimerV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceShutdownTimerV2Response> {
+    Util.validateModel(request);
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dueTime)) {
+      body["DueTime"] = request.dueTime;
+    }
+
+    if (!Util.isUnset(request.remainingTimeInMs)) {
+      body["RemainingTimeInMs"] = request.remainingTimeInMs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceShutdownTimerV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/shutdowntimer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceShutdownTimerV2Response>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerV2Response({}));
   }
 
   async createInstanceSnapshot(InstanceId: string, request: CreateInstanceSnapshotRequest): Promise<CreateInstanceSnapshotResponse> {
@@ -3548,7 +4333,121 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateInstanceSnapshotResponse>(await this.doROARequest("CreateInstanceSnapshot", "2021-02-26", "HTTPS", "POST", "AK", `/api/v1/instances/${InstanceId}/snapshots`, "json", req, runtime), new CreateInstanceSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceSnapshot",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/snapshots`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotResponse({}));
+  }
+
+  async createInstanceSnapshotV2(InstanceId: string, request: CreateInstanceSnapshotV2Request): Promise<CreateInstanceSnapshotV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceSnapshotV2WithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async createInstanceSnapshotV2WithOptions(InstanceId: string, request: CreateInstanceSnapshotV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceSnapshotV2Response> {
+    Util.validateModel(request);
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.snapshotDescription)) {
+      body["SnapshotDescription"] = request.snapshotDescription;
+    }
+
+    if (!Util.isUnset(request.snapshotName)) {
+      body["SnapshotName"] = request.snapshotName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceSnapshotV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/snapshots`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceSnapshotV2Response>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotV2Response({}));
+  }
+
+  async createInstanceV2(request: CreateInstanceV2Request): Promise<CreateInstanceV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceV2WithOptions(request, headers, runtime);
+  }
+
+  async createInstanceV2WithOptions(request: CreateInstanceV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceV2Response> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.datasets)) {
+      body["Datasets"] = request.datasets;
+    }
+
+    if (!Util.isUnset(request.ecsSpec)) {
+      body["EcsSpec"] = request.ecsSpec;
+    }
+
+    if (!Util.isUnset(request.environmentVariables)) {
+      body["EnvironmentVariables"] = request.environmentVariables;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.userVpc))) {
+      body["UserVpc"] = request.userVpc;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceV2Response>(await this.callApi(params, req, runtime), new CreateInstanceV2Response({}));
   }
 
   async deleteInstance(InstanceId: string): Promise<DeleteInstanceResponse> {
@@ -3562,7 +4461,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.doROARequest("DeleteInstance", "2021-02-26", "HTTPS", "DELETE", "AK", `/api/v1/instances/${InstanceId}`, "json", req, runtime), new DeleteInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteInstance",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
   async deleteInstanceShutdownTimer(InstanceId: string): Promise<DeleteInstanceShutdownTimerResponse> {
@@ -3576,7 +4486,43 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteInstanceShutdownTimerResponse>(await this.doROARequest("DeleteInstanceShutdownTimer", "2021-02-26", "HTTPS", "DELETE", "AK", `/api/v1/instances/${InstanceId}/shutdownTimer`, "json", req, runtime), new DeleteInstanceShutdownTimerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceShutdownTimer",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/shutdownTimer`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
+  }
+
+  async deleteInstanceShutdownTimerV2(InstanceId: string): Promise<DeleteInstanceShutdownTimerV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstanceShutdownTimerV2WithOptions(InstanceId, headers, runtime);
+  }
+
+  async deleteInstanceShutdownTimerV2WithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceShutdownTimerV2Response> {
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceShutdownTimerV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/shutdowntimer`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceShutdownTimerV2Response>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerV2Response({}));
   }
 
   async deleteInstanceSnapshot(InstanceId: string, InstanceSnapshotId: string): Promise<DeleteInstanceSnapshotResponse> {
@@ -3591,7 +4537,117 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteInstanceSnapshotResponse>(await this.doROARequest("DeleteInstanceSnapshot", "2021-02-26", "HTTPS", "DELETE", "AK", `/api/v1/instances/${InstanceId}/snapshots/${InstanceSnapshotId}`, "json", req, runtime), new DeleteInstanceSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceSnapshot",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/snapshots/${InstanceSnapshotId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
+  }
+
+  async deleteInstanceSnapshotV2(InstanceId: string, SnapshotId: string): Promise<DeleteInstanceSnapshotV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstanceSnapshotV2WithOptions(InstanceId, SnapshotId, headers, runtime);
+  }
+
+  async deleteInstanceSnapshotV2WithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceSnapshotV2Response> {
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    SnapshotId = OpenApiUtil.getEncodeParam(SnapshotId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceSnapshotV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/snapshots/${SnapshotId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceSnapshotV2Response>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotV2Response({}));
+  }
+
+  async deleteInstanceV2(InstanceId: string): Promise<DeleteInstanceV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstanceV2WithOptions(InstanceId, headers, runtime);
+  }
+
+  async deleteInstanceV2WithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceV2Response> {
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceV2Response>(await this.callApi(params, req, runtime), new DeleteInstanceV2Response({}));
+  }
+
+  async foobar(): Promise<FoobarResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.foobarWithOptions(headers, runtime);
+  }
+
+  async foobarWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FoobarResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "Foobar",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/foobar`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FoobarResponse>(await this.callApi(params, req, runtime), new FoobarResponse({}));
+  }
+
+  async foobar1(): Promise<Foobar1Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.foobar1WithOptions(headers, runtime);
+  }
+
+  async foobar1WithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<Foobar1Response> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "Foobar1",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/foobar1`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $tea.cast<Foobar1Response>(await this.callApi(params, req, runtime), new Foobar1Response({}));
   }
 
   async getAuthorization(): Promise<GetAuthorizationResponse> {
@@ -3604,7 +4660,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetAuthorizationResponse>(await this.doROARequest("GetAuthorization", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/authorization`, "json", req, runtime), new GetAuthorizationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAuthorization",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/authorization`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAuthorizationResponse>(await this.callApi(params, req, runtime), new GetAuthorizationResponse({}));
   }
 
   async getDashboardStatistics(request: GetDashboardStatisticsRequest): Promise<GetDashboardStatisticsResponse> {
@@ -3624,7 +4691,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetDashboardStatisticsResponse>(await this.doROARequest("GetDashboardStatistics", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/statistics/dashboard`, "json", req, runtime), new GetDashboardStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDashboardStatistics",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/statistics/dashboard`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDashboardStatisticsResponse>(await this.callApi(params, req, runtime), new GetDashboardStatisticsResponse({}));
   }
 
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
@@ -3638,21 +4716,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetInstanceResponse>(await this.doROARequest("GetInstance", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances/${InstanceId}`, "json", req, runtime), new GetInstanceResponse({}));
-  }
-
-  async getInstanceImage(InstanceId: string): Promise<GetInstanceImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getInstanceImageWithOptions(InstanceId, headers, runtime);
-  }
-
-  async getInstanceImageWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceImageResponse> {
-    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+    let params = new $OpenApi.Params({
+      action: "GetInstance",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetInstanceImageResponse>(await this.doROARequest("GetInstanceImage", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances/${InstanceId}/image`, "json", req, runtime), new GetInstanceImageResponse({}));
+    return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
   async getInstanceShutdownTimer(InstanceId: string): Promise<GetInstanceShutdownTimerResponse> {
@@ -3666,7 +4741,43 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetInstanceShutdownTimerResponse>(await this.doROARequest("GetInstanceShutdownTimer", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances/${InstanceId}/shutdownTimer`, "json", req, runtime), new GetInstanceShutdownTimerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceShutdownTimer",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/shutdownTimer`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
+  }
+
+  async getInstanceShutdownTimerV2(InstanceId: string): Promise<GetInstanceShutdownTimerV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceShutdownTimerV2WithOptions(InstanceId, headers, runtime);
+  }
+
+  async getInstanceShutdownTimerV2WithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceShutdownTimerV2Response> {
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstanceShutdownTimerV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/shutdowntimer`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceShutdownTimerV2Response>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerV2Response({}));
   }
 
   async getInstanceSnapshot(InstanceId: string, InstanceSnapshotId: string): Promise<GetInstanceSnapshotResponse> {
@@ -3681,35 +4792,69 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetInstanceSnapshotResponse>(await this.doROARequest("GetInstanceSnapshot", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances/${InstanceId}/snapshots/${InstanceSnapshotId}`, "json", req, runtime), new GetInstanceSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceSnapshot",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/snapshots/${InstanceSnapshotId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
   }
 
-  async getInstanceType(InstanceTypeId: string): Promise<GetInstanceTypeResponse> {
+  async getInstanceSnapshotV2(InstanceId: string, SnapshotId: string): Promise<GetInstanceSnapshotV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceTypeWithOptions(InstanceTypeId, headers, runtime);
+    return await this.getInstanceSnapshotV2WithOptions(InstanceId, SnapshotId, headers, runtime);
   }
 
-  async getInstanceTypeWithOptions(InstanceTypeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceTypeResponse> {
-    InstanceTypeId = OpenApiUtil.getEncodeParam(InstanceTypeId);
+  async getInstanceSnapshotV2WithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceSnapshotV2Response> {
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    SnapshotId = OpenApiUtil.getEncodeParam(SnapshotId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetInstanceTypeResponse>(await this.doROARequest("GetInstanceType", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instanceTypes/${InstanceTypeId}`, "json", req, runtime), new GetInstanceTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceSnapshotV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/snapshots/${SnapshotId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceSnapshotV2Response>(await this.callApi(params, req, runtime), new GetInstanceSnapshotV2Response({}));
   }
 
-  async getInstanceUrl(InstanceId: string): Promise<GetInstanceUrlResponse> {
+  async getInstanceV2(InstanceId: string): Promise<GetInstanceV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceUrlWithOptions(InstanceId, headers, runtime);
+    return await this.getInstanceV2WithOptions(InstanceId, headers, runtime);
   }
 
-  async getInstanceUrlWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceUrlResponse> {
+  async getInstanceV2WithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceV2Response> {
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetInstanceUrlResponse>(await this.doROARequest("GetInstanceUrl", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances/${InstanceId}/url`, "json", req, runtime), new GetInstanceUrlResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceV2Response>(await this.callApi(params, req, runtime), new GetInstanceV2Response({}));
   }
 
   async getInstancesStatistics(request: GetInstancesStatisticsRequest): Promise<GetInstancesStatisticsResponse> {
@@ -3729,99 +4874,42 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetInstancesStatisticsResponse>(await this.doROARequest("GetInstancesStatistics", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/statistics/instances`, "json", req, runtime), new GetInstancesStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstancesStatistics",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/statistics/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstancesStatisticsResponse>(await this.callApi(params, req, runtime), new GetInstancesStatisticsResponse({}));
   }
 
-  async getUserConfig(): Promise<GetUserConfigResponse> {
+  async getUserConfigV2(): Promise<GetUserConfigV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUserConfigWithOptions(headers, runtime);
+    return await this.getUserConfigV2WithOptions(headers, runtime);
   }
 
-  async getUserConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserConfigResponse> {
+  async getUserConfigV2WithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserConfigV2Response> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetUserConfigResponse>(await this.doROARequest("GetUserConfig", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/users/config`, "json", req, runtime), new GetUserConfigResponse({}));
-  }
-
-  async getUserResourceAuthorizationStatus(): Promise<GetUserResourceAuthorizationStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getUserResourceAuthorizationStatusWithOptions(headers, runtime);
-  }
-
-  async getUserResourceAuthorizationStatusWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResourceAuthorizationStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+    let params = new $OpenApi.Params({
+      action: "GetUserConfigV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/userconfig`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetUserResourceAuthorizationStatusResponse>(await this.doROARequest("GetUserResourceAuthorizationStatus", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/users/resourceAuthorizationStatus`, "json", req, runtime), new GetUserResourceAuthorizationStatusResponse({}));
-  }
-
-  async getUserResourceStatus(): Promise<GetUserResourceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getUserResourceStatusWithOptions(headers, runtime);
-  }
-
-  async getUserResourceStatusWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResourceStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<GetUserResourceStatusResponse>(await this.doROARequest("GetUserResourceStatus", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/users/resourceStatus`, "json", req, runtime), new GetUserResourceStatusResponse({}));
-  }
-
-  async getUserSpecialVersionGpuResourceInfo(request: GetUserSpecialVersionGpuResourceInfoRequest): Promise<GetUserSpecialVersionGpuResourceInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getUserSpecialVersionGpuResourceInfoWithOptions(request, headers, runtime);
-  }
-
-  async getUserSpecialVersionGpuResourceInfoWithOptions(request: GetUserSpecialVersionGpuResourceInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserSpecialVersionGpuResourceInfoResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.payType)) {
-      query["PayType"] = request.payType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<GetUserSpecialVersionGpuResourceInfoResponse>(await this.doROARequest("GetUserSpecialVersionGpuResourceInfo", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/users/specialVersionGpuResourceInfo`, "json", req, runtime), new GetUserSpecialVersionGpuResourceInfoResponse({}));
-  }
-
-  async listConfigs(): Promise<ListConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listConfigsWithOptions(headers, runtime);
-  }
-
-  async listConfigsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConfigsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListConfigsResponse>(await this.doROARequest("ListConfigs", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/configs`, "json", req, runtime), new ListConfigsResponse({}));
-  }
-
-  async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listDatasetsWithOptions(request, headers, runtime);
-  }
-
-  async listDatasetsWithOptions(request: ListDatasetsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<ListDatasetsResponse>(await this.doROARequest("ListDatasets", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/datasets`, "json", req, runtime), new ListDatasetsResponse({}));
+    return $tea.cast<GetUserConfigV2Response>(await this.callApi(params, req, runtime), new GetUserConfigV2Response({}));
   }
 
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
@@ -3841,7 +4929,65 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListEcsSpecsResponse>(await this.doROARequest("ListEcsSpecs", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/ecsSpecs`, "json", req, runtime), new ListEcsSpecsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEcsSpecs",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/ecsSpecs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
+  }
+
+  async listEcsSpecsV2(request: ListEcsSpecsV2Request): Promise<ListEcsSpecsV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEcsSpecsV2WithOptions(request, headers, runtime);
+  }
+
+  async listEcsSpecsV2WithOptions(request: ListEcsSpecsV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsV2Response> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceleratorType)) {
+      query["AcceleratorType"] = request.acceleratorType;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEcsSpecsV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/ecsspecs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEcsSpecsV2Response>(await this.callApi(params, req, runtime), new ListEcsSpecsV2Response({}));
   }
 
   async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
@@ -3877,7 +5023,62 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListImagesResponse>(await this.doROARequest("ListImages", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/images`, "json", req, runtime), new ListImagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListImages",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/images`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListImagesResponse>(await this.callApi(params, req, runtime), new ListImagesResponse({}));
+  }
+
+  async listInstanceSnapshotV2(InstanceId: string, request: ListInstanceSnapshotV2Request): Promise<ListInstanceSnapshotV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceSnapshotV2WithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async listInstanceSnapshotV2WithOptions(InstanceId: string, request: ListInstanceSnapshotV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceSnapshotV2Response> {
+    Util.validateModel(request);
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceSnapshotV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/snapshots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceSnapshotV2Response>(await this.callApi(params, req, runtime), new ListInstanceSnapshotV2Response({}));
   }
 
   async listInstanceSnapshots(InstanceId: string): Promise<ListInstanceSnapshotsResponse> {
@@ -3891,27 +5092,49 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<ListInstanceSnapshotsResponse>(await this.doROARequest("ListInstanceSnapshots", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances/${InstanceId}/snapshots`, "json", req, runtime), new ListInstanceSnapshotsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstanceSnapshots",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/snapshots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceSnapshotsResponse>(await this.callApi(params, req, runtime), new ListInstanceSnapshotsResponse({}));
   }
 
-  async listInstanceTypes(request: ListInstanceTypesRequest): Promise<ListInstanceTypesResponse> {
+  async listInstanceStatisticsV2(request: ListInstanceStatisticsV2Request): Promise<ListInstanceStatisticsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listInstanceTypesWithOptions(request, headers, runtime);
+    return await this.listInstanceStatisticsV2WithOptions(request, headers, runtime);
   }
 
-  async listInstanceTypesWithOptions(request: ListInstanceTypesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceTypesResponse> {
+  async listInstanceStatisticsV2WithOptions(request: ListInstanceStatisticsV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceStatisticsV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceleratorType)) {
-      query["AcceleratorType"] = request.acceleratorType;
+    if (!Util.isUnset(request.workspaceIds)) {
+      query["WorkspaceIds"] = request.workspaceIds;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInstanceTypesResponse>(await this.doROARequest("ListInstanceTypes", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instanceTypes`, "json", req, runtime), new ListInstanceTypesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstanceStatisticsV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instancestatistics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceStatisticsV2Response>(await this.callApi(params, req, runtime), new ListInstanceStatisticsV2Response({}));
   }
 
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
@@ -3959,7 +5182,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInstancesResponse>(await this.doROARequest("ListInstances", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/instances`, "json", req, runtime), new ListInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstances",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
   async listInstancesStatus(request: ListInstancesStatusRequest): Promise<ListInstancesStatusResponse> {
@@ -3979,134 +5213,73 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInstancesStatusResponse>(await this.doROARequest("ListInstancesStatus", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/statuses/instances`, "json", req, runtime), new ListInstancesStatusResponse({}));
-  }
-
-  async listNamespaces(): Promise<ListNamespacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listNamespacesWithOptions(headers, runtime);
-  }
-
-  async listNamespacesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNamespacesResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+    let params = new $OpenApi.Params({
+      action: "ListInstancesStatus",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/statuses/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<ListNamespacesResponse>(await this.doROARequest("ListNamespaces", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/imageRegistry/namespaces`, "json", req, runtime), new ListNamespacesResponse({}));
+    return $tea.cast<ListInstancesStatusResponse>(await this.callApi(params, req, runtime), new ListInstancesStatusResponse({}));
   }
 
-  async listNases(): Promise<ListNasesResponse> {
+  async listInstancesV2(request: ListInstancesV2Request): Promise<ListInstancesV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listNasesWithOptions(headers, runtime);
+    return await this.listInstancesV2WithOptions(request, headers, runtime);
   }
 
-  async listNasesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNasesResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListNasesResponse>(await this.doROARequest("ListNases", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/nases`, "json", req, runtime), new ListNasesResponse({}));
-  }
-
-  async listNetworkSecurityGroups(VpcId: string): Promise<ListNetworkSecurityGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listNetworkSecurityGroupsWithOptions(VpcId, headers, runtime);
-  }
-
-  async listNetworkSecurityGroupsWithOptions(VpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNetworkSecurityGroupsResponse> {
-    VpcId = OpenApiUtil.getEncodeParam(VpcId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListNetworkSecurityGroupsResponse>(await this.doROARequest("ListNetworkSecurityGroups", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/network/vpcs/${VpcId}/securityGroups`, "json", req, runtime), new ListNetworkSecurityGroupsResponse({}));
-  }
-
-  async listNetworkVSwitches(VpcId: string): Promise<ListNetworkVSwitchesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listNetworkVSwitchesWithOptions(VpcId, headers, runtime);
-  }
-
-  async listNetworkVSwitchesWithOptions(VpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNetworkVSwitchesResponse> {
-    VpcId = OpenApiUtil.getEncodeParam(VpcId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListNetworkVSwitchesResponse>(await this.doROARequest("ListNetworkVSwitches", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/network/vpcs/${VpcId}/vSwitches`, "json", req, runtime), new ListNetworkVSwitchesResponse({}));
-  }
-
-  async listNetworkVpcs(): Promise<ListNetworkVpcsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listNetworkVpcsWithOptions(headers, runtime);
-  }
-
-  async listNetworkVpcsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListNetworkVpcsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListNetworkVpcsResponse>(await this.doROARequest("ListNetworkVpcs", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/network/vpcs`, "json", req, runtime), new ListNetworkVpcsResponse({}));
-  }
-
-  async listRegions(): Promise<ListRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listRegionsWithOptions(headers, runtime);
-  }
-
-  async listRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListRegionsResponse>(await this.doROARequest("ListRegions", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/configs/regions`, "json", req, runtime), new ListRegionsResponse({}));
-  }
-
-  async listRepositories(Namespace: string): Promise<ListRepositoriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listRepositoriesWithOptions(Namespace, headers, runtime);
-  }
-
-  async listRepositoriesWithOptions(Namespace: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoriesResponse> {
-    Namespace = OpenApiUtil.getEncodeParam(Namespace);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListRepositoriesResponse>(await this.doROARequest("ListRepositories", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/imageRegistry/namespaces/${Namespace}/repositories`, "json", req, runtime), new ListRepositoriesResponse({}));
-  }
-
-  async listUserClusters(): Promise<ListUserClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listUserClustersWithOptions(headers, runtime);
-  }
-
-  async listUserClustersWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserClustersResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ListUserClustersResponse>(await this.doROARequest("ListUserClusters", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/users/clusters`, "json", req, runtime), new ListUserClustersResponse({}));
-  }
-
-  async listUserWorkNodes(request: ListUserWorkNodesRequest): Promise<ListUserWorkNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listUserWorkNodesWithOptions(request, headers, runtime);
-  }
-
-  async listUserWorkNodesWithOptions(request: ListUserWorkNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserWorkNodesResponse> {
+  async listInstancesV2WithOptions(request: ListInstancesV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUserWorkNodesResponse>(await this.doROARequest("ListUserWorkNodes", "2021-02-26", "HTTPS", "GET", "AK", `/api/v1/users/workerNodes`, "json", req, runtime), new ListUserWorkNodesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstancesV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesV2Response>(await this.callApi(params, req, runtime), new ListInstancesV2Response({}));
   }
 
   async startInstance(InstanceId: string): Promise<StartInstanceResponse> {
@@ -4120,7 +5293,43 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<StartInstanceResponse>(await this.doROARequest("StartInstance", "2021-02-26", "HTTPS", "PUT", "AK", `/api/v1/instances/${InstanceId}/start`, "json", req, runtime), new StartInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartInstance",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/start`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
+  }
+
+  async startInstanceV2(InstanceId: string): Promise<StartInstanceV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startInstanceV2WithOptions(InstanceId, headers, runtime);
+  }
+
+  async startInstanceV2WithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartInstanceV2Response> {
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartInstanceV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/start`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartInstanceV2Response>(await this.callApi(params, req, runtime), new StartInstanceV2Response({}));
   }
 
   async stopInstance(InstanceId: string, request: StopInstanceRequest): Promise<StopInstanceResponse> {
@@ -4141,7 +5350,50 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopInstanceResponse>(await this.doROARequest("StopInstance", "2021-02-26", "HTTPS", "PUT", "AK", `/api/v1/instances/${InstanceId}/stop`, "json", req, runtime), new StopInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopInstance",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
+  }
+
+  async stopInstanceV2(InstanceId: string, request: StopInstanceV2Request): Promise<StopInstanceV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopInstanceV2WithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async stopInstanceV2WithOptions(InstanceId: string, request: StopInstanceV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopInstanceV2Response> {
+    Util.validateModel(request);
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.saveImage)) {
+      body["SaveImage"] = request.saveImage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopInstanceV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopInstanceV2Response>(await this.callApi(params, req, runtime), new StopInstanceV2Response({}));
   }
 
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
@@ -4162,7 +5414,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateInstanceResponse>(await this.doROARequest("UpdateInstance", "2021-02-26", "HTTPS", "PUT", "AK", `/api/v1/instances/${InstanceId}`, "json", req, runtime), new UpdateInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateInstance",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
   async updateInstanceSnapshot(InstanceId: string, InstanceSnapshotId: string, request: UpdateInstanceSnapshotRequest): Promise<UpdateInstanceSnapshotResponse> {
@@ -4184,7 +5447,189 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateInstanceSnapshotResponse>(await this.doROARequest("UpdateInstanceSnapshot", "2021-02-26", "HTTPS", "PUT", "AK", `/api/v1/instances/${InstanceId}/snapshots/${InstanceSnapshotId}`, "json", req, runtime), new UpdateInstanceSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateInstanceSnapshot",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${InstanceId}/snapshots/${InstanceSnapshotId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new UpdateInstanceSnapshotResponse({}));
+  }
+
+  async updateInstanceV2(InstanceId: string, request: UpdateInstanceV2Request): Promise<UpdateInstanceV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateInstanceV2WithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async updateInstanceV2WithOptions(InstanceId: string, request: UpdateInstanceV2Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceV2Response> {
+    Util.validateModel(request);
+    InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceleratorType)) {
+      body["AcceleratorType"] = request.acceleratorType;
+    }
+
+    if (!Util.isUnset(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.accumulatedRunningTimeInMs)) {
+      body["AccumulatedRunningTimeInMs"] = request.accumulatedRunningTimeInMs;
+    }
+
+    if (!Util.isUnset(request.datasets)) {
+      body["Datasets"] = request.datasets;
+    }
+
+    if (!Util.isUnset(request.ecsSpec)) {
+      body["EcsSpec"] = request.ecsSpec;
+    }
+
+    if (!Util.isUnset(request.environmentVariables)) {
+      body["EnvironmentVariables"] = request.environmentVariables;
+    }
+
+    if (!Util.isUnset(request.gmtCreateTime)) {
+      body["GmtCreateTime"] = request.gmtCreateTime;
+    }
+
+    if (!Util.isUnset(request.gmtModifiedTime)) {
+      body["GmtModifiedTime"] = request.gmtModifiedTime;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.instanceShutdownTimer))) {
+      body["InstanceShutdownTimer"] = request.instanceShutdownTimer;
+    }
+
+    if (!Util.isUnset(request.instanceUrl)) {
+      body["InstanceUrl"] = request.instanceUrl;
+    }
+
+    if (!Util.isUnset(request.jupyterlabUrl)) {
+      body["JupyterlabUrl"] = request.jupyterlabUrl;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.latestSnapshot))) {
+      body["LatestSnapshot"] = request.latestSnapshot;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      body["PaymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.reasonCode)) {
+      body["ReasonCode"] = request.reasonCode;
+    }
+
+    if (!Util.isUnset(request.reasonMessage)) {
+      body["ReasonMessage"] = request.reasonMessage;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.terminalUrl)) {
+      body["TerminalUrl"] = request.terminalUrl;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.userVpc))) {
+      body["UserVpc"] = request.userVpc;
+    }
+
+    if (!Util.isUnset(request.webIDEUrl)) {
+      body["WebIDEUrl"] = request.webIDEUrl;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!Util.isUnset(request.workspaceName)) {
+      body["WorkspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateInstanceV2",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${InstanceId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceV2Response>(await this.callApi(params, req, runtime), new UpdateInstanceV2Response({}));
+  }
+
+  async updateV3InstanceByUser(request: UpdateV3InstanceByUserRequest): Promise<UpdateV3InstanceByUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateV3InstanceByUserWithOptions(request, headers, runtime);
+  }
+
+  async updateV3InstanceByUserWithOptions(request: UpdateV3InstanceByUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateV3InstanceByUserResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateV3InstanceByUser",
+      version: "2021-02-26",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/migrate/user`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateV3InstanceByUserResponse>(await this.callApi(params, req, runtime), new UpdateV3InstanceByUserResponse({}));
   }
 
 }
