@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/elasticsearch20170613",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

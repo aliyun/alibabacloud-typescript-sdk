@@ -5878,6 +5878,102 @@ export class ListInstanceResponse extends $tea.Model {
   }
 }
 
+export class ListInstanceHistoryEventsRequest extends $tea.Model {
+  body?: ListInstanceHistoryEventsRequestBody[];
+  eventCreateEndTime?: string;
+  eventCreateStartTime?: string;
+  eventExecuteEndTime?: string;
+  eventExecuteStartTime?: string;
+  eventFinashEndTime?: string;
+  eventFinashStartTime?: string;
+  eventLevel?: string;
+  eventType?: string;
+  instanceId?: string;
+  nodeIP?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      eventCreateEndTime: 'eventCreateEndTime',
+      eventCreateStartTime: 'eventCreateStartTime',
+      eventExecuteEndTime: 'eventExecuteEndTime',
+      eventExecuteStartTime: 'eventExecuteStartTime',
+      eventFinashEndTime: 'eventFinashEndTime',
+      eventFinashStartTime: 'eventFinashStartTime',
+      eventLevel: 'eventLevel',
+      eventType: 'eventType',
+      instanceId: 'instanceId',
+      nodeIP: 'nodeIP',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': ListInstanceHistoryEventsRequestBody },
+      eventCreateEndTime: 'string',
+      eventCreateStartTime: 'string',
+      eventExecuteEndTime: 'string',
+      eventExecuteStartTime: 'string',
+      eventFinashEndTime: 'string',
+      eventFinashStartTime: 'string',
+      eventLevel: 'string',
+      eventType: 'string',
+      instanceId: 'string',
+      nodeIP: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponseBody extends $tea.Model {
+  headers?: ListInstanceHistoryEventsResponseBodyHeaders;
+  requestId?: string;
+  result?: ListInstanceHistoryEventsResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: ListInstanceHistoryEventsResponseBodyHeaders,
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListInstanceHistoryEventsResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListInstanceHistoryEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListInstanceHistoryEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceIndicesRequest extends $tea.Model {
   all?: boolean;
   isManaged?: boolean;
@@ -16443,6 +16539,99 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListInstanceHistoryEventsRequestBody extends $tea.Model {
+  desc?: boolean;
+  sortField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      sortField: 'sortField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'boolean',
+      sortField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponseBodyHeaders extends $tea.Model {
+  xTotalCount?: number;
+  xTotalFailed?: number;
+  xTotalSuccess?: number;
+  static names(): { [key: string]: string } {
+    return {
+      xTotalCount: 'X-Total-Count',
+      xTotalFailed: 'X-Total-Failed',
+      xTotalSuccess: 'X-Total-Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      xTotalCount: 'number',
+      xTotalFailed: 'number',
+      xTotalSuccess: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryEventsResponseBodyResult extends $tea.Model {
+  actionList?: string[];
+  eventCreateTime?: string;
+  eventCycleStatus?: string;
+  eventExecuteTime?: string;
+  eventFinashTime?: string;
+  eventLevel?: string;
+  eventType?: string;
+  instanceId?: string;
+  nodeIP?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionList: 'actionList',
+      eventCreateTime: 'eventCreateTime',
+      eventCycleStatus: 'eventCycleStatus',
+      eventExecuteTime: 'eventExecuteTime',
+      eventFinashTime: 'eventFinashTime',
+      eventLevel: 'eventLevel',
+      eventType: 'eventType',
+      instanceId: 'instanceId',
+      nodeIP: 'nodeIP',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionList: { 'type': 'array', 'itemType': 'string' },
+      eventCreateTime: 'string',
+      eventCycleStatus: 'string',
+      eventExecuteTime: 'string',
+      eventFinashTime: 'string',
+      eventLevel: 'string',
+      eventType: 'string',
+      instanceId: 'string',
+      nodeIP: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceIndicesResponseBodyHeaders extends $tea.Model {
   xManagedCount?: number;
   xManagedStorageSize?: number;
@@ -17221,10 +17410,12 @@ export class ModifyElastictaskResponseBodyResult extends $tea.Model {
 export class ModifyWhiteIpsRequestWhiteIpGroup extends $tea.Model {
   groupName?: string;
   ips?: string[];
+  whiteIpType?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'groupName',
       ips: 'ips',
+      whiteIpType: 'whiteIpType',
     };
   }
 
@@ -17232,6 +17423,7 @@ export class ModifyWhiteIpsRequestWhiteIpGroup extends $tea.Model {
     return {
       groupName: 'string',
       ips: { 'type': 'array', 'itemType': 'string' },
+      whiteIpType: 'string',
     };
   }
 
@@ -19186,7 +19378,7 @@ export default class Client extends OpenApi {
       protocol: "HTTPS",
       pathname: `/openapi/assist/actions/capacity-plan`,
       method: "POST",
-      authType: "AK",
+      authType: "Anonymous",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
@@ -22153,6 +22345,74 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
+  }
+
+  async listInstanceHistoryEvents(request: ListInstanceHistoryEventsRequest): Promise<ListInstanceHistoryEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceHistoryEventsWithOptions(request, headers, runtime);
+  }
+
+  async listInstanceHistoryEventsWithOptions(request: ListInstanceHistoryEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceHistoryEventsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.eventCreateEndTime)) {
+      query["eventCreateEndTime"] = request.eventCreateEndTime;
+    }
+
+    if (!Util.isUnset(request.eventCreateStartTime)) {
+      query["eventCreateStartTime"] = request.eventCreateStartTime;
+    }
+
+    if (!Util.isUnset(request.eventExecuteEndTime)) {
+      query["eventExecuteEndTime"] = request.eventExecuteEndTime;
+    }
+
+    if (!Util.isUnset(request.eventExecuteStartTime)) {
+      query["eventExecuteStartTime"] = request.eventExecuteStartTime;
+    }
+
+    if (!Util.isUnset(request.eventFinashEndTime)) {
+      query["eventFinashEndTime"] = request.eventFinashEndTime;
+    }
+
+    if (!Util.isUnset(request.eventFinashStartTime)) {
+      query["eventFinashStartTime"] = request.eventFinashStartTime;
+    }
+
+    if (!Util.isUnset(request.eventLevel)) {
+      query["eventLevel"] = request.eventLevel;
+    }
+
+    if (!Util.isUnset(request.eventType)) {
+      query["eventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeIP)) {
+      query["nodeIP"] = request.nodeIP;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceHistoryEvents",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/events`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceHistoryEventsResponse>(await this.callApi(params, req, runtime), new ListInstanceHistoryEventsResponse({}));
   }
 
   async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
