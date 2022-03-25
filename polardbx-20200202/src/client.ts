@@ -465,6 +465,7 @@ export class CreateDBRequest extends $tea.Model {
   DBInstanceName?: string;
   dbDescription?: string;
   dbName?: string;
+  mode?: string;
   regionId?: string;
   securityAccountName?: string;
   securityAccountPassword?: string;
@@ -476,6 +477,7 @@ export class CreateDBRequest extends $tea.Model {
       DBInstanceName: 'DBInstanceName',
       dbDescription: 'DbDescription',
       dbName: 'DbName',
+      mode: 'Mode',
       regionId: 'RegionId',
       securityAccountName: 'SecurityAccountName',
       securityAccountPassword: 'SecurityAccountPassword',
@@ -490,6 +492,7 @@ export class CreateDBRequest extends $tea.Model {
       DBInstanceName: 'string',
       dbDescription: 'string',
       dbName: 'string',
+      mode: 'string',
       regionId: 'string',
       securityAccountName: 'string',
       securityAccountPassword: 'string',
@@ -6845,6 +6848,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dbName)) {
       query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
     }
 
     if (!Util.isUnset(request.regionId)) {
