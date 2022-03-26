@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -36,22 +37,22 @@ export class AssumeRoleRequest extends $tea.Model {
 }
 
 export class AssumeRoleResponseBody extends $tea.Model {
-  requestId?: string;
   assumedRoleUser?: AssumeRoleResponseBodyAssumedRoleUser;
   credentials?: AssumeRoleResponseBodyCredentials;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       assumedRoleUser: 'AssumedRoleUser',
       credentials: 'Credentials',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       assumedRoleUser: AssumeRoleResponseBodyAssumedRoleUser,
       credentials: AssumeRoleResponseBodyCredentials,
+      requestId: 'string',
     };
   }
 
@@ -83,30 +84,30 @@ export class AssumeRoleResponse extends $tea.Model {
 }
 
 export class AssumeRoleWithOIDCRequest extends $tea.Model {
+  durationSeconds?: number;
   OIDCProviderArn?: string;
-  roleArn?: string;
   OIDCToken?: string;
   policy?: string;
-  durationSeconds?: number;
+  roleArn?: string;
   roleSessionName?: string;
   static names(): { [key: string]: string } {
     return {
+      durationSeconds: 'DurationSeconds',
       OIDCProviderArn: 'OIDCProviderArn',
-      roleArn: 'RoleArn',
       OIDCToken: 'OIDCToken',
       policy: 'Policy',
-      durationSeconds: 'DurationSeconds',
+      roleArn: 'RoleArn',
       roleSessionName: 'RoleSessionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      durationSeconds: 'number',
       OIDCProviderArn: 'string',
-      roleArn: 'string',
       OIDCToken: 'string',
       policy: 'string',
-      durationSeconds: 'number',
+      roleArn: 'string',
       roleSessionName: 'string',
     };
   }
@@ -117,25 +118,25 @@ export class AssumeRoleWithOIDCRequest extends $tea.Model {
 }
 
 export class AssumeRoleWithOIDCResponseBody extends $tea.Model {
-  requestId?: string;
-  OIDCTokenInfo?: AssumeRoleWithOIDCResponseBodyOIDCTokenInfo;
   assumedRoleUser?: AssumeRoleWithOIDCResponseBodyAssumedRoleUser;
   credentials?: AssumeRoleWithOIDCResponseBodyCredentials;
+  OIDCTokenInfo?: AssumeRoleWithOIDCResponseBodyOIDCTokenInfo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      OIDCTokenInfo: 'OIDCTokenInfo',
       assumedRoleUser: 'AssumedRoleUser',
       credentials: 'Credentials',
+      OIDCTokenInfo: 'OIDCTokenInfo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      OIDCTokenInfo: AssumeRoleWithOIDCResponseBodyOIDCTokenInfo,
       assumedRoleUser: AssumeRoleWithOIDCResponseBodyAssumedRoleUser,
       credentials: AssumeRoleWithOIDCResponseBodyCredentials,
+      OIDCTokenInfo: AssumeRoleWithOIDCResponseBodyOIDCTokenInfo,
+      requestId: 'string',
     };
   }
 
@@ -167,28 +168,28 @@ export class AssumeRoleWithOIDCResponse extends $tea.Model {
 }
 
 export class AssumeRoleWithSAMLRequest extends $tea.Model {
-  SAMLProviderArn?: string;
+  durationSeconds?: number;
+  policy?: string;
   roleArn?: string;
   SAMLAssertion?: string;
-  policy?: string;
-  durationSeconds?: number;
+  SAMLProviderArn?: string;
   static names(): { [key: string]: string } {
     return {
-      SAMLProviderArn: 'SAMLProviderArn',
+      durationSeconds: 'DurationSeconds',
+      policy: 'Policy',
       roleArn: 'RoleArn',
       SAMLAssertion: 'SAMLAssertion',
-      policy: 'Policy',
-      durationSeconds: 'DurationSeconds',
+      SAMLProviderArn: 'SAMLProviderArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      SAMLProviderArn: 'string',
+      durationSeconds: 'number',
+      policy: 'string',
       roleArn: 'string',
       SAMLAssertion: 'string',
-      policy: 'string',
-      durationSeconds: 'number',
+      SAMLProviderArn: 'string',
     };
   }
 
@@ -198,25 +199,25 @@ export class AssumeRoleWithSAMLRequest extends $tea.Model {
 }
 
 export class AssumeRoleWithSAMLResponseBody extends $tea.Model {
-  requestId?: string;
-  SAMLAssertionInfo?: AssumeRoleWithSAMLResponseBodySAMLAssertionInfo;
   assumedRoleUser?: AssumeRoleWithSAMLResponseBodyAssumedRoleUser;
   credentials?: AssumeRoleWithSAMLResponseBodyCredentials;
+  requestId?: string;
+  SAMLAssertionInfo?: AssumeRoleWithSAMLResponseBodySAMLAssertionInfo;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      SAMLAssertionInfo: 'SAMLAssertionInfo',
       assumedRoleUser: 'AssumedRoleUser',
       credentials: 'Credentials',
+      requestId: 'RequestId',
+      SAMLAssertionInfo: 'SAMLAssertionInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      SAMLAssertionInfo: AssumeRoleWithSAMLResponseBodySAMLAssertionInfo,
       assumedRoleUser: AssumeRoleWithSAMLResponseBodyAssumedRoleUser,
       credentials: AssumeRoleWithSAMLResponseBodyCredentials,
+      requestId: 'string',
+      SAMLAssertionInfo: AssumeRoleWithSAMLResponseBodySAMLAssertionInfo,
     };
   }
 
@@ -248,34 +249,34 @@ export class AssumeRoleWithSAMLResponse extends $tea.Model {
 }
 
 export class GetCallerIdentityResponseBody extends $tea.Model {
-  identityType?: string;
   accountId?: string;
-  requestId?: string;
-  principalId?: string;
-  userId?: string;
   arn?: string;
+  identityType?: string;
+  principalId?: string;
+  requestId?: string;
   roleId?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      identityType: 'IdentityType',
       accountId: 'AccountId',
-      requestId: 'RequestId',
-      principalId: 'PrincipalId',
-      userId: 'UserId',
       arn: 'Arn',
+      identityType: 'IdentityType',
+      principalId: 'PrincipalId',
+      requestId: 'RequestId',
       roleId: 'RoleId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identityType: 'string',
       accountId: 'string',
-      requestId: 'string',
-      principalId: 'string',
-      userId: 'string',
       arn: 'string',
+      identityType: 'string',
+      principalId: 'string',
+      requestId: 'string',
       roleId: 'string',
+      userId: 'string',
     };
   }
 
@@ -307,19 +308,19 @@ export class GetCallerIdentityResponse extends $tea.Model {
 }
 
 export class AssumeRoleResponseBodyAssumedRoleUser extends $tea.Model {
-  assumedRoleId?: string;
   arn?: string;
+  assumedRoleId?: string;
   static names(): { [key: string]: string } {
     return {
-      assumedRoleId: 'AssumedRoleId',
       arn: 'Arn',
+      assumedRoleId: 'AssumedRoleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      assumedRoleId: 'string',
       arn: 'string',
+      assumedRoleId: 'string',
     };
   }
 
@@ -329,50 +330,25 @@ export class AssumeRoleResponseBodyAssumedRoleUser extends $tea.Model {
 }
 
 export class AssumeRoleResponseBodyCredentials extends $tea.Model {
-  securityToken?: string;
-  expiration?: string;
-  accessKeySecret?: string;
   accessKeyId?: string;
+  accessKeySecret?: string;
+  expiration?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
-      expiration: 'Expiration',
-      accessKeySecret: 'AccessKeySecret',
       accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      expiration: 'Expiration',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
-      expiration: 'string',
-      accessKeySecret: 'string',
       accessKeyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo extends $tea.Model {
-  subject?: string;
-  issuer?: string;
-  clientIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      subject: 'Subject',
-      issuer: 'Issuer',
-      clientIds: 'ClientIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subject: 'string',
-      issuer: 'string',
-      clientIds: 'string',
+      accessKeySecret: 'string',
+      expiration: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -382,19 +358,19 @@ export class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo extends $tea.Model {
 }
 
 export class AssumeRoleWithOIDCResponseBodyAssumedRoleUser extends $tea.Model {
-  assumedRoleId?: string;
   arn?: string;
+  assumedRoleId?: string;
   static names(): { [key: string]: string } {
     return {
-      assumedRoleId: 'AssumedRoleId',
       arn: 'Arn',
+      assumedRoleId: 'AssumedRoleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      assumedRoleId: 'string',
       arn: 'string',
+      assumedRoleId: 'string',
     };
   }
 
@@ -404,25 +380,25 @@ export class AssumeRoleWithOIDCResponseBodyAssumedRoleUser extends $tea.Model {
 }
 
 export class AssumeRoleWithOIDCResponseBodyCredentials extends $tea.Model {
-  securityToken?: string;
-  expiration?: string;
-  accessKeySecret?: string;
   accessKeyId?: string;
+  accessKeySecret?: string;
+  expiration?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
-      expiration: 'Expiration',
-      accessKeySecret: 'AccessKeySecret',
       accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      expiration: 'Expiration',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
-      expiration: 'string',
-      accessKeySecret: 'string',
       accessKeyId: 'string',
+      accessKeySecret: 'string',
+      expiration: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -431,26 +407,23 @@ export class AssumeRoleWithOIDCResponseBodyCredentials extends $tea.Model {
   }
 }
 
-export class AssumeRoleWithSAMLResponseBodySAMLAssertionInfo extends $tea.Model {
-  subjectType?: string;
-  subject?: string;
+export class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo extends $tea.Model {
+  clientIds?: string;
   issuer?: string;
-  recipient?: string;
+  subject?: string;
   static names(): { [key: string]: string } {
     return {
-      subjectType: 'SubjectType',
-      subject: 'Subject',
+      clientIds: 'ClientIds',
       issuer: 'Issuer',
-      recipient: 'Recipient',
+      subject: 'Subject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subjectType: 'string',
-      subject: 'string',
+      clientIds: 'string',
       issuer: 'string',
-      recipient: 'string',
+      subject: 'string',
     };
   }
 
@@ -460,19 +433,19 @@ export class AssumeRoleWithSAMLResponseBodySAMLAssertionInfo extends $tea.Model 
 }
 
 export class AssumeRoleWithSAMLResponseBodyAssumedRoleUser extends $tea.Model {
-  assumedRoleId?: string;
   arn?: string;
+  assumedRoleId?: string;
   static names(): { [key: string]: string } {
     return {
-      assumedRoleId: 'AssumedRoleId',
       arn: 'Arn',
+      assumedRoleId: 'AssumedRoleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      assumedRoleId: 'string',
       arn: 'string',
+      assumedRoleId: 'string',
     };
   }
 
@@ -482,25 +455,53 @@ export class AssumeRoleWithSAMLResponseBodyAssumedRoleUser extends $tea.Model {
 }
 
 export class AssumeRoleWithSAMLResponseBodyCredentials extends $tea.Model {
-  securityToken?: string;
-  expiration?: string;
-  accessKeySecret?: string;
   accessKeyId?: string;
+  accessKeySecret?: string;
+  expiration?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
-      expiration: 'Expiration',
-      accessKeySecret: 'AccessKeySecret',
       accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      expiration: 'Expiration',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
-      expiration: 'string',
-      accessKeySecret: 'string',
       accessKeyId: 'string',
+      accessKeySecret: 'string',
+      expiration: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleWithSAMLResponseBodySAMLAssertionInfo extends $tea.Model {
+  issuer?: string;
+  recipient?: string;
+  subject?: string;
+  subjectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      issuer: 'Issuer',
+      recipient: 'Recipient',
+      subject: 'Subject',
+      subjectType: 'SubjectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issuer: 'string',
+      recipient: 'string',
+      subject: 'string',
+      subjectType: 'string',
     };
   }
 
@@ -571,10 +572,38 @@ export default class Client extends OpenApi {
 
   async assumeRoleWithOptions(request: AssumeRoleRequest, runtime: $Util.RuntimeOptions): Promise<AssumeRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.durationSeconds)) {
+      query["DurationSeconds"] = request.durationSeconds;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.roleSessionName)) {
+      query["RoleSessionName"] = request.roleSessionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AssumeRoleResponse>(await this.doRPCRequest("AssumeRole", "2015-04-01", "HTTPS", "POST", "AK", "json", req, runtime), new AssumeRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssumeRole",
+      version: "2015-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssumeRoleResponse>(await this.callApi(params, req, runtime), new AssumeRoleResponse({}));
   }
 
   async assumeRole(request: AssumeRoleRequest): Promise<AssumeRoleResponse> {
@@ -584,10 +613,46 @@ export default class Client extends OpenApi {
 
   async assumeRoleWithOIDCWithOptions(request: AssumeRoleWithOIDCRequest, runtime: $Util.RuntimeOptions): Promise<AssumeRoleWithOIDCResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.durationSeconds)) {
+      query["DurationSeconds"] = request.durationSeconds;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderArn)) {
+      query["OIDCProviderArn"] = request.OIDCProviderArn;
+    }
+
+    if (!Util.isUnset(request.OIDCToken)) {
+      query["OIDCToken"] = request.OIDCToken;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.roleSessionName)) {
+      query["RoleSessionName"] = request.roleSessionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AssumeRoleWithOIDCResponse>(await this.doRPCRequest("AssumeRoleWithOIDC", "2015-04-01", "HTTPS", "POST", "AK", "json", req, runtime), new AssumeRoleWithOIDCResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssumeRoleWithOIDC",
+      version: "2015-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssumeRoleWithOIDCResponse>(await this.callApi(params, req, runtime), new AssumeRoleWithOIDCResponse({}));
   }
 
   async assumeRoleWithOIDC(request: AssumeRoleWithOIDCRequest): Promise<AssumeRoleWithOIDCResponse> {
@@ -597,10 +662,42 @@ export default class Client extends OpenApi {
 
   async assumeRoleWithSAMLWithOptions(request: AssumeRoleWithSAMLRequest, runtime: $Util.RuntimeOptions): Promise<AssumeRoleWithSAMLResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.durationSeconds)) {
+      query["DurationSeconds"] = request.durationSeconds;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.SAMLAssertion)) {
+      query["SAMLAssertion"] = request.SAMLAssertion;
+    }
+
+    if (!Util.isUnset(request.SAMLProviderArn)) {
+      query["SAMLProviderArn"] = request.SAMLProviderArn;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AssumeRoleWithSAMLResponse>(await this.doRPCRequest("AssumeRoleWithSAML", "2015-04-01", "HTTPS", "POST", "AK", "json", req, runtime), new AssumeRoleWithSAMLResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssumeRoleWithSAML",
+      version: "2015-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssumeRoleWithSAMLResponse>(await this.callApi(params, req, runtime), new AssumeRoleWithSAMLResponse({}));
   }
 
   async assumeRoleWithSAML(request: AssumeRoleWithSAMLRequest): Promise<AssumeRoleWithSAMLResponse> {
@@ -610,7 +707,18 @@ export default class Client extends OpenApi {
 
   async getCallerIdentityWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCallerIdentityResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetCallerIdentityResponse>(await this.doRPCRequest("GetCallerIdentity", "2015-04-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetCallerIdentityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCallerIdentity",
+      version: "2015-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCallerIdentityResponse>(await this.callApi(params, req, runtime), new GetCallerIdentityResponse({}));
   }
 
   async getCallerIdentity(): Promise<GetCallerIdentityResponse> {
