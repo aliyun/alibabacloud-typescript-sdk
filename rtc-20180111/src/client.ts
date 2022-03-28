@@ -3344,6 +3344,12 @@ export class StartMPUTaskRequestBackgrounds extends $tea.Model {
 }
 
 export class StartMPUTaskRequestClockWidgets extends $tea.Model {
+  alpha?: number;
+  borderColor?: number;
+  borderWidth?: number;
+  box?: boolean;
+  boxBorderWidth?: number;
+  boxColor?: number;
   fontColor?: number;
   fontSize?: number;
   fontType?: number;
@@ -3352,6 +3358,12 @@ export class StartMPUTaskRequestClockWidgets extends $tea.Model {
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
+      alpha: 'Alpha',
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      box: 'Box',
+      boxBorderWidth: 'BoxBorderWidth',
+      boxColor: 'BoxColor',
       fontColor: 'FontColor',
       fontSize: 'FontSize',
       fontType: 'FontType',
@@ -3363,6 +3375,12 @@ export class StartMPUTaskRequestClockWidgets extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alpha: 'number',
+      borderColor: 'number',
+      borderWidth: 'number',
+      box: 'boolean',
+      boxBorderWidth: 'number',
+      boxColor: 'number',
       fontColor: 'number',
       fontSize: 'number',
       fontType: 'number',
@@ -3434,6 +3452,12 @@ export class StartMPUTaskRequestUserPanesImages extends $tea.Model {
 }
 
 export class StartMPUTaskRequestUserPanesTexts extends $tea.Model {
+  alpha?: number;
+  borderColor?: number;
+  borderWidth?: number;
+  box?: boolean;
+  boxBorderWidth?: number;
+  boxColor?: number;
   fontColor?: number;
   fontSize?: number;
   fontType?: number;
@@ -3443,6 +3467,12 @@ export class StartMPUTaskRequestUserPanesTexts extends $tea.Model {
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
+      alpha: 'Alpha',
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      box: 'Box',
+      boxBorderWidth: 'BoxBorderWidth',
+      boxColor: 'BoxColor',
       fontColor: 'FontColor',
       fontSize: 'FontSize',
       fontType: 'FontType',
@@ -3455,6 +3485,12 @@ export class StartMPUTaskRequestUserPanesTexts extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alpha: 'number',
+      borderColor: 'number',
+      borderWidth: 'number',
+      box: 'boolean',
+      boxBorderWidth: 'number',
+      boxColor: 'number',
       fontColor: 'number',
       fontSize: 'number',
       fontType: 'number',
@@ -3687,6 +3723,12 @@ export class UpdateMPUTaskRequestBackgrounds extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestClockWidgets extends $tea.Model {
+  alpha?: number;
+  borderColor?: number;
+  borderWidth?: number;
+  box?: boolean;
+  boxBorderWidth?: number;
+  boxColor?: number;
   fontColor?: number;
   fontSize?: number;
   fontType?: number;
@@ -3695,6 +3737,12 @@ export class UpdateMPUTaskRequestClockWidgets extends $tea.Model {
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
+      alpha: 'Alpha',
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      box: 'Box',
+      boxBorderWidth: 'BoxBorderWidth',
+      boxColor: 'BoxColor',
       fontColor: 'FontColor',
       fontSize: 'FontSize',
       fontType: 'FontType',
@@ -3706,6 +3754,12 @@ export class UpdateMPUTaskRequestClockWidgets extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alpha: 'number',
+      borderColor: 'number',
+      borderWidth: 'number',
+      box: 'boolean',
+      boxBorderWidth: 'number',
+      boxColor: 'number',
       fontColor: 'number',
       fontSize: 'number',
       fontType: 'number',
@@ -3758,6 +3812,12 @@ export class UpdateMPUTaskRequestUserPanesImages extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestUserPanesTexts extends $tea.Model {
+  alpha?: number;
+  borderColor?: number;
+  borderWidth?: number;
+  box?: boolean;
+  boxBorderWidth?: number;
+  boxColor?: number;
   fontColor?: number;
   fontSize?: number;
   fontType?: number;
@@ -3767,6 +3827,12 @@ export class UpdateMPUTaskRequestUserPanesTexts extends $tea.Model {
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
+      alpha: 'Alpha',
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      box: 'Box',
+      boxBorderWidth: 'BoxBorderWidth',
+      boxColor: 'BoxColor',
       fontColor: 'FontColor',
       fontSize: 'FontSize',
       fontType: 'FontType',
@@ -3779,6 +3845,12 @@ export class UpdateMPUTaskRequestUserPanesTexts extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alpha: 'number',
+      borderColor: 'number',
+      borderWidth: 'number',
+      box: 'boolean',
+      boxBorderWidth: 'number',
+      boxColor: 'number',
       fontColor: 'number',
       fontSize: 'number',
       fontType: 'number',
