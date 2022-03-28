@@ -8431,6 +8431,72 @@ export class DescribeDcdnUserBillTypeResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnUserCertificateExpireCountRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserCertificateExpireCountResponseBody extends $tea.Model {
+  expireWithin30DaysCount?: number;
+  expiredCount?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireWithin30DaysCount: 'ExpireWithin30DaysCount',
+      expiredCount: 'ExpiredCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireWithin30DaysCount: 'number',
+      expiredCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserCertificateExpireCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnUserCertificateExpireCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnUserCertificateExpireCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnUserDomainsRequest extends $tea.Model {
   changeEndTime?: string;
   changeStartTime?: string;
@@ -21623,6 +21689,35 @@ export default class Client extends OpenApi {
   async describeDcdnUserBillType(request: DescribeDcdnUserBillTypeRequest): Promise<DescribeDcdnUserBillTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserBillTypeWithOptions(request, runtime);
+  }
+
+  async describeDcdnUserCertificateExpireCountWithOptions(request: DescribeDcdnUserCertificateExpireCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserCertificateExpireCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnUserCertificateExpireCount",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnUserCertificateExpireCountResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserCertificateExpireCountResponse({}));
+  }
+
+  async describeDcdnUserCertificateExpireCount(request: DescribeDcdnUserCertificateExpireCountRequest): Promise<DescribeDcdnUserCertificateExpireCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnUserCertificateExpireCountWithOptions(request, runtime);
   }
 
   async describeDcdnUserDomainsWithOptions(request: DescribeDcdnUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserDomainsResponse> {
