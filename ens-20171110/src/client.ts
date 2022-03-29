@@ -8,6 +8,55 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class BucketInfo extends $tea.Model {
+  bucketAcl?: string;
+  bucketName?: string;
+  comment?: string;
+  createTime?: string;
+  dataRedundancyType?: string;
+  dispatcherType?: string;
+  endpoint?: string;
+  ensRegionId?: string;
+  modifyTime?: string;
+  resourceType?: string;
+  storageClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketAcl: 'BucketAcl',
+      bucketName: 'BucketName',
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      dataRedundancyType: 'DataRedundancyType',
+      dispatcherType: 'DispatcherType',
+      endpoint: 'Endpoint',
+      ensRegionId: 'EnsRegionId',
+      modifyTime: 'ModifyTime',
+      resourceType: 'ResourceType',
+      storageClass: 'StorageClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketAcl: 'string',
+      bucketName: 'string',
+      comment: 'string',
+      createTime: 'string',
+      dataRedundancyType: 'string',
+      dispatcherType: 'string',
+      endpoint: 'string',
+      ensRegionId: 'string',
+      modifyTime: 'string',
+      resourceType: 'string',
+      storageClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DataDisk extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
@@ -1060,97 +1109,6 @@ export class CheckQuotaResponse extends $tea.Model {
   }
 }
 
-export class ConfigureSecurityGroupPermissionsRequest extends $tea.Model {
-  authorizePermissions?: ConfigureSecurityGroupPermissionsRequestAuthorizePermissions[];
-  revokePermissions?: ConfigureSecurityGroupPermissionsRequestRevokePermissions[];
-  securityGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizePermissions: 'AuthorizePermissions',
-      revokePermissions: 'RevokePermissions',
-      securityGroupId: 'SecurityGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizePermissions: { 'type': 'array', 'itemType': ConfigureSecurityGroupPermissionsRequestAuthorizePermissions },
-      revokePermissions: { 'type': 'array', 'itemType': ConfigureSecurityGroupPermissionsRequestRevokePermissions },
-      securityGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigureSecurityGroupPermissionsShrinkRequest extends $tea.Model {
-  authorizePermissionsShrink?: string;
-  revokePermissionsShrink?: string;
-  securityGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizePermissionsShrink: 'AuthorizePermissions',
-      revokePermissionsShrink: 'RevokePermissions',
-      securityGroupId: 'SecurityGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizePermissionsShrink: 'string',
-      revokePermissionsShrink: 'string',
-      securityGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigureSecurityGroupPermissionsResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigureSecurityGroupPermissionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ConfigureSecurityGroupPermissionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ConfigureSecurityGroupPermissionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateApplicationRequest extends $tea.Model {
   template?: string;
   timeout?: number;
@@ -1292,144 +1250,6 @@ export class CreateDiskResponse extends $tea.Model {
   }
 }
 
-export class CreateDiskBuyOrderRequest extends $tea.Model {
-  orderDetails?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderDetails: 'OrderDetails',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderDetails: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskBuyOrderResponseBody extends $tea.Model {
-  orderId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskBuyOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateDiskBuyOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateDiskBuyOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEPInstanceRequest extends $tea.Model {
-  EPNInstanceName?: string;
-  EPNInstanceType?: string;
-  internetChargeType?: string;
-  internetMaxBandwidthOut?: number;
-  networkingModel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      EPNInstanceName: 'EPNInstanceName',
-      EPNInstanceType: 'EPNInstanceType',
-      internetChargeType: 'InternetChargeType',
-      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
-      networkingModel: 'NetworkingModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      EPNInstanceName: 'string',
-      EPNInstanceType: 'string',
-      internetChargeType: 'string',
-      internetMaxBandwidthOut: 'number',
-      networkingModel: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEPInstanceResponseBody extends $tea.Model {
-  EPNInstanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      EPNInstanceId: 'EPNInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      EPNInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEPInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateEPInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateEPInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateEipInstanceRequest extends $tea.Model {
   bandwidth?: number;
   ensRegionId?: string;
@@ -1500,69 +1320,6 @@ export class CreateEipInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateEipInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateElbBuyOrderRequest extends $tea.Model {
-  orderDetails?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderDetails: 'OrderDetails',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderDetails: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateElbBuyOrderResponseBody extends $tea.Model {
-  loadBalancerIds?: string[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loadBalancerIds: 'LoadBalancerIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loadBalancerIds: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateElbBuyOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateElbBuyOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateElbBuyOrderResponseBody,
     };
   }
 
@@ -4586,6 +4343,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
   associatedInstanceId?: string;
   associatedInstanceType?: string;
   eipAddress?: string;
+  ensRegionId?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
@@ -4594,6 +4352,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
       eipAddress: 'EipAddress',
+      ensRegionId: 'EnsRegionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -4605,6 +4364,7 @@ export class DescribeEnsEipAddressesRequest extends $tea.Model {
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
       eipAddress: 'string',
+      ensRegionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -6335,7 +6095,6 @@ export class DescribeInstancesRequest extends $tea.Model {
   securityGroupId?: string;
   status?: string;
   vSwitchId?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
@@ -6354,7 +6113,6 @@ export class DescribeInstancesRequest extends $tea.Model {
       securityGroupId: 'SecurityGroupId',
       status: 'Status',
       vSwitchId: 'VSwitchId',
-      version: 'Version',
     };
   }
 
@@ -6376,7 +6134,6 @@ export class DescribeInstancesRequest extends $tea.Model {
       securityGroupId: 'string',
       status: 'string',
       vSwitchId: 'string',
-      version: 'string',
     };
   }
 
@@ -7372,6 +7129,7 @@ export class DescribeNetworkAttributeResponseBody extends $tea.Model {
   networkId?: string;
   networkName?: string;
   requestId?: string;
+  routerTableId?: string;
   status?: string;
   vSwitchIds?: DescribeNetworkAttributeResponseBodyVSwitchIds;
   static names(): { [key: string]: string } {
@@ -7384,6 +7142,7 @@ export class DescribeNetworkAttributeResponseBody extends $tea.Model {
       networkId: 'NetworkId',
       networkName: 'NetworkName',
       requestId: 'RequestId',
+      routerTableId: 'RouterTableId',
       status: 'Status',
       vSwitchIds: 'VSwitchIds',
     };
@@ -7399,6 +7158,7 @@ export class DescribeNetworkAttributeResponseBody extends $tea.Model {
       networkId: 'string',
       networkName: 'string',
       requestId: 'string',
+      routerTableId: 'string',
       status: 'string',
       vSwitchIds: DescribeNetworkAttributeResponseBodyVSwitchIds,
     };
@@ -7698,22 +7458,24 @@ export class DescribePrePaidInstanceStockResponse extends $tea.Model {
 export class DescribePriceRequest extends $tea.Model {
   dataDisk?: DescribePriceRequestDataDisk[];
   systemDisk?: DescribePriceRequestSystemDisk;
+  dataDisks?: DescribePriceRequestDataDisks[];
   ensRegionId?: string;
   instanceType?: string;
   internetChargeType?: string;
   period?: number;
+  periodUnit?: string;
   quantity?: number;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       dataDisk: 'DataDisk',
       systemDisk: 'SystemDisk',
+      dataDisks: 'DataDisks',
       ensRegionId: 'EnsRegionId',
       instanceType: 'InstanceType',
       internetChargeType: 'InternetChargeType',
       period: 'Period',
+      periodUnit: 'PeriodUnit',
       quantity: 'Quantity',
-      version: 'Version',
     };
   }
 
@@ -7721,12 +7483,56 @@ export class DescribePriceRequest extends $tea.Model {
     return {
       dataDisk: { 'type': 'array', 'itemType': DescribePriceRequestDataDisk },
       systemDisk: DescribePriceRequestSystemDisk,
+      dataDisks: { 'type': 'array', 'itemType': DescribePriceRequestDataDisks },
       ensRegionId: 'string',
       instanceType: 'string',
       internetChargeType: 'string',
       period: 'number',
+      periodUnit: 'string',
       quantity: 'number',
-      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceShrinkRequest extends $tea.Model {
+  dataDisk?: DescribePriceShrinkRequestDataDisk[];
+  systemDisk?: DescribePriceShrinkRequestSystemDisk;
+  dataDisksShrink?: string;
+  ensRegionId?: string;
+  instanceType?: string;
+  internetChargeType?: string;
+  period?: number;
+  periodUnit?: string;
+  quantity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDisk: 'DataDisk',
+      systemDisk: 'SystemDisk',
+      dataDisksShrink: 'DataDisks',
+      ensRegionId: 'EnsRegionId',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      quantity: 'Quantity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisk: { 'type': 'array', 'itemType': DescribePriceShrinkRequestDataDisk },
+      systemDisk: DescribePriceShrinkRequestSystemDisk,
+      dataDisksShrink: 'string',
+      ensRegionId: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      quantity: 'number',
     };
   }
 
@@ -8475,12 +8281,10 @@ export class DistApplicationDataResponse extends $tea.Model {
 export class ExportBillDetailDataRequest extends $tea.Model {
   endDate?: string;
   startDate?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       endDate: 'EndDate',
       startDate: 'StartDate',
-      version: 'Version',
     };
   }
 
@@ -8488,7 +8292,6 @@ export class ExportBillDetailDataRequest extends $tea.Model {
     return {
       endDate: 'string',
       startDate: 'string',
-      version: 'string',
     };
   }
 
@@ -8547,7 +8350,6 @@ export class ExportImageRequest extends $tea.Model {
   OSSPrefix?: string;
   OSSRegionId?: string;
   roleName?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
@@ -8555,7 +8357,6 @@ export class ExportImageRequest extends $tea.Model {
       OSSPrefix: 'OSSPrefix',
       OSSRegionId: 'OSSRegionId',
       roleName: 'RoleName',
-      version: 'Version',
     };
   }
 
@@ -8566,7 +8367,6 @@ export class ExportImageRequest extends $tea.Model {
       OSSPrefix: 'string',
       OSSRegionId: 'string',
       roleName: 'string',
-      version: 'string',
     };
   }
 
@@ -8622,12 +8422,10 @@ export class ExportImageResponse extends $tea.Model {
 export class ExportMeasurementDataRequest extends $tea.Model {
   endDate?: string;
   startDate?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       endDate: 'EndDate',
       startDate: 'StartDate',
-      version: 'Version',
     };
   }
 
@@ -8635,7 +8433,6 @@ export class ExportMeasurementDataRequest extends $tea.Model {
     return {
       endDate: 'string',
       startDate: 'string',
-      version: 'string',
     };
   }
 
@@ -9895,6 +9692,69 @@ export class ModifyNetworkAttributeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyNetworkAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecRequest extends $tea.Model {
+  instanceId?: string;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyPrepayInstanceSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyPrepayInstanceSpecResponseBody,
     };
   }
 
@@ -11437,6 +11297,7 @@ export class RunInstancesRequest extends $tea.Model {
   netWorkId?: string;
   password?: string;
   period?: number;
+  periodUnit?: string;
   privateIpAddress?: string;
   scheduleAreaLevel?: string;
   schedulingPriceStrategy?: string;
@@ -11465,6 +11326,7 @@ export class RunInstancesRequest extends $tea.Model {
       netWorkId: 'NetWorkId',
       password: 'Password',
       period: 'Period',
+      periodUnit: 'PeriodUnit',
       privateIpAddress: 'PrivateIpAddress',
       scheduleAreaLevel: 'ScheduleAreaLevel',
       schedulingPriceStrategy: 'SchedulingPriceStrategy',
@@ -11496,6 +11358,7 @@ export class RunInstancesRequest extends $tea.Model {
       netWorkId: 'string',
       password: 'string',
       period: 'number',
+      periodUnit: 'string',
       privateIpAddress: 'string',
       scheduleAreaLevel: 'string',
       schedulingPriceStrategy: 'string',
@@ -11531,6 +11394,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   netWorkId?: string;
   password?: string;
   period?: number;
+  periodUnit?: string;
   privateIpAddress?: string;
   scheduleAreaLevel?: string;
   schedulingPriceStrategy?: string;
@@ -11559,6 +11423,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       netWorkId: 'NetWorkId',
       password: 'Password',
       period: 'Period',
+      periodUnit: 'PeriodUnit',
       privateIpAddress: 'PrivateIpAddress',
       scheduleAreaLevel: 'ScheduleAreaLevel',
       schedulingPriceStrategy: 'SchedulingPriceStrategy',
@@ -11590,6 +11455,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       netWorkId: 'string',
       password: 'string',
       period: 'number',
+      periodUnit: 'string',
       privateIpAddress: 'string',
       scheduleAreaLevel: 'string',
       schedulingPriceStrategy: 'string',
@@ -13107,89 +12973,6 @@ export class AllocateEipAddressResponseBodyEipAddresses extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       eipAddress: { 'type': 'array', 'itemType': AllocateEipAddressResponseBodyEipAddressesEipAddress },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigureSecurityGroupPermissionsRequestAuthorizePermissions extends $tea.Model {
-  description?: string;
-  destCidrIp?: string;
-  direction?: string;
-  ipProtocol?: string;
-  policy?: string;
-  portRange?: string;
-  priority?: number;
-  sourceCidrIp?: string;
-  sourcePortRange?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      destCidrIp: 'DestCidrIp',
-      direction: 'Direction',
-      ipProtocol: 'IpProtocol',
-      policy: 'Policy',
-      portRange: 'PortRange',
-      priority: 'Priority',
-      sourceCidrIp: 'SourceCidrIp',
-      sourcePortRange: 'SourcePortRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      destCidrIp: 'string',
-      direction: 'string',
-      ipProtocol: 'string',
-      policy: 'string',
-      portRange: 'string',
-      priority: 'number',
-      sourceCidrIp: 'string',
-      sourcePortRange: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigureSecurityGroupPermissionsRequestRevokePermissions extends $tea.Model {
-  destCidrIp?: string;
-  direction?: string;
-  ipProtocol?: string;
-  policy?: string;
-  portRange?: string;
-  priority?: number;
-  sourceCidrIp?: string;
-  sourcePortRange?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destCidrIp: 'DestCidrIp',
-      direction: 'Direction',
-      ipProtocol: 'IpProtocol',
-      policy: 'Policy',
-      portRange: 'PortRange',
-      priority: 'Priority',
-      sourceCidrIp: 'SourceCidrIp',
-      sourcePortRange: 'SourcePortRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destCidrIp: 'string',
-      direction: 'string',
-      ipProtocol: 'string',
-      policy: 'string',
-      portRange: 'string',
-      priority: 'number',
-      sourceCidrIp: 'string',
-      sourcePortRange: 'string',
     };
   }
 
@@ -16387,6 +16170,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $tea.Model {
   ensRegionId?: string;
   networkId?: string;
   networkName?: string;
+  routerTableId?: string;
   status?: string;
   vSwitchIds?: DescribeNetworksResponseBodyNetworksNetworkVSwitchIds;
   static names(): { [key: string]: string } {
@@ -16397,6 +16181,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $tea.Model {
       ensRegionId: 'EnsRegionId',
       networkId: 'NetworkId',
       networkName: 'NetworkName',
+      routerTableId: 'RouterTableId',
       status: 'Status',
       vSwitchIds: 'VSwitchIds',
     };
@@ -16410,6 +16195,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $tea.Model {
       ensRegionId: 'string',
       networkId: 'string',
       networkName: 'string',
+      routerTableId: 'string',
       status: 'string',
       vSwitchIds: DescribeNetworksResponseBodyNetworksNetworkVSwitchIds,
     };
@@ -16459,6 +16245,66 @@ export class DescribePriceRequestDataDisk extends $tea.Model {
 }
 
 export class DescribePriceRequestSystemDisk extends $tea.Model {
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestDataDisks extends $tea.Model {
+  category?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceShrinkRequestDataDisk extends $tea.Model {
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceShrinkRequestSystemDisk extends $tea.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17963,53 +17809,6 @@ export default class Client extends OpenApi {
     return await this.checkQuotaWithOptions(request, runtime);
   }
 
-  async configureSecurityGroupPermissionsWithOptions(tmpReq: ConfigureSecurityGroupPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<ConfigureSecurityGroupPermissionsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ConfigureSecurityGroupPermissionsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.authorizePermissions)) {
-      request.authorizePermissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authorizePermissions, "AuthorizePermissions", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.revokePermissions)) {
-      request.revokePermissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.revokePermissions, "RevokePermissions", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.authorizePermissionsShrink)) {
-      query["AuthorizePermissions"] = request.authorizePermissionsShrink;
-    }
-
-    if (!Util.isUnset(request.revokePermissionsShrink)) {
-      query["RevokePermissions"] = request.revokePermissionsShrink;
-    }
-
-    if (!Util.isUnset(request.securityGroupId)) {
-      query["SecurityGroupId"] = request.securityGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ConfigureSecurityGroupPermissions",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ConfigureSecurityGroupPermissionsResponse>(await this.callApi(params, req, runtime), new ConfigureSecurityGroupPermissionsResponse({}));
-  }
-
-  async configureSecurityGroupPermissions(request: ConfigureSecurityGroupPermissionsRequest): Promise<ConfigureSecurityGroupPermissionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.configureSecurityGroupPermissionsWithOptions(request, runtime);
-  }
-
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18084,80 +17883,6 @@ export default class Client extends OpenApi {
     return await this.createDiskWithOptions(request, runtime);
   }
 
-  async createDiskBuyOrderWithOptions(request: CreateDiskBuyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskBuyOrderResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.orderDetails)) {
-      query["OrderDetails"] = request.orderDetails;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateDiskBuyOrder",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDiskBuyOrderResponse>(await this.callApi(params, req, runtime), new CreateDiskBuyOrderResponse({}));
-  }
-
-  async createDiskBuyOrder(request: CreateDiskBuyOrderRequest): Promise<CreateDiskBuyOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDiskBuyOrderWithOptions(request, runtime);
-  }
-
-  async createEPInstanceWithOptions(request: CreateEPInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEPInstanceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.EPNInstanceName)) {
-      query["EPNInstanceName"] = request.EPNInstanceName;
-    }
-
-    if (!Util.isUnset(request.EPNInstanceType)) {
-      query["EPNInstanceType"] = request.EPNInstanceType;
-    }
-
-    if (!Util.isUnset(request.internetChargeType)) {
-      query["InternetChargeType"] = request.internetChargeType;
-    }
-
-    if (!Util.isUnset(request.internetMaxBandwidthOut)) {
-      query["InternetMaxBandwidthOut"] = request.internetMaxBandwidthOut;
-    }
-
-    if (!Util.isUnset(request.networkingModel)) {
-      query["NetworkingModel"] = request.networkingModel;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateEPInstance",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateEPInstanceResponse>(await this.callApi(params, req, runtime), new CreateEPInstanceResponse({}));
-  }
-
-  async createEPInstance(request: CreateEPInstanceRequest): Promise<CreateEPInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createEPInstanceWithOptions(request, runtime);
-  }
-
   async createEipInstanceWithOptions(request: CreateEipInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEipInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18205,35 +17930,6 @@ export default class Client extends OpenApi {
   async createEipInstance(request: CreateEipInstanceRequest): Promise<CreateEipInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEipInstanceWithOptions(request, runtime);
-  }
-
-  async createElbBuyOrderWithOptions(request: CreateElbBuyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateElbBuyOrderResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.orderDetails)) {
-      query["OrderDetails"] = request.orderDetails;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateElbBuyOrder",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateElbBuyOrderResponse>(await this.callApi(params, req, runtime), new CreateElbBuyOrderResponse({}));
-  }
-
-  async createElbBuyOrder(request: CreateElbBuyOrderRequest): Promise<CreateElbBuyOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createElbBuyOrderWithOptions(request, runtime);
   }
 
   async createEnsServiceWithOptions(request: CreateEnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsServiceResponse> {
@@ -19996,6 +19692,10 @@ export default class Client extends OpenApi {
       query["EipAddress"] = request.eipAddress;
     }
 
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -20927,10 +20627,6 @@ export default class Client extends OpenApi {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21410,9 +21106,19 @@ export default class Client extends OpenApi {
     return await this.describePrePaidInstanceStockWithOptions(request, runtime);
   }
 
-  async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
-    Util.validateModel(request);
+  async describePriceWithOptions(tmpReq: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribePriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataDisks)) {
+      request.dataDisksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDisks, "DataDisks", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.dataDisksShrink)) {
+      query["DataDisks"] = request.dataDisksShrink;
+    }
+
     if (!Util.isUnset(request.ensRegionId)) {
       query["EnsRegionId"] = request.ensRegionId;
     }
@@ -21429,12 +21135,12 @@ export default class Client extends OpenApi {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.quantity)) {
-      query["Quantity"] = request.quantity;
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
+    if (!Util.isUnset(request.quantity)) {
+      query["Quantity"] = request.quantity;
     }
 
     if (!Util.isUnset(request.dataDisk)) {
@@ -21823,10 +21529,6 @@ export default class Client extends OpenApi {
       query["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21872,10 +21574,6 @@ export default class Client extends OpenApi {
       query["RoleName"] = request.roleName;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21907,10 +21605,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startDate)) {
       query["StartDate"] = request.startDate;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22576,6 +22270,39 @@ export default class Client extends OpenApi {
   async modifyNetworkAttribute(request: ModifyNetworkAttributeRequest): Promise<ModifyNetworkAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkAttributeWithOptions(request, runtime);
+  }
+
+  async modifyPrepayInstanceSpecWithOptions(request: ModifyPrepayInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPrepayInstanceSpec",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
+  }
+
+  async modifyPrepayInstanceSpec(request: ModifyPrepayInstanceSpecRequest): Promise<ModifyPrepayInstanceSpecResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPrepayInstanceSpecWithOptions(request, runtime);
   }
 
   async modifySecurityGroupAttributeWithOptions(request: ModifySecurityGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupAttributeResponse> {
@@ -23514,6 +23241,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
     }
 
     if (!Util.isUnset(request.privateIpAddress)) {
