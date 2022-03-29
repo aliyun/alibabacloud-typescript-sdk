@@ -4,26 +4,27 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BindAliasRequest extends $tea.Model {
+  aliasName?: string;
   appKey?: number;
   deviceId?: string;
-  aliasName?: string;
   static names(): { [key: string]: string } {
     return {
+      aliasName: 'AliasName',
       appKey: 'AppKey',
       deviceId: 'DeviceId',
-      aliasName: 'AliasName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aliasName: 'string',
       appKey: 'number',
       deviceId: 'string',
-      aliasName: 'string',
     };
   }
 
@@ -291,28 +292,28 @@ export class CheckCertificateRequest extends $tea.Model {
 }
 
 export class CheckCertificateResponseBody extends $tea.Model {
-  requestId?: string;
   android?: boolean;
+  developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
   IOS?: boolean;
   productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
-  developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       android: 'Android',
+      developmentCertInfo: 'DevelopmentCertInfo',
       IOS: 'IOS',
       productionCertInfo: 'ProductionCertInfo',
-      developmentCertInfo: 'DevelopmentCertInfo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       android: 'boolean',
+      developmentCertInfo: CheckCertificateResponseBodyDevelopmentCertInfo,
       IOS: 'boolean',
       productionCertInfo: CheckCertificateResponseBodyProductionCertInfo,
-      developmentCertInfo: CheckCertificateResponseBodyDevelopmentCertInfo,
+      requestId: 'string',
     };
   }
 
@@ -432,19 +433,19 @@ export class CheckDevicesRequest extends $tea.Model {
 }
 
 export class CheckDevicesResponseBody extends $tea.Model {
-  requestId?: string;
   deviceCheckInfos?: CheckDevicesResponseBodyDeviceCheckInfos;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       deviceCheckInfos: 'DeviceCheckInfos',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       deviceCheckInfos: CheckDevicesResponseBodyDeviceCheckInfos,
+      requestId: 'string',
     };
   }
 
@@ -743,19 +744,19 @@ export class MassPushRequest extends $tea.Model {
 }
 
 export class MassPushResponseBody extends $tea.Model {
-  requestId?: string;
   messageIds?: MassPushResponseBodyMessageIds;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageIds: 'MessageIds',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageIds: MassPushResponseBodyMessageIds,
+      requestId: 'string',
     };
   }
 
@@ -787,196 +788,196 @@ export class MassPushResponse extends $tea.Model {
 }
 
 export class PushRequest extends $tea.Model {
+  androidActivity?: string;
+  androidBigBody?: string;
+  androidBigPictureUrl?: string;
+  androidBigTitle?: string;
+  androidExtParameters?: string;
+  androidImageUrl?: string;
+  androidInboxBody?: string;
+  androidMessageHuaweiCategory?: string;
+  androidMessageHuaweiUrgency?: string;
+  androidMusic?: string;
+  androidNotificationBarPriority?: number;
+  androidNotificationBarType?: number;
+  androidNotificationChannel?: string;
+  androidNotificationHuaweiChannel?: string;
+  androidNotificationNotifyId?: number;
+  androidNotificationVivoChannel?: string;
+  androidNotificationXiaomiChannel?: string;
+  androidNotifyType?: string;
+  androidOpenType?: string;
+  androidOpenUrl?: string;
+  androidPopupActivity?: string;
+  androidPopupBody?: string;
+  androidPopupTitle?: string;
+  androidRemind?: boolean;
+  androidRenderStyle?: number;
+  androidXiaoMiActivity?: string;
+  androidXiaoMiNotifyBody?: string;
+  androidXiaoMiNotifyTitle?: string;
+  androidXiaomiBigPictureUrl?: string;
+  androidXiaomiImageUrl?: string;
   appKey?: number;
-  pushType?: string;
+  body?: string;
   deviceType?: string;
+  expireTime?: string;
+  jobKey?: string;
+  pushTime?: string;
+  pushType?: string;
+  sendChannels?: string;
+  sendSpeed?: number;
+  smsDelaySecs?: number;
+  smsParams?: string;
+  smsSendPolicy?: number;
+  smsSignName?: string;
+  smsTemplateName?: string;
+  storeOffline?: boolean;
   target?: string;
   targetValue?: string;
   title?: string;
-  body?: string;
-  jobKey?: string;
-  sendSpeed?: number;
-  storeOffline?: boolean;
-  pushTime?: string;
-  expireTime?: string;
   iOSApnsEnv?: string;
-  iOSRemind?: boolean;
-  iOSRemindBody?: string;
   iOSBadge?: number;
   iOSBadgeAutoIncrement?: boolean;
-  iOSSilentNotification?: boolean;
-  iOSMusic?: string;
-  iOSSubtitle?: string;
-  iOSNotificationCategory?: string;
-  iOSMutableContent?: boolean;
   iOSExtParameters?: string;
-  androidNotifyType?: string;
-  androidOpenType?: string;
-  androidActivity?: string;
-  androidMusic?: string;
-  androidOpenUrl?: string;
-  androidXiaoMiActivity?: string;
-  androidXiaoMiNotifyTitle?: string;
-  androidXiaoMiNotifyBody?: string;
-  androidPopupActivity?: string;
-  androidPopupTitle?: string;
-  androidPopupBody?: string;
-  androidNotificationBarType?: number;
-  androidNotificationBarPriority?: number;
-  androidExtParameters?: string;
-  androidRemind?: boolean;
-  androidNotificationChannel?: string;
-  androidNotificationXiaomiChannel?: string;
-  smsTemplateName?: string;
-  smsSignName?: string;
-  smsParams?: string;
-  smsDelaySecs?: number;
-  smsSendPolicy?: number;
-  androidNotificationVivoChannel?: string;
-  androidNotificationHuaweiChannel?: string;
-  androidNotificationNotifyId?: number;
+  iOSMusic?: string;
+  iOSMutableContent?: boolean;
+  iOSNotificationCategory?: string;
   iOSNotificationCollapseId?: string;
-  androidRenderStyle?: number;
-  androidBigTitle?: string;
-  androidBigBody?: string;
-  androidXiaomiBigPictureUrl?: string;
   iOSNotificationThreadId?: string;
-  androidBigPictureUrl?: string;
-  androidInboxBody?: string;
-  androidImageUrl?: string;
-  androidXiaomiImageUrl?: string;
-  androidMessageHuaweiUrgency?: string;
-  androidMessageHuaweiCategory?: string;
-  sendChannels?: string;
+  iOSRemind?: boolean;
+  iOSRemindBody?: string;
+  iOSSilentNotification?: boolean;
+  iOSSubtitle?: string;
   static names(): { [key: string]: string } {
     return {
+      androidActivity: 'AndroidActivity',
+      androidBigBody: 'AndroidBigBody',
+      androidBigPictureUrl: 'AndroidBigPictureUrl',
+      androidBigTitle: 'AndroidBigTitle',
+      androidExtParameters: 'AndroidExtParameters',
+      androidImageUrl: 'AndroidImageUrl',
+      androidInboxBody: 'AndroidInboxBody',
+      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
+      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMusic: 'AndroidMusic',
+      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
+      androidNotificationBarType: 'AndroidNotificationBarType',
+      androidNotificationChannel: 'AndroidNotificationChannel',
+      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
+      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
+      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
+      androidNotifyType: 'AndroidNotifyType',
+      androidOpenType: 'AndroidOpenType',
+      androidOpenUrl: 'AndroidOpenUrl',
+      androidPopupActivity: 'AndroidPopupActivity',
+      androidPopupBody: 'AndroidPopupBody',
+      androidPopupTitle: 'AndroidPopupTitle',
+      androidRemind: 'AndroidRemind',
+      androidRenderStyle: 'AndroidRenderStyle',
+      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
+      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
+      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
+      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
+      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
       appKey: 'AppKey',
-      pushType: 'PushType',
+      body: 'Body',
       deviceType: 'DeviceType',
+      expireTime: 'ExpireTime',
+      jobKey: 'JobKey',
+      pushTime: 'PushTime',
+      pushType: 'PushType',
+      sendChannels: 'SendChannels',
+      sendSpeed: 'SendSpeed',
+      smsDelaySecs: 'SmsDelaySecs',
+      smsParams: 'SmsParams',
+      smsSendPolicy: 'SmsSendPolicy',
+      smsSignName: 'SmsSignName',
+      smsTemplateName: 'SmsTemplateName',
+      storeOffline: 'StoreOffline',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
-      body: 'Body',
-      jobKey: 'JobKey',
-      sendSpeed: 'SendSpeed',
-      storeOffline: 'StoreOffline',
-      pushTime: 'PushTime',
-      expireTime: 'ExpireTime',
       iOSApnsEnv: 'iOSApnsEnv',
-      iOSRemind: 'iOSRemind',
-      iOSRemindBody: 'iOSRemindBody',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
-      iOSSilentNotification: 'iOSSilentNotification',
-      iOSMusic: 'iOSMusic',
-      iOSSubtitle: 'iOSSubtitle',
-      iOSNotificationCategory: 'iOSNotificationCategory',
-      iOSMutableContent: 'iOSMutableContent',
       iOSExtParameters: 'iOSExtParameters',
-      androidNotifyType: 'AndroidNotifyType',
-      androidOpenType: 'AndroidOpenType',
-      androidActivity: 'AndroidActivity',
-      androidMusic: 'AndroidMusic',
-      androidOpenUrl: 'AndroidOpenUrl',
-      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
-      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
-      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
-      androidPopupActivity: 'AndroidPopupActivity',
-      androidPopupTitle: 'AndroidPopupTitle',
-      androidPopupBody: 'AndroidPopupBody',
-      androidNotificationBarType: 'AndroidNotificationBarType',
-      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
-      androidExtParameters: 'AndroidExtParameters',
-      androidRemind: 'AndroidRemind',
-      androidNotificationChannel: 'AndroidNotificationChannel',
-      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
-      smsTemplateName: 'SmsTemplateName',
-      smsSignName: 'SmsSignName',
-      smsParams: 'SmsParams',
-      smsDelaySecs: 'SmsDelaySecs',
-      smsSendPolicy: 'SmsSendPolicy',
-      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
-      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      iOSMusic: 'iOSMusic',
+      iOSMutableContent: 'iOSMutableContent',
+      iOSNotificationCategory: 'iOSNotificationCategory',
       iOSNotificationCollapseId: 'iOSNotificationCollapseId',
-      androidRenderStyle: 'AndroidRenderStyle',
-      androidBigTitle: 'AndroidBigTitle',
-      androidBigBody: 'AndroidBigBody',
-      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
       iOSNotificationThreadId: 'iOSNotificationThreadId',
-      androidBigPictureUrl: 'AndroidBigPictureUrl',
-      androidInboxBody: 'AndroidInboxBody',
-      androidImageUrl: 'AndroidImageUrl',
-      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
-      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
-      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
-      sendChannels: 'SendChannels',
+      iOSRemind: 'iOSRemind',
+      iOSRemindBody: 'iOSRemindBody',
+      iOSSilentNotification: 'iOSSilentNotification',
+      iOSSubtitle: 'iOSSubtitle',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      androidActivity: 'string',
+      androidBigBody: 'string',
+      androidBigPictureUrl: 'string',
+      androidBigTitle: 'string',
+      androidExtParameters: 'string',
+      androidImageUrl: 'string',
+      androidInboxBody: 'string',
+      androidMessageHuaweiCategory: 'string',
+      androidMessageHuaweiUrgency: 'string',
+      androidMusic: 'string',
+      androidNotificationBarPriority: 'number',
+      androidNotificationBarType: 'number',
+      androidNotificationChannel: 'string',
+      androidNotificationHuaweiChannel: 'string',
+      androidNotificationNotifyId: 'number',
+      androidNotificationVivoChannel: 'string',
+      androidNotificationXiaomiChannel: 'string',
+      androidNotifyType: 'string',
+      androidOpenType: 'string',
+      androidOpenUrl: 'string',
+      androidPopupActivity: 'string',
+      androidPopupBody: 'string',
+      androidPopupTitle: 'string',
+      androidRemind: 'boolean',
+      androidRenderStyle: 'number',
+      androidXiaoMiActivity: 'string',
+      androidXiaoMiNotifyBody: 'string',
+      androidXiaoMiNotifyTitle: 'string',
+      androidXiaomiBigPictureUrl: 'string',
+      androidXiaomiImageUrl: 'string',
       appKey: 'number',
-      pushType: 'string',
+      body: 'string',
       deviceType: 'string',
+      expireTime: 'string',
+      jobKey: 'string',
+      pushTime: 'string',
+      pushType: 'string',
+      sendChannels: 'string',
+      sendSpeed: 'number',
+      smsDelaySecs: 'number',
+      smsParams: 'string',
+      smsSendPolicy: 'number',
+      smsSignName: 'string',
+      smsTemplateName: 'string',
+      storeOffline: 'boolean',
       target: 'string',
       targetValue: 'string',
       title: 'string',
-      body: 'string',
-      jobKey: 'string',
-      sendSpeed: 'number',
-      storeOffline: 'boolean',
-      pushTime: 'string',
-      expireTime: 'string',
       iOSApnsEnv: 'string',
-      iOSRemind: 'boolean',
-      iOSRemindBody: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',
-      iOSSilentNotification: 'boolean',
-      iOSMusic: 'string',
-      iOSSubtitle: 'string',
-      iOSNotificationCategory: 'string',
-      iOSMutableContent: 'boolean',
       iOSExtParameters: 'string',
-      androidNotifyType: 'string',
-      androidOpenType: 'string',
-      androidActivity: 'string',
-      androidMusic: 'string',
-      androidOpenUrl: 'string',
-      androidXiaoMiActivity: 'string',
-      androidXiaoMiNotifyTitle: 'string',
-      androidXiaoMiNotifyBody: 'string',
-      androidPopupActivity: 'string',
-      androidPopupTitle: 'string',
-      androidPopupBody: 'string',
-      androidNotificationBarType: 'number',
-      androidNotificationBarPriority: 'number',
-      androidExtParameters: 'string',
-      androidRemind: 'boolean',
-      androidNotificationChannel: 'string',
-      androidNotificationXiaomiChannel: 'string',
-      smsTemplateName: 'string',
-      smsSignName: 'string',
-      smsParams: 'string',
-      smsDelaySecs: 'number',
-      smsSendPolicy: 'number',
-      androidNotificationVivoChannel: 'string',
-      androidNotificationHuaweiChannel: 'string',
-      androidNotificationNotifyId: 'number',
+      iOSMusic: 'string',
+      iOSMutableContent: 'boolean',
+      iOSNotificationCategory: 'string',
       iOSNotificationCollapseId: 'string',
-      androidRenderStyle: 'number',
-      androidBigTitle: 'string',
-      androidBigBody: 'string',
-      androidXiaomiBigPictureUrl: 'string',
       iOSNotificationThreadId: 'string',
-      androidBigPictureUrl: 'string',
-      androidInboxBody: 'string',
-      androidImageUrl: 'string',
-      androidXiaomiImageUrl: 'string',
-      androidMessageHuaweiUrgency: 'string',
-      androidMessageHuaweiCategory: 'string',
-      sendChannels: 'string',
+      iOSRemind: 'boolean',
+      iOSRemindBody: 'string',
+      iOSSilentNotification: 'boolean',
+      iOSSubtitle: 'string',
     };
   }
 
@@ -1031,30 +1032,30 @@ export class PushResponse extends $tea.Model {
 
 export class PushMessageToAndroidRequest extends $tea.Model {
   appKey?: number;
+  body?: string;
+  jobKey?: string;
   target?: string;
   targetValue?: string;
   title?: string;
-  body?: string;
-  jobKey?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
+      body: 'Body',
+      jobKey: 'JobKey',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
-      body: 'Body',
-      jobKey: 'JobKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
+      body: 'string',
+      jobKey: 'string',
       target: 'string',
       targetValue: 'string',
       title: 'string',
-      body: 'string',
-      jobKey: 'string',
     };
   }
 
@@ -1109,30 +1110,30 @@ export class PushMessageToAndroidResponse extends $tea.Model {
 
 export class PushMessageToiOSRequest extends $tea.Model {
   appKey?: number;
+  body?: string;
+  jobKey?: string;
   target?: string;
   targetValue?: string;
   title?: string;
-  body?: string;
-  jobKey?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
+      body: 'Body',
+      jobKey: 'JobKey',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
-      body: 'Body',
-      jobKey: 'JobKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
+      body: 'string',
+      jobKey: 'string',
       target: 'string',
       targetValue: 'string',
       title: 'string',
-      body: 'string',
-      jobKey: 'string',
     };
   }
 
@@ -1187,33 +1188,33 @@ export class PushMessageToiOSResponse extends $tea.Model {
 
 export class PushNoticeToAndroidRequest extends $tea.Model {
   appKey?: number;
+  body?: string;
+  extParameters?: string;
+  jobKey?: string;
   target?: string;
   targetValue?: string;
   title?: string;
-  body?: string;
-  jobKey?: string;
-  extParameters?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
+      body: 'Body',
+      extParameters: 'ExtParameters',
+      jobKey: 'JobKey',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
-      body: 'Body',
-      jobKey: 'JobKey',
-      extParameters: 'ExtParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
+      body: 'string',
+      extParameters: 'string',
+      jobKey: 'string',
       target: 'string',
       targetValue: 'string',
       title: 'string',
-      body: 'string',
-      jobKey: 'string',
-      extParameters: 'string',
     };
   }
 
@@ -1267,37 +1268,37 @@ export class PushNoticeToAndroidResponse extends $tea.Model {
 }
 
 export class PushNoticeToiOSRequest extends $tea.Model {
+  apnsEnv?: string;
   appKey?: number;
+  body?: string;
+  extParameters?: string;
+  jobKey?: string;
   target?: string;
   targetValue?: string;
-  apnsEnv?: string;
   title?: string;
-  body?: string;
-  jobKey?: string;
-  extParameters?: string;
   static names(): { [key: string]: string } {
     return {
+      apnsEnv: 'ApnsEnv',
       appKey: 'AppKey',
+      body: 'Body',
+      extParameters: 'ExtParameters',
+      jobKey: 'JobKey',
       target: 'Target',
       targetValue: 'TargetValue',
-      apnsEnv: 'ApnsEnv',
       title: 'Title',
-      body: 'Body',
-      jobKey: 'JobKey',
-      extParameters: 'ExtParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      apnsEnv: 'string',
       appKey: 'number',
+      body: 'string',
+      extParameters: 'string',
+      jobKey: 'string',
       target: 'string',
       targetValue: 'string',
-      apnsEnv: 'string',
       title: 'string',
-      body: 'string',
-      jobKey: 'string',
-      extParameters: 'string',
     };
   }
 
@@ -1373,19 +1374,19 @@ export class QueryAliasesRequest extends $tea.Model {
 }
 
 export class QueryAliasesResponseBody extends $tea.Model {
-  requestId?: string;
   aliasInfos?: QueryAliasesResponseBodyAliasInfos;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aliasInfos: 'AliasInfos',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aliasInfos: QueryAliasesResponseBodyAliasInfos,
+      requestId: 'string',
     };
   }
 
@@ -1508,19 +1509,19 @@ export class QueryDeviceInfoRequest extends $tea.Model {
 }
 
 export class QueryDeviceInfoResponseBody extends $tea.Model {
-  requestId?: string;
   deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       deviceInfo: 'DeviceInfo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       deviceInfo: QueryDeviceInfoResponseBodyDeviceInfo,
+      requestId: 'string',
     };
   }
 
@@ -1551,20 +1552,95 @@ export class QueryDeviceInfoResponse extends $tea.Model {
   }
 }
 
-export class QueryDevicesByAccountRequest extends $tea.Model {
+export class QueryDeviceStatRequest extends $tea.Model {
   appKey?: number;
-  account?: string;
+  deviceType?: string;
+  endTime?: string;
+  queryType?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
-      account: 'Account',
+      deviceType: 'DeviceType',
+      endTime: 'EndTime',
+      queryType: 'QueryType',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
+      deviceType: 'string',
+      endTime: 'string',
+      queryType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatResponseBody extends $tea.Model {
+  appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appDeviceStats: 'AppDeviceStats',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDeviceStats: QueryDeviceStatResponseBodyAppDeviceStats,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDeviceStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDeviceStatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDevicesByAccountRequest extends $tea.Model {
+  account?: string;
+  appKey?: number;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       account: 'string',
+      appKey: 'number',
     };
   }
 
@@ -1574,19 +1650,19 @@ export class QueryDevicesByAccountRequest extends $tea.Model {
 }
 
 export class QueryDevicesByAccountResponseBody extends $tea.Model {
-  requestId?: string;
   deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       deviceIds: 'DeviceIds',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       deviceIds: QueryDevicesByAccountResponseBodyDeviceIds,
+      requestId: 'string',
     };
   }
 
@@ -1618,19 +1694,19 @@ export class QueryDevicesByAccountResponse extends $tea.Model {
 }
 
 export class QueryDevicesByAliasRequest extends $tea.Model {
-  appKey?: number;
   alias?: string;
+  appKey?: number;
   static names(): { [key: string]: string } {
     return {
-      appKey: 'AppKey',
       alias: 'Alias',
+      appKey: 'AppKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appKey: 'number',
       alias: 'string',
+      appKey: 'number',
     };
   }
 
@@ -1640,19 +1716,19 @@ export class QueryDevicesByAliasRequest extends $tea.Model {
 }
 
 export class QueryDevicesByAliasResponseBody extends $tea.Model {
-  requestId?: string;
   deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       deviceIds: 'DeviceIds',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       deviceIds: QueryDevicesByAliasResponseBodyDeviceIds,
+      requestId: 'string',
     };
   }
 
@@ -1683,119 +1759,44 @@ export class QueryDevicesByAliasResponse extends $tea.Model {
   }
 }
 
-export class QueryDeviceStatRequest extends $tea.Model {
-  appKey?: number;
-  startTime?: string;
-  endTime?: string;
-  deviceType?: string;
-  queryType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      deviceType: 'DeviceType',
-      queryType: 'QueryType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      startTime: 'string',
-      endTime: 'string',
-      deviceType: 'string',
-      queryType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponseBody extends $tea.Model {
-  requestId?: string;
-  appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      appDeviceStats: 'AppDeviceStats',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      appDeviceStats: QueryDeviceStatResponseBodyAppDeviceStats,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDeviceStatResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDeviceStatResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryPushRecordsRequest extends $tea.Model {
   appKey?: number;
-  startTime?: string;
   endTime?: string;
-  pushType?: string;
-  target?: string;
-  source?: string;
   keyword?: string;
   nextToken?: string;
-  pageSize?: number;
   page?: number;
+  pageSize?: number;
+  pushType?: string;
+  source?: string;
+  startTime?: string;
+  target?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
-      startTime: 'StartTime',
       endTime: 'EndTime',
-      pushType: 'PushType',
-      target: 'Target',
-      source: 'Source',
       keyword: 'Keyword',
       nextToken: 'NextToken',
-      pageSize: 'PageSize',
       page: 'Page',
+      pageSize: 'PageSize',
+      pushType: 'PushType',
+      source: 'Source',
+      startTime: 'StartTime',
+      target: 'Target',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
-      startTime: 'string',
       endTime: 'string',
-      pushType: 'string',
-      target: 'string',
-      source: 'string',
       keyword: 'string',
       nextToken: 'string',
-      pageSize: 'number',
       page: 'number',
+      pageSize: 'number',
+      pushType: 'string',
+      source: 'string',
+      startTime: 'string',
+      target: 'string',
     };
   }
 
@@ -1806,30 +1807,30 @@ export class QueryPushRecordsRequest extends $tea.Model {
 
 export class QueryPushRecordsResponseBody extends $tea.Model {
   nextToken?: string;
+  page?: number;
   pageSize?: number;
+  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
   requestId?: string;
   total?: number;
-  page?: number;
-  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
+      page: 'Page',
       pageSize: 'PageSize',
+      pushInfos: 'PushInfos',
       requestId: 'RequestId',
       total: 'Total',
-      page: 'Page',
-      pushInfos: 'PushInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       nextToken: 'string',
+      page: 'number',
       pageSize: 'number',
+      pushInfos: QueryPushRecordsResponseBodyPushInfos,
       requestId: 'string',
       total: 'number',
-      page: 'number',
-      pushInfos: QueryPushRecordsResponseBodyPushInfos,
     };
   }
 
@@ -1862,24 +1863,24 @@ export class QueryPushRecordsResponse extends $tea.Model {
 
 export class QueryPushStatByAppRequest extends $tea.Model {
   appKey?: number;
-  startTime?: string;
   endTime?: string;
   granularity?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
-      startTime: 'StartTime',
       endTime: 'EndTime',
       granularity: 'Granularity',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
-      startTime: 'string',
       endTime: 'string',
       granularity: 'string',
+      startTime: 'string',
     };
   }
 
@@ -1889,19 +1890,19 @@ export class QueryPushStatByAppRequest extends $tea.Model {
 }
 
 export class QueryPushStatByAppResponseBody extends $tea.Model {
-  requestId?: string;
   appPushStats?: QueryPushStatByAppResponseBodyAppPushStats;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       appPushStats: 'AppPushStats',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       appPushStats: QueryPushStatByAppResponseBodyAppPushStats,
+      requestId: 'string',
     };
   }
 
@@ -1955,19 +1956,19 @@ export class QueryPushStatByMsgRequest extends $tea.Model {
 }
 
 export class QueryPushStatByMsgResponseBody extends $tea.Model {
-  requestId?: string;
   pushStats?: QueryPushStatByMsgResponseBodyPushStats;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       pushStats: 'PushStats',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       pushStats: QueryPushStatByMsgResponseBodyPushStats,
+      requestId: 'string',
     };
   }
 
@@ -2069,24 +2070,24 @@ export class QueryTagsResponse extends $tea.Model {
 
 export class QueryUniqueDeviceStatRequest extends $tea.Model {
   appKey?: number;
-  startTime?: string;
   endTime?: string;
   granularity?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
-      startTime: 'StartTime',
       endTime: 'EndTime',
       granularity: 'Granularity',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appKey: 'number',
-      startTime: 'string',
       endTime: 'string',
       granularity: 'string',
+      startTime: 'string',
     };
   }
 
@@ -2096,19 +2097,19 @@ export class QueryUniqueDeviceStatRequest extends $tea.Model {
 }
 
 export class QueryUniqueDeviceStatResponseBody extends $tea.Model {
-  requestId?: string;
   appDeviceStats?: QueryUniqueDeviceStatResponseBodyAppDeviceStats;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       appDeviceStats: 'AppDeviceStats',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       appDeviceStats: QueryUniqueDeviceStatResponseBodyAppDeviceStats,
+      requestId: 'string',
     };
   }
 
@@ -2203,24 +2204,24 @@ export class RemoveTagResponse extends $tea.Model {
 }
 
 export class UnbindAliasRequest extends $tea.Model {
+  aliasName?: string;
   appKey?: number;
   deviceId?: string;
-  aliasName?: string;
   unbindAll?: boolean;
   static names(): { [key: string]: string } {
     return {
+      aliasName: 'AliasName',
       appKey: 'AppKey',
       deviceId: 'DeviceId',
-      aliasName: 'AliasName',
       unbindAll: 'UnbindAll',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aliasName: 'string',
       appKey: 'number',
       deviceId: 'string',
-      aliasName: 'string',
       unbindAll: 'boolean',
     };
   }
@@ -2403,20 +2404,20 @@ export class UnbindTagResponse extends $tea.Model {
   }
 }
 
-export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
-  status?: string;
+export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model {
   exipreTime?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       exipreTime: 'ExipreTime',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       exipreTime: 'number',
+      status: 'string',
     };
   }
 
@@ -2425,20 +2426,20 @@ export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
   }
 }
 
-export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model {
-  status?: string;
+export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
   exipreTime?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       exipreTime: 'ExipreTime',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       exipreTime: 'number',
+      status: 'string',
     };
   }
 
@@ -2448,19 +2449,19 @@ export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model 
 }
 
 export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $tea.Model {
-  deviceId?: string;
   available?: boolean;
+  deviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
       available: 'Available',
+      deviceId: 'DeviceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
       available: 'boolean',
+      deviceId: 'string',
     };
   }
 
@@ -2489,19 +2490,19 @@ export class CheckDevicesResponseBodyDeviceCheckInfos extends $tea.Model {
 }
 
 export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $tea.Model {
-  appName?: string;
   appKey?: number;
+  appName?: string;
   static names(): { [key: string]: string } {
     return {
-      appName: 'AppName',
       appKey: 'AppKey',
+      appName: 'AppName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appName: 'string',
       appKey: 'number',
+      appName: 'string',
     };
   }
 
@@ -2568,178 +2569,178 @@ export class ListTagsResponseBodyTagInfos extends $tea.Model {
 }
 
 export class MassPushRequestPushTask extends $tea.Model {
-  jobKey?: string;
-  iOSSilentNotification?: boolean;
-  storeOffline?: boolean;
-  iOSSubtitle?: string;
-  androidNotificationHuaweiChannel?: string;
-  androidNotificationChannel?: string;
-  iOSApnsEnv?: string;
-  iOSBadgeAutoIncrement?: boolean;
-  androidXiaoMiNotifyTitle?: string;
-  androidNotificationXiaomiChannel?: string;
-  androidXiaoMiActivity?: string;
-  androidPopupTitle?: string;
-  iOSRemindBody?: string;
-  androidNotifyType?: string;
-  androidOpenUrl?: string;
-  androidBigTitle?: string;
-  expireTime?: string;
-  androidOpenType?: string;
-  androidExtParameters?: string;
-  androidXiaoMiNotifyBody?: string;
-  androidXiaomiBigPictureUrl?: string;
-  targetValue?: string;
-  iOSMusic?: string;
-  iOSRemind?: boolean;
-  iOSBadge?: number;
-  title?: string;
-  androidMusic?: string;
-  iOSNotificationCollapseId?: string;
-  androidRenderStyle?: string;
-  iOSNotificationCategory?: string;
-  iOSNotificationThreadId?: string;
   androidActivity?: string;
   androidBigBody?: string;
-  iOSMutableContent?: boolean;
-  target?: string;
-  androidNotificationNotifyId?: number;
-  androidNotificationVivoChannel?: string;
-  androidPopupActivity?: string;
-  deviceType?: string;
-  androidRemind?: boolean;
-  androidPopupBody?: string;
-  iOSExtParameters?: string;
-  body?: string;
+  androidBigPictureUrl?: string;
+  androidBigTitle?: string;
+  androidExtParameters?: string;
+  androidImageUrl?: string;
+  androidInboxBody?: string;
+  androidMessageHuaweiCategory?: string;
+  androidMessageHuaweiUrgency?: string;
+  androidMusic?: string;
   androidNotificationBarPriority?: number;
   androidNotificationBarType?: number;
-  pushType?: string;
-  sendSpeed?: number;
-  pushTime?: string;
-  androidBigPictureUrl?: string;
-  androidInboxBody?: string;
-  androidImageUrl?: string;
+  androidNotificationChannel?: string;
+  androidNotificationHuaweiChannel?: string;
+  androidNotificationNotifyId?: number;
+  androidNotificationVivoChannel?: string;
+  androidNotificationXiaomiChannel?: string;
+  androidNotifyType?: string;
+  androidOpenType?: string;
+  androidOpenUrl?: string;
+  androidPopupActivity?: string;
+  androidPopupBody?: string;
+  androidPopupTitle?: string;
+  androidRemind?: boolean;
+  androidRenderStyle?: string;
+  androidXiaoMiActivity?: string;
+  androidXiaoMiNotifyBody?: string;
+  androidXiaoMiNotifyTitle?: string;
+  androidXiaomiBigPictureUrl?: string;
   androidXiaomiImageUrl?: string;
-  androidMessageHuaweiUrgency?: string;
-  androidMessageHuaweiCategory?: string;
+  body?: string;
+  deviceType?: string;
+  expireTime?: string;
+  jobKey?: string;
+  pushTime?: string;
+  pushType?: string;
   sendChannels?: string;
+  sendSpeed?: number;
+  storeOffline?: boolean;
+  target?: string;
+  targetValue?: string;
+  title?: string;
+  iOSApnsEnv?: string;
+  iOSBadge?: number;
+  iOSBadgeAutoIncrement?: boolean;
+  iOSExtParameters?: string;
+  iOSMusic?: string;
+  iOSMutableContent?: boolean;
+  iOSNotificationCategory?: string;
+  iOSNotificationCollapseId?: string;
+  iOSNotificationThreadId?: string;
+  iOSRemind?: boolean;
+  iOSRemindBody?: string;
+  iOSSilentNotification?: boolean;
+  iOSSubtitle?: string;
   static names(): { [key: string]: string } {
     return {
-      jobKey: 'JobKey',
-      iOSSilentNotification: 'iOSSilentNotification',
-      storeOffline: 'StoreOffline',
-      iOSSubtitle: 'iOSSubtitle',
-      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
-      androidNotificationChannel: 'AndroidNotificationChannel',
-      iOSApnsEnv: 'iOSApnsEnv',
-      iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
-      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
-      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
-      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
-      androidPopupTitle: 'AndroidPopupTitle',
-      iOSRemindBody: 'iOSRemindBody',
-      androidNotifyType: 'AndroidNotifyType',
-      androidOpenUrl: 'AndroidOpenUrl',
-      androidBigTitle: 'AndroidBigTitle',
-      expireTime: 'ExpireTime',
-      androidOpenType: 'AndroidOpenType',
-      androidExtParameters: 'AndroidExtParameters',
-      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
-      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
-      targetValue: 'TargetValue',
-      iOSMusic: 'iOSMusic',
-      iOSRemind: 'iOSRemind',
-      iOSBadge: 'iOSBadge',
-      title: 'Title',
-      androidMusic: 'AndroidMusic',
-      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
-      androidRenderStyle: 'AndroidRenderStyle',
-      iOSNotificationCategory: 'iOSNotificationCategory',
-      iOSNotificationThreadId: 'iOSNotificationThreadId',
       androidActivity: 'AndroidActivity',
       androidBigBody: 'AndroidBigBody',
-      iOSMutableContent: 'iOSMutableContent',
-      target: 'Target',
-      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
-      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      androidPopupActivity: 'AndroidPopupActivity',
-      deviceType: 'DeviceType',
-      androidRemind: 'AndroidRemind',
-      androidPopupBody: 'AndroidPopupBody',
-      iOSExtParameters: 'iOSExtParameters',
-      body: 'Body',
+      androidBigPictureUrl: 'AndroidBigPictureUrl',
+      androidBigTitle: 'AndroidBigTitle',
+      androidExtParameters: 'AndroidExtParameters',
+      androidImageUrl: 'AndroidImageUrl',
+      androidInboxBody: 'AndroidInboxBody',
+      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
+      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMusic: 'AndroidMusic',
       androidNotificationBarPriority: 'AndroidNotificationBarPriority',
       androidNotificationBarType: 'AndroidNotificationBarType',
-      pushType: 'PushType',
-      sendSpeed: 'SendSpeed',
-      pushTime: 'PushTime',
-      androidBigPictureUrl: 'AndroidBigPictureUrl',
-      androidInboxBody: 'AndroidInboxBody',
-      androidImageUrl: 'AndroidImageUrl',
+      androidNotificationChannel: 'AndroidNotificationChannel',
+      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
+      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
+      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
+      androidNotifyType: 'AndroidNotifyType',
+      androidOpenType: 'AndroidOpenType',
+      androidOpenUrl: 'AndroidOpenUrl',
+      androidPopupActivity: 'AndroidPopupActivity',
+      androidPopupBody: 'AndroidPopupBody',
+      androidPopupTitle: 'AndroidPopupTitle',
+      androidRemind: 'AndroidRemind',
+      androidRenderStyle: 'AndroidRenderStyle',
+      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
+      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
+      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
+      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
       androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
-      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
-      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
+      body: 'Body',
+      deviceType: 'DeviceType',
+      expireTime: 'ExpireTime',
+      jobKey: 'JobKey',
+      pushTime: 'PushTime',
+      pushType: 'PushType',
       sendChannels: 'SendChannels',
+      sendSpeed: 'SendSpeed',
+      storeOffline: 'StoreOffline',
+      target: 'Target',
+      targetValue: 'TargetValue',
+      title: 'Title',
+      iOSApnsEnv: 'iOSApnsEnv',
+      iOSBadge: 'iOSBadge',
+      iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
+      iOSExtParameters: 'iOSExtParameters',
+      iOSMusic: 'iOSMusic',
+      iOSMutableContent: 'iOSMutableContent',
+      iOSNotificationCategory: 'iOSNotificationCategory',
+      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
+      iOSNotificationThreadId: 'iOSNotificationThreadId',
+      iOSRemind: 'iOSRemind',
+      iOSRemindBody: 'iOSRemindBody',
+      iOSSilentNotification: 'iOSSilentNotification',
+      iOSSubtitle: 'iOSSubtitle',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobKey: 'string',
-      iOSSilentNotification: 'boolean',
-      storeOffline: 'boolean',
-      iOSSubtitle: 'string',
-      androidNotificationHuaweiChannel: 'string',
-      androidNotificationChannel: 'string',
-      iOSApnsEnv: 'string',
-      iOSBadgeAutoIncrement: 'boolean',
-      androidXiaoMiNotifyTitle: 'string',
-      androidNotificationXiaomiChannel: 'string',
-      androidXiaoMiActivity: 'string',
-      androidPopupTitle: 'string',
-      iOSRemindBody: 'string',
-      androidNotifyType: 'string',
-      androidOpenUrl: 'string',
-      androidBigTitle: 'string',
-      expireTime: 'string',
-      androidOpenType: 'string',
-      androidExtParameters: 'string',
-      androidXiaoMiNotifyBody: 'string',
-      androidXiaomiBigPictureUrl: 'string',
-      targetValue: 'string',
-      iOSMusic: 'string',
-      iOSRemind: 'boolean',
-      iOSBadge: 'number',
-      title: 'string',
-      androidMusic: 'string',
-      iOSNotificationCollapseId: 'string',
-      androidRenderStyle: 'string',
-      iOSNotificationCategory: 'string',
-      iOSNotificationThreadId: 'string',
       androidActivity: 'string',
       androidBigBody: 'string',
-      iOSMutableContent: 'boolean',
-      target: 'string',
-      androidNotificationNotifyId: 'number',
-      androidNotificationVivoChannel: 'string',
-      androidPopupActivity: 'string',
-      deviceType: 'string',
-      androidRemind: 'boolean',
-      androidPopupBody: 'string',
-      iOSExtParameters: 'string',
-      body: 'string',
+      androidBigPictureUrl: 'string',
+      androidBigTitle: 'string',
+      androidExtParameters: 'string',
+      androidImageUrl: 'string',
+      androidInboxBody: 'string',
+      androidMessageHuaweiCategory: 'string',
+      androidMessageHuaweiUrgency: 'string',
+      androidMusic: 'string',
       androidNotificationBarPriority: 'number',
       androidNotificationBarType: 'number',
-      pushType: 'string',
-      sendSpeed: 'number',
-      pushTime: 'string',
-      androidBigPictureUrl: 'string',
-      androidInboxBody: 'string',
-      androidImageUrl: 'string',
+      androidNotificationChannel: 'string',
+      androidNotificationHuaweiChannel: 'string',
+      androidNotificationNotifyId: 'number',
+      androidNotificationVivoChannel: 'string',
+      androidNotificationXiaomiChannel: 'string',
+      androidNotifyType: 'string',
+      androidOpenType: 'string',
+      androidOpenUrl: 'string',
+      androidPopupActivity: 'string',
+      androidPopupBody: 'string',
+      androidPopupTitle: 'string',
+      androidRemind: 'boolean',
+      androidRenderStyle: 'string',
+      androidXiaoMiActivity: 'string',
+      androidXiaoMiNotifyBody: 'string',
+      androidXiaoMiNotifyTitle: 'string',
+      androidXiaomiBigPictureUrl: 'string',
       androidXiaomiImageUrl: 'string',
-      androidMessageHuaweiUrgency: 'string',
-      androidMessageHuaweiCategory: 'string',
+      body: 'string',
+      deviceType: 'string',
+      expireTime: 'string',
+      jobKey: 'string',
+      pushTime: 'string',
+      pushType: 'string',
       sendChannels: 'string',
+      sendSpeed: 'number',
+      storeOffline: 'boolean',
+      target: 'string',
+      targetValue: 'string',
+      title: 'string',
+      iOSApnsEnv: 'string',
+      iOSBadge: 'number',
+      iOSBadgeAutoIncrement: 'boolean',
+      iOSExtParameters: 'string',
+      iOSMusic: 'string',
+      iOSMutableContent: 'boolean',
+      iOSNotificationCategory: 'string',
+      iOSNotificationCollapseId: 'string',
+      iOSNotificationThreadId: 'string',
+      iOSRemind: 'boolean',
+      iOSRemindBody: 'string',
+      iOSSilentNotification: 'boolean',
+      iOSSubtitle: 'string',
     };
   }
 
@@ -2807,42 +2808,86 @@ export class QueryAliasesResponseBodyAliasInfos extends $tea.Model {
 
 export class QueryDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
   account?: string;
+  alias?: string;
+  deviceId?: string;
+  deviceToken?: string;
+  deviceType?: string;
   lastOnlineTime?: string;
+  online?: boolean;
   phoneNumber?: string;
   pushEnabled?: boolean;
-  deviceType?: string;
-  deviceId?: string;
-  online?: boolean;
   tags?: string;
-  deviceToken?: string;
-  alias?: string;
   static names(): { [key: string]: string } {
     return {
       account: 'Account',
+      alias: 'Alias',
+      deviceId: 'DeviceId',
+      deviceToken: 'DeviceToken',
+      deviceType: 'DeviceType',
       lastOnlineTime: 'LastOnlineTime',
+      online: 'Online',
       phoneNumber: 'PhoneNumber',
       pushEnabled: 'PushEnabled',
-      deviceType: 'DeviceType',
-      deviceId: 'DeviceId',
-      online: 'Online',
       tags: 'Tags',
-      deviceToken: 'DeviceToken',
-      alias: 'Alias',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       account: 'string',
+      alias: 'string',
+      deviceId: 'string',
+      deviceToken: 'string',
+      deviceType: 'string',
       lastOnlineTime: 'string',
+      online: 'boolean',
       phoneNumber: 'string',
       pushEnabled: 'boolean',
-      deviceType: 'string',
-      deviceId: 'string',
-      online: 'boolean',
       tags: 'string',
-      deviceToken: 'string',
-      alias: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
+  count?: number;
+  deviceType?: string;
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      deviceType: 'DeviceType',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      deviceType: 'string',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceStatResponseBodyAppDeviceStats extends $tea.Model {
+  appDeviceStat?: QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat[];
+  static names(): { [key: string]: string } {
+    return {
+      appDeviceStat: 'AppDeviceStat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDeviceStat: { 'type': 'array', 'itemType': QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat },
     };
   }
 
@@ -2889,88 +2934,44 @@ export class QueryDevicesByAliasResponseBodyDeviceIds extends $tea.Model {
   }
 }
 
-export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
-  time?: string;
-  deviceType?: string;
-  count?: number;
-  static names(): { [key: string]: string } {
-    return {
-      time: 'Time',
-      deviceType: 'DeviceType',
-      count: 'Count',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      time: 'string',
-      deviceType: 'string',
-      count: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponseBodyAppDeviceStats extends $tea.Model {
-  appDeviceStat?: QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat[];
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStat: 'AppDeviceStat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStat: { 'type': 'array', 'itemType': QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $tea.Model {
-  status?: string;
-  messageId?: string;
   appKey?: number;
-  deviceType?: string;
-  pushType?: string;
   body?: string;
-  title?: string;
-  source?: string;
+  deviceType?: string;
+  messageId?: string;
   pushTime?: string;
+  pushType?: string;
+  source?: string;
+  status?: string;
   target?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      messageId: 'MessageId',
       appKey: 'AppKey',
-      deviceType: 'DeviceType',
-      pushType: 'PushType',
       body: 'Body',
-      title: 'Title',
-      source: 'Source',
+      deviceType: 'DeviceType',
+      messageId: 'MessageId',
       pushTime: 'PushTime',
+      pushType: 'PushType',
+      source: 'Source',
+      status: 'Status',
       target: 'Target',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      messageId: 'string',
       appKey: 'number',
-      deviceType: 'string',
-      pushType: 'string',
       body: 'string',
-      title: 'string',
-      source: 'string',
+      deviceType: 'string',
+      messageId: 'string',
       pushTime: 'string',
+      pushType: 'string',
+      source: 'string',
+      status: 'string',
       target: 'string',
+      title: 'string',
     };
   }
 
@@ -2999,46 +3000,46 @@ export class QueryPushRecordsResponseBodyPushInfos extends $tea.Model {
 }
 
 export class QueryPushStatByAppResponseBodyAppPushStatsAppPushStat extends $tea.Model {
-  time?: string;
+  acceptCount?: number;
   deletedCount?: number;
   openedCount?: number;
-  smsReceiveSuccessCount?: number;
-  smsSkipCount?: number;
-  smsReceiveFailedCount?: number;
-  smsFailedCount?: number;
   receivedCount?: number;
   sentCount?: number;
+  smsFailedCount?: number;
+  smsReceiveFailedCount?: number;
+  smsReceiveSuccessCount?: number;
   smsSentCount?: number;
-  acceptCount?: number;
+  smsSkipCount?: number;
+  time?: string;
   static names(): { [key: string]: string } {
     return {
-      time: 'Time',
+      acceptCount: 'AcceptCount',
       deletedCount: 'DeletedCount',
       openedCount: 'OpenedCount',
-      smsReceiveSuccessCount: 'SmsReceiveSuccessCount',
-      smsSkipCount: 'SmsSkipCount',
-      smsReceiveFailedCount: 'SmsReceiveFailedCount',
-      smsFailedCount: 'SmsFailedCount',
       receivedCount: 'ReceivedCount',
       sentCount: 'SentCount',
+      smsFailedCount: 'SmsFailedCount',
+      smsReceiveFailedCount: 'SmsReceiveFailedCount',
+      smsReceiveSuccessCount: 'SmsReceiveSuccessCount',
       smsSentCount: 'SmsSentCount',
-      acceptCount: 'AcceptCount',
+      smsSkipCount: 'SmsSkipCount',
+      time: 'Time',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      time: 'string',
+      acceptCount: 'number',
       deletedCount: 'number',
       openedCount: 'number',
-      smsReceiveSuccessCount: 'number',
-      smsSkipCount: 'number',
-      smsReceiveFailedCount: 'number',
-      smsFailedCount: 'number',
       receivedCount: 'number',
       sentCount: 'number',
+      smsFailedCount: 'number',
+      smsReceiveFailedCount: 'number',
+      smsReceiveSuccessCount: 'number',
       smsSentCount: 'number',
-      acceptCount: 'number',
+      smsSkipCount: 'number',
+      time: 'string',
     };
   }
 
@@ -3067,46 +3068,46 @@ export class QueryPushStatByAppResponseBodyAppPushStats extends $tea.Model {
 }
 
 export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $tea.Model {
-  messageId?: string;
+  acceptCount?: number;
   deletedCount?: number;
+  messageId?: string;
   openedCount?: number;
-  smsReceiveSuccessCount?: number;
-  smsSkipCount?: number;
-  smsReceiveFailedCount?: number;
-  smsFailedCount?: number;
   receivedCount?: number;
   sentCount?: number;
+  smsFailedCount?: number;
+  smsReceiveFailedCount?: number;
+  smsReceiveSuccessCount?: number;
   smsSentCount?: number;
-  acceptCount?: number;
+  smsSkipCount?: number;
   static names(): { [key: string]: string } {
     return {
-      messageId: 'MessageId',
+      acceptCount: 'AcceptCount',
       deletedCount: 'DeletedCount',
+      messageId: 'MessageId',
       openedCount: 'OpenedCount',
-      smsReceiveSuccessCount: 'SmsReceiveSuccessCount',
-      smsSkipCount: 'SmsSkipCount',
-      smsReceiveFailedCount: 'SmsReceiveFailedCount',
-      smsFailedCount: 'SmsFailedCount',
       receivedCount: 'ReceivedCount',
       sentCount: 'SentCount',
+      smsFailedCount: 'SmsFailedCount',
+      smsReceiveFailedCount: 'SmsReceiveFailedCount',
+      smsReceiveSuccessCount: 'SmsReceiveSuccessCount',
       smsSentCount: 'SmsSentCount',
-      acceptCount: 'AcceptCount',
+      smsSkipCount: 'SmsSkipCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageId: 'string',
+      acceptCount: 'number',
       deletedCount: 'number',
+      messageId: 'string',
       openedCount: 'number',
-      smsReceiveSuccessCount: 'number',
-      smsSkipCount: 'number',
-      smsReceiveFailedCount: 'number',
-      smsFailedCount: 'number',
       receivedCount: 'number',
       sentCount: 'number',
+      smsFailedCount: 'number',
+      smsReceiveFailedCount: 'number',
+      smsReceiveSuccessCount: 'number',
       smsSentCount: 'number',
-      acceptCount: 'number',
+      smsSkipCount: 'number',
     };
   }
 
@@ -3173,19 +3174,19 @@ export class QueryTagsResponseBodyTagInfos extends $tea.Model {
 }
 
 export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $tea.Model {
-  time?: string;
   count?: number;
+  time?: string;
   static names(): { [key: string]: string } {
     return {
-      time: 'Time',
       count: 'Count',
+      time: 'Time',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      time: 'string',
       count: 'number',
+      time: 'string',
     };
   }
 
@@ -3294,10 +3295,34 @@ export default class Client extends OpenApi {
 
   async bindAliasWithOptions(request: BindAliasRequest, runtime: $Util.RuntimeOptions): Promise<BindAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BindAliasResponse>(await this.doRPCRequest("BindAlias", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new BindAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindAlias",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindAliasResponse>(await this.callApi(params, req, runtime), new BindAliasResponse({}));
   }
 
   async bindAlias(request: BindAliasRequest): Promise<BindAliasResponse> {
@@ -3307,10 +3332,34 @@ export default class Client extends OpenApi {
 
   async bindPhoneWithOptions(request: BindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindPhoneResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BindPhoneResponse>(await this.doRPCRequest("BindPhone", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new BindPhoneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindPhone",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindPhoneResponse>(await this.callApi(params, req, runtime), new BindPhoneResponse({}));
   }
 
   async bindPhone(request: BindPhoneRequest): Promise<BindPhoneResponse> {
@@ -3320,10 +3369,38 @@ export default class Client extends OpenApi {
 
   async bindTagWithOptions(request: BindTagRequest, runtime: $Util.RuntimeOptions): Promise<BindTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.clientKey)) {
+      query["ClientKey"] = request.clientKey;
+    }
+
+    if (!Util.isUnset(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BindTagResponse>(await this.doRPCRequest("BindTag", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new BindTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindTag",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindTagResponse>(await this.callApi(params, req, runtime), new BindTagResponse({}));
   }
 
   async bindTag(request: BindTagRequest): Promise<BindTagResponse> {
@@ -3333,10 +3410,30 @@ export default class Client extends OpenApi {
 
   async cancelPushWithOptions(request: CancelPushRequest, runtime: $Util.RuntimeOptions): Promise<CancelPushResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelPushResponse>(await this.doRPCRequest("CancelPush", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new CancelPushResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelPush",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelPushResponse>(await this.callApi(params, req, runtime), new CancelPushResponse({}));
   }
 
   async cancelPush(request: CancelPushRequest): Promise<CancelPushResponse> {
@@ -3346,10 +3443,26 @@ export default class Client extends OpenApi {
 
   async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CheckCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckCertificateResponse>(await this.doRPCRequest("CheckCertificate", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new CheckCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckCertificate",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckCertificateResponse>(await this.callApi(params, req, runtime), new CheckCertificateResponse({}));
   }
 
   async checkCertificate(request: CheckCertificateRequest): Promise<CheckCertificateResponse> {
@@ -3359,10 +3472,30 @@ export default class Client extends OpenApi {
 
   async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CheckDeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckDeviceResponse>(await this.doRPCRequest("CheckDevice", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new CheckDeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckDevice",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDeviceResponse>(await this.callApi(params, req, runtime), new CheckDeviceResponse({}));
   }
 
   async checkDevice(request: CheckDeviceRequest): Promise<CheckDeviceResponse> {
@@ -3372,10 +3505,30 @@ export default class Client extends OpenApi {
 
   async checkDevicesWithOptions(request: CheckDevicesRequest, runtime: $Util.RuntimeOptions): Promise<CheckDevicesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceIds)) {
+      query["DeviceIds"] = request.deviceIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckDevicesResponse>(await this.doRPCRequest("CheckDevices", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new CheckDevicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckDevices",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDevicesResponse>(await this.callApi(params, req, runtime), new CheckDevicesResponse({}));
   }
 
   async checkDevices(request: CheckDevicesRequest): Promise<CheckDevicesResponse> {
@@ -3385,10 +3538,30 @@ export default class Client extends OpenApi {
 
   async completeContinuouslyPushWithOptions(request: CompleteContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<CompleteContinuouslyPushResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CompleteContinuouslyPushResponse>(await this.doRPCRequest("CompleteContinuouslyPush", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new CompleteContinuouslyPushResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CompleteContinuouslyPush",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompleteContinuouslyPushResponse>(await this.callApi(params, req, runtime), new CompleteContinuouslyPushResponse({}));
   }
 
   async completeContinuouslyPush(request: CompleteContinuouslyPushRequest): Promise<CompleteContinuouslyPushResponse> {
@@ -3398,10 +3571,38 @@ export default class Client extends OpenApi {
 
   async continuouslyPushWithOptions(request: ContinuouslyPushRequest, runtime: $Util.RuntimeOptions): Promise<ContinuouslyPushResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ContinuouslyPushResponse>(await this.doRPCRequest("ContinuouslyPush", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new ContinuouslyPushResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ContinuouslyPush",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ContinuouslyPushResponse>(await this.callApi(params, req, runtime), new ContinuouslyPushResponse({}));
   }
 
   async continuouslyPush(request: ContinuouslyPushRequest): Promise<ContinuouslyPushResponse> {
@@ -3411,7 +3612,18 @@ export default class Client extends OpenApi {
 
   async listSummaryAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSummaryAppsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ListSummaryAppsResponse>(await this.doRPCRequest("ListSummaryApps", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListSummaryAppsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSummaryApps",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSummaryAppsResponse>(await this.callApi(params, req, runtime), new ListSummaryAppsResponse({}));
   }
 
   async listSummaryApps(): Promise<ListSummaryAppsResponse> {
@@ -3421,10 +3633,26 @@ export default class Client extends OpenApi {
 
   async listTagsWithOptions(request: ListTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagsResponse>(await this.doRPCRequest("ListTags", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTags",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
@@ -3434,10 +3662,32 @@ export default class Client extends OpenApi {
 
   async massPushWithOptions(request: MassPushRequest, runtime: $Util.RuntimeOptions): Promise<MassPushResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pushTask)) {
+      body["PushTask"] = request.pushTask;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<MassPushResponse>(await this.doRPCRequest("MassPush", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new MassPushResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MassPush",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MassPushResponse>(await this.callApi(params, req, runtime), new MassPushResponse({}));
   }
 
   async massPush(request: MassPushRequest): Promise<MassPushResponse> {
@@ -3447,10 +3697,266 @@ export default class Client extends OpenApi {
 
   async pushWithOptions(request: PushRequest, runtime: $Util.RuntimeOptions): Promise<PushResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.androidActivity)) {
+      query["AndroidActivity"] = request.androidActivity;
+    }
+
+    if (!Util.isUnset(request.androidBigBody)) {
+      query["AndroidBigBody"] = request.androidBigBody;
+    }
+
+    if (!Util.isUnset(request.androidBigPictureUrl)) {
+      query["AndroidBigPictureUrl"] = request.androidBigPictureUrl;
+    }
+
+    if (!Util.isUnset(request.androidBigTitle)) {
+      query["AndroidBigTitle"] = request.androidBigTitle;
+    }
+
+    if (!Util.isUnset(request.androidExtParameters)) {
+      query["AndroidExtParameters"] = request.androidExtParameters;
+    }
+
+    if (!Util.isUnset(request.androidImageUrl)) {
+      query["AndroidImageUrl"] = request.androidImageUrl;
+    }
+
+    if (!Util.isUnset(request.androidInboxBody)) {
+      query["AndroidInboxBody"] = request.androidInboxBody;
+    }
+
+    if (!Util.isUnset(request.androidMessageHuaweiCategory)) {
+      query["AndroidMessageHuaweiCategory"] = request.androidMessageHuaweiCategory;
+    }
+
+    if (!Util.isUnset(request.androidMessageHuaweiUrgency)) {
+      query["AndroidMessageHuaweiUrgency"] = request.androidMessageHuaweiUrgency;
+    }
+
+    if (!Util.isUnset(request.androidMusic)) {
+      query["AndroidMusic"] = request.androidMusic;
+    }
+
+    if (!Util.isUnset(request.androidNotificationBarPriority)) {
+      query["AndroidNotificationBarPriority"] = request.androidNotificationBarPriority;
+    }
+
+    if (!Util.isUnset(request.androidNotificationBarType)) {
+      query["AndroidNotificationBarType"] = request.androidNotificationBarType;
+    }
+
+    if (!Util.isUnset(request.androidNotificationChannel)) {
+      query["AndroidNotificationChannel"] = request.androidNotificationChannel;
+    }
+
+    if (!Util.isUnset(request.androidNotificationHuaweiChannel)) {
+      query["AndroidNotificationHuaweiChannel"] = request.androidNotificationHuaweiChannel;
+    }
+
+    if (!Util.isUnset(request.androidNotificationNotifyId)) {
+      query["AndroidNotificationNotifyId"] = request.androidNotificationNotifyId;
+    }
+
+    if (!Util.isUnset(request.androidNotificationVivoChannel)) {
+      query["AndroidNotificationVivoChannel"] = request.androidNotificationVivoChannel;
+    }
+
+    if (!Util.isUnset(request.androidNotificationXiaomiChannel)) {
+      query["AndroidNotificationXiaomiChannel"] = request.androidNotificationXiaomiChannel;
+    }
+
+    if (!Util.isUnset(request.androidNotifyType)) {
+      query["AndroidNotifyType"] = request.androidNotifyType;
+    }
+
+    if (!Util.isUnset(request.androidOpenType)) {
+      query["AndroidOpenType"] = request.androidOpenType;
+    }
+
+    if (!Util.isUnset(request.androidOpenUrl)) {
+      query["AndroidOpenUrl"] = request.androidOpenUrl;
+    }
+
+    if (!Util.isUnset(request.androidPopupActivity)) {
+      query["AndroidPopupActivity"] = request.androidPopupActivity;
+    }
+
+    if (!Util.isUnset(request.androidPopupBody)) {
+      query["AndroidPopupBody"] = request.androidPopupBody;
+    }
+
+    if (!Util.isUnset(request.androidPopupTitle)) {
+      query["AndroidPopupTitle"] = request.androidPopupTitle;
+    }
+
+    if (!Util.isUnset(request.androidRemind)) {
+      query["AndroidRemind"] = request.androidRemind;
+    }
+
+    if (!Util.isUnset(request.androidRenderStyle)) {
+      query["AndroidRenderStyle"] = request.androidRenderStyle;
+    }
+
+    if (!Util.isUnset(request.androidXiaoMiActivity)) {
+      query["AndroidXiaoMiActivity"] = request.androidXiaoMiActivity;
+    }
+
+    if (!Util.isUnset(request.androidXiaoMiNotifyBody)) {
+      query["AndroidXiaoMiNotifyBody"] = request.androidXiaoMiNotifyBody;
+    }
+
+    if (!Util.isUnset(request.androidXiaoMiNotifyTitle)) {
+      query["AndroidXiaoMiNotifyTitle"] = request.androidXiaoMiNotifyTitle;
+    }
+
+    if (!Util.isUnset(request.androidXiaomiBigPictureUrl)) {
+      query["AndroidXiaomiBigPictureUrl"] = request.androidXiaomiBigPictureUrl;
+    }
+
+    if (!Util.isUnset(request.androidXiaomiImageUrl)) {
+      query["AndroidXiaomiImageUrl"] = request.androidXiaomiImageUrl;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      query["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.jobKey)) {
+      query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.pushTime)) {
+      query["PushTime"] = request.pushTime;
+    }
+
+    if (!Util.isUnset(request.pushType)) {
+      query["PushType"] = request.pushType;
+    }
+
+    if (!Util.isUnset(request.sendChannels)) {
+      query["SendChannels"] = request.sendChannels;
+    }
+
+    if (!Util.isUnset(request.sendSpeed)) {
+      query["SendSpeed"] = request.sendSpeed;
+    }
+
+    if (!Util.isUnset(request.smsDelaySecs)) {
+      query["SmsDelaySecs"] = request.smsDelaySecs;
+    }
+
+    if (!Util.isUnset(request.smsParams)) {
+      query["SmsParams"] = request.smsParams;
+    }
+
+    if (!Util.isUnset(request.smsSendPolicy)) {
+      query["SmsSendPolicy"] = request.smsSendPolicy;
+    }
+
+    if (!Util.isUnset(request.smsSignName)) {
+      query["SmsSignName"] = request.smsSignName;
+    }
+
+    if (!Util.isUnset(request.smsTemplateName)) {
+      query["SmsTemplateName"] = request.smsTemplateName;
+    }
+
+    if (!Util.isUnset(request.storeOffline)) {
+      query["StoreOffline"] = request.storeOffline;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.iOSApnsEnv)) {
+      query["iOSApnsEnv"] = request.iOSApnsEnv;
+    }
+
+    if (!Util.isUnset(request.iOSBadge)) {
+      query["iOSBadge"] = request.iOSBadge;
+    }
+
+    if (!Util.isUnset(request.iOSBadgeAutoIncrement)) {
+      query["iOSBadgeAutoIncrement"] = request.iOSBadgeAutoIncrement;
+    }
+
+    if (!Util.isUnset(request.iOSExtParameters)) {
+      query["iOSExtParameters"] = request.iOSExtParameters;
+    }
+
+    if (!Util.isUnset(request.iOSMusic)) {
+      query["iOSMusic"] = request.iOSMusic;
+    }
+
+    if (!Util.isUnset(request.iOSMutableContent)) {
+      query["iOSMutableContent"] = request.iOSMutableContent;
+    }
+
+    if (!Util.isUnset(request.iOSNotificationCategory)) {
+      query["iOSNotificationCategory"] = request.iOSNotificationCategory;
+    }
+
+    if (!Util.isUnset(request.iOSNotificationCollapseId)) {
+      query["iOSNotificationCollapseId"] = request.iOSNotificationCollapseId;
+    }
+
+    if (!Util.isUnset(request.iOSNotificationThreadId)) {
+      query["iOSNotificationThreadId"] = request.iOSNotificationThreadId;
+    }
+
+    if (!Util.isUnset(request.iOSRemind)) {
+      query["iOSRemind"] = request.iOSRemind;
+    }
+
+    if (!Util.isUnset(request.iOSRemindBody)) {
+      query["iOSRemindBody"] = request.iOSRemindBody;
+    }
+
+    if (!Util.isUnset(request.iOSSilentNotification)) {
+      query["iOSSilentNotification"] = request.iOSSilentNotification;
+    }
+
+    if (!Util.isUnset(request.iOSSubtitle)) {
+      query["iOSSubtitle"] = request.iOSSubtitle;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PushResponse>(await this.doRPCRequest("Push", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new PushResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Push",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushResponse>(await this.callApi(params, req, runtime), new PushResponse({}));
   }
 
   async push(request: PushRequest): Promise<PushResponse> {
@@ -3460,10 +3966,46 @@ export default class Client extends OpenApi {
 
   async pushMessageToAndroidWithOptions(request: PushMessageToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToAndroidResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      query["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.jobKey)) {
+      query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PushMessageToAndroidResponse>(await this.doRPCRequest("PushMessageToAndroid", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new PushMessageToAndroidResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PushMessageToAndroid",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushMessageToAndroidResponse>(await this.callApi(params, req, runtime), new PushMessageToAndroidResponse({}));
   }
 
   async pushMessageToAndroid(request: PushMessageToAndroidRequest): Promise<PushMessageToAndroidResponse> {
@@ -3473,10 +4015,46 @@ export default class Client extends OpenApi {
 
   async pushMessageToiOSWithOptions(request: PushMessageToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushMessageToiOSResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      query["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.jobKey)) {
+      query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PushMessageToiOSResponse>(await this.doRPCRequest("PushMessageToiOS", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new PushMessageToiOSResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PushMessageToiOS",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushMessageToiOSResponse>(await this.callApi(params, req, runtime), new PushMessageToiOSResponse({}));
   }
 
   async pushMessageToiOS(request: PushMessageToiOSRequest): Promise<PushMessageToiOSResponse> {
@@ -3486,10 +4064,50 @@ export default class Client extends OpenApi {
 
   async pushNoticeToAndroidWithOptions(request: PushNoticeToAndroidRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToAndroidResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      query["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.extParameters)) {
+      query["ExtParameters"] = request.extParameters;
+    }
+
+    if (!Util.isUnset(request.jobKey)) {
+      query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PushNoticeToAndroidResponse>(await this.doRPCRequest("PushNoticeToAndroid", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new PushNoticeToAndroidResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PushNoticeToAndroid",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushNoticeToAndroidResponse>(await this.callApi(params, req, runtime), new PushNoticeToAndroidResponse({}));
   }
 
   async pushNoticeToAndroid(request: PushNoticeToAndroidRequest): Promise<PushNoticeToAndroidResponse> {
@@ -3499,10 +4117,54 @@ export default class Client extends OpenApi {
 
   async pushNoticeToiOSWithOptions(request: PushNoticeToiOSRequest, runtime: $Util.RuntimeOptions): Promise<PushNoticeToiOSResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apnsEnv)) {
+      query["ApnsEnv"] = request.apnsEnv;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      query["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.extParameters)) {
+      query["ExtParameters"] = request.extParameters;
+    }
+
+    if (!Util.isUnset(request.jobKey)) {
+      query["JobKey"] = request.jobKey;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PushNoticeToiOSResponse>(await this.doRPCRequest("PushNoticeToiOS", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new PushNoticeToiOSResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PushNoticeToiOS",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushNoticeToiOSResponse>(await this.callApi(params, req, runtime), new PushNoticeToiOSResponse({}));
   }
 
   async pushNoticeToiOS(request: PushNoticeToiOSRequest): Promise<PushNoticeToiOSResponse> {
@@ -3512,10 +4174,30 @@ export default class Client extends OpenApi {
 
   async queryAliasesWithOptions(request: QueryAliasesRequest, runtime: $Util.RuntimeOptions): Promise<QueryAliasesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAliasesResponse>(await this.doRPCRequest("QueryAliases", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAliasesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAliases",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAliasesResponse>(await this.callApi(params, req, runtime), new QueryAliasesResponse({}));
   }
 
   async queryAliases(request: QueryAliasesRequest): Promise<QueryAliasesResponse> {
@@ -3525,10 +4207,34 @@ export default class Client extends OpenApi {
 
   async queryDeviceCountWithOptions(request: QueryDeviceCountRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceCountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDeviceCountResponse>(await this.doRPCRequest("QueryDeviceCount", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDeviceCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceCount",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceCountResponse>(await this.callApi(params, req, runtime), new QueryDeviceCountResponse({}));
   }
 
   async queryDeviceCount(request: QueryDeviceCountRequest): Promise<QueryDeviceCountResponse> {
@@ -3538,10 +4244,30 @@ export default class Client extends OpenApi {
 
   async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDeviceInfoResponse>(await this.doRPCRequest("QueryDeviceInfo", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDeviceInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceInfo",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceInfoResponse({}));
   }
 
   async queryDeviceInfo(request: QueryDeviceInfoRequest): Promise<QueryDeviceInfoResponse> {
@@ -3549,12 +4275,77 @@ export default class Client extends OpenApi {
     return await this.queryDeviceInfoWithOptions(request, runtime);
   }
 
+  async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceStat",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryDeviceStatResponse({}));
+  }
+
+  async queryDeviceStat(request: QueryDeviceStatRequest): Promise<QueryDeviceStatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceStatWithOptions(request, runtime);
+  }
+
   async queryDevicesByAccountWithOptions(request: QueryDevicesByAccountRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.account)) {
+      query["Account"] = request.account;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDevicesByAccountResponse>(await this.doRPCRequest("QueryDevicesByAccount", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDevicesByAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDevicesByAccount",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDevicesByAccountResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAccountResponse({}));
   }
 
   async queryDevicesByAccount(request: QueryDevicesByAccountRequest): Promise<QueryDevicesByAccountResponse> {
@@ -3564,10 +4355,30 @@ export default class Client extends OpenApi {
 
   async queryDevicesByAliasWithOptions(request: QueryDevicesByAliasRequest, runtime: $Util.RuntimeOptions): Promise<QueryDevicesByAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alias)) {
+      query["Alias"] = request.alias;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDevicesByAliasResponse>(await this.doRPCRequest("QueryDevicesByAlias", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDevicesByAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDevicesByAlias",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDevicesByAliasResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAliasResponse({}));
   }
 
   async queryDevicesByAlias(request: QueryDevicesByAliasRequest): Promise<QueryDevicesByAliasResponse> {
@@ -3575,25 +4386,64 @@ export default class Client extends OpenApi {
     return await this.queryDevicesByAliasWithOptions(request, runtime);
   }
 
-  async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDeviceStatResponse>(await this.doRPCRequest("QueryDeviceStat", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDeviceStatResponse({}));
-  }
-
-  async queryDeviceStat(request: QueryDeviceStatRequest): Promise<QueryDeviceStatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDeviceStatWithOptions(request, runtime);
-  }
-
   async queryPushRecordsWithOptions(request: QueryPushRecordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pushType)) {
+      query["PushType"] = request.pushType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryPushRecordsResponse>(await this.doRPCRequest("QueryPushRecords", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPushRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryPushRecords",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPushRecordsResponse>(await this.callApi(params, req, runtime), new QueryPushRecordsResponse({}));
   }
 
   async queryPushRecords(request: QueryPushRecordsRequest): Promise<QueryPushRecordsResponse> {
@@ -3603,10 +4453,38 @@ export default class Client extends OpenApi {
 
   async queryPushStatByAppWithOptions(request: QueryPushStatByAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByAppResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryPushStatByAppResponse>(await this.doRPCRequest("QueryPushStatByApp", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPushStatByAppResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryPushStatByApp",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPushStatByAppResponse>(await this.callApi(params, req, runtime), new QueryPushStatByAppResponse({}));
   }
 
   async queryPushStatByApp(request: QueryPushStatByAppRequest): Promise<QueryPushStatByAppResponse> {
@@ -3616,10 +4494,30 @@ export default class Client extends OpenApi {
 
   async queryPushStatByMsgWithOptions(request: QueryPushStatByMsgRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushStatByMsgResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryPushStatByMsgResponse>(await this.doRPCRequest("QueryPushStatByMsg", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPushStatByMsgResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryPushStatByMsg",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPushStatByMsgResponse>(await this.callApi(params, req, runtime), new QueryPushStatByMsgResponse({}));
   }
 
   async queryPushStatByMsg(request: QueryPushStatByMsgRequest): Promise<QueryPushStatByMsgResponse> {
@@ -3629,10 +4527,34 @@ export default class Client extends OpenApi {
 
   async queryTagsWithOptions(request: QueryTagsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.clientKey)) {
+      query["ClientKey"] = request.clientKey;
+    }
+
+    if (!Util.isUnset(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTagsResponse>(await this.doRPCRequest("QueryTags", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTags",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTagsResponse>(await this.callApi(params, req, runtime), new QueryTagsResponse({}));
   }
 
   async queryTags(request: QueryTagsRequest): Promise<QueryTagsResponse> {
@@ -3642,10 +4564,38 @@ export default class Client extends OpenApi {
 
   async queryUniqueDeviceStatWithOptions(request: QueryUniqueDeviceStatRequest, runtime: $Util.RuntimeOptions): Promise<QueryUniqueDeviceStatResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryUniqueDeviceStatResponse>(await this.doRPCRequest("QueryUniqueDeviceStat", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryUniqueDeviceStatResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryUniqueDeviceStat",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryUniqueDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryUniqueDeviceStatResponse({}));
   }
 
   async queryUniqueDeviceStat(request: QueryUniqueDeviceStatRequest): Promise<QueryUniqueDeviceStatResponse> {
@@ -3655,10 +4605,30 @@ export default class Client extends OpenApi {
 
   async removeTagWithOptions(request: RemoveTagRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveTagResponse>(await this.doRPCRequest("RemoveTag", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveTag",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveTagResponse>(await this.callApi(params, req, runtime), new RemoveTagResponse({}));
   }
 
   async removeTag(request: RemoveTagRequest): Promise<RemoveTagResponse> {
@@ -3668,10 +4638,38 @@ export default class Client extends OpenApi {
 
   async unbindAliasWithOptions(request: UnbindAliasRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.unbindAll)) {
+      query["UnbindAll"] = request.unbindAll;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindAliasResponse>(await this.doRPCRequest("UnbindAlias", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindAlias",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindAliasResponse>(await this.callApi(params, req, runtime), new UnbindAliasResponse({}));
   }
 
   async unbindAlias(request: UnbindAliasRequest): Promise<UnbindAliasResponse> {
@@ -3681,10 +4679,30 @@ export default class Client extends OpenApi {
 
   async unbindPhoneWithOptions(request: UnbindPhoneRequest, runtime: $Util.RuntimeOptions): Promise<UnbindPhoneResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindPhoneResponse>(await this.doRPCRequest("UnbindPhone", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindPhoneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindPhone",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindPhoneResponse>(await this.callApi(params, req, runtime), new UnbindPhoneResponse({}));
   }
 
   async unbindPhone(request: UnbindPhoneRequest): Promise<UnbindPhoneResponse> {
@@ -3694,10 +4712,38 @@ export default class Client extends OpenApi {
 
   async unbindTagWithOptions(request: UnbindTagRequest, runtime: $Util.RuntimeOptions): Promise<UnbindTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.clientKey)) {
+      query["ClientKey"] = request.clientKey;
+    }
+
+    if (!Util.isUnset(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindTagResponse>(await this.doRPCRequest("UnbindTag", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindTag",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindTagResponse>(await this.callApi(params, req, runtime), new UnbindTagResponse({}));
   }
 
   async unbindTag(request: UnbindTagRequest): Promise<UnbindTagResponse> {
