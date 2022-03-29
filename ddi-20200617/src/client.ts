@@ -1451,6 +1451,180 @@ export class DescribeFlowJobResponse extends $tea.Model {
   }
 }
 
+export class DescribeFlowNodeInstanceRequest extends $tea.Model {
+  id?: string;
+  projectId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      projectId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowNodeInstanceResponseBody extends $tea.Model {
+  adhoc?: boolean;
+  clusterId?: string;
+  clusterName?: string;
+  duration?: number;
+  endTime?: number;
+  envConf?: string;
+  externalChildIds?: string;
+  externalId?: string;
+  externalInfo?: string;
+  externalStatus?: string;
+  externalSubId?: string;
+  failAct?: string;
+  flowId?: string;
+  flowInstanceId?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  hostName?: string;
+  id?: string;
+  jobId?: string;
+  jobName?: string;
+  jobParams?: string;
+  jobType?: string;
+  maxRetry?: string;
+  mode?: string;
+  monitorConf?: string;
+  nodeName?: string;
+  paramConf?: string;
+  pending?: boolean;
+  projectId?: string;
+  requestId?: string;
+  retries?: number;
+  retryInterval?: string;
+  retryPolicy?: string;
+  runConf?: string;
+  startTime?: number;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adhoc: 'Adhoc',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      duration: 'Duration',
+      endTime: 'EndTime',
+      envConf: 'EnvConf',
+      externalChildIds: 'ExternalChildIds',
+      externalId: 'ExternalId',
+      externalInfo: 'ExternalInfo',
+      externalStatus: 'ExternalStatus',
+      externalSubId: 'ExternalSubId',
+      failAct: 'FailAct',
+      flowId: 'FlowId',
+      flowInstanceId: 'FlowInstanceId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      hostName: 'HostName',
+      id: 'Id',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      jobParams: 'JobParams',
+      jobType: 'JobType',
+      maxRetry: 'MaxRetry',
+      mode: 'Mode',
+      monitorConf: 'MonitorConf',
+      nodeName: 'NodeName',
+      paramConf: 'ParamConf',
+      pending: 'Pending',
+      projectId: 'ProjectId',
+      requestId: 'RequestId',
+      retries: 'Retries',
+      retryInterval: 'RetryInterval',
+      retryPolicy: 'RetryPolicy',
+      runConf: 'RunConf',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adhoc: 'boolean',
+      clusterId: 'string',
+      clusterName: 'string',
+      duration: 'number',
+      endTime: 'number',
+      envConf: 'string',
+      externalChildIds: 'string',
+      externalId: 'string',
+      externalInfo: 'string',
+      externalStatus: 'string',
+      externalSubId: 'string',
+      failAct: 'string',
+      flowId: 'string',
+      flowInstanceId: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      hostName: 'string',
+      id: 'string',
+      jobId: 'string',
+      jobName: 'string',
+      jobParams: 'string',
+      jobType: 'string',
+      maxRetry: 'string',
+      mode: 'string',
+      monitorConf: 'string',
+      nodeName: 'string',
+      paramConf: 'string',
+      pending: 'boolean',
+      projectId: 'string',
+      requestId: 'string',
+      retries: 'number',
+      retryInterval: 'string',
+      retryPolicy: 'string',
+      runConf: 'string',
+      startTime: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowNodeInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFlowNodeInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFlowNodeInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFlowProjectRequest extends $tea.Model {
   projectId?: string;
   regionId?: string;
@@ -5464,6 +5638,43 @@ export default class Client extends OpenApi {
   async describeFlowJob(request: DescribeFlowJobRequest): Promise<DescribeFlowJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowJobWithOptions(request, runtime);
+  }
+
+  async describeFlowNodeInstanceWithOptions(request: DescribeFlowNodeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowNodeInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFlowNodeInstance",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFlowNodeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeFlowNodeInstanceResponse({}));
+  }
+
+  async describeFlowNodeInstance(request: DescribeFlowNodeInstanceRequest): Promise<DescribeFlowNodeInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFlowNodeInstanceWithOptions(request, runtime);
   }
 
   async describeFlowProjectWithOptions(request: DescribeFlowProjectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowProjectResponse> {
