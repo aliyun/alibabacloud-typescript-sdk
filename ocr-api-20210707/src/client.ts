@@ -6603,7 +6603,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: request.body,
-      stream: request.body,
+      stream: tmpReq.body,
     });
     let params = new $OpenApi.Params({
       action: "RecognizeMultiLanguage",
