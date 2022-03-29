@@ -8,78 +8,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddDeviceRequest extends $tea.Model {
-  config?: string;
-  groupId?: string;
-  ownerId?: number;
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      groupId: 'GroupId',
-      ownerId: 'OwnerId',
-      protocol: 'Protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      groupId: 'string',
-      ownerId: 'number',
-      protocol: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceResponseBody extends $tea.Model {
-  id?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddRegisteredDeviceRequest extends $tea.Model {
   dsn?: string;
   ownerId?: number;
@@ -2637,81 +2565,6 @@ export class CreateDeviceAlarmResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDeviceAlarmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeviceSnapshotRequest extends $tea.Model {
-  deviceId?: string;
-  mode?: string;
-  ownerId?: number;
-  snapshotConfig?: string;
-  streamId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      mode: 'Mode',
-      ownerId: 'OwnerId',
-      snapshotConfig: 'SnapshotConfig',
-      streamId: 'StreamId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      mode: 'string',
-      ownerId: 'number',
-      snapshotConfig: 'string',
-      streamId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeviceSnapshotResponseBody extends $tea.Model {
-  id?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeviceSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateDeviceSnapshotResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateDeviceSnapshotResponseBody,
     };
   }
 
@@ -7268,6 +7121,75 @@ export class DescribeTemplatesResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserDevicesRequest extends $tea.Model {
+  ensInstanceIds?: string;
+  ownerId?: number;
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensInstanceIds: 'EnsInstanceIds',
+      ownerId: 'OwnerId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensInstanceIds: 'string',
+      ownerId: 'number',
+      serverName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserDevicesResponseBody extends $tea.Model {
+  list?: DescribeUserDevicesResponseBodyList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': DescribeUserDevicesResponseBodyList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserDevicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUserDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUserDevicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodStreamURLRequest extends $tea.Model {
   ownerId?: number;
   txId?: string;
@@ -9842,180 +9764,6 @@ export class ListBucketsResponse extends $tea.Model {
   }
 }
 
-export class ListDeviceChannelsRequest extends $tea.Model {
-  deviceId?: string;
-  ownerId?: number;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      ownerId: 'OwnerId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      ownerId: 'number',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceChannelsResponseBody extends $tea.Model {
-  channels?: ListDeviceChannelsResponseBodyChannels[];
-  pageCount?: number;
-  pageNum?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      channels: 'Channels',
-      pageCount: 'PageCount',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channels: { 'type': 'array', 'itemType': ListDeviceChannelsResponseBodyChannels },
-      pageCount: 'number',
-      pageNum: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceChannelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDeviceChannelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDeviceChannelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceRecordsRequest extends $tea.Model {
-  deviceId?: string;
-  ownerId?: number;
-  pageNum?: number;
-  pageSize?: number;
-  searchCriteria?: string;
-  streamId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      ownerId: 'OwnerId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      searchCriteria: 'SearchCriteria',
-      streamId: 'StreamId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      ownerId: 'number',
-      pageNum: 'number',
-      pageSize: 'number',
-      searchCriteria: 'string',
-      streamId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceRecordsResponseBody extends $tea.Model {
-  pageCount?: number;
-  pageNum?: number;
-  pageSize?: number;
-  records?: ListDeviceRecordsResponseBodyRecords[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageCount: 'PageCount',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      records: 'Records',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageCount: 'number',
-      pageNum: 'number',
-      pageSize: 'number',
-      records: { 'type': 'array', 'itemType': ListDeviceRecordsResponseBodyRecords },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceRecordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDeviceRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDeviceRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListObjectsRequest extends $tea.Model {
   bucketName?: string;
   continuationToken?: string;
@@ -12496,72 +12244,6 @@ export class SyncCatalogsResponse extends $tea.Model {
   }
 }
 
-export class SyncDeviceChannelsRequest extends $tea.Model {
-  deviceId?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncDeviceChannelsResponseBody extends $tea.Model {
-  id?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncDeviceChannelsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SyncDeviceChannelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SyncDeviceChannelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UnbindDirectoryRequest extends $tea.Model {
   deviceId?: string;
   directoryId?: string;
@@ -13441,90 +13123,6 @@ export class UpgradeRenderingDevicesImageResponse extends $tea.Model {
   }
 }
 
-export class UploadDeviceRecordRequest extends $tea.Model {
-  deviceId?: string;
-  ownerId?: number;
-  searchCriteria?: string;
-  streamId?: string;
-  uploadId?: string;
-  uploadMode?: string;
-  uploadParams?: string;
-  uploadType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      ownerId: 'OwnerId',
-      searchCriteria: 'SearchCriteria',
-      streamId: 'StreamId',
-      uploadId: 'UploadId',
-      uploadMode: 'UploadMode',
-      uploadParams: 'UploadParams',
-      uploadType: 'UploadType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      ownerId: 'number',
-      searchCriteria: 'string',
-      streamId: 'string',
-      uploadId: 'string',
-      uploadMode: 'string',
-      uploadParams: 'string',
-      uploadType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadDeviceRecordResponseBody extends $tea.Model {
-  id?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadDeviceRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UploadDeviceRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UploadDeviceRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BatchBindDirectoriesResponseBodyResults extends $tea.Model {
   deviceId?: string;
   directoryId?: string;
@@ -14280,12 +13878,18 @@ export class DescribeClusterDevicesResponseBodyDevicesIpInfos extends $tea.Model
 export class DescribeClusterDevicesResponseBodyDevicesPodInfosNetwork extends $tea.Model {
   containerPorts?: string;
   externalIp?: string;
+  externalIsp?: string;
   externalPorts?: string;
+  outgoingIp?: string;
+  outgoingIsp?: string;
   static names(): { [key: string]: string } {
     return {
       containerPorts: 'ContainerPorts',
       externalIp: 'ExternalIp',
+      externalIsp: 'ExternalIsp',
       externalPorts: 'ExternalPorts',
+      outgoingIp: 'OutgoingIp',
+      outgoingIsp: 'OutgoingIsp',
     };
   }
 
@@ -14293,7 +13897,10 @@ export class DescribeClusterDevicesResponseBodyDevicesPodInfosNetwork extends $t
     return {
       containerPorts: 'string',
       externalIp: 'string',
+      externalIsp: 'string',
       externalPorts: 'string',
+      outgoingIp: 'string',
+      outgoingIsp: 'string',
     };
   }
 
@@ -15231,12 +14838,18 @@ export class DescribeRenderingDevicesResponseBodyDevicesIpInfos extends $tea.Mod
 export class DescribeRenderingDevicesResponseBodyDevicesPodInfosNetwork extends $tea.Model {
   containerPorts?: string;
   externalIp?: string;
+  externalIsp?: string;
   externalPorts?: string;
+  outgoingIp?: string;
+  outgoingIsp?: string;
   static names(): { [key: string]: string } {
     return {
       containerPorts: 'ContainerPorts',
       externalIp: 'ExternalIp',
+      externalIsp: 'ExternalIsp',
       externalPorts: 'ExternalPorts',
+      outgoingIp: 'OutgoingIp',
+      outgoingIsp: 'OutgoingIsp',
     };
   }
 
@@ -15244,7 +14857,10 @@ export class DescribeRenderingDevicesResponseBodyDevicesPodInfosNetwork extends 
     return {
       containerPorts: 'string',
       externalIp: 'string',
+      externalIsp: 'string',
       externalPorts: 'string',
+      outgoingIp: 'string',
+      outgoingIsp: 'string',
     };
   }
 
@@ -15579,6 +15195,46 @@ export class DescribeTemplatesResponseBodyTemplates extends $tea.Model {
       transConfigs: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyTemplatesTransConfigs },
       trigger: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserDevicesResponseBodyList extends $tea.Model {
+  aliUid?: string;
+  edgeNodeName?: string;
+  instanceId?: string;
+  macAddress?: string;
+  matrixId?: string;
+  server?: string;
+  specification?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      edgeNodeName: 'EdgeNodeName',
+      instanceId: 'InstanceId',
+      macAddress: 'MacAddress',
+      matrixId: 'MatrixId',
+      server: 'Server',
+      specification: 'Specification',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      edgeNodeName: 'string',
+      instanceId: 'string',
+      macAddress: 'string',
+      matrixId: 'string',
+      server: 'string',
+      specification: 'string',
+      status: 'string',
     };
   }
 
@@ -17003,68 +16659,6 @@ export class ListBucketsResponseBodyBucketInfos extends $tea.Model {
   }
 }
 
-export class ListDeviceChannelsResponseBodyChannels extends $tea.Model {
-  channelId?: number;
-  deviceId?: string;
-  deviceStatus?: string;
-  name?: string;
-  params?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelId: 'ChannelId',
-      deviceId: 'DeviceId',
-      deviceStatus: 'DeviceStatus',
-      name: 'Name',
-      params: 'Params',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelId: 'number',
-      deviceId: 'string',
-      deviceStatus: 'string',
-      name: 'string',
-      params: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceRecordsResponseBodyRecords extends $tea.Model {
-  endTime?: string;
-  fileSize?: number;
-  filename?: string;
-  recordType?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      fileSize: 'FileSize',
-      filename: 'Filename',
-      recordType: 'RecordType',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      fileSize: 'number',
-      filename: 'string',
-      recordType: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListObjectsResponseBodyContents extends $tea.Model {
   ETag?: string;
   key?: string;
@@ -17117,47 +16711,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async addDeviceWithOptions(request: AddDeviceRequest, runtime: $Util.RuntimeOptions): Promise<AddDeviceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.config)) {
-      query["Config"] = request.config;
-    }
-
-    if (!Util.isUnset(request.groupId)) {
-      query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.protocol)) {
-      query["Protocol"] = request.protocol;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddDevice",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddDeviceResponse>(await this.callApi(params, req, runtime), new AddDeviceResponse({}));
-  }
-
-  async addDevice(request: AddDeviceRequest): Promise<AddDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addDeviceWithOptions(request, runtime);
   }
 
   async addRegisteredDeviceWithOptions(request: AddRegisteredDeviceRequest, runtime: $Util.RuntimeOptions): Promise<AddRegisteredDeviceResponse> {
@@ -18688,51 +18241,6 @@ export default class Client extends OpenApi {
   async createDeviceAlarm(request: CreateDeviceAlarmRequest): Promise<CreateDeviceAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeviceAlarmWithOptions(request, runtime);
-  }
-
-  async createDeviceSnapshotWithOptions(request: CreateDeviceSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceSnapshotResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.mode)) {
-      query["Mode"] = request.mode;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.snapshotConfig)) {
-      query["SnapshotConfig"] = request.snapshotConfig;
-    }
-
-    if (!Util.isUnset(request.streamId)) {
-      query["StreamId"] = request.streamId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateDeviceSnapshot",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDeviceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateDeviceSnapshotResponse({}));
-  }
-
-  async createDeviceSnapshot(request: CreateDeviceSnapshotRequest): Promise<CreateDeviceSnapshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDeviceSnapshotWithOptions(request, runtime);
   }
 
   async createDirectoryWithOptions(request: CreateDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateDirectoryResponse> {
@@ -21148,6 +20656,43 @@ export default class Client extends OpenApi {
     return await this.describeTemplatesWithOptions(request, runtime);
   }
 
+  async describeUserDevicesWithOptions(request: DescribeUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDevicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensInstanceIds)) {
+      query["EnsInstanceIds"] = request.ensInstanceIds;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.serverName)) {
+      query["ServerName"] = request.serverName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserDevices",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserDevicesResponse>(await this.callApi(params, req, runtime), new DescribeUserDevicesResponse({}));
+  }
+
+  async describeUserDevices(request: DescribeUserDevicesRequest): Promise<DescribeUserDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserDevicesWithOptions(request, runtime);
+  }
+
   async describeVodStreamURLWithOptions(request: DescribeVodStreamURLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodStreamURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22555,96 +22100,6 @@ export default class Client extends OpenApi {
   async listBuckets(request: ListBucketsRequest): Promise<ListBucketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBucketsWithOptions(request, runtime);
-  }
-
-  async listDeviceChannelsWithOptions(request: ListDeviceChannelsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceChannelsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNum)) {
-      query["PageNum"] = request.pageNum;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDeviceChannels",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDeviceChannelsResponse>(await this.callApi(params, req, runtime), new ListDeviceChannelsResponse({}));
-  }
-
-  async listDeviceChannels(request: ListDeviceChannelsRequest): Promise<ListDeviceChannelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDeviceChannelsWithOptions(request, runtime);
-  }
-
-  async listDeviceRecordsWithOptions(request: ListDeviceRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceRecordsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNum)) {
-      query["PageNum"] = request.pageNum;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.searchCriteria)) {
-      query["SearchCriteria"] = request.searchCriteria;
-    }
-
-    if (!Util.isUnset(request.streamId)) {
-      query["StreamId"] = request.streamId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDeviceRecords",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDeviceRecordsResponse>(await this.callApi(params, req, runtime), new ListDeviceRecordsResponse({}));
-  }
-
-  async listDeviceRecords(request: ListDeviceRecordsRequest): Promise<ListDeviceRecordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDeviceRecordsWithOptions(request, runtime);
   }
 
   async listObjectsWithOptions(request: ListObjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListObjectsResponse> {
@@ -24199,39 +23654,6 @@ export default class Client extends OpenApi {
     return await this.syncCatalogsWithOptions(request, runtime);
   }
 
-  async syncDeviceChannelsWithOptions(request: SyncDeviceChannelsRequest, runtime: $Util.RuntimeOptions): Promise<SyncDeviceChannelsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SyncDeviceChannels",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SyncDeviceChannelsResponse>(await this.callApi(params, req, runtime), new SyncDeviceChannelsResponse({}));
-  }
-
-  async syncDeviceChannels(request: SyncDeviceChannelsRequest): Promise<SyncDeviceChannelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.syncDeviceChannelsWithOptions(request, runtime);
-  }
-
   async unbindDirectoryWithOptions(request: UnbindDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24770,63 +24192,6 @@ export default class Client extends OpenApi {
   async upgradeRenderingDevicesImage(request: UpgradeRenderingDevicesImageRequest): Promise<UpgradeRenderingDevicesImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeRenderingDevicesImageWithOptions(request, runtime);
-  }
-
-  async uploadDeviceRecordWithOptions(request: UploadDeviceRecordRequest, runtime: $Util.RuntimeOptions): Promise<UploadDeviceRecordResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.searchCriteria)) {
-      query["SearchCriteria"] = request.searchCriteria;
-    }
-
-    if (!Util.isUnset(request.streamId)) {
-      query["StreamId"] = request.streamId;
-    }
-
-    if (!Util.isUnset(request.uploadId)) {
-      query["UploadId"] = request.uploadId;
-    }
-
-    if (!Util.isUnset(request.uploadMode)) {
-      query["UploadMode"] = request.uploadMode;
-    }
-
-    if (!Util.isUnset(request.uploadParams)) {
-      query["UploadParams"] = request.uploadParams;
-    }
-
-    if (!Util.isUnset(request.uploadType)) {
-      query["UploadType"] = request.uploadType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UploadDeviceRecord",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UploadDeviceRecordResponse>(await this.callApi(params, req, runtime), new UploadDeviceRecordResponse({}));
-  }
-
-  async uploadDeviceRecord(request: UploadDeviceRecordRequest): Promise<UploadDeviceRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.uploadDeviceRecordWithOptions(request, runtime);
   }
 
 }
