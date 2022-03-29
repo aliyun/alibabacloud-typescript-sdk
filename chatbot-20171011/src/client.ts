@@ -992,6 +992,7 @@ export class AppendEntityMemberResponse extends $tea.Model {
 }
 
 export class AssociateRequest extends $tea.Model {
+  agentKey?: string;
   instanceId?: string;
   perspective?: string[];
   recommendNum?: number;
@@ -999,6 +1000,7 @@ export class AssociateRequest extends $tea.Model {
   utterance?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       instanceId: 'InstanceId',
       perspective: 'Perspective',
       recommendNum: 'RecommendNum',
@@ -1009,6 +1011,7 @@ export class AssociateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       instanceId: 'string',
       perspective: { 'type': 'array', 'itemType': 'string' },
       recommendNum: 'number',
@@ -1073,6 +1076,7 @@ export class AssociateResponse extends $tea.Model {
 }
 
 export class ChatRequest extends $tea.Model {
+  agentKey?: string;
   instanceId?: string;
   intentName?: string;
   knowledgeId?: string;
@@ -1085,6 +1089,7 @@ export class ChatRequest extends $tea.Model {
   vendorParam?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       instanceId: 'InstanceId',
       intentName: 'IntentName',
       knowledgeId: 'KnowledgeId',
@@ -1100,6 +1105,7 @@ export class ChatRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       instanceId: 'string',
       intentName: 'string',
       knowledgeId: 'string',
@@ -5101,6 +5107,7 @@ export class QueryEntitiesResponse extends $tea.Model {
 export class QueryIntentsRequest extends $tea.Model {
   agentKey?: string;
   dialogId?: number;
+  instanceId?: string;
   intentName?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -5108,6 +5115,7 @@ export class QueryIntentsRequest extends $tea.Model {
     return {
       agentKey: 'AgentKey',
       dialogId: 'DialogId',
+      instanceId: 'InstanceId',
       intentName: 'IntentName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -5118,6 +5126,7 @@ export class QueryIntentsRequest extends $tea.Model {
     return {
       agentKey: 'string',
       dialogId: 'number',
+      instanceId: 'string',
       intentName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7789,6 +7798,10 @@ export default class Client extends OpenApi {
   async associateWithOptions(request: AssociateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -7834,6 +7847,10 @@ export default class Client extends OpenApi {
   async chatWithOptions(request: ChatRequest, runtime: $Util.RuntimeOptions): Promise<ChatResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -9847,6 +9864,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dialogId)) {
       query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
     }
 
     if (!Util.isUnset(request.intentName)) {
