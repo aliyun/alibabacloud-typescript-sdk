@@ -813,6 +813,7 @@ export class PushRequest extends $tea.Model {
   androidPopupTitle?: string;
   androidRemind?: boolean;
   androidRenderStyle?: number;
+  androidVivoPushMode?: number;
   androidXiaoMiActivity?: string;
   androidXiaoMiNotifyBody?: string;
   androidXiaoMiNotifyTitle?: string;
@@ -836,15 +837,18 @@ export class PushRequest extends $tea.Model {
   target?: string;
   targetValue?: string;
   title?: string;
+  trim?: boolean;
   iOSApnsEnv?: string;
   iOSBadge?: number;
   iOSBadgeAutoIncrement?: boolean;
   iOSExtParameters?: string;
+  iOSInterruptionLevel?: string;
   iOSMusic?: string;
   iOSMutableContent?: boolean;
   iOSNotificationCategory?: string;
   iOSNotificationCollapseId?: string;
   iOSNotificationThreadId?: string;
+  iOSRelevanceScore?: number;
   iOSRemind?: boolean;
   iOSRemindBody?: string;
   iOSSilentNotification?: boolean;
@@ -876,6 +880,7 @@ export class PushRequest extends $tea.Model {
       androidPopupTitle: 'AndroidPopupTitle',
       androidRemind: 'AndroidRemind',
       androidRenderStyle: 'AndroidRenderStyle',
+      androidVivoPushMode: 'AndroidVivoPushMode',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
@@ -899,15 +904,18 @@ export class PushRequest extends $tea.Model {
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
+      trim: 'Trim',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
       iOSExtParameters: 'iOSExtParameters',
+      iOSInterruptionLevel: 'iOSInterruptionLevel',
       iOSMusic: 'iOSMusic',
       iOSMutableContent: 'iOSMutableContent',
       iOSNotificationCategory: 'iOSNotificationCategory',
       iOSNotificationCollapseId: 'iOSNotificationCollapseId',
       iOSNotificationThreadId: 'iOSNotificationThreadId',
+      iOSRelevanceScore: 'iOSRelevanceScore',
       iOSRemind: 'iOSRemind',
       iOSRemindBody: 'iOSRemindBody',
       iOSSilentNotification: 'iOSSilentNotification',
@@ -942,6 +950,7 @@ export class PushRequest extends $tea.Model {
       androidPopupTitle: 'string',
       androidRemind: 'boolean',
       androidRenderStyle: 'number',
+      androidVivoPushMode: 'number',
       androidXiaoMiActivity: 'string',
       androidXiaoMiNotifyBody: 'string',
       androidXiaoMiNotifyTitle: 'string',
@@ -965,15 +974,18 @@ export class PushRequest extends $tea.Model {
       target: 'string',
       targetValue: 'string',
       title: 'string',
+      trim: 'boolean',
       iOSApnsEnv: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',
       iOSExtParameters: 'string',
+      iOSInterruptionLevel: 'string',
       iOSMusic: 'string',
       iOSMutableContent: 'boolean',
       iOSNotificationCategory: 'string',
       iOSNotificationCollapseId: 'string',
       iOSNotificationThreadId: 'string',
+      iOSRelevanceScore: 'number',
       iOSRemind: 'boolean',
       iOSRemindBody: 'string',
       iOSSilentNotification: 'boolean',
@@ -2594,6 +2606,7 @@ export class MassPushRequestPushTask extends $tea.Model {
   androidPopupTitle?: string;
   androidRemind?: boolean;
   androidRenderStyle?: string;
+  androidVivoPushMode?: number;
   androidXiaoMiActivity?: string;
   androidXiaoMiNotifyBody?: string;
   androidXiaoMiNotifyTitle?: string;
@@ -2611,15 +2624,18 @@ export class MassPushRequestPushTask extends $tea.Model {
   target?: string;
   targetValue?: string;
   title?: string;
+  trim?: boolean;
   iOSApnsEnv?: string;
   iOSBadge?: number;
   iOSBadgeAutoIncrement?: boolean;
   iOSExtParameters?: string;
+  iOSInterruptionLevel?: string;
   iOSMusic?: string;
   iOSMutableContent?: boolean;
   iOSNotificationCategory?: string;
   iOSNotificationCollapseId?: string;
   iOSNotificationThreadId?: string;
+  iOSRelevanceScore?: number;
   iOSRemind?: boolean;
   iOSRemindBody?: string;
   iOSSilentNotification?: boolean;
@@ -2651,6 +2667,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidPopupTitle: 'AndroidPopupTitle',
       androidRemind: 'AndroidRemind',
       androidRenderStyle: 'AndroidRenderStyle',
+      androidVivoPushMode: 'AndroidVivoPushMode',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
@@ -2668,15 +2685,18 @@ export class MassPushRequestPushTask extends $tea.Model {
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
+      trim: 'Trim',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
       iOSExtParameters: 'iOSExtParameters',
+      iOSInterruptionLevel: 'iOSInterruptionLevel',
       iOSMusic: 'iOSMusic',
       iOSMutableContent: 'iOSMutableContent',
       iOSNotificationCategory: 'iOSNotificationCategory',
       iOSNotificationCollapseId: 'iOSNotificationCollapseId',
       iOSNotificationThreadId: 'iOSNotificationThreadId',
+      iOSRelevanceScore: 'iOSRelevanceScore',
       iOSRemind: 'iOSRemind',
       iOSRemindBody: 'iOSRemindBody',
       iOSSilentNotification: 'iOSSilentNotification',
@@ -2711,6 +2731,7 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidPopupTitle: 'string',
       androidRemind: 'boolean',
       androidRenderStyle: 'string',
+      androidVivoPushMode: 'number',
       androidXiaoMiActivity: 'string',
       androidXiaoMiNotifyBody: 'string',
       androidXiaoMiNotifyTitle: 'string',
@@ -2728,15 +2749,18 @@ export class MassPushRequestPushTask extends $tea.Model {
       target: 'string',
       targetValue: 'string',
       title: 'string',
+      trim: 'boolean',
       iOSApnsEnv: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',
       iOSExtParameters: 'string',
+      iOSInterruptionLevel: 'string',
       iOSMusic: 'string',
       iOSMutableContent: 'boolean',
       iOSNotificationCategory: 'string',
       iOSNotificationCollapseId: 'string',
       iOSNotificationThreadId: 'string',
+      iOSRelevanceScore: 'number',
       iOSRemind: 'boolean',
       iOSRemindBody: 'string',
       iOSSilentNotification: 'boolean',
@@ -3798,6 +3822,10 @@ export default class Client extends OpenApi {
       query["AndroidRenderStyle"] = request.androidRenderStyle;
     }
 
+    if (!Util.isUnset(request.androidVivoPushMode)) {
+      query["AndroidVivoPushMode"] = request.androidVivoPushMode;
+    }
+
     if (!Util.isUnset(request.androidXiaoMiActivity)) {
       query["AndroidXiaoMiActivity"] = request.androidXiaoMiActivity;
     }
@@ -3890,6 +3918,10 @@ export default class Client extends OpenApi {
       query["Title"] = request.title;
     }
 
+    if (!Util.isUnset(request.trim)) {
+      query["Trim"] = request.trim;
+    }
+
     if (!Util.isUnset(request.iOSApnsEnv)) {
       query["iOSApnsEnv"] = request.iOSApnsEnv;
     }
@@ -3904,6 +3936,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.iOSExtParameters)) {
       query["iOSExtParameters"] = request.iOSExtParameters;
+    }
+
+    if (!Util.isUnset(request.iOSInterruptionLevel)) {
+      query["iOSInterruptionLevel"] = request.iOSInterruptionLevel;
     }
 
     if (!Util.isUnset(request.iOSMusic)) {
@@ -3924,6 +3960,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.iOSNotificationThreadId)) {
       query["iOSNotificationThreadId"] = request.iOSNotificationThreadId;
+    }
+
+    if (!Util.isUnset(request.iOSRelevanceScore)) {
+      query["iOSRelevanceScore"] = request.iOSRelevanceScore;
     }
 
     if (!Util.isUnset(request.iOSRemind)) {
