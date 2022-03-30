@@ -4,20 +4,110 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class ListResourceRelationshipsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  scene?: string;
+  sourceRegionId?: string;
+  sourceResourceId?: string[];
+  sourceResourceType?: string;
+  targetResourceType?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      scene: 'Scene',
+      sourceRegionId: 'SourceRegionId',
+      sourceResourceId: 'SourceResourceId',
+      sourceResourceType: 'SourceResourceType',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      scene: 'string',
+      sourceRegionId: 'string',
+      sourceResourceId: { 'type': 'array', 'itemType': 'string' },
+      sourceResourceType: 'string',
+      targetResourceType: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationshipsResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  resourceRelationships?: ListResourceRelationshipsResponseBodyResourceRelationships[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resourceRelationships: 'ResourceRelationships',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      resourceRelationships: { 'type': 'array', 'itemType': ListResourceRelationshipsResponseBodyResourceRelationships },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRelationshipsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListResourceRelationshipsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListResourceRelationshipsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SearchResourcesRequest extends $tea.Model {
   filter?: SearchResourcesRequestFilter[];
   maxResults?: number;
   nextToken?: string;
   resourceGroupId?: string;
+  sortCriterion?: SearchResourcesRequestSortCriterion;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
+      sortCriterion: 'SortCriterion',
     };
   }
 
@@ -27,6 +117,7 @@ export class SearchResourcesRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       resourceGroupId: 'string',
+      sortCriterion: SearchResourcesRequestSortCriterion,
     };
   }
 
@@ -88,6 +179,46 @@ export class SearchResourcesResponse extends $tea.Model {
   }
 }
 
+export class ListResourceRelationshipsResponseBodyResourceRelationships extends $tea.Model {
+  accountId?: string;
+  relationshipType?: string;
+  sourceRegionId?: string;
+  sourceResourceId?: string;
+  sourceResourceType?: string;
+  targetRegionId?: string;
+  targetResourceId?: string;
+  targetResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      relationshipType: 'RelationshipType',
+      sourceRegionId: 'SourceRegionId',
+      sourceResourceId: 'SourceResourceId',
+      sourceResourceType: 'SourceResourceType',
+      targetRegionId: 'TargetRegionId',
+      targetResourceId: 'TargetResourceId',
+      targetResourceType: 'TargetResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      relationshipType: 'string',
+      sourceRegionId: 'string',
+      sourceResourceId: 'string',
+      sourceResourceType: 'string',
+      targetRegionId: 'string',
+      targetResourceId: 'string',
+      targetResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchResourcesRequestFilter extends $tea.Model {
   key?: string;
   matchType?: string;
@@ -105,6 +236,28 @@ export class SearchResourcesRequestFilter extends $tea.Model {
       key: 'string',
       matchType: 'string',
       value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchResourcesRequestSortCriterion extends $tea.Model {
+  key?: string;
+  order?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      order: 'Order',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      order: 'string',
     };
   }
 
@@ -229,12 +382,97 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async listResourceRelationshipsWithOptions(request: ListResourceRelationshipsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceRelationshipsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    if (!Util.isUnset(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
+    if (!Util.isUnset(request.sourceResourceId)) {
+      query["SourceResourceId"] = request.sourceResourceId;
+    }
+
+    if (!Util.isUnset(request.sourceResourceType)) {
+      query["SourceResourceType"] = request.sourceResourceType;
+    }
+
+    if (!Util.isUnset(request.targetResourceType)) {
+      query["TargetResourceType"] = request.targetResourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResourceRelationships",
+      version: "2021-11-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceRelationshipsResponse>(await this.callApi(params, req, runtime), new ListResourceRelationshipsResponse({}));
+  }
+
+  async listResourceRelationships(request: ListResourceRelationshipsRequest): Promise<ListResourceRelationshipsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listResourceRelationshipsWithOptions(request, runtime);
+  }
+
   async searchResourcesWithOptions(request: SearchResourcesRequest, runtime: $Util.RuntimeOptions): Promise<SearchResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.sortCriterion))) {
+      query["SortCriterion"] = request.sortCriterion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SearchResourcesResponse>(await this.doRPCRequest("SearchResources", "2021-11-04", "HTTPS", "POST", "AK", "json", req, runtime), new SearchResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchResources",
+      version: "2021-11-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchResourcesResponse>(await this.callApi(params, req, runtime), new SearchResourcesResponse({}));
   }
 
   async searchResources(request: SearchResourcesRequest): Promise<SearchResourcesResponse> {
