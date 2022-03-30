@@ -11,7 +11,6 @@ import * as $tea from '@alicloud/tea-typescript';
 export class ListResourceRelationshipsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
-  scene?: string;
   sourceRegionId?: string;
   sourceResourceId?: string[];
   sourceResourceType?: string;
@@ -20,7 +19,6 @@ export class ListResourceRelationshipsRequest extends $tea.Model {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      scene: 'Scene',
       sourceRegionId: 'SourceRegionId',
       sourceResourceId: 'SourceResourceId',
       sourceResourceType: 'SourceResourceType',
@@ -32,7 +30,6 @@ export class ListResourceRelationshipsRequest extends $tea.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
-      scene: 'string',
       sourceRegionId: 'string',
       sourceResourceId: { 'type': 'array', 'itemType': 'string' },
       sourceResourceType: 'string',
@@ -391,10 +388,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.scene)) {
-      query["Scene"] = request.scene;
     }
 
     if (!Util.isUnset(request.sourceRegionId)) {
