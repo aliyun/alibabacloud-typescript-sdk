@@ -8497,6 +8497,72 @@ export class DescribeDcdnUserCertificateExpireCountResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnUserConfigsRequest extends $tea.Model {
+  functionName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'FunctionName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserConfigsResponseBody extends $tea.Model {
+  configs?: DescribeDcdnUserConfigsResponseBodyConfigs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': DescribeDcdnUserConfigsResponseBodyConfigs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnUserConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnUserConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnUserDomainsRequest extends $tea.Model {
   changeEndTime?: string;
   changeStartTime?: string;
@@ -16474,6 +16540,31 @@ export class DescribeDcdnUserBillTypeResponseBodyBillTypeData extends $tea.Model
   }
 }
 
+export class DescribeDcdnUserConfigsResponseBodyConfigs extends $tea.Model {
+  argName?: string;
+  argValue?: string;
+  functionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      argName: 'ArgName',
+      argValue: 'ArgValue',
+      functionName: 'FunctionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argName: 'string',
+      argValue: 'string',
+      functionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnUserDomainsRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -21718,6 +21809,39 @@ export default class Client extends OpenApi {
   async describeDcdnUserCertificateExpireCount(request: DescribeDcdnUserCertificateExpireCountRequest): Promise<DescribeDcdnUserCertificateExpireCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnUserCertificateExpireCountWithOptions(request, runtime);
+  }
+
+  async describeDcdnUserConfigsWithOptions(request: DescribeDcdnUserConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserConfigsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnUserConfigs",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnUserConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnUserConfigsResponse({}));
+  }
+
+  async describeDcdnUserConfigs(request: DescribeDcdnUserConfigsRequest): Promise<DescribeDcdnUserConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnUserConfigsWithOptions(request, runtime);
   }
 
   async describeDcdnUserDomainsWithOptions(request: DescribeDcdnUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserDomainsResponse> {
