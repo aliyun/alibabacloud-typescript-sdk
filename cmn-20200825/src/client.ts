@@ -8964,6 +8964,7 @@ export class ListDevicesShrinkRequest extends $tea.Model {
 }
 
 export class ListDevicesResponseBody extends $tea.Model {
+  amountUsed?: number;
   devices?: ListDevicesResponseBodyDevices[];
   maxResults?: number;
   nextToken?: number;
@@ -8971,6 +8972,7 @@ export class ListDevicesResponseBody extends $tea.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      amountUsed: 'AmountUsed',
       devices: 'Devices',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -8981,6 +8983,7 @@ export class ListDevicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      amountUsed: 'number',
       devices: { 'type': 'array', 'itemType': ListDevicesResponseBodyDevices },
       maxResults: 'number',
       nextToken: 'number',
@@ -9019,6 +9022,7 @@ export class ListDevicesResponse extends $tea.Model {
 export class ListEventDefinitionsRequest extends $tea.Model {
   eventId?: string;
   eventName?: string;
+  eventType?: string;
   instanceId?: string;
   maxResults?: number;
   nextToken?: string;
@@ -9026,6 +9030,7 @@ export class ListEventDefinitionsRequest extends $tea.Model {
     return {
       eventId: 'EventId',
       eventName: 'EventName',
+      eventType: 'EventType',
       instanceId: 'InstanceId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -9036,6 +9041,7 @@ export class ListEventDefinitionsRequest extends $tea.Model {
     return {
       eventId: 'string',
       eventName: 'string',
+      eventType: 'string',
       instanceId: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -9677,6 +9683,7 @@ export class ListLinksRequest extends $tea.Model {
   ipA?: string;
   ipB?: string;
   linkName?: string;
+  linkNo?: string;
   linkStatus?: string;
   linkType?: string;
   maxResults?: number;
@@ -9690,6 +9697,7 @@ export class ListLinksRequest extends $tea.Model {
       ipA: 'IpA',
       ipB: 'IpB',
       linkName: 'LinkName',
+      linkNo: 'LinkNo',
       linkStatus: 'LinkStatus',
       linkType: 'LinkType',
       maxResults: 'MaxResults',
@@ -9706,6 +9714,7 @@ export class ListLinksRequest extends $tea.Model {
       ipA: 'string',
       ipB: 'string',
       linkName: 'string',
+      linkNo: 'string',
       linkStatus: 'string',
       linkType: 'string',
       maxResults: 'number',
