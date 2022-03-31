@@ -8609,6 +8609,72 @@ export class DescribeIpInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeIpStatusRequest extends $tea.Model {
+  ips?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ips: 'Ips',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ips: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpStatusResponseBody extends $tea.Model {
+  ipStatus?: DescribeIpStatusResponseBodyIpStatus[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipStatus: 'IpStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipStatus: { 'type': 'array', 'itemType': DescribeIpStatusResponseBodyIpStatus },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeIpStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeIpStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeL2VipsByDomainRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -10509,72 +10575,6 @@ export class ModifyCdnDomainSchdmByPropertyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyCdnDomainSchdmByPropertyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDomainCustomLogConfigRequest extends $tea.Model {
-  configId?: string;
-  domainName?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      domainName: 'DomainName',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'string',
-      domainName: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDomainCustomLogConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDomainCustomLogConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyDomainCustomLogConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyDomainCustomLogConfigResponseBody,
     };
   }
 
@@ -16780,6 +16780,28 @@ export class DescribeFCTriggerResponseBodyFCTrigger extends $tea.Model {
   }
 }
 
+export class DescribeIpStatusResponseBodyIpStatus extends $tea.Model {
+  ip?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'ip',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeL2VipsByDomainResponseBodyVips extends $tea.Model {
   vip?: string[];
   static names(): { [key: string]: string } {
@@ -22217,6 +22239,31 @@ export default class Client extends OpenApi {
     return await this.describeIpInfoWithOptions(request, runtime);
   }
 
+  async describeIpStatusWithOptions(request: DescribeIpStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIpStatus",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIpStatusResponse>(await this.callApi(params, req, runtime), new DescribeIpStatusResponse({}));
+  }
+
+  async describeIpStatus(request: DescribeIpStatusRequest): Promise<DescribeIpStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIpStatusWithOptions(request, runtime);
+  }
+
   async describeL2VipsByDomainWithOptions(request: DescribeL2VipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL2VipsByDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23173,31 +23220,6 @@ export default class Client extends OpenApi {
   async modifyCdnDomainSchdmByProperty(request: ModifyCdnDomainSchdmByPropertyRequest): Promise<ModifyCdnDomainSchdmByPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCdnDomainSchdmByPropertyWithOptions(request, runtime);
-  }
-
-  async modifyDomainCustomLogConfigWithOptions(request: ModifyDomainCustomLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainCustomLogConfigResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyDomainCustomLogConfig",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDomainCustomLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyDomainCustomLogConfigResponse({}));
-  }
-
-  async modifyDomainCustomLogConfig(request: ModifyDomainCustomLogConfigRequest): Promise<ModifyDomainCustomLogConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDomainCustomLogConfigWithOptions(request, runtime);
   }
 
   async modifyRealtimeLogDeliveryWithOptions(request: ModifyRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRealtimeLogDeliveryResponse> {
