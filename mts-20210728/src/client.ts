@@ -813,11 +813,13 @@ export class SubmitTraceExtractResponse extends $tea.Model {
 }
 
 export class SubmitTracemuRequest extends $tea.Model {
+  keyUri?: string;
   mediaId?: string;
   output?: string;
   trace?: string;
   static names(): { [key: string]: string } {
     return {
+      keyUri: 'KeyUri',
       mediaId: 'MediaId',
       output: 'Output',
       trace: 'Trace',
@@ -826,6 +828,7 @@ export class SubmitTracemuRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      keyUri: 'string',
       mediaId: 'string',
       output: 'string',
       trace: 'string',
@@ -1734,6 +1737,10 @@ export default class Client extends OpenApi {
   async submitTracemuWithOptions(request: SubmitTracemuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTracemuResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyUri)) {
+      body["KeyUri"] = request.keyUri;
+    }
+
     if (!Util.isUnset(request.mediaId)) {
       body["MediaId"] = request.mediaId;
     }
