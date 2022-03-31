@@ -71,6 +71,7 @@ export class Application extends $tea.Model {
 
 export class Environment extends $tea.Model {
   createdTime?: string;
+  deletionTime?: string;
   description?: string;
   generation?: number;
   kind?: string;
@@ -81,6 +82,7 @@ export class Environment extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
       description: 'description',
       generation: 'generation',
       kind: 'kind',
@@ -94,6 +96,7 @@ export class Environment extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createdTime: 'string',
+      deletionTime: 'string',
       description: 'string',
       generation: 'number',
       kind: 'string',
@@ -315,6 +318,7 @@ export class Release extends $tea.Model {
 
 export class Service extends $tea.Model {
   createdTime?: string;
+  deletionTime?: string;
   description?: string;
   generation?: number;
   kind?: string;
@@ -325,6 +329,7 @@ export class Service extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
       description: 'description',
       generation: 'generation',
       kind: 'kind',
@@ -338,6 +343,7 @@ export class Service extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createdTime: 'string',
+      deletionTime: 'string',
       description: 'string',
       generation: 'number',
       kind: 'string',
@@ -452,6 +458,34 @@ export class ServiceStatus extends $tea.Model {
   }
 }
 
+export class Status extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StsCredentials extends $tea.Model {
   accessKeyId?: string;
   expirationTime?: string;
@@ -485,6 +519,7 @@ export class StsCredentials extends $tea.Model {
 
 export class Template extends $tea.Model {
   createdTime?: string;
+  deletionTime?: string;
   description?: string;
   generation?: number;
   kind?: string;
@@ -496,6 +531,7 @@ export class Template extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createdTime: 'createdTime',
+      deletionTime: 'deletionTime',
       description: 'description',
       generation: 'generation',
       kind: 'kind',
@@ -510,6 +546,7 @@ export class Template extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createdTime: 'string',
+      deletionTime: 'string',
       description: 'string',
       generation: 'number',
       kind: 'string',
@@ -724,6 +761,47 @@ export class DeleteApplicationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateRequest extends $tea.Model {
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: Status;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: Status,
     };
   }
 
@@ -1473,6 +1551,38 @@ export default class Client extends OpenApi {
       bodyType: "string",
     });
     return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+  }
+
+  async deleteTemplate(name: string, request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTemplateWithOptions(name, request, headers, runtime);
+  }
+
+  async deleteTemplateWithOptions(name: string, request: DeleteTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
+    Util.validateModel(request);
+    name = OpenApiUtil.getEncodeParam(name);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplate",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/templates/${name}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
   async getApplication(name: string): Promise<GetApplicationResponse> {
