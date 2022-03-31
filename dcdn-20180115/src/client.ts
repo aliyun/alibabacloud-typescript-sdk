@@ -263,6 +263,72 @@ export class BatchAddDcdnDomainResponse extends $tea.Model {
   }
 }
 
+export class BatchCreateDcdnWafRulesRequest extends $tea.Model {
+  ownerId?: number;
+  policyId?: number;
+  ruleConfigs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      policyId: 'PolicyId',
+      ruleConfigs: 'RuleConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      policyId: 'number',
+      ruleConfigs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDcdnWafRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateDcdnWafRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchCreateDcdnWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchCreateDcdnWafRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchDeleteDcdnDomainConfigsRequest extends $tea.Model {
   domainNames?: string;
   functionNames?: string;
@@ -327,6 +393,69 @@ export class BatchDeleteDcdnDomainConfigsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: BatchDeleteDcdnDomainConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnWafRulesRequest extends $tea.Model {
+  ownerId?: number;
+  ruleIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      ruleIds: 'RuleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      ruleIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnWafRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnWafRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchDeleteDcdnWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchDeleteDcdnWafRulesResponseBody,
     };
   }
 
@@ -555,6 +684,72 @@ export class BatchSetDcdnIpaDomainConfigsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: BatchSetDcdnIpaDomainConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchSetDcdnWafDomainConfigsRequest extends $tea.Model {
+  defenseStatus?: string;
+  domainNames?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseStatus: 'DefenseStatus',
+      domainNames: 'DomainNames',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseStatus: 'string',
+      domainNames: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchSetDcdnWafDomainConfigsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchSetDcdnWafDomainConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchSetDcdnWafDomainConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchSetDcdnWafDomainConfigsResponseBody,
     };
   }
 
@@ -1143,6 +1338,81 @@ export class CreateDcdnSubTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDcdnSubTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnWafPolicyRequest extends $tea.Model {
+  defenseScene?: string;
+  ownerId?: number;
+  policyName?: string;
+  policyStatus?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      ownerId: 'OwnerId',
+      policyName: 'PolicyName',
+      policyStatus: 'PolicyStatus',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      ownerId: 'number',
+      policyName: 'string',
+      policyStatus: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnWafPolicyResponseBody extends $tea.Model {
+  policyId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnWafPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDcdnWafPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDcdnWafPolicyResponseBody,
     };
   }
 
@@ -1843,6 +2113,69 @@ export class DeleteDcdnSubTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteDcdnSubTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnWafPolicyRequest extends $tea.Model {
+  ownerId?: number;
+  policyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      policyId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnWafPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnWafPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDcdnWafPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDcdnWafPolicyResponseBody,
     };
   }
 
@@ -9373,6 +9706,813 @@ export class DescribeDcdnWafDomainResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnWafDomainDetailRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainDetailResponseBody extends $tea.Model {
+  domain?: DescribeDcdnWafDomainDetailResponseBodyDomain;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: DescribeDcdnWafDomainDetailResponseBodyDomain,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafDomainDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafDomainDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainsRequest extends $tea.Model {
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  queryArgs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainsResponseBody extends $tea.Model {
+  domains?: DescribeDcdnWafDomainsResponseBodyDomains[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': DescribeDcdnWafDomainsResponseBodyDomains },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoRequest extends $tea.Model {
+  defenseScenes?: string;
+  language?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScenes: 'DefenseScenes',
+      language: 'Language',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScenes: 'string',
+      language: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoResponseBody extends $tea.Model {
+  content?: DescribeDcdnWafFilterInfoResponseBodyContent[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': DescribeDcdnWafFilterInfoResponseBodyContent },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafFilterInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafFilterInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPoliciesRequest extends $tea.Model {
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  queryArgs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPoliciesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  policies?: DescribeDcdnWafPoliciesResponseBodyPolicies[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      policies: { 'type': 'array', 'itemType': DescribeDcdnWafPoliciesResponseBodyPolicies },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyRequest extends $tea.Model {
+  ownerId?: number;
+  policyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      policyId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyResponseBody extends $tea.Model {
+  policy?: DescribeDcdnWafPolicyResponseBodyPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: DescribeDcdnWafPolicyResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyDomainsRequest extends $tea.Model {
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  policyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyDomainsResponseBody extends $tea.Model {
+  domains?: DescribeDcdnWafPolicyDomainsResponseBodyDomains[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': DescribeDcdnWafPolicyDomainsResponseBodyDomains },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafPolicyDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafPolicyDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyValidDomainsRequest extends $tea.Model {
+  defenseScene?: string;
+  domainNameLike?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      domainNameLike: 'DomainNameLike',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      domainNameLike: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyValidDomainsResponseBody extends $tea.Model {
+  domains?: DescribeDcdnWafPolicyValidDomainsResponseBodyDomains[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': DescribeDcdnWafPolicyValidDomainsResponseBodyDomains },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyValidDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafPolicyValidDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafPolicyValidDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRuleRequest extends $tea.Model {
+  ownerId?: number;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  rule?: DescribeDcdnWafRuleResponseBodyRule;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      rule: DescribeDcdnWafRuleResponseBodyRule,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRulesRequest extends $tea.Model {
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  queryArgs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryArgs: 'QueryArgs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryArgs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRulesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  rules?: DescribeDcdnWafRulesResponseBodyRules[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      rules: 'Rules',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeDcdnWafRulesResponseBodyRules },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafScenesRequest extends $tea.Model {
+  defenseScenes?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScenes: 'DefenseScenes',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScenes: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafScenesResponseBody extends $tea.Model {
+  defenseScenes?: DescribeDcdnWafScenesResponseBodyDefenseScenes[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScenes: 'DefenseScenes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScenes: { 'type': 'array', 'itemType': DescribeDcdnWafScenesResponseBodyDefenseScenes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafScenesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafScenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafScenesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafSpecInfoRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafSpecInfoResponseBody extends $tea.Model {
+  edition?: string;
+  requestId?: string;
+  specInfos?: DescribeDcdnWafSpecInfoResponseBodySpecInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      edition: 'Edition',
+      requestId: 'RequestId',
+      specInfos: 'SpecInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      edition: 'string',
+      requestId: 'string',
+      specInfos: { 'type': 'array', 'itemType': DescribeDcdnWafSpecInfoResponseBodySpecInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafSpecInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafSpecInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafSpecInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnsecServiceRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
@@ -10329,6 +11469,216 @@ export class ModifyDCdnDomainSchdmByPropertyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyDCdnDomainSchdmByPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafPolicyRequest extends $tea.Model {
+  ownerId?: number;
+  policyId?: number;
+  policyName?: string;
+  policyStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policyStatus: 'PolicyStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      policyId: 'number',
+      policyName: 'string',
+      policyStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDcdnWafPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDcdnWafPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafPolicyDomainsRequest extends $tea.Model {
+  bindDomains?: string;
+  ownerId?: number;
+  policyId?: number;
+  unbindDomains?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindDomains: 'BindDomains',
+      ownerId: 'OwnerId',
+      policyId: 'PolicyId',
+      unbindDomains: 'UnbindDomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindDomains: 'string',
+      ownerId: 'number',
+      policyId: 'number',
+      unbindDomains: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafPolicyDomainsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafPolicyDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDcdnWafPolicyDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDcdnWafPolicyDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafRuleRequest extends $tea.Model {
+  ownerId?: number;
+  ruleConfig?: string;
+  ruleId?: number;
+  ruleName?: string;
+  ruleStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      ruleConfig: 'RuleConfig',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleStatus: 'RuleStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      ruleConfig: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDcdnWafRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDcdnWafRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDcdnWafRuleResponseBody,
     };
   }
 
@@ -17010,6 +18360,448 @@ export class DescribeDcdnWafDomainResponseBodyOutPutDomains extends $tea.Model {
   }
 }
 
+export class DescribeDcdnWafDomainDetailResponseBodyDomainDefenseScenes extends $tea.Model {
+  defenseScene?: string;
+  policyId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      policyId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainDetailResponseBodyDomain extends $tea.Model {
+  defenseScenes?: DescribeDcdnWafDomainDetailResponseBodyDomainDefenseScenes[];
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScenes: 'DefenseScenes',
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScenes: { 'type': 'array', 'itemType': DescribeDcdnWafDomainDetailResponseBodyDomainDefenseScenes },
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafDomainsResponseBodyDomains extends $tea.Model {
+  domainName?: string;
+  policyCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      policyCount: 'PolicyCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      policyCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbolRegexp extends $tea.Model {
+  errMsg?: string;
+  pattern?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMsg: 'ErrMsg',
+      pattern: 'Pattern',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMsg: 'string',
+      pattern: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbol extends $tea.Model {
+  description?: string;
+  maxLength?: number;
+  regexp?: DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbolRegexp;
+  symbol?: string;
+  tip?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      maxLength: 'MaxLength',
+      regexp: 'Regexp',
+      symbol: 'Symbol',
+      tip: 'Tip',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      maxLength: 'number',
+      regexp: DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbolRegexp,
+      symbol: 'string',
+      tip: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoResponseBodyContentFields extends $tea.Model {
+  extendField?: string;
+  logicalSymbol?: DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbol[];
+  matchField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extendField: 'ExtendField',
+      logicalSymbol: 'LogicalSymbol',
+      matchField: 'MatchField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendField: 'string',
+      logicalSymbol: { 'type': 'array', 'itemType': DescribeDcdnWafFilterInfoResponseBodyContentFieldsLogicalSymbol },
+      matchField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafFilterInfoResponseBodyContent extends $tea.Model {
+  defenseScene?: string;
+  fields?: DescribeDcdnWafFilterInfoResponseBodyContentFields[];
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      fields: 'Fields',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      fields: { 'type': 'array', 'itemType': DescribeDcdnWafFilterInfoResponseBodyContentFields },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPoliciesResponseBodyPolicies extends $tea.Model {
+  defenseScene?: string;
+  domainCount?: number;
+  gmtModified?: string;
+  policyId?: number;
+  policyName?: string;
+  policyStatus?: string;
+  policyType?: string;
+  ruleCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      domainCount: 'DomainCount',
+      gmtModified: 'GmtModified',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policyStatus: 'PolicyStatus',
+      policyType: 'PolicyType',
+      ruleCount: 'RuleCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      domainCount: 'number',
+      gmtModified: 'string',
+      policyId: 'number',
+      policyName: 'string',
+      policyStatus: 'string',
+      policyType: 'string',
+      ruleCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyResponseBodyPolicy extends $tea.Model {
+  defenseScene?: string;
+  domainCount?: number;
+  gmtModified?: string;
+  policyId?: number;
+  policyName?: string;
+  policyStatus?: string;
+  policyType?: string;
+  ruleCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      domainCount: 'DomainCount',
+      gmtModified: 'GmtModified',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policyStatus: 'PolicyStatus',
+      policyType: 'PolicyType',
+      ruleCount: 'RuleCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      domainCount: 'number',
+      gmtModified: 'string',
+      policyId: 'number',
+      policyName: 'string',
+      policyStatus: 'string',
+      policyType: 'string',
+      ruleCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyDomainsResponseBodyDomains extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafPolicyValidDomainsResponseBodyDomains extends $tea.Model {
+  domainName?: string;
+  policyId?: number;
+  policyName?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      policyId: 'number',
+      policyName: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRuleResponseBodyRule extends $tea.Model {
+  defenseScene?: string;
+  gmtModified?: string;
+  policyId?: number;
+  ruleConfig?: string;
+  ruleId?: number;
+  ruleName?: string;
+  ruleStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      gmtModified: 'GmtModified',
+      policyId: 'PolicyId',
+      ruleConfig: 'RuleConfig',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleStatus: 'RuleStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      gmtModified: 'string',
+      policyId: 'number',
+      ruleConfig: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafRulesResponseBodyRules extends $tea.Model {
+  defenseScene?: string;
+  gmtModified?: string;
+  policyId?: number;
+  ruleConfig?: string;
+  ruleId?: number;
+  ruleName?: string;
+  ruleStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      gmtModified: 'GmtModified',
+      policyId: 'PolicyId',
+      ruleConfig: 'RuleConfig',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleStatus: 'RuleStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      gmtModified: 'string',
+      policyId: 'number',
+      ruleConfig: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+      ruleStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafScenesResponseBodyDefenseScenes extends $tea.Model {
+  defenseScene?: string;
+  policyCount?: number;
+  ruleCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      policyCount: 'PolicyCount',
+      ruleCount: 'RuleCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      policyCount: 'number',
+      ruleCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafSpecInfoResponseBodySpecInfosConfigs extends $tea.Model {
+  config?: string;
+  expr?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      expr: 'Expr',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      expr: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafSpecInfoResponseBodySpecInfos extends $tea.Model {
+  configs?: DescribeDcdnWafSpecInfoResponseBodySpecInfosConfigs[];
+  defenseScene?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      defenseScene: 'DefenseScene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': DescribeDcdnWafSpecInfoResponseBodySpecInfosConfigs },
+      defenseScene: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnsecServiceResponseBodyOperationLocksLockReason extends $tea.Model {
   lockReason?: string;
   static names(): { [key: string]: string } {
@@ -17448,6 +19240,45 @@ export default class Client extends OpenApi {
     return await this.batchAddDcdnDomainWithOptions(request, runtime);
   }
 
+  async batchCreateDcdnWafRulesWithOptions(request: BatchCreateDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateDcdnWafRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.ruleConfigs)) {
+      body["RuleConfigs"] = request.ruleConfigs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchCreateDcdnWafRules",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchCreateDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new BatchCreateDcdnWafRulesResponse({}));
+  }
+
+  async batchCreateDcdnWafRules(request: BatchCreateDcdnWafRulesRequest): Promise<BatchCreateDcdnWafRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchCreateDcdnWafRulesWithOptions(request, runtime);
+  }
+
   async batchDeleteDcdnDomainConfigsWithOptions(request: BatchDeleteDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17491,6 +19322,41 @@ export default class Client extends OpenApi {
   async batchDeleteDcdnDomainConfigs(request: BatchDeleteDcdnDomainConfigsRequest): Promise<BatchDeleteDcdnDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteDcdnDomainConfigsWithOptions(request, runtime);
+  }
+
+  async batchDeleteDcdnWafRulesWithOptions(request: BatchDeleteDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnWafRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ruleIds)) {
+      body["RuleIds"] = request.ruleIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteDcdnWafRules",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new BatchDeleteDcdnWafRulesResponse({}));
+  }
+
+  async batchDeleteDcdnWafRules(request: BatchDeleteDcdnWafRulesRequest): Promise<BatchDeleteDcdnWafRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteDcdnWafRulesWithOptions(request, runtime);
   }
 
   async batchSetDcdnDomainCertificateWithOptions(request: BatchSetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnDomainCertificateResponse> {
@@ -17642,6 +19508,45 @@ export default class Client extends OpenApi {
   async batchSetDcdnIpaDomainConfigs(request: BatchSetDcdnIpaDomainConfigsRequest): Promise<BatchSetDcdnIpaDomainConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSetDcdnIpaDomainConfigsWithOptions(request, runtime);
+  }
+
+  async batchSetDcdnWafDomainConfigsWithOptions(request: BatchSetDcdnWafDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnWafDomainConfigsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.defenseStatus)) {
+      body["DefenseStatus"] = request.defenseStatus;
+    }
+
+    if (!Util.isUnset(request.domainNames)) {
+      body["DomainNames"] = request.domainNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchSetDcdnWafDomainConfigs",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchSetDcdnWafDomainConfigsResponse>(await this.callApi(params, req, runtime), new BatchSetDcdnWafDomainConfigsResponse({}));
+  }
+
+  async batchSetDcdnWafDomainConfigs(request: BatchSetDcdnWafDomainConfigsRequest): Promise<BatchSetDcdnWafDomainConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchSetDcdnWafDomainConfigsWithOptions(request, runtime);
   }
 
   async batchStartDcdnDomainWithOptions(request: BatchStartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartDcdnDomainResponse> {
@@ -17994,6 +19899,53 @@ export default class Client extends OpenApi {
   async createDcdnSubTask(request: CreateDcdnSubTaskRequest): Promise<CreateDcdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDcdnSubTaskWithOptions(request, runtime);
+  }
+
+  async createDcdnWafPolicyWithOptions(request: CreateDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnWafPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.defenseScene)) {
+      body["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      body["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyStatus)) {
+      body["PolicyStatus"] = request.policyStatus;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      body["PolicyType"] = request.policyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDcdnWafPolicy",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new CreateDcdnWafPolicyResponse({}));
+  }
+
+  async createDcdnWafPolicy(request: CreateDcdnWafPolicyRequest): Promise<CreateDcdnWafPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDcdnWafPolicyWithOptions(request, runtime);
   }
 
   async createRoutineWithOptions(tmpReq: CreateRoutineRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineResponse> {
@@ -18382,6 +20334,41 @@ export default class Client extends OpenApi {
   async deleteDcdnSubTask(request: DeleteDcdnSubTaskRequest): Promise<DeleteDcdnSubTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDcdnSubTaskWithOptions(request, runtime);
+  }
+
+  async deleteDcdnWafPolicyWithOptions(request: DeleteDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnWafPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDcdnWafPolicy",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new DeleteDcdnWafPolicyResponse({}));
+  }
+
+  async deleteDcdnWafPolicy(request: DeleteDcdnWafPolicyRequest): Promise<DeleteDcdnWafPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDcdnWafPolicyWithOptions(request, runtime);
   }
 
   async deleteRoutineWithOptions(request: DeleteRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineResponse> {
@@ -22278,6 +24265,413 @@ export default class Client extends OpenApi {
     return await this.describeDcdnWafDomainWithOptions(request, runtime);
   }
 
+  async describeDcdnWafDomainDetailWithOptions(request: DescribeDcdnWafDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDomainDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafDomainDetail",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafDomainDetailResponse({}));
+  }
+
+  async describeDcdnWafDomainDetail(request: DescribeDcdnWafDomainDetailRequest): Promise<DescribeDcdnWafDomainDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafDomainDetailWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafDomainsWithOptions(request: DescribeDcdnWafDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgs)) {
+      query["QueryArgs"] = request.queryArgs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafDomains",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafDomainsResponse({}));
+  }
+
+  async describeDcdnWafDomains(request: DescribeDcdnWafDomainsRequest): Promise<DescribeDcdnWafDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafDomainsWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafFilterInfoWithOptions(request: DescribeDcdnWafFilterInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafFilterInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenseScenes)) {
+      query["DefenseScenes"] = request.defenseScenes;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafFilterInfo",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafFilterInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafFilterInfoResponse({}));
+  }
+
+  async describeDcdnWafFilterInfo(request: DescribeDcdnWafFilterInfoRequest): Promise<DescribeDcdnWafFilterInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafFilterInfoWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafPoliciesWithOptions(request: DescribeDcdnWafPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgs)) {
+      query["QueryArgs"] = request.queryArgs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafPolicies",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPoliciesResponse({}));
+  }
+
+  async describeDcdnWafPolicies(request: DescribeDcdnWafPoliciesRequest): Promise<DescribeDcdnWafPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafPoliciesWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafPolicyWithOptions(request: DescribeDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafPolicy",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPolicyResponse({}));
+  }
+
+  async describeDcdnWafPolicy(request: DescribeDcdnWafPolicyRequest): Promise<DescribeDcdnWafPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafPolicyWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafPolicyDomainsWithOptions(request: DescribeDcdnWafPolicyDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPolicyDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafPolicyDomains",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafPolicyDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPolicyDomainsResponse({}));
+  }
+
+  async describeDcdnWafPolicyDomains(request: DescribeDcdnWafPolicyDomainsRequest): Promise<DescribeDcdnWafPolicyDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafPolicyDomainsWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafPolicyValidDomainsWithOptions(request: DescribeDcdnWafPolicyValidDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafPolicyValidDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenseScene)) {
+      query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!Util.isUnset(request.domainNameLike)) {
+      query["DomainNameLike"] = request.domainNameLike;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafPolicyValidDomains",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafPolicyValidDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafPolicyValidDomainsResponse({}));
+  }
+
+  async describeDcdnWafPolicyValidDomains(request: DescribeDcdnWafPolicyValidDomainsRequest): Promise<DescribeDcdnWafPolicyValidDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafPolicyValidDomainsWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafRuleWithOptions(request: DescribeDcdnWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafRule",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafRuleResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafRuleResponse({}));
+  }
+
+  async describeDcdnWafRule(request: DescribeDcdnWafRuleRequest): Promise<DescribeDcdnWafRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafRuleWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafRulesWithOptions(request: DescribeDcdnWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryArgs)) {
+      query["QueryArgs"] = request.queryArgs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafRules",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafRulesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafRulesResponse({}));
+  }
+
+  async describeDcdnWafRules(request: DescribeDcdnWafRulesRequest): Promise<DescribeDcdnWafRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafRulesWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafScenesWithOptions(request: DescribeDcdnWafScenesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafScenesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenseScenes)) {
+      query["DefenseScenes"] = request.defenseScenes;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafScenes",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafScenesResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafScenesResponse({}));
+  }
+
+  async describeDcdnWafScenes(request: DescribeDcdnWafScenesRequest): Promise<DescribeDcdnWafScenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafScenesWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafSpecInfoWithOptions(request: DescribeDcdnWafSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafSpecInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafSpecInfo",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafSpecInfoResponse({}));
+  }
+
+  async describeDcdnWafSpecInfo(request: DescribeDcdnWafSpecInfoRequest): Promise<DescribeDcdnWafSpecInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafSpecInfoWithOptions(request, runtime);
+  }
+
   async describeDcdnsecServiceWithOptions(request: DescribeDcdnsecServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnsecServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22733,6 +25127,139 @@ export default class Client extends OpenApi {
   async modifyDCdnDomainSchdmByProperty(request: ModifyDCdnDomainSchdmByPropertyRequest): Promise<ModifyDCdnDomainSchdmByPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDCdnDomainSchdmByPropertyWithOptions(request, runtime);
+  }
+
+  async modifyDcdnWafPolicyWithOptions(request: ModifyDcdnWafPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      body["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyStatus)) {
+      body["PolicyStatus"] = request.policyStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDcdnWafPolicy",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDcdnWafPolicyResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafPolicyResponse({}));
+  }
+
+  async modifyDcdnWafPolicy(request: ModifyDcdnWafPolicyRequest): Promise<ModifyDcdnWafPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDcdnWafPolicyWithOptions(request, runtime);
+  }
+
+  async modifyDcdnWafPolicyDomainsWithOptions(request: ModifyDcdnWafPolicyDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafPolicyDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bindDomains)) {
+      body["BindDomains"] = request.bindDomains;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      body["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.unbindDomains)) {
+      body["UnbindDomains"] = request.unbindDomains;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDcdnWafPolicyDomains",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDcdnWafPolicyDomainsResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafPolicyDomainsResponse({}));
+  }
+
+  async modifyDcdnWafPolicyDomains(request: ModifyDcdnWafPolicyDomainsRequest): Promise<ModifyDcdnWafPolicyDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDcdnWafPolicyDomainsWithOptions(request, runtime);
+  }
+
+  async modifyDcdnWafRuleWithOptions(request: ModifyDcdnWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDcdnWafRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ruleConfig)) {
+      body["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      body["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleStatus)) {
+      body["RuleStatus"] = request.ruleStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDcdnWafRule",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDcdnWafRuleResponse>(await this.callApi(params, req, runtime), new ModifyDcdnWafRuleResponse({}));
+  }
+
+  async modifyDcdnWafRule(request: ModifyDcdnWafRuleRequest): Promise<ModifyDcdnWafRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDcdnWafRuleWithOptions(request, runtime);
   }
 
   async openDcdnServiceWithOptions(request: OpenDcdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenDcdnServiceResponse> {
