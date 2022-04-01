@@ -52,6 +52,53 @@ export class AsyncConfigMeta extends $tea.Model {
   }
 }
 
+export class AvailableAZ extends $tea.Model {
+  availableAZs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableAZs: 'availableAZs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAZs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CDNEventsTriggerConfig extends $tea.Model {
+  eventName?: string;
+  eventVersion?: string;
+  filter?: { [key: string]: string[] };
+  notes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventName: 'eventName',
+      eventVersion: 'eventVersion',
+      filter: 'filter',
+      notes: 'notes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventName: 'string',
+      eventVersion: 'string',
+      filter: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      notes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CertConfig extends $tea.Model {
   certName?: string;
   certificate?: string;
@@ -271,6 +318,72 @@ export class DestinationConfig extends $tea.Model {
   }
 }
 
+export class Error extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ErrorInfo extends $tea.Model {
+  errorMessage?: string;
+  stackTrace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      stackTrace: 'stackTrace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      stackTrace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HTTPTriggerConfig extends $tea.Model {
+  authType?: string;
+  methods?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'authType',
+      methods: 'methods',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      methods: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstanceLifecycleConfig extends $tea.Model {
   preFreeze?: LifecycleHook;
   preStop?: LifecycleHook;
@@ -304,6 +417,50 @@ export class JaegerConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobConfig extends $tea.Model {
+  maxRetryTime?: number;
+  triggerInterval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRetryTime: 'maxRetryTime',
+      triggerInterval: 'triggerInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRetryTime: 'number',
+      triggerInterval: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobLogConfig extends $tea.Model {
+  logstore?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      project: 'string',
     };
   }
 
@@ -433,10 +590,66 @@ export class LogConfig extends $tea.Model {
   }
 }
 
+export class LogTriggerConfig extends $tea.Model {
+  enable?: boolean;
+  functionParameter?: { [key: string]: string };
+  jobConfig?: JobConfig;
+  logConfig?: JobLogConfig;
+  sourceConfig?: SourceConfig;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      functionParameter: 'functionParameter',
+      jobConfig: 'jobConfig',
+      logConfig: 'logConfig',
+      sourceConfig: 'sourceConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      functionParameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      jobConfig: JobConfig,
+      logConfig: JobLogConfig,
+      sourceConfig: SourceConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MnsTopicTriggerConfig extends $tea.Model {
+  filterTag?: string;
+  notifyContentFormat?: string;
+  notifyStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterTag: 'filterTag',
+      notifyContentFormat: 'notifyContentFormat',
+      notifyStrategy: 'notifyStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterTag: 'string',
+      notifyContentFormat: 'string',
+      notifyStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NASConfig extends $tea.Model {
-  groupId?: string;
+  groupId?: number;
   mountPoints?: NASConfigMountPoints[];
-  userId?: string;
+  userId?: number;
   static names(): { [key: string]: string } {
     return {
       groupId: 'groupId',
@@ -447,9 +660,72 @@ export class NASConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
+      groupId: 'number',
       mountPoints: { 'type': 'array', 'itemType': NASConfigMountPoints },
-      userId: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSTriggerConfig extends $tea.Model {
+  events?: string[];
+  filter?: OSSTriggerFilter;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'events',
+      filter: 'filter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': 'string' },
+      filter: OSSTriggerFilter,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSTriggerFilter extends $tea.Model {
+  key?: OSSTriggerKey;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: OSSTriggerKey,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSTriggerKey extends $tea.Model {
+  prefix?: string;
+  suffix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prefix: 'prefix',
+      suffix: 'suffix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prefix: 'string',
+      suffix: 'string',
     };
   }
 
@@ -567,6 +843,78 @@ export class PathConfig extends $tea.Model {
   }
 }
 
+export class PreFreeze extends $tea.Model {
+  handler?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      handler: 'handler',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handler: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreStop extends $tea.Model {
+  handler?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      handler: 'handler',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      handler: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RdsTriggerConfig extends $tea.Model {
+  concurrency?: number;
+  eventFormat?: string;
+  retry?: number;
+  subscriptionObjects?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      concurrency: 'concurrency',
+      eventFormat: 'eventFormat',
+      retry: 'retry',
+      subscriptionObjects: 'subscriptionObjects',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrency: 'number',
+      eventFormat: 'string',
+      retry: 'number',
+      subscriptionObjects: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Resource extends $tea.Model {
   resourceArn?: string;
   tags?: { [key: string]: string };
@@ -631,6 +979,25 @@ export class ScheduledActions extends $tea.Model {
       scheduleExpression: 'string',
       startTime: 'string',
       target: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceConfig extends $tea.Model {
+  logstore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
     };
   }
 
@@ -754,6 +1121,31 @@ export class TargetTrackingPolicies extends $tea.Model {
       minCapacity: 'number',
       name: 'string',
       startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TimeTriggerConfig extends $tea.Model {
+  cronExpression?: string;
+  enable?: boolean;
+  payload?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'cronExpression',
+      enable: 'enable',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+      enable: 'boolean',
+      payload: 'string',
     };
   }
 
@@ -3087,6 +3479,7 @@ export class GetProvisionConfigRequest extends $tea.Model {
 }
 
 export class GetProvisionConfigResponseBody extends $tea.Model {
+  alwaysAllocateCPU?: boolean;
   current?: number;
   currentError?: string;
   resource?: string;
@@ -3095,6 +3488,7 @@ export class GetProvisionConfigResponseBody extends $tea.Model {
   targetTrackingPolicies?: TargetTrackingPolicies[];
   static names(): { [key: string]: string } {
     return {
+      alwaysAllocateCPU: 'alwaysAllocateCPU',
       current: 'current',
       currentError: 'currentError',
       resource: 'resource',
@@ -3106,6 +3500,7 @@ export class GetProvisionConfigResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alwaysAllocateCPU: 'boolean',
       current: 'number',
       currentError: 'string',
       resource: 'string',
@@ -5625,12 +6020,14 @@ export class PutProvisionConfigHeaders extends $tea.Model {
 }
 
 export class PutProvisionConfigRequest extends $tea.Model {
+  alwaysAllocateCPU?: boolean;
   scheduledActions?: ScheduledActions[];
   target?: number;
   targetTrackingPolicies?: TargetTrackingPolicies[];
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
+      alwaysAllocateCPU: 'alwaysAllocateCPU',
       scheduledActions: 'scheduledActions',
       target: 'target',
       targetTrackingPolicies: 'targetTrackingPolicies',
@@ -5640,6 +6037,7 @@ export class PutProvisionConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alwaysAllocateCPU: 'boolean',
       scheduledActions: { 'type': 'array', 'itemType': ScheduledActions },
       target: 'number',
       targetTrackingPolicies: { 'type': 'array', 'itemType': TargetTrackingPolicies },
@@ -5653,6 +6051,7 @@ export class PutProvisionConfigRequest extends $tea.Model {
 }
 
 export class PutProvisionConfigResponseBody extends $tea.Model {
+  alwaysAllocateCPU?: boolean;
   current?: number;
   resource?: string;
   scheduledActions?: ScheduledActions[];
@@ -5660,6 +6059,7 @@ export class PutProvisionConfigResponseBody extends $tea.Model {
   targetTrackingPolicies?: TargetTrackingPolicies[];
   static names(): { [key: string]: string } {
     return {
+      alwaysAllocateCPU: 'alwaysAllocateCPU',
       current: 'current',
       resource: 'resource',
       scheduledActions: 'scheduledActions',
@@ -5670,6 +6070,7 @@ export class PutProvisionConfigResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alwaysAllocateCPU: 'boolean',
       current: 'number',
       resource: 'string',
       scheduledActions: { 'type': 'array', 'itemType': ScheduledActions },
@@ -6942,6 +7343,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
 }
 
 export class ListProvisionConfigsResponseBodyProvisionConfigs extends $tea.Model {
+  alwaysAllocateCPU?: boolean;
   current?: number;
   currentError?: string;
   resource?: string;
@@ -6950,6 +7352,7 @@ export class ListProvisionConfigsResponseBodyProvisionConfigs extends $tea.Model
   targetTrackingPolicies?: TargetTrackingPolicies[];
   static names(): { [key: string]: string } {
     return {
+      alwaysAllocateCPU: 'alwaysAllocateCPU',
       current: 'current',
       currentError: 'currentError',
       resource: 'resource',
@@ -6961,6 +7364,7 @@ export class ListProvisionConfigsResponseBodyProvisionConfigs extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      alwaysAllocateCPU: 'boolean',
       current: 'number',
       currentError: 'string',
       resource: 'string',
@@ -10052,6 +10456,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alwaysAllocateCPU)) {
+      body["alwaysAllocateCPU"] = request.alwaysAllocateCPU;
+    }
+
     if (!Util.isUnset(request.scheduledActions)) {
       body["scheduledActions"] = request.scheduledActions;
     }
