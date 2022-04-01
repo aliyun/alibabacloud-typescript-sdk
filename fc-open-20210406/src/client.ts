@@ -27,6 +27,31 @@ export class AccelerationInfo extends $tea.Model {
   }
 }
 
+export class AsyncConfigMeta extends $tea.Model {
+  functionName?: string;
+  qualifier?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'functionName',
+      qualifier: 'qualifier',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+      qualifier: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CertConfig extends $tea.Model {
   certName?: string;
   certificate?: string;
@@ -53,15 +78,11 @@ export class CertConfig extends $tea.Model {
 }
 
 export class Code extends $tea.Model {
-  codeCheckSum?: string;
-  err?: string;
   ossBucketName?: string;
   ossObjectName?: string;
   zipFile?: string;
   static names(): { [key: string]: string } {
     return {
-      codeCheckSum: 'codeCheckSum',
-      err: 'err',
       ossBucketName: 'ossBucketName',
       ossObjectName: 'ossObjectName',
       zipFile: 'zipFile',
@@ -70,8 +91,6 @@ export class Code extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      codeCheckSum: 'string',
-      err: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
       zipFile: 'string',
@@ -624,7 +643,9 @@ export class StatefulAsyncInvocation extends $tea.Model {
   alreadyRetriedTimes?: number;
   destinationStatus?: string;
   endTime?: number;
+  events?: StatefulAsyncInvocationEvent[];
   functionName?: string;
+  instanceId?: string;
   invocationErrorMessage?: string;
   invocationId?: string;
   invocationPayload?: string;
@@ -638,7 +659,9 @@ export class StatefulAsyncInvocation extends $tea.Model {
       alreadyRetriedTimes: 'alreadyRetriedTimes',
       destinationStatus: 'destinationStatus',
       endTime: 'endTime',
+      events: 'events',
       functionName: 'functionName',
+      instanceId: 'instanceId',
       invocationErrorMessage: 'invocationErrorMessage',
       invocationId: 'invocationId',
       invocationPayload: 'invocationPayload',
@@ -655,7 +678,9 @@ export class StatefulAsyncInvocation extends $tea.Model {
       alreadyRetriedTimes: 'number',
       destinationStatus: 'string',
       endTime: 'number',
+      events: { 'type': 'array', 'itemType': StatefulAsyncInvocationEvent },
       functionName: 'string',
+      instanceId: 'string',
       invocationErrorMessage: 'string',
       invocationId: 'string',
       invocationPayload: 'string',
@@ -664,6 +689,34 @@ export class StatefulAsyncInvocation extends $tea.Model {
       serviceName: 'string',
       startedTime: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatefulAsyncInvocationEvent extends $tea.Model {
+  eventDetail?: string;
+  eventId?: number;
+  status?: string;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventDetail: 'eventDetail',
+      eventId: 'eventId',
+      status: 'status',
+      timestamp: 'timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventDetail: 'string',
+      eventId: 'number',
+      status: 'string',
+      timestamp: 'number',
     };
   }
 
@@ -765,19 +818,13 @@ export class VPCConfig extends $tea.Model {
 export class CreateAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -786,10 +833,7 @@ export class CreateAliasHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -886,19 +930,13 @@ export class CreateAliasResponse extends $tea.Model {
 export class CreateCustomDomainHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -907,10 +945,7 @@ export class CreateCustomDomainHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1015,8 +1050,6 @@ export class CreateFunctionHeaders extends $tea.Model {
   xFcAccountId?: string;
   xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1024,8 +1057,6 @@ export class CreateFunctionHeaders extends $tea.Model {
       xFcAccountId: 'X-Fc-Account-Id',
       xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1036,8 +1067,6 @@ export class CreateFunctionHeaders extends $tea.Model {
       xFcAccountId: 'string',
       xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1224,19 +1253,13 @@ export class CreateFunctionResponse extends $tea.Model {
 export class CreateLayerVersionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1245,10 +1268,7 @@ export class CreateLayerVersionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1354,19 +1374,13 @@ export class CreateLayerVersionResponse extends $tea.Model {
 export class CreateServiceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1375,10 +1389,7 @@ export class CreateServiceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1502,19 +1513,13 @@ export class CreateServiceResponse extends $tea.Model {
 export class CreateTriggerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1523,10 +1528,7 @@ export class CreateTriggerHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1647,19 +1649,13 @@ export class CreateTriggerResponse extends $tea.Model {
 export class CreateVpcBindingHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1668,10 +1664,7 @@ export class CreateVpcBindingHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1723,20 +1716,14 @@ export class DeleteAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1746,10 +1733,7 @@ export class DeleteAliasHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1781,19 +1765,13 @@ export class DeleteAliasResponse extends $tea.Model {
 export class DeleteCustomDomainHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1802,10 +1780,7 @@ export class DeleteCustomDomainHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1838,20 +1813,14 @@ export class DeleteFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1861,10 +1830,7 @@ export class DeleteFunctionHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1896,19 +1862,13 @@ export class DeleteFunctionResponse extends $tea.Model {
 export class DeleteFunctionAsyncInvokeConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1917,10 +1877,7 @@ export class DeleteFunctionAsyncInvokeConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -1972,20 +1929,14 @@ export class DeleteFunctionOnDemandConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -1995,10 +1946,7 @@ export class DeleteFunctionOnDemandConfigHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2049,19 +1997,13 @@ export class DeleteFunctionOnDemandConfigResponse extends $tea.Model {
 export class DeleteLayerVersionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2070,10 +2012,7 @@ export class DeleteLayerVersionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2106,20 +2045,14 @@ export class DeleteServiceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2129,10 +2062,7 @@ export class DeleteServiceHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2164,19 +2094,13 @@ export class DeleteServiceResponse extends $tea.Model {
 export class DeleteServiceVersionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2185,10 +2109,7 @@ export class DeleteServiceVersionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2221,20 +2142,14 @@ export class DeleteTriggerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2244,10 +2159,7 @@ export class DeleteTriggerHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2279,19 +2191,13 @@ export class DeleteTriggerResponse extends $tea.Model {
 export class DeleteVpcBindingHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2300,10 +2206,7 @@ export class DeleteVpcBindingHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2335,19 +2238,13 @@ export class DeleteVpcBindingResponse extends $tea.Model {
 export class DeregisterEventSourceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2356,10 +2253,7 @@ export class DeregisterEventSourceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2410,19 +2304,13 @@ export class DeregisterEventSourceResponse extends $tea.Model {
 export class GetAccountSettingsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2431,10 +2319,7 @@ export class GetAccountSettingsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2488,19 +2373,13 @@ export class GetAccountSettingsResponse extends $tea.Model {
 export class GetAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2509,10 +2388,7 @@ export class GetAliasHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2581,19 +2457,13 @@ export class GetAliasResponse extends $tea.Model {
 export class GetCustomDomainHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2602,10 +2472,7 @@ export class GetCustomDomainHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2680,19 +2547,13 @@ export class GetCustomDomainResponse extends $tea.Model {
 export class GetFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2701,10 +2562,7 @@ export class GetFunctionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2840,19 +2698,13 @@ export class GetFunctionResponse extends $tea.Model {
 export class GetFunctionAsyncInvokeConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2861,10 +2713,7 @@ export class GetFunctionAsyncInvokeConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -2961,19 +2810,13 @@ export class GetFunctionAsyncInvokeConfigResponse extends $tea.Model {
 export class GetFunctionCodeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -2982,10 +2825,7 @@ export class GetFunctionCodeHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3061,19 +2901,13 @@ export class GetFunctionCodeResponse extends $tea.Model {
 export class GetFunctionOnDemandConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3082,10 +2916,7 @@ export class GetFunctionOnDemandConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3161,19 +2992,13 @@ export class GetFunctionOnDemandConfigResponse extends $tea.Model {
 export class GetLayerVersionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3182,10 +3007,7 @@ export class GetLayerVersionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3217,127 +3039,16 @@ export class GetLayerVersionResponse extends $tea.Model {
   }
 }
 
-export class GetLayerVersionByArnHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xFcAccountId?: string;
-  xFcCodeChecksum?: string;
-  xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
-  xFcTraceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
-      xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
-      xFcTraceId: 'X-Fc-Trace-Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
-      xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
-      xFcTraceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLayerVersionByArnResponseBody extends $tea.Model {
-  acl?: number;
-  arn?: string;
-  code?: OutputCodeLocation;
-  codeChecksum?: string;
-  codesize?: number;
-  compatibleRuntime?: string[];
-  createTime?: string;
-  description?: string;
-  layerName?: string;
-  version?: number;
-  static names(): { [key: string]: string } {
-    return {
-      acl: 'acl',
-      arn: 'arn',
-      code: 'code',
-      codeChecksum: 'codeChecksum',
-      codesize: 'codesize',
-      compatibleRuntime: 'compatibleRuntime',
-      createTime: 'createTime',
-      description: 'description',
-      layerName: 'layerName',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acl: 'number',
-      arn: 'string',
-      code: OutputCodeLocation,
-      codeChecksum: 'string',
-      codesize: 'number',
-      compatibleRuntime: { 'type': 'array', 'itemType': 'string' },
-      createTime: 'string',
-      description: 'string',
-      layerName: 'string',
-      version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLayerVersionByArnResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetLayerVersionByArnResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetLayerVersionByArnResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetProvisionConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3346,10 +3057,7 @@ export class GetProvisionConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3437,19 +3145,13 @@ export class GetProvisionConfigResponse extends $tea.Model {
 export class GetResourceTagsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3458,10 +3160,7 @@ export class GetResourceTagsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3537,19 +3236,13 @@ export class GetResourceTagsResponse extends $tea.Model {
 export class GetServiceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3558,10 +3251,7 @@ export class GetServiceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3742,19 +3432,13 @@ export class GetStatefulAsyncInvocationResponse extends $tea.Model {
 export class GetTriggerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3763,10 +3447,7 @@ export class GetTriggerHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -3850,7 +3531,6 @@ export class GetTriggerResponse extends $tea.Model {
 export class InvokeFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
   xFcInvocationType?: string;
   xFcLogType?: string;
@@ -3860,7 +3540,6 @@ export class InvokeFunctionHeaders extends $tea.Model {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
       xFcInvocationType: 'X-Fc-Invocation-Type',
       xFcLogType: 'X-Fc-Log-Type',
@@ -3873,7 +3552,6 @@ export class InvokeFunctionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
       xFcInvocationType: 'string',
       xFcLogType: 'string',
@@ -3934,19 +3612,13 @@ export class InvokeFunctionResponse extends $tea.Model {
 export class ListAliasesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -3955,10 +3627,7 @@ export class ListAliasesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4043,19 +3712,13 @@ export class ListAliasesResponse extends $tea.Model {
 export class ListCustomDomainsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4064,10 +3727,7 @@ export class ListCustomDomainsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4152,19 +3812,13 @@ export class ListCustomDomainsResponse extends $tea.Model {
 export class ListEventSourcesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4173,10 +3827,7 @@ export class ListEventSourcesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4352,19 +4003,13 @@ export class ListFunctionAsyncInvokeConfigsResponse extends $tea.Model {
 export class ListFunctionsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4373,10 +4018,7 @@ export class ListFunctionsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4461,110 +4103,16 @@ export class ListFunctionsResponse extends $tea.Model {
   }
 }
 
-export class ListInstancesHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xFcAccountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xFcAccountId: 'X-Fc-Account-Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xFcAccountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesRequest extends $tea.Model {
-  limit?: number;
-  nextToken?: string;
-  qualifier?: string;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'limit',
-      nextToken: 'nextToken',
-      qualifier: 'qualifier',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: 'number',
-      nextToken: 'string',
-      qualifier: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBody extends $tea.Model {
-  instances?: ListInstancesResponseBodyInstances[];
-  static names(): { [key: string]: string } {
-    return {
-      instances: 'instances',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instances: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstances },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListLayerVersionsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4573,10 +4121,7 @@ export class ListLayerVersionsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4655,19 +4200,13 @@ export class ListLayerVersionsResponse extends $tea.Model {
 export class ListLayersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4676,10 +4215,7 @@ export class ListLayersHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4764,19 +4300,13 @@ export class ListLayersResponse extends $tea.Model {
 export class ListOnDemandConfigsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4785,10 +4315,7 @@ export class ListOnDemandConfigsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4873,19 +4400,13 @@ export class ListOnDemandConfigsResponse extends $tea.Model {
 export class ListProvisionConfigsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -4894,10 +4415,7 @@ export class ListProvisionConfigsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -4982,19 +4500,13 @@ export class ListProvisionConfigsResponse extends $tea.Model {
 export class ListReservedCapacitiesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5003,10 +4515,7 @@ export class ListReservedCapacitiesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5085,19 +4594,13 @@ export class ListReservedCapacitiesResponse extends $tea.Model {
 export class ListServiceVersionsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5106,10 +4609,7 @@ export class ListServiceVersionsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5197,19 +4697,13 @@ export class ListServiceVersionsResponse extends $tea.Model {
 export class ListServicesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5218,10 +4712,7 @@ export class ListServicesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5295,6 +4786,100 @@ export class ListServicesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStatefulAsyncInvocationFunctionsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcDate?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcDate: 'X-Fc-Date',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcDate: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStatefulAsyncInvocationFunctionsRequest extends $tea.Model {
+  limit?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStatefulAsyncInvocationFunctionsResponseBody extends $tea.Model {
+  data?: AsyncConfigMeta[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': AsyncConfigMeta },
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStatefulAsyncInvocationFunctionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListStatefulAsyncInvocationFunctionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListStatefulAsyncInvocationFunctionsResponseBody,
     };
   }
 
@@ -5430,19 +5015,13 @@ export class ListStatefulAsyncInvocationsResponse extends $tea.Model {
 export class ListTaggedResourcesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5451,10 +5030,7 @@ export class ListTaggedResourcesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5533,19 +5109,13 @@ export class ListTaggedResourcesResponse extends $tea.Model {
 export class ListTriggersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5554,10 +5124,7 @@ export class ListTriggersHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5642,19 +5209,13 @@ export class ListTriggersResponse extends $tea.Model {
 export class ListVpcBindingsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5663,10 +5224,7 @@ export class ListVpcBindingsHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5717,136 +5275,18 @@ export class ListVpcBindingsResponse extends $tea.Model {
   }
 }
 
-export class PermanentDeleteLayerVersionHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xFcAccountId?: string;
-  xFcCodeChecksum?: string;
-  xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
-  xFcTraceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
-      xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
-      xFcTraceId: 'X-Fc-Trace-Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
-      xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
-      xFcTraceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PermanentDeleteLayerVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishLayerAsPublicHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xFcAccountId?: string;
-  xFcCodeChecksum?: string;
-  xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
-  xFcTraceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
-      xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
-      xFcTraceId: 'X-Fc-Trace-Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
-      xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
-      xFcTraceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishLayerAsPublicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class PublishServiceVersionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5856,10 +5296,7 @@ export class PublishServiceVersionHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -5941,19 +5378,13 @@ export class PublishServiceVersionResponse extends $tea.Model {
 export class PutFunctionAsyncInvokeConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -5962,10 +5393,7 @@ export class PutFunctionAsyncInvokeConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6075,20 +5503,14 @@ export class PutFunctionOnDemandConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6098,10 +5520,7 @@ export class PutFunctionOnDemandConfigHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6180,19 +5599,13 @@ export class PutFunctionOnDemandConfigResponse extends $tea.Model {
 export class PutProvisionConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6201,10 +5614,7 @@ export class PutProvisionConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6298,19 +5708,13 @@ export class PutProvisionConfigResponse extends $tea.Model {
 export class RegisterEventSourceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6319,10 +5723,7 @@ export class RegisterEventSourceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6401,19 +5802,13 @@ export class RegisterEventSourceResponse extends $tea.Model {
 export class StopStatefulAsyncInvocationHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6422,10 +5817,7 @@ export class StopStatefulAsyncInvocationHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6476,19 +5868,13 @@ export class StopStatefulAsyncInvocationResponse extends $tea.Model {
 export class TagResourceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6497,10 +5883,7 @@ export class TagResourceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6554,19 +5937,13 @@ export class TagResourceResponse extends $tea.Model {
 export class UntagResourceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6575,10 +5952,7 @@ export class UntagResourceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6596,7 +5970,7 @@ export class UntagResourceRequest extends $tea.Model {
     return {
       all: 'all',
       resourceArn: 'resourceArn',
-      tagKeys: 'tagKeys	',
+      tagKeys: 'tagKeys',
     };
   }
 
@@ -6636,20 +6010,14 @@ export class UpdateAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6659,10 +6027,7 @@ export class UpdateAliasHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6756,19 +6121,13 @@ export class UpdateAliasResponse extends $tea.Model {
 export class UpdateCustomDomainHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6777,10 +6136,7 @@ export class UpdateCustomDomainHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -6883,8 +6239,6 @@ export class UpdateFunctionHeaders extends $tea.Model {
   xFcAccountId?: string;
   xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6893,8 +6247,6 @@ export class UpdateFunctionHeaders extends $tea.Model {
       xFcAccountId: 'X-Fc-Account-Id',
       xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -6906,8 +6258,6 @@ export class UpdateFunctionHeaders extends $tea.Model {
       xFcAccountId: 'string',
       xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -7089,20 +6439,14 @@ export class UpdateServiceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -7112,10 +6456,7 @@ export class UpdateServiceHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -7237,20 +6578,14 @@ export class UpdateTriggerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
-  xFcCodeChecksum?: string;
   xFcDate?: string;
-  xFcInvocationType?: string;
-  xFcLogType?: string;
   xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'X-Fc-Code-Checksum',
       xFcDate: 'X-Fc-Date',
-      xFcInvocationType: 'X-Fc-Invocation-Type',
-      xFcLogType: 'X-Fc-Log-Type',
       xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
@@ -7260,10 +6595,7 @@ export class UpdateTriggerHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
-      xFcCodeChecksum: 'string',
       xFcDate: 'string',
-      xFcInvocationType: 'string',
-      xFcLogType: 'string',
       xFcTraceId: 'string',
     };
   }
@@ -7609,28 +6941,6 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   }
 }
 
-export class ListInstancesResponseBodyInstances extends $tea.Model {
-  instanceId?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'instanceId',
-      versionId: 'versionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListProvisionConfigsResponseBodyProvisionConfigs extends $tea.Model {
   current?: number;
   currentError?: string;
@@ -7872,20 +7182,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -7944,20 +7242,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8081,14 +7367,6 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
     }
 
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
-    }
-
     if (!Util.isUnset(headers.xFcTraceId)) {
       realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
@@ -8142,20 +7420,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8230,20 +7496,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8316,20 +7570,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8377,20 +7619,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8437,20 +7667,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8491,20 +7709,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8550,20 +7756,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8611,20 +7805,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8677,20 +7859,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8733,20 +7903,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8791,20 +7949,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8846,20 +7992,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8906,20 +8040,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -8961,20 +8083,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9023,20 +8133,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9077,20 +8175,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9132,20 +8218,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9186,20 +8260,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9247,20 +8309,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9309,20 +8359,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9371,20 +8409,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9433,20 +8459,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9489,20 +8503,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9524,60 +8526,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
-  }
-
-  async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetLayerVersionByArnHeaders({ });
-    return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
-  }
-
-  async getLayerVersionByArnWithOptions(arn: string, headers: GetLayerVersionByArnHeaders, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
-    arn = OpenApiUtil.getEncodeParam(arn);
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.xFcAccountId)) {
-      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
-    }
-
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
-    if (!Util.isUnset(headers.xFcDate)) {
-      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
-    }
-
-    if (!Util.isUnset(headers.xFcTraceId)) {
-      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetLayerVersionByArn",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layerarn/${arn}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
   }
 
   async getProvisionConfig(serviceName: string, functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
@@ -9604,20 +8552,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9664,20 +8600,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9725,20 +8649,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9845,20 +8757,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -9904,10 +8804,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(headers.xFcAccountId)) {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
-    }
-
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
     }
 
     if (!Util.isUnset(headers.xFcDate)) {
@@ -9984,20 +8880,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10056,20 +8940,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10118,20 +8990,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10261,20 +9121,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10297,56 +9145,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
-  }
-
-  async listInstances(serviceName: string, functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListInstancesHeaders({ });
-    return await this.listInstancesWithOptions(serviceName, functionName, request, headers, runtime);
-  }
-
-  async listInstancesWithOptions(serviceName: string, functionName: string, request: ListInstancesRequest, headers: ListInstancesHeaders, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(request);
-    serviceName = OpenApiUtil.getEncodeParam(serviceName);
-    functionName = OpenApiUtil.getEncodeParam(functionName);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
-      query["limit"] = request.limit;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["nextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.qualifier)) {
-      query["qualifier"] = request.qualifier;
-    }
-
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.xFcAccountId)) {
-      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListInstances",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/instances`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
@@ -10376,20 +9174,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10448,20 +9234,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10520,20 +9294,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10592,20 +9354,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10656,20 +9406,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10729,20 +9467,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10801,20 +9527,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -10837,6 +9551,58 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+  }
+
+  async listStatefulAsyncInvocationFunctions(request: ListStatefulAsyncInvocationFunctionsRequest): Promise<ListStatefulAsyncInvocationFunctionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListStatefulAsyncInvocationFunctionsHeaders({ });
+    return await this.listStatefulAsyncInvocationFunctionsWithOptions(request, headers, runtime);
+  }
+
+  async listStatefulAsyncInvocationFunctionsWithOptions(request: ListStatefulAsyncInvocationFunctionsRequest, headers: ListStatefulAsyncInvocationFunctionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListStatefulAsyncInvocationFunctionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListStatefulAsyncInvocationFunctions",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/stateful-async-invocation-functions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStatefulAsyncInvocationFunctionsResponse>(await this.callApi(params, req, runtime), new ListStatefulAsyncInvocationFunctionsResponse({}));
   }
 
   async listStatefulAsyncInvocations(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest): Promise<ListStatefulAsyncInvocationsResponse> {
@@ -10959,20 +9725,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11033,20 +9787,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11088,20 +9830,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11123,117 +9853,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
-  }
-
-  async permanentDeleteLayerVersion(userID: string, layerName: string, version: string): Promise<PermanentDeleteLayerVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PermanentDeleteLayerVersionHeaders({ });
-    return await this.permanentDeleteLayerVersionWithOptions(userID, layerName, version, headers, runtime);
-  }
-
-  async permanentDeleteLayerVersionWithOptions(userID: string, layerName: string, version: string, headers: PermanentDeleteLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<PermanentDeleteLayerVersionResponse> {
-    userID = OpenApiUtil.getEncodeParam(userID);
-    layerName = OpenApiUtil.getEncodeParam(layerName);
-    version = OpenApiUtil.getEncodeParam(version);
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.xFcAccountId)) {
-      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
-    }
-
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
-    if (!Util.isUnset(headers.xFcDate)) {
-      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
-    }
-
-    if (!Util.isUnset(headers.xFcTraceId)) {
-      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-    });
-    let params = new $OpenApi.Params({
-      action: "PermanentDeleteLayerVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/adminlayers/${userID}/${layerName}/versions/${version}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<PermanentDeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new PermanentDeleteLayerVersionResponse({}));
-  }
-
-  async publishLayerAsPublic(layerName: string, version: string): Promise<PublishLayerAsPublicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PublishLayerAsPublicHeaders({ });
-    return await this.publishLayerAsPublicWithOptions(layerName, version, headers, runtime);
-  }
-
-  async publishLayerAsPublicWithOptions(layerName: string, version: string, headers: PublishLayerAsPublicHeaders, runtime: $Util.RuntimeOptions): Promise<PublishLayerAsPublicResponse> {
-    layerName = OpenApiUtil.getEncodeParam(layerName);
-    version = OpenApiUtil.getEncodeParam(version);
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.xFcAccountId)) {
-      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
-    }
-
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
-    if (!Util.isUnset(headers.xFcDate)) {
-      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
-    }
-
-    if (!Util.isUnset(headers.xFcTraceId)) {
-      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-    });
-    let params = new $OpenApi.Params({
-      action: "PublishLayerAsPublic",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<PublishLayerAsPublicResponse>(await this.callApi(params, req, runtime), new PublishLayerAsPublicResponse({}));
   }
 
   async publishServiceVersion(serviceName: string, request: PublishServiceVersionRequest): Promise<PublishServiceVersionResponse> {
@@ -11263,20 +9882,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11342,20 +9949,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11414,20 +10009,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11490,20 +10073,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11558,20 +10129,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11622,20 +10181,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11686,20 +10233,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11754,20 +10289,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11828,20 +10351,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -11897,20 +10408,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -12035,14 +10534,6 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
     }
 
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
-    }
-
     if (!Util.isUnset(headers.xFcTraceId)) {
       realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
@@ -12116,20 +10607,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
@@ -12195,20 +10674,8 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
-    }
-
     if (!Util.isUnset(headers.xFcDate)) {
       realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
-    }
-
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcTraceId)) {
