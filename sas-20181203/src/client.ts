@@ -2820,72 +2820,6 @@ export class DescribeCriteriaResponse extends $tea.Model {
   }
 }
 
-export class DescribeDialogMessagesRequest extends $tea.Model {
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDialogMessagesResponseBody extends $tea.Model {
-  dialogList?: DescribeDialogMessagesResponseBodyDialogList[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dialogList: 'DialogList',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dialogList: { 'type': 'array', 'itemType': DescribeDialogMessagesResponseBodyDialogList },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDialogMessagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDialogMessagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDialogMessagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDingTalkRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
@@ -5189,6 +5123,87 @@ export class DescribeInstanceStatisticsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeInstanceStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoginBaseConfigsRequest extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  target?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      target: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoginBaseConfigsResponseBody extends $tea.Model {
+  baseConfigs?: DescribeLoginBaseConfigsResponseBodyBaseConfigs[];
+  currentPage?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baseConfigs: 'BaseConfigs',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseConfigs: { 'type': 'array', 'itemType': DescribeLoginBaseConfigsResponseBodyBaseConfigs },
+      currentPage: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoginBaseConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeLoginBaseConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeLoginBaseConfigsResponseBody,
     };
   }
 
@@ -14499,31 +14514,6 @@ export class DescribeCriteriaResponseBodyCriteriaList extends $tea.Model {
   }
 }
 
-export class DescribeDialogMessagesResponseBodyDialogList extends $tea.Model {
-  dialogKey?: string;
-  ID?: number;
-  params?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dialogKey: 'DialogKey',
-      ID: 'ID',
-      params: 'Params',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dialogKey: 'string',
-      ID: 'number',
-      params: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDingTalkResponseBodyActionList extends $tea.Model {
   actionName?: string;
   aliUid?: number;
@@ -16066,6 +16056,68 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeLoginBaseConfigsResponseBodyBaseConfigsTargetList extends $tea.Model {
+  target?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      target: 'Target',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      target: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoginBaseConfigsResponseBodyBaseConfigs extends $tea.Model {
+  account?: string;
+  endTime?: string;
+  ip?: string;
+  location?: string;
+  startTime?: string;
+  targetList?: DescribeLoginBaseConfigsResponseBodyBaseConfigsTargetList[];
+  totalCount?: number;
+  uuidCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      endTime: 'EndTime',
+      ip: 'Ip',
+      location: 'Location',
+      startTime: 'StartTime',
+      targetList: 'TargetList',
+      totalCount: 'TotalCount',
+      uuidCount: 'UuidCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      endTime: 'string',
+      ip: 'string',
+      location: 'string',
+      startTime: 'string',
+      targetList: { 'type': 'array', 'itemType': DescribeLoginBaseConfigsResponseBodyBaseConfigsTargetList },
+      totalCount: 'number',
+      uuidCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeModuleConfigResponseBodyModuleConfigListItems extends $tea.Model {
   groupId?: number;
   instanceId?: string;
@@ -17171,7 +17223,7 @@ export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends 
 }
 
 export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $tea.Model {
-  contentResource?: string;
+  contentResource?: { [key: string]: string };
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17182,7 +17234,7 @@ export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $t
 
   static types(): { [key: string]: any } {
     return {
-      contentResource: 'string',
+      contentResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       resourceName: 'string',
     };
   }
@@ -20855,35 +20907,6 @@ export default class Client extends OpenApi {
     return await this.describeCriteriaWithOptions(request, runtime);
   }
 
-  async describeDialogMessagesWithOptions(request: DescribeDialogMessagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDialogMessagesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDialogMessages",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDialogMessagesResponse>(await this.callApi(params, req, runtime), new DescribeDialogMessagesResponse({}));
-  }
-
-  async describeDialogMessages(request: DescribeDialogMessagesRequest): Promise<DescribeDialogMessagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDialogMessagesWithOptions(request, runtime);
-  }
-
   async describeDingTalkWithOptions(request: DescribeDingTalkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDingTalkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22208,6 +22231,47 @@ export default class Client extends OpenApi {
   async describeInstanceStatistics(request: DescribeInstanceStatisticsRequest): Promise<DescribeInstanceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceStatisticsWithOptions(request, runtime);
+  }
+
+  async describeLoginBaseConfigsWithOptions(request: DescribeLoginBaseConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoginBaseConfigsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLoginBaseConfigs",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoginBaseConfigsResponse>(await this.callApi(params, req, runtime), new DescribeLoginBaseConfigsResponse({}));
+  }
+
+  async describeLoginBaseConfigs(request: DescribeLoginBaseConfigsRequest): Promise<DescribeLoginBaseConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLoginBaseConfigsWithOptions(request, runtime);
   }
 
   async describeLogstoreStorageWithOptions(request: DescribeLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogstoreStorageResponse> {
