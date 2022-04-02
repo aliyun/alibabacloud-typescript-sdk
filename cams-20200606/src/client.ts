@@ -10,30 +10,46 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class CheckChatappContactsRequest extends $tea.Model {
   channelType?: string;
-  contacts?: string;
+  contacts?: string[];
   from?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
       contacts: 'Contacts',
       from: 'From',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       channelType: 'string',
-      contacts: 'string',
+      contacts: { 'type': 'array', 'itemType': 'string' },
       from: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckChatappContactsShrinkRequest extends $tea.Model {
+  channelType?: string;
+  contactsShrink?: string;
+  from?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      contactsShrink: 'Contacts',
+      from: 'From',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      contactsShrink: 'string',
+      from: 'string',
     };
   }
 
@@ -178,13 +194,10 @@ export class CheckContactsResponse extends $tea.Model {
 
 export class CreateChatappTemplateRequest extends $tea.Model {
   category?: string;
-  components?: string;
-  example?: string;
+  components?: CreateChatappTemplateRequestComponents[];
+  example?: { [key: string]: string };
   language?: string;
   name?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -193,9 +206,6 @@ export class CreateChatappTemplateRequest extends $tea.Model {
       example: 'Example',
       language: 'Language',
       name: 'Name',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       templateType: 'TemplateType',
     };
   }
@@ -203,13 +213,44 @@ export class CreateChatappTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
-      components: 'string',
-      example: 'string',
+      components: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponents },
+      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       language: 'string',
       name: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateShrinkRequest extends $tea.Model {
+  category?: string;
+  componentsShrink?: string;
+  exampleShrink?: string;
+  language?: string;
+  name?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      componentsShrink: 'Components',
+      exampleShrink: 'Example',
+      language: 'Language',
+      name: 'Name',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      componentsShrink: 'string',
+      exampleShrink: 'string',
+      language: 'string',
+      name: 'string',
       templateType: 'string',
     };
   }
@@ -221,7 +262,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
 
 export class CreateChatappTemplateResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: CreateChatappTemplateResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -236,7 +277,7 @@ export class CreateChatappTemplateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: CreateChatappTemplateResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -270,24 +311,15 @@ export class CreateChatappTemplateResponse extends $tea.Model {
 }
 
 export class DeleteChatappTemplateRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       templateCode: 'string',
     };
   }
@@ -347,15 +379,11 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
 export class GetChatappTemplateDetailRequest extends $tea.Model {
   language?: string;
   ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
       language: 'Language',
       ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       templateCode: 'TemplateCode',
     };
   }
@@ -364,8 +392,6 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
     return {
       language: 'string',
       ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       templateCode: 'string',
     };
   }
@@ -377,7 +403,7 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
 
 export class GetChatappTemplateDetailResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: GetChatappTemplateDetailResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -392,7 +418,7 @@ export class GetChatappTemplateDetailResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: GetChatappTemplateDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -429,19 +455,13 @@ export class ListChatappTemplateRequest extends $tea.Model {
   auditStatus?: string;
   language?: string;
   name?: string;
-  ownerId?: number;
-  page?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  page?: ListChatappTemplateRequestPage;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
       language: 'Language',
       name: 'Name',
-      ownerId: 'OwnerId',
       page: 'Page',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -450,10 +470,35 @@ export class ListChatappTemplateRequest extends $tea.Model {
       auditStatus: 'string',
       language: 'string',
       name: 'string',
-      ownerId: 'number',
-      page: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      page: ListChatappTemplateRequestPage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateShrinkRequest extends $tea.Model {
+  auditStatus?: string;
+  language?: string;
+  name?: string;
+  pageShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      language: 'Language',
+      name: 'Name',
+      pageShrink: 'Page',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      language: 'string',
+      name: 'string',
+      pageShrink: 'string',
     };
   }
 
@@ -518,12 +563,9 @@ export class SendChatappMessageRequest extends $tea.Model {
   from?: string;
   language?: string;
   messageType?: string;
-  ownerId?: number;
-  payload?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  payload?: string[];
   templateCode?: string;
-  templateParams?: string;
+  templateParams?: { [key: string]: string };
   to?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -533,10 +575,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       from: 'From',
       language: 'Language',
       messageType: 'MessageType',
-      ownerId: 'OwnerId',
       payload: 'Payload',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       templateCode: 'TemplateCode',
       templateParams: 'TemplateParams',
       to: 'To',
@@ -551,12 +590,55 @@ export class SendChatappMessageRequest extends $tea.Model {
       from: 'string',
       language: 'string',
       messageType: 'string',
-      ownerId: 'number',
-      payload: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      payload: { 'type': 'array', 'itemType': 'string' },
       templateCode: 'string',
-      templateParams: 'string',
+      templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      to: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageShrinkRequest extends $tea.Model {
+  channelType?: string;
+  content?: string;
+  from?: string;
+  language?: string;
+  messageType?: string;
+  payloadShrink?: string;
+  templateCode?: string;
+  templateParamsShrink?: string;
+  to?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      content: 'Content',
+      from: 'From',
+      language: 'Language',
+      messageType: 'MessageType',
+      payloadShrink: 'Payload',
+      templateCode: 'TemplateCode',
+      templateParamsShrink: 'TemplateParams',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      content: 'string',
+      from: 'string',
+      language: 'string',
+      messageType: 'string',
+      payloadShrink: 'string',
+      templateCode: 'string',
+      templateParamsShrink: 'string',
       to: 'string',
       type: 'string',
     };
@@ -569,14 +651,14 @@ export class SendChatappMessageRequest extends $tea.Model {
 
 export class SendChatappMessageResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
   message?: string;
+  messageId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       message: 'Message',
+      messageId: 'MessageId',
       requestId: 'RequestId',
     };
   }
@@ -584,8 +666,8 @@ export class SendChatappMessageResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
       message: 'string',
+      messageId: 'string',
       requestId: 'string',
     };
   }
@@ -775,6 +857,208 @@ export class CheckContactsResponseBodyContacts extends $tea.Model {
   }
 }
 
+export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponents extends $tea.Model {
+  buttons?: CreateChatappTemplateRequestComponentsButtons[];
+  format?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateResponseBodyData extends $tea.Model {
+  templateCode?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
+  phoneNumber?: string;
+  text?: string;
+  type?: string;
+  url?: string;
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
+  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
+  text?: string;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
+  auditStatus?: string;
+  category?: string;
+  components?: GetChatappTemplateDetailResponseBodyDataComponents[];
+  example?: { [key: string]: string };
+  language?: string;
+  name?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      category: 'Category',
+      components: 'Components',
+      example: 'Example',
+      language: 'Language',
+      name: 'Name',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      category: 'string',
+      components: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponents },
+      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      language: 'string',
+      name: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateRequestPage extends $tea.Model {
+  index?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
   auditStatus?: string;
   category?: string;
@@ -854,35 +1138,29 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async checkChatappContactsWithOptions(request: CheckChatappContactsRequest, runtime: $Util.RuntimeOptions): Promise<CheckChatappContactsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.channelType)) {
-      query["ChannelType"] = request.channelType;
+  async checkChatappContactsWithOptions(tmpReq: CheckChatappContactsRequest, runtime: $Util.RuntimeOptions): Promise<CheckChatappContactsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CheckChatappContactsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contacts)) {
+      request.contactsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contacts, "Contacts", "json");
     }
 
-    if (!Util.isUnset(request.contacts)) {
-      query["Contacts"] = request.contacts;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channelType)) {
+      body["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.contactsShrink)) {
+      body["Contacts"] = request.contactsShrink;
     }
 
     if (!Util.isUnset(request.from)) {
-      query["From"] = request.from;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
+      body["From"] = request.from;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CheckChatappContacts",
@@ -954,47 +1232,45 @@ export default class Client extends OpenApi {
     return await this.checkContactsWithOptions(request, runtime);
   }
 
-  async createChatappTemplateWithOptions(request: CreateChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappTemplateResponse> {
-    Util.validateModel(request);
-    let query = { };
+  async createChatappTemplateWithOptions(tmpReq: CreateChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateChatappTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.components)) {
+      request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.example)) {
+      request.exampleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.example, "Example", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
+      body["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.components)) {
-      query["Components"] = request.components;
+    if (!Util.isUnset(request.componentsShrink)) {
+      body["Components"] = request.componentsShrink;
     }
 
-    if (!Util.isUnset(request.example)) {
-      query["Example"] = request.example;
+    if (!Util.isUnset(request.exampleShrink)) {
+      body["Example"] = request.exampleShrink;
     }
 
     if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
+      body["Language"] = request.language;
     }
 
     if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
+      body["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.templateType)) {
-      query["TemplateType"] = request.templateType;
+      body["TemplateType"] = request.templateType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateChatappTemplate",
@@ -1018,18 +1294,6 @@ export default class Client extends OpenApi {
   async deleteChatappTemplateWithOptions(request: DeleteChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChatappTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
     if (!Util.isUnset(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
@@ -1067,14 +1331,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
     if (!Util.isUnset(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
@@ -1101,8 +1357,14 @@ export default class Client extends OpenApi {
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
-  async listChatappTemplateWithOptions(request: ListChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListChatappTemplateResponse> {
-    Util.validateModel(request);
+  async listChatappTemplateWithOptions(tmpReq: ListChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListChatappTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListChatappTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.page))) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.page), "Page", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
@@ -1116,20 +1378,8 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.page)) {
-      query["Page"] = request.page;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1154,63 +1404,63 @@ export default class Client extends OpenApi {
     return await this.listChatappTemplateWithOptions(request, runtime);
   }
 
-  async sendChatappMessageWithOptions(request: SendChatappMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMessageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.channelType)) {
-      query["ChannelType"] = request.channelType;
+  async sendChatappMessageWithOptions(tmpReq: SendChatappMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMessageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendChatappMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
+    if (!Util.isUnset(tmpReq.templateParams)) {
+      request.templateParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateParams, "TemplateParams", "json");
+    }
+
+    let query = { };
     if (!Util.isUnset(request.content)) {
       query["Content"] = request.content;
     }
 
+    if (!Util.isUnset(request.payloadShrink)) {
+      query["Payload"] = request.payloadShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channelType)) {
+      body["ChannelType"] = request.channelType;
+    }
+
     if (!Util.isUnset(request.from)) {
-      query["From"] = request.from;
+      body["From"] = request.from;
     }
 
     if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
+      body["Language"] = request.language;
     }
 
     if (!Util.isUnset(request.messageType)) {
-      query["MessageType"] = request.messageType;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.payload)) {
-      query["Payload"] = request.payload;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
+      body["MessageType"] = request.messageType;
     }
 
     if (!Util.isUnset(request.templateCode)) {
-      query["TemplateCode"] = request.templateCode;
+      body["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateParams)) {
-      query["TemplateParams"] = request.templateParams;
+    if (!Util.isUnset(request.templateParamsShrink)) {
+      body["TemplateParams"] = request.templateParamsShrink;
     }
 
     if (!Util.isUnset(request.to)) {
-      query["To"] = request.to;
+      body["To"] = request.to;
     }
 
     if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
+      body["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SendChatappMessage",
