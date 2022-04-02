@@ -8,6 +8,87 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddRepositoryMemberRequest extends $tea.Model {
+  accessToken?: string;
+  accessLevel?: number;
+  aliyunPks?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      accessLevel: 'accessLevel',
+      aliyunPks: 'aliyunPks',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      accessLevel: 'number',
+      aliyunPks: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRepositoryMemberResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: AddRepositoryMemberResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': AddRepositoryMemberResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRepositoryMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddRepositoryMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddRepositoryMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddWebhookRequest extends $tea.Model {
   accessToken?: string;
   organizationId?: string;
@@ -445,7 +526,6 @@ export class CreateRepositoryRequest extends $tea.Model {
   importAccount?: string;
   importDemoProject?: boolean;
   importRepoType?: string;
-  importSvnRepoConfig?: CreateRepositoryRequestImportSvnRepoConfig;
   importToken?: string;
   importTokenEncrypted?: string;
   importUrl?: string;
@@ -469,7 +549,6 @@ export class CreateRepositoryRequest extends $tea.Model {
       importAccount: 'importAccount',
       importDemoProject: 'importDemoProject',
       importRepoType: 'importRepoType',
-      importSvnRepoConfig: 'importSvnRepoConfig',
       importToken: 'importToken',
       importTokenEncrypted: 'importTokenEncrypted',
       importUrl: 'importUrl',
@@ -496,7 +575,6 @@ export class CreateRepositoryRequest extends $tea.Model {
       importAccount: 'string',
       importDemoProject: 'boolean',
       importRepoType: 'string',
-      importSvnRepoConfig: CreateRepositoryRequestImportSvnRepoConfig,
       importToken: 'string',
       importTokenEncrypted: 'string',
       importUrl: 'string',
@@ -6141,13 +6219,45 @@ export class UpdateWorkItemResponse extends $tea.Model {
   }
 }
 
+export class AddRepositoryMemberResponseBodyResult extends $tea.Model {
+  accessLevel?: number;
+  avatarUrl?: string;
+  email?: string;
+  externUserId?: string;
+  id?: number;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'AccessLevel',
+      avatarUrl: 'AvatarUrl',
+      email: 'Email',
+      externUserId: 'ExternUserId',
+      id: 'Id',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      avatarUrl: 'string',
+      email: 'string',
+      externUserId: 'string',
+      id: 'number',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddWebhookResponseBodyResult extends $tea.Model {
-  enableSslVerification?: boolean;
-  buildEvents?: boolean;
   createdAt?: string;
   description?: string;
+  enableSslVerification?: boolean;
   id?: number;
-  issuesEvents?: boolean;
   lastTestResult?: string;
   mergeRequestsEvents?: boolean;
   noteEvents?: boolean;
@@ -6158,12 +6268,10 @@ export class AddWebhookResponseBodyResult extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
-      enableSslVerification: 'EnableSslVerification',
-      buildEvents: 'buildEvents',
       createdAt: 'createdAt',
       description: 'description',
+      enableSslVerification: 'enableSslVerification',
       id: 'id',
-      issuesEvents: 'issuesEvents',
       lastTestResult: 'lastTestResult',
       mergeRequestsEvents: 'mergeRequestsEvents',
       noteEvents: 'noteEvents',
@@ -6177,12 +6285,10 @@ export class AddWebhookResponseBodyResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      enableSslVerification: 'boolean',
-      buildEvents: 'boolean',
       createdAt: 'string',
       description: 'string',
+      enableSslVerification: 'boolean',
       id: 'number',
-      issuesEvents: 'boolean',
       lastTestResult: 'string',
       mergeRequestsEvents: 'boolean',
       noteEvents: 'boolean',
@@ -6255,58 +6361,6 @@ export class CreateProjectResponseBodyProject extends $tea.Model {
       statusIdentifier: 'string',
       statusStageIdentifier: 'string',
       typeIdentifier: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRepositoryRequestImportSvnRepoConfig extends $tea.Model {
-  authorMapping?: string;
-  branchMapping?: string;
-  noBranches?: boolean;
-  noTags?: boolean;
-  password?: string;
-  path?: string;
-  rootIsTrunk?: boolean;
-  standardLayout?: boolean;
-  svnImportUrl?: string;
-  tagMapping?: string;
-  trunkMapping?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorMapping: 'authorMapping',
-      branchMapping: 'branchMapping',
-      noBranches: 'noBranches',
-      noTags: 'noTags',
-      password: 'password',
-      path: 'path',
-      rootIsTrunk: 'rootIsTrunk',
-      standardLayout: 'standardLayout',
-      svnImportUrl: 'svnImportUrl',
-      tagMapping: 'tagMapping',
-      trunkMapping: 'trunkMapping',
-      username: 'username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorMapping: 'string',
-      branchMapping: 'string',
-      noBranches: 'boolean',
-      noTags: 'boolean',
-      password: 'string',
-      path: 'string',
-      rootIsTrunk: 'boolean',
-      standardLayout: 'boolean',
-      svnImportUrl: 'string',
-      tagMapping: 'string',
-      trunkMapping: 'string',
-      username: 'string',
     };
   }
 
@@ -9871,6 +9925,52 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addRepositoryMember(repositoryId: string, request: AddRepositoryMemberRequest): Promise<AddRepositoryMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addRepositoryMemberWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async addRepositoryMemberWithOptions(repositoryId: string, request: AddRepositoryMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddRepositoryMemberResponse> {
+    Util.validateModel(request);
+    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessLevel)) {
+      body["accessLevel"] = request.accessLevel;
+    }
+
+    if (!Util.isUnset(request.aliyunPks)) {
+      body["aliyunPks"] = request.aliyunPks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddRepositoryMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${repositoryId}/members`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddRepositoryMemberResponse>(await this.callApi(params, req, runtime), new AddRepositoryMemberResponse({}));
+  }
+
   async addWebhook(repositoryId: string, request: AddWebhookRequest): Promise<AddWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10173,10 +10273,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.importRepoType)) {
       body["importRepoType"] = request.importRepoType;
-    }
-
-    if (!Util.isUnset($tea.toMap(request.importSvnRepoConfig))) {
-      body["importSvnRepoConfig"] = request.importSvnRepoConfig;
     }
 
     if (!Util.isUnset(request.importToken)) {
