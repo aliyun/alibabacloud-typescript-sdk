@@ -737,6 +737,7 @@ export class CreateClusterRequest extends $tea.Model {
   computeSpotStrategy?: string;
   deployMode?: string;
   description?: string;
+  domain?: string;
   ecsChargeType?: string;
   ehpcVersion?: string;
   haEnable?: boolean;
@@ -767,6 +768,7 @@ export class CreateClusterRequest extends $tea.Model {
   systemDiskType?: string;
   vSwitchId?: string;
   volumeId?: string;
+  volumeMountOption?: string;
   volumeMountpoint?: string;
   volumeProtocol?: string;
   volumeType?: string;
@@ -790,6 +792,7 @@ export class CreateClusterRequest extends $tea.Model {
       computeSpotStrategy: 'ComputeSpotStrategy',
       deployMode: 'DeployMode',
       description: 'Description',
+      domain: 'Domain',
       ecsChargeType: 'EcsChargeType',
       ehpcVersion: 'EhpcVersion',
       haEnable: 'HaEnable',
@@ -820,6 +823,7 @@ export class CreateClusterRequest extends $tea.Model {
       systemDiskType: 'SystemDiskType',
       vSwitchId: 'VSwitchId',
       volumeId: 'VolumeId',
+      volumeMountOption: 'VolumeMountOption',
       volumeMountpoint: 'VolumeMountpoint',
       volumeProtocol: 'VolumeProtocol',
       volumeType: 'VolumeType',
@@ -846,6 +850,7 @@ export class CreateClusterRequest extends $tea.Model {
       computeSpotStrategy: 'string',
       deployMode: 'string',
       description: 'string',
+      domain: 'string',
       ecsChargeType: 'string',
       ehpcVersion: 'string',
       haEnable: 'boolean',
@@ -876,6 +881,7 @@ export class CreateClusterRequest extends $tea.Model {
       systemDiskType: 'string',
       vSwitchId: 'string',
       volumeId: 'string',
+      volumeMountOption: 'string',
       volumeMountpoint: 'string',
       volumeProtocol: 'string',
       volumeType: 'string',
@@ -2480,6 +2486,81 @@ export class DescribeContainerAppResponse extends $tea.Model {
   }
 }
 
+export class DescribeDeployProcessRequest extends $tea.Model {
+  clusterId?: string;
+  hostName?: string;
+  regionId?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      hostName: 'HostName',
+      regionId: 'RegionId',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      hostName: 'string',
+      regionId: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeployProcessResponseBody extends $tea.Model {
+  deployProcess?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deployProcess: 'DeployProcess',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployProcess: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeployProcessResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDeployProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDeployProcessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeGWSClusterPolicyRequest extends $tea.Model {
   asyncMode?: boolean;
   clusterId?: string;
@@ -3984,6 +4065,141 @@ export class GetIfEcsTypeSupportHtConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetIfEcsTypeSupportHtConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPostScriptsRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPostScriptsResponseBody extends $tea.Model {
+  postInstallScripts?: GetPostScriptsResponseBodyPostInstallScripts[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      postInstallScripts: 'PostInstallScripts',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      postInstallScripts: { 'type': 'array', 'itemType': GetPostScriptsResponseBodyPostInstallScripts },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPostScriptsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetPostScriptsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetPostScriptsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfRequest extends $tea.Model {
+  clusterId?: string;
+  queues?: GetQueueConfRequestQueues[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      queues: 'Queues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      queues: { 'type': 'array', 'itemType': GetQueueConfRequestQueues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfResponseBody extends $tea.Model {
+  queuesConf?: GetQueueConfResponseBodyQueuesConf[];
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queuesConf: 'QueuesConf',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queuesConf: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConf },
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetQueueConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetQueueConfResponseBody,
     };
   }
 
@@ -5666,6 +5882,120 @@ export class ListJobsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsWithFiltersRequest extends $tea.Model {
+  clusterId?: string;
+  createTimeEnd?: string;
+  createTimeStart?: string;
+  executeOrder?: string;
+  jobName?: string;
+  jobStatus?: string;
+  nodes?: string[];
+  pageNumber?: number;
+  pageSize?: number;
+  pendOrder?: string;
+  queues?: string[];
+  regionId?: string;
+  submitOrder?: string;
+  users?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      executeOrder: 'ExecuteOrder',
+      jobName: 'JobName',
+      jobStatus: 'JobStatus',
+      nodes: 'Nodes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pendOrder: 'PendOrder',
+      queues: 'Queues',
+      regionId: 'RegionId',
+      submitOrder: 'SubmitOrder',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      createTimeEnd: 'string',
+      createTimeStart: 'string',
+      executeOrder: 'string',
+      jobName: 'string',
+      jobStatus: 'string',
+      nodes: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      pendOrder: 'string',
+      queues: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      submitOrder: 'string',
+      users: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsWithFiltersResponseBody extends $tea.Model {
+  jobs?: ListJobsWithFiltersResponseBodyJobs[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobs: 'Jobs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobs: { 'type': 'array', 'itemType': ListJobsWithFiltersResponseBodyJobs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsWithFiltersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListJobsWithFiltersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListJobsWithFiltersResponseBody,
     };
   }
 
@@ -7697,6 +8027,72 @@ export class SetGWSInstanceUserResponse extends $tea.Model {
   }
 }
 
+export class SetPostScriptsRequest extends $tea.Model {
+  clusterId?: string;
+  postInstallScripts?: SetPostScriptsRequestPostInstallScripts[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      postInstallScripts: 'PostInstallScripts',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      postInstallScripts: { 'type': 'array', 'itemType': SetPostScriptsRequestPostInstallScripts },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPostScriptsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPostScriptsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetPostScriptsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetPostScriptsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetQueueRequest extends $tea.Model {
   clusterId?: string;
   node?: SetQueueRequestNode[];
@@ -9213,6 +9609,7 @@ export class CreateClusterRequestAdditionalVolumes extends $tea.Model {
   remoteDirectory?: string;
   roles?: CreateClusterRequestAdditionalVolumesRoles[];
   volumeId?: string;
+  volumeMountOption?: string;
   volumeMountpoint?: string;
   volumeProtocol?: string;
   volumeType?: string;
@@ -9224,6 +9621,7 @@ export class CreateClusterRequestAdditionalVolumes extends $tea.Model {
       remoteDirectory: 'RemoteDirectory',
       roles: 'Roles',
       volumeId: 'VolumeId',
+      volumeMountOption: 'VolumeMountOption',
       volumeMountpoint: 'VolumeMountpoint',
       volumeProtocol: 'VolumeProtocol',
       volumeType: 'VolumeType',
@@ -9238,6 +9636,7 @@ export class CreateClusterRequestAdditionalVolumes extends $tea.Model {
       remoteDirectory: 'string',
       roles: { 'type': 'array', 'itemType': CreateClusterRequestAdditionalVolumesRoles },
       volumeId: 'string',
+      volumeMountOption: 'string',
       volumeMountpoint: 'string',
       volumeProtocol: 'string',
       volumeType: 'string',
@@ -9349,6 +9748,7 @@ export class CreateHybridClusterRequestApplication extends $tea.Model {
 
 export class CreateHybridClusterRequestNodes extends $tea.Model {
   accountType?: string;
+  dir?: string;
   hostName?: string;
   ipAddress?: string;
   role?: string;
@@ -9356,6 +9756,7 @@ export class CreateHybridClusterRequestNodes extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accountType: 'AccountType',
+      dir: 'Dir',
       hostName: 'HostName',
       ipAddress: 'IpAddress',
       role: 'Role',
@@ -9366,6 +9767,7 @@ export class CreateHybridClusterRequestNodes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountType: 'string',
+      dir: 'string',
       hostName: 'string',
       ipAddress: 'string',
       role: 'string',
@@ -10489,7 +10891,9 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
   instanceType?: string;
   instanceTypes?: GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypes;
   maxNodesInQueue?: number;
+  maxNodesPerCycle?: number;
   minNodesInQueue?: number;
+  minNodesPerCycle?: number;
   queueImageId?: string;
   queueName?: string;
   resourceGroupId?: string;
@@ -10508,7 +10912,9 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
       instanceType: 'InstanceType',
       instanceTypes: 'InstanceTypes',
       maxNodesInQueue: 'MaxNodesInQueue',
+      maxNodesPerCycle: 'MaxNodesPerCycle',
       minNodesInQueue: 'MinNodesInQueue',
+      minNodesPerCycle: 'MinNodesPerCycle',
       queueImageId: 'QueueImageId',
       queueName: 'QueueName',
       resourceGroupId: 'ResourceGroupId',
@@ -10530,7 +10936,9 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
       instanceType: 'string',
       instanceTypes: GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypes,
       maxNodesInQueue: 'number',
+      maxNodesPerCycle: 'number',
       minNodesInQueue: 'number',
+      minNodesPerCycle: 'number',
       queueImageId: 'string',
       queueName: 'string',
       resourceGroupId: 'string',
@@ -10761,6 +11169,219 @@ export class GetClusterVolumesResponseBodyVolumes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       volumeInfo: { 'type': 'array', 'itemType': GetClusterVolumesResponseBodyVolumesVolumeInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPostScriptsResponseBodyPostInstallScripts extends $tea.Model {
+  args?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfRequestQueues extends $tea.Model {
+  queueName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queueName: 'QueueName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queueName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfResponseBodyQueuesConfDataDisks extends $tea.Model {
+  dataDiskCategory?: string;
+  dataDiskDeleteWithInstance?: boolean;
+  dataDiskEncrypted?: boolean;
+  dataDiskKMSKeyId?: string;
+  dataDiskPerformanceLevel?: string;
+  dataDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskDeleteWithInstance: 'DataDiskDeleteWithInstance',
+      dataDiskEncrypted: 'DataDiskEncrypted',
+      dataDiskKMSKeyId: 'DataDiskKMSKeyId',
+      dataDiskPerformanceLevel: 'DataDiskPerformanceLevel',
+      dataDiskSize: 'DataDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskCategory: 'string',
+      dataDiskDeleteWithInstance: 'boolean',
+      dataDiskEncrypted: 'boolean',
+      dataDiskKMSKeyId: 'string',
+      dataDiskPerformanceLevel: 'string',
+      dataDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfResponseBodyQueuesConfInstanceTypes extends $tea.Model {
+  instanceType?: string;
+  spotPriceLimit?: number;
+  spotStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      spotPriceLimit: 'number',
+      spotStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfResponseBodyQueuesConfZones extends $tea.Model {
+  vSwitchIds?: string[];
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueConfResponseBodyQueuesConf extends $tea.Model {
+  dataDisks?: GetQueueConfResponseBodyQueuesConfDataDisks[];
+  enableAutoGrow?: boolean;
+  enableAutoShrink?: boolean;
+  growIntervallnMinutes?: number;
+  growTimeoutInMinutes?: number;
+  hostNamePrefix?: string;
+  hostNameSuffix?: string;
+  imageId?: string;
+  imageType?: string;
+  instanceTypes?: GetQueueConfResponseBodyQueuesConfInstanceTypes[];
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  maxNodes?: number;
+  minNodes?: number;
+  osTag?: string;
+  queueName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  shrinkIntervallnMinutes?: number;
+  shrinkidleTimes?: number;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskSize?: number;
+  zones?: GetQueueConfResponseBodyQueuesConfZones[];
+  static names(): { [key: string]: string } {
+    return {
+      dataDisks: 'DataDisks',
+      enableAutoGrow: 'EnableAutoGrow',
+      enableAutoShrink: 'EnableAutoShrink',
+      growIntervallnMinutes: 'GrowIntervallnMinutes',
+      growTimeoutInMinutes: 'GrowTimeoutInMinutes',
+      hostNamePrefix: 'HostNamePrefix',
+      hostNameSuffix: 'HostNameSuffix',
+      imageId: 'ImageId',
+      imageType: 'ImageType',
+      instanceTypes: 'InstanceTypes',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      maxNodes: 'MaxNodes',
+      minNodes: 'MinNodes',
+      osTag: 'OsTag',
+      queueName: 'QueueName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      shrinkIntervallnMinutes: 'ShrinkIntervallnMinutes',
+      shrinkidleTimes: 'ShrinkidleTimes',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
+      systemDiskSize: 'SystemDiskSize',
+      zones: 'Zones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisks: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConfDataDisks },
+      enableAutoGrow: 'boolean',
+      enableAutoShrink: 'boolean',
+      growIntervallnMinutes: 'number',
+      growTimeoutInMinutes: 'number',
+      hostNamePrefix: 'string',
+      hostNameSuffix: 'string',
+      imageId: 'string',
+      imageType: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConfInstanceTypes },
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      maxNodes: 'number',
+      minNodes: 'number',
+      osTag: 'string',
+      queueName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      shrinkIntervallnMinutes: 'number',
+      shrinkidleTimes: 'number',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskSize: 'number',
+      zones: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConfZones },
     };
   }
 
@@ -12390,6 +13011,92 @@ export class ListJobsResponseBodyJobs extends $tea.Model {
   }
 }
 
+export class ListJobsWithFiltersResponseBodyJobsResources extends $tea.Model {
+  cores?: number;
+  nodes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'number',
+      nodes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
+  arrayRequest?: string;
+  comment?: string;
+  id?: string;
+  lastModifyTime?: string;
+  name?: string;
+  nodeList?: string;
+  owner?: string;
+  priority?: string;
+  queue?: string;
+  resources?: ListJobsWithFiltersResponseBodyJobsResources;
+  shellPath?: string;
+  startTime?: string;
+  state?: string;
+  stderr?: string;
+  stdout?: string;
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayRequest: 'ArrayRequest',
+      comment: 'Comment',
+      id: 'Id',
+      lastModifyTime: 'LastModifyTime',
+      name: 'Name',
+      nodeList: 'NodeList',
+      owner: 'Owner',
+      priority: 'Priority',
+      queue: 'Queue',
+      resources: 'Resources',
+      shellPath: 'ShellPath',
+      startTime: 'StartTime',
+      state: 'State',
+      stderr: 'Stderr',
+      stdout: 'Stdout',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayRequest: 'string',
+      comment: 'string',
+      id: 'string',
+      lastModifyTime: 'string',
+      name: 'string',
+      nodeList: 'string',
+      owner: 'string',
+      priority: 'string',
+      queue: 'string',
+      resources: ListJobsWithFiltersResponseBodyJobsResources,
+      shellPath: 'string',
+      startTime: 'string',
+      state: 'string',
+      stderr: 'string',
+      stdout: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNodesResponseBodyNodesNodeInfoRoles extends $tea.Model {
   role?: string[];
   static names(): { [key: string]: string } {
@@ -13613,7 +14320,9 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
   instanceType?: string;
   instanceTypes?: SetAutoScaleConfigRequestQueuesInstanceTypes[];
   maxNodesInQueue?: number;
+  maxNodesPerCycle?: number;
   minNodesInQueue?: number;
+  minNodesPerCycle?: number;
   queueImageId?: string;
   queueName?: string;
   spotPriceLimit?: number;
@@ -13631,7 +14340,9 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
       instanceType: 'InstanceType',
       instanceTypes: 'InstanceTypes',
       maxNodesInQueue: 'MaxNodesInQueue',
+      maxNodesPerCycle: 'MaxNodesPerCycle',
       minNodesInQueue: 'MinNodesInQueue',
+      minNodesPerCycle: 'MinNodesPerCycle',
       queueImageId: 'QueueImageId',
       queueName: 'QueueName',
       spotPriceLimit: 'SpotPriceLimit',
@@ -13652,7 +14363,9 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
       instanceType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': SetAutoScaleConfigRequestQueuesInstanceTypes },
       maxNodesInQueue: 'number',
+      maxNodesPerCycle: 'number',
       minNodesInQueue: 'number',
+      minNodesPerCycle: 'number',
       queueImageId: 'string',
       queueName: 'string',
       spotPriceLimit: 'number',
@@ -13660,6 +14373,28 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
       systemDiskCategory: 'string',
       systemDiskLevel: 'string',
       systemDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPostScriptsRequestPostInstallScripts extends $tea.Model {
+  args?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      url: 'string',
     };
   }
 
@@ -14657,6 +15392,31 @@ export default class Client extends OpenApi {
     return await this.describeContainerAppWithOptions(request, runtime);
   }
 
+  async describeDeployProcessWithOptions(request: DescribeDeployProcessRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployProcessResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDeployProcess",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDeployProcessResponse>(await this.callApi(params, req, runtime), new DescribeDeployProcessResponse({}));
+  }
+
+  async describeDeployProcess(request: DescribeDeployProcessRequest): Promise<DescribeDeployProcessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDeployProcessWithOptions(request, runtime);
+  }
+
   async describeGWSClusterPolicyWithOptions(request: DescribeGWSClusterPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGWSClusterPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15142,6 +15902,56 @@ export default class Client extends OpenApi {
   async getIfEcsTypeSupportHtConfig(request: GetIfEcsTypeSupportHtConfigRequest): Promise<GetIfEcsTypeSupportHtConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIfEcsTypeSupportHtConfigWithOptions(request, runtime);
+  }
+
+  async getPostScriptsWithOptions(request: GetPostScriptsRequest, runtime: $Util.RuntimeOptions): Promise<GetPostScriptsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPostScripts",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPostScriptsResponse>(await this.callApi(params, req, runtime), new GetPostScriptsResponse({}));
+  }
+
+  async getPostScripts(request: GetPostScriptsRequest): Promise<GetPostScriptsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPostScriptsWithOptions(request, runtime);
+  }
+
+  async getQueueConfWithOptions(request: GetQueueConfRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueConfResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQueueConf",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQueueConfResponse>(await this.callApi(params, req, runtime), new GetQueueConfResponse({}));
+  }
+
+  async getQueueConf(request: GetQueueConfRequest): Promise<GetQueueConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getQueueConfWithOptions(request, runtime);
   }
 
   async getSchedulerInfoWithOptions(request: GetSchedulerInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetSchedulerInfoResponse> {
@@ -15713,6 +16523,31 @@ export default class Client extends OpenApi {
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listJobsWithOptions(request, runtime);
+  }
+
+  async listJobsWithFiltersWithOptions(request: ListJobsWithFiltersRequest, runtime: $Util.RuntimeOptions): Promise<ListJobsWithFiltersResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListJobsWithFilters",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListJobsWithFiltersResponse>(await this.callApi(params, req, runtime), new ListJobsWithFiltersResponse({}));
+  }
+
+  async listJobsWithFilters(request: ListJobsWithFiltersRequest): Promise<ListJobsWithFiltersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listJobsWithFiltersWithOptions(request, runtime);
   }
 
   async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
@@ -16433,6 +17268,31 @@ export default class Client extends OpenApi {
   async setGWSInstanceUser(request: SetGWSInstanceUserRequest): Promise<SetGWSInstanceUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setGWSInstanceUserWithOptions(request, runtime);
+  }
+
+  async setPostScriptsWithOptions(request: SetPostScriptsRequest, runtime: $Util.RuntimeOptions): Promise<SetPostScriptsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetPostScripts",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetPostScriptsResponse>(await this.callApi(params, req, runtime), new SetPostScriptsResponse({}));
+  }
+
+  async setPostScripts(request: SetPostScriptsRequest): Promise<SetPostScriptsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setPostScriptsWithOptions(request, runtime);
   }
 
   async setQueueWithOptions(request: SetQueueRequest, runtime: $Util.RuntimeOptions): Promise<SetQueueResponse> {
