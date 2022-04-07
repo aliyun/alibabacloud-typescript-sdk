@@ -18069,6 +18069,78 @@ export class UpdateUdfFileResponse extends $tea.Model {
   }
 }
 
+export class UpdateWorkbenchEventResultRequest extends $tea.Model {
+  checkResult?: string;
+  checkResultTip?: string;
+  extensionCode?: string;
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkResult: 'CheckResult',
+      checkResultTip: 'CheckResultTip',
+      extensionCode: 'ExtensionCode',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkResult: 'string',
+      checkResultTip: 'string',
+      extensionCode: 'string',
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkbenchEventResultResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkbenchEventResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateWorkbenchEventResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateWorkbenchEventResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDISyncTaskResponseBodyData extends $tea.Model {
   fileId?: number;
   message?: string;
@@ -38140,6 +38212,47 @@ export default class Client extends OpenApi {
   async updateUdfFile(request: UpdateUdfFileRequest): Promise<UpdateUdfFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUdfFileWithOptions(request, runtime);
+  }
+
+  async updateWorkbenchEventResultWithOptions(request: UpdateWorkbenchEventResultRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkbenchEventResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkResult)) {
+      query["CheckResult"] = request.checkResult;
+    }
+
+    if (!Util.isUnset(request.checkResultTip)) {
+      query["CheckResultTip"] = request.checkResultTip;
+    }
+
+    if (!Util.isUnset(request.extensionCode)) {
+      query["ExtensionCode"] = request.extensionCode;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateWorkbenchEventResult",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateWorkbenchEventResultResponse>(await this.callApi(params, req, runtime), new UpdateWorkbenchEventResultResponse({}));
+  }
+
+  async updateWorkbenchEventResult(request: UpdateWorkbenchEventResultRequest): Promise<UpdateWorkbenchEventResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateWorkbenchEventResultWithOptions(request, runtime);
   }
 
 }
