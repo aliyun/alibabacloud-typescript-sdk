@@ -627,6 +627,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
   autoUseCoupon?: string;
   clientToken?: string;
   duration?: number;
+  ipSetConfig?: CreateAcceleratorRequestIpSetConfig;
   name?: string;
   pricingCycle?: string;
   regionId?: string;
@@ -639,6 +640,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       duration: 'Duration',
+      ipSetConfig: 'IpSetConfig',
       name: 'Name',
       pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
@@ -654,6 +656,7 @@ export class CreateAcceleratorRequest extends $tea.Model {
       autoUseCoupon: 'string',
       clientToken: 'string',
       duration: 'number',
+      ipSetConfig: CreateAcceleratorRequestIpSetConfig,
       name: 'string',
       pricingCycle: 'string',
       regionId: 'string',
@@ -2714,6 +2717,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
   dnsName?: string;
   expiredTime?: number;
   instanceChargeType?: string;
+  ipSetConfig?: DescribeAcceleratorResponseBodyIpSetConfig;
   name?: string;
   regionId?: string;
   requestId?: string;
@@ -2732,6 +2736,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       dnsName: 'DnsName',
       expiredTime: 'ExpiredTime',
       instanceChargeType: 'InstanceChargeType',
+      ipSetConfig: 'IpSetConfig',
       name: 'Name',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -2753,6 +2758,7 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
       dnsName: 'string',
       expiredTime: 'number',
       instanceChargeType: 'string',
+      ipSetConfig: DescribeAcceleratorResponseBodyIpSetConfig,
       name: 'string',
       regionId: 'string',
       requestId: 'string',
@@ -7261,6 +7267,25 @@ export class AssociateAdditionalCertificatesWithListenerRequestCertificates exte
   }
 }
 
+export class CreateAcceleratorRequestIpSetConfig extends $tea.Model {
+  accessMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAclRequestAclEntries extends $tea.Model {
   entry?: string;
   entryDescription?: string;
@@ -7486,11 +7511,13 @@ export class CreateForwardingRulesRequestForwardingRulesRuleActions extends $tea
   forwardGroupConfig?: CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig;
   order?: number;
   ruleActionType?: string;
+  ruleActionValue?: string;
   static names(): { [key: string]: string } {
     return {
       forwardGroupConfig: 'ForwardGroupConfig',
       order: 'Order',
       ruleActionType: 'RuleActionType',
+      ruleActionValue: 'RuleActionValue',
     };
   }
 
@@ -7499,6 +7526,7 @@ export class CreateForwardingRulesRequestForwardingRulesRuleActions extends $tea
       forwardGroupConfig: CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig,
       order: 'number',
       ruleActionType: 'string',
+      ruleActionValue: 'string',
     };
   }
 
@@ -7549,11 +7577,13 @@ export class CreateForwardingRulesRequestForwardingRulesRuleConditions extends $
   hostConfig?: CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig;
   pathConfig?: CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig;
   ruleConditionType?: string;
+  ruleConditionValue?: string;
   static names(): { [key: string]: string } {
     return {
       hostConfig: 'HostConfig',
       pathConfig: 'PathConfig',
       ruleConditionType: 'RuleConditionType',
+      ruleConditionValue: 'RuleConditionValue',
     };
   }
 
@@ -7562,6 +7592,7 @@ export class CreateForwardingRulesRequestForwardingRulesRuleConditions extends $
       hostConfig: CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig,
       pathConfig: CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig,
       ruleConditionType: 'string',
+      ruleConditionValue: 'string',
     };
   }
 
@@ -7575,12 +7606,14 @@ export class CreateForwardingRulesRequestForwardingRules extends $tea.Model {
   priority?: number;
   ruleActions?: CreateForwardingRulesRequestForwardingRulesRuleActions[];
   ruleConditions?: CreateForwardingRulesRequestForwardingRulesRuleConditions[];
+  ruleDirection?: string;
   static names(): { [key: string]: string } {
     return {
       forwardingRuleName: 'ForwardingRuleName',
       priority: 'Priority',
       ruleActions: 'RuleActions',
       ruleConditions: 'RuleConditions',
+      ruleDirection: 'RuleDirection',
     };
   }
 
@@ -7590,6 +7623,7 @@ export class CreateForwardingRulesRequestForwardingRules extends $tea.Model {
       priority: 'number',
       ruleActions: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRulesRuleActions },
       ruleConditions: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRulesRuleConditions },
+      ruleDirection: 'string',
     };
   }
 
@@ -7797,6 +7831,25 @@ export class DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage extends 
     return {
       bandwidth: 'number',
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAcceleratorResponseBodyIpSetConfig extends $tea.Model {
+  accessMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
     };
   }
 
@@ -8283,6 +8336,25 @@ export class ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage
   }
 }
 
+export class ListAcceleratorsResponseBodyAcceleratorsIpSetConfig extends $tea.Model {
+  accessMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   acceleratorId?: string;
   bandwidth?: number;
@@ -8295,6 +8367,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
   dnsName?: string;
   expiredTime?: number;
   instanceChargeType?: string;
+  ipSetConfig?: ListAcceleratorsResponseBodyAcceleratorsIpSetConfig;
   name?: string;
   regionId?: string;
   secondDnsName?: string;
@@ -8314,6 +8387,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       dnsName: 'DnsName',
       expiredTime: 'ExpiredTime',
       instanceChargeType: 'InstanceChargeType',
+      ipSetConfig: 'IpSetConfig',
       name: 'Name',
       regionId: 'RegionId',
       secondDnsName: 'SecondDnsName',
@@ -8336,6 +8410,7 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
       dnsName: 'string',
       expiredTime: 'number',
       instanceChargeType: 'string',
+      ipSetConfig: ListAcceleratorsResponseBodyAcceleratorsIpSetConfig,
       name: 'string',
       regionId: 'string',
       secondDnsName: 'string',
@@ -8941,11 +9016,13 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleActions extends $
   forwardGroupConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig;
   order?: number;
   ruleActionType?: string;
+  ruleActionValue?: string;
   static names(): { [key: string]: string } {
     return {
       forwardGroupConfig: 'ForwardGroupConfig',
       order: 'Order',
       ruleActionType: 'RuleActionType',
+      ruleActionValue: 'RuleActionValue',
     };
   }
 
@@ -8954,6 +9031,7 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleActions extends $
       forwardGroupConfig: ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig,
       order: 'number',
       ruleActionType: 'string',
+      ruleActionValue: 'string',
     };
   }
 
@@ -9004,11 +9082,13 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleConditions extend
   hostConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig;
   pathConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig;
   ruleConditionType?: string;
+  ruleConditionValue?: string;
   static names(): { [key: string]: string } {
     return {
       hostConfig: 'HostConfig',
       pathConfig: 'PathConfig',
       ruleConditionType: 'RuleConditionType',
+      ruleConditionValue: 'RuleConditionValue',
     };
   }
 
@@ -9017,6 +9097,7 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleConditions extend
       hostConfig: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig,
       pathConfig: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig,
       ruleConditionType: 'string',
+      ruleConditionValue: 'string',
     };
   }
 
@@ -9026,6 +9107,7 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleConditions extend
 }
 
 export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
+  forwardingRuleDirection?: string;
   forwardingRuleId?: string;
   forwardingRuleName?: string;
   forwardingRuleStatus?: string;
@@ -9035,6 +9117,7 @@ export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
   ruleConditions?: ListForwardingRulesResponseBodyForwardingRulesRuleConditions[];
   static names(): { [key: string]: string } {
     return {
+      forwardingRuleDirection: 'ForwardingRuleDirection',
       forwardingRuleId: 'ForwardingRuleId',
       forwardingRuleName: 'ForwardingRuleName',
       forwardingRuleStatus: 'ForwardingRuleStatus',
@@ -9047,6 +9130,7 @@ export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      forwardingRuleDirection: 'string',
       forwardingRuleId: 'string',
       forwardingRuleName: 'string',
       forwardingRuleStatus: 'string',
@@ -9542,11 +9626,13 @@ export class UpdateForwardingRulesRequestForwardingRulesRuleActions extends $tea
   forwardGroupConfig?: UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig;
   order?: number;
   ruleActionType?: string;
+  ruleActionValue?: string;
   static names(): { [key: string]: string } {
     return {
       forwardGroupConfig: 'ForwardGroupConfig',
       order: 'Order',
       ruleActionType: 'RuleActionType',
+      ruleActionValue: 'RuleActionValue',
     };
   }
 
@@ -9555,6 +9641,7 @@ export class UpdateForwardingRulesRequestForwardingRulesRuleActions extends $tea
       forwardGroupConfig: UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig,
       order: 'number',
       ruleActionType: 'string',
+      ruleActionValue: 'string',
     };
   }
 
@@ -9605,11 +9692,13 @@ export class UpdateForwardingRulesRequestForwardingRulesRuleConditions extends $
   hostConfig?: UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig;
   pathConfig?: UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig;
   ruleConditionType?: string;
+  ruleConditionValue?: string;
   static names(): { [key: string]: string } {
     return {
       hostConfig: 'HostConfig',
       pathConfig: 'PathConfig',
       ruleConditionType: 'RuleConditionType',
+      ruleConditionValue: 'RuleConditionValue',
     };
   }
 
@@ -9618,6 +9707,7 @@ export class UpdateForwardingRulesRequestForwardingRulesRuleConditions extends $
       hostConfig: UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig,
       pathConfig: UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig,
       ruleConditionType: 'string',
+      ruleConditionValue: 'string',
     };
   }
 
@@ -9632,6 +9722,7 @@ export class UpdateForwardingRulesRequestForwardingRules extends $tea.Model {
   priority?: number;
   ruleActions?: UpdateForwardingRulesRequestForwardingRulesRuleActions[];
   ruleConditions?: UpdateForwardingRulesRequestForwardingRulesRuleConditions[];
+  ruleDirection?: string;
   static names(): { [key: string]: string } {
     return {
       forwardingRuleId: 'ForwardingRuleId',
@@ -9639,6 +9730,7 @@ export class UpdateForwardingRulesRequestForwardingRules extends $tea.Model {
       priority: 'Priority',
       ruleActions: 'RuleActions',
       ruleConditions: 'RuleConditions',
+      ruleDirection: 'RuleDirection',
     };
   }
 
@@ -9649,6 +9741,7 @@ export class UpdateForwardingRulesRequestForwardingRules extends $tea.Model {
       priority: 'number',
       ruleActions: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRulesRuleActions },
       ruleConditions: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRulesRuleConditions },
+      ruleDirection: 'string',
     };
   }
 
@@ -10208,6 +10301,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.duration)) {
       query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.ipSetConfig))) {
+      query["IpSetConfig"] = request.ipSetConfig;
     }
 
     if (!Util.isUnset(request.name)) {
