@@ -10447,6 +10447,84 @@ export class DescribeDcdnWafScenesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnWafServiceRequest extends $tea.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafServiceResponseBody extends $tea.Model {
+  edition?: string;
+  openingTime?: string;
+  requestBillingType?: string;
+  requestId?: string;
+  ruleBillingType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      edition: 'Edition',
+      openingTime: 'OpeningTime',
+      requestBillingType: 'RequestBillingType',
+      requestId: 'RequestId',
+      ruleBillingType: 'RuleBillingType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      edition: 'string',
+      openingTime: 'string',
+      requestBillingType: 'string',
+      requestId: 'string',
+      ruleBillingType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnWafServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnWafServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnWafServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnWafSpecInfoRequest extends $tea.Model {
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -24641,6 +24719,39 @@ export default class Client extends OpenApi {
   async describeDcdnWafScenes(request: DescribeDcdnWafScenesRequest): Promise<DescribeDcdnWafScenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnWafScenesWithOptions(request, runtime);
+  }
+
+  async describeDcdnWafServiceWithOptions(request: DescribeDcdnWafServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnWafService",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnWafServiceResponse>(await this.callApi(params, req, runtime), new DescribeDcdnWafServiceResponse({}));
+  }
+
+  async describeDcdnWafService(request: DescribeDcdnWafServiceRequest): Promise<DescribeDcdnWafServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnWafServiceWithOptions(request, runtime);
   }
 
   async describeDcdnWafSpecInfoWithOptions(request: DescribeDcdnWafSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafSpecInfoResponse> {
