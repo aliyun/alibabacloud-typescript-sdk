@@ -10179,6 +10179,90 @@ export class InstallBackupClientResponse extends $tea.Model {
   }
 }
 
+export class InstallCloudMonitorRequest extends $tea.Model {
+  agentAccessKey?: string;
+  agentSecretKey?: string;
+  argusVersion?: string;
+  instanceIdList?: string[];
+  uuidList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      agentAccessKey: 'AgentAccessKey',
+      agentSecretKey: 'AgentSecretKey',
+      argusVersion: 'ArgusVersion',
+      instanceIdList: 'InstanceIdList',
+      uuidList: 'UuidList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentAccessKey: 'string',
+      agentSecretKey: 'string',
+      argusVersion: 'string',
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
+      uuidList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallCloudMonitorResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallCloudMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: InstallCloudMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: InstallCloudMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAntiBruteForceRuleRequest extends $tea.Model {
   defaultRule?: boolean;
   failCount?: number;
@@ -25002,6 +25086,51 @@ export default class Client extends OpenApi {
   async installBackupClient(request: InstallBackupClientRequest): Promise<InstallBackupClientResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installBackupClientWithOptions(request, runtime);
+  }
+
+  async installCloudMonitorWithOptions(request: InstallCloudMonitorRequest, runtime: $Util.RuntimeOptions): Promise<InstallCloudMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentAccessKey)) {
+      query["AgentAccessKey"] = request.agentAccessKey;
+    }
+
+    if (!Util.isUnset(request.agentSecretKey)) {
+      query["AgentSecretKey"] = request.agentSecretKey;
+    }
+
+    if (!Util.isUnset(request.argusVersion)) {
+      query["ArgusVersion"] = request.argusVersion;
+    }
+
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InstallCloudMonitor",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InstallCloudMonitorResponse>(await this.callApi(params, req, runtime), new InstallCloudMonitorResponse({}));
+  }
+
+  async installCloudMonitor(request: InstallCloudMonitorRequest): Promise<InstallCloudMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.installCloudMonitorWithOptions(request, runtime);
   }
 
   async modifyAntiBruteForceRuleWithOptions(request: ModifyAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAntiBruteForceRuleResponse> {
