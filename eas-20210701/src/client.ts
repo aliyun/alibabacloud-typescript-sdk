@@ -15,6 +15,7 @@ export class Instance extends $tea.Model {
   instanceName?: string;
   instancePort?: number;
   lastState?: { [key: string]: any }[];
+  namespace?: string;
   readyProcesses?: number;
   reason?: string;
   restartCount?: number;
@@ -29,6 +30,7 @@ export class Instance extends $tea.Model {
       instanceName: 'InstanceName',
       instancePort: 'InstancePort',
       lastState: 'LastState',
+      namespace: 'Namespace',
       readyProcesses: 'ReadyProcesses',
       reason: 'Reason',
       restartCount: 'RestartCount',
@@ -46,6 +48,7 @@ export class Instance extends $tea.Model {
       instanceName: 'string',
       instancePort: 'number',
       lastState: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      namespace: 'string',
       readyProcesses: 'number',
       reason: 'string',
       restartCount: 'number',
@@ -357,14 +360,14 @@ export class CreateResourceResponseBody extends $tea.Model {
   clusterId?: string;
   ownerUid?: string;
   requestId?: string;
-  resourceID?: string;
+  resourceId?: string;
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       ownerUid: 'OwnerUid',
       requestId: 'RequestId',
-      resourceID: 'ResourceID',
+      resourceId: 'ResourceId',
       resourceName: 'ResourceName',
     };
   }
@@ -374,7 +377,7 @@ export class CreateResourceResponseBody extends $tea.Model {
       clusterId: 'string',
       ownerUid: 'string',
       requestId: 'string',
-      resourceID: 'string',
+      resourceId: 'string',
       resourceName: 'string',
     };
   }
@@ -1263,6 +1266,50 @@ export class DeleteServiceMirrorResponse extends $tea.Model {
   }
 }
 
+export class DescribeRegionsResponseBody extends $tea.Model {
+  regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResourceResponseBody extends $tea.Model {
   clusterId?: string;
   cpuCount?: number;
@@ -1478,6 +1525,7 @@ export class DescribeServiceResponse extends $tea.Model {
 }
 
 export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
+  currentValues?: { [key: string]: any };
   maxReplica?: number;
   minReplica?: number;
   requestId?: string;
@@ -1485,6 +1533,7 @@ export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
   strategies?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      currentValues: 'CurrentValues',
       maxReplica: 'MaxReplica',
       minReplica: 'MinReplica',
       requestId: 'RequestId',
@@ -1495,6 +1544,7 @@ export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      currentValues: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maxReplica: 'number',
       minReplica: 'number',
       requestId: 'string',
@@ -2839,7 +2889,27 @@ export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
   }
 }
 
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
+  createTime?: string;
   lastProbeTime?: string;
   message?: string;
   name?: string;
@@ -2848,6 +2918,7 @@ export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
   targetSize?: number;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       lastProbeTime: 'LastProbeTime',
       message: 'Message',
       name: 'Name',
@@ -2859,6 +2930,7 @@ export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       lastProbeTime: 'string',
       message: 'string',
       name: 'string',
@@ -2935,55 +3007,13 @@ export default class Client extends OpenApi {
       'cn-hongkong': "pai-eas.cn-hongkong.aliyuncs.com",
       'ap-southeast-1': "pai-eas.ap-southeast-1.aliyuncs.com",
       'ap-southeast-5': "pai-eas.ap-southeast-5.aliyuncs.com",
-      'us-west-1': "pai-eas.us-west-1.aliyuncs.com",
       'us-east-1': "pai-eas.us-east-1.aliyuncs.com",
+      'us-west-1': "pai-eas.us-west-1.aliyuncs.com",
       'eu-central-1': "pai-eas.eu-central-1.aliyuncs.com",
       'ap-south-1': "pai-eas.ap-south-1.aliyuncs.com",
       'cn-shanghai-finance-1': "pai-eas.cn-shanghai-finance-1.aliyuncs.com",
       'cn-north-2-gov-1': "pai-eas.cn-north-2-gov-1.aliyuncs.com",
-      'ap-northeast-1': "eas.aliyuncs.com",
-      'ap-northeast-2-pop': "eas.aliyuncs.com",
-      'ap-southeast-2': "eas.aliyuncs.com",
-      'ap-southeast-3': "eas.aliyuncs.com",
-      'cn-beijing-finance-1': "eas.aliyuncs.com",
-      'cn-beijing-finance-pop': "eas.aliyuncs.com",
-      'cn-beijing-gov-1': "eas.aliyuncs.com",
-      'cn-beijing-nu16-b01': "eas.aliyuncs.com",
       'cn-chengdu': "pai-eas.cn-chengdu.aliyuncs.com",
-      'cn-edge-1': "eas.aliyuncs.com",
-      'cn-fujian': "eas.aliyuncs.com",
-      'cn-haidian-cm12-c01': "eas.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "eas.aliyuncs.com",
-      'cn-hangzhou-finance': "eas.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "eas.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "eas.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "eas.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "eas.aliyuncs.com",
-      'cn-hangzhou-test-306': "eas.aliyuncs.com",
-      'cn-hongkong-finance-pop': "eas.aliyuncs.com",
-      'cn-huhehaote': "eas.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "eas.aliyuncs.com",
-      'cn-qingdao': "eas.aliyuncs.com",
-      'cn-qingdao-nebula': "eas.aliyuncs.com",
-      'cn-shanghai-et15-b01': "eas.aliyuncs.com",
-      'cn-shanghai-et2-b01': "eas.aliyuncs.com",
-      'cn-shanghai-inner': "eas.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "eas.aliyuncs.com",
-      'cn-shenzhen-finance-1': "eas.aliyuncs.com",
-      'cn-shenzhen-inner': "eas.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "eas.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "eas.aliyuncs.com",
-      'cn-wuhan': "eas.aliyuncs.com",
-      'cn-wulanchabu': "eas.aliyuncs.com",
-      'cn-yushanfang': "eas.aliyuncs.com",
-      'cn-zhangbei': "eas.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "eas.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "eas.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "eas.aliyuncs.com",
-      'eu-west-1': "eas.aliyuncs.com",
-      'eu-west-1-oxs': "eas.aliyuncs.com",
-      'me-east-1': "eas.aliyuncs.com",
-      'rus-west-1-pop': "eas.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -3522,6 +3552,30 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<DeleteServiceMirrorResponse>(await this.callApi(params, req, runtime), new DeleteServiceMirrorResponse({}));
+  }
+
+  async describeRegions(): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(headers, runtime);
+  }
+
+  async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeResource(ClusterId: string, ResourceId: string): Promise<DescribeResourceResponse> {
