@@ -970,6 +970,72 @@ export class DetectSpineMRIResponse extends $tea.Model {
   }
 }
 
+export class FeedbackSessionRequest extends $tea.Model {
+  feedback?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feedback: 'Feedback',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedback: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FeedbackSessionResponseBody extends $tea.Model {
+  data?: FeedbackSessionResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: FeedbackSessionResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FeedbackSessionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: FeedbackSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: FeedbackSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAsyncJobResultRequest extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
@@ -2118,6 +2184,25 @@ export class DetectSpineMRIResponseBodyData extends $tea.Model {
     return {
       discs: { 'type': 'array', 'itemType': DetectSpineMRIResponseBodyDataDiscs },
       vertebras: { 'type': 'array', 'itemType': DetectSpineMRIResponseBodyDataVertebras },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FeedbackSessionResponseBodyData extends $tea.Model {
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
     };
   }
 
@@ -3571,6 +3656,39 @@ export default class Client extends OpenApi {
   async detectSpineMRI(request: DetectSpineMRIRequest): Promise<DetectSpineMRIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectSpineMRIWithOptions(request, runtime);
+  }
+
+  async feedbackSessionWithOptions(request: FeedbackSessionRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackSessionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.feedback)) {
+      body["Feedback"] = request.feedback;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FeedbackSession",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FeedbackSessionResponse>(await this.callApi(params, req, runtime), new FeedbackSessionResponse({}));
+  }
+
+  async feedbackSession(request: FeedbackSessionRequest): Promise<FeedbackSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.feedbackSessionWithOptions(request, runtime);
   }
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
