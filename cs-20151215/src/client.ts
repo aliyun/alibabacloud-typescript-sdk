@@ -9468,14 +9468,14 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
-    let body : {[key: string ]: any} = { };
+    let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.force)) {
-      body["force"] = request.force;
+      query["force"] = request.force;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteClusterNodepool",
