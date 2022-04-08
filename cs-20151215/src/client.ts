@@ -1198,6 +1198,25 @@ export class DeleteClusterResponse extends $tea.Model {
   }
 }
 
+export class DeleteClusterNodepoolRequest extends $tea.Model {
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterNodepoolResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -8444,11 +8463,13 @@ export class UnInstallClusterAddonsRequestAddons extends $tea.Model {
 
 export class UpgradeClusterAddonsRequestBody extends $tea.Model {
   componentName?: string;
+  config?: string;
   nextVersion?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
       componentName: 'component_name',
+      config: 'config',
       nextVersion: 'next_version',
       version: 'version',
     };
@@ -8457,6 +8478,7 @@ export class UpgradeClusterAddonsRequestBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       componentName: 'string',
+      config: 'string',
       nextVersion: 'string',
       version: 'string',
     };
@@ -9436,17 +9458,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
-  async deleteClusterNodepool(ClusterId: string, NodepoolId: string): Promise<DeleteClusterNodepoolResponse> {
+  async deleteClusterNodepool(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest): Promise<DeleteClusterNodepoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteClusterNodepoolWithOptions(ClusterId, NodepoolId, headers, runtime);
+    return await this.deleteClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
-  async deleteClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodepoolResponse> {
+  async deleteClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodepoolResponse> {
+    Util.validateModel(request);
     ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      body["force"] = request.force;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteClusterNodepool",
