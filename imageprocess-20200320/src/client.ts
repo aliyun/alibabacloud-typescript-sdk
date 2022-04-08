@@ -993,18 +993,15 @@ export class FeedbackSessionRequest extends $tea.Model {
 }
 
 export class FeedbackSessionResponseBody extends $tea.Model {
-  data?: FeedbackSessionResponseBodyData;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: FeedbackSessionResponseBodyData,
       requestId: 'string',
     };
   }
@@ -2184,25 +2181,6 @@ export class DetectSpineMRIResponseBodyData extends $tea.Model {
     return {
       discs: { 'type': 'array', 'itemType': DetectSpineMRIResponseBodyDataDiscs },
       vertebras: { 'type': 'array', 'itemType': DetectSpineMRIResponseBodyDataVertebras },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FeedbackSessionResponseBodyData extends $tea.Model {
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
     };
   }
 
