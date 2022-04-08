@@ -524,150 +524,6 @@ export class AddNetworkInterfaceToInstanceResponse extends $tea.Model {
   }
 }
 
-export class AllocateEipAddressRequest extends $tea.Model {
-  count?: number;
-  ensRegionId?: string;
-  minCount?: number;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      ensRegionId: 'EnsRegionId',
-      minCount: 'MinCount',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      ensRegionId: 'string',
-      minCount: 'number',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateEipAddressResponseBody extends $tea.Model {
-  bizStatusCode?: string;
-  eipAddresses?: AllocateEipAddressResponseBodyEipAddresses;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizStatusCode: 'BizStatusCode',
-      eipAddresses: 'EipAddresses',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizStatusCode: 'string',
-      eipAddresses: AllocateEipAddressResponseBodyEipAddresses,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AllocateEipAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AllocateEipAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateEipAddressRequest extends $tea.Model {
-  eip?: string;
-  ensRegionId?: string;
-  instanceIdInternetIp?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eip: 'Eip',
-      ensRegionId: 'EnsRegionId',
-      instanceIdInternetIp: 'InstanceIdInternetIp',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eip: 'string',
-      ensRegionId: 'string',
-      instanceIdInternetIp: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateEipAddressResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssociateEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AssociateEipAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AssociateEipAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AssociateEnsEipAddressRequest extends $tea.Model {
   allocationId?: string;
   instanceId?: string;
@@ -1031,84 +887,6 @@ export class AuthorizeSecurityGroupEgressResponse extends $tea.Model {
   }
 }
 
-export class CheckQuotaRequest extends $tea.Model {
-  aliUid?: number;
-  groupUuid?: string;
-  resourceAttribute?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      groupUuid: 'GroupUuid',
-      resourceAttribute: 'ResourceAttribute',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      groupUuid: 'string',
-      resourceAttribute: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckQuotaResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  desc?: string;
-  msg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      desc: 'Desc',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      desc: 'string',
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckQuotaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckQuotaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateApplicationRequest extends $tea.Model {
   template?: string;
   timeout?: number;
@@ -1328,6 +1106,84 @@ export class CreateEipInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateEnsRouteEntryRequest extends $tea.Model {
+  description?: string;
+  destinationCidrBlock?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  routeEntryName?: string;
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      routeEntryName: 'RouteEntryName',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationCidrBlock: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      routeEntryName: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsRouteEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  routeEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      routeEntryId: 'RouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      routeEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnsRouteEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateEnsRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateEnsRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEnsServiceRequest extends $tea.Model {
   ensServiceId?: string;
   orderType?: string;
@@ -1472,6 +1328,87 @@ export class CreateEpnInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateForwardEntryRequest extends $tea.Model {
+  externalIp?: string;
+  externalPort?: string;
+  forwardEntryName?: string;
+  internalIp?: string;
+  internalPort?: string;
+  ipProtocol?: string;
+  natGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalIp: 'ExternalIp',
+      externalPort: 'ExternalPort',
+      forwardEntryName: 'ForwardEntryName',
+      internalIp: 'InternalIp',
+      internalPort: 'InternalPort',
+      ipProtocol: 'IpProtocol',
+      natGatewayId: 'NatGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalIp: 'string',
+      externalPort: 'string',
+      forwardEntryName: 'string',
+      internalIp: 'string',
+      internalPort: 'string',
+      ipProtocol: 'string',
+      natGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateForwardEntryResponseBody extends $tea.Model {
+  forwardEntryId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forwardEntryId: 'ForwardEntryId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardEntryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateForwardEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateForwardEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateForwardEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageRequest extends $tea.Model {
   deleteAfterImageUpload?: string;
   imageName?: string;
@@ -1562,6 +1499,7 @@ export class CreateInstanceRequest extends $tea.Model {
   keyPairName?: string;
   ownerId?: number;
   password?: string;
+  passwordInherit?: boolean;
   paymentType?: string;
   period?: string;
   privateIpAddress?: string;
@@ -1586,6 +1524,7 @@ export class CreateInstanceRequest extends $tea.Model {
       keyPairName: 'KeyPairName',
       ownerId: 'OwnerId',
       password: 'Password',
+      passwordInherit: 'PasswordInherit',
       paymentType: 'PaymentType',
       period: 'Period',
       privateIpAddress: 'PrivateIpAddress',
@@ -1613,6 +1552,7 @@ export class CreateInstanceRequest extends $tea.Model {
       keyPairName: 'string',
       ownerId: 'number',
       password: 'string',
+      passwordInherit: 'boolean',
       paymentType: 'string',
       period: 'string',
       privateIpAddress: 'string',
@@ -2279,6 +2219,78 @@ export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
   }
 }
 
+export class CreateNatGatewayRequest extends $tea.Model {
+  ensRegionId?: string;
+  name?: string;
+  networkId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      name: 'Name',
+      networkId: 'NetworkId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      name: 'string',
+      networkId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayResponseBody extends $tea.Model {
+  natGatewayId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natGatewayId: 'NatGatewayId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natGatewayId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateNatGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateNatGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNetworkRequest extends $tea.Model {
   cidrBlock?: string;
   description?: string;
@@ -2420,6 +2432,81 @@ export class CreateSecurityGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateSnatEntryRequest extends $tea.Model {
+  natGatewayId?: string;
+  snatEntryName?: string;
+  snatIp?: string;
+  sourceCIDR?: string;
+  sourceVSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natGatewayId: 'NatGatewayId',
+      snatEntryName: 'SnatEntryName',
+      snatIp: 'SnatIp',
+      sourceCIDR: 'SourceCIDR',
+      sourceVSwitchId: 'SourceVSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natGatewayId: 'string',
+      snatEntryName: 'string',
+      snatIp: 'string',
+      sourceCIDR: 'string',
+      sourceVSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSnatEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  snatEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      snatEntryId: 'SnatEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      snatEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSnatEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVSwitchRequest extends $tea.Model {
   cidrBlock?: string;
   description?: string;
@@ -2490,90 +2577,6 @@ export class CreateVSwitchResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateVSwitchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVmAndSaveStockRequest extends $tea.Model {
-  aliUid?: number;
-  groupUuid?: string;
-  resourceAttribute?: string;
-  tenant?: string;
-  workloadUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      groupUuid: 'GroupUuid',
-      resourceAttribute: 'ResourceAttribute',
-      tenant: 'Tenant',
-      workloadUuid: 'WorkloadUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      groupUuid: 'string',
-      resourceAttribute: 'string',
-      tenant: 'string',
-      workloadUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVmAndSaveStockResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  desc?: string;
-  msg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      desc: 'Desc',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      desc: 'string',
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVmAndSaveStockResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateVmAndSaveStockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateVmAndSaveStockResponseBody,
     };
   }
 
@@ -2714,6 +2717,66 @@ export class DeleteDeviceInternetPortResponse extends $tea.Model {
   }
 }
 
+export class DeleteEnsRouteEntryRequest extends $tea.Model {
+  routeEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeEntryId: 'RouteEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsRouteEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnsRouteEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteEnsRouteEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteEnsRouteEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEpnInstanceRequest extends $tea.Model {
   EPNInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -2766,6 +2829,66 @@ export class DeleteEpnInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteEpnInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteForwardEntryRequest extends $tea.Model {
+  forwardEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forwardEntryId: 'ForwardEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteForwardEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteForwardEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteForwardEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteForwardEntryResponseBody,
     };
   }
 
@@ -2900,6 +3023,66 @@ export class DeleteLoadBalancerListenerResponse extends $tea.Model {
   }
 }
 
+export class DeleteNatGatewayRequest extends $tea.Model {
+  natGatewayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natGatewayId: 'NatGatewayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatGatewayResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNatGatewayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteNatGatewayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteNatGatewayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteNetworkRequest extends $tea.Model {
   networkId?: string;
   static names(): { [key: string]: string } {
@@ -3023,6 +3206,66 @@ export class DeleteSecurityGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteSnatEntryRequest extends $tea.Model {
+  snatEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryId: 'SnatEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSnatEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSnatEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSnatEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVSwitchRequest extends $tea.Model {
   vSwitchId?: string;
   version?: string;
@@ -3078,81 +3321,6 @@ export class DeleteVSwitchResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteVSwitchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVmRequest extends $tea.Model {
-  aliUid?: number;
-  workloadUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      workloadUuid: 'WorkloadUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      workloadUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVmResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  desc?: string;
-  msg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      desc: 'Desc',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      desc: 'string',
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteVmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteVmResponseBody,
     };
   }
 
@@ -4926,6 +5094,102 @@ export class DescribeEnsResourceUsageResponse extends $tea.Model {
   }
 }
 
+export class DescribeEnsRouteEntryListRequest extends $tea.Model {
+  destinationCidrBlock?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  routeEntryId?: string;
+  routeEntryName?: string;
+  routeEntryType?: string;
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      routeEntryId: 'RouteEntryId',
+      routeEntryName: 'RouteEntryName',
+      routeEntryType: 'RouteEntryType',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      routeEntryId: 'string',
+      routeEntryName: 'string',
+      routeEntryType: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsRouteEntryListResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  routeEntrys?: DescribeEnsRouteEntryListResponseBodyRouteEntrys[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      routeEntrys: 'RouteEntrys',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      routeEntrys: { 'type': 'array', 'itemType': DescribeEnsRouteEntryListResponseBodyRouteEntrys },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsRouteEntryListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeEnsRouteEntryListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeEnsRouteEntryListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEpnBandWidthDataRequest extends $tea.Model {
   EPNInstanceId?: string;
   endTime?: string;
@@ -5464,6 +5728,99 @@ export class DescribeExportImageStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeExportImageStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeForwardTableEntriesRequest extends $tea.Model {
+  externalIp?: string;
+  forwardEntryId?: string;
+  forwardEntryName?: string;
+  internalIp?: string;
+  ipProtocol?: string;
+  natGatewayId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      externalIp: 'ExternalIp',
+      forwardEntryId: 'ForwardEntryId',
+      forwardEntryName: 'ForwardEntryName',
+      internalIp: 'InternalIp',
+      ipProtocol: 'IpProtocol',
+      natGatewayId: 'NatGatewayId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalIp: 'string',
+      forwardEntryId: 'string',
+      forwardEntryName: 'string',
+      internalIp: 'string',
+      ipProtocol: 'string',
+      natGatewayId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeForwardTableEntriesResponseBody extends $tea.Model {
+  forwardTableEntries?: DescribeForwardTableEntriesResponseBodyForwardTableEntries[];
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forwardTableEntries: 'ForwardTableEntries',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardTableEntries: { 'type': 'array', 'itemType': DescribeForwardTableEntriesResponseBodyForwardTableEntries },
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeForwardTableEntriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeForwardTableEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeForwardTableEntriesResponseBody,
     };
   }
 
@@ -7101,6 +7458,96 @@ export class DescribeMeasurementDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeNatGatewaysRequest extends $tea.Model {
+  ensRegionId?: string;
+  name?: string;
+  natGatewayId?: string;
+  networkId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      name: 'Name',
+      natGatewayId: 'NatGatewayId',
+      networkId: 'NetworkId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      name: 'string',
+      natGatewayId: 'string',
+      networkId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewaysResponseBody extends $tea.Model {
+  natGateways?: DescribeNatGatewaysResponseBodyNatGateways[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      natGateways: 'NatGateways',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natGateways: { 'type': 'array', 'itemType': DescribeNatGatewaysResponseBodyNatGateways },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewaysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeNatGatewaysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeNatGatewaysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkAttributeRequest extends $tea.Model {
   networkId?: string;
   static names(): { [key: string]: string } {
@@ -7960,6 +8407,96 @@ export class DescribeServcieScheduleResponse extends $tea.Model {
   }
 }
 
+export class DescribeSnatTableEntriesRequest extends $tea.Model {
+  natGatewayId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  snatEntryId?: string;
+  snatEntryName?: string;
+  snatIp?: string;
+  sourceCIDR?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natGatewayId: 'NatGatewayId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      snatEntryId: 'SnatEntryId',
+      snatEntryName: 'SnatEntryName',
+      snatIp: 'SnatIp',
+      sourceCIDR: 'SourceCIDR',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natGatewayId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      snatEntryId: 'string',
+      snatEntryName: 'string',
+      snatIp: 'string',
+      sourceCIDR: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnatTableEntriesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  snatTableEntries?: DescribeSnatTableEntriesResponseBodySnatTableEntries[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      snatTableEntries: 'SnatTableEntries',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      snatTableEntries: { 'type': 'array', 'itemType': DescribeSnatTableEntriesResponseBodySnatTableEntries },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnatTableEntriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSnatTableEntriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSnatTableEntriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserBandWidthDataRequest extends $tea.Model {
   endTime?: string;
   ensRegionId?: string;
@@ -8557,93 +9094,6 @@ export class GetDeviceInternetPortResponse extends $tea.Model {
   }
 }
 
-export class GetVmListRequest extends $tea.Model {
-  aliUid?: number;
-  groupUuid?: string;
-  instanceUuid?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  workloadUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      groupUuid: 'GroupUuid',
-      instanceUuid: 'InstanceUuid',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      workloadUuid: 'WorkloadUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      groupUuid: 'string',
-      instanceUuid: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      workloadUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVmListResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  desc?: string;
-  msg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      desc: 'Desc',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      desc: 'string',
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVmListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetVmListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetVmListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportKeyPairRequest extends $tea.Model {
   keyPairName?: string;
   publicKeyBody?: string;
@@ -9059,87 +9509,6 @@ export class ListApplicationsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListApplicationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MigrateVmRequest extends $tea.Model {
-  groupUuid?: string;
-  instanceIds?: string;
-  instances?: string;
-  tenant?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupUuid: 'GroupUuid',
-      instanceIds: 'InstanceIds',
-      instances: 'Instances',
-      tenant: 'Tenant',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupUuid: 'string',
-      instanceIds: 'string',
-      instances: 'string',
-      tenant: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MigrateVmResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  desc?: string;
-  msg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      desc: 'Desc',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      desc: 'string',
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MigrateVmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: MigrateVmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: MigrateVmResponseBody,
     };
   }
 
@@ -10211,72 +10580,6 @@ export class RebootInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RebootInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseEipAddressRequest extends $tea.Model {
-  eips?: string;
-  ensRegionId?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eips: 'Eips',
-      ensRegionId: 'EnsRegionId',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eips: 'string',
-      ensRegionId: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseEipAddressResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ReleaseEipAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ReleaseEipAddressResponseBody,
     };
   }
 
@@ -11625,105 +11928,6 @@ export class RunServiceScheduleResponse extends $tea.Model {
   }
 }
 
-export class SchedulePodRequest extends $tea.Model {
-  aliUid?: number;
-  areaCodes?: string;
-  groupUuid?: string;
-  isps?: string;
-  labels?: string;
-  regions?: string;
-  requirements?: string;
-  resourceAttribute?: string;
-  tenant?: string;
-  workloadUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      areaCodes: 'AreaCodes',
-      groupUuid: 'GroupUuid',
-      isps: 'Isps',
-      labels: 'Labels',
-      regions: 'Regions',
-      requirements: 'Requirements',
-      resourceAttribute: 'ResourceAttribute',
-      tenant: 'Tenant',
-      workloadUuid: 'WorkloadUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      areaCodes: 'string',
-      groupUuid: 'string',
-      isps: 'string',
-      labels: 'string',
-      regions: 'string',
-      requirements: 'string',
-      resourceAttribute: 'string',
-      tenant: 'string',
-      workloadUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SchedulePodResponseBody extends $tea.Model {
-  code?: number;
-  data?: string;
-  desc?: string;
-  msg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      desc: 'Desc',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: 'string',
-      desc: 'string',
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SchedulePodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SchedulePodResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SchedulePodResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetBackendServersRequest extends $tea.Model {
   backendServers?: SetBackendServersRequestBackendServers[];
   loadBalancerId?: string;
@@ -12727,75 +12931,6 @@ export class UnAssociateEnsEipAddressResponse extends $tea.Model {
   }
 }
 
-export class UnassociateEipAddressRequest extends $tea.Model {
-  eip?: string;
-  ensRegionId?: string;
-  instanceIdInternetIp?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eip: 'Eip',
-      ensRegionId: 'EnsRegionId',
-      instanceIdInternetIp: 'InstanceIdInternetIp',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eip: 'string',
-      ensRegionId: 'string',
-      instanceIdInternetIp: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnassociateEipAddressResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnassociateEipAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UnassociateEipAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UnassociateEipAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpgradeApplicationRequest extends $tea.Model {
   appId?: string;
   template?: string;
@@ -12935,44 +13070,6 @@ export class AddBackendServersResponseBodyBackendServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': AddBackendServersResponseBodyBackendServersBackendServer },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateEipAddressResponseBodyEipAddressesEipAddress extends $tea.Model {
-  eip?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eip: 'Eip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eip: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateEipAddressResponseBodyEipAddresses extends $tea.Model {
-  eipAddress?: AllocateEipAddressResponseBodyEipAddressesEipAddress[];
-  static names(): { [key: string]: string } {
-    return {
-      eipAddress: 'EipAddress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eipAddress: { 'type': 'array', 'itemType': AllocateEipAddressResponseBodyEipAddressesEipAddress },
     };
   }
 
@@ -14579,6 +14676,68 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $tea.M
   }
 }
 
+export class DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops extends $tea.Model {
+  nextHopId?: string;
+  nextHopType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextHopId: 'string',
+      nextHopType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $tea.Model {
+  description?: string;
+  destinationCidrBlock?: string;
+  nextHops?: DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops[];
+  routeEntryId?: string;
+  routeEntryName?: string;
+  routeTableId?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      nextHops: 'NextHops',
+      routeEntryId: 'RouteEntryId',
+      routeEntryName: 'RouteEntryName',
+      routeTableId: 'RouteTableId',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationCidrBlock: 'string',
+      nextHops: { 'type': 'array', 'itemType': DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops },
+      routeEntryId: 'string',
+      routeEntryName: 'string',
+      routeTableId: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEpnBandWidthDataResponseBodyMonitorDataBandWidthMonitorData extends $tea.Model {
   downBandWidth?: number;
   internetRX?: number;
@@ -14938,6 +15097,49 @@ export class DescribeExportImageInfoResponseBodyImages extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       image: { 'type': 'array', 'itemType': DescribeExportImageInfoResponseBodyImagesImage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends $tea.Model {
+  externalIp?: string;
+  externalPort?: string;
+  forwardEntryId?: string;
+  forwardEntryName?: string;
+  internalIp?: string;
+  internalPort?: string;
+  ipProtocol?: string;
+  natGatewayId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalIp: 'ExternalIp',
+      externalPort: 'ExternalPort',
+      forwardEntryId: 'ForwardEntryId',
+      forwardEntryName: 'ForwardEntryName',
+      internalIp: 'InternalIp',
+      internalPort: 'InternalPort',
+      ipProtocol: 'IpProtocol',
+      natGatewayId: 'NatGatewayId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalIp: 'string',
+      externalPort: 'string',
+      forwardEntryId: 'string',
+      forwardEntryName: 'string',
+      internalIp: 'string',
+      internalPort: 'string',
+      ipProtocol: 'string',
+      natGatewayId: 'string',
+      status: 'string',
     };
   }
 
@@ -16022,6 +16224,40 @@ export class DescribeMeasurementDataResponseBodyMeasurementDatas extends $tea.Mo
   }
 }
 
+export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
+  creationTime?: string;
+  ensRegionId?: string;
+  name?: string;
+  natGatewayId?: string;
+  networkId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      ensRegionId: 'EnsRegionId',
+      name: 'Name',
+      natGatewayId: 'NatGatewayId',
+      networkId: 'NetworkId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      ensRegionId: 'string',
+      name: 'string',
+      natGatewayId: 'string',
+      networkId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkAttributeResponseBodyCloudResourcesCloudResourceSetType extends $tea.Model {
   resourceCount?: number;
   resourceType?: string;
@@ -16703,6 +16939,40 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $tea.Mod
       namespace: 'boolean',
       resourceScope: 'boolean',
       status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.Model {
+  natGatewayId?: string;
+  snatEntryId?: string;
+  snatEntryName?: string;
+  snatIp?: string;
+  sourceCIDR?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natGatewayId: 'NatGatewayId',
+      snatEntryId: 'SnatEntryId',
+      snatEntryName: 'SnatEntryName',
+      snatIp: 'SnatIp',
+      sourceCIDR: 'SourceCIDR',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natGatewayId: 'string',
+      snatEntryId: 'string',
+      snatEntryName: 'string',
+      snatIp: 'string',
+      sourceCIDR: 'string',
+      status: 'string',
     };
   }
 
@@ -17463,88 +17733,6 @@ export default class Client extends OpenApi {
     return await this.addNetworkInterfaceToInstanceWithOptions(request, runtime);
   }
 
-  async allocateEipAddressWithOptions(request: AllocateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.count)) {
-      query["Count"] = request.count;
-    }
-
-    if (!Util.isUnset(request.ensRegionId)) {
-      query["EnsRegionId"] = request.ensRegionId;
-    }
-
-    if (!Util.isUnset(request.minCount)) {
-      query["MinCount"] = request.minCount;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AllocateEipAddress",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AllocateEipAddressResponse>(await this.callApi(params, req, runtime), new AllocateEipAddressResponse({}));
-  }
-
-  async allocateEipAddress(request: AllocateEipAddressRequest): Promise<AllocateEipAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.allocateEipAddressWithOptions(request, runtime);
-  }
-
-  async associateEipAddressWithOptions(request: AssociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.eip)) {
-      query["Eip"] = request.eip;
-    }
-
-    if (!Util.isUnset(request.ensRegionId)) {
-      query["EnsRegionId"] = request.ensRegionId;
-    }
-
-    if (!Util.isUnset(request.instanceIdInternetIp)) {
-      query["InstanceIdInternetIp"] = request.instanceIdInternetIp;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AssociateEipAddress",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateEipAddressResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressResponse({}));
-  }
-
-  async associateEipAddress(request: AssociateEipAddressRequest): Promise<AssociateEipAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.associateEipAddressWithOptions(request, runtime);
-  }
-
   async associateEnsEipAddressWithOptions(request: AssociateEnsEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEnsEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17770,45 +17958,6 @@ export default class Client extends OpenApi {
     return await this.authorizeSecurityGroupEgressWithOptions(request, runtime);
   }
 
-  async checkQuotaWithOptions(request: CheckQuotaRequest, runtime: $Util.RuntimeOptions): Promise<CheckQuotaResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.groupUuid)) {
-      query["GroupUuid"] = request.groupUuid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceAttribute)) {
-      body["ResourceAttribute"] = request.resourceAttribute;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CheckQuota",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CheckQuotaResponse>(await this.callApi(params, req, runtime), new CheckQuotaResponse({}));
-  }
-
-  async checkQuota(request: CheckQuotaRequest): Promise<CheckQuotaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkQuotaWithOptions(request, runtime);
-  }
-
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17932,6 +18081,55 @@ export default class Client extends OpenApi {
     return await this.createEipInstanceWithOptions(request, runtime);
   }
 
+  async createEnsRouteEntryWithOptions(request: CreateEnsRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsRouteEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.nextHopId)) {
+      query["NextHopId"] = request.nextHopId;
+    }
+
+    if (!Util.isUnset(request.nextHopType)) {
+      query["NextHopType"] = request.nextHopType;
+    }
+
+    if (!Util.isUnset(request.routeEntryName)) {
+      query["RouteEntryName"] = request.routeEntryName;
+    }
+
+    if (!Util.isUnset(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEnsRouteEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEnsRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateEnsRouteEntryResponse({}));
+  }
+
+  async createEnsRouteEntry(request: CreateEnsRouteEntryRequest): Promise<CreateEnsRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEnsRouteEntryWithOptions(request, runtime);
+  }
+
   async createEnsServiceWithOptions(request: CreateEnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18012,6 +18210,59 @@ export default class Client extends OpenApi {
   async createEpnInstance(request: CreateEpnInstanceRequest): Promise<CreateEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEpnInstanceWithOptions(request, runtime);
+  }
+
+  async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.externalIp)) {
+      query["ExternalIp"] = request.externalIp;
+    }
+
+    if (!Util.isUnset(request.externalPort)) {
+      query["ExternalPort"] = request.externalPort;
+    }
+
+    if (!Util.isUnset(request.forwardEntryName)) {
+      query["ForwardEntryName"] = request.forwardEntryName;
+    }
+
+    if (!Util.isUnset(request.internalIp)) {
+      query["InternalIp"] = request.internalIp;
+    }
+
+    if (!Util.isUnset(request.internalPort)) {
+      query["InternalPort"] = request.internalPort;
+    }
+
+    if (!Util.isUnset(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateForwardEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateForwardEntryResponse>(await this.callApi(params, req, runtime), new CreateForwardEntryResponse({}));
+  }
+
+  async createForwardEntry(request: CreateForwardEntryRequest): Promise<CreateForwardEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createForwardEntryWithOptions(request, runtime);
   }
 
   async createImageWithOptions(request: CreateImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageResponse> {
@@ -18104,6 +18355,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.password)) {
       query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.passwordInherit)) {
+      query["PasswordInherit"] = request.passwordInherit;
     }
 
     if (!Util.isUnset(request.paymentType)) {
@@ -18634,6 +18889,47 @@ export default class Client extends OpenApi {
     return await this.createLoadBalancerUDPListenerWithOptions(request, runtime);
   }
 
+  async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.networkId)) {
+      query["NetworkId"] = request.networkId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNatGateway",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNatGatewayResponse>(await this.callApi(params, req, runtime), new CreateNatGatewayResponse({}));
+  }
+
+  async createNatGateway(request: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNatGatewayWithOptions(request, runtime);
+  }
+
   async createNetworkWithOptions(request: CreateNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18712,6 +19008,51 @@ export default class Client extends OpenApi {
     return await this.createSecurityGroupWithOptions(request, runtime);
   }
 
+  async createSnatEntryWithOptions(request: CreateSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.snatEntryName)) {
+      query["SnatEntryName"] = request.snatEntryName;
+    }
+
+    if (!Util.isUnset(request.snatIp)) {
+      query["SnatIp"] = request.snatIp;
+    }
+
+    if (!Util.isUnset(request.sourceCIDR)) {
+      query["SourceCIDR"] = request.sourceCIDR;
+    }
+
+    if (!Util.isUnset(request.sourceVSwitchId)) {
+      query["SourceVSwitchId"] = request.sourceVSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSnatEntryResponse>(await this.callApi(params, req, runtime), new CreateSnatEntryResponse({}));
+  }
+
+  async createSnatEntry(request: CreateSnatEntryRequest): Promise<CreateSnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSnatEntryWithOptions(request, runtime);
+  }
+
   async createVSwitchWithOptions(request: CreateVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18759,53 +19100,6 @@ export default class Client extends OpenApi {
   async createVSwitch(request: CreateVSwitchRequest): Promise<CreateVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVSwitchWithOptions(request, runtime);
-  }
-
-  async createVmAndSaveStockWithOptions(request: CreateVmAndSaveStockRequest, runtime: $Util.RuntimeOptions): Promise<CreateVmAndSaveStockResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.groupUuid)) {
-      query["GroupUuid"] = request.groupUuid;
-    }
-
-    if (!Util.isUnset(request.tenant)) {
-      query["Tenant"] = request.tenant;
-    }
-
-    if (!Util.isUnset(request.workloadUuid)) {
-      query["WorkloadUuid"] = request.workloadUuid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceAttribute)) {
-      body["ResourceAttribute"] = request.resourceAttribute;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateVmAndSaveStock",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVmAndSaveStockResponse>(await this.callApi(params, req, runtime), new CreateVmAndSaveStockResponse({}));
-  }
-
-  async createVmAndSaveStock(request: CreateVmAndSaveStockRequest): Promise<CreateVmAndSaveStockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createVmAndSaveStockWithOptions(request, runtime);
   }
 
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
@@ -18866,6 +19160,35 @@ export default class Client extends OpenApi {
     return await this.deleteDeviceInternetPortWithOptions(request, runtime);
   }
 
+  async deleteEnsRouteEntryWithOptions(request: DeleteEnsRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsRouteEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.routeEntryId)) {
+      query["RouteEntryId"] = request.routeEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnsRouteEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEnsRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteEnsRouteEntryResponse({}));
+  }
+
+  async deleteEnsRouteEntry(request: DeleteEnsRouteEntryRequest): Promise<DeleteEnsRouteEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEnsRouteEntryWithOptions(request, runtime);
+  }
+
   async deleteEpnInstanceWithOptions(request: DeleteEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18893,6 +19216,35 @@ export default class Client extends OpenApi {
   async deleteEpnInstance(request: DeleteEpnInstanceRequest): Promise<DeleteEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEpnInstanceWithOptions(request, runtime);
+  }
+
+  async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.forwardEntryId)) {
+      query["ForwardEntryId"] = request.forwardEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteForwardEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteForwardEntryResponse>(await this.callApi(params, req, runtime), new DeleteForwardEntryResponse({}));
+  }
+
+  async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteForwardEntryWithOptions(request, runtime);
   }
 
   async deleteKeyPairsWithOptions(request: DeleteKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKeyPairsResponse> {
@@ -18961,6 +19313,35 @@ export default class Client extends OpenApi {
     return await this.deleteLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNatGateway",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNatGatewayResponse>(await this.callApi(params, req, runtime), new DeleteNatGatewayResponse({}));
+  }
+
+  async deleteNatGateway(request: DeleteNatGatewayRequest): Promise<DeleteNatGatewayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNatGatewayWithOptions(request, runtime);
+  }
+
   async deleteNetworkWithOptions(request: DeleteNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19023,6 +19404,35 @@ export default class Client extends OpenApi {
     return await this.deleteSecurityGroupWithOptions(request, runtime);
   }
 
+  async deleteSnatEntryWithOptions(request: DeleteSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSnatEntryResponse>(await this.callApi(params, req, runtime), new DeleteSnatEntryResponse({}));
+  }
+
+  async deleteSnatEntry(request: DeleteSnatEntryRequest): Promise<DeleteSnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSnatEntryWithOptions(request, runtime);
+  }
+
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19054,39 +19464,6 @@ export default class Client extends OpenApi {
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
-  }
-
-  async deleteVmWithOptions(request: DeleteVmRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVmResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.workloadUuid)) {
-      query["WorkloadUuid"] = request.workloadUuid;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteVm",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVmResponse>(await this.callApi(params, req, runtime), new DeleteVmResponse({}));
-  }
-
-  async deleteVm(request: DeleteVmRequest): Promise<DeleteVmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteVmWithOptions(request, runtime);
   }
 
   async describeApplicationWithOptions(request: DescribeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationResponse> {
@@ -19969,6 +20346,67 @@ export default class Client extends OpenApi {
     return await this.describeEnsResourceUsageWithOptions(request, runtime);
   }
 
+  async describeEnsRouteEntryListWithOptions(request: DescribeEnsRouteEntryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsRouteEntryListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!Util.isUnset(request.nextHopId)) {
+      query["NextHopId"] = request.nextHopId;
+    }
+
+    if (!Util.isUnset(request.nextHopType)) {
+      query["NextHopType"] = request.nextHopType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.routeEntryId)) {
+      query["RouteEntryId"] = request.routeEntryId;
+    }
+
+    if (!Util.isUnset(request.routeEntryName)) {
+      query["RouteEntryName"] = request.routeEntryName;
+    }
+
+    if (!Util.isUnset(request.routeEntryType)) {
+      query["RouteEntryType"] = request.routeEntryType;
+    }
+
+    if (!Util.isUnset(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEnsRouteEntryList",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEnsRouteEntryListResponse>(await this.callApi(params, req, runtime), new DescribeEnsRouteEntryListResponse({}));
+  }
+
+  async describeEnsRouteEntryList(request: DescribeEnsRouteEntryListRequest): Promise<DescribeEnsRouteEntryListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEnsRouteEntryListWithOptions(request, runtime);
+  }
+
   async describeEpnBandWidthDataWithOptions(request: DescribeEpnBandWidthDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnBandWidthDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20258,6 +20696,63 @@ export default class Client extends OpenApi {
   async describeExportImageStatus(request: DescribeExportImageStatusRequest): Promise<DescribeExportImageStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExportImageStatusWithOptions(request, runtime);
+  }
+
+  async describeForwardTableEntriesWithOptions(request: DescribeForwardTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeForwardTableEntriesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.externalIp)) {
+      query["ExternalIp"] = request.externalIp;
+    }
+
+    if (!Util.isUnset(request.forwardEntryId)) {
+      query["ForwardEntryId"] = request.forwardEntryId;
+    }
+
+    if (!Util.isUnset(request.forwardEntryName)) {
+      query["ForwardEntryName"] = request.forwardEntryName;
+    }
+
+    if (!Util.isUnset(request.internalIp)) {
+      query["InternalIp"] = request.internalIp;
+    }
+
+    if (!Util.isUnset(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeForwardTableEntries",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeForwardTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeForwardTableEntriesResponse({}));
+  }
+
+  async describeForwardTableEntries(request: DescribeForwardTableEntriesRequest): Promise<DescribeForwardTableEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeForwardTableEntriesWithOptions(request, runtime);
   }
 
   async describeImageInfosWithOptions(request: DescribeImageInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageInfosResponse> {
@@ -20938,6 +21433,31 @@ export default class Client extends OpenApi {
     return await this.describeMeasurementDataWithOptions(request, runtime);
   }
 
+  async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNatGateways",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNatGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeNatGatewaysResponse({}));
+  }
+
+  async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNatGatewaysWithOptions(request, runtime);
+  }
+
   async describeNetworkAttributeWithOptions(request: DescribeNetworkAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21338,6 +21858,31 @@ export default class Client extends OpenApi {
     return await this.describeServcieScheduleWithOptions(request, runtime);
   }
 
+  async describeSnatTableEntriesWithOptions(request: DescribeSnatTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatTableEntriesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSnatTableEntries",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSnatTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeSnatTableEntriesResponse({}));
+  }
+
+  async describeSnatTableEntries(request: DescribeSnatTableEntriesRequest): Promise<DescribeSnatTableEntriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSnatTableEntriesWithOptions(request, runtime);
+  }
+
   async describeUserBandWidthDataWithOptions(request: DescribeUserBandWidthDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBandWidthDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21654,31 +22199,6 @@ export default class Client extends OpenApi {
     return await this.getDeviceInternetPortWithOptions(request, runtime);
   }
 
-  async getVmListWithOptions(request: GetVmListRequest, runtime: $Util.RuntimeOptions): Promise<GetVmListResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetVmList",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetVmListResponse>(await this.callApi(params, req, runtime), new GetVmListResponse({}));
-  }
-
-  async getVmList(request: GetVmListRequest): Promise<GetVmListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getVmListWithOptions(request, runtime);
-  }
-
   async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21911,49 +22431,6 @@ export default class Client extends OpenApi {
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(request, runtime);
-  }
-
-  async migrateVmWithOptions(request: MigrateVmRequest, runtime: $Util.RuntimeOptions): Promise<MigrateVmResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.groupUuid)) {
-      query["GroupUuid"] = request.groupUuid;
-    }
-
-    if (!Util.isUnset(request.instanceIds)) {
-      query["InstanceIds"] = request.instanceIds;
-    }
-
-    if (!Util.isUnset(request.tenant)) {
-      query["Tenant"] = request.tenant;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instances)) {
-      body["Instances"] = request.instances;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "MigrateVm",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<MigrateVmResponse>(await this.callApi(params, req, runtime), new MigrateVmResponse({}));
-  }
-
-  async migrateVm(request: MigrateVmRequest): Promise<MigrateVmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.migrateVmWithOptions(request, runtime);
   }
 
   async modifyEnsEipAddressAttributeWithOptions(request: ModifyEnsEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEnsEipAddressAttributeResponse> {
@@ -22577,43 +23054,6 @@ export default class Client extends OpenApi {
   async rebootInstance(request: RebootInstanceRequest): Promise<RebootInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootInstanceWithOptions(request, runtime);
-  }
-
-  async releaseEipAddressWithOptions(request: ReleaseEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipAddressResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.eips)) {
-      query["Eips"] = request.eips;
-    }
-
-    if (!Util.isUnset(request.ensRegionId)) {
-      query["EnsRegionId"] = request.ensRegionId;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ReleaseEipAddress",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ReleaseEipAddressResponse>(await this.callApi(params, req, runtime), new ReleaseEipAddressResponse({}));
-  }
-
-  async releaseEipAddress(request: ReleaseEipAddressRequest): Promise<ReleaseEipAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.releaseEipAddressWithOptions(request, runtime);
   }
 
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
@@ -23366,73 +23806,6 @@ export default class Client extends OpenApi {
     return await this.runServiceScheduleWithOptions(request, runtime);
   }
 
-  async schedulePodWithOptions(request: SchedulePodRequest, runtime: $Util.RuntimeOptions): Promise<SchedulePodResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.areaCodes)) {
-      query["AreaCodes"] = request.areaCodes;
-    }
-
-    if (!Util.isUnset(request.groupUuid)) {
-      query["GroupUuid"] = request.groupUuid;
-    }
-
-    if (!Util.isUnset(request.isps)) {
-      query["Isps"] = request.isps;
-    }
-
-    if (!Util.isUnset(request.labels)) {
-      query["Labels"] = request.labels;
-    }
-
-    if (!Util.isUnset(request.regions)) {
-      query["Regions"] = request.regions;
-    }
-
-    if (!Util.isUnset(request.tenant)) {
-      query["Tenant"] = request.tenant;
-    }
-
-    if (!Util.isUnset(request.workloadUuid)) {
-      query["WorkloadUuid"] = request.workloadUuid;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.requirements)) {
-      body["Requirements"] = request.requirements;
-    }
-
-    if (!Util.isUnset(request.resourceAttribute)) {
-      body["ResourceAttribute"] = request.resourceAttribute;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "SchedulePod",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SchedulePodResponse>(await this.callApi(params, req, runtime), new SchedulePodResponse({}));
-  }
-
-  async schedulePod(request: SchedulePodRequest): Promise<SchedulePodResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.schedulePodWithOptions(request, runtime);
-  }
-
   async setBackendServersWithOptions(tmpReq: SetBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<SetBackendServersResponse> {
     Util.validateModel(tmpReq);
     let request = new SetBackendServersShrinkRequest({ });
@@ -24070,47 +24443,6 @@ export default class Client extends OpenApi {
   async unAssociateEnsEipAddress(request: UnAssociateEnsEipAddressRequest): Promise<UnAssociateEnsEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unAssociateEnsEipAddressWithOptions(request, runtime);
-  }
-
-  async unassociateEipAddressWithOptions(request: UnassociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateEipAddressResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.eip)) {
-      query["Eip"] = request.eip;
-    }
-
-    if (!Util.isUnset(request.ensRegionId)) {
-      query["EnsRegionId"] = request.ensRegionId;
-    }
-
-    if (!Util.isUnset(request.instanceIdInternetIp)) {
-      query["InstanceIdInternetIp"] = request.instanceIdInternetIp;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UnassociateEipAddress",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateEipAddressResponse>(await this.callApi(params, req, runtime), new UnassociateEipAddressResponse({}));
-  }
-
-  async unassociateEipAddress(request: UnassociateEipAddressRequest): Promise<UnassociateEipAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.unassociateEipAddressWithOptions(request, runtime);
   }
 
   async upgradeApplicationWithOptions(request: UpgradeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeApplicationResponse> {
