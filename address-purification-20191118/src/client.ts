@@ -8,656 +8,32 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class GetAddressDivisionCodeRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressDivisionCodeResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressDivisionCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAddressDivisionCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAddressDivisionCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StructureAddressRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StructureAddressResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StructureAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StructureAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StructureAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractExpressRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractExpressResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractExpressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExtractExpressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExtractExpressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractNameRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractNameResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExtractNameResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExtractNameResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressBlockMappingRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressBlockMappingResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressBlockMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAddressBlockMappingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAddressBlockMappingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressSearchRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressSearchResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressSearchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAddressSearchResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAddressSearchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PredictPOIRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PredictPOIResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PredictPOIResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: PredictPOIResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: PredictPOIResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyPOIRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyPOIResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyPOIResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ClassifyPOIResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ClassifyPOIResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CorrectAddressRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
+  appKey?: string;
   defaultCity?: string;
   defaultDistrict?: string;
-  appKey?: string;
+  defaultProvince?: string;
+  serviceCode?: string;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
     };
   }
 
@@ -667,19 +43,19 @@ export class CorrectAddressRequest extends $tea.Model {
 }
 
 export class CorrectAddressResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -710,110 +86,32 @@ export class CorrectAddressResponse extends $tea.Model {
   }
 }
 
-export class GetZipcodeRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
+export class ExtractAddressRequest extends $tea.Model {
+  appKey?: string;
   defaultCity?: string;
   defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetZipcodeResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetZipcodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetZipcodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetZipcodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteAddressRequest extends $tea.Model {
+  defaultProvince?: string;
   serviceCode?: string;
   text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
     };
   }
 
@@ -822,20 +120,20 @@ export class CompleteAddressRequest extends $tea.Model {
   }
 }
 
-export class CompleteAddressResponseBody extends $tea.Model {
-  requestId?: string;
+export class ExtractAddressResponseBody extends $tea.Model {
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -844,9 +142,9 @@ export class CompleteAddressResponseBody extends $tea.Model {
   }
 }
 
-export class CompleteAddressResponse extends $tea.Model {
+export class ExtractAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CompleteAddressResponseBody;
+  body: ExtractAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -857,7 +155,7 @@ export class CompleteAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CompleteAddressResponseBody,
+      body: ExtractAddressResponseBody,
     };
   }
 
@@ -866,191 +164,32 @@ export class CompleteAddressResponse extends $tea.Model {
   }
 }
 
-export class GetAddressSimilarityRequest extends $tea.Model {
+export class ExtractNameRequest extends $tea.Model {
+  appKey?: string;
+  defaultCity?: string;
+  defaultDistrict?: string;
+  defaultProvince?: string;
   serviceCode?: string;
   text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressSimilarityResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressSimilarityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAddressSimilarityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAddressSimilarityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressGeocodeRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
+      defaultProvince: 'DefaultProvince',
       serviceCode: 'ServiceCode',
       text: 'Text',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressGeocodeResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddressGeocodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAddressGeocodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAddressGeocodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferCoordRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  srcCoord?: string;
-  defaultProvince?: string;
-  defaultCity?: string;
-  defaultDistrict?: string;
-  appKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      srcCoord: 'SrcCoord',
-      defaultProvince: 'DefaultProvince',
-      defaultCity: 'DefaultCity',
-      defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
+      defaultProvince: 'string',
       serviceCode: 'string',
       text: 'string',
-      srcCoord: 'string',
-      defaultProvince: 'string',
-      defaultCity: 'string',
-      defaultDistrict: 'string',
-      appKey: 'string',
     };
   }
 
@@ -1059,20 +198,20 @@ export class TransferCoordRequest extends $tea.Model {
   }
 }
 
-export class TransferCoordResponseBody extends $tea.Model {
-  requestId?: string;
+export class ExtractNameResponseBody extends $tea.Model {
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1081,9 +220,9 @@ export class TransferCoordResponseBody extends $tea.Model {
   }
 }
 
-export class TransferCoordResponse extends $tea.Model {
+export class ExtractNameResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: TransferCoordResponseBody;
+  body: ExtractNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1094,95 +233,7 @@ export class TransferCoordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TransferCoordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectRequest extends $tea.Model {
-  serviceCode?: string;
-  parameters?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectShrinkRequest extends $tea.Model {
-  serviceCode?: string;
-  parametersShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceCode: 'ServiceCode',
-      parametersShrink: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceCode: 'string',
-      parametersShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateProjectResponseBody,
+      body: ExtractNameResponseBody,
     };
   }
 
@@ -1192,31 +243,31 @@ export class UpdateProjectResponse extends $tea.Model {
 }
 
 export class ExtractPhoneRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
+  appKey?: string;
   defaultCity?: string;
   defaultDistrict?: string;
-  appKey?: string;
+  defaultProvince?: string;
+  serviceCode?: string;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
     };
   }
 
@@ -1226,19 +277,19 @@ export class ExtractPhoneRequest extends $tea.Model {
 }
 
 export class ExtractPhoneResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1269,32 +320,32 @@ export class ExtractPhoneResponse extends $tea.Model {
   }
 }
 
-export class GetInputSearchRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
+export class GetAddressDivisionCodeRequest extends $tea.Model {
+  appKey?: string;
   defaultCity?: string;
   defaultDistrict?: string;
-  appKey?: string;
+  defaultProvince?: string;
+  serviceCode?: string;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
     };
   }
 
@@ -1303,20 +354,20 @@ export class GetInputSearchRequest extends $tea.Model {
   }
 }
 
-export class GetInputSearchResponseBody extends $tea.Model {
-  requestId?: string;
+export class GetAddressDivisionCodeResponseBody extends $tea.Model {
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1325,9 +376,9 @@ export class GetInputSearchResponseBody extends $tea.Model {
   }
 }
 
-export class GetInputSearchResponse extends $tea.Model {
+export class GetAddressDivisionCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetInputSearchResponseBody;
+  body: GetAddressDivisionCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1338,7 +389,7 @@ export class GetInputSearchResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetInputSearchResponseBody,
+      body: GetAddressDivisionCodeResponseBody,
     };
   }
 
@@ -1347,32 +398,32 @@ export class GetInputSearchResponse extends $tea.Model {
   }
 }
 
-export class GetAddressEvaluateRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
+export class GetAddressSimilarityRequest extends $tea.Model {
+  appKey?: string;
   defaultCity?: string;
   defaultDistrict?: string;
-  appKey?: string;
+  defaultProvince?: string;
+  serviceCode?: string;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
     };
   }
 
@@ -1381,20 +432,20 @@ export class GetAddressEvaluateRequest extends $tea.Model {
   }
 }
 
-export class GetAddressEvaluateResponseBody extends $tea.Model {
-  requestId?: string;
+export class GetAddressSimilarityResponseBody extends $tea.Model {
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1403,9 +454,9 @@ export class GetAddressEvaluateResponseBody extends $tea.Model {
   }
 }
 
-export class GetAddressEvaluateResponse extends $tea.Model {
+export class GetAddressSimilarityResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetAddressEvaluateResponseBody;
+  body: GetAddressSimilarityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1416,7 +467,7 @@ export class GetAddressEvaluateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAddressEvaluateResponseBody,
+      body: GetAddressSimilarityResponseBody,
     };
   }
 
@@ -1425,32 +476,32 @@ export class GetAddressEvaluateResponse extends $tea.Model {
   }
 }
 
-export class ExtractAddressRequest extends $tea.Model {
-  serviceCode?: string;
-  text?: string;
-  defaultProvince?: string;
+export class GetZipcodeRequest extends $tea.Model {
+  appKey?: string;
   defaultCity?: string;
   defaultDistrict?: string;
-  appKey?: string;
+  defaultProvince?: string;
+  serviceCode?: string;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceCode: 'ServiceCode',
-      text: 'Text',
-      defaultProvince: 'DefaultProvince',
+      appKey: 'AppKey',
       defaultCity: 'DefaultCity',
       defaultDistrict: 'DefaultDistrict',
-      appKey: 'AppKey',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceCode: 'string',
-      text: 'string',
-      defaultProvince: 'string',
+      appKey: 'string',
       defaultCity: 'string',
       defaultDistrict: 'string',
-      appKey: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
     };
   }
 
@@ -1459,20 +510,20 @@ export class ExtractAddressRequest extends $tea.Model {
   }
 }
 
-export class ExtractAddressResponseBody extends $tea.Model {
-  requestId?: string;
+export class GetZipcodeResponseBody extends $tea.Model {
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1481,9 +532,9 @@ export class ExtractAddressResponseBody extends $tea.Model {
   }
 }
 
-export class ExtractAddressResponse extends $tea.Model {
+export class GetZipcodeResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ExtractAddressResponseBody;
+  body: GetZipcodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1494,7 +545,85 @@ export class ExtractAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExtractAddressResponseBody,
+      body: GetZipcodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StructureAddressRequest extends $tea.Model {
+  appKey?: string;
+  defaultCity?: string;
+  defaultDistrict?: string;
+  defaultProvince?: string;
+  serviceCode?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      defaultCity: 'DefaultCity',
+      defaultDistrict: 'DefaultDistrict',
+      defaultProvince: 'DefaultProvince',
+      serviceCode: 'ServiceCode',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      defaultCity: 'string',
+      defaultDistrict: 'string',
+      defaultProvince: 'string',
+      serviceCode: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StructureAddressResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StructureAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StructureAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StructureAddressResponseBody,
     };
   }
 
@@ -1526,116 +655,48 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async getAddressDivisionCodeWithOptions(request: GetAddressDivisionCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressDivisionCodeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAddressDivisionCodeResponse>(await this.doRPCRequest("GetAddressDivisionCode", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetAddressDivisionCodeResponse({}));
-  }
-
-  async getAddressDivisionCode(request: GetAddressDivisionCodeRequest): Promise<GetAddressDivisionCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAddressDivisionCodeWithOptions(request, runtime);
-  }
-
-  async structureAddressWithOptions(request: StructureAddressRequest, runtime: $Util.RuntimeOptions): Promise<StructureAddressResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StructureAddressResponse>(await this.doRPCRequest("StructureAddress", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new StructureAddressResponse({}));
-  }
-
-  async structureAddress(request: StructureAddressRequest): Promise<StructureAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.structureAddressWithOptions(request, runtime);
-  }
-
-  async extractExpressWithOptions(request: ExtractExpressRequest, runtime: $Util.RuntimeOptions): Promise<ExtractExpressResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ExtractExpressResponse>(await this.doRPCRequest("ExtractExpress", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new ExtractExpressResponse({}));
-  }
-
-  async extractExpress(request: ExtractExpressRequest): Promise<ExtractExpressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.extractExpressWithOptions(request, runtime);
-  }
-
-  async extractNameWithOptions(request: ExtractNameRequest, runtime: $Util.RuntimeOptions): Promise<ExtractNameResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ExtractNameResponse>(await this.doRPCRequest("ExtractName", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new ExtractNameResponse({}));
-  }
-
-  async extractName(request: ExtractNameRequest): Promise<ExtractNameResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.extractNameWithOptions(request, runtime);
-  }
-
-  async getAddressBlockMappingWithOptions(request: GetAddressBlockMappingRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressBlockMappingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAddressBlockMappingResponse>(await this.doRPCRequest("GetAddressBlockMapping", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetAddressBlockMappingResponse({}));
-  }
-
-  async getAddressBlockMapping(request: GetAddressBlockMappingRequest): Promise<GetAddressBlockMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAddressBlockMappingWithOptions(request, runtime);
-  }
-
-  async getAddressSearchWithOptions(request: GetAddressSearchRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressSearchResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAddressSearchResponse>(await this.doRPCRequest("GetAddressSearch", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetAddressSearchResponse({}));
-  }
-
-  async getAddressSearch(request: GetAddressSearchRequest): Promise<GetAddressSearchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAddressSearchWithOptions(request, runtime);
-  }
-
-  async predictPOIWithOptions(request: PredictPOIRequest, runtime: $Util.RuntimeOptions): Promise<PredictPOIResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<PredictPOIResponse>(await this.doRPCRequest("PredictPOI", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new PredictPOIResponse({}));
-  }
-
-  async predictPOI(request: PredictPOIRequest): Promise<PredictPOIResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.predictPOIWithOptions(request, runtime);
-  }
-
-  async classifyPOIWithOptions(request: ClassifyPOIRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyPOIResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ClassifyPOIResponse>(await this.doRPCRequest("ClassifyPOI", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new ClassifyPOIResponse({}));
-  }
-
-  async classifyPOI(request: ClassifyPOIRequest): Promise<ClassifyPOIResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.classifyPOIWithOptions(request, runtime);
-  }
-
   async correctAddressWithOptions(request: CorrectAddressRequest, runtime: $Util.RuntimeOptions): Promise<CorrectAddressResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CorrectAddressResponse>(await this.doRPCRequest("CorrectAddress", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new CorrectAddressResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CorrectAddress",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CorrectAddressResponse>(await this.callApi(params, req, runtime), new CorrectAddressResponse({}));
   }
 
   async correctAddress(request: CorrectAddressRequest): Promise<CorrectAddressResponse> {
@@ -1643,96 +704,146 @@ export default class Client extends OpenApi {
     return await this.correctAddressWithOptions(request, runtime);
   }
 
-  async getZipcodeWithOptions(request: GetZipcodeRequest, runtime: $Util.RuntimeOptions): Promise<GetZipcodeResponse> {
+  async extractAddressWithOptions(request: ExtractAddressRequest, runtime: $Util.RuntimeOptions): Promise<ExtractAddressResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetZipcodeResponse>(await this.doRPCRequest("GetZipcode", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetZipcodeResponse({}));
-  }
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
 
-  async getZipcode(request: GetZipcodeRequest): Promise<GetZipcodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getZipcodeWithOptions(request, runtime);
-  }
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
 
-  async completeAddressWithOptions(request: CompleteAddressRequest, runtime: $Util.RuntimeOptions): Promise<CompleteAddressResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CompleteAddressResponse>(await this.doRPCRequest("CompleteAddress", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new CompleteAddressResponse({}));
-  }
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
 
-  async completeAddress(request: CompleteAddressRequest): Promise<CompleteAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.completeAddressWithOptions(request, runtime);
-  }
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
 
-  async getAddressSimilarityWithOptions(request: GetAddressSimilarityRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressSimilarityResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAddressSimilarityResponse>(await this.doRPCRequest("GetAddressSimilarity", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetAddressSimilarityResponse({}));
-  }
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
 
-  async getAddressSimilarity(request: GetAddressSimilarityRequest): Promise<GetAddressSimilarityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAddressSimilarityWithOptions(request, runtime);
-  }
-
-  async getAddressGeocodeWithOptions(request: GetAddressGeocodeRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressGeocodeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAddressGeocodeResponse>(await this.doRPCRequest("GetAddressGeocode", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetAddressGeocodeResponse({}));
-  }
-
-  async getAddressGeocode(request: GetAddressGeocodeRequest): Promise<GetAddressGeocodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAddressGeocodeWithOptions(request, runtime);
-  }
-
-  async transferCoordWithOptions(request: TransferCoordRequest, runtime: $Util.RuntimeOptions): Promise<TransferCoordResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<TransferCoordResponse>(await this.doRPCRequest("TransferCoord", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new TransferCoordResponse({}));
-  }
-
-  async transferCoord(request: TransferCoordRequest): Promise<TransferCoordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.transferCoordWithOptions(request, runtime);
-  }
-
-  async updateProjectWithOptions(tmpReq: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateProjectShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.parameters)) {
-      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateProjectResponse>(await this.doRPCRequest("UpdateProject", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExtractAddress",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExtractAddressResponse>(await this.callApi(params, req, runtime), new ExtractAddressResponse({}));
   }
 
-  async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
+  async extractAddress(request: ExtractAddressRequest): Promise<ExtractAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateProjectWithOptions(request, runtime);
+    return await this.extractAddressWithOptions(request, runtime);
+  }
+
+  async extractNameWithOptions(request: ExtractNameRequest, runtime: $Util.RuntimeOptions): Promise<ExtractNameResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExtractName",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExtractNameResponse>(await this.callApi(params, req, runtime), new ExtractNameResponse({}));
+  }
+
+  async extractName(request: ExtractNameRequest): Promise<ExtractNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.extractNameWithOptions(request, runtime);
   }
 
   async extractPhoneWithOptions(request: ExtractPhoneRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPhoneResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ExtractPhoneResponse>(await this.doRPCRequest("ExtractPhone", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new ExtractPhoneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExtractPhone",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExtractPhoneResponse>(await this.callApi(params, req, runtime), new ExtractPhoneResponse({}));
   }
 
   async extractPhone(request: ExtractPhoneRequest): Promise<ExtractPhoneResponse> {
@@ -1740,43 +851,200 @@ export default class Client extends OpenApi {
     return await this.extractPhoneWithOptions(request, runtime);
   }
 
-  async getInputSearchWithOptions(request: GetInputSearchRequest, runtime: $Util.RuntimeOptions): Promise<GetInputSearchResponse> {
+  async getAddressDivisionCodeWithOptions(request: GetAddressDivisionCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressDivisionCodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetInputSearchResponse>(await this.doRPCRequest("GetInputSearch", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetInputSearchResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAddressDivisionCode",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAddressDivisionCodeResponse>(await this.callApi(params, req, runtime), new GetAddressDivisionCodeResponse({}));
   }
 
-  async getInputSearch(request: GetInputSearchRequest): Promise<GetInputSearchResponse> {
+  async getAddressDivisionCode(request: GetAddressDivisionCodeRequest): Promise<GetAddressDivisionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInputSearchWithOptions(request, runtime);
+    return await this.getAddressDivisionCodeWithOptions(request, runtime);
   }
 
-  async getAddressEvaluateWithOptions(request: GetAddressEvaluateRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressEvaluateResponse> {
+  async getAddressSimilarityWithOptions(request: GetAddressSimilarityRequest, runtime: $Util.RuntimeOptions): Promise<GetAddressSimilarityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetAddressEvaluateResponse>(await this.doRPCRequest("GetAddressEvaluate", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetAddressEvaluateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAddressSimilarity",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAddressSimilarityResponse>(await this.callApi(params, req, runtime), new GetAddressSimilarityResponse({}));
   }
 
-  async getAddressEvaluate(request: GetAddressEvaluateRequest): Promise<GetAddressEvaluateResponse> {
+  async getAddressSimilarity(request: GetAddressSimilarityRequest): Promise<GetAddressSimilarityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAddressEvaluateWithOptions(request, runtime);
+    return await this.getAddressSimilarityWithOptions(request, runtime);
   }
 
-  async extractAddressWithOptions(request: ExtractAddressRequest, runtime: $Util.RuntimeOptions): Promise<ExtractAddressResponse> {
+  async getZipcodeWithOptions(request: GetZipcodeRequest, runtime: $Util.RuntimeOptions): Promise<GetZipcodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ExtractAddressResponse>(await this.doRPCRequest("ExtractAddress", "2019-11-18", "HTTPS", "POST", "AK", "json", req, runtime), new ExtractAddressResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetZipcode",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetZipcodeResponse>(await this.callApi(params, req, runtime), new GetZipcodeResponse({}));
   }
 
-  async extractAddress(request: ExtractAddressRequest): Promise<ExtractAddressResponse> {
+  async getZipcode(request: GetZipcodeRequest): Promise<GetZipcodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.extractAddressWithOptions(request, runtime);
+    return await this.getZipcodeWithOptions(request, runtime);
+  }
+
+  async structureAddressWithOptions(request: StructureAddressRequest, runtime: $Util.RuntimeOptions): Promise<StructureAddressResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.defaultCity)) {
+      body["DefaultCity"] = request.defaultCity;
+    }
+
+    if (!Util.isUnset(request.defaultDistrict)) {
+      body["DefaultDistrict"] = request.defaultDistrict;
+    }
+
+    if (!Util.isUnset(request.defaultProvince)) {
+      body["DefaultProvince"] = request.defaultProvince;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StructureAddress",
+      version: "2019-11-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StructureAddressResponse>(await this.callApi(params, req, runtime), new StructureAddressResponse({}));
+  }
+
+  async structureAddress(request: StructureAddressRequest): Promise<StructureAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.structureAddressWithOptions(request, runtime);
   }
 
 }
