@@ -338,14 +338,18 @@ export class CancelWorkflowResponse extends $tea.Model {
 
 export class CreateAutoscalingConfigRequest extends $tea.Model {
   coolDownDuration?: string;
+  expander?: string;
   gpuUtilizationThreshold?: string;
+  scaleDownEnabled?: boolean;
   scanInterval?: string;
   unneededDuration?: string;
   utilizationThreshold?: string;
   static names(): { [key: string]: string } {
     return {
       coolDownDuration: 'cool_down_duration',
+      expander: 'expander',
       gpuUtilizationThreshold: 'gpu_utilization_threshold',
+      scaleDownEnabled: 'scale_down_enabled',
       scanInterval: 'scan_interval',
       unneededDuration: 'unneeded_duration',
       utilizationThreshold: 'utilization_threshold',
@@ -355,7 +359,9 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       coolDownDuration: 'string',
+      expander: 'string',
       gpuUtilizationThreshold: 'string',
+      scaleDownEnabled: 'boolean',
       scanInterval: 'string',
       unneededDuration: 'string',
       utilizationThreshold: 'string',
@@ -2034,28 +2040,6 @@ export class DescribeClusterLogsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: { 'type': 'array', 'itemType': DescribeClusterLogsResponseBody },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterNamespacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: string[];
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8726,8 +8710,16 @@ export default class Client extends OpenApi {
       body["cool_down_duration"] = request.coolDownDuration;
     }
 
+    if (!Util.isUnset(request.expander)) {
+      body["expander"] = request.expander;
+    }
+
     if (!Util.isUnset(request.gpuUtilizationThreshold)) {
       body["gpu_utilization_threshold"] = request.gpuUtilizationThreshold;
+    }
+
+    if (!Util.isUnset(request.scaleDownEnabled)) {
+      body["scale_down_enabled"] = request.scaleDownEnabled;
     }
 
     if (!Util.isUnset(request.scanInterval)) {
@@ -9989,31 +9981,6 @@ export default class Client extends OpenApi {
       bodyType: "array",
     });
     return $tea.cast<DescribeClusterLogsResponse>(await this.callApi(params, req, runtime), new DescribeClusterLogsResponse({}));
-  }
-
-  async describeClusterNamespaces(ClusterId: string): Promise<DescribeClusterNamespacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeClusterNamespacesWithOptions(ClusterId, headers, runtime);
-  }
-
-  async describeClusterNamespacesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNamespacesResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeClusterNamespaces",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/k8s/${ClusterId}/namespaces`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "array",
-    });
-    return $tea.cast<DescribeClusterNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeClusterNamespacesResponse({}));
   }
 
   async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<DescribeClusterNodePoolDetailResponse> {
