@@ -5501,6 +5501,7 @@ export class DescribePropertyCountResponse extends $tea.Model {
 
 export class DescribePropertyCronDetailRequest extends $tea.Model {
   currentPage?: number;
+  extend?: string;
   pageSize?: number;
   remark?: string;
   source?: string;
@@ -5509,6 +5510,7 @@ export class DescribePropertyCronDetailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      extend: 'Extend',
       pageSize: 'PageSize',
       remark: 'Remark',
       source: 'Source',
@@ -5520,6 +5522,7 @@ export class DescribePropertyCronDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      extend: 'string',
       pageSize: 'number',
       remark: 'string',
       source: 'string',
@@ -5583,6 +5586,7 @@ export class DescribePropertyCronDetailResponse extends $tea.Model {
 export class DescribePropertyPortDetailRequest extends $tea.Model {
   bindIp?: string;
   currentPage?: number;
+  extend?: string;
   pageSize?: number;
   port?: string;
   procName?: string;
@@ -5592,6 +5596,7 @@ export class DescribePropertyPortDetailRequest extends $tea.Model {
     return {
       bindIp: 'BindIp',
       currentPage: 'CurrentPage',
+      extend: 'Extend',
       pageSize: 'PageSize',
       port: 'Port',
       procName: 'ProcName',
@@ -5604,6 +5609,7 @@ export class DescribePropertyPortDetailRequest extends $tea.Model {
     return {
       bindIp: 'string',
       currentPage: 'number',
+      extend: 'string',
       pageSize: 'number',
       port: 'string',
       procName: 'string',
@@ -5742,6 +5748,7 @@ export class DescribePropertyPortItemResponse extends $tea.Model {
 export class DescribePropertyProcDetailRequest extends $tea.Model {
   cmdline?: string;
   currentPage?: number;
+  extend?: string;
   name?: string;
   pageSize?: number;
   procTimeEnd?: number;
@@ -5753,6 +5760,7 @@ export class DescribePropertyProcDetailRequest extends $tea.Model {
     return {
       cmdline: 'Cmdline',
       currentPage: 'CurrentPage',
+      extend: 'Extend',
       name: 'Name',
       pageSize: 'PageSize',
       procTimeEnd: 'ProcTimeEnd',
@@ -5767,6 +5775,7 @@ export class DescribePropertyProcDetailRequest extends $tea.Model {
     return {
       cmdline: 'string',
       currentPage: 'number',
+      extend: 'string',
       name: 'string',
       pageSize: 'number',
       procTimeEnd: 'number',
@@ -6029,6 +6038,7 @@ export class DescribePropertyScaDetailResponse extends $tea.Model {
 
 export class DescribePropertySoftwareDetailRequest extends $tea.Model {
   currentPage?: number;
+  extend?: string;
   installTimeEnd?: number;
   installTimeStart?: number;
   name?: string;
@@ -6040,6 +6050,7 @@ export class DescribePropertySoftwareDetailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      extend: 'Extend',
       installTimeEnd: 'InstallTimeEnd',
       installTimeStart: 'InstallTimeStart',
       name: 'Name',
@@ -6054,6 +6065,7 @@ export class DescribePropertySoftwareDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      extend: 'string',
       installTimeEnd: 'number',
       installTimeStart: 'number',
       name: 'string',
@@ -6263,6 +6275,7 @@ export class DescribePropertyUsageNewestResponse extends $tea.Model {
 
 export class DescribePropertyUserDetailRequest extends $tea.Model {
   currentPage?: number;
+  extend?: string;
   isRoot?: string;
   lastLoginTimeEnd?: number;
   lastLoginTimeStart?: number;
@@ -6273,6 +6286,7 @@ export class DescribePropertyUserDetailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      extend: 'Extend',
       isRoot: 'IsRoot',
       lastLoginTimeEnd: 'LastLoginTimeEnd',
       lastLoginTimeStart: 'LastLoginTimeStart',
@@ -6286,6 +6300,7 @@ export class DescribePropertyUserDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      extend: 'string',
       isRoot: 'string',
       lastLoginTimeEnd: 'number',
       lastLoginTimeStart: 'number',
@@ -9608,6 +9623,114 @@ export class ExportVulResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExportVulResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportWarningRequest extends $tea.Model {
+  dealed?: string;
+  exportType?: string;
+  isCleartextPwd?: number;
+  isSummaryExport?: number;
+  lang?: string;
+  riskIds?: string;
+  riskLevels?: string;
+  riskName?: string;
+  sourceIp?: string;
+  statusList?: string;
+  strategyId?: number;
+  subTypeNames?: string;
+  typeName?: string;
+  typeNames?: string;
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dealed: 'Dealed',
+      exportType: 'ExportType',
+      isCleartextPwd: 'IsCleartextPwd',
+      isSummaryExport: 'IsSummaryExport',
+      lang: 'Lang',
+      riskIds: 'RiskIds',
+      riskLevels: 'RiskLevels',
+      riskName: 'RiskName',
+      sourceIp: 'SourceIp',
+      statusList: 'StatusList',
+      strategyId: 'StrategyId',
+      subTypeNames: 'SubTypeNames',
+      typeName: 'TypeName',
+      typeNames: 'TypeNames',
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dealed: 'string',
+      exportType: 'string',
+      isCleartextPwd: 'number',
+      isSummaryExport: 'number',
+      lang: 'string',
+      riskIds: 'string',
+      riskLevels: 'string',
+      riskName: 'string',
+      sourceIp: 'string',
+      statusList: 'string',
+      strategyId: 'number',
+      subTypeNames: 'string',
+      typeName: 'string',
+      typeNames: 'string',
+      uuids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportWarningResponseBody extends $tea.Model {
+  fileName?: string;
+  id?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportWarningResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExportWarningResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExportWarningResponseBody,
     };
   }
 
@@ -18865,7 +18988,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList
   fullVersion?: string;
   imageName?: string;
   matchDetail?: string;
-  matchList?: string;
+  matchList?: string[];
   name?: string;
   path?: string;
   pid?: string;
@@ -18892,7 +19015,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList
       fullVersion: 'string',
       imageName: 'string',
       matchDetail: 'string',
-      matchList: 'string',
+      matchList: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       path: 'string',
       pid: 'string',
@@ -22481,6 +22604,10 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -22532,6 +22659,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
     }
 
     if (!Util.isUnset(request.pageSize)) {
@@ -22626,6 +22757,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -22831,6 +22966,10 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
     if (!Util.isUnset(request.installTimeEnd)) {
       query["InstallTimeEnd"] = request.installTimeEnd;
     }
@@ -22960,6 +23099,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.extend)) {
+      query["Extend"] = request.extend;
     }
 
     if (!Util.isUnset(request.isRoot)) {
@@ -24766,6 +24909,91 @@ export default class Client extends OpenApi {
   async exportVul(request: ExportVulRequest): Promise<ExportVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportVulWithOptions(request, runtime);
+  }
+
+  async exportWarningWithOptions(request: ExportWarningRequest, runtime: $Util.RuntimeOptions): Promise<ExportWarningResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.exportType)) {
+      query["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.isCleartextPwd)) {
+      query["IsCleartextPwd"] = request.isCleartextPwd;
+    }
+
+    if (!Util.isUnset(request.isSummaryExport)) {
+      query["IsSummaryExport"] = request.isSummaryExport;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.riskIds)) {
+      query["RiskIds"] = request.riskIds;
+    }
+
+    if (!Util.isUnset(request.riskLevels)) {
+      query["RiskLevels"] = request.riskLevels;
+    }
+
+    if (!Util.isUnset(request.riskName)) {
+      query["RiskName"] = request.riskName;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.subTypeNames)) {
+      query["SubTypeNames"] = request.subTypeNames;
+    }
+
+    if (!Util.isUnset(request.typeName)) {
+      query["TypeName"] = request.typeName;
+    }
+
+    if (!Util.isUnset(request.typeNames)) {
+      query["TypeNames"] = request.typeNames;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportWarning",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportWarningResponse>(await this.callApi(params, req, runtime), new ExportWarningResponse({}));
+  }
+
+  async exportWarning(request: ExportWarningRequest): Promise<ExportWarningResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportWarningWithOptions(request, runtime);
   }
 
   async fixCheckWarningsWithOptions(request: FixCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<FixCheckWarningsResponse> {
