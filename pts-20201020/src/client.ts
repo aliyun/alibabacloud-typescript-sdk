@@ -8,6 +8,84 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AdjustJMeterSceneSpeedRequest extends $tea.Model {
+  reportId?: string;
+  speed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reportId: 'ReportId',
+      speed: 'Speed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reportId: 'string',
+      speed: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AdjustJMeterSceneSpeedResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  reportId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      reportId: 'ReportId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      reportId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AdjustJMeterSceneSpeedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AdjustJMeterSceneSpeedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AdjustJMeterSceneSpeedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePtsSceneRequest extends $tea.Model {
   scene?: string;
   static names(): { [key: string]: string } {
@@ -385,6 +463,62 @@ export class DeletePtsScenesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeletePtsScenesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAllRegionsResponseBody extends $tea.Model {
+  allRegions?: { [key: string]: string };
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allRegions: 'AllRegions',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allRegions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAllRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAllRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAllRegionsResponseBody,
     };
   }
 
@@ -1384,6 +1518,285 @@ export class GetPtsSceneRunningStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetPtsSceneRunningStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcSecurityGroupRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcSecurityGroupResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  securityGroupCount?: number;
+  securityGroupList?: GetUserVpcSecurityGroupResponseBodySecurityGroupList[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      securityGroupCount: 'SecurityGroupCount',
+      securityGroupList: 'SecurityGroupList',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      securityGroupCount: 'number',
+      securityGroupList: { 'type': 'array', 'itemType': GetUserVpcSecurityGroupResponseBodySecurityGroupList },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcSecurityGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetUserVpcSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetUserVpcSecurityGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcVSwitchRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcVSwitchResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  vSwitchCount?: number;
+  vSwitchList?: GetUserVpcVSwitchResponseBodyVSwitchList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      vSwitchCount: 'VSwitchCount',
+      vSwitchList: 'VSwitchList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      vSwitchCount: 'number',
+      vSwitchList: { 'type': 'array', 'itemType': GetUserVpcVSwitchResponseBodyVSwitchList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcVSwitchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetUserVpcVSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetUserVpcVSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcsResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  vpcs?: GetUserVpcsResponseBodyVpcs[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      vpcs: 'Vpcs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      vpcs: { 'type': 'array', 'itemType': GetUserVpcsResponseBodyVpcs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetUserVpcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetUserVpcsResponseBody,
     };
   }
 
@@ -3117,11 +3530,16 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
   environmentId?: string;
   fileList?: GetOpenJMeterSceneResponseBodySceneFileList[];
   isVpcTest?: boolean;
+  maxRps?: number;
+  mode?: string;
+  pool?: string;
   rampUp?: number;
   regionId?: string;
   sceneId?: string;
   sceneName?: string;
   securityGroupId?: string;
+  startConcurrency?: number;
+  startRps?: number;
   steps?: number;
   syncTimerType?: string;
   testFile?: string;
@@ -3138,11 +3556,16 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       environmentId: 'EnvironmentId',
       fileList: 'FileList',
       isVpcTest: 'IsVpcTest',
+      maxRps: 'MaxRps',
+      mode: 'Mode',
+      pool: 'Pool',
       rampUp: 'RampUp',
       regionId: 'RegionId',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       securityGroupId: 'SecurityGroupId',
+      startConcurrency: 'StartConcurrency',
+      startRps: 'StartRps',
       steps: 'Steps',
       syncTimerType: 'SyncTimerType',
       testFile: 'TestFile',
@@ -3162,11 +3585,16 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       environmentId: 'string',
       fileList: { 'type': 'array', 'itemType': GetOpenJMeterSceneResponseBodySceneFileList },
       isVpcTest: 'boolean',
+      maxRps: 'number',
+      mode: 'string',
+      pool: 'string',
       rampUp: 'number',
       regionId: 'string',
       sceneId: 'string',
       sceneName: 'string',
       securityGroupId: 'string',
+      startConcurrency: 'number',
+      startRps: 'number',
       steps: 'number',
       syncTimerType: 'string',
       testFile: 'string',
@@ -4485,6 +4913,262 @@ export class GetPtsSceneRunningDataResponseBodyChainMonitorDataList extends $tea
   }
 }
 
+export class GetUserVpcSecurityGroupResponseBodySecurityGroupListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcSecurityGroupResponseBodySecurityGroupList extends $tea.Model {
+  availableInstanceAmount?: number;
+  creationTime?: string;
+  description?: string;
+  ecsCount?: number;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  securityGroupName?: string;
+  tags?: GetUserVpcSecurityGroupResponseBodySecurityGroupListTags[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableInstanceAmount: 'AvailableInstanceAmount',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      ecsCount: 'EcsCount',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      securityGroupName: 'SecurityGroupName',
+      tags: 'Tags',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableInstanceAmount: 'number',
+      creationTime: 'string',
+      description: 'string',
+      ecsCount: 'number',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      securityGroupName: 'string',
+      tags: { 'type': 'array', 'itemType': GetUserVpcSecurityGroupResponseBodySecurityGroupListTags },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcVSwitchResponseBodyVSwitchListRouteTable extends $tea.Model {
+  routeTableId?: string;
+  routeTableType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeTableId: 'RouteTableId',
+      routeTableType: 'RouteTableType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeTableId: 'string',
+      routeTableType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcVSwitchResponseBodyVSwitchListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcVSwitchResponseBodyVSwitchList extends $tea.Model {
+  availableIpAddressCount?: number;
+  cidrBlock?: string;
+  creationTime?: string;
+  description?: string;
+  ipv6CidrBlock?: string;
+  isDefault?: boolean;
+  maxAgentCount?: number;
+  resourceGroupId?: string;
+  routeTable?: GetUserVpcVSwitchResponseBodyVSwitchListRouteTable[];
+  status?: string;
+  tags?: GetUserVpcVSwitchResponseBodyVSwitchListTags[];
+  vSwitchId?: string;
+  vSwitchName?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableIpAddressCount: 'AvailableIpAddressCount',
+      cidrBlock: 'CidrBlock',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      isDefault: 'IsDefault',
+      maxAgentCount: 'MaxAgentCount',
+      resourceGroupId: 'ResourceGroupId',
+      routeTable: 'RouteTable',
+      status: 'Status',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableIpAddressCount: 'number',
+      cidrBlock: 'string',
+      creationTime: 'string',
+      description: 'string',
+      ipv6CidrBlock: 'string',
+      isDefault: 'boolean',
+      maxAgentCount: 'number',
+      resourceGroupId: 'string',
+      routeTable: { 'type': 'array', 'itemType': GetUserVpcVSwitchResponseBodyVSwitchListRouteTable },
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetUserVpcVSwitchResponseBodyVSwitchListTags },
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcsResponseBodyVpcsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserVpcsResponseBodyVpcs extends $tea.Model {
+  cidrBlock?: string;
+  creationTime?: string;
+  description?: string;
+  ipv6CidrBlock?: string;
+  isDefault?: boolean;
+  natGatewayIds?: string[];
+  regionId?: string;
+  resourceGroupId?: string;
+  routerTableIds?: string[];
+  status?: string;
+  tags?: GetUserVpcsResponseBodyVpcsTags[];
+  userCidrs?: string[];
+  VRouterId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      isDefault: 'IsDefault',
+      natGatewayIds: 'NatGatewayIds',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      routerTableIds: 'RouterTableIds',
+      status: 'Status',
+      tags: 'Tags',
+      userCidrs: 'UserCidrs',
+      VRouterId: 'VRouterId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      creationTime: 'string',
+      description: 'string',
+      ipv6CidrBlock: 'string',
+      isDefault: 'boolean',
+      natGatewayIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceGroupId: 'string',
+      routerTableIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetUserVpcsResponseBodyVpcsTags },
+      userCidrs: { 'type': 'array', 'itemType': 'string' },
+      VRouterId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEnvsResponseBodyEnvsFiles extends $tea.Model {
   fileId?: number;
   fileName?: string;
@@ -4841,11 +5525,15 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   isVpcTest?: boolean;
   JMeterProperties?: SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties[];
   jmeterPluginLabel?: string;
+  maxRps?: number;
+  mode?: string;
   rampUp?: number;
   regionId?: string;
   sceneId?: string;
   sceneName?: string;
   securityGroupId?: string;
+  startConcurrency?: number;
+  startRps?: number;
   steps?: number;
   syncTimerType?: string;
   testFile?: string;
@@ -4863,11 +5551,15 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       isVpcTest: 'IsVpcTest',
       JMeterProperties: 'JMeterProperties',
       jmeterPluginLabel: 'JmeterPluginLabel',
+      maxRps: 'MaxRps',
+      mode: 'Mode',
       rampUp: 'RampUp',
       regionId: 'RegionId',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       securityGroupId: 'SecurityGroupId',
+      startConcurrency: 'StartConcurrency',
+      startRps: 'StartRps',
       steps: 'Steps',
       syncTimerType: 'SyncTimerType',
       testFile: 'TestFile',
@@ -4888,11 +5580,15 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       isVpcTest: 'boolean',
       JMeterProperties: { 'type': 'array', 'itemType': SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties },
       jmeterPluginLabel: 'string',
+      maxRps: 'number',
+      mode: 'string',
       rampUp: 'number',
       regionId: 'string',
       sceneId: 'string',
       sceneName: 'string',
       securityGroupId: 'string',
+      startConcurrency: 'number',
+      startRps: 'number',
       steps: 'number',
       syncTimerType: 'string',
       testFile: 'string',
@@ -5112,6 +5808,7 @@ export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
   autoStep?: boolean;
   configuration?: SavePtsSceneRequestSceneLoadConfigConfiguration;
   increment?: number;
+  isVpcTest?: string;
   keepTime?: number;
   maxRunningTime?: number;
   relationLoadConfigList?: SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList[];
@@ -5124,6 +5821,7 @@ export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
       autoStep: 'AutoStep',
       configuration: 'Configuration',
       increment: 'Increment',
+      isVpcTest: 'IsVpcTest',
       keepTime: 'KeepTime',
       maxRunningTime: 'MaxRunningTime',
       relationLoadConfigList: 'RelationLoadConfigList',
@@ -5139,6 +5837,7 @@ export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
       autoStep: 'boolean',
       configuration: SavePtsSceneRequestSceneLoadConfigConfiguration,
       increment: 'number',
+      isVpcTest: 'string',
       keepTime: 'number',
       maxRunningTime: 'number',
       relationLoadConfigList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList },
@@ -5414,6 +6113,39 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async adjustJMeterSceneSpeedWithOptions(request: AdjustJMeterSceneSpeedRequest, runtime: $Util.RuntimeOptions): Promise<AdjustJMeterSceneSpeedResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.speed)) {
+      query["Speed"] = request.speed;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AdjustJMeterSceneSpeed",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AdjustJMeterSceneSpeedResponse>(await this.callApi(params, req, runtime), new AdjustJMeterSceneSpeedResponse({}));
+  }
+
+  async adjustJMeterSceneSpeed(request: AdjustJMeterSceneSpeedRequest): Promise<AdjustJMeterSceneSpeedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.adjustJMeterSceneSpeedWithOptions(request, runtime);
+  }
+
   async createPtsSceneWithOptions(request: CreatePtsSceneRequest, runtime: $Util.RuntimeOptions): Promise<CreatePtsSceneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5567,6 +6299,27 @@ export default class Client extends OpenApi {
   async deletePtsScenes(request: DeletePtsScenesRequest): Promise<DeletePtsScenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePtsScenesWithOptions(request, runtime);
+  }
+
+  async getAllRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAllRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetAllRegions",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAllRegionsResponse>(await this.callApi(params, req, runtime), new GetAllRegionsResponse({}));
+  }
+
+  async getAllRegions(): Promise<GetAllRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAllRegionsWithOptions(runtime);
   }
 
   async getJMeterLogsWithOptions(request: GetJMeterLogsRequest, runtime: $Util.RuntimeOptions): Promise<GetJMeterLogsResponse> {
@@ -5994,6 +6747,129 @@ export default class Client extends OpenApi {
   async getPtsSceneRunningStatus(request: GetPtsSceneRunningStatusRequest): Promise<GetPtsSceneRunningStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPtsSceneRunningStatusWithOptions(request, runtime);
+  }
+
+  async getUserVpcSecurityGroupWithOptions(request: GetUserVpcSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetUserVpcSecurityGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserVpcSecurityGroup",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserVpcSecurityGroupResponse>(await this.callApi(params, req, runtime), new GetUserVpcSecurityGroupResponse({}));
+  }
+
+  async getUserVpcSecurityGroup(request: GetUserVpcSecurityGroupRequest): Promise<GetUserVpcSecurityGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserVpcSecurityGroupWithOptions(request, runtime);
+  }
+
+  async getUserVpcVSwitchWithOptions(request: GetUserVpcVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<GetUserVpcVSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserVpcVSwitch",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserVpcVSwitchResponse>(await this.callApi(params, req, runtime), new GetUserVpcVSwitchResponse({}));
+  }
+
+  async getUserVpcVSwitch(request: GetUserVpcVSwitchRequest): Promise<GetUserVpcVSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserVpcVSwitchWithOptions(request, runtime);
+  }
+
+  async getUserVpcsWithOptions(request: GetUserVpcsRequest, runtime: $Util.RuntimeOptions): Promise<GetUserVpcsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserVpcs",
+      version: "2020-10-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserVpcsResponse>(await this.callApi(params, req, runtime), new GetUserVpcsResponse({}));
+  }
+
+  async getUserVpcs(request: GetUserVpcsRequest): Promise<GetUserVpcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserVpcsWithOptions(request, runtime);
   }
 
   async listEnvsWithOptions(request: ListEnvsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvsResponse> {
