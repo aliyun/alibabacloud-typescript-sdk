@@ -900,6 +900,7 @@ export class QueryCopyrightResponseBodyData extends $tea.Model {
   message?: string;
   messageId?: number;
   output?: string;
+  result?: string;
   status?: string;
   userData?: string;
   userId?: number;
@@ -914,6 +915,7 @@ export class QueryCopyrightResponseBodyData extends $tea.Model {
       message: 'Message',
       messageId: 'MessageId',
       output: 'Output',
+      result: 'Result',
       status: 'Status',
       userData: 'UserData',
       userId: 'UserId',
@@ -931,6 +933,7 @@ export class QueryCopyrightResponseBodyData extends $tea.Model {
       message: 'string',
       messageId: 'number',
       output: 'string',
+      result: 'string',
       status: 'string',
       userData: 'string',
       userId: 'number',
@@ -970,6 +973,7 @@ export class QueryTraceAbResponseBodyData extends $tea.Model {
   level?: number;
   mediaId?: string;
   output?: string;
+  result?: string;
   status?: string;
   userData?: string;
   userId?: number;
@@ -983,6 +987,7 @@ export class QueryTraceAbResponseBodyData extends $tea.Model {
       level: 'Level',
       mediaId: 'MediaId',
       output: 'Output',
+      result: 'Result',
       status: 'Status',
       userData: 'UserData',
       userId: 'UserId',
@@ -999,6 +1004,7 @@ export class QueryTraceAbResponseBodyData extends $tea.Model {
       level: 'number',
       mediaId: 'string',
       output: 'string',
+      result: 'string',
       status: 'string',
       userData: 'string',
       userId: 'number',
