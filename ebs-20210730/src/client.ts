@@ -8,6 +8,159 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddDiskReplicaPairRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  replicaGroupId?: string;
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDiskReplicaPairResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDiskReplicaPairResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  destinationRegionId?: string;
+  destinationZoneId?: string;
+  groupName?: string;
+  RPO?: number;
+  regionId?: string;
+  sourceZoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destinationRegionId: 'DestinationRegionId',
+      destinationZoneId: 'DestinationZoneId',
+      groupName: 'GroupName',
+      RPO: 'RPO',
+      regionId: 'RegionId',
+      sourceZoneId: 'SourceZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      destinationRegionId: 'string',
+      destinationZoneId: 'string',
+      groupName: 'string',
+      RPO: 'number',
+      regionId: 'string',
+      sourceZoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupResponseBody extends $tea.Model {
+  replicaGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      replicaGroupId: 'ReplicaGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      replicaGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDiskReplicaGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDiskReplicaPairRequest extends $tea.Model {
   bandwidth?: number;
   chargeType?: string;
@@ -20,7 +173,8 @@ export class CreateDiskReplicaPairRequest extends $tea.Model {
   pairName?: string;
   period?: number;
   periodUnit?: string;
-  sourceRegionId?: string;
+  RPO?: number;
+  regionId?: string;
   sourceZoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +189,8 @@ export class CreateDiskReplicaPairRequest extends $tea.Model {
       pairName: 'PairName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
-      sourceRegionId: 'SourceRegionId',
+      RPO: 'RPO',
+      regionId: 'RegionId',
       sourceZoneId: 'SourceZoneId',
     };
   }
@@ -53,7 +208,8 @@ export class CreateDiskReplicaPairRequest extends $tea.Model {
       pairName: 'string',
       period: 'number',
       periodUnit: 'string',
-      sourceRegionId: 'string',
+      RPO: 'number',
+      regionId: 'string',
       sourceZoneId: 'string',
     };
   }
@@ -102,6 +258,72 @@ export class CreateDiskReplicaPairResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaGroupRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDiskReplicaGroupResponseBody,
     };
   }
 
@@ -176,17 +398,168 @@ export class DeleteDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
+  groupIds?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  site?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupIds: 'GroupIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      site: 'Site',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupIds: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      site: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
+  nextToken?: string;
+  replicaGroups?: DescribeDiskReplicaGroupsResponseBodyReplicaGroups[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      replicaGroups: 'ReplicaGroups',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      replicaGroups: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsResponseBodyReplicaGroups },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDiskReplicaGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDiskReplicaGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairProgressRequest extends $tea.Model {
+  regionId?: string;
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairProgressResponseBody extends $tea.Model {
+  progress?: number;
+  recoverPoint?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      recoverPoint: 'RecoverPoint',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      recoverPoint: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairProgressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDiskReplicaPairProgressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDiskReplicaPairProgressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiskReplicaPairsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   pairIds?: string;
   regionId?: string;
+  replicaGroupId?: string;
+  site?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       pairIds: 'PairIds',
       regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      site: 'Site',
     };
   }
 
@@ -196,6 +569,8 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
       nextToken: 'string',
       pairIds: 'string',
       regionId: 'string',
+      replicaGroupId: 'string',
+      site: 'string',
     };
   }
 
@@ -253,10 +628,12 @@ export class DescribeDiskReplicaPairsResponse extends $tea.Model {
 
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
+  regionId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      regionId: 'RegionId',
       resourceType: 'ResourceType',
     };
   }
@@ -264,6 +641,7 @@ export class DescribeRegionsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      regionId: 'string',
       resourceType: 'string',
     };
   }
@@ -309,6 +687,72 @@ export class DescribeRegionsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaGroupRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: FailoverDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: FailoverDiskReplicaGroupResponseBody,
     };
   }
 
@@ -383,19 +827,21 @@ export class FailoverDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
-export class ModifyDiskReplicaPairRequest extends $tea.Model {
+export class ModifyDiskReplicaGroupRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
-  pairName?: string;
+  groupName?: string;
+  RPO?: number;
   regionId?: string;
-  replicaPairId?: string;
+  replicaGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
-      pairName: 'PairName',
+      groupName: 'GroupName',
+      RPO: 'RPO',
       regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
+      replicaGroupId: 'ReplicaGroupId',
     };
   }
 
@@ -403,7 +849,86 @@ export class ModifyDiskReplicaPairRequest extends $tea.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      groupName: 'string',
+      RPO: 'number',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDiskReplicaGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaPairRequest extends $tea.Model {
+  bandwidth?: number;
+  clientToken?: string;
+  description?: string;
+  pairName?: string;
+  RPO?: number;
+  regionId?: string;
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      pairName: 'PairName',
+      RPO: 'RPO',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      clientToken: 'string',
+      description: 'string',
       pairName: 'string',
+      RPO: 'number',
       regionId: 'string',
       replicaPairId: 'string',
     };
@@ -447,6 +972,147 @@ export class ModifyDiskReplicaPairResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDiskReplicaPairRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  replicaGroupId?: string;
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDiskReplicaPairResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDiskReplicaPairResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaGroupRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  replicaGroupId?: string;
+  sourceRegionId?: string;
+  sourceZoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      sourceRegionId: 'SourceRegionId',
+      sourceZoneId: 'SourceZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      sourceRegionId: 'string',
+      sourceZoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReprotectDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReprotectDiskReplicaGroupResponseBody,
     };
   }
 
@@ -521,13 +1187,84 @@ export class ReprotectDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class StartDiskReplicaGroupRequest extends $tea.Model {
+  clientToken?: string;
+  oneShot?: boolean;
+  regionId?: string;
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      oneShot: 'OneShot',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      oneShot: 'boolean',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartDiskReplicaGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDiskReplicaPairRequest extends $tea.Model {
   clientToken?: string;
+  oneShot?: boolean;
   regionId?: string;
   replicaPairId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      oneShot: 'OneShot',
       regionId: 'RegionId',
       replicaPairId: 'ReplicaPairId',
     };
@@ -536,6 +1273,7 @@ export class StartDiskReplicaPairRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      oneShot: 'boolean',
       regionId: 'string',
       replicaPairId: 'string',
     };
@@ -579,6 +1317,72 @@ export class StartDiskReplicaPairResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StartDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaGroupRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopDiskReplicaGroupResponseBody,
     };
   }
 
@@ -653,31 +1457,108 @@ export class StopDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Model {
+  description?: string;
+  destinationRegionId?: string;
+  destinationZoneId?: string;
+  groupName?: string;
+  lastRecoverPoint?: number;
+  pairIds?: Buffer[];
+  pairNumber?: number;
+  RPO?: number;
+  replicaGroupId?: string;
+  site?: string;
+  sourceRegionId?: string;
+  sourceZoneId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationRegionId: 'DestinationRegionId',
+      destinationZoneId: 'DestinationZoneId',
+      groupName: 'GroupName',
+      lastRecoverPoint: 'LastRecoverPoint',
+      pairIds: 'PairIds',
+      pairNumber: 'PairNumber',
+      RPO: 'RPO',
+      replicaGroupId: 'ReplicaGroupId',
+      site: 'Site',
+      sourceRegionId: 'SourceRegionId',
+      sourceZoneId: 'SourceZoneId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationRegionId: 'string',
+      destinationZoneId: 'string',
+      groupName: 'string',
+      lastRecoverPoint: 'number',
+      pairIds: { 'type': 'array', 'itemType': 'Buffer' },
+      pairNumber: 'number',
+      RPO: 'number',
+      replicaGroupId: 'string',
+      site: 'string',
+      sourceRegionId: 'string',
+      sourceZoneId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model {
-  asyncCycle?: number;
   bandwidth?: number;
+  chargeType?: string;
+  createTime?: number;
   description?: string;
   destinationDiskId?: string;
   destinationRegion?: string;
-  lastRPO?: number;
+  destinationZoneId?: string;
+  lastRecoverPoint?: number;
   pairName?: string;
+  primaryRegion?: string;
+  primaryZone?: string;
+  RPO?: number;
+  replicaGroupId?: string;
+  replicaGroupName?: string;
   replicaPairId?: string;
+  site?: string;
   sourceDiskId?: string;
   sourceRegion?: string;
+  sourceZoneId?: string;
+  standbyRegion?: string;
+  standbyZone?: string;
   status?: string;
   statusMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      asyncCycle: 'AsyncCycle',
       bandwidth: 'Bandwidth',
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
       description: 'Description',
       destinationDiskId: 'DestinationDiskId',
       destinationRegion: 'DestinationRegion',
-      lastRPO: 'LastRPO',
+      destinationZoneId: 'DestinationZoneId',
+      lastRecoverPoint: 'LastRecoverPoint',
       pairName: 'PairName',
+      primaryRegion: 'PrimaryRegion',
+      primaryZone: 'PrimaryZone',
+      RPO: 'RPO',
+      replicaGroupId: 'ReplicaGroupId',
+      replicaGroupName: 'ReplicaGroupName',
       replicaPairId: 'ReplicaPairId',
+      site: 'Site',
       sourceDiskId: 'SourceDiskId',
       sourceRegion: 'SourceRegion',
+      sourceZoneId: 'SourceZoneId',
+      standbyRegion: 'StandbyRegion',
+      standbyZone: 'StandbyZone',
       status: 'Status',
       statusMessage: 'StatusMessage',
     };
@@ -685,16 +1566,27 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
-      asyncCycle: 'number',
       bandwidth: 'number',
+      chargeType: 'string',
+      createTime: 'number',
       description: 'string',
       destinationDiskId: 'string',
       destinationRegion: 'string',
-      lastRPO: 'number',
+      destinationZoneId: 'string',
+      lastRecoverPoint: 'number',
       pairName: 'string',
+      primaryRegion: 'string',
+      primaryZone: 'string',
+      RPO: 'number',
+      replicaGroupId: 'string',
+      replicaGroupName: 'string',
       replicaPairId: 'string',
+      site: 'string',
       sourceDiskId: 'string',
       sourceRegion: 'string',
+      sourceZoneId: 'string',
+      standbyRegion: 'string',
+      standbyZone: 'string',
       status: 'string',
       statusMessage: 'string',
     };
@@ -778,25 +1670,165 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addDiskReplicaPairWithOptions(request: AddDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<AddDiskReplicaPairResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDiskReplicaPair",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new AddDiskReplicaPairResponse({}));
+  }
+
+  async addDiskReplicaPair(request: AddDiskReplicaPairRequest): Promise<AddDiskReplicaPairResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async createDiskReplicaGroupWithOptions(request: CreateDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationRegionId)) {
+      query["DestinationRegionId"] = request.destinationRegionId;
+    }
+
+    if (!Util.isUnset(request.destinationZoneId)) {
+      query["DestinationZoneId"] = request.destinationZoneId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.RPO)) {
+      query["RPO"] = request.RPO;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceZoneId)) {
+      query["SourceZoneId"] = request.sourceZoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaGroupResponse({}));
+  }
+
+  async createDiskReplicaGroup(request: CreateDiskReplicaGroupRequest): Promise<CreateDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async createDiskReplicaPairWithOptions(request: CreateDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ChargeType"] = request.chargeType;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DestinationDiskId"] = request.destinationDiskId;
-    query["DestinationRegionId"] = request.destinationRegionId;
-    query["DestinationZoneId"] = request.destinationZoneId;
-    query["DiskId"] = request.diskId;
-    query["PairName"] = request.pairName;
-    query["Period"] = request.period;
-    query["PeriodUnit"] = request.periodUnit;
-    query["SourceRegionId"] = request.sourceRegionId;
-    query["SourceZoneId"] = request.sourceZoneId;
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationDiskId)) {
+      query["DestinationDiskId"] = request.destinationDiskId;
+    }
+
+    if (!Util.isUnset(request.destinationRegionId)) {
+      query["DestinationRegionId"] = request.destinationRegionId;
+    }
+
+    if (!Util.isUnset(request.destinationZoneId)) {
+      query["DestinationZoneId"] = request.destinationZoneId;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.pairName)) {
+      query["PairName"] = request.pairName;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.RPO)) {
+      query["RPO"] = request.RPO;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceZoneId)) {
+      query["SourceZoneId"] = request.sourceZoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDiskReplicaPair",
@@ -806,7 +1838,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaPairResponse({}));
@@ -817,15 +1849,60 @@ export default class Client extends OpenApi {
     return await this.createDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async deleteDiskReplicaGroupWithOptions(request: DeleteDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaGroupResponse({}));
+  }
+
+  async deleteDiskReplicaGroup(request: DeleteDiskReplicaGroupRequest): Promise<DeleteDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async deleteDiskReplicaPairWithOptions(request: DeleteDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
-    query["ReplicaPairId"] = request.replicaPairId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDiskReplicaPair",
@@ -835,7 +1912,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaPairResponse({}));
@@ -846,16 +1923,113 @@ export default class Client extends OpenApi {
     return await this.deleteDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async describeDiskReplicaGroupsWithOptions(request: DescribeDiskReplicaGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupIds)) {
+      query["GroupIds"] = request.groupIds;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.site)) {
+      query["Site"] = request.site;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiskReplicaGroups",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiskReplicaGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaGroupsResponse({}));
+  }
+
+  async describeDiskReplicaGroups(request: DescribeDiskReplicaGroupsRequest): Promise<DescribeDiskReplicaGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiskReplicaGroupsWithOptions(request, runtime);
+  }
+
+  async describeDiskReplicaPairProgressWithOptions(request: DescribeDiskReplicaPairProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairProgressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiskReplicaPairProgress",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiskReplicaPairProgressResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairProgressResponse({}));
+  }
+
+  async describeDiskReplicaPairProgress(request: DescribeDiskReplicaPairProgressRequest): Promise<DescribeDiskReplicaPairProgressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiskReplicaPairProgressWithOptions(request, runtime);
+  }
+
   async describeDiskReplicaPairsWithOptions(request: DescribeDiskReplicaPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["PairIds"] = request.pairIds;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pairIds)) {
+      query["PairIds"] = request.pairIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    if (!Util.isUnset(request.site)) {
+      query["Site"] = request.site;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDiskReplicaPairs",
@@ -865,7 +2039,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDiskReplicaPairsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairsResponse({}));
@@ -879,11 +2053,20 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceptLanguage"] = request.acceptLanguage;
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
@@ -893,7 +2076,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
@@ -904,15 +2087,60 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  async failoverDiskReplicaGroupWithOptions(request: FailoverDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FailoverDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FailoverDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaGroupResponse({}));
+  }
+
+  async failoverDiskReplicaGroup(request: FailoverDiskReplicaGroupRequest): Promise<FailoverDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.failoverDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async failoverDiskReplicaPairWithOptions(request: FailoverDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
-    query["ReplicaPairId"] = request.replicaPairId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "FailoverDiskReplicaPair",
@@ -922,7 +2150,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<FailoverDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaPairResponse({}));
@@ -933,17 +2161,88 @@ export default class Client extends OpenApi {
     return await this.failoverDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async modifyDiskReplicaGroupWithOptions(request: ModifyDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.RPO)) {
+      query["RPO"] = request.RPO;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaGroupResponse({}));
+  }
+
+  async modifyDiskReplicaGroup(request: ModifyDiskReplicaGroupRequest): Promise<ModifyDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async modifyDiskReplicaPairWithOptions(request: ModifyDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["PairName"] = request.pairName;
-    query["RegionId"] = request.regionId;
-    query["ReplicaPairId"] = request.replicaPairId;
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.pairName)) {
+      query["PairName"] = request.pairName;
+    }
+
+    if (!Util.isUnset(request.RPO)) {
+      query["RPO"] = request.RPO;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyDiskReplicaPair",
@@ -953,7 +2252,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaPairResponse({}));
@@ -964,15 +2263,109 @@ export default class Client extends OpenApi {
     return await this.modifyDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async removeDiskReplicaPairWithOptions(request: RemoveDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDiskReplicaPairResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveDiskReplicaPair",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new RemoveDiskReplicaPairResponse({}));
+  }
+
+  async removeDiskReplicaPair(request: RemoveDiskReplicaPairRequest): Promise<RemoveDiskReplicaPairResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async reprotectDiskReplicaGroupWithOptions(request: ReprotectDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ReprotectDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    if (!Util.isUnset(request.sourceRegionId)) {
+      query["SourceRegionId"] = request.sourceRegionId;
+    }
+
+    if (!Util.isUnset(request.sourceZoneId)) {
+      query["SourceZoneId"] = request.sourceZoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReprotectDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReprotectDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaGroupResponse({}));
+  }
+
+  async reprotectDiskReplicaGroup(request: ReprotectDiskReplicaGroupRequest): Promise<ReprotectDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reprotectDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async reprotectDiskReplicaPairWithOptions(request: ReprotectDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<ReprotectDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
-    query["ReplicaPairId"] = request.replicaPairId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ReprotectDiskReplicaPair",
@@ -982,7 +2375,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ReprotectDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaPairResponse({}));
@@ -993,15 +2386,68 @@ export default class Client extends OpenApi {
     return await this.reprotectDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async startDiskReplicaGroupWithOptions(request: StartDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.oneShot)) {
+      query["OneShot"] = request.oneShot;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaGroupResponse({}));
+  }
+
+  async startDiskReplicaGroup(request: StartDiskReplicaGroupRequest): Promise<StartDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async startDiskReplicaPairWithOptions(request: StartDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
-    query["ReplicaPairId"] = request.replicaPairId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.oneShot)) {
+      query["OneShot"] = request.oneShot;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartDiskReplicaPair",
@@ -1011,7 +2457,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaPairResponse({}));
@@ -1022,15 +2468,60 @@ export default class Client extends OpenApi {
     return await this.startDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async stopDiskReplicaGroupWithOptions(request: StopDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskReplicaGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaGroupId)) {
+      query["ReplicaGroupId"] = request.replicaGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopDiskReplicaGroup",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaGroupResponse({}));
+  }
+
+  async stopDiskReplicaGroup(request: StopDiskReplicaGroupRequest): Promise<StopDiskReplicaGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopDiskReplicaGroupWithOptions(request, runtime);
+  }
+
   async stopDiskReplicaPairWithOptions(request: StopDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskReplicaPairResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
-    query["ReplicaPairId"] = request.replicaPairId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replicaPairId)) {
+      query["ReplicaPairId"] = request.replicaPairId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopDiskReplicaPair",
@@ -1040,7 +2531,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaPairResponse({}));
