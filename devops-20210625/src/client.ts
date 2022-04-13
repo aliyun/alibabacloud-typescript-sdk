@@ -943,6 +943,7 @@ export class CreateWorkitemRequest extends $tea.Model {
   description?: string;
   descriptionFormat?: string;
   fieldValueList?: CreateWorkitemRequestFieldValueList[];
+  parent?: string;
   participant?: string[];
   space?: string;
   spaceIdentifier?: string;
@@ -959,6 +960,7 @@ export class CreateWorkitemRequest extends $tea.Model {
       description: 'description',
       descriptionFormat: 'descriptionFormat',
       fieldValueList: 'fieldValueList',
+      parent: 'parent',
       participant: 'participant',
       space: 'space',
       spaceIdentifier: 'spaceIdentifier',
@@ -978,6 +980,7 @@ export class CreateWorkitemRequest extends $tea.Model {
       description: 'string',
       descriptionFormat: 'string',
       fieldValueList: { 'type': 'array', 'itemType': CreateWorkitemRequestFieldValueList },
+      parent: 'string',
       participant: { 'type': 'array', 'itemType': 'string' },
       space: 'string',
       spaceIdentifier: 'string',
@@ -4524,6 +4527,7 @@ export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
 
 export class ListWorkitemsRequest extends $tea.Model {
   category?: string;
+  conditions?: string;
   maxResults?: string;
   nextToken?: string;
   spaceIdentifier?: string;
@@ -4531,6 +4535,7 @@ export class ListWorkitemsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'category',
+      conditions: 'conditions',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       spaceIdentifier: 'spaceIdentifier',
@@ -4541,6 +4546,7 @@ export class ListWorkitemsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      conditions: 'string',
       maxResults: 'string',
       nextToken: 'string',
       spaceIdentifier: 'string',
@@ -10519,6 +10525,10 @@ export default class Client extends OpenApi {
       body["fieldValueList"] = request.fieldValueList;
     }
 
+    if (!Util.isUnset(request.parent)) {
+      body["parent"] = request.parent;
+    }
+
     if (!Util.isUnset(request.participant)) {
       body["participant"] = request.participant;
     }
@@ -12380,6 +12390,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.category)) {
       query["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.conditions)) {
+      query["conditions"] = request.conditions;
     }
 
     if (!Util.isUnset(request.maxResults)) {
