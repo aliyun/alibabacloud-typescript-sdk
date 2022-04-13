@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/fc-open20210406",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -23,7 +23,10 @@
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.4.1",
     "@alicloud/openapi-util": "^0.2.7",
-    "@alicloud/endpoint-util": "^0.0.1"
+    "@alicloud/endpoint-util": "^0.0.1",
+    "@alicloud/gateway-spi": "^0.0.8",
+    "@alicloud/gateway-fc": "^0.0.2",
+    "@alicloud/credentials": "^2"
   },
   "files": [
     "dist",
