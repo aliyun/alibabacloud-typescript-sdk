@@ -1047,6 +1047,7 @@ export class DescribeAccesskeyLeakListResponse extends $tea.Model {
 }
 
 export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
+  clusterId?: string;
   currentPage?: number;
   imageDigest?: string;
   imageLayer?: string;
@@ -1061,6 +1062,7 @@ export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
   repoRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       currentPage: 'CurrentPage',
       imageDigest: 'ImageDigest',
       imageLayer: 'ImageLayer',
@@ -1078,6 +1080,7 @@ export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       currentPage: 'number',
       imageDigest: 'string',
       imageLayer: 'string',
@@ -2297,6 +2300,9 @@ export class DescribeCheckWarningDetailResponse extends $tea.Model {
 }
 
 export class DescribeCheckWarningSummaryRequest extends $tea.Model {
+  clusterId?: string;
+  containerFieldName?: string;
+  containerFieldValue?: string;
   currentPage?: number;
   lang?: string;
   pageSize?: number;
@@ -2305,10 +2311,14 @@ export class DescribeCheckWarningSummaryRequest extends $tea.Model {
   sourceIp?: string;
   status?: string;
   strategyId?: number;
+  targetType?: string;
   typeName?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
+      containerFieldName: 'ContainerFieldName',
+      containerFieldValue: 'ContainerFieldValue',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -2317,6 +2327,7 @@ export class DescribeCheckWarningSummaryRequest extends $tea.Model {
       sourceIp: 'SourceIp',
       status: 'Status',
       strategyId: 'StrategyId',
+      targetType: 'TargetType',
       typeName: 'TypeName',
       uuids: 'Uuids',
     };
@@ -2324,6 +2335,9 @@ export class DescribeCheckWarningSummaryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
+      containerFieldName: 'string',
+      containerFieldValue: 'string',
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',
@@ -2332,6 +2346,7 @@ export class DescribeCheckWarningSummaryRequest extends $tea.Model {
       sourceIp: 'string',
       status: 'string',
       strategyId: 'number',
+      targetType: 'string',
       typeName: 'string',
       uuids: 'string',
     };
@@ -3885,6 +3900,7 @@ export class DescribeGroupedInstancesResponse extends $tea.Model {
 }
 
 export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
+  clusterId?: string;
   currentPage?: number;
   fuzzyMaliciousName?: string;
   imageDigest?: string;
@@ -3900,6 +3916,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
   repoRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       currentPage: 'CurrentPage',
       fuzzyMaliciousName: 'FuzzyMaliciousName',
       imageDigest: 'ImageDigest',
@@ -3918,6 +3935,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       currentPage: 'number',
       fuzzyMaliciousName: 'string',
       imageDigest: 'string',
@@ -4274,6 +4292,7 @@ export class DescribeHoneyPotSuspStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
+  clusterId?: string;
   criteria?: string;
   criteriaType?: string;
   currentPage?: number;
@@ -4282,6 +4301,7 @@ export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       criteria: 'Criteria',
       criteriaType: 'CriteriaType',
       currentPage: 'CurrentPage',
@@ -4293,6 +4313,7 @@ export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       criteria: 'string',
       criteriaType: 'string',
       currentPage: 'number',
@@ -4434,6 +4455,7 @@ export class DescribeImageFixTaskResponse extends $tea.Model {
 
 export class DescribeImageGroupedVulListRequest extends $tea.Model {
   aliasName?: string;
+  clusterId?: string;
   currentPage?: number;
   cveId?: string;
   groupId?: string;
@@ -4456,6 +4478,7 @@ export class DescribeImageGroupedVulListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      clusterId: 'ClusterId',
       currentPage: 'CurrentPage',
       cveId: 'CveId',
       groupId: 'GroupId',
@@ -4481,6 +4504,7 @@ export class DescribeImageGroupedVulListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      clusterId: 'string',
       currentPage: 'number',
       cveId: 'string',
       groupId: 'string',
@@ -4563,6 +4587,7 @@ export class DescribeImageGroupedVulListResponse extends $tea.Model {
 
 export class DescribeImageListWithBaselineNameRequest extends $tea.Model {
   baselineNameKey?: string;
+  clusterId?: string;
   criteria?: string;
   criteriaType?: string;
   currentPage?: number;
@@ -4575,6 +4600,7 @@ export class DescribeImageListWithBaselineNameRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       baselineNameKey: 'BaselineNameKey',
+      clusterId: 'ClusterId',
       criteria: 'Criteria',
       criteriaType: 'CriteriaType',
       currentPage: 'CurrentPage',
@@ -4590,6 +4616,7 @@ export class DescribeImageListWithBaselineNameRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       baselineNameKey: 'string',
+      clusterId: 'string',
       criteria: 'string',
       criteriaType: 'string',
       currentPage: 'number',
@@ -4747,6 +4774,7 @@ export class DescribeImageStatisticsResponse extends $tea.Model {
 
 export class DescribeImageVulListRequest extends $tea.Model {
   aliasName?: string;
+  clusterId?: string;
   currentPage?: number;
   dealed?: string;
   digest?: string;
@@ -4768,6 +4796,7 @@ export class DescribeImageVulListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      clusterId: 'ClusterId',
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       digest: 'Digest',
@@ -4792,6 +4821,7 @@ export class DescribeImageVulListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      clusterId: 'string',
       currentPage: 'number',
       dealed: 'string',
       digest: 'string',
@@ -13437,8 +13467,10 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $tea
 
 export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFileImagesResponse extends $tea.Model {
   digest?: string;
+  downloadUrl?: string;
   filePath?: string;
   firstScanTimestamp?: number;
+  highLight?: string;
   imageUuid?: string;
   latestScanTimestamp?: number;
   latestVerifyTimestamp?: number;
@@ -13455,8 +13487,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   static names(): { [key: string]: string } {
     return {
       digest: 'Digest',
+      downloadUrl: 'DownloadUrl',
       filePath: 'FilePath',
       firstScanTimestamp: 'FirstScanTimestamp',
+      highLight: 'HighLight',
       imageUuid: 'ImageUuid',
       latestScanTimestamp: 'LatestScanTimestamp',
       latestVerifyTimestamp: 'LatestVerifyTimestamp',
@@ -13476,8 +13510,10 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   static types(): { [key: string]: any } {
     return {
       digest: 'string',
+      downloadUrl: 'string',
       filePath: 'string',
       firstScanTimestamp: 'number',
+      highLight: 'string',
       imageUuid: 'string',
       latestScanTimestamp: 'number',
       latestVerifyTimestamp: 'number',
@@ -16445,7 +16481,6 @@ export class DescribePropertyCronDetailResponseBodyPageInfo extends $tea.Model {
 
 export class DescribePropertyCronDetailResponseBodyPropertys extends $tea.Model {
   cmd?: string;
-  create?: string;
   createTimestamp?: number;
   instanceId?: string;
   instanceName?: string;
@@ -16460,7 +16495,6 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       cmd: 'Cmd',
-      create: 'Create',
       createTimestamp: 'CreateTimestamp',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -16478,7 +16512,6 @@ export class DescribePropertyCronDetailResponseBodyPropertys extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       cmd: 'string',
-      create: 'string',
       createTimestamp: 'number',
       instanceId: 'string',
       instanceName: 'string',
@@ -16528,7 +16561,6 @@ export class DescribePropertyPortDetailResponseBodyPageInfo extends $tea.Model {
 
 export class DescribePropertyPortDetailResponseBodyPropertys extends $tea.Model {
   bindIp?: string;
-  create?: string;
   createTimestamp?: number;
   instanceId?: string;
   instanceName?: string;
@@ -16543,7 +16575,6 @@ export class DescribePropertyPortDetailResponseBodyPropertys extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       bindIp: 'BindIp',
-      create: 'Create',
       createTimestamp: 'CreateTimestamp',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -16561,7 +16592,6 @@ export class DescribePropertyPortDetailResponseBodyPropertys extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       bindIp: 'string',
-      create: 'string',
       createTimestamp: 'number',
       instanceId: 'string',
       instanceName: 'string',
@@ -16664,7 +16694,6 @@ export class DescribePropertyProcDetailResponseBodyPageInfo extends $tea.Model {
 
 export class DescribePropertyProcDetailResponseBodyPropertys extends $tea.Model {
   cmdline?: string;
-  create?: string;
   createTimestamp?: number;
   euidName?: string;
   instanceId?: string;
@@ -16685,7 +16714,6 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       cmdline: 'Cmdline',
-      create: 'Create',
       createTimestamp: 'CreateTimestamp',
       euidName: 'EuidName',
       instanceId: 'InstanceId',
@@ -16709,7 +16737,6 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       cmdline: 'string',
-      create: 'string',
       createTimestamp: 'number',
       euidName: 'string',
       instanceId: 'string',
@@ -16819,7 +16846,6 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
   cmdline?: string;
   configPath?: string;
   containerName?: string;
-  create?: string;
   createTimestamp?: number;
   imageName?: string;
   instanceId?: string;
@@ -16838,6 +16864,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
   processStarted?: number;
   processUser?: string;
   proof?: string;
+  runtimeEnvVersion?: string;
   type?: string;
   uuid?: string;
   version?: string;
@@ -16849,7 +16876,6 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
       cmdline: 'Cmdline',
       configPath: 'ConfigPath',
       containerName: 'ContainerName',
-      create: 'Create',
       createTimestamp: 'CreateTimestamp',
       imageName: 'ImageName',
       instanceId: 'InstanceId',
@@ -16868,6 +16894,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
       processStarted: 'ProcessStarted',
       processUser: 'ProcessUser',
       proof: 'Proof',
+      runtimeEnvVersion: 'RuntimeEnvVersion',
       type: 'Type',
       uuid: 'Uuid',
       version: 'Version',
@@ -16882,7 +16909,6 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
       cmdline: 'string',
       configPath: 'string',
       containerName: 'string',
-      create: 'string',
       createTimestamp: 'number',
       imageName: 'string',
       instanceId: 'string',
@@ -16901,6 +16927,7 @@ export class DescribePropertyScaDetailResponseBodyPropertys extends $tea.Model {
       processStarted: 'number',
       processUser: 'string',
       proof: 'string',
+      runtimeEnvVersion: 'string',
       type: 'string',
       uuid: 'string',
       version: 'string',
@@ -16942,7 +16969,6 @@ export class DescribePropertySoftwareDetailResponseBodyPageInfo extends $tea.Mod
 }
 
 export class DescribePropertySoftwareDetailResponseBodyPropertys extends $tea.Model {
-  create?: number;
   createTimestamp?: number;
   installTime?: string;
   installTimeDt?: number;
@@ -16957,7 +16983,6 @@ export class DescribePropertySoftwareDetailResponseBodyPropertys extends $tea.Mo
   version?: string;
   static names(): { [key: string]: string } {
     return {
-      create: 'Create',
       createTimestamp: 'CreateTimestamp',
       installTime: 'InstallTime',
       installTimeDt: 'InstallTimeDt',
@@ -16975,7 +17000,6 @@ export class DescribePropertySoftwareDetailResponseBodyPropertys extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      create: 'number',
       createTimestamp: 'number',
       installTime: 'string',
       installTimeDt: 'number',
@@ -17098,7 +17122,6 @@ export class DescribePropertyUserDetailResponseBodyPageInfo extends $tea.Model {
 
 export class DescribePropertyUserDetailResponseBodyPropertys extends $tea.Model {
   accountsExpirationDate?: string;
-  create?: string;
   createTimestamp?: number;
   groupNames?: string[];
   instanceId?: string;
@@ -17123,7 +17146,6 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       accountsExpirationDate: 'AccountsExpirationDate',
-      create: 'Create',
       createTimestamp: 'CreateTimestamp',
       groupNames: 'GroupNames',
       instanceId: 'InstanceId',
@@ -17151,7 +17173,6 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       accountsExpirationDate: 'string',
-      create: 'string',
       createTimestamp: 'number',
       groupNames: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
@@ -18519,6 +18540,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   lastTime?: string;
   lastTimeStamp?: number;
   level?: string;
+  maliciousRuleStatus?: string;
   markMisRules?: string;
   name?: string;
   occurrenceTime?: string;
@@ -18569,6 +18591,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       lastTime: 'LastTime',
       lastTimeStamp: 'LastTimeStamp',
       level: 'Level',
+      maliciousRuleStatus: 'MaliciousRuleStatus',
       markMisRules: 'MarkMisRules',
       name: 'Name',
       occurrenceTime: 'OccurrenceTime',
@@ -18622,6 +18645,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       lastTime: 'string',
       lastTimeStamp: 'number',
       level: 'string',
+      maliciousRuleStatus: 'string',
       markMisRules: 'string',
       name: 'string',
       occurrenceTime: 'string',
@@ -20148,6 +20172,10 @@ export default class Client extends OpenApi {
   async describeAffectedMaliciousFileImagesWithOptions(request: DescribeAffectedMaliciousFileImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAffectedMaliciousFileImagesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -20826,6 +20854,18 @@ export default class Client extends OpenApi {
   async describeCheckWarningSummaryWithOptions(request: DescribeCheckWarningSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningSummaryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.containerFieldName)) {
+      query["ContainerFieldName"] = request.containerFieldName;
+    }
+
+    if (!Util.isUnset(request.containerFieldValue)) {
+      query["ContainerFieldValue"] = request.containerFieldValue;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -20856,6 +20896,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.strategyId)) {
       query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
     }
 
     if (!Util.isUnset(request.typeName)) {
@@ -21663,6 +21707,10 @@ export default class Client extends OpenApi {
   async describeGroupedMaliciousFilesWithOptions(request: DescribeGroupedMaliciousFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedMaliciousFilesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -21892,6 +21940,10 @@ export default class Client extends OpenApi {
   async describeImageBaselineCheckSummaryWithOptions(request: DescribeImageBaselineCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineCheckSummaryResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
     if (!Util.isUnset(request.criteria)) {
       query["Criteria"] = request.criteria;
     }
@@ -21988,6 +22040,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aliasName)) {
       query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
     }
 
     if (!Util.isUnset(request.currentPage)) {
@@ -22095,6 +22151,10 @@ export default class Client extends OpenApi {
       query["BaselineNameKey"] = request.baselineNameKey;
     }
 
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
     if (!Util.isUnset(request.criteria)) {
       query["Criteria"] = request.criteria;
     }
@@ -22200,6 +22260,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aliasName)) {
       query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
     }
 
     if (!Util.isUnset(request.currentPage)) {
