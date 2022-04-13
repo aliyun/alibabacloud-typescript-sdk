@@ -7323,7 +7323,7 @@ export class ListK8sConfigMapsResponseBody extends $tea.Model {
   code?: number;
   message?: string;
   requestId?: string;
-  result?: ListK8sConfigMapsResponseBodyResult[];
+  result?: ListK8sConfigMapsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -7338,7 +7338,7 @@ export class ListK8sConfigMapsResponseBody extends $tea.Model {
       code: 'number',
       message: 'string',
       requestId: 'string',
-      result: { 'type': 'array', 'itemType': ListK8sConfigMapsResponseBodyResult },
+      result: ListK8sConfigMapsResponseBodyResult,
     };
   }
 
@@ -7488,7 +7488,7 @@ export class ListK8sSecretsResponseBody extends $tea.Model {
   code?: number;
   message?: string;
   requestId?: string;
-  result?: ListK8sSecretsResponseBodyResult[];
+  result?: ListK8sSecretsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -7503,7 +7503,7 @@ export class ListK8sSecretsResponseBody extends $tea.Model {
       code: 'number',
       message: 'string',
       requestId: 'string',
-      result: { 'type': 'array', 'itemType': ListK8sSecretsResponseBodyResult },
+      result: ListK8sSecretsResponseBodyResult,
     };
   }
 
@@ -17474,7 +17474,6 @@ export class ListK8sSecretsResponseBodyResultSecretsCertDetail extends $tea.Mode
   domainNames?: string[];
   endTime?: string;
   issuer?: string;
-  keySize?: number;
   startTime?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -17482,7 +17481,6 @@ export class ListK8sSecretsResponseBodyResultSecretsCertDetail extends $tea.Mode
       domainNames: 'DomainNames',
       endTime: 'EndTime',
       issuer: 'Issuer',
-      keySize: 'KeySize',
       startTime: 'StartTime',
       status: 'Status',
     };
@@ -17493,7 +17491,6 @@ export class ListK8sSecretsResponseBodyResultSecretsCertDetail extends $tea.Mode
       domainNames: { 'type': 'array', 'itemType': 'string' },
       endTime: 'string',
       issuer: 'string',
-      keySize: 'number',
       startTime: 'string',
       status: 'string',
     };
