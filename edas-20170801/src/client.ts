@@ -2912,6 +2912,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
   args?: string;
   batchTimeout?: number;
   batchWaitTime?: number;
+  buildPackId?: string;
   changeOrderDesc?: string;
   command?: string;
   configMountDescs?: string;
@@ -2962,6 +2963,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       args: 'Args',
       batchTimeout: 'BatchTimeout',
       batchWaitTime: 'BatchWaitTime',
+      buildPackId: 'BuildPackId',
       changeOrderDesc: 'ChangeOrderDesc',
       command: 'Command',
       configMountDescs: 'ConfigMountDescs',
@@ -3015,6 +3017,7 @@ export class DeployK8sApplicationRequest extends $tea.Model {
       args: 'string',
       batchTimeout: 'number',
       batchWaitTime: 'number',
+      buildPackId: 'string',
       changeOrderDesc: 'string',
       command: 'string',
       configMountDescs: 'string',
@@ -21619,6 +21622,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.batchWaitTime)) {
       query["BatchWaitTime"] = request.batchWaitTime;
+    }
+
+    if (!Util.isUnset(request.buildPackId)) {
+      query["BuildPackId"] = request.buildPackId;
     }
 
     if (!Util.isUnset(request.changeOrderDesc)) {
