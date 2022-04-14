@@ -3,9 +3,6 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import SPI from '@alicloud/gateway-spi';
-import GatewayClient, * as $GatewayClient from '@alicloud/gateway-fc';
-import Credential from '@alicloud/credentials';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -7550,12 +7547,9 @@ export class ListTriggersResponseBodyTriggers extends $tea.Model {
 
 
 export default class Client extends OpenApi {
-  _client: SPI;
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._client = new GatewayClient();
-    this._spi = this._client;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "account-id.ap-northeast-1.fc.aliyuncs.com",
@@ -7655,7 +7649,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateAliasResponse>(await this.execute(params, req, runtime), new CreateAliasResponse({}));
+    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
   }
 
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
@@ -7719,7 +7713,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateCustomDomainResponse>(await this.execute(params, req, runtime), new CreateCustomDomainResponse({}));
+    return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
   }
 
   async createFunction(serviceName: string, request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
@@ -7840,7 +7834,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateFunctionResponse>(await this.execute(params, req, runtime), new CreateFunctionResponse({}));
+    return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
   }
 
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
@@ -7897,7 +7891,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateLayerVersionResponse>(await this.execute(params, req, runtime), new CreateLayerVersionResponse({}));
+    return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
   }
 
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
@@ -7973,7 +7967,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceResponse>(await this.execute(params, req, runtime), new CreateServiceResponse({}));
+    return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
   }
 
   async createTrigger(serviceName: string, functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
@@ -8047,7 +8041,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateTriggerResponse>(await this.execute(params, req, runtime), new CreateTriggerResponse({}));
+    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
   async createVpcBinding(serviceName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
@@ -8096,7 +8090,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<CreateVpcBindingResponse>(await this.execute(params, req, runtime), new CreateVpcBindingResponse({}));
+    return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
   }
 
   async deleteAlias(serviceName: string, aliasName: string): Promise<DeleteAliasResponse> {
@@ -8143,7 +8137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteAliasResponse>(await this.execute(params, req, runtime), new DeleteAliasResponse({}));
+    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
   }
 
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
@@ -8185,7 +8179,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteCustomDomainResponse>(await this.execute(params, req, runtime), new DeleteCustomDomainResponse({}));
+    return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
   }
 
   async deleteFunction(serviceName: string, functionName: string): Promise<DeleteFunctionResponse> {
@@ -8232,7 +8226,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteFunctionResponse>(await this.execute(params, req, runtime), new DeleteFunctionResponse({}));
+    return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
   }
 
   async deleteFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: DeleteFunctionAsyncInvokeConfigRequest): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
@@ -8282,7 +8276,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteFunctionAsyncInvokeConfigResponse>(await this.execute(params, req, runtime), new DeleteFunctionAsyncInvokeConfigResponse({}));
+    return $tea.cast<DeleteFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteFunctionAsyncInvokeConfigResponse({}));
   }
 
   async deleteFunctionOnDemandConfig(serviceName: string, functionName: string, request: DeleteFunctionOnDemandConfigRequest): Promise<DeleteFunctionOnDemandConfigResponse> {
@@ -8336,7 +8330,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteFunctionOnDemandConfigResponse>(await this.execute(params, req, runtime), new DeleteFunctionOnDemandConfigResponse({}));
+    return $tea.cast<DeleteFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new DeleteFunctionOnDemandConfigResponse({}));
   }
 
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
@@ -8379,7 +8373,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteLayerVersionResponse>(await this.execute(params, req, runtime), new DeleteLayerVersionResponse({}));
+    return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
   }
 
   async deleteService(serviceName: string): Promise<DeleteServiceResponse> {
@@ -8425,7 +8419,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteServiceResponse>(await this.execute(params, req, runtime), new DeleteServiceResponse({}));
+    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
   }
 
   async deleteServiceVersion(serviceName: string, versionId: string): Promise<DeleteServiceVersionResponse> {
@@ -8468,7 +8462,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteServiceVersionResponse>(await this.execute(params, req, runtime), new DeleteServiceVersionResponse({}));
+    return $tea.cast<DeleteServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteServiceVersionResponse({}));
   }
 
   async deleteTrigger(serviceName: string, functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
@@ -8516,7 +8510,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteTriggerResponse>(await this.execute(params, req, runtime), new DeleteTriggerResponse({}));
+    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
   async deleteVpcBinding(serviceName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
@@ -8559,7 +8553,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteVpcBindingResponse>(await this.execute(params, req, runtime), new DeleteVpcBindingResponse({}));
+    return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
   }
 
   async deregisterEventSource(serviceName: string, functionName: string, sourceArn: string, request: DeregisterEventSourceRequest): Promise<DeregisterEventSourceResponse> {
@@ -8610,7 +8604,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeregisterEventSourceResponse>(await this.execute(params, req, runtime), new DeregisterEventSourceResponse({}));
+    return $tea.cast<DeregisterEventSourceResponse>(await this.callApi(params, req, runtime), new DeregisterEventSourceResponse({}));
   }
 
   async getAccountSettings(): Promise<GetAccountSettingsResponse> {
@@ -8651,7 +8645,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountSettingsResponse>(await this.execute(params, req, runtime), new GetAccountSettingsResponse({}));
+    return $tea.cast<GetAccountSettingsResponse>(await this.callApi(params, req, runtime), new GetAccountSettingsResponse({}));
   }
 
   async getAlias(serviceName: string, aliasName: string): Promise<GetAliasResponse> {
@@ -8694,7 +8688,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAliasResponse>(await this.execute(params, req, runtime), new GetAliasResponse({}));
+    return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
   }
 
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
@@ -8736,7 +8730,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetCustomDomainResponse>(await this.execute(params, req, runtime), new GetCustomDomainResponse({}));
+    return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
   }
 
   async getFunction(serviceName: string, functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
@@ -8786,7 +8780,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetFunctionResponse>(await this.execute(params, req, runtime), new GetFunctionResponse({}));
+    return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
   }
 
   async getFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest): Promise<GetFunctionAsyncInvokeConfigResponse> {
@@ -8836,7 +8830,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.execute(params, req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
+    return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
   }
 
   async getFunctionCode(serviceName: string, functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
@@ -8886,7 +8880,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetFunctionCodeResponse>(await this.execute(params, req, runtime), new GetFunctionCodeResponse({}));
+    return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
   }
 
   async getFunctionOnDemandConfig(serviceName: string, functionName: string, request: GetFunctionOnDemandConfigRequest): Promise<GetFunctionOnDemandConfigResponse> {
@@ -8936,7 +8930,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetFunctionOnDemandConfigResponse>(await this.execute(params, req, runtime), new GetFunctionOnDemandConfigResponse({}));
+    return $tea.cast<GetFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionOnDemandConfigResponse({}));
   }
 
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
@@ -8979,7 +8973,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetLayerVersionResponse>(await this.execute(params, req, runtime), new GetLayerVersionResponse({}));
+    return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
   }
 
   async getProvisionConfig(serviceName: string, functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
@@ -9029,7 +9023,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetProvisionConfigResponse>(await this.execute(params, req, runtime), new GetProvisionConfigResponse({}));
+    return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
   }
 
   async getResourceTags(request: GetResourceTagsRequest): Promise<GetResourceTagsResponse> {
@@ -9077,7 +9071,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetResourceTagsResponse>(await this.execute(params, req, runtime), new GetResourceTagsResponse({}));
+    return $tea.cast<GetResourceTagsResponse>(await this.callApi(params, req, runtime), new GetResourceTagsResponse({}));
   }
 
   async getService(serviceName: string, request: GetServiceRequest): Promise<GetServiceResponse> {
@@ -9126,7 +9120,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
+    return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
   }
 
   async getStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: GetStatefulAsyncInvocationRequest): Promise<GetStatefulAsyncInvocationResponse> {
@@ -9189,7 +9183,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetStatefulAsyncInvocationResponse>(await this.execute(params, req, runtime), new GetStatefulAsyncInvocationResponse({}));
+    return $tea.cast<GetStatefulAsyncInvocationResponse>(await this.callApi(params, req, runtime), new GetStatefulAsyncInvocationResponse({}));
   }
 
   async getTrigger(serviceName: string, functionName: string, triggerName: string): Promise<GetTriggerResponse> {
@@ -9233,7 +9227,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTriggerResponse>(await this.execute(params, req, runtime), new GetTriggerResponse({}));
+    return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
   }
 
   async invokeFunction(serviceName: string, functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
@@ -9296,7 +9290,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "byte",
     });
-    return $tea.cast<InvokeFunctionResponse>(await this.execute(params, req, runtime), new InvokeFunctionResponse({}));
+    return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
   }
 
   async listAliases(serviceName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
@@ -9357,7 +9351,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAliasesResponse>(await this.execute(params, req, runtime), new ListAliasesResponse({}));
+    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
   }
 
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
@@ -9417,7 +9411,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListCustomDomainsResponse>(await this.execute(params, req, runtime), new ListCustomDomainsResponse({}));
+    return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
   }
 
   async listEventSources(serviceName: string, functionName: string, request: ListEventSourcesRequest): Promise<ListEventSourcesResponse> {
@@ -9467,7 +9461,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListEventSourcesResponse>(await this.execute(params, req, runtime), new ListEventSourcesResponse({}));
+    return $tea.cast<ListEventSourcesResponse>(await this.callApi(params, req, runtime), new ListEventSourcesResponse({}));
   }
 
   async listFunctionAsyncInvokeConfigs(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest): Promise<ListFunctionAsyncInvokeConfigsResponse> {
@@ -9533,7 +9527,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.execute(params, req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
+    return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
   }
 
   async listFunctions(serviceName: string, request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
@@ -9598,7 +9592,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListFunctionsResponse>(await this.execute(params, req, runtime), new ListFunctionsResponse({}));
+    return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
   }
 
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
@@ -9651,7 +9645,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListLayerVersionsResponse>(await this.execute(params, req, runtime), new ListLayerVersionsResponse({}));
+    return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
   }
 
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
@@ -9711,7 +9705,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListLayersResponse>(await this.execute(params, req, runtime), new ListLayersResponse({}));
+    return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
   }
 
   async listOnDemandConfigs(request: ListOnDemandConfigsRequest): Promise<ListOnDemandConfigsResponse> {
@@ -9771,7 +9765,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListOnDemandConfigsResponse>(await this.execute(params, req, runtime), new ListOnDemandConfigsResponse({}));
+    return $tea.cast<ListOnDemandConfigsResponse>(await this.callApi(params, req, runtime), new ListOnDemandConfigsResponse({}));
   }
 
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
@@ -9831,7 +9825,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListProvisionConfigsResponse>(await this.execute(params, req, runtime), new ListProvisionConfigsResponse({}));
+    return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
   }
 
   async listReservedCapacities(request: ListReservedCapacitiesRequest): Promise<ListReservedCapacitiesResponse> {
@@ -9883,7 +9877,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListReservedCapacitiesResponse>(await this.execute(params, req, runtime), new ListReservedCapacitiesResponse({}));
+    return $tea.cast<ListReservedCapacitiesResponse>(await this.callApi(params, req, runtime), new ListReservedCapacitiesResponse({}));
   }
 
   async listServiceVersions(serviceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
@@ -9944,7 +9938,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceVersionsResponse>(await this.execute(params, req, runtime), new ListServiceVersionsResponse({}));
+    return $tea.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
   }
 
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
@@ -10004,7 +9998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
+    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
   async listStatefulAsyncInvocationFunctions(request: ListStatefulAsyncInvocationFunctionsRequest): Promise<ListStatefulAsyncInvocationFunctionsResponse> {
@@ -10056,7 +10050,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListStatefulAsyncInvocationFunctionsResponse>(await this.execute(params, req, runtime), new ListStatefulAsyncInvocationFunctionsResponse({}));
+    return $tea.cast<ListStatefulAsyncInvocationFunctionsResponse>(await this.callApi(params, req, runtime), new ListStatefulAsyncInvocationFunctionsResponse({}));
   }
 
   async listStatefulAsyncInvocations(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest): Promise<ListStatefulAsyncInvocationsResponse> {
@@ -10150,7 +10144,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListStatefulAsyncInvocationsResponse>(await this.execute(params, req, runtime), new ListStatefulAsyncInvocationsResponse({}));
+    return $tea.cast<ListStatefulAsyncInvocationsResponse>(await this.callApi(params, req, runtime), new ListStatefulAsyncInvocationsResponse({}));
   }
 
   async listTaggedResources(request: ListTaggedResourcesRequest): Promise<ListTaggedResourcesResponse> {
@@ -10202,7 +10196,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTaggedResourcesResponse>(await this.execute(params, req, runtime), new ListTaggedResourcesResponse({}));
+    return $tea.cast<ListTaggedResourcesResponse>(await this.callApi(params, req, runtime), new ListTaggedResourcesResponse({}));
   }
 
   async listTriggers(serviceName: string, functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
@@ -10264,7 +10258,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTriggersResponse>(await this.execute(params, req, runtime), new ListTriggersResponse({}));
+    return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
   }
 
   async listVpcBindings(serviceName: string): Promise<ListVpcBindingsResponse> {
@@ -10306,7 +10300,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListVpcBindingsResponse>(await this.execute(params, req, runtime), new ListVpcBindingsResponse({}));
+    return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
   }
 
   async publishServiceVersion(serviceName: string, request: PublishServiceVersionRequest): Promise<PublishServiceVersionResponse> {
@@ -10359,7 +10353,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PublishServiceVersionResponse>(await this.execute(params, req, runtime), new PublishServiceVersionResponse({}));
+    return $tea.cast<PublishServiceVersionResponse>(await this.callApi(params, req, runtime), new PublishServiceVersionResponse({}));
   }
 
   async putFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: PutFunctionAsyncInvokeConfigRequest): Promise<PutFunctionAsyncInvokeConfigResponse> {
@@ -10427,7 +10421,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PutFunctionAsyncInvokeConfigResponse>(await this.execute(params, req, runtime), new PutFunctionAsyncInvokeConfigResponse({}));
+    return $tea.cast<PutFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionAsyncInvokeConfigResponse({}));
   }
 
   async putFunctionOnDemandConfig(serviceName: string, functionName: string, request: PutFunctionOnDemandConfigRequest): Promise<PutFunctionOnDemandConfigResponse> {
@@ -10487,7 +10481,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.execute(params, req, runtime), new PutFunctionOnDemandConfigResponse({}));
+    return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionOnDemandConfigResponse({}));
   }
 
   async putProvisionConfig(serviceName: string, functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
@@ -10555,7 +10549,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PutProvisionConfigResponse>(await this.execute(params, req, runtime), new PutProvisionConfigResponse({}));
+    return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
   }
 
   async registerEventSource(serviceName: string, functionName: string, request: RegisterEventSourceRequest): Promise<RegisterEventSourceResponse> {
@@ -10611,7 +10605,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RegisterEventSourceResponse>(await this.execute(params, req, runtime), new RegisterEventSourceResponse({}));
+    return $tea.cast<RegisterEventSourceResponse>(await this.callApi(params, req, runtime), new RegisterEventSourceResponse({}));
   }
 
   async stopStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest): Promise<StopStatefulAsyncInvocationResponse> {
@@ -10662,7 +10656,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<StopStatefulAsyncInvocationResponse>(await this.execute(params, req, runtime), new StopStatefulAsyncInvocationResponse({}));
+    return $tea.cast<StopStatefulAsyncInvocationResponse>(await this.callApi(params, req, runtime), new StopStatefulAsyncInvocationResponse({}));
   }
 
   async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
@@ -10714,7 +10708,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<TagResourceResponse>(await this.execute(params, req, runtime), new TagResourceResponse({}));
+    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
   }
 
   async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
@@ -10770,7 +10764,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<UntagResourceResponse>(await this.execute(params, req, runtime), new UntagResourceResponse({}));
+    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
   }
 
   async updateAlias(serviceName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
@@ -10832,7 +10826,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAliasResponse>(await this.execute(params, req, runtime), new UpdateAliasResponse({}));
+    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
   }
 
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
@@ -10893,7 +10887,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomDomainResponse>(await this.execute(params, req, runtime), new UpdateCustomDomainResponse({}));
+    return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
   }
 
   async updateFunction(serviceName: string, functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
@@ -11015,7 +11009,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateFunctionResponse>(await this.execute(params, req, runtime), new UpdateFunctionResponse({}));
+    return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
   }
 
   async updateService(serviceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
@@ -11092,7 +11086,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceResponse>(await this.execute(params, req, runtime), new UpdateServiceResponse({}));
+    return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
   }
 
   async updateTrigger(serviceName: string, functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
@@ -11159,13 +11153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTriggerResponse>(await this.execute(params, req, runtime), new UpdateTriggerResponse({}));
-  }
-
-  async signRequest(request: $GatewayClient.HttpRequest): Promise<{[key: string ]: any}> {
-    let cred : Credential = this._credential;
-    let gateway = new GatewayClient();
-    return await gateway.signRequest(request, cred);
+    return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
   }
 
 }
