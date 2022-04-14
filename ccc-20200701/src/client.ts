@@ -3354,6 +3354,81 @@ export class GetRealtimeInstanceStatesResponse extends $tea.Model {
   }
 }
 
+export class GetSkillGroupRequest extends $tea.Model {
+  instanceId?: string;
+  skillGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      skillGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSkillGroupResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSkillGroupResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSkillGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSkillGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTurnCredentialsRequest extends $tea.Model {
   instanceId?: string;
   userId?: string;
@@ -4643,8 +4718,10 @@ export class ListCallDetailRecordsRequest extends $tea.Model {
   calledNumber?: string;
   callingNumber?: string;
   contactDisposition?: string;
+  contactDispositionList?: string;
   contactId?: string;
   contactType?: string;
+  contactTypeList?: string;
   criteria?: string;
   earlyMediaStateList?: string;
   endTime?: number;
@@ -4664,8 +4741,10 @@ export class ListCallDetailRecordsRequest extends $tea.Model {
       calledNumber: 'CalledNumber',
       callingNumber: 'CallingNumber',
       contactDisposition: 'ContactDisposition',
+      contactDispositionList: 'ContactDispositionList',
       contactId: 'ContactId',
       contactType: 'ContactType',
+      contactTypeList: 'ContactTypeList',
       criteria: 'Criteria',
       earlyMediaStateList: 'EarlyMediaStateList',
       endTime: 'EndTime',
@@ -4688,8 +4767,10 @@ export class ListCallDetailRecordsRequest extends $tea.Model {
       calledNumber: 'string',
       callingNumber: 'string',
       contactDisposition: 'string',
+      contactDispositionList: 'string',
       contactId: 'string',
       contactType: 'string',
+      contactTypeList: 'string',
       criteria: 'string',
       earlyMediaStateList: 'string',
       endTime: 'number',
@@ -6175,6 +6256,156 @@ export class ListIvrTrackingDetailsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListIvrTrackingDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMonoRecordingsRequest extends $tea.Model {
+  contactId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMonoRecordingsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListMonoRecordingsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListMonoRecordingsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMonoRecordingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListMonoRecordingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListMonoRecordingsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiChannelRecordingsRequest extends $tea.Model {
+  contactId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiChannelRecordingsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListMultiChannelRecordingsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListMultiChannelRecordingsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiChannelRecordingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListMultiChannelRecordingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListMultiChannelRecordingsResponseBody,
     };
   }
 
@@ -9385,10 +9616,12 @@ export class RemovePhoneNumberFromSkillGroupsResponse extends $tea.Model {
 }
 
 export class RemovePhoneNumbersRequest extends $tea.Model {
+  force?: boolean;
   instanceId?: string;
   numberList?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       instanceId: 'InstanceId',
       numberList: 'NumberList',
     };
@@ -9396,6 +9629,7 @@ export class RemovePhoneNumbersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       instanceId: 'string',
       numberList: 'string',
     };
@@ -11357,11 +11591,13 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
 }
 
 export class AnswerCallResponseBodyDataCallContext extends $tea.Model {
+  callType?: string;
   channelContexts?: AnswerCallResponseBodyDataCallContextChannelContexts[];
   instanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      callType: 'CallType',
       channelContexts: 'ChannelContexts',
       instanceId: 'InstanceId',
       jobId: 'JobId',
@@ -11370,6 +11606,7 @@ export class AnswerCallResponseBodyDataCallContext extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callType: 'string',
       channelContexts: { 'type': 'array', 'itemType': AnswerCallResponseBodyDataCallContextChannelContexts },
       instanceId: 'string',
       jobId: 'string',
@@ -11767,10 +12004,12 @@ export class BlindTransferResponseBodyDataUserContext extends $tea.Model {
 
 export class BlindTransferResponseBodyData extends $tea.Model {
   callContext?: BlindTransferResponseBodyDataCallContext;
+  contextId?: number;
   userContext?: BlindTransferResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
       callContext: 'CallContext',
+      contextId: 'ContextId',
       userContext: 'UserContext',
     };
   }
@@ -11778,6 +12017,7 @@ export class BlindTransferResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callContext: BlindTransferResponseBodyDataCallContext,
+      contextId: 'number',
       userContext: BlindTransferResponseBodyDataUserContext,
     };
   }
@@ -12475,10 +12715,12 @@ export class CreateUserResponseBodyData extends $tea.Model {
 }
 
 export class GetCallDetailRecordResponseBodyDataAgentEventsEventSequence extends $tea.Model {
+  duration?: number;
   event?: string;
   eventTime?: number;
   static names(): { [key: string]: string } {
     return {
+      duration: 'Duration',
       event: 'Event',
       eventTime: 'EventTime',
     };
@@ -12486,6 +12728,7 @@ export class GetCallDetailRecordResponseBodyDataAgentEventsEventSequence extends
 
   static types(): { [key: string]: any } {
     return {
+      duration: 'number',
       event: 'string',
       eventTime: 'number',
     };
@@ -12769,6 +13012,7 @@ export class GetCampaignResponseBodyData extends $tea.Model {
   casesAborted?: number;
   casesConnected?: number;
   casesUncompleted?: number;
+  casesUncompletedAfterAttempted?: number;
   maxAttemptCount?: number;
   minAttemptInterval?: number;
   name?: string;
@@ -12790,6 +13034,7 @@ export class GetCampaignResponseBodyData extends $tea.Model {
       casesAborted: 'CasesAborted',
       casesConnected: 'CasesConnected',
       casesUncompleted: 'CasesUncompleted',
+      casesUncompletedAfterAttempted: 'CasesUncompletedAfterAttempted',
       maxAttemptCount: 'MaxAttemptCount',
       minAttemptInterval: 'MinAttemptInterval',
       name: 'Name',
@@ -12814,6 +13059,7 @@ export class GetCampaignResponseBodyData extends $tea.Model {
       casesAborted: 'number',
       casesConnected: 'number',
       casesUncompleted: 'number',
+      casesUncompletedAfterAttempted: 'number',
       maxAttemptCount: 'number',
       minAttemptInterval: 'number',
       name: 'string',
@@ -13780,6 +14026,37 @@ export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetSkillGroupResponseBodyData extends $tea.Model {
+  description?: string;
+  displayName?: string;
+  instanceId?: string;
+  name?: string;
+  skillGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      displayName: 'DisplayName',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      displayName: 'string',
+      instanceId: 'string',
+      name: 'string',
+      skillGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTurnCredentialsResponseBodyData extends $tea.Model {
   password?: string;
   userName?: string;
@@ -14689,10 +14966,12 @@ export class LaunchSurveyResponseBodyDataUserContext extends $tea.Model {
 
 export class LaunchSurveyResponseBodyData extends $tea.Model {
   callContext?: LaunchSurveyResponseBodyDataCallContext;
+  contextId?: number;
   userContext?: LaunchSurveyResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
       callContext: 'CallContext',
+      contextId: 'ContextId',
       userContext: 'UserContext',
     };
   }
@@ -14700,6 +14979,7 @@ export class LaunchSurveyResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callContext: LaunchSurveyResponseBodyDataCallContext,
+      contextId: 'number',
       userContext: LaunchSurveyResponseBodyDataUserContext,
     };
   }
@@ -14711,12 +14991,14 @@ export class LaunchSurveyResponseBodyData extends $tea.Model {
 
 export class ListAgentStateLogsResponseBodyData extends $tea.Model {
   duration?: number;
+  outboundScenario?: boolean;
   startTime?: number;
   state?: string;
   stateCode?: string;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
+      outboundScenario: 'OutboundScenario',
       startTime: 'StartTime',
       state: 'State',
       stateCode: 'StateCode',
@@ -14726,6 +15008,7 @@ export class ListAgentStateLogsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       duration: 'number',
+      outboundScenario: 'boolean',
       startTime: 'number',
       state: 'string',
       stateCode: 'string',
@@ -18114,6 +18397,92 @@ export class ListIvrTrackingDetailsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListMonoRecordingsResponseBodyData extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
+  contactId?: string;
+  duration?: string;
+  fileName?: string;
+  fileUrl?: string;
+  ramId?: string;
+  skillGroupId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      contactId: 'ContactId',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+      ramId: 'RamId',
+      skillGroupId: 'SkillGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentName: 'string',
+      contactId: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileUrl: 'string',
+      ramId: 'string',
+      skillGroupId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
+  contactId?: string;
+  duration?: string;
+  fileName?: string;
+  fileUrl?: string;
+  ramId?: string;
+  skillGroupId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      contactId: 'ContactId',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+      ramId: 'RamId',
+      skillGroupId: 'SkillGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentName: 'string',
+      contactId: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileUrl: 'string',
+      ramId: 'string',
+      skillGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOutboundNumbersOfUserResponseBodyDataList extends $tea.Model {
   city?: string;
   number?: string;
@@ -18502,6 +18871,7 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $tea.Model {
   extension?: string;
   instanceId?: string;
   skillGroupIdList?: string[];
+  skillGroupNameList?: string[];
   state?: string;
   stateCode?: string;
   stateTime?: number;
@@ -18513,6 +18883,7 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $tea.Model {
       extension: 'Extension',
       instanceId: 'InstanceId',
       skillGroupIdList: 'SkillGroupIdList',
+      skillGroupNameList: 'SkillGroupNameList',
       state: 'State',
       stateCode: 'StateCode',
       stateTime: 'StateTime',
@@ -18527,6 +18898,7 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $tea.Model {
       extension: 'string',
       instanceId: 'string',
       skillGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      skillGroupNameList: { 'type': 'array', 'itemType': 'string' },
       state: 'string',
       stateCode: 'string',
       stateTime: 'number',
@@ -18924,6 +19296,8 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   averageWorkTime?: number;
   callsHandled?: number;
   callsOffered?: number;
+  callsServiceLevel20?: number;
+  callsServiceLevel30?: number;
   giveUpByAgentOfQueueCount?: number;
   handleRate?: number;
   inComingQueueOfQueueCount?: number;
@@ -18951,6 +19325,8 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       averageWorkTime: 'AverageWorkTime',
       callsHandled: 'CallsHandled',
       callsOffered: 'CallsOffered',
+      callsServiceLevel20: 'CallsServiceLevel20',
+      callsServiceLevel30: 'CallsServiceLevel30',
       giveUpByAgentOfQueueCount: 'GiveUpByAgentOfQueueCount',
       handleRate: 'HandleRate',
       inComingQueueOfQueueCount: 'InComingQueueOfQueueCount',
@@ -18981,6 +19357,8 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       averageWorkTime: 'number',
       callsHandled: 'number',
       callsOffered: 'number',
+      callsServiceLevel20: 'number',
+      callsServiceLevel30: 'number',
       giveUpByAgentOfQueueCount: 'number',
       handleRate: 'number',
       inComingQueueOfQueueCount: 'number',
@@ -23166,6 +23544,39 @@ export default class Client extends OpenApi {
     return await this.getRealtimeInstanceStatesWithOptions(request, runtime);
   }
 
+  async getSkillGroupWithOptions(request: GetSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSkillGroup",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSkillGroupResponse>(await this.callApi(params, req, runtime), new GetSkillGroupResponse({}));
+  }
+
+  async getSkillGroup(request: GetSkillGroupRequest): Promise<GetSkillGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSkillGroupWithOptions(request, runtime);
+  }
+
   async getTurnCredentialsWithOptions(request: GetTurnCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetTurnCredentialsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23780,12 +24191,20 @@ export default class Client extends OpenApi {
       query["ContactDisposition"] = request.contactDisposition;
     }
 
+    if (!Util.isUnset(request.contactDispositionList)) {
+      query["ContactDispositionList"] = request.contactDispositionList;
+    }
+
     if (!Util.isUnset(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
     if (!Util.isUnset(request.contactType)) {
       query["ContactType"] = request.contactType;
+    }
+
+    if (!Util.isUnset(request.contactTypeList)) {
+      query["ContactTypeList"] = request.contactTypeList;
     }
 
     if (!Util.isUnset(request.criteria)) {
@@ -24573,6 +24992,72 @@ export default class Client extends OpenApi {
   async listIvrTrackingDetails(request: ListIvrTrackingDetailsRequest): Promise<ListIvrTrackingDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIvrTrackingDetailsWithOptions(request, runtime);
+  }
+
+  async listMonoRecordingsWithOptions(request: ListMonoRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<ListMonoRecordingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMonoRecordings",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMonoRecordingsResponse>(await this.callApi(params, req, runtime), new ListMonoRecordingsResponse({}));
+  }
+
+  async listMonoRecordings(request: ListMonoRecordingsRequest): Promise<ListMonoRecordingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMonoRecordingsWithOptions(request, runtime);
+  }
+
+  async listMultiChannelRecordingsWithOptions(request: ListMultiChannelRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<ListMultiChannelRecordingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMultiChannelRecordings",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMultiChannelRecordingsResponse>(await this.callApi(params, req, runtime), new ListMultiChannelRecordingsResponse({}));
+  }
+
+  async listMultiChannelRecordings(request: ListMultiChannelRecordingsRequest): Promise<ListMultiChannelRecordingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMultiChannelRecordingsWithOptions(request, runtime);
   }
 
   async listOutboundNumbersOfUserWithOptions(request: ListOutboundNumbersOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListOutboundNumbersOfUserResponse> {
@@ -26171,6 +26656,10 @@ export default class Client extends OpenApi {
   async removePhoneNumbersWithOptions(request: RemovePhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumbersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
