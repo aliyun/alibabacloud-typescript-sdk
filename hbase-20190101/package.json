@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/hbase20190101",
-  "version": "1.0.1",
+  "version": "2.9.10",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
