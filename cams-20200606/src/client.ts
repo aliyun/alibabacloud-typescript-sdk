@@ -11,11 +11,13 @@ import * as $tea from '@alicloud/tea-typescript';
 export class CheckChatappContactsRequest extends $tea.Model {
   channelType?: string;
   contacts?: string[];
+  custWabaId?: string;
   from?: string;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
       contacts: 'Contacts',
+      custWabaId: 'CustWabaId',
       from: 'From',
     };
   }
@@ -24,6 +26,7 @@ export class CheckChatappContactsRequest extends $tea.Model {
     return {
       channelType: 'string',
       contacts: { 'type': 'array', 'itemType': 'string' },
+      custWabaId: 'string',
       from: 'string',
     };
   }
@@ -36,11 +39,13 @@ export class CheckChatappContactsRequest extends $tea.Model {
 export class CheckChatappContactsShrinkRequest extends $tea.Model {
   channelType?: string;
   contactsShrink?: string;
+  custWabaId?: string;
   from?: string;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
       contactsShrink: 'Contacts',
+      custWabaId: 'CustWabaId',
       from: 'From',
     };
   }
@@ -49,6 +54,7 @@ export class CheckChatappContactsShrinkRequest extends $tea.Model {
     return {
       channelType: 'string',
       contactsShrink: 'string',
+      custWabaId: 'string',
       from: 'string',
     };
   }
@@ -195,6 +201,7 @@ export class CheckContactsResponse extends $tea.Model {
 export class CreateChatappTemplateRequest extends $tea.Model {
   category?: string;
   components?: CreateChatappTemplateRequestComponents[];
+  custWabaId?: string;
   example?: { [key: string]: string };
   language?: string;
   name?: string;
@@ -203,6 +210,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
     return {
       category: 'Category',
       components: 'Components',
+      custWabaId: 'CustWabaId',
       example: 'Example',
       language: 'Language',
       name: 'Name',
@@ -214,6 +222,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
     return {
       category: 'string',
       components: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponents },
+      custWabaId: 'string',
       example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       language: 'string',
       name: 'string',
@@ -229,6 +238,7 @@ export class CreateChatappTemplateRequest extends $tea.Model {
 export class CreateChatappTemplateShrinkRequest extends $tea.Model {
   category?: string;
   componentsShrink?: string;
+  custWabaId?: string;
   exampleShrink?: string;
   language?: string;
   name?: string;
@@ -237,6 +247,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
     return {
       category: 'Category',
       componentsShrink: 'Components',
+      custWabaId: 'CustWabaId',
       exampleShrink: 'Example',
       language: 'Language',
       name: 'Name',
@@ -248,6 +259,7 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
     return {
       category: 'string',
       componentsShrink: 'string',
+      custWabaId: 'string',
       exampleShrink: 'string',
       language: 'string',
       name: 'string',
@@ -311,15 +323,18 @@ export class CreateChatappTemplateResponse extends $tea.Model {
 }
 
 export class DeleteChatappTemplateRequest extends $tea.Model {
+  custWabaId?: string;
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
+      custWabaId: 'CustWabaId',
       templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      custWabaId: 'string',
       templateCode: 'string',
     };
   }
@@ -377,21 +392,21 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
 }
 
 export class GetChatappTemplateDetailRequest extends $tea.Model {
+  custWabaId?: string;
   language?: string;
-  ownerId?: number;
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
+      custWabaId: 'CustWabaId',
       language: 'Language',
-      ownerId: 'OwnerId',
       templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      custWabaId: 'string',
       language: 'string',
-      ownerId: 'number',
       templateCode: 'string',
     };
   }
@@ -453,12 +468,14 @@ export class GetChatappTemplateDetailResponse extends $tea.Model {
 
 export class ListChatappTemplateRequest extends $tea.Model {
   auditStatus?: string;
+  custWabaId?: string;
   language?: string;
   name?: string;
   page?: ListChatappTemplateRequestPage;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
+      custWabaId: 'CustWabaId',
       language: 'Language',
       name: 'Name',
       page: 'Page',
@@ -468,6 +485,7 @@ export class ListChatappTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
+      custWabaId: 'string',
       language: 'string',
       name: 'string',
       page: ListChatappTemplateRequestPage,
@@ -481,12 +499,14 @@ export class ListChatappTemplateRequest extends $tea.Model {
 
 export class ListChatappTemplateShrinkRequest extends $tea.Model {
   auditStatus?: string;
+  custWabaId?: string;
   language?: string;
   name?: string;
   pageShrink?: string;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
+      custWabaId: 'CustWabaId',
       language: 'Language',
       name: 'Name',
       pageShrink: 'Page',
@@ -496,6 +516,7 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
+      custWabaId: 'string',
       language: 'string',
       name: 'string',
       pageShrink: 'string',
@@ -560,6 +581,7 @@ export class ListChatappTemplateResponse extends $tea.Model {
 export class SendChatappMessageRequest extends $tea.Model {
   channelType?: string;
   content?: string;
+  custWabaId?: string;
   from?: string;
   language?: string;
   messageType?: string;
@@ -572,6 +594,7 @@ export class SendChatappMessageRequest extends $tea.Model {
     return {
       channelType: 'ChannelType',
       content: 'Content',
+      custWabaId: 'CustWabaId',
       from: 'From',
       language: 'Language',
       messageType: 'MessageType',
@@ -587,6 +610,7 @@ export class SendChatappMessageRequest extends $tea.Model {
     return {
       channelType: 'string',
       content: 'string',
+      custWabaId: 'string',
       from: 'string',
       language: 'string',
       messageType: 'string',
@@ -606,6 +630,7 @@ export class SendChatappMessageRequest extends $tea.Model {
 export class SendChatappMessageShrinkRequest extends $tea.Model {
   channelType?: string;
   content?: string;
+  custWabaId?: string;
   from?: string;
   language?: string;
   messageType?: string;
@@ -618,6 +643,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
     return {
       channelType: 'ChannelType',
       content: 'Content',
+      custWabaId: 'CustWabaId',
       from: 'From',
       language: 'Language',
       messageType: 'MessageType',
@@ -633,6 +659,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
     return {
       channelType: 'string',
       content: 'string',
+      custWabaId: 'string',
       from: 'string',
       language: 'string',
       messageType: 'string',
@@ -890,6 +917,8 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
 
 export class CreateChatappTemplateRequestComponents extends $tea.Model {
   buttons?: CreateChatappTemplateRequestComponentsButtons[];
+  caption?: string;
+  fileName?: string;
   format?: string;
   text?: string;
   type?: string;
@@ -897,6 +926,8 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       buttons: 'Buttons',
+      caption: 'Caption',
+      fileName: 'FileName',
       format: 'Format',
       text: 'Text',
       type: 'Type',
@@ -907,6 +938,8 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
+      caption: 'string',
+      fileName: 'string',
       format: 'string',
       text: 'string',
       type: 'string',
@@ -974,12 +1007,16 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
 
 export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
+  caption?: string;
+  fileName?: string;
   text?: string;
   type?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
       buttons: 'Buttons',
+      caption: 'Caption',
+      fileName: 'FileName',
       text: 'Text',
       type: 'Type',
       url: 'Url',
@@ -989,6 +1026,8 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
+      caption: 'string',
+      fileName: 'string',
       text: 'string',
       type: 'string',
       url: 'string',
@@ -1155,6 +1194,10 @@ export default class Client extends OpenApi {
       body["Contacts"] = request.contactsShrink;
     }
 
+    if (!Util.isUnset(request.custWabaId)) {
+      body["CustWabaId"] = request.custWabaId;
+    }
+
     if (!Util.isUnset(request.from)) {
       body["From"] = request.from;
     }
@@ -1253,6 +1296,10 @@ export default class Client extends OpenApi {
       body["Components"] = request.componentsShrink;
     }
 
+    if (!Util.isUnset(request.custWabaId)) {
+      body["CustWabaId"] = request.custWabaId;
+    }
+
     if (!Util.isUnset(request.exampleShrink)) {
       body["Example"] = request.exampleShrink;
     }
@@ -1294,6 +1341,10 @@ export default class Client extends OpenApi {
   async deleteChatappTemplateWithOptions(request: DeleteChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChatappTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.custWabaId)) {
+      query["CustWabaId"] = request.custWabaId;
+    }
+
     if (!Util.isUnset(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
@@ -1323,12 +1374,12 @@ export default class Client extends OpenApi {
   async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.language)) {
-      query["Language"] = request.language;
+    if (!Util.isUnset(request.custWabaId)) {
+      query["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
     }
 
     if (!Util.isUnset(request.templateCode)) {
@@ -1368,6 +1419,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.custWabaId)) {
+      query["CustWabaId"] = request.custWabaId;
     }
 
     if (!Util.isUnset(request.language)) {
@@ -1428,6 +1483,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.channelType)) {
       body["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.custWabaId)) {
+      body["CustWabaId"] = request.custWabaId;
     }
 
     if (!Util.isUnset(request.from)) {
