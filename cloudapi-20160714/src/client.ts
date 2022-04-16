@@ -10939,6 +10939,7 @@ export class SetVpcAccessRequest extends $tea.Model {
   port?: number;
   securityToken?: string;
   vpcId?: string;
+  vpcTargetHostName?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -10947,6 +10948,7 @@ export class SetVpcAccessRequest extends $tea.Model {
       port: 'Port',
       securityToken: 'SecurityToken',
       vpcId: 'VpcId',
+      vpcTargetHostName: 'VpcTargetHostName',
     };
   }
 
@@ -10958,6 +10960,7 @@ export class SetVpcAccessRequest extends $tea.Model {
       port: 'number',
       securityToken: 'string',
       vpcId: 'string',
+      vpcTargetHostName: 'string',
     };
   }
 
@@ -17072,6 +17075,7 @@ export class DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribut
   regionId?: string;
   vpcAccessId?: string;
   vpcId?: string;
+  vpcTargetHostName?: string;
   static names(): { [key: string]: string } {
     return {
       createdTime: 'CreatedTime',
@@ -17082,6 +17086,7 @@ export class DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribut
       regionId: 'RegionId',
       vpcAccessId: 'VpcAccessId',
       vpcId: 'VpcId',
+      vpcTargetHostName: 'VpcTargetHostName',
     };
   }
 
@@ -17095,6 +17100,7 @@ export class DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribut
       regionId: 'string',
       vpcAccessId: 'string',
       vpcId: 'string',
+      vpcTargetHostName: 'string',
     };
   }
 
@@ -23869,6 +23875,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vpcTargetHostName)) {
+      query["VpcTargetHostName"] = request.vpcTargetHostName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
