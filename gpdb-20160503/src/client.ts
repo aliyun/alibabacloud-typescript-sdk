@@ -1995,6 +1995,87 @@ export class DescribeDataShareInstancesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDataSharePerformanceRequest extends $tea.Model {
+  endTime?: string;
+  key?: string;
+  regionId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      key: 'Key',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      key: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponseBody extends $tea.Model {
+  DBClusterId?: string;
+  endTime?: string;
+  performanceKeys?: DescribeDataSharePerformanceResponseBodyPerformanceKeys[];
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      endTime: 'EndTime',
+      performanceKeys: 'PerformanceKeys',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      endTime: 'string',
+      performanceKeys: { 'type': 'array', 'itemType': DescribeDataSharePerformanceResponseBodyPerformanceKeys },
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDataSharePerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDataSharePerformanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHealthStatusRequest extends $tea.Model {
   DBInstanceId?: string;
   key?: string;
@@ -4994,17 +5075,27 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
   DBInstanceClass?: string;
   DBInstanceGroupCount?: string;
   DBInstanceId?: string;
+  instanceSpec?: string;
   ownerId?: number;
   payType?: string;
   regionId?: string;
+  segNodeNum?: string;
+  storageSize?: string;
+  masterNodeNum?: string;
+  upgradeType?: number;
   static names(): { [key: string]: string } {
     return {
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceGroupCount: 'DBInstanceGroupCount',
       DBInstanceId: 'DBInstanceId',
+      instanceSpec: 'InstanceSpec',
       ownerId: 'OwnerId',
       payType: 'PayType',
       regionId: 'RegionId',
+      segNodeNum: 'SegNodeNum',
+      storageSize: 'StorageSize',
+      masterNodeNum: 'masterNodeNum',
+      upgradeType: 'upgradeType',
     };
   }
 
@@ -5013,9 +5104,14 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
       DBInstanceClass: 'string',
       DBInstanceGroupCount: 'string',
       DBInstanceId: 'string',
+      instanceSpec: 'string',
       ownerId: 'number',
       payType: 'string',
       regionId: 'string',
+      segNodeNum: 'string',
+      storageSize: 'string',
+      masterNodeNum: 'string',
+      upgradeType: 'number',
     };
   }
 
@@ -5469,6 +5565,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   availabilityValue?: string;
   connectionMode?: string;
   connectionString?: string;
+  coreVersion?: string;
   cpuCores?: number;
   cpuCoresPerNode?: number;
   creationTime?: string;
@@ -5523,6 +5620,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       availabilityValue: 'AvailabilityValue',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
+      coreVersion: 'CoreVersion',
       cpuCores: 'CpuCores',
       cpuCoresPerNode: 'CpuCoresPerNode',
       creationTime: 'CreationTime',
@@ -5580,6 +5678,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       availabilityValue: 'string',
       connectionMode: 'string',
       connectionString: 'string',
+      coreVersion: 'string',
       cpuCores: 'number',
       cpuCoresPerNode: 'number',
       creationTime: 'string',
@@ -6242,6 +6341,72 @@ export class DescribeDataShareInstancesResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstance: { 'type': 'array', 'itemType': DescribeDataShareInstancesResponseBodyItemsDBInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues extends $tea.Model {
+  point?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      point: 'Point',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      point: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries extends $tea.Model {
+  name?: string;
+  values?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $tea.Model {
+  name?: string;
+  series?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries[];
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      series: 'Series',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      series: { 'type': 'array', 'itemType': DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries },
+      unit: 'string',
     };
   }
 
@@ -8712,6 +8877,47 @@ export default class Client extends OpenApi {
     return await this.describeDataShareInstancesWithOptions(request, runtime);
   }
 
+  async describeDataSharePerformanceWithOptions(request: DescribeDataSharePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataSharePerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDataSharePerformance",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataSharePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDataSharePerformanceResponse({}));
+  }
+
+  async describeDataSharePerformance(request: DescribeDataSharePerformanceRequest): Promise<DescribeDataSharePerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDataSharePerformanceWithOptions(request, runtime);
+  }
+
   async describeHealthStatusWithOptions(request: DescribeHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10480,6 +10686,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.instanceSpec)) {
+      query["InstanceSpec"] = request.instanceSpec;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -10490,6 +10700,22 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.segNodeNum)) {
+      query["SegNodeNum"] = request.segNodeNum;
+    }
+
+    if (!Util.isUnset(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
+    }
+
+    if (!Util.isUnset(request.masterNodeNum)) {
+      query["masterNodeNum"] = request.masterNodeNum;
+    }
+
+    if (!Util.isUnset(request.upgradeType)) {
+      query["upgradeType"] = request.upgradeType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
