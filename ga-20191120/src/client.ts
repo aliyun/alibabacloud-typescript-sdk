@@ -798,20 +798,26 @@ export class CreateApplicationMonitorRequest extends $tea.Model {
   acceleratorId?: string;
   address?: string;
   clientToken?: string;
+  detectEnable?: boolean;
   detectThreshold?: number;
+  detectTimes?: number;
   listenerId?: string;
   optionsJson?: string;
   regionId?: string;
+  silenceTime?: number;
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
       address: 'Address',
       clientToken: 'ClientToken',
+      detectEnable: 'DetectEnable',
       detectThreshold: 'DetectThreshold',
+      detectTimes: 'DetectTimes',
       listenerId: 'ListenerId',
       optionsJson: 'OptionsJson',
       regionId: 'RegionId',
+      silenceTime: 'SilenceTime',
       taskName: 'TaskName',
     };
   }
@@ -821,10 +827,13 @@ export class CreateApplicationMonitorRequest extends $tea.Model {
       acceleratorId: 'string',
       address: 'string',
       clientToken: 'string',
+      detectEnable: 'boolean',
       detectThreshold: 'number',
+      detectTimes: 'number',
       listenerId: 'string',
       optionsJson: 'string',
       regionId: 'string',
+      silenceTime: 'number',
       taskName: 'string',
     };
   }
@@ -2898,24 +2907,30 @@ export class DescribeApplicationMonitorRequest extends $tea.Model {
 export class DescribeApplicationMonitorResponseBody extends $tea.Model {
   acceleratorId?: string;
   address?: string;
-  detectThreshold?: string;
+  detectEnable?: boolean;
+  detectThreshold?: number;
+  detectTimes?: number;
   ispCityList?: DescribeApplicationMonitorResponseBodyIspCityList[];
   listenerId?: string;
   optionsJson?: string;
   regionId?: string;
   requestId?: string;
+  silenceTime?: number;
   taskId?: string;
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
       address: 'Address',
+      detectEnable: 'DetectEnable',
       detectThreshold: 'DetectThreshold',
+      detectTimes: 'DetectTimes',
       ispCityList: 'IspCityList',
       listenerId: 'ListenerId',
       optionsJson: 'OptionsJson',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      silenceTime: 'SilenceTime',
       taskId: 'TaskId',
       taskName: 'TaskName',
     };
@@ -2925,12 +2940,15 @@ export class DescribeApplicationMonitorResponseBody extends $tea.Model {
     return {
       acceleratorId: 'string',
       address: 'string',
-      detectThreshold: 'string',
+      detectEnable: 'boolean',
+      detectThreshold: 'number',
+      detectTimes: 'number',
       ispCityList: { 'type': 'array', 'itemType': DescribeApplicationMonitorResponseBodyIspCityList },
       listenerId: 'string',
       optionsJson: 'string',
       regionId: 'string',
       requestId: 'string',
+      silenceTime: 'number',
       taskId: 'string',
       taskName: 'string',
     };
@@ -6350,20 +6368,26 @@ export class UpdateAclAttributeResponse extends $tea.Model {
 export class UpdateApplicationMonitorRequest extends $tea.Model {
   address?: string;
   clientToken?: string;
+  detectEnable?: boolean;
   detectThreshold?: number;
+  detectTimes?: number;
   listenerId?: string;
   optionsJson?: string;
   regionId?: string;
+  silenceTime?: number;
   taskId?: string;
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
       clientToken: 'ClientToken',
+      detectEnable: 'DetectEnable',
       detectThreshold: 'DetectThreshold',
+      detectTimes: 'DetectTimes',
       listenerId: 'ListenerId',
       optionsJson: 'OptionsJson',
       regionId: 'RegionId',
+      silenceTime: 'SilenceTime',
       taskId: 'TaskId',
       taskName: 'TaskName',
     };
@@ -6373,10 +6397,13 @@ export class UpdateApplicationMonitorRequest extends $tea.Model {
     return {
       address: 'string',
       clientToken: 'string',
+      detectEnable: 'boolean',
       detectThreshold: 'number',
+      detectTimes: 'number',
       listenerId: 'string',
       optionsJson: 'string',
       regionId: 'string',
+      silenceTime: 'number',
       taskId: 'string',
       taskName: 'string',
     };
@@ -8456,9 +8483,12 @@ export class ListAclsResponseBodyAcls extends $tea.Model {
 export class ListApplicationMonitorResponseBodyApplicationMonitors extends $tea.Model {
   acceleratorId?: string;
   address?: string;
+  detectEnable?: boolean;
   detectThreshold?: number;
+  detectTimes?: number;
   listenerId?: string;
   optionsJson?: string;
+  silenceTime?: number;
   state?: string;
   taskId?: string;
   taskName?: string;
@@ -8466,9 +8496,12 @@ export class ListApplicationMonitorResponseBodyApplicationMonitors extends $tea.
     return {
       acceleratorId: 'AcceleratorId',
       address: 'Address',
+      detectEnable: 'DetectEnable',
       detectThreshold: 'DetectThreshold',
+      detectTimes: 'DetectTimes',
       listenerId: 'ListenerId',
       optionsJson: 'OptionsJson',
+      silenceTime: 'SilenceTime',
       state: 'State',
       taskId: 'TaskId',
       taskName: 'TaskName',
@@ -8479,9 +8512,12 @@ export class ListApplicationMonitorResponseBodyApplicationMonitors extends $tea.
     return {
       acceleratorId: 'string',
       address: 'string',
+      detectEnable: 'boolean',
       detectThreshold: 'number',
+      detectTimes: 'number',
       listenerId: 'string',
       optionsJson: 'string',
+      silenceTime: 'number',
       state: 'string',
       taskId: 'string',
       taskName: 'string',
@@ -8495,20 +8531,26 @@ export class ListApplicationMonitorResponseBodyApplicationMonitors extends $tea.
 
 export class ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDetectResultList extends $tea.Model {
   acceleratorId?: string;
+  content?: string;
   detail?: string;
+  detectTime?: string;
   diagStatus?: string;
   listenerId?: string;
   port?: string;
   protocol?: string;
+  statusCode?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorId: 'AcceleratorId',
+      content: 'Content',
       detail: 'Detail',
+      detectTime: 'DetectTime',
       diagStatus: 'DiagStatus',
       listenerId: 'ListenerId',
       port: 'Port',
       protocol: 'Protocol',
+      statusCode: 'StatusCode',
       taskId: 'TaskId',
     };
   }
@@ -8516,11 +8558,14 @@ export class ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDet
   static types(): { [key: string]: any } {
     return {
       acceleratorId: 'string',
+      content: 'string',
       detail: 'string',
+      detectTime: 'string',
       diagStatus: 'string',
       listenerId: 'string',
       port: 'string',
       protocol: 'string',
+      statusCode: 'string',
       taskId: 'string',
     };
   }
@@ -10409,8 +10454,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.detectEnable)) {
+      query["DetectEnable"] = request.detectEnable;
+    }
+
     if (!Util.isUnset(request.detectThreshold)) {
       query["DetectThreshold"] = request.detectThreshold;
+    }
+
+    if (!Util.isUnset(request.detectTimes)) {
+      query["DetectTimes"] = request.detectTimes;
     }
 
     if (!Util.isUnset(request.listenerId)) {
@@ -10423,6 +10476,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.silenceTime)) {
+      query["SilenceTime"] = request.silenceTime;
     }
 
     if (!Util.isUnset(request.taskName)) {
@@ -13379,8 +13436,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.detectEnable)) {
+      query["DetectEnable"] = request.detectEnable;
+    }
+
     if (!Util.isUnset(request.detectThreshold)) {
       query["DetectThreshold"] = request.detectThreshold;
+    }
+
+    if (!Util.isUnset(request.detectTimes)) {
+      query["DetectTimes"] = request.detectTimes;
     }
 
     if (!Util.isUnset(request.listenerId)) {
@@ -13393,6 +13458,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.silenceTime)) {
+      query["SilenceTime"] = request.silenceTime;
     }
 
     if (!Util.isUnset(request.taskId)) {
