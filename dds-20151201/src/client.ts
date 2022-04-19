@@ -446,7 +446,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
   databaseNames?: string;
   engine?: string;
   engineVersion?: string;
-  hiddenZoneId?: string;
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -458,7 +457,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   restoreTime?: string;
-  secondaryZoneId?: string;
   securityIPList?: string;
   securityToken?: string;
   srcDBInstanceId?: string;
@@ -482,7 +480,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
       databaseNames: 'DatabaseNames',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
-      hiddenZoneId: 'HiddenZoneId',
       networkType: 'NetworkType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -494,7 +491,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
-      secondaryZoneId: 'SecondaryZoneId',
       securityIPList: 'SecurityIPList',
       securityToken: 'SecurityToken',
       srcDBInstanceId: 'SrcDBInstanceId',
@@ -521,7 +517,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
       databaseNames: 'string',
       engine: 'string',
       engineVersion: 'string',
-      hiddenZoneId: 'string',
       networkType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -533,7 +528,6 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreTime: 'string',
-      secondaryZoneId: 'string',
       securityIPList: 'string',
       securityToken: 'string',
       srcDBInstanceId: 'string',
@@ -792,90 +786,6 @@ export class CreateNodeBatchResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateNodeBatchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRecommendationTaskRequest extends $tea.Model {
-  endTime?: string;
-  instanceId?: string;
-  nodeId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      nodeId: 'NodeId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      instanceId: 'string',
-      nodeId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRecommendationTaskResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRecommendationTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateRecommendationTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateRecommendationTaskResponseBody,
     };
   }
 
@@ -1565,102 +1475,6 @@ export class DescribeActiveOperationTaskTypeResponse extends $tea.Model {
   }
 }
 
-export class DescribeAuditFilesRequest extends $tea.Model {
-  DBInstanceId?: string;
-  nodeId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      nodeId: 'NodeId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      nodeId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAuditFilesResponseBody extends $tea.Model {
-  items?: DescribeAuditFilesResponseBodyItems;
-  pageNumber?: number;
-  pageRecordCount?: number;
-  requestId?: string;
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: DescribeAuditFilesResponseBodyItems,
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAuditFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAuditFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAuditFilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAuditLogFilterRequest extends $tea.Model {
   DBInstanceId?: string;
   ownerAccount?: string;
@@ -2100,87 +1914,6 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAvailableResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableTimeRangeRequest extends $tea.Model {
-  instanceId?: string;
-  nodeId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      nodeId: 'NodeId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      nodeId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableTimeRangeResponseBody extends $tea.Model {
-  requestId?: string;
-  timeRange?: DescribeAvailableTimeRangeResponseBodyTimeRange;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      timeRange: 'TimeRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      timeRange: DescribeAvailableTimeRangeResponseBodyTimeRange,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableTimeRangeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAvailableTimeRangeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAvailableTimeRangeResponseBody,
     };
   }
 
@@ -4182,6 +3915,7 @@ export class DescribePriceResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -4190,6 +3924,7 @@ export class DescribeRegionsRequest extends $tea.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      acceptLanguage: 'AcceptLanguage',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -4201,6 +3936,7 @@ export class DescribeRegionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceptLanguage: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -8546,59 +8282,6 @@ export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $tea.Mo
   }
 }
 
-export class DescribeAuditFilesResponseBodyItemsLogFile extends $tea.Model {
-  fileID?: number;
-  logDownloadURL?: string;
-  logEndTime?: string;
-  logSize?: number;
-  logStartTime?: string;
-  logStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileID: 'FileID',
-      logDownloadURL: 'LogDownloadURL',
-      logEndTime: 'LogEndTime',
-      logSize: 'LogSize',
-      logStartTime: 'LogStartTime',
-      logStatus: 'LogStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileID: 'number',
-      logDownloadURL: 'string',
-      logEndTime: 'string',
-      logSize: 'number',
-      logStartTime: 'string',
-      logStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAuditFilesResponseBodyItems extends $tea.Model {
-  logFile?: DescribeAuditFilesResponseBodyItemsLogFile[];
-  static names(): { [key: string]: string } {
-    return {
-      logFile: 'LogFile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logFile: { 'type': 'array', 'itemType': DescribeAuditFilesResponseBodyItemsLogFile },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAuditRecordsResponseBodyItemsSQLRecord extends $tea.Model {
   accountName?: string;
   DBName?: string;
@@ -8924,56 +8607,6 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypes extends $tea.
   static types(): { [key: string]: any } {
     return {
       supportedDBType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableTimeRangeResponseBodyTimeRangeTimeRange extends $tea.Model {
-  endTime?: string;
-  nodeId?: string;
-  startTime?: string;
-  status?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      nodeId: 'NodeId',
-      startTime: 'StartTime',
-      status: 'Status',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      nodeId: 'string',
-      startTime: 'string',
-      status: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableTimeRangeResponseBodyTimeRange extends $tea.Model {
-  timeRange?: DescribeAvailableTimeRangeResponseBodyTimeRangeTimeRange[];
-  static names(): { [key: string]: string } {
-    return {
-      timeRange: 'TimeRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeRange: { 'type': 'array', 'itemType': DescribeAvailableTimeRangeResponseBodyTimeRangeTimeRange },
     };
   }
 
@@ -10816,10 +10449,12 @@ export class DescribeRegionsResponseBodyRegionsDdsRegionZones extends $tea.Model
 
 export class DescribeRegionsResponseBodyRegionsDdsRegion extends $tea.Model {
   regionId?: string;
+  regionName?: string;
   zones?: DescribeRegionsResponseBodyRegionsDdsRegionZones;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      regionName: 'RegionName',
       zones: 'Zones',
     };
   }
@@ -10827,6 +10462,7 @@ export class DescribeRegionsResponseBodyRegionsDdsRegion extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      regionName: 'string',
       zones: DescribeRegionsResponseBodyRegionsDdsRegionZones,
     };
   }
@@ -12057,10 +11693,6 @@ export default class Client extends OpenApi {
       query["EngineVersion"] = request.engineVersion;
     }
 
-    if (!Util.isUnset(request.hiddenZoneId)) {
-      query["HiddenZoneId"] = request.hiddenZoneId;
-    }
-
     if (!Util.isUnset(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
@@ -12103,10 +11735,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.restoreTime)) {
       query["RestoreTime"] = request.restoreTime;
-    }
-
-    if (!Util.isUnset(request.secondaryZoneId)) {
-      query["SecondaryZoneId"] = request.secondaryZoneId;
     }
 
     if (!Util.isUnset(request.securityIPList)) {
@@ -12311,67 +11939,6 @@ export default class Client extends OpenApi {
   async createNodeBatch(request: CreateNodeBatchRequest): Promise<CreateNodeBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNodeBatchWithOptions(request, runtime);
-  }
-
-  async createRecommendationTaskWithOptions(request: CreateRecommendationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecommendationTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.nodeId)) {
-      query["NodeId"] = request.nodeId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateRecommendationTask",
-      version: "2015-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateRecommendationTaskResponse>(await this.callApi(params, req, runtime), new CreateRecommendationTaskResponse({}));
-  }
-
-  async createRecommendationTask(request: CreateRecommendationTaskRequest): Promise<CreateRecommendationTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRecommendationTaskWithOptions(request, runtime);
   }
 
   async createServerlessDBInstanceWithOptions(request: CreateServerlessDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerlessDBInstanceResponse> {
@@ -12885,67 +12452,6 @@ export default class Client extends OpenApi {
     return await this.describeActiveOperationTaskTypeWithOptions(request, runtime);
   }
 
-  async describeAuditFilesWithOptions(request: DescribeAuditFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditFilesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.nodeId)) {
-      query["NodeId"] = request.nodeId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeAuditFiles",
-      version: "2015-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeAuditFilesResponse>(await this.callApi(params, req, runtime), new DescribeAuditFilesResponse({}));
-  }
-
-  async describeAuditFiles(request: DescribeAuditFilesRequest): Promise<DescribeAuditFilesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAuditFilesWithOptions(request, runtime);
-  }
-
   async describeAuditLogFilterWithOptions(request: DescribeAuditLogFilterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogFilterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13249,59 +12755,6 @@ export default class Client extends OpenApi {
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(request, runtime);
-  }
-
-  async describeAvailableTimeRangeWithOptions(request: DescribeAvailableTimeRangeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableTimeRangeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.nodeId)) {
-      query["NodeId"] = request.nodeId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeAvailableTimeRange",
-      version: "2015-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeAvailableTimeRangeResponse>(await this.callApi(params, req, runtime), new DescribeAvailableTimeRangeResponse({}));
-  }
-
-  async describeAvailableTimeRange(request: DescribeAvailableTimeRangeRequest): Promise<DescribeAvailableTimeRangeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAvailableTimeRangeWithOptions(request, runtime);
   }
 
   async describeBackupDBsWithOptions(request: DescribeBackupDBsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDBsResponse> {
@@ -14643,6 +14096,10 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
