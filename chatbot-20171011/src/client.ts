@@ -1399,6 +1399,90 @@ export class CreateCoreWordResponse extends $tea.Model {
   }
 }
 
+export class CreateDSEntityRequest extends $tea.Model {
+  entityName?: string;
+  entityType?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityName: 'EntityName',
+      entityType: 'EntityType',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityName: 'string',
+      entityType: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDSEntityResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  entityId?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      entityId: 'EntityId',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      entityId: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDSEntityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDSEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDSEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDialogRequest extends $tea.Model {
   agentKey?: string;
   description?: string;
@@ -4507,6 +4591,90 @@ export class ListConversationLogsResponse extends $tea.Model {
   }
 }
 
+export class ListDSEntityRequest extends $tea.Model {
+  instanceId?: string;
+  keyword?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      keyword: 'Keyword',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      keyword: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDSEntityResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDSEntityResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDSEntityResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDSEntityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDSEntityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDSEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MoveKnowledgeCategoryRequest extends $tea.Model {
   agentKey?: string;
   categoryId?: number;
@@ -6587,10 +6755,12 @@ export class CreateEntityRequestMembers extends $tea.Model {
 
 export class CreateKnowledgeRequestKnowledgeOutlines extends $tea.Model {
   knowledgeId?: number;
+  outlineId?: number;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       knowledgeId: 'KnowledgeId',
+      outlineId: 'OutlineId',
       title: 'Title',
     };
   }
@@ -6598,6 +6768,7 @@ export class CreateKnowledgeRequestKnowledgeOutlines extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       knowledgeId: 'number',
+      outlineId: 'number',
       title: 'string',
     };
   }
@@ -6957,6 +7128,143 @@ export class DescribeKnowledgeResponseBodySolutions extends $tea.Model {
       plainText: 'string',
       solutionId: 'number',
       summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDSEntityResponseBodyDataEntities extends $tea.Model {
+  action?: string;
+  appKey?: string;
+  callerBid?: string;
+  callerBidLoginEmail?: string;
+  callerUid?: number;
+  callerUidLoginEmail?: string;
+  channel?: string;
+  clientIP?: string;
+  createTime?: string;
+  createUserId?: string;
+  createUserName?: string;
+  enable?: boolean;
+  entityId?: number;
+  entityName?: string;
+  entityType?: string;
+  modifyTime?: string;
+  modifyUserId?: string;
+  modifyUserName?: string;
+  operator?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  ownerIdLoginEmail?: string;
+  proxyId?: string;
+  requestContent?: string;
+  requestId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tenantId?: number;
+  token?: string;
+  userId?: number;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      appKey: 'AppKey',
+      callerBid: 'CallerBid',
+      callerBidLoginEmail: 'CallerBidLoginEmail',
+      callerUid: 'CallerUid',
+      callerUidLoginEmail: 'CallerUidLoginEmail',
+      channel: 'Channel',
+      clientIP: 'ClientIP',
+      createTime: 'CreateTime',
+      createUserId: 'CreateUserId',
+      createUserName: 'CreateUserName',
+      enable: 'Enable',
+      entityId: 'EntityId',
+      entityName: 'EntityName',
+      entityType: 'EntityType',
+      modifyTime: 'ModifyTime',
+      modifyUserId: 'ModifyUserId',
+      modifyUserName: 'ModifyUserName',
+      operator: 'Operator',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      ownerIdLoginEmail: 'OwnerIdLoginEmail',
+      proxyId: 'ProxyId',
+      requestContent: 'RequestContent',
+      requestId: 'RequestId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tenantId: 'TenantId',
+      token: 'Token',
+      userId: 'UserId',
+      userNick: 'UserNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      appKey: 'string',
+      callerBid: 'string',
+      callerBidLoginEmail: 'string',
+      callerUid: 'number',
+      callerUidLoginEmail: 'string',
+      channel: 'string',
+      clientIP: 'string',
+      createTime: 'string',
+      createUserId: 'string',
+      createUserName: 'string',
+      enable: 'boolean',
+      entityId: 'number',
+      entityName: 'string',
+      entityType: 'string',
+      modifyTime: 'string',
+      modifyUserId: 'string',
+      modifyUserName: 'string',
+      operator: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      ownerIdLoginEmail: 'string',
+      proxyId: 'string',
+      requestContent: 'string',
+      requestId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tenantId: 'number',
+      token: 'string',
+      userId: 'number',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDSEntityResponseBodyData extends $tea.Model {
+  entities?: ListDSEntityResponseBodyDataEntities[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      entities: 'Entities',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entities: { 'type': 'array', 'itemType': ListDSEntityResponseBodyDataEntities },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -8038,6 +8346,43 @@ export default class Client extends OpenApi {
   async createCoreWord(request: CreateCoreWordRequest): Promise<CreateCoreWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCoreWordWithOptions(request, runtime);
+  }
+
+  async createDSEntityWithOptions(request: CreateDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entityName)) {
+      query["EntityName"] = request.entityName;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDSEntity",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDSEntityResponse>(await this.callApi(params, req, runtime), new CreateDSEntityResponse({}));
+  }
+
+  async createDSEntity(request: CreateDSEntityRequest): Promise<CreateDSEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDSEntityWithOptions(request, runtime);
   }
 
   async createDialogWithOptions(request: CreateDialogRequest, runtime: $Util.RuntimeOptions): Promise<CreateDialogResponse> {
@@ -9533,6 +9878,47 @@ export default class Client extends OpenApi {
   async listConversationLogs(request: ListConversationLogsRequest): Promise<ListConversationLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConversationLogsWithOptions(request, runtime);
+  }
+
+  async listDSEntityWithOptions(request: ListDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListDSEntityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDSEntity",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDSEntityResponse>(await this.callApi(params, req, runtime), new ListDSEntityResponse({}));
+  }
+
+  async listDSEntity(request: ListDSEntityRequest): Promise<ListDSEntityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDSEntityWithOptions(request, runtime);
   }
 
   async moveKnowledgeCategoryWithOptions(request: MoveKnowledgeCategoryRequest, runtime: $Util.RuntimeOptions): Promise<MoveKnowledgeCategoryResponse> {
