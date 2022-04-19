@@ -10,18 +10,15 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AddVpcHoneyPotRequest extends $tea.Model {
   vpcId?: string;
-  vpcSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
-      vpcSwitchId: 'VpcSwitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       vpcId: 'string',
-      vpcSwitchId: 'string',
     };
   }
 
@@ -498,6 +495,84 @@ export class CreateSimilarSecurityEventsQueryTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateSimilarSecurityEventsQueryTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVulAutoRepairConfigRequest extends $tea.Model {
+  reason?: string;
+  type?: string;
+  vulAutoRepairConfigList?: CreateVulAutoRepairConfigRequestVulAutoRepairConfigList[];
+  static names(): { [key: string]: string } {
+    return {
+      reason: 'Reason',
+      type: 'Type',
+      vulAutoRepairConfigList: 'VulAutoRepairConfigList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reason: 'string',
+      type: 'string',
+      vulAutoRepairConfigList: { 'type': 'array', 'itemType': CreateVulAutoRepairConfigRequestVulAutoRepairConfigList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVulAutoRepairConfigResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVulAutoRepairConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateVulAutoRepairConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateVulAutoRepairConfigResponseBody,
     };
   }
 
@@ -12712,6 +12787,108 @@ export class QueryGroupIdByGroupNameResponse extends $tea.Model {
   }
 }
 
+export class QueryGroupedSecurityEventMarkMissListRequest extends $tea.Model {
+  currentPage?: number;
+  eventName?: string;
+  from?: string;
+  lang?: string;
+  maxId?: number;
+  pageSize?: number;
+  remark?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      eventName: 'EventName',
+      from: 'From',
+      lang: 'Lang',
+      maxId: 'MaxId',
+      pageSize: 'PageSize',
+      remark: 'Remark',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      eventName: 'string',
+      from: 'string',
+      lang: 'string',
+      maxId: 'number',
+      pageSize: 'number',
+      remark: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupedSecurityEventMarkMissListResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  list?: QueryGroupedSecurityEventMarkMissListResponseBodyList[];
+  message?: string;
+  pageInfo?: QueryGroupedSecurityEventMarkMissListResponseBodyPageInfo;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      list: 'List',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      list: { 'type': 'array', 'itemType': QueryGroupedSecurityEventMarkMissListResponseBodyList },
+      message: 'string',
+      pageInfo: QueryGroupedSecurityEventMarkMissListResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupedSecurityEventMarkMissListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryGroupedSecurityEventMarkMissListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryGroupedSecurityEventMarkMissListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshAssetsRequest extends $tea.Model {
   assetType?: string;
   static names(): { [key: string]: string } {
@@ -13408,6 +13585,28 @@ export class CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecuri
     return {
       status: 'string',
       taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVulAutoRepairConfigRequestVulAutoRepairConfigList extends $tea.Model {
+  aliasName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      name: 'string',
     };
   }
 
@@ -17854,6 +18053,7 @@ export class DescribeSecurityEventOperationsResponseBodySecurityEventOperationsR
   markMisType?: string;
   markMisValue?: string;
   supportedMisType?: string[];
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       filedAliasName: 'FiledAliasName',
@@ -17861,6 +18061,7 @@ export class DescribeSecurityEventOperationsResponseBodySecurityEventOperationsR
       markMisType: 'MarkMisType',
       markMisValue: 'MarkMisValue',
       supportedMisType: 'SupportedMisType',
+      uuid: 'Uuid',
     };
   }
 
@@ -17871,6 +18072,7 @@ export class DescribeSecurityEventOperationsResponseBodySecurityEventOperationsR
       markMisType: 'string',
       markMisValue: 'string',
       supportedMisType: { 'type': 'array', 'itemType': 'string' },
+      uuid: 'string',
     };
   }
 
@@ -19526,6 +19728,86 @@ export class OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList 
   }
 }
 
+export class QueryGroupedSecurityEventMarkMissListResponseBodyList extends $tea.Model {
+  aliUid?: number;
+  eventName?: string;
+  eventNameOriginal?: string;
+  eventType?: string;
+  eventTypeOriginal?: string;
+  field?: string;
+  fieldValue?: string;
+  filedAliasName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  operate?: string;
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      eventName: 'EventName',
+      eventNameOriginal: 'EventNameOriginal',
+      eventType: 'EventType',
+      eventTypeOriginal: 'EventTypeOriginal',
+      field: 'Field',
+      fieldValue: 'FieldValue',
+      filedAliasName: 'FiledAliasName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      operate: 'Operate',
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      eventName: 'string',
+      eventNameOriginal: 'string',
+      eventType: 'string',
+      eventTypeOriginal: 'string',
+      field: 'string',
+      fieldValue: 'string',
+      filedAliasName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      operate: 'string',
+      uuids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupedSecurityEventMarkMissListResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -19613,10 +19895,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
-    }
-
-    if (!Util.isUnset(request.vpcSwitchId)) {
-      query["VpcSwitchId"] = request.vpcSwitchId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -19879,6 +20157,43 @@ export default class Client extends OpenApi {
   async createSimilarSecurityEventsQueryTask(request: CreateSimilarSecurityEventsQueryTaskRequest): Promise<CreateSimilarSecurityEventsQueryTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSimilarSecurityEventsQueryTaskWithOptions(request, runtime);
+  }
+
+  async createVulAutoRepairConfigWithOptions(request: CreateVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateVulAutoRepairConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.vulAutoRepairConfigList)) {
+      query["VulAutoRepairConfigList"] = request.vulAutoRepairConfigList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVulAutoRepairConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVulAutoRepairConfigResponse>(await this.callApi(params, req, runtime), new CreateVulAutoRepairConfigResponse({}));
+  }
+
+  async createVulAutoRepairConfig(request: CreateVulAutoRepairConfigRequest): Promise<CreateVulAutoRepairConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVulAutoRepairConfigWithOptions(request, runtime);
   }
 
   async deleteBackupPolicyWithOptions(request: DeleteBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupPolicyResponse> {
@@ -26789,6 +27104,65 @@ export default class Client extends OpenApi {
   async queryGroupIdByGroupName(request: QueryGroupIdByGroupNameRequest): Promise<QueryGroupIdByGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGroupIdByGroupNameWithOptions(request, runtime);
+  }
+
+  async queryGroupedSecurityEventMarkMissListWithOptions(request: QueryGroupedSecurityEventMarkMissListRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupedSecurityEventMarkMissListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      body["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      body["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.maxId)) {
+      body["MaxId"] = request.maxId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      body["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGroupedSecurityEventMarkMissList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGroupedSecurityEventMarkMissListResponse>(await this.callApi(params, req, runtime), new QueryGroupedSecurityEventMarkMissListResponse({}));
+  }
+
+  async queryGroupedSecurityEventMarkMissList(request: QueryGroupedSecurityEventMarkMissListRequest): Promise<QueryGroupedSecurityEventMarkMissListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGroupedSecurityEventMarkMissListWithOptions(request, runtime);
   }
 
   async refreshAssetsWithOptions(request: RefreshAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAssetsResponse> {
