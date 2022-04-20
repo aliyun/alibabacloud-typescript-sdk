@@ -4153,6 +4153,7 @@ export class DescribeGroupedTagsResponse extends $tea.Model {
 
 export class DescribeGroupedVulRequest extends $tea.Model {
   aliasName?: string;
+  attachTypes?: string;
   currentPage?: number;
   dealed?: string;
   groupId?: string;
@@ -4165,6 +4166,7 @@ export class DescribeGroupedVulRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      attachTypes: 'AttachTypes',
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       groupId: 'GroupId',
@@ -4180,6 +4182,7 @@ export class DescribeGroupedVulRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      attachTypes: 'string',
       currentPage: 'number',
       dealed: 'string',
       groupId: 'string',
@@ -22134,6 +22137,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aliasName)) {
       query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.attachTypes)) {
+      query["AttachTypes"] = request.attachTypes;
     }
 
     if (!Util.isUnset(request.currentPage)) {
