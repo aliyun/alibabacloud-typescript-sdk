@@ -284,84 +284,6 @@ export class BatchRobotSmartCallResponse extends $tea.Model {
   }
 }
 
-export class CancelCallRequest extends $tea.Model {
-  callId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      callId: 'CallId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelCallResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  status?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      status: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CancelCallResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CancelCallResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CancelOrderRobotTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -510,108 +432,6 @@ export class CancelRobotTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CancelRobotTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClickToDialRequest extends $tea.Model {
-  asrFlag?: boolean;
-  asrModelId?: string;
-  calledNumber?: string;
-  calledShowNumber?: string;
-  callerNumber?: string;
-  callerShowNumber?: string;
-  outId?: string;
-  ownerId?: number;
-  recordFlag?: boolean;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  sessionTimeout?: number;
-  static names(): { [key: string]: string } {
-    return {
-      asrFlag: 'AsrFlag',
-      asrModelId: 'AsrModelId',
-      calledNumber: 'CalledNumber',
-      calledShowNumber: 'CalledShowNumber',
-      callerNumber: 'CallerNumber',
-      callerShowNumber: 'CallerShowNumber',
-      outId: 'OutId',
-      ownerId: 'OwnerId',
-      recordFlag: 'RecordFlag',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      sessionTimeout: 'SessionTimeout',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asrFlag: 'boolean',
-      asrModelId: 'string',
-      calledNumber: 'string',
-      calledShowNumber: 'string',
-      callerNumber: 'string',
-      callerShowNumber: 'string',
-      outId: 'string',
-      ownerId: 'number',
-      recordFlag: 'boolean',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      sessionTimeout: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClickToDialResponseBody extends $tea.Model {
-  callId?: string;
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callId: 'CallId',
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callId: 'string',
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClickToDialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ClickToDialResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ClickToDialResponseBody,
     };
   }
 
@@ -2984,6 +2804,84 @@ export class QueryVoiceFileAuditInfoResponse extends $tea.Model {
   }
 }
 
+export class RecoverCallInConfigRequest extends $tea.Model {
+  number?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverCallInConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoverCallInConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecoverCallInConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecoverCallInConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshMqttTokenRequest extends $tea.Model {
   clientId?: string;
   ownerId?: number;
@@ -3738,6 +3636,84 @@ export class StartRobotTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StartRobotTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCallInConfigRequest extends $tea.Model {
+  number?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCallInConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCallInConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopCallInConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopCallInConfigResponseBody,
     };
   }
 
@@ -4776,47 +4752,6 @@ export default class Client extends OpenApi {
     return await this.batchRobotSmartCallWithOptions(request, runtime);
   }
 
-  async cancelCallWithOptions(request: CancelCallRequest, runtime: $Util.RuntimeOptions): Promise<CancelCallResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.callId)) {
-      query["CallId"] = request.callId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CancelCall",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelCallResponse>(await this.callApi(params, req, runtime), new CancelCallResponse({}));
-  }
-
-  async cancelCall(request: CancelCallRequest): Promise<CancelCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelCallWithOptions(request, runtime);
-  }
-
   async cancelOrderRobotTaskWithOptions(request: CancelOrderRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4897,79 +4832,6 @@ export default class Client extends OpenApi {
   async cancelRobotTask(request: CancelRobotTaskRequest): Promise<CancelRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelRobotTaskWithOptions(request, runtime);
-  }
-
-  async clickToDialWithOptions(request: ClickToDialRequest, runtime: $Util.RuntimeOptions): Promise<ClickToDialResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.asrFlag)) {
-      query["AsrFlag"] = request.asrFlag;
-    }
-
-    if (!Util.isUnset(request.asrModelId)) {
-      query["AsrModelId"] = request.asrModelId;
-    }
-
-    if (!Util.isUnset(request.calledNumber)) {
-      query["CalledNumber"] = request.calledNumber;
-    }
-
-    if (!Util.isUnset(request.calledShowNumber)) {
-      query["CalledShowNumber"] = request.calledShowNumber;
-    }
-
-    if (!Util.isUnset(request.callerNumber)) {
-      query["CallerNumber"] = request.callerNumber;
-    }
-
-    if (!Util.isUnset(request.callerShowNumber)) {
-      query["CallerShowNumber"] = request.callerShowNumber;
-    }
-
-    if (!Util.isUnset(request.outId)) {
-      query["OutId"] = request.outId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.recordFlag)) {
-      query["RecordFlag"] = request.recordFlag;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.sessionTimeout)) {
-      query["SessionTimeout"] = request.sessionTimeout;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ClickToDial",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ClickToDialResponse>(await this.callApi(params, req, runtime), new ClickToDialResponse({}));
-  }
-
-  async clickToDial(request: ClickToDialRequest): Promise<ClickToDialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.clickToDialWithOptions(request, runtime);
   }
 
   async createCallTaskWithOptions(request: CreateCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTaskResponse> {
@@ -6403,6 +6265,47 @@ export default class Client extends OpenApi {
     return await this.queryVoiceFileAuditInfoWithOptions(request, runtime);
   }
 
+  async recoverCallInConfigWithOptions(request: RecoverCallInConfigRequest, runtime: $Util.RuntimeOptions): Promise<RecoverCallInConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecoverCallInConfig",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecoverCallInConfigResponse>(await this.callApi(params, req, runtime), new RecoverCallInConfigResponse({}));
+  }
+
+  async recoverCallInConfig(request: RecoverCallInConfigRequest): Promise<RecoverCallInConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recoverCallInConfigWithOptions(request, runtime);
+  }
+
   async refreshMqttTokenWithOptions(request: RefreshMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshMqttTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6913,6 +6816,47 @@ export default class Client extends OpenApi {
   async startRobotTask(request: StartRobotTaskRequest): Promise<StartRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRobotTaskWithOptions(request, runtime);
+  }
+
+  async stopCallInConfigWithOptions(request: StopCallInConfigRequest, runtime: $Util.RuntimeOptions): Promise<StopCallInConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopCallInConfig",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopCallInConfigResponse>(await this.callApi(params, req, runtime), new StopCallInConfigResponse({}));
+  }
+
+  async stopCallInConfig(request: StopCallInConfigRequest): Promise<StopCallInConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopCallInConfigWithOptions(request, runtime);
   }
 
   async stopRobotTaskWithOptions(request: StopRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRobotTaskResponse> {
