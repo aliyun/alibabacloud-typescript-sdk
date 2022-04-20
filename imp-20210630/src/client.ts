@@ -203,78 +203,6 @@ export class ApplyLinkMicResponse extends $tea.Model {
   }
 }
 
-export class AttachStandardRoomHttpsCertificateRequest extends $tea.Model {
-  appId?: string;
-  certificatePrivateKey?: string;
-  certificatePublicKey?: string;
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      certificatePrivateKey: 'CertificatePrivateKey',
-      certificatePublicKey: 'CertificatePublicKey',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      certificatePrivateKey: 'string',
-      certificatePublicKey: 'string',
-      domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachStandardRoomHttpsCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: AttachStandardRoomHttpsCertificateResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: AttachStandardRoomHttpsCertificateResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachStandardRoomHttpsCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AttachStandardRoomHttpsCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AttachStandardRoomHttpsCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BanAllCommentRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -615,6 +543,72 @@ export class CancelBanCommentResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CancelBanCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUserAdminRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUserAdminResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUserAdminResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelUserAdminResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelUserAdminResponseBody,
     };
   }
 
@@ -1259,6 +1253,94 @@ export class CreateRoomResponse extends $tea.Model {
   }
 }
 
+export class CreateSensitiveWordRequest extends $tea.Model {
+  appId?: string;
+  wordList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      wordList: 'WordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      wordList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSensitiveWordShrinkRequest extends $tea.Model {
+  appId?: string;
+  wordListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      wordListShrink: 'WordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      wordListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSensitiveWordResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateSensitiveWordResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateSensitiveWordResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSensitiveWordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSensitiveWordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSensitiveWordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAppRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -1775,26 +1857,20 @@ export class DeleteRoomResponse extends $tea.Model {
   }
 }
 
-export class DescribeMeterImpWatchTimeRequest extends $tea.Model {
+export class DeleteSensitiveWordRequest extends $tea.Model {
   appId?: string;
-  endTime?: number;
-  interval?: string;
-  startTime?: number;
+  wordList?: string[];
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      endTime: 'EndTime',
-      interval: 'Interval',
-      startTime: 'StartTime',
+      wordList: 'WordList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      endTime: 'number',
-      interval: 'string',
-      startTime: 'number',
+      wordList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1803,20 +1879,20 @@ export class DescribeMeterImpWatchTimeRequest extends $tea.Model {
   }
 }
 
-export class DescribeMeterImpWatchTimeResponseBody extends $tea.Model {
-  data?: DescribeMeterImpWatchTimeResponseBodyData[];
-  requestId?: string;
+export class DeleteSensitiveWordShrinkRequest extends $tea.Model {
+  appId?: string;
+  wordListShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
-      requestId: 'RequestId',
+      appId: 'AppId',
+      wordListShrink: 'WordList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': DescribeMeterImpWatchTimeResponseBodyData },
-      requestId: 'string',
+      appId: 'string',
+      wordListShrink: 'string',
     };
   }
 
@@ -1825,9 +1901,31 @@ export class DescribeMeterImpWatchTimeResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeMeterImpWatchTimeResponse extends $tea.Model {
+export class DeleteSensitiveWordResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DeleteSensitiveWordResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: DeleteSensitiveWordResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSensitiveWordResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeMeterImpWatchTimeResponseBody;
+  body: DeleteSensitiveWordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1838,7 +1936,7 @@ export class DescribeMeterImpWatchTimeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeMeterImpWatchTimeResponseBody,
+      body: DeleteSensitiveWordResponseBody,
     };
   }
 
@@ -2183,75 +2281,6 @@ export class GetClassRecordResponse extends $tea.Model {
   }
 }
 
-export class GetCnameDetailRequest extends $tea.Model {
-  appId?: string;
-  domainName?: string;
-  productCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      domainName: 'DomainName',
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      domainName: 'string',
-      productCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCnameDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetCnameDetailResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetCnameDetailResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCnameDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetCnameDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCnameDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetConferenceRequest extends $tea.Model {
   conferenceId?: string;
   static names(): { [key: string]: string } {
@@ -2370,50 +2399,6 @@ export class GetDomainOwnerVerifyContentResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetDomainOwnerVerifyContentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetImpProductStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetImpProductStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetImpProductStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetImpProductStatusResponseBody,
     };
   }
 
@@ -2852,69 +2837,6 @@ export class GetLiveRoomUserStatisticsResponse extends $tea.Model {
   }
 }
 
-export class GetPageConfigRequest extends $tea.Model {
-  cloudUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cloudUid: 'CloudUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cloudUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetPageConfigResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetPageConfigResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetPageConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetPageConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRoomRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -3117,69 +3039,6 @@ export class GetStandardRoomJumpUrlResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetStandardRoomJumpUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserInfoRequest extends $tea.Model {
-  cloudUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cloudUid: 'CloudUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cloudUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetUserInfoResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetUserInfoResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserInfoResponseBody,
     };
   }
 
@@ -3396,12 +3255,14 @@ export class ListApplyLinkMicUsersResponse extends $tea.Model {
 }
 
 export class ListAppsRequest extends $tea.Model {
+  appIds?: string;
   integrationMode?: string;
   pageNumber?: number;
   pageSize?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      appIds: 'AppIds',
       integrationMode: 'IntegrationMode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -3411,6 +3272,7 @@ export class ListAppsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appIds: 'string',
       integrationMode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -3912,118 +3774,6 @@ export class ListLiveRoomsByIdResponse extends $tea.Model {
   }
 }
 
-export class ListRoomLivesRequest extends $tea.Model {
-  appId?: string;
-  queryTimestamp?: number;
-  roomId?: string;
-  roomIdList?: string[];
-  size?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      queryTimestamp: 'QueryTimestamp',
-      roomId: 'RoomId',
-      roomIdList: 'RoomIdList',
-      size: 'Size',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      queryTimestamp: 'number',
-      roomId: 'string',
-      roomIdList: { 'type': 'array', 'itemType': 'string' },
-      size: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesShrinkRequest extends $tea.Model {
-  appId?: string;
-  queryTimestamp?: number;
-  roomId?: string;
-  roomIdListShrink?: string;
-  size?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      queryTimestamp: 'QueryTimestamp',
-      roomId: 'RoomId',
-      roomIdListShrink: 'RoomIdList',
-      size: 'Size',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      queryTimestamp: 'number',
-      roomId: 'string',
-      roomIdListShrink: 'string',
-      size: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListRoomLivesResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListRoomLivesResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRoomLivesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRoomLivesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListRoomUsersRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
@@ -4157,6 +3907,69 @@ export class ListRoomsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListRoomsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveWordRequest extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveWordResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListSensitiveWordResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListSensitiveWordResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveWordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSensitiveWordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSensitiveWordResponseBody,
     };
   }
 
@@ -4677,6 +4490,72 @@ export class SendCustomMessageToUsersResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SendCustomMessageToUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserAdminRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserAdminResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserAdminResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetUserAdminResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetUserAdminResponseBody,
     };
   }
 
@@ -5631,25 +5510,6 @@ export class VerifyDomainOwnerResponse extends $tea.Model {
   }
 }
 
-export class AttachStandardRoomHttpsCertificateResponseBodyResult extends $tea.Model {
-  certificateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateId: 'CertificateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateAppResponseBodyResult extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -5905,6 +5765,25 @@ export class CreateRoomResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateSensitiveWordResponseBodyResult extends $tea.Model {
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCommentResponseBodyResult extends $tea.Model {
   deleteResult?: boolean;
   static names(): { [key: string]: string } {
@@ -5924,29 +5803,17 @@ export class DeleteCommentResponseBodyResult extends $tea.Model {
   }
 }
 
-export class DescribeMeterImpWatchTimeResponseBodyData extends $tea.Model {
-  liveRtcDuration?: number;
-  liveRtmpDuration?: number;
-  liveRtsDuration?: number;
-  time?: number;
-  vodDuration?: number;
+export class DeleteSensitiveWordResponseBodyResult extends $tea.Model {
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      liveRtcDuration: 'LiveRtcDuration',
-      liveRtmpDuration: 'LiveRtmpDuration',
-      liveRtsDuration: 'LiveRtsDuration',
-      time: 'Time',
-      vodDuration: 'VodDuration',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      liveRtcDuration: 'number',
-      liveRtmpDuration: 'number',
-      liveRtsDuration: 'number',
-      time: 'number',
-      vodDuration: 'number',
+      success: 'boolean',
     };
   }
 
@@ -6188,50 +6055,6 @@ export class GetClassRecordResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       playbackUrlMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCnameDetailResponseBodyResultData extends $tea.Model {
-  cname?: string;
-  domainName?: string;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cname: 'Cname',
-      domainName: 'DomainName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cname: 'string',
-      domainName: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCnameDetailResponseBodyResult extends $tea.Model {
-  data?: GetCnameDetailResponseBodyResultData[];
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': GetCnameDetailResponseBodyResultData },
     };
   }
 
@@ -6734,59 +6557,6 @@ export class GetLiveRoomUserStatisticsResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetPageConfigResponseBodyResultAdList extends $tea.Model {
-  canNotBeenBought?: boolean;
-  detail?: string;
-  icon?: string;
-  jumpBuyLink?: string;
-  subTitle?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      canNotBeenBought: 'CanNotBeenBought',
-      detail: 'Detail',
-      icon: 'Icon',
-      jumpBuyLink: 'JumpBuyLink',
-      subTitle: 'SubTitle',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canNotBeenBought: 'boolean',
-      detail: 'string',
-      icon: 'string',
-      jumpBuyLink: 'string',
-      subTitle: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageConfigResponseBodyResult extends $tea.Model {
-  adList?: GetPageConfigResponseBodyResultAdList[];
-  static names(): { [key: string]: string } {
-    return {
-      adList: 'AdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adList: { 'type': 'array', 'itemType': GetPageConfigResponseBodyResultAdList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList extends $tea.Model {
   createTime?: number;
   extension?: { [key: string]: string };
@@ -6816,6 +6586,7 @@ export class GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList extends $te
 }
 
 export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
+  adminIdList?: string[];
   appId?: string;
   createTime?: number;
   extension?: { [key: string]: string };
@@ -6830,6 +6601,7 @@ export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
   uv?: number;
   static names(): { [key: string]: string } {
     return {
+      adminIdList: 'AdminIdList',
       appId: 'AppId',
       createTime: 'CreateTime',
       extension: 'Extension',
@@ -6847,6 +6619,7 @@ export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adminIdList: { 'type': 'array', 'itemType': 'string' },
       appId: 'string',
       createTime: 'number',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -6925,37 +6698,6 @@ export class GetStandardRoomJumpUrlResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       standardRoomJumpUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserInfoResponseBodyResult extends $tea.Model {
-  enableCreateAppLimit?: boolean;
-  hasOrderedImp?: boolean;
-  isOverdue?: boolean;
-  isPayByWatchTimeLengthUser?: boolean;
-  maxCreateAppCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      enableCreateAppLimit: 'EnableCreateAppLimit',
-      hasOrderedImp: 'HasOrderedImp',
-      isOverdue: 'IsOverdue',
-      isPayByWatchTimeLengthUser: 'IsPayByWatchTimeLengthUser',
-      maxCreateAppCount: 'MaxCreateAppCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableCreateAppLimit: 'boolean',
-      hasOrderedImp: 'boolean',
-      isOverdue: 'boolean',
-      isPayByWatchTimeLengthUser: 'boolean',
-      maxCreateAppCount: 'number',
     };
   }
 
@@ -7689,80 +7431,6 @@ export class ListLiveRoomsByIdResponseBodyResult extends $tea.Model {
   }
 }
 
-export class ListRoomLivesResponseBodyResultLiveList extends $tea.Model {
-  appId?: string;
-  extension?: { [key: string]: string };
-  liveId?: string;
-  notice?: string;
-  onlineCount?: number;
-  pv?: number;
-  roomId?: string;
-  roomOwnerId?: string;
-  status?: number;
-  title?: string;
-  uv?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      extension: 'Extension',
-      liveId: 'LiveId',
-      notice: 'Notice',
-      onlineCount: 'OnlineCount',
-      pv: 'Pv',
-      roomId: 'RoomId',
-      roomOwnerId: 'RoomOwnerId',
-      status: 'Status',
-      title: 'Title',
-      uv: 'Uv',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      liveId: 'string',
-      notice: 'string',
-      onlineCount: 'number',
-      pv: 'number',
-      roomId: 'string',
-      roomOwnerId: 'string',
-      status: 'number',
-      title: 'string',
-      uv: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesResponseBodyResult extends $tea.Model {
-  hasMore?: boolean;
-  liveList?: ListRoomLivesResponseBodyResultLiveList[];
-  nextQueryTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      hasMore: 'HasMore',
-      liveList: 'LiveList',
-      nextQueryTimestamp: 'NextQueryTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hasMore: 'boolean',
-      liveList: { 'type': 'array', 'itemType': ListRoomLivesResponseBodyResultLiveList },
-      nextQueryTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListRoomUsersResponseBodyResultRoomUserList extends $tea.Model {
   extension?: { [key: string]: string };
   nick?: string;
@@ -7913,6 +7581,25 @@ export class ListRoomsResponseBodyResult extends $tea.Model {
       pageTotal: 'number',
       roomInfoList: { 'type': 'array', 'itemType': ListRoomsResponseBodyResultRoomInfoList },
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveWordResponseBodyResult extends $tea.Model {
+  wordList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      wordList: 'WordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wordList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8261,47 +7948,6 @@ export default class Client extends OpenApi {
     return await this.applyLinkMicWithOptions(request, runtime);
   }
 
-  async attachStandardRoomHttpsCertificateWithOptions(request: AttachStandardRoomHttpsCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AttachStandardRoomHttpsCertificateResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.certificatePrivateKey)) {
-      body["CertificatePrivateKey"] = request.certificatePrivateKey;
-    }
-
-    if (!Util.isUnset(request.certificatePublicKey)) {
-      body["CertificatePublicKey"] = request.certificatePublicKey;
-    }
-
-    if (!Util.isUnset(request.domainName)) {
-      body["DomainName"] = request.domainName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "AttachStandardRoomHttpsCertificate",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AttachStandardRoomHttpsCertificateResponse>(await this.callApi(params, req, runtime), new AttachStandardRoomHttpsCertificateResponse({}));
-  }
-
-  async attachStandardRoomHttpsCertificate(request: AttachStandardRoomHttpsCertificateRequest): Promise<AttachStandardRoomHttpsCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.attachStandardRoomHttpsCertificateWithOptions(request, runtime);
-  }
-
   async banAllCommentWithOptions(request: BanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanAllCommentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8493,6 +8139,43 @@ export default class Client extends OpenApi {
   async cancelBanComment(request: CancelBanCommentRequest): Promise<CancelBanCommentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelBanCommentWithOptions(request, runtime);
+  }
+
+  async cancelUserAdminWithOptions(request: CancelUserAdminRequest, runtime: $Util.RuntimeOptions): Promise<CancelUserAdminResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelUserAdmin",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelUserAdminResponse>(await this.callApi(params, req, runtime), new CancelUserAdminResponse({}));
+  }
+
+  async cancelUserAdmin(request: CancelUserAdminRequest): Promise<CancelUserAdminResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelUserAdminWithOptions(request, runtime);
   }
 
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
@@ -8836,6 +8519,45 @@ export default class Client extends OpenApi {
     return await this.createRoomWithOptions(request, runtime);
   }
 
+  async createSensitiveWordWithOptions(tmpReq: CreateSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<CreateSensitiveWordResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSensitiveWordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.wordList)) {
+      request.wordListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.wordList, "WordList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.wordListShrink)) {
+      body["WordList"] = request.wordListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSensitiveWord",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSensitiveWordResponse>(await this.callApi(params, req, runtime), new CreateSensitiveWordResponse({}));
+  }
+
+  async createSensitiveWord(request: CreateSensitiveWordRequest): Promise<CreateSensitiveWordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSensitiveWordWithOptions(request, runtime);
+  }
+
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9117,30 +8839,28 @@ export default class Client extends OpenApi {
     return await this.deleteRoomWithOptions(request, runtime);
   }
 
-  async describeMeterImpWatchTimeWithOptions(request: DescribeMeterImpWatchTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImpWatchTimeResponse> {
-    Util.validateModel(request);
-    let query = { };
+  async deleteSensitiveWordWithOptions(tmpReq: DeleteSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSensitiveWordResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteSensitiveWordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.wordList)) {
+      request.wordListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.wordList, "WordList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
-      query["AppId"] = request.appId;
+      body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.interval)) {
-      query["Interval"] = request.interval;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.wordListShrink)) {
+      body["WordList"] = request.wordListShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "DescribeMeterImpWatchTime",
+      action: "DeleteSensitiveWord",
       version: "2021-06-30",
       protocol: "HTTPS",
       pathname: "/",
@@ -9150,12 +8870,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeMeterImpWatchTimeResponse>(await this.callApi(params, req, runtime), new DescribeMeterImpWatchTimeResponse({}));
+    return $tea.cast<DeleteSensitiveWordResponse>(await this.callApi(params, req, runtime), new DeleteSensitiveWordResponse({}));
   }
 
-  async describeMeterImpWatchTime(request: DescribeMeterImpWatchTimeRequest): Promise<DescribeMeterImpWatchTimeResponse> {
+  async deleteSensitiveWord(request: DeleteSensitiveWordRequest): Promise<DeleteSensitiveWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeMeterImpWatchTimeWithOptions(request, runtime);
+    return await this.deleteSensitiveWordWithOptions(request, runtime);
   }
 
   async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
@@ -9331,31 +9051,6 @@ export default class Client extends OpenApi {
     return await this.getClassRecordWithOptions(request, runtime);
   }
 
-  async getCnameDetailWithOptions(request: GetCnameDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCnameDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetCnameDetail",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetCnameDetailResponse>(await this.callApi(params, req, runtime), new GetCnameDetailResponse({}));
-  }
-
-  async getCnameDetail(request: GetCnameDetailRequest): Promise<GetCnameDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCnameDetailWithOptions(request, runtime);
-  }
-
   async getConferenceWithOptions(request: GetConferenceRequest, runtime: $Util.RuntimeOptions): Promise<GetConferenceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9412,27 +9107,6 @@ export default class Client extends OpenApi {
   async getDomainOwnerVerifyContent(request: GetDomainOwnerVerifyContentRequest): Promise<GetDomainOwnerVerifyContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDomainOwnerVerifyContentWithOptions(request, runtime);
-  }
-
-  async getImpProductStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetImpProductStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "GetImpProductStatus",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetImpProductStatusResponse>(await this.callApi(params, req, runtime), new GetImpProductStatusResponse({}));
-  }
-
-  async getImpProductStatus(): Promise<GetImpProductStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getImpProductStatusWithOptions(runtime);
   }
 
   async getLiveWithOptions(request: GetLiveRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveResponse> {
@@ -9651,31 +9325,6 @@ export default class Client extends OpenApi {
     return await this.getLiveRoomUserStatisticsWithOptions(request, runtime);
   }
 
-  async getPageConfigWithOptions(request: GetPageConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPageConfigResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetPageConfig",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetPageConfigResponse>(await this.callApi(params, req, runtime), new GetPageConfigResponse({}));
-  }
-
-  async getPageConfig(request: GetPageConfigRequest): Promise<GetPageConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getPageConfigWithOptions(request, runtime);
-  }
-
   async getRoomWithOptions(request: GetRoomRequest, runtime: $Util.RuntimeOptions): Promise<GetRoomResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9789,31 +9438,6 @@ export default class Client extends OpenApi {
   async getStandardRoomJumpUrl(request: GetStandardRoomJumpUrlRequest): Promise<GetStandardRoomJumpUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStandardRoomJumpUrlWithOptions(request, runtime);
-  }
-
-  async getUserInfoWithOptions(request: GetUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserInfoResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetUserInfo",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetUserInfoResponse>(await this.callApi(params, req, runtime), new GetUserInfoResponse({}));
-  }
-
-  async getUserInfo(request: GetUserInfoRequest): Promise<GetUserInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getUserInfoWithOptions(request, runtime);
   }
 
   async kickRoomUserWithOptions(request: KickRoomUserRequest, runtime: $Util.RuntimeOptions): Promise<KickRoomUserResponse> {
@@ -9934,6 +9558,10 @@ export default class Client extends OpenApi {
   async listAppsWithOptions(request: ListAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appIds)) {
+      body["AppIds"] = request.appIds;
+    }
+
     if (!Util.isUnset(request.integrationMode)) {
       body["IntegrationMode"] = request.integrationMode;
     }
@@ -10212,61 +9840,6 @@ export default class Client extends OpenApi {
     return await this.listLiveRoomsByIdWithOptions(request, runtime);
   }
 
-  async listRoomLivesWithOptions(tmpReq: ListRoomLivesRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomLivesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListRoomLivesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.roomIdList)) {
-      request.roomIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomIdList, "RoomIdList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.queryTimestamp)) {
-      body["QueryTimestamp"] = request.queryTimestamp;
-    }
-
-    if (!Util.isUnset(request.roomId)) {
-      body["RoomId"] = request.roomId;
-    }
-
-    if (!Util.isUnset(request.roomIdListShrink)) {
-      body["RoomIdList"] = request.roomIdListShrink;
-    }
-
-    if (!Util.isUnset(request.size)) {
-      body["Size"] = request.size;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      body["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListRoomLives",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListRoomLivesResponse>(await this.callApi(params, req, runtime), new ListRoomLivesResponse({}));
-  }
-
-  async listRoomLives(request: ListRoomLivesRequest): Promise<ListRoomLivesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRoomLivesWithOptions(request, runtime);
-  }
-
   async listRoomUsersWithOptions(request: ListRoomUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomUsersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10343,6 +9916,35 @@ export default class Client extends OpenApi {
   async listRooms(request: ListRoomsRequest): Promise<ListRoomsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRoomsWithOptions(request, runtime);
+  }
+
+  async listSensitiveWordWithOptions(request: ListSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveWordResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSensitiveWord",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSensitiveWordResponse>(await this.callApi(params, req, runtime), new ListSensitiveWordResponse({}));
+  }
+
+  async listSensitiveWord(request: ListSensitiveWordRequest): Promise<ListSensitiveWordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSensitiveWordWithOptions(request, runtime);
   }
 
   async publishLiveWithOptions(request: PublishLiveRequest, runtime: $Util.RuntimeOptions): Promise<PublishLiveResponse> {
@@ -10625,6 +10227,43 @@ export default class Client extends OpenApi {
   async sendCustomMessageToUsers(request: SendCustomMessageToUsersRequest): Promise<SendCustomMessageToUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendCustomMessageToUsersWithOptions(request, runtime);
+  }
+
+  async setUserAdminWithOptions(request: SetUserAdminRequest, runtime: $Util.RuntimeOptions): Promise<SetUserAdminResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.roomId)) {
+      body["RoomId"] = request.roomId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetUserAdmin",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetUserAdminResponse>(await this.callApi(params, req, runtime), new SetUserAdminResponse({}));
+  }
+
+  async setUserAdmin(request: SetUserAdminRequest): Promise<SetUserAdminResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setUserAdminWithOptions(request, runtime);
   }
 
   async stopClassWithOptions(request: StopClassRequest, runtime: $Util.RuntimeOptions): Promise<StopClassResponse> {
