@@ -83,6 +83,7 @@ export class CreateConfigResponse extends $tea.Model {
 export class CreateDataLimitRequest extends $tea.Model {
   auditStatus?: number;
   autoScan?: number;
+  enable?: number;
   engineType?: string;
   eventStatus?: number;
   lang?: string;
@@ -98,6 +99,7 @@ export class CreateDataLimitRequest extends $tea.Model {
     return {
       auditStatus: 'AuditStatus',
       autoScan: 'AutoScan',
+      enable: 'Enable',
       engineType: 'EngineType',
       eventStatus: 'EventStatus',
       lang: 'Lang',
@@ -116,6 +118,7 @@ export class CreateDataLimitRequest extends $tea.Model {
     return {
       auditStatus: 'number',
       autoScan: 'number',
+      enable: 'number',
       engineType: 'string',
       eventStatus: 'number',
       lang: 'string',
@@ -1599,33 +1602,48 @@ export class DescribeEventsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSourcesRequest extends $tea.Model {
+  auditStatus?: number;
+  authStatus?: number;
   currentPage?: number;
   engineType?: string;
   instanceId?: string;
   lang?: string;
   pageSize?: number;
+  productCode?: string;
   productId?: number;
+  searchKey?: string;
+  searchType?: string;
   serviceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      auditStatus: 'AuditStatus',
+      authStatus: 'AuthStatus',
       currentPage: 'CurrentPage',
       engineType: 'EngineType',
       instanceId: 'InstanceId',
       lang: 'Lang',
       pageSize: 'PageSize',
+      productCode: 'ProductCode',
       productId: 'ProductId',
+      searchKey: 'SearchKey',
+      searchType: 'SearchType',
       serviceRegionId: 'ServiceRegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      auditStatus: 'number',
+      authStatus: 'number',
       currentPage: 'number',
       engineType: 'string',
       instanceId: 'string',
       lang: 'string',
       pageSize: 'number',
+      productCode: 'string',
       productId: 'number',
+      searchKey: 'string',
+      searchType: 'string',
       serviceRegionId: 'string',
     };
   }
@@ -3813,8 +3831,8 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Model {
-  x?: string;
-  y?: string;
+  x?: string[];
+  y?: string[];
   static names(): { [key: string]: string } {
     return {
       x: 'X',
@@ -3824,8 +3842,8 @@ export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      x: 'string',
-      y: 'string',
+      x: { 'type': 'array', 'itemType': 'string' },
+      y: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4219,9 +4237,12 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
   auditStatus?: number;
   autoScan?: number;
   canModifyUserName?: boolean;
+  checkStatus?: number;
+  datamaskStatus?: number;
   dbName?: string;
   enable?: number;
   engineType?: string;
+  errorMessage?: string;
   gmtCreate?: number;
   id?: number;
   instanceDescription?: string;
@@ -4234,6 +4255,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
   productId?: number;
   regionId?: string;
   regionName?: string;
+  samplingSize?: number;
   tenantId?: string;
   tenantName?: string;
   userName?: string;
@@ -4242,9 +4264,12 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
       auditStatus: 'AuditStatus',
       autoScan: 'AutoScan',
       canModifyUserName: 'CanModifyUserName',
+      checkStatus: 'CheckStatus',
+      datamaskStatus: 'DatamaskStatus',
       dbName: 'DbName',
       enable: 'Enable',
       engineType: 'EngineType',
+      errorMessage: 'ErrorMessage',
       gmtCreate: 'GmtCreate',
       id: 'Id',
       instanceDescription: 'InstanceDescription',
@@ -4257,6 +4282,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
       productId: 'ProductId',
       regionId: 'RegionId',
       regionName: 'RegionName',
+      samplingSize: 'SamplingSize',
       tenantId: 'TenantId',
       tenantName: 'TenantName',
       userName: 'UserName',
@@ -4268,9 +4294,12 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
       auditStatus: 'number',
       autoScan: 'number',
       canModifyUserName: 'boolean',
+      checkStatus: 'number',
+      datamaskStatus: 'number',
       dbName: 'string',
       enable: 'number',
       engineType: 'string',
+      errorMessage: 'string',
       gmtCreate: 'number',
       id: 'number',
       instanceDescription: 'string',
@@ -4283,6 +4312,7 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
       productId: 'number',
       regionId: 'string',
       regionName: 'string',
+      samplingSize: 'number',
       tenantId: 'string',
       tenantName: 'string',
       userName: 'string',
@@ -4894,6 +4924,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.autoScan)) {
       query["AutoScan"] = request.autoScan;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
     }
 
     if (!Util.isUnset(request.engineType)) {
@@ -5846,6 +5880,14 @@ export default class Client extends OpenApi {
   async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.authStatus)) {
+      query["AuthStatus"] = request.authStatus;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -5866,8 +5908,20 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     if (!Util.isUnset(request.productId)) {
       query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.searchType)) {
+      query["SearchType"] = request.searchType;
     }
 
     if (!Util.isUnset(request.serviceRegionId)) {
