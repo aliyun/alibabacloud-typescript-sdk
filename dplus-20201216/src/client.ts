@@ -856,6 +856,106 @@ export class ReplaceBackgroundResponse extends $tea.Model {
   }
 }
 
+export class SeleteCommodityRequest extends $tea.Model {
+  num?: number;
+  pid?: string;
+  query?: string;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      num: 'Num',
+      pid: 'Pid',
+      query: 'Query',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      num: 'number',
+      pid: 'string',
+      query: 'string',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeleteCommodityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeleteCommodityByBToBRequest extends $tea.Model {
+  num?: number;
+  pid?: string;
+  query?: string;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      num: 'Num',
+      pid: 'Pid',
+      query: 'Query',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      num: 'number',
+      pid: 'string',
+      query: 'string',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeleteCommodityByBToBResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TbPredictCategoryRequest extends $tea.Model {
   picUrl?: string;
   static names(): { [key: string]: string } {
@@ -955,6 +1055,50 @@ export class TbPropRecAdvanceRequest extends $tea.Model {
 }
 
 export class TbPropRecResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferUrlByBtoBRequest extends $tea.Model {
+  offerId?: number;
+  pid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      offerId: 'OfferId',
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offerId: 'number',
+      pid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferUrlByBtoBResponse extends $tea.Model {
   headers: { [key: string]: string };
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
@@ -2037,6 +2181,88 @@ export default class Client extends OpenApi {
     return replaceBackgroundResp;
   }
 
+  async seleteCommodityWithOptions(request: SeleteCommodityRequest, runtime: $Util.RuntimeOptions): Promise<SeleteCommodityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.num)) {
+      query["Num"] = request.num;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SeleteCommodity",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SeleteCommodityResponse>(await this.callApi(params, req, runtime), new SeleteCommodityResponse({}));
+  }
+
+  async seleteCommodity(request: SeleteCommodityRequest): Promise<SeleteCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.seleteCommodityWithOptions(request, runtime);
+  }
+
+  async seleteCommodityByBToBWithOptions(request: SeleteCommodityByBToBRequest, runtime: $Util.RuntimeOptions): Promise<SeleteCommodityByBToBResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.num)) {
+      query["Num"] = request.num;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SeleteCommodityByBToB",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SeleteCommodityByBToBResponse>(await this.callApi(params, req, runtime), new SeleteCommodityByBToBResponse({}));
+  }
+
+  async seleteCommodityByBToB(request: SeleteCommodityByBToBRequest): Promise<SeleteCommodityByBToBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.seleteCommodityByBToBWithOptions(request, runtime);
+  }
+
   async tbPredictCategoryWithOptions(request: TbPredictCategoryRequest, runtime: $Util.RuntimeOptions): Promise<TbPredictCategoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2241,6 +2467,39 @@ export default class Client extends OpenApi {
 
     let tbPropRecResp = await this.tbPropRecWithOptions(tbPropRecReq, runtime);
     return tbPropRecResp;
+  }
+
+  async transferUrlByBtoBWithOptions(request: TransferUrlByBtoBRequest, runtime: $Util.RuntimeOptions): Promise<TransferUrlByBtoBResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.offerId)) {
+      query["OfferId"] = request.offerId;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransferUrlByBtoB",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferUrlByBtoBResponse>(await this.callApi(params, req, runtime), new TransferUrlByBtoBResponse({}));
+  }
+
+  async transferUrlByBtoB(request: TransferUrlByBtoBRequest): Promise<TransferUrlByBtoBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transferUrlByBtoBWithOptions(request, runtime);
   }
 
 }
