@@ -1202,102 +1202,6 @@ export class DescDomainResponse extends $tea.Model {
   }
 }
 
-export class GetRegionListRequest extends $tea.Model {
-  offset?: string;
-  offsetCreateTime?: string;
-  offsetCreateTimeDesc?: string;
-  ownerId?: number;
-  pageNumber?: string;
-  pageSize?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  total?: string;
-  static names(): { [key: string]: string } {
-    return {
-      offset: 'Offset',
-      offsetCreateTime: 'OffsetCreateTime',
-      offsetCreateTimeDesc: 'OffsetCreateTimeDesc',
-      ownerId: 'OwnerId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      offset: 'string',
-      offsetCreateTime: 'string',
-      offsetCreateTimeDesc: 'string',
-      ownerId: 'number',
-      pageNumber: 'string',
-      pageSize: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      total: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionListResponseBody extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  requestId?: string;
-  total?: number;
-  data?: GetRegionListResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      total: 'Total',
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      total: 'number',
-      data: GetRegionListResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetRegionListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRegionListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTrackListRequest extends $tea.Model {
   endTime?: string;
   offset?: string;
@@ -2674,7 +2578,7 @@ export class SenderStatisticsDetailByParamRequest extends $tea.Model {
 }
 
 export class SenderStatisticsDetailByParamResponseBody extends $tea.Model {
-  nextStart?: number;
+  nextStart?: string;
   requestId?: string;
   data?: SenderStatisticsDetailByParamResponseBodyData;
   static names(): { [key: string]: string } {
@@ -2687,7 +2591,7 @@ export class SenderStatisticsDetailByParamResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      nextStart: 'number',
+      nextStart: 'string',
       requestId: 'string',
       data: SenderStatisticsDetailByParamResponseBodyData,
     };
@@ -2889,47 +2793,6 @@ export class UpdateMailAddressMsgCallBackUrlResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateMailAddressMsgCallBackUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionListResponseBodyDataRegionList extends $tea.Model {
-  region?: string;
-  regionDesc?: string;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      regionDesc: 'RegionDesc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      regionDesc: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionListResponseBodyData extends $tea.Model {
-  regionList?: GetRegionListResponseBodyDataRegionList[];
-  static names(): { [key: string]: string } {
-    return {
-      regionList: 'regionList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionList: { 'type': 'array', 'itemType': GetRegionListResponseBodyDataRegionList },
     };
   }
 
@@ -4295,67 +4158,6 @@ export default class Client extends OpenApi {
   async descDomain(request: DescDomainRequest): Promise<DescDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.descDomainWithOptions(request, runtime);
-  }
-
-  async getRegionListWithOptions(request: GetRegionListRequest, runtime: $Util.RuntimeOptions): Promise<GetRegionListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.offset)) {
-      query["Offset"] = request.offset;
-    }
-
-    if (!Util.isUnset(request.offsetCreateTime)) {
-      query["OffsetCreateTime"] = request.offsetCreateTime;
-    }
-
-    if (!Util.isUnset(request.offsetCreateTimeDesc)) {
-      query["OffsetCreateTimeDesc"] = request.offsetCreateTimeDesc;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.total)) {
-      query["Total"] = request.total;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetRegionList",
-      version: "2015-11-23",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetRegionListResponse>(await this.callApi(params, req, runtime), new GetRegionListResponse({}));
-  }
-
-  async getRegionList(request: GetRegionListRequest): Promise<GetRegionListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRegionListWithOptions(request, runtime);
   }
 
   async getTrackListWithOptions(request: GetTrackListRequest, runtime: $Util.RuntimeOptions): Promise<GetTrackListResponse> {
