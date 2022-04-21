@@ -3256,10 +3256,12 @@ export class ListOpenPlatformConfigResponse extends $tea.Model {
 export class ListSpaceRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
+  spaceIds?: string[];
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      spaceIds: 'SpaceIds',
     };
   }
 
@@ -3267,6 +3269,32 @@ export class ListSpaceRequest extends $tea.Model {
     return {
       pageNum: 'number',
       pageSize: 'number',
+      spaceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpaceShrinkRequest extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  spaceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      spaceIdsShrink: 'SpaceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      spaceIdsShrink: 'string',
     };
   }
 
@@ -6251,6 +6279,7 @@ export class ListOpenPlatformConfigResponseBodySecretList extends $tea.Model {
 export class ListSpaceResponseBodySpaces extends $tea.Model {
   desc?: string;
   gmtCreate?: number;
+  gmtLastAccess?: number;
   name?: string;
   spaceId?: string;
   status?: string;
@@ -6258,6 +6287,7 @@ export class ListSpaceResponseBodySpaces extends $tea.Model {
     return {
       desc: 'Desc',
       gmtCreate: 'GmtCreate',
+      gmtLastAccess: 'GmtLastAccess',
       name: 'Name',
       spaceId: 'SpaceId',
       status: 'Status',
@@ -6268,6 +6298,7 @@ export class ListSpaceResponseBodySpaces extends $tea.Model {
     return {
       desc: 'string',
       gmtCreate: 'number',
+      gmtLastAccess: 'number',
       name: 'string',
       spaceId: 'string',
       status: 'string',
@@ -8132,8 +8163,14 @@ export default class Client extends OpenApi {
     return await this.listOpenPlatformConfigWithOptions(request, runtime);
   }
 
-  async listSpaceWithOptions(request: ListSpaceRequest, runtime: $Util.RuntimeOptions): Promise<ListSpaceResponse> {
-    Util.validateModel(request);
+  async listSpaceWithOptions(tmpReq: ListSpaceRequest, runtime: $Util.RuntimeOptions): Promise<ListSpaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSpaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.spaceIds)) {
+      request.spaceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.spaceIds, "SpaceIds", "simple");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNum)) {
       body["PageNum"] = request.pageNum;
@@ -8141,6 +8178,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.spaceIdsShrink)) {
+      body["SpaceIds"] = request.spaceIdsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
