@@ -3245,6 +3245,99 @@ export class ListGroupDNSServiceRulesResponse extends $tea.Model {
   }
 }
 
+export class ListIoTCloudConnectorAccessSessionLogsRequest extends $tea.Model {
+  destinations?: string[];
+  endTime?: number;
+  ioTCloudConnectorId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  sourceIps?: string[];
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinations: 'Destinations',
+      endTime: 'EndTime',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      sourceIps: 'SourceIps',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinations: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      ioTCloudConnectorId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      sourceIps: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorAccessSessionLogsResponseBody extends $tea.Model {
+  accessSessionLogs?: ListIoTCloudConnectorAccessSessionLogsResponseBodyAccessSessionLogs[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessSessionLogs: 'AccessSessionLogs',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessSessionLogs: { 'type': 'array', 'itemType': ListIoTCloudConnectorAccessSessionLogsResponseBodyAccessSessionLogs },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorAccessSessionLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListIoTCloudConnectorAccessSessionLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListIoTCloudConnectorAccessSessionLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorAvailableZonesRequest extends $tea.Model {
   ioTCloudConnectorId?: string;
   regionId?: string;
@@ -5267,6 +5360,46 @@ export class ListGroupDNSServiceRulesResponseBodyDNSServiceRules extends $tea.Mo
       ioTCloudConnectorGroupId: 'string',
       serviceType: 'string',
       source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorAccessSessionLogsResponseBodyAccessSessionLogs extends $tea.Model {
+  clientToServiceFlow?: string;
+  destinationIp?: string;
+  destinationPort?: string;
+  destinations?: string[];
+  serviceToClientFlow?: string;
+  sourceIp?: string;
+  time?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToServiceFlow: 'ClientToServiceFlow',
+      destinationIp: 'DestinationIp',
+      destinationPort: 'DestinationPort',
+      destinations: 'Destinations',
+      serviceToClientFlow: 'ServiceToClientFlow',
+      sourceIp: 'SourceIp',
+      time: 'Time',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToServiceFlow: 'string',
+      destinationIp: 'string',
+      destinationPort: 'string',
+      destinations: { 'type': 'array', 'itemType': 'string' },
+      serviceToClientFlow: 'string',
+      sourceIp: 'string',
+      time: 'string',
+      type: 'string',
     };
   }
 
@@ -7534,6 +7667,63 @@ export default class Client extends OpenApi {
   async listGroupDNSServiceRules(request: ListGroupDNSServiceRulesRequest): Promise<ListGroupDNSServiceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupDNSServiceRulesWithOptions(request, runtime);
+  }
+
+  async listIoTCloudConnectorAccessSessionLogsWithOptions(request: ListIoTCloudConnectorAccessSessionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorAccessSessionLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinations)) {
+      query["Destinations"] = request.destinations;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceIps)) {
+      query["SourceIps"] = request.sourceIps;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIoTCloudConnectorAccessSessionLogs",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCloudConnectorAccessSessionLogsResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorAccessSessionLogsResponse({}));
+  }
+
+  async listIoTCloudConnectorAccessSessionLogs(request: ListIoTCloudConnectorAccessSessionLogsRequest): Promise<ListIoTCloudConnectorAccessSessionLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIoTCloudConnectorAccessSessionLogsWithOptions(request, runtime);
   }
 
   async listIoTCloudConnectorAvailableZonesWithOptions(request: ListIoTCloudConnectorAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorAvailableZonesResponse> {
