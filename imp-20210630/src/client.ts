@@ -6505,10 +6505,14 @@ export class GetLiveRoomStatisticsResponseBodyResult extends $tea.Model {
 }
 
 export class GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList extends $tea.Model {
+  commentCount?: number;
+  likeCount?: number;
   userId?: string;
   watchLiveTime?: number;
   static names(): { [key: string]: string } {
     return {
+      commentCount: 'CommentCount',
+      likeCount: 'LikeCount',
       userId: 'UserId',
       watchLiveTime: 'WatchLiveTime',
     };
@@ -6516,6 +6520,8 @@ export class GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList exten
 
   static types(): { [key: string]: any } {
     return {
+      commentCount: 'number',
+      likeCount: 'number',
       userId: 'string',
       watchLiveTime: 'number',
     };
