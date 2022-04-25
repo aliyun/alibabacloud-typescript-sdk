@@ -150,21 +150,17 @@ export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
-  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
-  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
-      zoneId: 'ZoneId',
     };
   }
 
@@ -173,11 +169,9 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
-      zoneId: 'string',
     };
   }
 
@@ -235,7 +229,6 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
-  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -245,7 +238,6 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -258,7 +250,6 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -364,8 +355,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   diskCategory?: string;
   diskThreshold?: string;
   diskUsage?: string;
+  enableCdc?: boolean;
   enableCompute?: boolean;
   enableKms?: boolean;
+  enableSSL?: boolean;
+  enableShs?: boolean;
+  enableStream?: boolean;
   engineList?: GetLindormInstanceResponseBodyEngineList[];
   engineType?: number;
   expireTime?: string;
@@ -374,6 +369,8 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   instanceId?: string;
   instanceStatus?: string;
   instanceStorage?: string;
+  maintainEndTime?: string;
+  maintainStartTime?: string;
   networkType?: string;
   payType?: string;
   regionId?: string;
@@ -393,8 +390,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       diskCategory: 'DiskCategory',
       diskThreshold: 'DiskThreshold',
       diskUsage: 'DiskUsage',
+      enableCdc: 'EnableCdc',
       enableCompute: 'EnableCompute',
       enableKms: 'EnableKms',
+      enableSSL: 'EnableSSL',
+      enableShs: 'EnableShs',
+      enableStream: 'EnableStream',
       engineList: 'EngineList',
       engineType: 'EngineType',
       expireTime: 'ExpireTime',
@@ -403,6 +404,8 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       instanceStorage: 'InstanceStorage',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
       networkType: 'NetworkType',
       payType: 'PayType',
       regionId: 'RegionId',
@@ -425,8 +428,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       diskCategory: 'string',
       diskThreshold: 'string',
       diskUsage: 'string',
+      enableCdc: 'boolean',
       enableCompute: 'boolean',
       enableKms: 'boolean',
+      enableSSL: 'boolean',
+      enableShs: 'boolean',
+      enableStream: 'boolean',
       engineList: { 'type': 'array', 'itemType': GetLindormInstanceResponseBodyEngineList },
       engineType: 'number',
       expireTime: 'string',
@@ -435,6 +442,8 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       instanceId: 'string',
       instanceStatus: 'string',
       instanceStorage: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
       networkType: 'string',
       payType: 'string',
       regionId: 'string',
@@ -569,6 +578,7 @@ export class GetLindormInstanceListRequest extends $tea.Model {
   securityToken?: string;
   serviceType?: string;
   supportEngine?: number;
+  tag?: GetLindormInstanceListRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -582,6 +592,7 @@ export class GetLindormInstanceListRequest extends $tea.Model {
       securityToken: 'SecurityToken',
       serviceType: 'ServiceType',
       supportEngine: 'SupportEngine',
+      tag: 'Tag',
     };
   }
 
@@ -598,6 +609,7 @@ export class GetLindormInstanceListRequest extends $tea.Model {
       securityToken: 'string',
       serviceType: 'string',
       supportEngine: 'number',
+      tag: { 'type': 'array', 'itemType': GetLindormInstanceListRequestTag },
     };
   }
 
@@ -659,11 +671,103 @@ export class GetLindormInstanceListResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  securityToken?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      securityToken: 'SecurityToken',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      securityToken: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseLindormInstanceRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
-  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -672,7 +776,6 @@ export class ReleaseLindormInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -684,7 +787,6 @@ export class ReleaseLindormInstanceRequest extends $tea.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -737,12 +839,176 @@ export class ReleaseLindormInstanceResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  securityToken?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      securityToken: 'SecurityToken',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      securityToken: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  securityToken?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      securityToken: 'SecurityToken',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      securityToken: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
   groupName?: string;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
-  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityIpList?: string;
@@ -753,7 +1019,6 @@ export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityIpList: 'SecurityIpList',
@@ -767,7 +1032,6 @@ export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityIpList: 'string',
@@ -1068,10 +1332,55 @@ export class GetLindormInstanceEngineListResponseBodyEngineList extends $tea.Mod
   }
 }
 
+export class GetLindormInstanceListRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLindormInstanceListResponseBodyInstanceListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   aliUid?: number;
   createMilliseconds?: number;
   createTime?: string;
+  enableStream?: boolean;
   engineType?: string;
   expireTime?: string;
   expiredMilliseconds?: number;
@@ -1083,6 +1392,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   payType?: string;
   regionId?: string;
   serviceType?: string;
+  tags?: GetLindormInstanceListResponseBodyInstanceListTags[];
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -1090,6 +1400,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       aliUid: 'AliUid',
       createMilliseconds: 'CreateMilliseconds',
       createTime: 'CreateTime',
+      enableStream: 'EnableStream',
       engineType: 'EngineType',
       expireTime: 'ExpireTime',
       expiredMilliseconds: 'ExpiredMilliseconds',
@@ -1101,6 +1412,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       payType: 'PayType',
       regionId: 'RegionId',
       serviceType: 'ServiceType',
+      tags: 'Tags',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -1111,6 +1423,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       aliUid: 'number',
       createMilliseconds: 'number',
       createTime: 'string',
+      enableStream: 'boolean',
       engineType: 'string',
       expireTime: 'string',
       expiredMilliseconds: 'number',
@@ -1122,8 +1435,81 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       payType: 'string',
       regionId: 'string',
       serviceType: 'string',
+      tags: { 'type': 'array', 'itemType': GetLindormInstanceListResponseBodyInstanceListTags },
       vpcId: 'string',
       zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1207,31 +1593,106 @@ export default class Client extends OpenApi {
   async createLindormInstanceWithOptions(request: CreateLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ColdStorage"] = request.coldStorage;
-    query["CoreSpec"] = request.coreSpec;
-    query["DiskCategory"] = request.diskCategory;
-    query["Duration"] = request.duration;
-    query["FilestoreNum"] = request.filestoreNum;
-    query["FilestoreSpec"] = request.filestoreSpec;
-    query["InstanceAlias"] = request.instanceAlias;
-    query["InstanceStorage"] = request.instanceStorage;
-    query["LindormNum"] = request.lindormNum;
-    query["LindormSpec"] = request.lindormSpec;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PayType"] = request.payType;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
-    query["SolrNum"] = request.solrNum;
-    query["SolrSpec"] = request.solrSpec;
-    query["TsdbNum"] = request.tsdbNum;
-    query["TsdbSpec"] = request.tsdbSpec;
-    query["VPCId"] = request.VPCId;
-    query["VSwitchId"] = request.vSwitchId;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.coldStorage)) {
+      query["ColdStorage"] = request.coldStorage;
+    }
+
+    if (!Util.isUnset(request.coreSpec)) {
+      query["CoreSpec"] = request.coreSpec;
+    }
+
+    if (!Util.isUnset(request.diskCategory)) {
+      query["DiskCategory"] = request.diskCategory;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.filestoreNum)) {
+      query["FilestoreNum"] = request.filestoreNum;
+    }
+
+    if (!Util.isUnset(request.filestoreSpec)) {
+      query["FilestoreSpec"] = request.filestoreSpec;
+    }
+
+    if (!Util.isUnset(request.instanceAlias)) {
+      query["InstanceAlias"] = request.instanceAlias;
+    }
+
+    if (!Util.isUnset(request.instanceStorage)) {
+      query["InstanceStorage"] = request.instanceStorage;
+    }
+
+    if (!Util.isUnset(request.lindormNum)) {
+      query["LindormNum"] = request.lindormNum;
+    }
+
+    if (!Util.isUnset(request.lindormSpec)) {
+      query["LindormSpec"] = request.lindormSpec;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.solrNum)) {
+      query["SolrNum"] = request.solrNum;
+    }
+
+    if (!Util.isUnset(request.solrSpec)) {
+      query["SolrSpec"] = request.solrSpec;
+    }
+
+    if (!Util.isUnset(request.tsdbNum)) {
+      query["TsdbNum"] = request.tsdbNum;
+    }
+
+    if (!Util.isUnset(request.tsdbSpec)) {
+      query["TsdbSpec"] = request.tsdbSpec;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1257,12 +1718,30 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceptLanguage"] = request.acceptLanguage;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1288,13 +1767,34 @@ export default class Client extends OpenApi {
   async getInstanceIpWhiteListWithOptions(request: GetInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupName"] = request.groupName;
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1320,13 +1820,34 @@ export default class Client extends OpenApi {
   async getLindormInstanceWithOptions(request: GetLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1352,13 +1873,34 @@ export default class Client extends OpenApi {
   async getLindormInstanceEngineListWithOptions(request: GetLindormInstanceEngineListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceEngineListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1384,17 +1926,54 @@ export default class Client extends OpenApi {
   async getLindormInstanceListWithOptions(request: GetLindormInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["QueryStr"] = request.queryStr;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
-    query["ServiceType"] = request.serviceType;
-    query["SupportEngine"] = request.supportEngine;
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryStr)) {
+      query["QueryStr"] = request.queryStr;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.supportEngine)) {
+      query["SupportEngine"] = request.supportEngine;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1417,15 +1996,98 @@ export default class Client extends OpenApi {
     return await this.getLindormInstanceListWithOptions(request, runtime);
   }
 
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
   async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1448,17 +2110,159 @@ export default class Client extends OpenApi {
     return await this.releaseLindormInstanceWithOptions(request, runtime);
   }
 
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
   async updateInstanceIpWhiteListWithOptions(request: UpdateInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupName"] = request.groupName;
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityIpList"] = request.securityIpList;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityIpList)) {
+      query["SecurityIpList"] = request.securityIpList;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1484,31 +2288,106 @@ export default class Client extends OpenApi {
   async upgradeLindormInstanceWithOptions(request: UpgradeLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterStorage"] = request.clusterStorage;
-    query["ColdStorage"] = request.coldStorage;
-    query["CoreNum"] = request.coreNum;
-    query["CoreSpec"] = request.coreSpec;
-    query["FilestoreNum"] = request.filestoreNum;
-    query["FilestoreSpec"] = request.filestoreSpec;
-    query["InstanceId"] = request.instanceId;
-    query["LindormNum"] = request.lindormNum;
-    query["LindormSpec"] = request.lindormSpec;
-    query["LtsCoreNum"] = request.ltsCoreNum;
-    query["LtsCoreSpec"] = request.ltsCoreSpec;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhoenixCoreNum"] = request.phoenixCoreNum;
-    query["PhoenixCoreSpec"] = request.phoenixCoreSpec;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityToken"] = request.securityToken;
-    query["SolrNum"] = request.solrNum;
-    query["SolrSpec"] = request.solrSpec;
-    query["TsdbNum"] = request.tsdbNum;
-    query["TsdbSpec"] = request.tsdbSpec;
-    query["UpgradeType"] = request.upgradeType;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.clusterStorage)) {
+      query["ClusterStorage"] = request.clusterStorage;
+    }
+
+    if (!Util.isUnset(request.coldStorage)) {
+      query["ColdStorage"] = request.coldStorage;
+    }
+
+    if (!Util.isUnset(request.coreNum)) {
+      query["CoreNum"] = request.coreNum;
+    }
+
+    if (!Util.isUnset(request.coreSpec)) {
+      query["CoreSpec"] = request.coreSpec;
+    }
+
+    if (!Util.isUnset(request.filestoreNum)) {
+      query["FilestoreNum"] = request.filestoreNum;
+    }
+
+    if (!Util.isUnset(request.filestoreSpec)) {
+      query["FilestoreSpec"] = request.filestoreSpec;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lindormNum)) {
+      query["LindormNum"] = request.lindormNum;
+    }
+
+    if (!Util.isUnset(request.lindormSpec)) {
+      query["LindormSpec"] = request.lindormSpec;
+    }
+
+    if (!Util.isUnset(request.ltsCoreNum)) {
+      query["LtsCoreNum"] = request.ltsCoreNum;
+    }
+
+    if (!Util.isUnset(request.ltsCoreSpec)) {
+      query["LtsCoreSpec"] = request.ltsCoreSpec;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoenixCoreNum)) {
+      query["PhoenixCoreNum"] = request.phoenixCoreNum;
+    }
+
+    if (!Util.isUnset(request.phoenixCoreSpec)) {
+      query["PhoenixCoreSpec"] = request.phoenixCoreSpec;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.solrNum)) {
+      query["SolrNum"] = request.solrNum;
+    }
+
+    if (!Util.isUnset(request.solrSpec)) {
+      query["SolrSpec"] = request.solrSpec;
+    }
+
+    if (!Util.isUnset(request.tsdbNum)) {
+      query["TsdbNum"] = request.tsdbNum;
+    }
+
+    if (!Util.isUnset(request.tsdbSpec)) {
+      query["TsdbSpec"] = request.tsdbSpec;
+    }
+
+    if (!Util.isUnset(request.upgradeType)) {
+      query["UpgradeType"] = request.upgradeType;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
