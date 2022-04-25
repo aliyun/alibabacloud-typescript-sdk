@@ -2077,10 +2077,12 @@ export class GetFeatureDetailsRequest extends $tea.Model {
 
 export class GetFeatureDetailsResponseBody extends $tea.Model {
   requestId?: string;
+  templateScratch?: GetFeatureDetailsResponseBodyTemplateScratch;
   terraform?: GetFeatureDetailsResponseBodyTerraform;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      templateScratch: 'TemplateScratch',
       terraform: 'Terraform',
     };
   }
@@ -2088,6 +2090,7 @@ export class GetFeatureDetailsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      templateScratch: GetFeatureDetailsResponseBodyTemplateScratch,
       terraform: GetFeatureDetailsResponseBodyTerraform,
     };
   }
@@ -5536,6 +5539,7 @@ export class UpdateStackRequest extends $tea.Model {
   ramRoleName?: string;
   regionId?: string;
   replacementOption?: string;
+  resourceGroupId?: string;
   stackId?: string;
   stackPolicyBody?: string;
   stackPolicyDuringUpdateBody?: string;
@@ -5557,6 +5561,7 @@ export class UpdateStackRequest extends $tea.Model {
       ramRoleName: 'RamRoleName',
       regionId: 'RegionId',
       replacementOption: 'ReplacementOption',
+      resourceGroupId: 'ResourceGroupId',
       stackId: 'StackId',
       stackPolicyBody: 'StackPolicyBody',
       stackPolicyDuringUpdateBody: 'StackPolicyDuringUpdateBody',
@@ -5581,6 +5586,7 @@ export class UpdateStackRequest extends $tea.Model {
       ramRoleName: 'string',
       regionId: 'string',
       replacementOption: 'string',
+      resourceGroupId: 'string',
       stackId: 'string',
       stackPolicyBody: 'string',
       stackPolicyDuringUpdateBody: 'string',
@@ -6870,6 +6876,56 @@ export class GetChangeSetResponseBodyParameters extends $tea.Model {
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes extends $tea.Model {
+  resourceType?: string;
+  sourceResourceGroupSupported?: boolean;
+  sourceResourcesSupported?: boolean;
+  sourceSupported?: boolean;
+  sourceTagSupported?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      sourceResourceGroupSupported: 'SourceResourceGroupSupported',
+      sourceResourcesSupported: 'SourceResourcesSupported',
+      sourceSupported: 'SourceSupported',
+      sourceTagSupported: 'SourceTagSupported',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      sourceResourceGroupSupported: 'boolean',
+      sourceResourcesSupported: 'boolean',
+      sourceSupported: 'boolean',
+      sourceTagSupported: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTemplateScratch extends $tea.Model {
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes },
     };
   }
 
@@ -12449,6 +12505,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replacementOption)) {
       query["ReplacementOption"] = request.replacementOption;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.stackId)) {
