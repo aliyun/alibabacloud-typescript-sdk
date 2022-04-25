@@ -1522,6 +1522,8 @@ export class CreateFileRequest extends $tea.Model {
   fileName?: string;
   fileType?: number;
   inputList?: string;
+  inputParameters?: string;
+  outputParameters?: string;
   owner?: string;
   paraValue?: string;
   projectId?: number;
@@ -1551,6 +1553,8 @@ export class CreateFileRequest extends $tea.Model {
       fileName: 'FileName',
       fileType: 'FileType',
       inputList: 'InputList',
+      inputParameters: 'InputParameters',
+      outputParameters: 'OutputParameters',
       owner: 'Owner',
       paraValue: 'ParaValue',
       projectId: 'ProjectId',
@@ -1583,6 +1587,8 @@ export class CreateFileRequest extends $tea.Model {
       fileName: 'string',
       fileType: 'number',
       inputList: 'string',
+      inputParameters: 'string',
+      outputParameters: 'string',
       owner: 'string',
       paraValue: 'string',
       projectId: 'number',
@@ -16541,7 +16547,9 @@ export class UpdateFileRequest extends $tea.Model {
   fileId?: number;
   fileName?: string;
   inputList?: string;
+  inputParameters?: string;
   outputList?: string;
+  outputParameters?: string;
   owner?: string;
   paraValue?: string;
   projectId?: number;
@@ -16570,7 +16578,9 @@ export class UpdateFileRequest extends $tea.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       inputList: 'InputList',
+      inputParameters: 'InputParameters',
       outputList: 'OutputList',
+      outputParameters: 'OutputParameters',
       owner: 'Owner',
       paraValue: 'ParaValue',
       projectId: 'ProjectId',
@@ -16602,7 +16612,9 @@ export class UpdateFileRequest extends $tea.Model {
       fileId: 'number',
       fileName: 'string',
       inputList: 'string',
+      inputParameters: 'string',
       outputList: 'string',
+      outputParameters: 'string',
       owner: 'string',
       paraValue: 'string',
       projectId: 'number',
@@ -20440,6 +20452,28 @@ export class GetFileResponseBodyDataNodeConfigurationInputList extends $tea.Mode
   }
 }
 
+export class GetFileResponseBodyDataNodeConfigurationInputParameters extends $tea.Model {
+  parameterName?: string;
+  valueSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterName: 'ParameterName',
+      valueSource: 'ValueSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterName: 'string',
+      valueSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileResponseBodyDataNodeConfigurationOutputList extends $tea.Model {
   output?: string;
   refTableName?: string;
@@ -20462,6 +20496,34 @@ export class GetFileResponseBodyDataNodeConfigurationOutputList extends $tea.Mod
   }
 }
 
+export class GetFileResponseBodyDataNodeConfigurationOutputParameters extends $tea.Model {
+  description?: string;
+  parameterName?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      parameterName: 'ParameterName',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      parameterName: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
   autoRerunIntervalMillis?: number;
   autoRerunTimes?: number;
@@ -20471,7 +20533,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
   dependentType?: string;
   endEffectDate?: number;
   inputList?: GetFileResponseBodyDataNodeConfigurationInputList[];
+  inputParameters?: GetFileResponseBodyDataNodeConfigurationInputParameters[];
   outputList?: GetFileResponseBodyDataNodeConfigurationOutputList[];
+  outputParameters?: GetFileResponseBodyDataNodeConfigurationOutputParameters[];
   paraValue?: string;
   rerunMode?: string;
   resourceGroupId?: number;
@@ -20489,7 +20553,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       dependentType: 'DependentType',
       endEffectDate: 'EndEffectDate',
       inputList: 'InputList',
+      inputParameters: 'InputParameters',
       outputList: 'OutputList',
+      outputParameters: 'OutputParameters',
       paraValue: 'ParaValue',
       rerunMode: 'RerunMode',
       resourceGroupId: 'ResourceGroupId',
@@ -20510,7 +20576,9 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       dependentType: 'string',
       endEffectDate: 'number',
       inputList: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationInputList },
+      inputParameters: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationInputParameters },
       outputList: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationOutputList },
+      outputParameters: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationOutputParameters },
       paraValue: 'string',
       rerunMode: 'string',
       resourceGroupId: 'number',
@@ -29610,6 +29678,14 @@ export default class Client extends OpenApi {
       body["InputList"] = request.inputList;
     }
 
+    if (!Util.isUnset(request.inputParameters)) {
+      body["InputParameters"] = request.inputParameters;
+    }
+
+    if (!Util.isUnset(request.outputParameters)) {
+      body["OutputParameters"] = request.outputParameters;
+    }
+
     if (!Util.isUnset(request.owner)) {
       body["Owner"] = request.owner;
     }
@@ -37276,8 +37352,16 @@ export default class Client extends OpenApi {
       body["InputList"] = request.inputList;
     }
 
+    if (!Util.isUnset(request.inputParameters)) {
+      body["InputParameters"] = request.inputParameters;
+    }
+
     if (!Util.isUnset(request.outputList)) {
       body["OutputList"] = request.outputList;
+    }
+
+    if (!Util.isUnset(request.outputParameters)) {
+      body["OutputParameters"] = request.outputParameters;
     }
 
     if (!Util.isUnset(request.owner)) {
