@@ -303,11 +303,13 @@ export class AddRoomPlanResponse extends $tea.Model {
 }
 
 export class AddSceneRequest extends $tea.Model {
+  customerUid?: string;
   name?: string;
   projectId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      customerUid: 'CustomerUid',
       name: 'Name',
       projectId: 'ProjectId',
       type: 'Type',
@@ -316,6 +318,7 @@ export class AddSceneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customerUid: 'string',
       name: 'string',
       projectId: 'string',
       type: 'string',
@@ -1893,6 +1896,78 @@ export class GetScenePreviewInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetScenePreviewInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewResourceRequest extends $tea.Model {
+  previewToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      previewToken: 'PreviewToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      previewToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewResourceResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetScenePreviewResourceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetScenePreviewResourceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetScenePreviewResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetScenePreviewResourceResponseBody,
     };
   }
 
@@ -4465,6 +4540,56 @@ export class GetScenePreviewInfoResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetScenePreviewResourceResponseBodyDataResourceDirectory extends $tea.Model {
+  modelConfig?: string;
+  orthomapConfig?: string;
+  rootPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelConfig: 'ModelConfig',
+      orthomapConfig: 'OrthomapConfig',
+      rootPath: 'RootPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelConfig: 'string',
+      orthomapConfig: 'string',
+      rootPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewResourceResponseBodyData extends $tea.Model {
+  name?: string;
+  resourceDirectory?: GetScenePreviewResourceResponseBodyDataResourceDirectory;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      resourceDirectory: 'ResourceDirectory',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      resourceDirectory: GetScenePreviewResourceResponseBodyDataResourceDirectory,
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSingleConnDataResponseBodyList extends $tea.Model {
   id?: string;
   mapId?: string;
@@ -4825,6 +4950,10 @@ export default class Client extends OpenApi {
   async addSceneWithOptions(request: AddSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSceneResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.customerUid)) {
+      query["CustomerUid"] = request.customerUid;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -5476,6 +5605,35 @@ export default class Client extends OpenApi {
   async getScenePreviewInfo(request: GetScenePreviewInfoRequest): Promise<GetScenePreviewInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getScenePreviewInfoWithOptions(request, runtime);
+  }
+
+  async getScenePreviewResourceWithOptions(request: GetScenePreviewResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetScenePreviewResource",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetScenePreviewResourceResponse>(await this.callApi(params, req, runtime), new GetScenePreviewResourceResponse({}));
+  }
+
+  async getScenePreviewResource(request: GetScenePreviewResourceRequest): Promise<GetScenePreviewResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getScenePreviewResourceWithOptions(request, runtime);
   }
 
   async getSingleConnDataWithOptions(request: GetSingleConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSingleConnDataResponse> {
