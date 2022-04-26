@@ -3753,6 +3753,81 @@ export class HoldCallResponse extends $tea.Model {
   }
 }
 
+export class ImportAdminsRequest extends $tea.Model {
+  instanceId?: string;
+  ramIdList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ramIdList: 'RamIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ramIdList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportAdminsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ImportAdminsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ImportAdminsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportAdminsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ImportAdminsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ImportAdminsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportCustomCallTaggingRequest extends $tea.Model {
   filePath?: string;
   instanceId?: string;
@@ -4094,6 +4169,7 @@ export class InterceptCallResponse extends $tea.Model {
 
 export class LaunchAuthenticationRequest extends $tea.Model {
   contactFlowId?: string;
+  contactFlowVariables?: string;
   deviceId?: string;
   instanceId?: string;
   jobId?: string;
@@ -4101,6 +4177,7 @@ export class LaunchAuthenticationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       contactFlowId: 'ContactFlowId',
+      contactFlowVariables: 'ContactFlowVariables',
       deviceId: 'DeviceId',
       instanceId: 'InstanceId',
       jobId: 'JobId',
@@ -4111,6 +4188,7 @@ export class LaunchAuthenticationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       contactFlowId: 'string',
+      contactFlowVariables: 'string',
       deviceId: 'string',
       instanceId: 'string',
       jobId: 'string',
@@ -4181,16 +4259,22 @@ export class LaunchAuthenticationResponse extends $tea.Model {
 
 export class LaunchSurveyRequest extends $tea.Model {
   contactFlowId?: string;
+  contactFlowVariables?: string;
   deviceId?: string;
   instanceId?: string;
   jobId?: string;
+  smsMetadataId?: string;
+  surveyChannel?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       contactFlowId: 'ContactFlowId',
+      contactFlowVariables: 'ContactFlowVariables',
       deviceId: 'DeviceId',
       instanceId: 'InstanceId',
       jobId: 'JobId',
+      smsMetadataId: 'SmsMetadataId',
+      surveyChannel: 'SurveyChannel',
       userId: 'UserId',
     };
   }
@@ -4198,9 +4282,12 @@ export class LaunchSurveyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       contactFlowId: 'string',
+      contactFlowVariables: 'string',
       deviceId: 'string',
       instanceId: 'string',
       jobId: 'string',
+      smsMetadataId: 'string',
+      surveyChannel: 'string',
       userId: 'string',
     };
   }
@@ -9642,8 +9729,7 @@ export class RemovePhoneNumbersRequest extends $tea.Model {
 
 export class RemovePhoneNumbersResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
-  failureList?: string[];
+  data?: string[];
   httpStatusCode?: number;
   message?: string;
   params?: string[];
@@ -9652,7 +9738,6 @@ export class RemovePhoneNumbersResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
-      failureList: 'FailureList',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       params: 'Params',
@@ -9663,8 +9748,7 @@ export class RemovePhoneNumbersResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
-      failureList: { 'type': 'array', 'itemType': 'string' },
+      data: { 'type': 'array', 'itemType': 'string' },
       httpStatusCode: 'number',
       message: 'string',
       params: { 'type': 'array', 'itemType': 'string' },
@@ -14297,6 +14381,37 @@ export class HoldCallResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImportAdminsResponseBodyData extends $tea.Model {
+  extension?: string;
+  instanceId?: string;
+  ramId?: string;
+  roleId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      instanceId: 'InstanceId',
+      ramId: 'RamId',
+      roleId: 'RoleId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      instanceId: 'string',
+      ramId: 'string',
+      roleId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportCustomCallTaggingResponseBodyData extends $tea.Model {
   item?: string;
   reason?: string;
@@ -18441,6 +18556,7 @@ export class ListMonoRecordingsResponseBodyData extends $tea.Model {
 }
 
 export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
+  agentChannelId?: string;
   agentId?: string;
   agentName?: string;
   contactId?: string;
@@ -18452,6 +18568,7 @@ export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      agentChannelId: 'AgentChannelId',
       agentId: 'AgentId',
       agentName: 'AgentName',
       contactId: 'ContactId',
@@ -18466,6 +18583,7 @@ export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentChannelId: 'string',
       agentId: 'string',
       agentName: 'string',
       contactId: 'string',
@@ -23725,6 +23843,39 @@ export default class Client extends OpenApi {
     return await this.holdCallWithOptions(request, runtime);
   }
 
+  async importAdminsWithOptions(request: ImportAdminsRequest, runtime: $Util.RuntimeOptions): Promise<ImportAdminsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ramIdList)) {
+      query["RamIdList"] = request.ramIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportAdmins",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportAdminsResponse>(await this.callApi(params, req, runtime), new ImportAdminsResponse({}));
+  }
+
+  async importAdmins(request: ImportAdminsRequest): Promise<ImportAdminsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importAdminsWithOptions(request, runtime);
+  }
+
   async importCustomCallTaggingWithOptions(request: ImportCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ImportCustomCallTaggingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23908,6 +24059,10 @@ export default class Client extends OpenApi {
       query["ContactFlowId"] = request.contactFlowId;
     }
 
+    if (!Util.isUnset(request.contactFlowVariables)) {
+      query["ContactFlowVariables"] = request.contactFlowVariables;
+    }
+
     if (!Util.isUnset(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
@@ -23953,6 +24108,10 @@ export default class Client extends OpenApi {
       query["ContactFlowId"] = request.contactFlowId;
     }
 
+    if (!Util.isUnset(request.contactFlowVariables)) {
+      query["ContactFlowVariables"] = request.contactFlowVariables;
+    }
+
     if (!Util.isUnset(request.deviceId)) {
       query["DeviceId"] = request.deviceId;
     }
@@ -23963,6 +24122,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobId)) {
       query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.smsMetadataId)) {
+      query["SmsMetadataId"] = request.smsMetadataId;
+    }
+
+    if (!Util.isUnset(request.surveyChannel)) {
+      query["SurveyChannel"] = request.surveyChannel;
     }
 
     if (!Util.isUnset(request.userId)) {
