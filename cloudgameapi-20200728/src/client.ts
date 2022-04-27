@@ -296,6 +296,81 @@ export class BatchStopGameSessionsResponse extends $tea.Model {
   }
 }
 
+export class CancelGameHangRequest extends $tea.Model {
+  accessKey?: string;
+  gameSession?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      gameSession: 'GameSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      gameSession: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelGameHangResponseBody extends $tea.Model {
+  code?: string;
+  gameSession?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      gameSession: 'GameSession',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      gameSession: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelGameHangResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelGameHangResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelGameHangResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloseOrderRequest extends $tea.Model {
   accountDomain?: string;
   buyerAccountId?: string;
@@ -2471,6 +2546,90 @@ export class QueryGameResponse extends $tea.Model {
   }
 }
 
+export class QueryGameHangRequest extends $tea.Model {
+  accessKey?: string;
+  gameSession?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      gameSession: 'GameSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      gameSession: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGameHangResponseBody extends $tea.Model {
+  code?: string;
+  duration?: number;
+  gameSession?: string;
+  hanging?: boolean;
+  message?: string;
+  requestId?: string;
+  startHangTimestamp?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      duration: 'Duration',
+      gameSession: 'GameSession',
+      hanging: 'Hanging',
+      message: 'Message',
+      requestId: 'RequestId',
+      startHangTimestamp: 'StartHangTimestamp',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      duration: 'number',
+      gameSession: 'string',
+      hanging: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      startHangTimestamp: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGameHangResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryGameHangResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryGameHangResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryItemsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -2901,6 +3060,168 @@ export class RemoveGameFromProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RemoveGameFromProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGameAliveRequest extends $tea.Model {
+  accessKey?: string;
+  gameSession?: string;
+  keepAlive?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      gameSession: 'GameSession',
+      keepAlive: 'KeepAlive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      gameSession: 'string',
+      keepAlive: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGameAliveResponseBody extends $tea.Model {
+  code?: string;
+  gameSession?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      gameSession: 'GameSession',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      gameSession: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGameAliveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetGameAliveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetGameAliveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGameHangRequest extends $tea.Model {
+  accessKey?: string;
+  duration?: number;
+  gameSession?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      duration: 'Duration',
+      gameSession: 'GameSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      duration: 'number',
+      gameSession: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGameHangResponseBody extends $tea.Model {
+  code?: string;
+  duration?: number;
+  gameSession?: string;
+  message?: string;
+  requestId?: string;
+  startHangTimestamp?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      duration: 'Duration',
+      gameSession: 'GameSession',
+      message: 'Message',
+      requestId: 'RequestId',
+      startHangTimestamp: 'StartHangTimestamp',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      duration: 'number',
+      gameSession: 'string',
+      message: 'string',
+      requestId: 'string',
+      startHangTimestamp: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetGameHangResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetGameHangResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetGameHangResponseBody,
     };
   }
 
@@ -4694,9 +5015,18 @@ export default class Client extends OpenApi {
   async adaptGameVersionWithOptions(request: AdaptGameVersionRequest, runtime: $Util.RuntimeOptions): Promise<AdaptGameVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FrameRate"] = request.frameRate;
-    query["Resolution"] = request.resolution;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.frameRate)) {
+      query["FrameRate"] = request.frameRate;
+    }
+
+    if (!Util.isUnset(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4722,8 +5052,14 @@ export default class Client extends OpenApi {
   async addGameToProjectWithOptions(request: AddGameToProjectRequest, runtime: $Util.RuntimeOptions): Promise<AddGameToProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameId"] = request.gameId;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4778,12 +5114,30 @@ export default class Client extends OpenApi {
   async batchStopGameSessionsWithOptions(request: BatchStopGameSessionsRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopGameSessionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameId"] = request.gameId;
-    query["ProjectId"] = request.projectId;
-    query["Reason"] = request.reason;
-    query["Tags"] = request.tags;
-    query["Token"] = request.token;
-    query["TrackInfo"] = request.trackInfo;
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.trackInfo)) {
+      query["TrackInfo"] = request.trackInfo;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4806,12 +5160,54 @@ export default class Client extends OpenApi {
     return await this.batchStopGameSessionsWithOptions(request, runtime);
   }
 
+  async cancelGameHangWithOptions(request: CancelGameHangRequest, runtime: $Util.RuntimeOptions): Promise<CancelGameHangResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessKey)) {
+      body["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameSession)) {
+      body["GameSession"] = request.gameSession;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelGameHang",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelGameHangResponse>(await this.callApi(params, req, runtime), new CancelGameHangResponse({}));
+  }
+
+  async cancelGameHang(request: CancelGameHangRequest): Promise<CancelGameHangResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelGameHangWithOptions(request, runtime);
+  }
+
   async closeOrderWithOptions(request: CloseOrderRequest, runtime: $Util.RuntimeOptions): Promise<CloseOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["BuyerAccountId"] = request.buyerAccountId;
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.buyerAccountId)) {
+      query["BuyerAccountId"] = request.buyerAccountId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4837,9 +5233,18 @@ export default class Client extends OpenApi {
   async createGameWithOptions(request: CreateGameRequest, runtime: $Util.RuntimeOptions): Promise<CreateGameResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["GameName"] = request.gameName;
-    query["PlatformType"] = request.platformType;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.gameName)) {
+      query["GameName"] = request.gameName;
+    }
+
+    if (!Util.isUnset(request.platformType)) {
+      query["PlatformType"] = request.platformType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4865,16 +5270,46 @@ export default class Client extends OpenApi {
   async createGameDeployWorkflowWithOptions(request: CreateGameDeployWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<CreateGameDeployWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DownloadType"] = request.downloadType;
-    query["FileType"] = request.fileType;
-    query["FrameRate"] = request.frameRate;
-    query["GameId"] = request.gameId;
-    query["GameVersion"] = request.gameVersion;
-    query["Hash"] = request.hash;
-    query["Instance"] = request.instance;
-    query["ProjectId"] = request.projectId;
-    query["Resolution"] = request.resolution;
-    query["VersionName"] = request.versionName;
+    if (!Util.isUnset(request.downloadType)) {
+      query["DownloadType"] = request.downloadType;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.frameRate)) {
+      query["FrameRate"] = request.frameRate;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.gameVersion)) {
+      query["GameVersion"] = request.gameVersion;
+    }
+
+    if (!Util.isUnset(request.hash)) {
+      query["Hash"] = request.hash;
+    }
+
+    if (!Util.isUnset(request.instance)) {
+      query["Instance"] = request.instance;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4900,14 +5335,38 @@ export default class Client extends OpenApi {
   async createOrderWithOptions(request: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["Amount"] = request.amount;
-    query["BuyerAccountId"] = request.buyerAccountId;
-    query["IdempotentCode"] = request.idempotentCode;
-    query["ItemId"] = request.itemId;
-    query["OriginPrice"] = request.originPrice;
-    query["SettlementPrice"] = request.settlementPrice;
-    query["SkuId"] = request.skuId;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.buyerAccountId)) {
+      query["BuyerAccountId"] = request.buyerAccountId;
+    }
+
+    if (!Util.isUnset(request.idempotentCode)) {
+      query["IdempotentCode"] = request.idempotentCode;
+    }
+
+    if (!Util.isUnset(request.itemId)) {
+      query["ItemId"] = request.itemId;
+    }
+
+    if (!Util.isUnset(request.originPrice)) {
+      query["OriginPrice"] = request.originPrice;
+    }
+
+    if (!Util.isUnset(request.settlementPrice)) {
+      query["SettlementPrice"] = request.settlementPrice;
+    }
+
+    if (!Util.isUnset(request.skuId)) {
+      query["SkuId"] = request.skuId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4933,8 +5392,14 @@ export default class Client extends OpenApi {
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4960,9 +5425,18 @@ export default class Client extends OpenApi {
   async createTokenWithOptions(request: CreateTokenRequest, runtime: $Util.RuntimeOptions): Promise<CreateTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["CurrentToken"] = request.currentToken;
-    query["Session"] = request.session;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.currentToken)) {
+      query["CurrentToken"] = request.currentToken;
+    }
+
+    if (!Util.isUnset(request.session)) {
+      query["Session"] = request.session;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4988,7 +5462,10 @@ export default class Client extends OpenApi {
   async deleteGameWithOptions(request: DeleteGameRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGameResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameId"] = request.gameId;
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5014,7 +5491,10 @@ export default class Client extends OpenApi {
   async deleteGameVersionWithOptions(request: DeleteGameVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGameVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5040,7 +5520,10 @@ export default class Client extends OpenApi {
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5066,9 +5549,18 @@ export default class Client extends OpenApi {
   async deliveryOrderWithOptions(request: DeliveryOrderRequest, runtime: $Util.RuntimeOptions): Promise<DeliveryOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["BuyerAccountId"] = request.buyerAccountId;
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.buyerAccountId)) {
+      query["BuyerAccountId"] = request.buyerAccountId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5175,9 +5667,18 @@ export default class Client extends OpenApi {
   async getGameCcuWithOptions(request: GetGameCcuRequest, runtime: $Util.RuntimeOptions): Promise<GetGameCcuResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessKey"] = request.accessKey;
-    query["GameId"] = request.gameId;
-    query["RegionName"] = request.regionName;
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5203,7 +5704,10 @@ export default class Client extends OpenApi {
   async getGameStatusWithOptions(request: GetGameStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetGameStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameSession"] = request.gameSession;
+    if (!Util.isUnset(request.gameSession)) {
+      query["GameSession"] = request.gameSession;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5229,9 +5733,18 @@ export default class Client extends OpenApi {
   async getGameStockWithOptions(request: GetGameStockRequest, runtime: $Util.RuntimeOptions): Promise<GetGameStockResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessKey"] = request.accessKey;
-    query["GameId"] = request.gameId;
-    query["UserLevel"] = request.userLevel;
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.userLevel)) {
+      query["UserLevel"] = request.userLevel;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5257,9 +5770,18 @@ export default class Client extends OpenApi {
   async getGameTrialSurplusDurationWithOptions(request: GetGameTrialSurplusDurationRequest, runtime: $Util.RuntimeOptions): Promise<GetGameTrialSurplusDurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountId"] = request.accountId;
-    query["GameId"] = request.gameId;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5285,7 +5807,10 @@ export default class Client extends OpenApi {
   async getGameVersionWithOptions(request: GetGameVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetGameVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5311,7 +5836,10 @@ export default class Client extends OpenApi {
   async getGameVersionProgressWithOptions(request: GetGameVersionProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetGameVersionProgressResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5337,7 +5865,10 @@ export default class Client extends OpenApi {
   async getItemWithOptions(request: GetItemRequest, runtime: $Util.RuntimeOptions): Promise<GetItemResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ItemId"] = request.itemId;
+    if (!Util.isUnset(request.itemId)) {
+      query["ItemId"] = request.itemId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5363,9 +5894,18 @@ export default class Client extends OpenApi {
   async getOutAccountBindDetailWithOptions(request: GetOutAccountBindDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetOutAccountBindDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["AccountId"] = request.accountId;
-    query["OutAccountType"] = request.outAccountType;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.outAccountType)) {
+      query["OutAccountType"] = request.outAccountType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5391,7 +5931,10 @@ export default class Client extends OpenApi {
   async getSessionWithOptions(request: GetSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetSessionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Token"] = request.token;
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5417,8 +5960,14 @@ export default class Client extends OpenApi {
   async getStopGameTokenWithOptions(request: GetStopGameTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetStopGameTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessKey"] = request.accessKey;
-    query["GameId"] = request.gameId;
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5444,8 +5993,14 @@ export default class Client extends OpenApi {
   async kickPlayerWithOptions(request: KickPlayerRequest, runtime: $Util.RuntimeOptions): Promise<KickPlayerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameSession"] = request.gameSession;
-    query["KickedAccountId"] = request.kickedAccountId;
+    if (!Util.isUnset(request.gameSession)) {
+      query["GameSession"] = request.gameSession;
+    }
+
+    if (!Util.isUnset(request.kickedAccountId)) {
+      query["KickedAccountId"] = request.kickedAccountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5471,10 +6026,22 @@ export default class Client extends OpenApi {
   async listBoughtGamesWithOptions(request: ListBoughtGamesRequest, runtime: $Util.RuntimeOptions): Promise<ListBoughtGamesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["AccountId"] = request.accountId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5500,7 +6067,10 @@ export default class Client extends OpenApi {
   async listContainerStatusWithOptions(request: ListContainerStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListContainerStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameSessionIdList"] = request.gameSessionIdList;
+    if (!Util.isUnset(request.gameSessionIdList)) {
+      query["GameSessionIdList"] = request.gameSessionIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5526,10 +6096,22 @@ export default class Client extends OpenApi {
   async listDeployableInstancesWithOptions(request: ListDeployableInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDeployableInstancesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5555,9 +6137,18 @@ export default class Client extends OpenApi {
   async listGameVersionsWithOptions(request: ListGameVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListGameVersionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameId"] = request.gameId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5583,8 +6174,14 @@ export default class Client extends OpenApi {
   async listGamesWithOptions(request: ListGamesRequest, runtime: $Util.RuntimeOptions): Promise<ListGamesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5610,11 +6207,26 @@ export default class Client extends OpenApi {
   async listHistoryContainerStatusWithOptions(request: ListHistoryContainerStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoryContainerStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["LastGameSessionId"] = request.lastGameSessionId;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lastGameSessionId)) {
+      query["LastGameSessionId"] = request.lastGameSessionId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5640,8 +6252,14 @@ export default class Client extends OpenApi {
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5667,10 +6285,22 @@ export default class Client extends OpenApi {
   async queryGameWithOptions(request: QueryGameRequest, runtime: $Util.RuntimeOptions): Promise<QueryGameResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["TenantId"] = request.tenantId;
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5693,11 +6323,50 @@ export default class Client extends OpenApi {
     return await this.queryGameWithOptions(request, runtime);
   }
 
+  async queryGameHangWithOptions(request: QueryGameHangRequest, runtime: $Util.RuntimeOptions): Promise<QueryGameHangResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessKey)) {
+      body["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameSession)) {
+      body["GameSession"] = request.gameSession;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGameHang",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGameHangResponse>(await this.callApi(params, req, runtime), new QueryGameHangResponse({}));
+  }
+
+  async queryGameHang(request: QueryGameHangRequest): Promise<QueryGameHangResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGameHangWithOptions(request, runtime);
+  }
+
   async queryItemsWithOptions(request: QueryItemsRequest, runtime: $Util.RuntimeOptions): Promise<QueryItemsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5723,9 +6392,18 @@ export default class Client extends OpenApi {
   async queryOrderWithOptions(request: QueryOrderRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["BuyerAccountId"] = request.buyerAccountId;
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.buyerAccountId)) {
+      query["BuyerAccountId"] = request.buyerAccountId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5751,9 +6429,18 @@ export default class Client extends OpenApi {
   async queryOutAccountBindStatusWithOptions(request: QueryOutAccountBindStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryOutAccountBindStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDomain"] = request.accountDomain;
-    query["AccountId"] = request.accountId;
-    query["GameId"] = request.gameId;
+    if (!Util.isUnset(request.accountDomain)) {
+      query["AccountDomain"] = request.accountDomain;
+    }
+
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5779,10 +6466,22 @@ export default class Client extends OpenApi {
   async queryProjectWithOptions(request: QueryProjectRequest, runtime: $Util.RuntimeOptions): Promise<QueryProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["TenantId"] = request.tenantId;
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5808,9 +6507,18 @@ export default class Client extends OpenApi {
   async queryTenantWithOptions(request: QueryTenantRequest, runtime: $Util.RuntimeOptions): Promise<QueryTenantResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["Param"] = request.param;
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5836,8 +6544,14 @@ export default class Client extends OpenApi {
   async removeGameFromProjectWithOptions(request: RemoveGameFromProjectRequest, runtime: $Util.RuntimeOptions): Promise<RemoveGameFromProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameId"] = request.gameId;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5860,10 +6574,87 @@ export default class Client extends OpenApi {
     return await this.removeGameFromProjectWithOptions(request, runtime);
   }
 
+  async setGameAliveWithOptions(request: SetGameAliveRequest, runtime: $Util.RuntimeOptions): Promise<SetGameAliveResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessKey)) {
+      body["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameSession)) {
+      body["GameSession"] = request.gameSession;
+    }
+
+    if (!Util.isUnset(request.keepAlive)) {
+      body["KeepAlive"] = request.keepAlive;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetGameAlive",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetGameAliveResponse>(await this.callApi(params, req, runtime), new SetGameAliveResponse({}));
+  }
+
+  async setGameAlive(request: SetGameAliveRequest): Promise<SetGameAliveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setGameAliveWithOptions(request, runtime);
+  }
+
+  async setGameHangWithOptions(request: SetGameHangRequest, runtime: $Util.RuntimeOptions): Promise<SetGameHangResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessKey)) {
+      body["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.gameSession)) {
+      body["GameSession"] = request.gameSession;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetGameHang",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetGameHangResponse>(await this.callApi(params, req, runtime), new SetGameHangResponse({}));
+  }
+
+  async setGameHang(request: SetGameHangRequest): Promise<SetGameHangResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setGameHangWithOptions(request, runtime);
+  }
+
   async skipTrialPolicyWithOptions(request: SkipTrialPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SkipTrialPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GameSessionId"] = request.gameSessionId;
+    if (!Util.isUnset(request.gameSessionId)) {
+      query["GameSessionId"] = request.gameSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5938,11 +6729,26 @@ export default class Client extends OpenApi {
   async submitDeploymentWithOptions(request: SubmitDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CloudGameInstanceIds"] = request.cloudGameInstanceIds;
-    query["GameId"] = request.gameId;
-    query["OperationType"] = request.operationType;
-    query["ProjectId"] = request.projectId;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.cloudGameInstanceIds)) {
+      query["CloudGameInstanceIds"] = request.cloudGameInstanceIds;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5968,25 +6774,82 @@ export default class Client extends OpenApi {
   async submitInternalPurchaseChargeDataWithOptions(request: SubmitInternalPurchaseChargeDataRequest, runtime: $Util.RuntimeOptions): Promise<SubmitInternalPurchaseChargeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ActiveUserRetentionRateOneDay"] = request.activeUserRetentionRateOneDay;
-    query["ActiveUserRetentionRateSevenDay"] = request.activeUserRetentionRateSevenDay;
-    query["ActiveUserRetentionRateThirtyDay"] = request.activeUserRetentionRateThirtyDay;
-    query["Arpu"] = request.arpu;
-    query["ChargeDate"] = request.chargeDate;
-    query["Dau"] = request.dau;
-    query["GameId"] = request.gameId;
-    query["Mau"] = request.mau;
-    query["NewUserRetentionRateOneDay"] = request.newUserRetentionRateOneDay;
-    query["NewUserRetentionRateSevenDay"] = request.newUserRetentionRateSevenDay;
-    query["NewUserRetentionRateThirtyDay"] = request.newUserRetentionRateThirtyDay;
-    query["PaymentConversionRate"] = request.paymentConversionRate;
-    query["PlayTimeAverageOneDay"] = request.playTimeAverageOneDay;
-    query["PlayTimeAverageThirtyDay"] = request.playTimeAverageThirtyDay;
-    query["PlayTimeNinetyPointsOneDay"] = request.playTimeNinetyPointsOneDay;
-    query["PlayTimeNinetyPointsThirtyDay"] = request.playTimeNinetyPointsThirtyDay;
-    query["PlayTimeRangeOneDay"] = request.playTimeRangeOneDay;
-    query["PlayTimeRangeThirtyDay"] = request.playTimeRangeThirtyDay;
-    query["UserActivationRate"] = request.userActivationRate;
+    if (!Util.isUnset(request.activeUserRetentionRateOneDay)) {
+      query["ActiveUserRetentionRateOneDay"] = request.activeUserRetentionRateOneDay;
+    }
+
+    if (!Util.isUnset(request.activeUserRetentionRateSevenDay)) {
+      query["ActiveUserRetentionRateSevenDay"] = request.activeUserRetentionRateSevenDay;
+    }
+
+    if (!Util.isUnset(request.activeUserRetentionRateThirtyDay)) {
+      query["ActiveUserRetentionRateThirtyDay"] = request.activeUserRetentionRateThirtyDay;
+    }
+
+    if (!Util.isUnset(request.arpu)) {
+      query["Arpu"] = request.arpu;
+    }
+
+    if (!Util.isUnset(request.chargeDate)) {
+      query["ChargeDate"] = request.chargeDate;
+    }
+
+    if (!Util.isUnset(request.dau)) {
+      query["Dau"] = request.dau;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.mau)) {
+      query["Mau"] = request.mau;
+    }
+
+    if (!Util.isUnset(request.newUserRetentionRateOneDay)) {
+      query["NewUserRetentionRateOneDay"] = request.newUserRetentionRateOneDay;
+    }
+
+    if (!Util.isUnset(request.newUserRetentionRateSevenDay)) {
+      query["NewUserRetentionRateSevenDay"] = request.newUserRetentionRateSevenDay;
+    }
+
+    if (!Util.isUnset(request.newUserRetentionRateThirtyDay)) {
+      query["NewUserRetentionRateThirtyDay"] = request.newUserRetentionRateThirtyDay;
+    }
+
+    if (!Util.isUnset(request.paymentConversionRate)) {
+      query["PaymentConversionRate"] = request.paymentConversionRate;
+    }
+
+    if (!Util.isUnset(request.playTimeAverageOneDay)) {
+      query["PlayTimeAverageOneDay"] = request.playTimeAverageOneDay;
+    }
+
+    if (!Util.isUnset(request.playTimeAverageThirtyDay)) {
+      query["PlayTimeAverageThirtyDay"] = request.playTimeAverageThirtyDay;
+    }
+
+    if (!Util.isUnset(request.playTimeNinetyPointsOneDay)) {
+      query["PlayTimeNinetyPointsOneDay"] = request.playTimeNinetyPointsOneDay;
+    }
+
+    if (!Util.isUnset(request.playTimeNinetyPointsThirtyDay)) {
+      query["PlayTimeNinetyPointsThirtyDay"] = request.playTimeNinetyPointsThirtyDay;
+    }
+
+    if (!Util.isUnset(request.playTimeRangeOneDay)) {
+      query["PlayTimeRangeOneDay"] = request.playTimeRangeOneDay;
+    }
+
+    if (!Util.isUnset(request.playTimeRangeThirtyDay)) {
+      query["PlayTimeRangeThirtyDay"] = request.playTimeRangeThirtyDay;
+    }
+
+    if (!Util.isUnset(request.userActivationRate)) {
+      query["UserActivationRate"] = request.userActivationRate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6012,7 +6875,10 @@ export default class Client extends OpenApi {
   async submitInternalPurchaseOrdersWithOptions(request: SubmitInternalPurchaseOrdersRequest, runtime: $Util.RuntimeOptions): Promise<SubmitInternalPurchaseOrdersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OrderList"] = request.orderList;
+    if (!Util.isUnset(request.orderList)) {
+      query["OrderList"] = request.orderList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6038,11 +6904,26 @@ export default class Client extends OpenApi {
   async submitInternalPurchaseReadyFlagWithOptions(request: SubmitInternalPurchaseReadyFlagRequest, runtime: $Util.RuntimeOptions): Promise<SubmitInternalPurchaseReadyFlagResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BatchInfoList"] = request.batchInfoList;
-    query["ChargeDate"] = request.chargeDate;
-    query["GameId"] = request.gameId;
-    query["OrderTotalCount"] = request.orderTotalCount;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.batchInfoList)) {
+      query["BatchInfoList"] = request.batchInfoList;
+    }
+
+    if (!Util.isUnset(request.chargeDate)) {
+      query["ChargeDate"] = request.chargeDate;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.orderTotalCount)) {
+      query["OrderTotalCount"] = request.orderTotalCount;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6068,12 +6949,30 @@ export default class Client extends OpenApi {
   async uploadGameVersionByDownloadWithOptions(request: UploadGameVersionByDownloadRequest, runtime: $Util.RuntimeOptions): Promise<UploadGameVersionByDownloadResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DownloadType"] = request.downloadType;
-    query["FileType"] = request.fileType;
-    query["GameId"] = request.gameId;
-    query["GameVersion"] = request.gameVersion;
-    query["Hash"] = request.hash;
-    query["VersionName"] = request.versionName;
+    if (!Util.isUnset(request.downloadType)) {
+      query["DownloadType"] = request.downloadType;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.gameVersion)) {
+      query["GameVersion"] = request.gameVersion;
+    }
+
+    if (!Util.isUnset(request.hash)) {
+      query["Hash"] = request.hash;
+    }
+
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
