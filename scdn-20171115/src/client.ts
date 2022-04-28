@@ -4094,6 +4094,72 @@ export class DescribeScdnUserQuotaResponse extends $tea.Model {
   }
 }
 
+export class DescribeScdnVerifyContentRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScdnVerifyContentResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScdnVerifyContentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeScdnVerifyContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeScdnVerifyContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenScdnServiceRequest extends $tea.Model {
   bandwidth?: number;
   ccProtection?: number;
@@ -4880,6 +4946,75 @@ export class UpdateScdnDomainResponse extends $tea.Model {
   }
 }
 
+export class VerifyScdnDomainOwnerRequest extends $tea.Model {
+  domainName?: string;
+  ownerId?: number;
+  verifyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+      verifyType: 'VerifyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      ownerId: 'number',
+      verifyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyScdnDomainOwnerResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyScdnDomainOwnerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: VerifyScdnDomainOwnerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: VerifyScdnDomainOwnerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchSetScdnDomainConfigsResponseBodyDomainConfigListDomainConfigModel extends $tea.Model {
   configId?: number;
   domainName?: string;
@@ -5478,12 +5613,14 @@ export class DescribeScdnDomainConfigsResponseBodyDomainConfigsDomainConfig exte
   configId?: string;
   functionArgs?: DescribeScdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs;
   functionName?: string;
+  parentId?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
       functionArgs: 'FunctionArgs',
       functionName: 'FunctionName',
+      parentId: 'ParentId',
       status: 'Status',
     };
   }
@@ -5493,6 +5630,7 @@ export class DescribeScdnDomainConfigsResponseBodyDomainConfigsDomainConfig exte
       configId: 'string',
       functionArgs: DescribeScdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs,
       functionName: 'string',
+      parentId: 'number',
       status: 'string',
     };
   }
@@ -9279,6 +9417,39 @@ export default class Client extends OpenApi {
     return await this.describeScdnUserQuotaWithOptions(request, runtime);
   }
 
+  async describeScdnVerifyContentWithOptions(request: DescribeScdnVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScdnVerifyContentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeScdnVerifyContent",
+      version: "2017-11-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeScdnVerifyContentResponse>(await this.callApi(params, req, runtime), new DescribeScdnVerifyContentResponse({}));
+  }
+
+  async describeScdnVerifyContent(request: DescribeScdnVerifyContentRequest): Promise<DescribeScdnVerifyContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeScdnVerifyContentWithOptions(request, runtime);
+  }
+
   async openScdnServiceWithOptions(request: OpenScdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenScdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9712,6 +9883,43 @@ export default class Client extends OpenApi {
   async updateScdnDomain(request: UpdateScdnDomainRequest): Promise<UpdateScdnDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateScdnDomainWithOptions(request, runtime);
+  }
+
+  async verifyScdnDomainOwnerWithOptions(request: VerifyScdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyScdnDomainOwnerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.verifyType)) {
+      query["VerifyType"] = request.verifyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyScdnDomainOwner",
+      version: "2017-11-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyScdnDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyScdnDomainOwnerResponse({}));
+  }
+
+  async verifyScdnDomainOwner(request: VerifyScdnDomainOwnerRequest): Promise<VerifyScdnDomainOwnerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyScdnDomainOwnerWithOptions(request, runtime);
   }
 
 }
