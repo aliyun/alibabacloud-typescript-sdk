@@ -8380,6 +8380,171 @@ export class ModifyApiResponse extends $tea.Model {
   }
 }
 
+export class ModifyApiConfigurationRequest extends $tea.Model {
+  allowSignatureMethod?: string;
+  apiId?: string;
+  apiName?: string;
+  appCodeAuthType?: string;
+  authType?: string;
+  backendName?: string;
+  bodyFormat?: string;
+  bodyModel?: string;
+  contentTypeCategory?: string;
+  contentTypeValue?: string;
+  description?: string;
+  disableInternet?: boolean;
+  errorCodeSamples?: string;
+  failResultSample?: string;
+  forceNonceCheck?: boolean;
+  functionComputeConfig?: string;
+  httpConfig?: string;
+  mockConfig?: string;
+  modelName?: string;
+  ossConfig?: string;
+  postBodyDescription?: string;
+  requestHttpMethod?: string;
+  requestMode?: string;
+  requestParameters?: string;
+  requestPath?: string;
+  requestProtocol?: string;
+  resultSample?: string;
+  resultType?: string;
+  securityToken?: string;
+  serviceParameters?: string;
+  serviceParametersMap?: string;
+  serviceProtocol?: string;
+  serviceTimeout?: number;
+  useBackendService?: boolean;
+  visibility?: string;
+  vpcConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowSignatureMethod: 'AllowSignatureMethod',
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      appCodeAuthType: 'AppCodeAuthType',
+      authType: 'AuthType',
+      backendName: 'BackendName',
+      bodyFormat: 'BodyFormat',
+      bodyModel: 'BodyModel',
+      contentTypeCategory: 'ContentTypeCategory',
+      contentTypeValue: 'ContentTypeValue',
+      description: 'Description',
+      disableInternet: 'DisableInternet',
+      errorCodeSamples: 'ErrorCodeSamples',
+      failResultSample: 'FailResultSample',
+      forceNonceCheck: 'ForceNonceCheck',
+      functionComputeConfig: 'FunctionComputeConfig',
+      httpConfig: 'HttpConfig',
+      mockConfig: 'MockConfig',
+      modelName: 'ModelName',
+      ossConfig: 'OssConfig',
+      postBodyDescription: 'PostBodyDescription',
+      requestHttpMethod: 'RequestHttpMethod',
+      requestMode: 'RequestMode',
+      requestParameters: 'RequestParameters',
+      requestPath: 'RequestPath',
+      requestProtocol: 'RequestProtocol',
+      resultSample: 'ResultSample',
+      resultType: 'ResultType',
+      securityToken: 'SecurityToken',
+      serviceParameters: 'ServiceParameters',
+      serviceParametersMap: 'ServiceParametersMap',
+      serviceProtocol: 'ServiceProtocol',
+      serviceTimeout: 'ServiceTimeout',
+      useBackendService: 'UseBackendService',
+      visibility: 'Visibility',
+      vpcConfig: 'VpcConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowSignatureMethod: 'string',
+      apiId: 'string',
+      apiName: 'string',
+      appCodeAuthType: 'string',
+      authType: 'string',
+      backendName: 'string',
+      bodyFormat: 'string',
+      bodyModel: 'string',
+      contentTypeCategory: 'string',
+      contentTypeValue: 'string',
+      description: 'string',
+      disableInternet: 'boolean',
+      errorCodeSamples: 'string',
+      failResultSample: 'string',
+      forceNonceCheck: 'boolean',
+      functionComputeConfig: 'string',
+      httpConfig: 'string',
+      mockConfig: 'string',
+      modelName: 'string',
+      ossConfig: 'string',
+      postBodyDescription: 'string',
+      requestHttpMethod: 'string',
+      requestMode: 'string',
+      requestParameters: 'string',
+      requestPath: 'string',
+      requestProtocol: 'string',
+      resultSample: 'string',
+      resultType: 'string',
+      securityToken: 'string',
+      serviceParameters: 'string',
+      serviceParametersMap: 'string',
+      serviceProtocol: 'string',
+      serviceTimeout: 'number',
+      useBackendService: 'boolean',
+      visibility: 'string',
+      vpcConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiConfigurationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiConfigurationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyApiConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyApiConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyApiGroupRequest extends $tea.Model {
   basePath?: string;
   compatibleFlags?: string;
@@ -22293,6 +22458,175 @@ export default class Client extends OpenApi {
   async modifyApi(request: ModifyApiRequest): Promise<ModifyApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiWithOptions(request, runtime);
+  }
+
+  async modifyApiConfigurationWithOptions(request: ModifyApiConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowSignatureMethod)) {
+      query["AllowSignatureMethod"] = request.allowSignatureMethod;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.appCodeAuthType)) {
+      query["AppCodeAuthType"] = request.appCodeAuthType;
+    }
+
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.backendName)) {
+      query["BackendName"] = request.backendName;
+    }
+
+    if (!Util.isUnset(request.bodyFormat)) {
+      query["BodyFormat"] = request.bodyFormat;
+    }
+
+    if (!Util.isUnset(request.bodyModel)) {
+      query["BodyModel"] = request.bodyModel;
+    }
+
+    if (!Util.isUnset(request.contentTypeCategory)) {
+      query["ContentTypeCategory"] = request.contentTypeCategory;
+    }
+
+    if (!Util.isUnset(request.contentTypeValue)) {
+      query["ContentTypeValue"] = request.contentTypeValue;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.disableInternet)) {
+      query["DisableInternet"] = request.disableInternet;
+    }
+
+    if (!Util.isUnset(request.errorCodeSamples)) {
+      query["ErrorCodeSamples"] = request.errorCodeSamples;
+    }
+
+    if (!Util.isUnset(request.failResultSample)) {
+      query["FailResultSample"] = request.failResultSample;
+    }
+
+    if (!Util.isUnset(request.forceNonceCheck)) {
+      query["ForceNonceCheck"] = request.forceNonceCheck;
+    }
+
+    if (!Util.isUnset(request.functionComputeConfig)) {
+      query["FunctionComputeConfig"] = request.functionComputeConfig;
+    }
+
+    if (!Util.isUnset(request.httpConfig)) {
+      query["HttpConfig"] = request.httpConfig;
+    }
+
+    if (!Util.isUnset(request.mockConfig)) {
+      query["MockConfig"] = request.mockConfig;
+    }
+
+    if (!Util.isUnset(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!Util.isUnset(request.ossConfig)) {
+      query["OssConfig"] = request.ossConfig;
+    }
+
+    if (!Util.isUnset(request.postBodyDescription)) {
+      query["PostBodyDescription"] = request.postBodyDescription;
+    }
+
+    if (!Util.isUnset(request.requestHttpMethod)) {
+      query["RequestHttpMethod"] = request.requestHttpMethod;
+    }
+
+    if (!Util.isUnset(request.requestMode)) {
+      query["RequestMode"] = request.requestMode;
+    }
+
+    if (!Util.isUnset(request.requestParameters)) {
+      query["RequestParameters"] = request.requestParameters;
+    }
+
+    if (!Util.isUnset(request.requestPath)) {
+      query["RequestPath"] = request.requestPath;
+    }
+
+    if (!Util.isUnset(request.requestProtocol)) {
+      query["RequestProtocol"] = request.requestProtocol;
+    }
+
+    if (!Util.isUnset(request.resultSample)) {
+      query["ResultSample"] = request.resultSample;
+    }
+
+    if (!Util.isUnset(request.resultType)) {
+      query["ResultType"] = request.resultType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!Util.isUnset(request.serviceParametersMap)) {
+      query["ServiceParametersMap"] = request.serviceParametersMap;
+    }
+
+    if (!Util.isUnset(request.serviceProtocol)) {
+      query["ServiceProtocol"] = request.serviceProtocol;
+    }
+
+    if (!Util.isUnset(request.serviceTimeout)) {
+      query["ServiceTimeout"] = request.serviceTimeout;
+    }
+
+    if (!Util.isUnset(request.useBackendService)) {
+      query["UseBackendService"] = request.useBackendService;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    if (!Util.isUnset(request.vpcConfig)) {
+      query["VpcConfig"] = request.vpcConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApiConfiguration",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApiConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyApiConfigurationResponse({}));
+  }
+
+  async modifyApiConfiguration(request: ModifyApiConfigurationRequest): Promise<ModifyApiConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApiConfigurationWithOptions(request, runtime);
   }
 
   async modifyApiGroupWithOptions(request: ModifyApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupResponse> {
