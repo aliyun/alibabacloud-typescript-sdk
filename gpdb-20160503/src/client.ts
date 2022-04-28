@@ -5076,12 +5076,12 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
   DBInstanceGroupCount?: string;
   DBInstanceId?: string;
   instanceSpec?: string;
+  masterNodeNum?: string;
   ownerId?: number;
   payType?: string;
   regionId?: string;
   segNodeNum?: string;
   storageSize?: string;
-  masterNodeNum?: string;
   upgradeType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5089,13 +5089,13 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
       DBInstanceGroupCount: 'DBInstanceGroupCount',
       DBInstanceId: 'DBInstanceId',
       instanceSpec: 'InstanceSpec',
+      masterNodeNum: 'MasterNodeNum',
       ownerId: 'OwnerId',
       payType: 'PayType',
       regionId: 'RegionId',
       segNodeNum: 'SegNodeNum',
       storageSize: 'StorageSize',
-      masterNodeNum: 'masterNodeNum',
-      upgradeType: 'upgradeType',
+      upgradeType: 'UpgradeType',
     };
   }
 
@@ -5105,12 +5105,12 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
       DBInstanceGroupCount: 'string',
       DBInstanceId: 'string',
       instanceSpec: 'string',
+      masterNodeNum: 'string',
       ownerId: 'number',
       payType: 'string',
       regionId: 'string',
       segNodeNum: 'string',
       storageSize: 'string',
-      masterNodeNum: 'string',
       upgradeType: 'number',
     };
   }
@@ -10690,6 +10690,10 @@ export default class Client extends OpenApi {
       query["InstanceSpec"] = request.instanceSpec;
     }
 
+    if (!Util.isUnset(request.masterNodeNum)) {
+      query["MasterNodeNum"] = request.masterNodeNum;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -10710,12 +10714,8 @@ export default class Client extends OpenApi {
       query["StorageSize"] = request.storageSize;
     }
 
-    if (!Util.isUnset(request.masterNodeNum)) {
-      query["masterNodeNum"] = request.masterNodeNum;
-    }
-
     if (!Util.isUnset(request.upgradeType)) {
-      query["upgradeType"] = request.upgradeType;
+      query["UpgradeType"] = request.upgradeType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
