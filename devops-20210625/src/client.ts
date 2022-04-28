@@ -938,57 +938,54 @@ export class CreateVariableGroupResponse extends $tea.Model {
 }
 
 export class CreateWorkitemRequest extends $tea.Model {
+  ak: CreateWorkitemRequestAk;
+  workitem: CreateWorkitemRequestWorkitem;
   assignedTo?: string;
   category?: string;
   description?: string;
   descriptionFormat?: string;
   fieldValueList?: CreateWorkitemRequestFieldValueList[];
   parent?: string;
-  participant?: string[];
   space?: string;
   spaceIdentifier?: string;
   spaceType?: string;
   sprint?: string[];
   subject?: string;
-  tracker?: string[];
-  verifier?: string[];
   workitemType?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'ak',
+      workitem: 'workitem',
       assignedTo: 'assignedTo',
       category: 'category',
       description: 'description',
       descriptionFormat: 'descriptionFormat',
       fieldValueList: 'fieldValueList',
       parent: 'parent',
-      participant: 'participant',
       space: 'space',
       spaceIdentifier: 'spaceIdentifier',
       spaceType: 'spaceType',
       sprint: 'sprint',
       subject: 'subject',
-      tracker: 'tracker',
-      verifier: 'verifier',
       workitemType: 'workitemType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: CreateWorkitemRequestAk,
+      workitem: CreateWorkitemRequestWorkitem,
       assignedTo: 'string',
       category: 'string',
       description: 'string',
       descriptionFormat: 'string',
       fieldValueList: { 'type': 'array', 'itemType': CreateWorkitemRequestFieldValueList },
       parent: 'string',
-      participant: { 'type': 'array', 'itemType': 'string' },
       space: 'string',
       spaceIdentifier: 'string',
       spaceType: 'string',
       sprint: { 'type': 'array', 'itemType': 'string' },
       subject: 'string',
-      tracker: { 'type': 'array', 'itemType': 'string' },
-      verifier: { 'type': 'array', 'itemType': 'string' },
       workitemType: 'string',
     };
   }
@@ -4528,16 +4525,22 @@ export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
 export class ListWorkitemsRequest extends $tea.Model {
   category?: string;
   conditions?: string;
+  extraConditions?: string;
+  groupCondition?: string;
   maxResults?: string;
   nextToken?: string;
+  orderBy?: string;
   spaceIdentifier?: string;
   spaceType?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'category',
       conditions: 'conditions',
+      extraConditions: 'extraConditions',
+      groupCondition: 'groupCondition',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      orderBy: 'orderBy',
       spaceIdentifier: 'spaceIdentifier',
       spaceType: 'spaceType',
     };
@@ -4547,8 +4550,11 @@ export class ListWorkitemsRequest extends $tea.Model {
     return {
       category: 'string',
       conditions: 'string',
+      extraConditions: 'string',
+      groupCondition: 'string',
       maxResults: 'string',
       nextToken: 'string',
+      orderBy: 'string',
       spaceIdentifier: 'string',
       spaceType: 'string',
     };
@@ -6568,6 +6574,66 @@ export class CreateSshKeyResponseBodySshKey extends $tea.Model {
   }
 }
 
+export class CreateWorkitemRequestAkIssue extends $tea.Model {
+  member?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      member: 'member',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      member: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRequestAk extends $tea.Model {
+  issue: CreateWorkitemRequestAkIssue;
+  static names(): { [key: string]: string } {
+    return {
+      issue: 'issue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issue: CreateWorkitemRequestAkIssue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRequestWorkitem extends $tea.Model {
+  tracker?: string[];
+  verifier?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tracker: 'tracker',
+      verifier: 'verifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tracker: { 'type': 'array', 'itemType': 'string' },
+      verifier: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkitemRequestFieldValueList extends $tea.Model {
   fieldIdentifier?: string;
   value?: string;
@@ -8096,6 +8162,66 @@ export class GetWorkItemActivityResponseBodyActivities extends $tea.Model {
   }
 }
 
+export class GetWorkItemInfoResponseBodyWorkitemAkIssue extends $tea.Model {
+  member?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      member: 'member',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      member: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkItemInfoResponseBodyWorkitemAk extends $tea.Model {
+  issue: GetWorkItemInfoResponseBodyWorkitemAkIssue;
+  static names(): { [key: string]: string } {
+    return {
+      issue: 'issue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issue: GetWorkItemInfoResponseBodyWorkitemAkIssue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkItemInfoResponseBodyWorkitemWorkitem extends $tea.Model {
+  tracker?: string[];
+  verifier?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tracker: 'tracker',
+      verifier: 'verifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tracker: { 'type': 'array', 'itemType': 'string' },
+      verifier: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkItemInfoResponseBodyWorkitemCustomFieldsValueList extends $tea.Model {
   displayValue?: string;
   identifier?: string;
@@ -8171,6 +8297,8 @@ export class GetWorkItemInfoResponseBodyWorkitemCustomFields extends $tea.Model 
 }
 
 export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
+  ak: GetWorkItemInfoResponseBodyWorkitemAk;
+  workitem: GetWorkItemInfoResponseBodyWorkitemWorkitem;
   assignedTo?: string;
   categoryIdentifier?: string;
   creator?: string;
@@ -8182,7 +8310,6 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   logicalStatus?: string;
   modifier?: string;
   parentIdentifier?: string;
-  participant?: string[];
   serialNumber?: string;
   spaceIdentifier?: string;
   spaceName?: string;
@@ -8193,12 +8320,12 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   statusStageIdentifier?: string;
   subject?: string;
   tag?: string[];
-  tracker?: string[];
   updateStatusAt?: number;
-  verifier?: string[];
   workitemTypeIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'ak',
+      workitem: 'workitem',
       assignedTo: 'assignedTo',
       categoryIdentifier: 'categoryIdentifier',
       creator: 'creator',
@@ -8210,7 +8337,6 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       logicalStatus: 'logicalStatus',
       modifier: 'modifier',
       parentIdentifier: 'parentIdentifier',
-      participant: 'participant',
       serialNumber: 'serialNumber',
       spaceIdentifier: 'spaceIdentifier',
       spaceName: 'spaceName',
@@ -8221,15 +8347,15 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       statusStageIdentifier: 'statusStageIdentifier',
       subject: 'subject',
       tag: 'tag',
-      tracker: 'tracker',
       updateStatusAt: 'updateStatusAt',
-      verifier: 'verifier',
       workitemTypeIdentifier: 'workitemTypeIdentifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: GetWorkItemInfoResponseBodyWorkitemAk,
+      workitem: GetWorkItemInfoResponseBodyWorkitemWorkitem,
       assignedTo: 'string',
       categoryIdentifier: 'string',
       creator: 'string',
@@ -8241,7 +8367,6 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       logicalStatus: 'string',
       modifier: 'string',
       parentIdentifier: 'string',
-      participant: { 'type': 'array', 'itemType': 'string' },
       serialNumber: 'string',
       spaceIdentifier: 'string',
       spaceName: 'string',
@@ -8252,9 +8377,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       statusStageIdentifier: 'string',
       subject: 'string',
       tag: { 'type': 'array', 'itemType': 'string' },
-      tracker: { 'type': 'array', 'itemType': 'string' },
       updateStatusAt: 'number',
-      verifier: { 'type': 'array', 'itemType': 'string' },
       workitemTypeIdentifier: 'string',
     };
   }
@@ -10505,6 +10628,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak.issue.member)) {
+      body["ak"] = request.ak.issue.member;
+    }
+
     if (!Util.isUnset(request.assignedTo)) {
       body["assignedTo"] = request.assignedTo;
     }
@@ -10529,10 +10656,6 @@ export default class Client extends OpenApi {
       body["parent"] = request.parent;
     }
 
-    if (!Util.isUnset(request.participant)) {
-      body["participant"] = request.participant;
-    }
-
     if (!Util.isUnset(request.space)) {
       body["space"] = request.space;
     }
@@ -10553,12 +10676,12 @@ export default class Client extends OpenApi {
       body["subject"] = request.subject;
     }
 
-    if (!Util.isUnset(request.tracker)) {
-      body["tracker"] = request.tracker;
+    if (!Util.isUnset(request.workitem.tracker)) {
+      body["workitem"] = request.workitem.tracker;
     }
 
-    if (!Util.isUnset(request.verifier)) {
-      body["verifier"] = request.verifier;
+    if (!Util.isUnset(request.workitem.verifier)) {
+      body["workitem"] = request.workitem.verifier;
     }
 
     if (!Util.isUnset(request.workitemType)) {
@@ -12396,12 +12519,24 @@ export default class Client extends OpenApi {
       query["conditions"] = request.conditions;
     }
 
+    if (!Util.isUnset(request.extraConditions)) {
+      query["extraConditions"] = request.extraConditions;
+    }
+
+    if (!Util.isUnset(request.groupCondition)) {
+      query["groupCondition"] = request.groupCondition;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
 
     if (!Util.isUnset(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.spaceIdentifier)) {
