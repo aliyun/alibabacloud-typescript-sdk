@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -252,6 +253,7 @@ export class FetchAccessTokenRequest extends $tea.Model {
   mobileExtendParamsJson?: string;
   mobileExtendParamsJsonSign?: string;
   serverExtendParamsJson?: string;
+  userId?: string;
   XClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -259,6 +261,7 @@ export class FetchAccessTokenRequest extends $tea.Model {
       mobileExtendParamsJson: 'MobileExtendParamsJson',
       mobileExtendParamsJsonSign: 'MobileExtendParamsJsonSign',
       serverExtendParamsJson: 'ServerExtendParamsJson',
+      userId: 'UserId',
       XClientIp: 'XClientIp',
     };
   }
@@ -269,6 +272,7 @@ export class FetchAccessTokenRequest extends $tea.Model {
       mobileExtendParamsJson: 'string',
       mobileExtendParamsJsonSign: 'string',
       serverExtendParamsJson: 'string',
+      userId: 'string',
       XClientIp: 'string',
     };
   }
@@ -696,11 +700,15 @@ export class ListPwnedPasswordsRequest extends $tea.Model {
 }
 
 export class ListPwnedPasswordsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   pwnedPasswordInfos?: ListPwnedPasswordsResponseBodyPwnedPasswordInfos[];
   requestId?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       pwnedPasswordInfos: 'PwnedPasswordInfos',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
@@ -709,6 +717,8 @@ export class ListPwnedPasswordsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       pwnedPasswordInfos: { 'type': 'array', 'itemType': ListPwnedPasswordsResponseBodyPwnedPasswordInfos },
       requestId: 'string',
       totalCount: 'number',
@@ -862,10 +872,12 @@ export class RegisterAuthenticatorRequest extends $tea.Model {
 
 export class RegisterAuthenticatorResponseBody extends $tea.Model {
   authenticatorUuid?: string;
+  etasResponseSting?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       authenticatorUuid: 'AuthenticatorUuid',
+      etasResponseSting: 'EtasResponseSting',
       requestId: 'RequestId',
     };
   }
@@ -873,6 +885,7 @@ export class RegisterAuthenticatorResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authenticatorUuid: 'string',
+      etasResponseSting: 'string',
       requestId: 'string',
     };
   }
@@ -947,6 +960,7 @@ export class ServiceInvokeRequest extends $tea.Model {
 export class ServiceInvokeResponseBody extends $tea.Model {
   code?: string;
   data?: string;
+  idToken?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -954,6 +968,7 @@ export class ServiceInvokeResponseBody extends $tea.Model {
     return {
       code: 'Code',
       data: 'Data',
+      idToken: 'IdToken',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -964,6 +979,7 @@ export class ServiceInvokeResponseBody extends $tea.Model {
     return {
       code: 'string',
       data: 'string',
+      idToken: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -1066,6 +1082,72 @@ export class UpdateAuthenticatorAttributeResponse extends $tea.Model {
   }
 }
 
+export class VerifyIdTokenRequest extends $tea.Model {
+  applicationExternalId?: string;
+  jwtIdToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationExternalId: 'ApplicationExternalId',
+      jwtIdToken: 'JwtIdToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationExternalId: 'string',
+      jwtIdToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIdTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIdTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: VerifyIdTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: VerifyIdTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyUserAuthenticationRequest extends $tea.Model {
   applicationExternalId?: string;
   authenticationContext?: string;
@@ -1120,11 +1202,15 @@ export class VerifyUserAuthenticationRequest extends $tea.Model {
 
 export class VerifyUserAuthenticationResponseBody extends $tea.Model {
   authenticateResultInfo?: VerifyUserAuthenticationResponseBodyAuthenticateResultInfo;
+  etasSDKString?: string;
+  idToken?: string;
   requestId?: string;
   verifyResult?: boolean;
   static names(): { [key: string]: string } {
     return {
       authenticateResultInfo: 'AuthenticateResultInfo',
+      etasSDKString: 'EtasSDKString',
+      idToken: 'IdToken',
       requestId: 'RequestId',
       verifyResult: 'VerifyResult',
     };
@@ -1133,6 +1219,8 @@ export class VerifyUserAuthenticationResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authenticateResultInfo: VerifyUserAuthenticationResponseBodyAuthenticateResultInfo,
+      etasSDKString: 'string',
+      idToken: 'string',
       requestId: 'string',
       verifyResult: 'boolean',
     };
@@ -1531,10 +1619,58 @@ export default class Client extends OpenApi {
 
   async createAuthenticatorRegistrationWithOptions(request: CreateAuthenticatorRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthenticatorRegistrationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJson)) {
+      query["ClientExtendParamsJson"] = request.clientExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJsonSign)) {
+      query["ClientExtendParamsJsonSign"] = request.clientExtendParamsJsonSign;
+    }
+
+    if (!Util.isUnset(request.registrationContext)) {
+      query["RegistrationContext"] = request.registrationContext;
+    }
+
+    if (!Util.isUnset(request.serverExtendParamsJson)) {
+      query["ServerExtendParamsJson"] = request.serverExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.userDisplayName)) {
+      query["UserDisplayName"] = request.userDisplayName;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAuthenticatorRegistrationResponse>(await this.doRPCRequest("CreateAuthenticatorRegistration", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAuthenticatorRegistrationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAuthenticatorRegistration",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAuthenticatorRegistrationResponse>(await this.callApi(params, req, runtime), new CreateAuthenticatorRegistrationResponse({}));
   }
 
   async createAuthenticatorRegistration(request: CreateAuthenticatorRegistrationRequest): Promise<CreateAuthenticatorRegistrationResponse> {
@@ -1544,10 +1680,50 @@ export default class Client extends OpenApi {
 
   async createUserAuthenticateOptionsWithOptions(request: CreateUserAuthenticateOptionsRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserAuthenticateOptionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.bindHashBase64)) {
+      query["BindHashBase64"] = request.bindHashBase64;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJson)) {
+      query["ClientExtendParamsJson"] = request.clientExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJsonSign)) {
+      query["ClientExtendParamsJsonSign"] = request.clientExtendParamsJsonSign;
+    }
+
+    if (!Util.isUnset(request.serverExtendParamsJson)) {
+      query["ServerExtendParamsJson"] = request.serverExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateUserAuthenticateOptionsResponse>(await this.doRPCRequest("CreateUserAuthenticateOptions", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateUserAuthenticateOptionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateUserAuthenticateOptions",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUserAuthenticateOptionsResponse>(await this.callApi(params, req, runtime), new CreateUserAuthenticateOptionsResponse({}));
   }
 
   async createUserAuthenticateOptions(request: CreateUserAuthenticateOptionsRequest): Promise<CreateUserAuthenticateOptionsResponse> {
@@ -1557,10 +1733,34 @@ export default class Client extends OpenApi {
 
   async deregisterAuthenticatorWithOptions(request: DeregisterAuthenticatorRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterAuthenticatorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorUuid)) {
+      query["AuthenticatorUuid"] = request.authenticatorUuid;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeregisterAuthenticatorResponse>(await this.doRPCRequest("DeregisterAuthenticator", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeregisterAuthenticatorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeregisterAuthenticator",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeregisterAuthenticatorResponse>(await this.callApi(params, req, runtime), new DeregisterAuthenticatorResponse({}));
   }
 
   async deregisterAuthenticator(request: DeregisterAuthenticatorRequest): Promise<DeregisterAuthenticatorResponse> {
@@ -1570,10 +1770,46 @@ export default class Client extends OpenApi {
 
   async fetchAccessTokenWithOptions(request: FetchAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<FetchAccessTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.mobileExtendParamsJson)) {
+      query["MobileExtendParamsJson"] = request.mobileExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.mobileExtendParamsJsonSign)) {
+      query["MobileExtendParamsJsonSign"] = request.mobileExtendParamsJsonSign;
+    }
+
+    if (!Util.isUnset(request.serverExtendParamsJson)) {
+      query["ServerExtendParamsJson"] = request.serverExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.XClientIp)) {
+      query["XClientIp"] = request.XClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<FetchAccessTokenResponse>(await this.doRPCRequest("FetchAccessToken", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new FetchAccessTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "FetchAccessToken",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FetchAccessTokenResponse>(await this.callApi(params, req, runtime), new FetchAccessTokenResponse({}));
   }
 
   async fetchAccessToken(request: FetchAccessTokenRequest): Promise<FetchAccessTokenResponse> {
@@ -1583,10 +1819,34 @@ export default class Client extends OpenApi {
 
   async getAuthenticatorWithOptions(request: GetAuthenticatorRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthenticatorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorUuid)) {
+      query["AuthenticatorUuid"] = request.authenticatorUuid;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAuthenticatorResponse>(await this.doRPCRequest("GetAuthenticator", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAuthenticatorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAuthenticator",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAuthenticatorResponse>(await this.callApi(params, req, runtime), new GetAuthenticatorResponse({}));
   }
 
   async getAuthenticator(request: GetAuthenticatorRequest): Promise<GetAuthenticatorResponse> {
@@ -1596,10 +1856,62 @@ export default class Client extends OpenApi {
 
   async listAuthenticationLogsWithOptions(request: ListAuthenticationLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthenticationLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.authenticatorUuid)) {
+      query["AuthenticatorUuid"] = request.authenticatorUuid;
+    }
+
+    if (!Util.isUnset(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!Util.isUnset(request.fromTime)) {
+      query["FromTime"] = request.fromTime;
+    }
+
+    if (!Util.isUnset(request.logTag)) {
+      query["LogTag"] = request.logTag;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.toTime)) {
+      query["ToTime"] = request.toTime;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAuthenticationLogsResponse>(await this.doRPCRequest("ListAuthenticationLogs", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAuthenticationLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAuthenticationLogs",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthenticationLogsResponse>(await this.callApi(params, req, runtime), new ListAuthenticationLogsResponse({}));
   }
 
   async listAuthenticationLogs(request: ListAuthenticationLogsRequest): Promise<ListAuthenticationLogsResponse> {
@@ -1609,10 +1921,54 @@ export default class Client extends OpenApi {
 
   async listAuthenticatorOpsLogsWithOptions(request: ListAuthenticatorOpsLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthenticatorOpsLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.authenticatorUuid)) {
+      query["AuthenticatorUuid"] = request.authenticatorUuid;
+    }
+
+    if (!Util.isUnset(request.fromTime)) {
+      query["FromTime"] = request.fromTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.toTime)) {
+      query["ToTime"] = request.toTime;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAuthenticatorOpsLogsResponse>(await this.doRPCRequest("ListAuthenticatorOpsLogs", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAuthenticatorOpsLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAuthenticatorOpsLogs",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthenticatorOpsLogsResponse>(await this.callApi(params, req, runtime), new ListAuthenticatorOpsLogsResponse({}));
   }
 
   async listAuthenticatorOpsLogs(request: ListAuthenticatorOpsLogsRequest): Promise<ListAuthenticatorOpsLogsResponse> {
@@ -1622,10 +1978,42 @@ export default class Client extends OpenApi {
 
   async listAuthenticatorsWithOptions(request: ListAuthenticatorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthenticatorsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAuthenticatorsResponse>(await this.doRPCRequest("ListAuthenticators", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAuthenticatorsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAuthenticators",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthenticatorsResponse>(await this.callApi(params, req, runtime), new ListAuthenticatorsResponse({}));
   }
 
   async listAuthenticators(request: ListAuthenticatorsRequest): Promise<ListAuthenticatorsResponse> {
@@ -1635,10 +2023,26 @@ export default class Client extends OpenApi {
 
   async listPwnedPasswordsWithOptions(request: ListPwnedPasswordsRequest, runtime: $Util.RuntimeOptions): Promise<ListPwnedPasswordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.prefixHexPasswordSha1Hash)) {
+      query["PrefixHexPasswordSha1Hash"] = request.prefixHexPasswordSha1Hash;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPwnedPasswordsResponse>(await this.doRPCRequest("ListPwnedPasswords", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListPwnedPasswordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPwnedPasswords",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPwnedPasswordsResponse>(await this.callApi(params, req, runtime), new ListPwnedPasswordsResponse({}));
   }
 
   async listPwnedPasswords(request: ListPwnedPasswordsRequest): Promise<ListPwnedPasswordsResponse> {
@@ -1648,10 +2052,30 @@ export default class Client extends OpenApi {
 
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUsersResponse>(await this.doRPCRequest("ListUsers", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUsers",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
@@ -1661,10 +2085,66 @@ export default class Client extends OpenApi {
 
   async registerAuthenticatorWithOptions(request: RegisterAuthenticatorRequest, runtime: $Util.RuntimeOptions): Promise<RegisterAuthenticatorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorName)) {
+      query["AuthenticatorName"] = request.authenticatorName;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJson)) {
+      query["ClientExtendParamsJson"] = request.clientExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJsonSign)) {
+      query["ClientExtendParamsJsonSign"] = request.clientExtendParamsJsonSign;
+    }
+
+    if (!Util.isUnset(request.logParams)) {
+      query["LogParams"] = request.logParams;
+    }
+
+    if (!Util.isUnset(request.registrationContext)) {
+      query["RegistrationContext"] = request.registrationContext;
+    }
+
+    if (!Util.isUnset(request.requireChallengeBase64)) {
+      query["RequireChallengeBase64"] = request.requireChallengeBase64;
+    }
+
+    if (!Util.isUnset(request.serverExtendParamsJson)) {
+      query["ServerExtendParamsJson"] = request.serverExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userSourceIp)) {
+      query["UserSourceIp"] = request.userSourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RegisterAuthenticatorResponse>(await this.doRPCRequest("RegisterAuthenticator", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterAuthenticatorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RegisterAuthenticator",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterAuthenticatorResponse>(await this.callApi(params, req, runtime), new RegisterAuthenticatorResponse({}));
   }
 
   async registerAuthenticator(request: RegisterAuthenticatorRequest): Promise<RegisterAuthenticatorResponse> {
@@ -1674,10 +2154,54 @@ export default class Client extends OpenApi {
 
   async serviceInvokeWithOptions(request: ServiceInvokeRequest, runtime: $Util.RuntimeOptions): Promise<ServiceInvokeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.doraemonAction)) {
+      query["DoraemonAction"] = request.doraemonAction;
+    }
+
+    if (!Util.isUnset(request.mobileExtendParamsJson)) {
+      query["MobileExtendParamsJson"] = request.mobileExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.mobileExtendParamsJsonSign)) {
+      query["MobileExtendParamsJsonSign"] = request.mobileExtendParamsJsonSign;
+    }
+
+    if (!Util.isUnset(request.serverExtendParamsJson)) {
+      query["ServerExtendParamsJson"] = request.serverExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!Util.isUnset(request.testModel)) {
+      query["TestModel"] = request.testModel;
+    }
+
+    if (!Util.isUnset(request.XClientIp)) {
+      query["XClientIp"] = request.XClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ServiceInvokeResponse>(await this.doRPCRequest("ServiceInvoke", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new ServiceInvokeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ServiceInvoke",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ServiceInvokeResponse>(await this.callApi(params, req, runtime), new ServiceInvokeResponse({}));
   }
 
   async serviceInvoke(request: ServiceInvokeRequest): Promise<ServiceInvokeResponse> {
@@ -1687,10 +2211,38 @@ export default class Client extends OpenApi {
 
   async updateAuthenticatorAttributeWithOptions(request: UpdateAuthenticatorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthenticatorAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticatorName)) {
+      query["AuthenticatorName"] = request.authenticatorName;
+    }
+
+    if (!Util.isUnset(request.authenticatorUuid)) {
+      query["AuthenticatorUuid"] = request.authenticatorUuid;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAuthenticatorAttributeResponse>(await this.doRPCRequest("UpdateAuthenticatorAttribute", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAuthenticatorAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAuthenticatorAttribute",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAuthenticatorAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAuthenticatorAttributeResponse({}));
   }
 
   async updateAuthenticatorAttribute(request: UpdateAuthenticatorAttributeRequest): Promise<UpdateAuthenticatorAttributeResponse> {
@@ -1698,12 +2250,105 @@ export default class Client extends OpenApi {
     return await this.updateAuthenticatorAttributeWithOptions(request, runtime);
   }
 
+  async verifyIdTokenWithOptions(request: VerifyIdTokenRequest, runtime: $Util.RuntimeOptions): Promise<VerifyIdTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.jwtIdToken)) {
+      query["JwtIdToken"] = request.jwtIdToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyIdToken",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyIdTokenResponse>(await this.callApi(params, req, runtime), new VerifyIdTokenResponse({}));
+  }
+
+  async verifyIdToken(request: VerifyIdTokenRequest): Promise<VerifyIdTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyIdTokenWithOptions(request, runtime);
+  }
+
   async verifyUserAuthenticationWithOptions(request: VerifyUserAuthenticationRequest, runtime: $Util.RuntimeOptions): Promise<VerifyUserAuthenticationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationExternalId)) {
+      query["ApplicationExternalId"] = request.applicationExternalId;
+    }
+
+    if (!Util.isUnset(request.authenticationContext)) {
+      query["AuthenticationContext"] = request.authenticationContext;
+    }
+
+    if (!Util.isUnset(request.authenticatorType)) {
+      query["AuthenticatorType"] = request.authenticatorType;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJson)) {
+      query["ClientExtendParamsJson"] = request.clientExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.clientExtendParamsJsonSign)) {
+      query["ClientExtendParamsJsonSign"] = request.clientExtendParamsJsonSign;
+    }
+
+    if (!Util.isUnset(request.logParams)) {
+      query["LogParams"] = request.logParams;
+    }
+
+    if (!Util.isUnset(request.logTag)) {
+      query["LogTag"] = request.logTag;
+    }
+
+    if (!Util.isUnset(request.requireBindHashBase64)) {
+      query["RequireBindHashBase64"] = request.requireBindHashBase64;
+    }
+
+    if (!Util.isUnset(request.requireChallengeBase64)) {
+      query["RequireChallengeBase64"] = request.requireChallengeBase64;
+    }
+
+    if (!Util.isUnset(request.serverExtendParamsJson)) {
+      query["ServerExtendParamsJson"] = request.serverExtendParamsJson;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userSourceIp)) {
+      query["UserSourceIp"] = request.userSourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VerifyUserAuthenticationResponse>(await this.doRPCRequest("VerifyUserAuthentication", "2021-05-20", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyUserAuthenticationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyUserAuthentication",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyUserAuthenticationResponse>(await this.callApi(params, req, runtime), new VerifyUserAuthenticationResponse({}));
   }
 
   async verifyUserAuthentication(request: VerifyUserAuthenticationRequest): Promise<VerifyUserAuthenticationResponse> {
