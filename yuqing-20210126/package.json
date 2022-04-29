@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/yuqing20210126",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

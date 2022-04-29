@@ -519,11 +519,13 @@ export class SearchCondition extends $tea.Model {
   advertisementFilter?: boolean;
   alipayAccountFilter?: string;
   assKeywordsIdx?: string;
+  atUsersIdx?: string;
   audioCountMaxFilter?: number;
   audioCountMinFilter?: number;
   authorFollowersCountMaxFilter?: number;
   authorFollowersCountMinFilter?: number;
   authorNameIdx?: string;
+  authorSexFilter?: string;
   authorVerifyTypeFilter?: string;
   bizTagsIdx?: string;
   bkzFilter?: boolean;
@@ -547,6 +549,7 @@ export class SearchCondition extends $tea.Model {
   enableKeywordHighlight?: boolean;
   entityName?: string;
   eroticismFilter?: boolean;
+  excludeAtUsersIdx?: string;
   excludeAuthorNameIdx?: string;
   excludingMediaHostsFilter?: string;
   excludingMediaNameFilter?: string;
@@ -566,6 +569,8 @@ export class SearchCondition extends $tea.Model {
   keywordTreeIdsIdx?: string;
   likesCountMaxFilter?: number;
   likesCountMinFilter?: number;
+  mediaAreaCityFilter?: string;
+  mediaAreaProvinceFilter?: string;
   mediaHostsFilter?: string;
   mediaInfluenceScoreMaxFilter?: number;
   mediaInfluenceScoreMinFilter?: number;
@@ -604,11 +609,13 @@ export class SearchCondition extends $tea.Model {
       advertisementFilter: 'advertisementFilter',
       alipayAccountFilter: 'alipayAccountFilter',
       assKeywordsIdx: 'assKeywordsIdx',
+      atUsersIdx: 'atUsersIdx',
       audioCountMaxFilter: 'audioCountMaxFilter',
       audioCountMinFilter: 'audioCountMinFilter',
       authorFollowersCountMaxFilter: 'authorFollowersCountMaxFilter',
       authorFollowersCountMinFilter: 'authorFollowersCountMinFilter',
       authorNameIdx: 'authorNameIdx',
+      authorSexFilter: 'authorSexFilter',
       authorVerifyTypeFilter: 'authorVerifyTypeFilter',
       bizTagsIdx: 'bizTagsIdx',
       bkzFilter: 'bkzFilter',
@@ -632,6 +639,7 @@ export class SearchCondition extends $tea.Model {
       enableKeywordHighlight: 'enableKeywordHighlight',
       entityName: 'entityName',
       eroticismFilter: 'eroticismFilter',
+      excludeAtUsersIdx: 'excludeAtUsersIdx',
       excludeAuthorNameIdx: 'excludeAuthorNameIdx',
       excludingMediaHostsFilter: 'excludingMediaHostsFilter',
       excludingMediaNameFilter: 'excludingMediaNameFilter',
@@ -651,6 +659,8 @@ export class SearchCondition extends $tea.Model {
       keywordTreeIdsIdx: 'keywordTreeIdsIdx',
       likesCountMaxFilter: 'likesCountMaxFilter',
       likesCountMinFilter: 'likesCountMinFilter',
+      mediaAreaCityFilter: 'mediaAreaCityFilter',
+      mediaAreaProvinceFilter: 'mediaAreaProvinceFilter',
       mediaHostsFilter: 'mediaHostsFilter',
       mediaInfluenceScoreMaxFilter: 'mediaInfluenceScoreMaxFilter',
       mediaInfluenceScoreMinFilter: 'mediaInfluenceScoreMinFilter',
@@ -692,11 +702,13 @@ export class SearchCondition extends $tea.Model {
       advertisementFilter: 'boolean',
       alipayAccountFilter: 'string',
       assKeywordsIdx: 'string',
+      atUsersIdx: 'string',
       audioCountMaxFilter: 'number',
       audioCountMinFilter: 'number',
       authorFollowersCountMaxFilter: 'number',
       authorFollowersCountMinFilter: 'number',
       authorNameIdx: 'string',
+      authorSexFilter: 'string',
       authorVerifyTypeFilter: 'string',
       bizTagsIdx: 'string',
       bkzFilter: 'boolean',
@@ -720,6 +732,7 @@ export class SearchCondition extends $tea.Model {
       enableKeywordHighlight: 'boolean',
       entityName: 'string',
       eroticismFilter: 'boolean',
+      excludeAtUsersIdx: 'string',
       excludeAuthorNameIdx: 'string',
       excludingMediaHostsFilter: 'string',
       excludingMediaNameFilter: 'string',
@@ -739,6 +752,8 @@ export class SearchCondition extends $tea.Model {
       keywordTreeIdsIdx: 'string',
       likesCountMaxFilter: 'number',
       likesCountMinFilter: 'number',
+      mediaAreaCityFilter: 'string',
+      mediaAreaProvinceFilter: 'string',
       mediaHostsFilter: 'string',
       mediaInfluenceScoreMaxFilter: 'number',
       mediaInfluenceScoreMinFilter: 'number',
