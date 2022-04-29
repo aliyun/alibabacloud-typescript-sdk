@@ -4,32 +4,33 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class GetTagKeyRequest extends $tea.Model {
+  endTime?: number;
   regionId?: string;
   serviceName?: string;
   spanName?: string;
   startTime?: number;
-  endTime?: number;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       regionId: 'RegionId',
       serviceName: 'ServiceName',
       spanName: 'SpanName',
       startTime: 'StartTime',
-      endTime: 'EndTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       regionId: 'string',
       serviceName: 'string',
       spanName: 'string',
       startTime: 'number',
-      endTime: 'number',
     };
   }
 
@@ -83,31 +84,31 @@ export class GetTagKeyResponse extends $tea.Model {
 }
 
 export class GetTagValRequest extends $tea.Model {
+  endTime?: number;
   regionId?: string;
   serviceName?: string;
   spanName?: string;
-  tagKey?: string;
   startTime?: number;
-  endTime?: number;
+  tagKey?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       regionId: 'RegionId',
       serviceName: 'ServiceName',
       spanName: 'SpanName',
-      tagKey: 'TagKey',
       startTime: 'StartTime',
-      endTime: 'EndTime',
+      tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       regionId: 'string',
       serviceName: 'string',
       spanName: 'string',
-      tagKey: 'string',
       startTime: 'number',
-      endTime: 'number',
+      tagKey: 'string',
     };
   }
 
@@ -160,95 +161,23 @@ export class GetTagValResponse extends $tea.Model {
   }
 }
 
-export class GetTokenRequest extends $tea.Model {
-  regionId?: string;
-  appType?: string;
-  proxyUserId?: string;
-  isForce?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      appType: 'AppType',
-      proxyUserId: 'ProxyUserId',
-      isForce: 'IsForce',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      appType: 'string',
-      proxyUserId: 'string',
-      isForce: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTokenResponseBody extends $tea.Model {
-  requestId?: string;
-  token?: GetTokenResponseBodyToken;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      token: GetTokenResponseBodyToken,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTraceRequest extends $tea.Model {
-  traceID?: string;
   appType?: string;
   regionId?: string;
+  traceID?: string;
   static names(): { [key: string]: string } {
     return {
-      traceID: 'TraceID',
       appType: 'AppType',
       regionId: 'RegionId',
+      traceID: 'TraceID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traceID: 'string',
       appType: 'string',
       regionId: 'string',
+      traceID: 'string',
     };
   }
 
@@ -301,98 +230,26 @@ export class GetTraceResponse extends $tea.Model {
   }
 }
 
-export class GetTraceAnalysisRequest extends $tea.Model {
-  regionId?: string;
-  api?: string;
-  query?: string;
-  proxyUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      api: 'Api',
-      query: 'Query',
-      proxyUserId: 'ProxyUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      api: 'string',
-      query: 'string',
-      proxyUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTraceAnalysisResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTraceAnalysisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetTraceAnalysisResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetTraceAnalysisResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListIpOrHostsRequest extends $tea.Model {
+  endTime?: number;
   regionId?: string;
   serviceName?: string;
   startTime?: number;
-  endTime?: number;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       regionId: 'RegionId',
       serviceName: 'ServiceName',
       startTime: 'StartTime',
-      endTime: 'EndTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       regionId: 'string',
       serviceName: 'string',
       startTime: 'number',
-      endTime: 'number',
     };
   }
 
@@ -402,19 +259,19 @@ export class ListIpOrHostsRequest extends $tea.Model {
 }
 
 export class ListIpOrHostsResponseBody extends $tea.Model {
-  requestId?: string;
   ipNames?: ListIpOrHostsResponseBodyIpNames;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ipNames: 'IpNames',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ipNames: ListIpOrHostsResponseBodyIpNames,
+      requestId: 'string',
     };
   }
 
@@ -446,19 +303,19 @@ export class ListIpOrHostsResponse extends $tea.Model {
 }
 
 export class ListServicesRequest extends $tea.Model {
-  regionId?: string;
   appType?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       appType: 'AppType',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       appType: 'string',
+      regionId: 'string',
     };
   }
 
@@ -468,19 +325,19 @@ export class ListServicesRequest extends $tea.Model {
 }
 
 export class ListServicesResponseBody extends $tea.Model {
-  services?: ListServicesResponseBodyServices;
   requestId?: string;
+  services?: ListServicesResponseBodyServices;
   static names(): { [key: string]: string } {
     return {
-      services: 'Services',
       requestId: 'RequestId',
+      services: 'Services',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      services: ListServicesResponseBodyServices,
       requestId: 'string',
+      services: ListServicesResponseBodyServices,
     };
   }
 
@@ -512,25 +369,25 @@ export class ListServicesResponse extends $tea.Model {
 }
 
 export class ListSpanNamesRequest extends $tea.Model {
+  endTime?: number;
   regionId?: string;
   serviceName?: string;
   startTime?: number;
-  endTime?: number;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       regionId: 'RegionId',
       serviceName: 'ServiceName',
       startTime: 'StartTime',
-      endTime: 'EndTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       regionId: 'string',
       serviceName: 'string',
       startTime: 'number',
-      endTime: 'number',
     };
   }
 
@@ -540,19 +397,19 @@ export class ListSpanNamesRequest extends $tea.Model {
 }
 
 export class ListSpanNamesResponseBody extends $tea.Model {
-  spanNames?: ListSpanNamesResponseBodySpanNames;
   requestId?: string;
+  spanNames?: ListSpanNamesResponseBodySpanNames;
   static names(): { [key: string]: string } {
     return {
-      spanNames: 'SpanNames',
       requestId: 'RequestId',
+      spanNames: 'SpanNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spanNames: ListSpanNamesResponseBodySpanNames,
       requestId: 'string',
+      spanNames: ListSpanNamesResponseBodySpanNames,
     };
   }
 
@@ -584,46 +441,46 @@ export class ListSpanNamesResponse extends $tea.Model {
 }
 
 export class QueryMetricRequest extends $tea.Model {
-  intervalInSec?: number;
-  startTime?: number;
+  dimensions?: string[];
   endTime?: number;
-  orderBy?: string;
+  filters?: QueryMetricRequestFilters[];
+  intervalInSec?: number;
   limit?: number;
+  measures?: string[];
   metric?: string;
   order?: string;
+  orderBy?: string;
   proxyUserId?: string;
-  filters?: QueryMetricRequestFilters[];
-  dimensions?: string[];
-  measures?: string[];
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
-      intervalInSec: 'IntervalInSec',
-      startTime: 'StartTime',
+      dimensions: 'Dimensions',
       endTime: 'EndTime',
-      orderBy: 'OrderBy',
+      filters: 'Filters',
+      intervalInSec: 'IntervalInSec',
       limit: 'Limit',
+      measures: 'Measures',
       metric: 'Metric',
       order: 'Order',
+      orderBy: 'OrderBy',
       proxyUserId: 'ProxyUserId',
-      filters: 'Filters',
-      dimensions: 'Dimensions',
-      measures: 'Measures',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      intervalInSec: 'number',
-      startTime: 'number',
+      dimensions: { 'type': 'array', 'itemType': 'string' },
       endTime: 'number',
-      orderBy: 'string',
+      filters: { 'type': 'array', 'itemType': QueryMetricRequestFilters },
+      intervalInSec: 'number',
       limit: 'number',
+      measures: { 'type': 'array', 'itemType': 'string' },
       metric: 'string',
       order: 'string',
+      orderBy: 'string',
       proxyUserId: 'string',
-      filters: { 'type': 'array', 'itemType': QueryMetricRequestFilters },
-      dimensions: { 'type': 'array', 'itemType': 'string' },
-      measures: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'number',
     };
   }
 
@@ -633,19 +490,19 @@ export class QueryMetricRequest extends $tea.Model {
 }
 
 export class QueryMetricResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -677,48 +534,48 @@ export class QueryMetricResponse extends $tea.Model {
 }
 
 export class SearchTracesRequest extends $tea.Model {
-  startTime?: number;
-  endTime?: number;
-  regionId?: string;
-  serviceName?: string;
-  operationName?: string;
-  minDuration?: number;
   appType?: string;
+  endTime?: number;
+  minDuration?: number;
+  operationName?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   reverse?: boolean;
   serviceIp?: string;
+  serviceName?: string;
+  startTime?: number;
   tag?: SearchTracesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      regionId: 'RegionId',
-      serviceName: 'ServiceName',
-      operationName: 'OperationName',
-      minDuration: 'MinDuration',
       appType: 'AppType',
+      endTime: 'EndTime',
+      minDuration: 'MinDuration',
+      operationName: 'OperationName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       reverse: 'Reverse',
       serviceIp: 'ServiceIp',
+      serviceName: 'ServiceName',
+      startTime: 'StartTime',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'number',
-      endTime: 'number',
-      regionId: 'string',
-      serviceName: 'string',
-      operationName: 'string',
-      minDuration: 'number',
       appType: 'string',
+      endTime: 'number',
+      minDuration: 'number',
+      operationName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       reverse: 'boolean',
       serviceIp: 'string',
+      serviceName: 'string',
+      startTime: 'number',
       tag: { 'type': 'array', 'itemType': SearchTracesRequestTag },
     };
   }
@@ -810,75 +667,6 @@ export class GetTagValResponseBodyTagValues extends $tea.Model {
   }
 }
 
-export class GetTokenResponseBodyToken extends $tea.Model {
-  domain?: string;
-  licenseKey?: string;
-  internalDomain?: string;
-  pid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      licenseKey: 'LicenseKey',
-      internalDomain: 'InternalDomain',
-      pid: 'Pid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      licenseKey: 'string',
-      internalDomain: 'string',
-      pid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTraceResponseBodySpansSpanTagEntryListTagEntry extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTraceResponseBodySpansSpanTagEntryList extends $tea.Model {
-  tagEntry?: GetTraceResponseBodySpansSpanTagEntryListTagEntry[];
-  static names(): { [key: string]: string } {
-    return {
-      tagEntry: 'TagEntry',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagEntry: { 'type': 'array', 'itemType': GetTraceResponseBodySpansSpanTagEntryListTagEntry },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryListTagEntry extends $tea.Model {
   key?: string;
   value?: string;
@@ -961,52 +749,93 @@ export class GetTraceResponseBodySpansSpanLogEventList extends $tea.Model {
   }
 }
 
+export class GetTraceResponseBodySpansSpanTagEntryListTagEntry extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceResponseBodySpansSpanTagEntryList extends $tea.Model {
+  tagEntry?: GetTraceResponseBodySpansSpanTagEntryListTagEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      tagEntry: 'TagEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagEntry: { 'type': 'array', 'itemType': GetTraceResponseBodySpansSpanTagEntryListTagEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTraceResponseBodySpansSpan extends $tea.Model {
-  spanId?: string;
-  operationName?: string;
-  resultCode?: string;
-  timestamp?: number;
-  tagEntryList?: GetTraceResponseBodySpansSpanTagEntryList;
-  logEventList?: GetTraceResponseBodySpansSpanLogEventList;
-  haveStack?: boolean;
-  serviceIp?: string;
-  parentSpanId?: string;
   duration?: number;
+  haveStack?: boolean;
+  logEventList?: GetTraceResponseBodySpansSpanLogEventList;
+  operationName?: string;
+  parentSpanId?: string;
+  resultCode?: string;
   rpcId?: string;
+  serviceIp?: string;
   serviceName?: string;
+  spanId?: string;
+  tagEntryList?: GetTraceResponseBodySpansSpanTagEntryList;
+  timestamp?: number;
   traceID?: string;
   static names(): { [key: string]: string } {
     return {
-      spanId: 'SpanId',
-      operationName: 'OperationName',
-      resultCode: 'ResultCode',
-      timestamp: 'Timestamp',
-      tagEntryList: 'TagEntryList',
-      logEventList: 'LogEventList',
-      haveStack: 'HaveStack',
-      serviceIp: 'ServiceIp',
-      parentSpanId: 'ParentSpanId',
       duration: 'Duration',
+      haveStack: 'HaveStack',
+      logEventList: 'LogEventList',
+      operationName: 'OperationName',
+      parentSpanId: 'ParentSpanId',
+      resultCode: 'ResultCode',
       rpcId: 'RpcId',
+      serviceIp: 'ServiceIp',
       serviceName: 'ServiceName',
+      spanId: 'SpanId',
+      tagEntryList: 'TagEntryList',
+      timestamp: 'Timestamp',
       traceID: 'TraceID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spanId: 'string',
-      operationName: 'string',
-      resultCode: 'string',
-      timestamp: 'number',
-      tagEntryList: GetTraceResponseBodySpansSpanTagEntryList,
-      logEventList: GetTraceResponseBodySpansSpanLogEventList,
-      haveStack: 'boolean',
-      serviceIp: 'string',
-      parentSpanId: 'string',
       duration: 'number',
+      haveStack: 'boolean',
+      logEventList: GetTraceResponseBodySpansSpanLogEventList,
+      operationName: 'string',
+      parentSpanId: 'string',
+      resultCode: 'string',
       rpcId: 'string',
+      serviceIp: 'string',
       serviceName: 'string',
+      spanId: 'string',
+      tagEntryList: GetTraceResponseBodySpansSpanTagEntryList,
+      timestamp: 'number',
       traceID: 'string',
     };
   }
@@ -1056,21 +885,21 @@ export class ListIpOrHostsResponseBodyIpNames extends $tea.Model {
 
 export class ListServicesResponseBodyServicesService extends $tea.Model {
   pid?: string;
-  serviceName?: string;
   regionId?: string;
+  serviceName?: string;
   static names(): { [key: string]: string } {
     return {
       pid: 'Pid',
-      serviceName: 'ServiceName',
       regionId: 'RegionId',
+      serviceName: 'ServiceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pid: 'string',
-      serviceName: 'string',
       regionId: 'string',
+      serviceName: 'string',
     };
   }
 
@@ -1162,30 +991,33 @@ export class SearchTracesRequestTag extends $tea.Model {
 }
 
 export class SearchTracesResponseBodyPageBeanTraceInfosTraceInfo extends $tea.Model {
+  duration?: number;
   operationName?: string;
   serviceIp?: string;
-  duration?: number;
-  timestamp?: number;
   serviceName?: string;
+  tagMap?: { [key: string]: any };
+  timestamp?: number;
   traceID?: string;
   static names(): { [key: string]: string } {
     return {
+      duration: 'Duration',
       operationName: 'OperationName',
       serviceIp: 'ServiceIp',
-      duration: 'Duration',
-      timestamp: 'Timestamp',
       serviceName: 'ServiceName',
+      tagMap: 'TagMap',
+      timestamp: 'Timestamp',
       traceID: 'TraceID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      duration: 'number',
       operationName: 'string',
       serviceIp: 'string',
-      duration: 'number',
-      timestamp: 'number',
       serviceName: 'string',
+      tagMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      timestamp: 'number',
       traceID: 'string',
     };
   }
@@ -1215,25 +1047,25 @@ export class SearchTracesResponseBodyPageBeanTraceInfos extends $tea.Model {
 }
 
 export class SearchTracesResponseBodyPageBean extends $tea.Model {
-  traceInfos?: SearchTracesResponseBodyPageBeanTraceInfos;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
   totalCount?: number;
+  traceInfos?: SearchTracesResponseBodyPageBeanTraceInfos;
   static names(): { [key: string]: string } {
     return {
-      traceInfos: 'TraceInfos',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       totalCount: 'TotalCount',
+      traceInfos: 'TraceInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traceInfos: SearchTracesResponseBodyPageBeanTraceInfos,
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
       totalCount: 'number',
+      traceInfos: SearchTracesResponseBodyPageBeanTraceInfos,
     };
   }
 
@@ -1267,10 +1099,42 @@ export default class Client extends OpenApi {
 
   async getTagKeyWithOptions(request: GetTagKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetTagKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.spanName)) {
+      query["SpanName"] = request.spanName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTagKeyResponse>(await this.doRPCRequest("GetTagKey", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new GetTagKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTagKey",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTagKeyResponse>(await this.callApi(params, req, runtime), new GetTagKeyResponse({}));
   }
 
   async getTagKey(request: GetTagKeyRequest): Promise<GetTagKeyResponse> {
@@ -1280,10 +1144,46 @@ export default class Client extends OpenApi {
 
   async getTagValWithOptions(request: GetTagValRequest, runtime: $Util.RuntimeOptions): Promise<GetTagValResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.spanName)) {
+      query["SpanName"] = request.spanName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTagValResponse>(await this.doRPCRequest("GetTagVal", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new GetTagValResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTagVal",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTagValResponse>(await this.callApi(params, req, runtime), new GetTagValResponse({}));
   }
 
   async getTagVal(request: GetTagValRequest): Promise<GetTagValResponse> {
@@ -1291,25 +1191,36 @@ export default class Client extends OpenApi {
     return await this.getTagValWithOptions(request, runtime);
   }
 
-  async getTokenWithOptions(request: GetTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetTokenResponse>(await this.doRPCRequest("GetToken", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new GetTokenResponse({}));
-  }
-
-  async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getTokenWithOptions(request, runtime);
-  }
-
   async getTraceWithOptions(request: GetTraceRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.traceID)) {
+      query["TraceID"] = request.traceID;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTraceResponse>(await this.doRPCRequest("GetTrace", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new GetTraceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTrace",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTraceResponse>(await this.callApi(params, req, runtime), new GetTraceResponse({}));
   }
 
   async getTrace(request: GetTraceRequest): Promise<GetTraceResponse> {
@@ -1317,25 +1228,40 @@ export default class Client extends OpenApi {
     return await this.getTraceWithOptions(request, runtime);
   }
 
-  async getTraceAnalysisWithOptions(request: GetTraceAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceAnalysisResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetTraceAnalysisResponse>(await this.doRPCRequest("GetTraceAnalysis", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new GetTraceAnalysisResponse({}));
-  }
-
-  async getTraceAnalysis(request: GetTraceAnalysisRequest): Promise<GetTraceAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getTraceAnalysisWithOptions(request, runtime);
-  }
-
   async listIpOrHostsWithOptions(request: ListIpOrHostsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpOrHostsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListIpOrHostsResponse>(await this.doRPCRequest("ListIpOrHosts", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new ListIpOrHostsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListIpOrHosts",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIpOrHostsResponse>(await this.callApi(params, req, runtime), new ListIpOrHostsResponse({}));
   }
 
   async listIpOrHosts(request: ListIpOrHostsRequest): Promise<ListIpOrHostsResponse> {
@@ -1345,10 +1271,30 @@ export default class Client extends OpenApi {
 
   async listServicesWithOptions(request: ListServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServicesResponse>(await this.doRPCRequest("ListServices", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new ListServicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServices",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
@@ -1358,10 +1304,38 @@ export default class Client extends OpenApi {
 
   async listSpanNamesWithOptions(request: ListSpanNamesRequest, runtime: $Util.RuntimeOptions): Promise<ListSpanNamesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSpanNamesResponse>(await this.doRPCRequest("ListSpanNames", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new ListSpanNamesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSpanNames",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSpanNamesResponse>(await this.callApi(params, req, runtime), new ListSpanNamesResponse({}));
   }
 
   async listSpanNames(request: ListSpanNamesRequest): Promise<ListSpanNamesResponse> {
@@ -1371,10 +1345,66 @@ export default class Client extends OpenApi {
 
   async queryMetricWithOptions(request: QueryMetricRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.intervalInSec)) {
+      query["IntervalInSec"] = request.intervalInSec;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.measures)) {
+      query["Measures"] = request.measures;
+    }
+
+    if (!Util.isUnset(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.proxyUserId)) {
+      query["ProxyUserId"] = request.proxyUserId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryMetricResponse>(await this.doRPCRequest("QueryMetric", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMetricResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryMetric",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMetricResponse>(await this.callApi(params, req, runtime), new QueryMetricResponse({}));
   }
 
   async queryMetric(request: QueryMetricRequest): Promise<QueryMetricResponse> {
@@ -1384,10 +1414,70 @@ export default class Client extends OpenApi {
 
   async searchTracesWithOptions(request: SearchTracesRequest, runtime: $Util.RuntimeOptions): Promise<SearchTracesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.minDuration)) {
+      query["MinDuration"] = request.minDuration;
+    }
+
+    if (!Util.isUnset(request.operationName)) {
+      query["OperationName"] = request.operationName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!Util.isUnset(request.serviceIp)) {
+      query["ServiceIp"] = request.serviceIp;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SearchTracesResponse>(await this.doRPCRequest("SearchTraces", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new SearchTracesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchTraces",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchTracesResponse>(await this.callApi(params, req, runtime), new SearchTracesResponse({}));
   }
 
   async searchTraces(request: SearchTracesRequest): Promise<SearchTracesResponse> {
