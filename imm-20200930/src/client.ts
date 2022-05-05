@@ -1092,6 +1092,7 @@ export class Story extends $tea.Model {
   datasetName?: string;
   figureClusterIds?: string[];
   files?: File[];
+  MIILCustomFields?: { [key: string]: any }[];
   objectId?: string;
   objectType?: string;
   ownerId?: string;
@@ -1111,6 +1112,7 @@ export class Story extends $tea.Model {
       datasetName: 'DatasetName',
       figureClusterIds: 'FigureClusterIds',
       files: 'Files',
+      MIILCustomFields: 'MIILCustomFields',
       objectId: 'ObjectId',
       objectType: 'ObjectType',
       ownerId: 'OwnerId',
@@ -1133,6 +1135,7 @@ export class Story extends $tea.Model {
       datasetName: 'string',
       figureClusterIds: { 'type': 'array', 'itemType': 'string' },
       files: { 'type': 'array', 'itemType': File },
+      MIILCustomFields: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       objectId: 'string',
       objectType: 'string',
       ownerId: 'string',
@@ -5153,20 +5156,26 @@ export class ListProjectsResponse extends $tea.Model {
 }
 
 export class ListTasksRequest extends $tea.Model {
+  endTimeRange?: TimeRange;
   maxResults?: number;
   nextToken?: string;
   order?: string;
   projectName?: string;
   sort?: string;
+  startTimeRange?: TimeRange;
+  status?: string;
   tagSelector?: string;
   taskTypes?: string[];
   static names(): { [key: string]: string } {
     return {
+      endTimeRange: 'EndTimeRange',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       order: 'Order',
       projectName: 'ProjectName',
       sort: 'Sort',
+      startTimeRange: 'StartTimeRange',
+      status: 'Status',
       tagSelector: 'TagSelector',
       taskTypes: 'TaskTypes',
     };
@@ -5174,11 +5183,14 @@ export class ListTasksRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endTimeRange: TimeRange,
       maxResults: 'number',
       nextToken: 'string',
       order: 'string',
       projectName: 'string',
       sort: 'string',
+      startTimeRange: TimeRange,
+      status: 'string',
       tagSelector: 'string',
       taskTypes: { 'type': 'array', 'itemType': 'string' },
     };
@@ -5190,20 +5202,26 @@ export class ListTasksRequest extends $tea.Model {
 }
 
 export class ListTasksShrinkRequest extends $tea.Model {
+  endTimeRangeShrink?: string;
   maxResults?: number;
   nextToken?: string;
   order?: string;
   projectName?: string;
   sort?: string;
+  startTimeRangeShrink?: string;
+  status?: string;
   tagSelector?: string;
   taskTypesShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      endTimeRangeShrink: 'EndTimeRange',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       order: 'Order',
       projectName: 'ProjectName',
       sort: 'Sort',
+      startTimeRangeShrink: 'StartTimeRange',
+      status: 'Status',
       tagSelector: 'TagSelector',
       taskTypesShrink: 'TaskTypes',
     };
@@ -5211,11 +5229,14 @@ export class ListTasksShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endTimeRangeShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
       order: 'string',
       projectName: 'string',
       sort: 'string',
+      startTimeRangeShrink: 'string',
+      status: 'string',
       tagSelector: 'string',
       taskTypesShrink: 'string',
     };
@@ -9317,11 +9338,23 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ListTasksShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.endTimeRange))) {
+      request.endTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.endTimeRange), "EndTimeRange", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.startTimeRange))) {
+      request.startTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.startTimeRange), "StartTimeRange", "json");
+    }
+
     if (!Util.isUnset(tmpReq.taskTypes)) {
       request.taskTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskTypes, "TaskTypes", "json");
     }
 
     let query = { };
+    if (!Util.isUnset(request.endTimeRangeShrink)) {
+      query["EndTimeRange"] = request.endTimeRangeShrink;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -9340,6 +9373,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sort)) {
       query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.startTimeRangeShrink)) {
+      query["StartTimeRange"] = request.startTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     if (!Util.isUnset(request.tagSelector)) {
