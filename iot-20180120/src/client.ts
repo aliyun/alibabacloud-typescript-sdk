@@ -744,6 +744,168 @@ export class BatchClearEdgeInstanceDeviceConfigResponse extends $tea.Model {
   }
 }
 
+export class BatchCreateSoundCodeLabelRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  scheduleCode?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      scheduleCode: 'ScheduleCode',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      scheduleCode: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateSoundCodeLabelResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateSoundCodeLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchCreateSoundCodeLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchCreateSoundCodeLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateSoundCodeLabelWithLabelsRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  labels?: string[];
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      labels: 'Labels',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      labels: { 'type': 'array', 'itemType': 'string' },
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateSoundCodeLabelWithLabelsResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateSoundCodeLabelWithLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchCreateSoundCodeLabelWithLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchCreateSoundCodeLabelWithLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchDeleteDeviceGroupRelationsRequest extends $tea.Model {
   device?: BatchDeleteDeviceGroupRelationsRequestDevice[];
   groupId?: string;
@@ -2550,6 +2712,165 @@ export class BindGatewayToEdgeInstanceResponse extends $tea.Model {
   }
 }
 
+export class BindLicenseDeviceRequest extends $tea.Model {
+  iotIdList?: string[];
+  iotInstanceId?: string;
+  licenseCode?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotIdList: 'IotIdList',
+      iotInstanceId: 'IotInstanceId',
+      licenseCode: 'LicenseCode',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotIdList: { 'type': 'array', 'itemType': 'string' },
+      iotInstanceId: 'string',
+      licenseCode: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindLicenseDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: BindLicenseDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: BindLicenseDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindLicenseDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BindLicenseDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BindLicenseDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindLicenseProductRequest extends $tea.Model {
+  iotInstanceId?: string;
+  licenseCode?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      licenseCode: 'LicenseCode',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      licenseCode: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindLicenseProductResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindLicenseProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BindLicenseProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BindLicenseProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BindRoleToEdgeInstanceRequest extends $tea.Model {
   instanceId?: string;
   iotInstanceId?: string;
@@ -3694,6 +4015,81 @@ export class CreateDataAPIServiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDataAPIServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceItemRequest extends $tea.Model {
+  dataSourceId?: number;
+  iotInstanceId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      iotInstanceId: 'IotInstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      iotInstanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceItemResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDataSourceItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDataSourceItemResponseBody,
     };
   }
 
@@ -6049,14 +6445,105 @@ export class CreateSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateSchedulePeriodRequest extends $tea.Model {
+  description?: string;
+  endTime?: string;
+  iotInstanceId?: string;
+  scheduleCode?: string;
+  soundCodeContent?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endTime: 'EndTime',
+      iotInstanceId: 'IotInstanceId',
+      scheduleCode: 'ScheduleCode',
+      soundCodeContent: 'SoundCodeContent',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endTime: 'string',
+      iotInstanceId: 'string',
+      scheduleCode: 'string',
+      soundCodeContent: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSchedulePeriodResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSchedulePeriodResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSchedulePeriodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSchedulePeriodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSoundCodeRequest extends $tea.Model {
   duration?: number;
   iotInstanceId?: string;
+  name?: string;
+  openType?: string;
   soundCodeContent?: string;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
       iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      openType: 'OpenType',
       soundCodeContent: 'SoundCodeContent',
     };
   }
@@ -6065,6 +6552,8 @@ export class CreateSoundCodeRequest extends $tea.Model {
     return {
       duration: 'number',
       iotInstanceId: 'string',
+      name: 'string',
+      openType: 'string',
       soundCodeContent: 'string',
     };
   }
@@ -6119,6 +6608,171 @@ export class CreateSoundCodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateSoundCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeLabelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  label?: string;
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      label: 'Label',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      label: 'string',
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeLabelResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSoundCodeLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSoundCodeLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeScheduleRequest extends $tea.Model {
+  description?: string;
+  endDate?: string;
+  iotInstanceId?: string;
+  name?: string;
+  openType?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endDate: 'EndDate',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      openType: 'OpenType',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endDate: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+      openType: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeScheduleResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeScheduleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSoundCodeScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSoundCodeScheduleResponseBody,
     };
   }
 
@@ -8480,6 +9134,78 @@ export class DeleteSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteSchedulePeriodRequest extends $tea.Model {
+  iotInstanceId?: string;
+  periodCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      periodCode: 'PeriodCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      periodCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchedulePeriodResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchedulePeriodResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSchedulePeriodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSchedulePeriodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSoundCodeRequest extends $tea.Model {
   iotInstanceId?: string;
   soundCode?: string;
@@ -8544,6 +9270,150 @@ export class DeleteSoundCodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteSoundCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeLabelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  soundCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      soundCode: 'SoundCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      soundCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeLabelResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSoundCodeLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSoundCodeLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeScheduleRequest extends $tea.Model {
+  iotInstanceId?: string;
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeScheduleResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeScheduleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSoundCodeScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSoundCodeScheduleResponseBody,
     };
   }
 
@@ -10943,6 +11813,81 @@ export class GetSoundCodeAudioResponse extends $tea.Model {
   }
 }
 
+export class GetSoundCodeScheduleRequest extends $tea.Model {
+  iotInstanceId?: string;
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSoundCodeScheduleResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSoundCodeScheduleResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSoundCodeScheduleResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSoundCodeScheduleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSoundCodeScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSoundCodeScheduleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSpeechDeviceDetailRequest extends $tea.Model {
   iotId?: string;
   iotInstanceId?: string;
@@ -12134,6 +13079,99 @@ export class ListAnalyticsDataResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListAnalyticsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceItemRequest extends $tea.Model {
+  dataSourceId?: number;
+  iotInstanceId?: string;
+  page?: number;
+  pageSize?: number;
+  searchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      iotInstanceId: 'IotInstanceId',
+      page: 'Page',
+      pageSize: 'PageSize',
+      searchName: 'SearchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      iotInstanceId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      searchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceItemResponseBody extends $tea.Model {
+  code?: string;
+  dataSourceItems?: ListDataSourceItemResponseBodyDataSourceItems;
+  errorMessage?: string;
+  page?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataSourceItems: 'DataSourceItems',
+      errorMessage: 'ErrorMessage',
+      page: 'Page',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataSourceItems: ListDataSourceItemResponseBodyDataSourceItems,
+      errorMessage: 'string',
+      page: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDataSourceItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDataSourceItemResponseBody,
     };
   }
 
@@ -13875,6 +14913,81 @@ export class OpenIotServiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: OpenIotServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PackageSoundCodeLabelBatchAudioRequest extends $tea.Model {
+  batchCode?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchCode: 'BatchCode',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchCode: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PackageSoundCodeLabelBatchAudioResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PackageSoundCodeLabelBatchAudioResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PackageSoundCodeLabelBatchAudioResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PackageSoundCodeLabelBatchAudioResponseBody,
     };
   }
 
@@ -19658,6 +20771,87 @@ export class QuerySceneRuleResponse extends $tea.Model {
   }
 }
 
+export class QuerySchedulePeriodListRequest extends $tea.Model {
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedulePeriodListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySchedulePeriodListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySchedulePeriodListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedulePeriodListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySchedulePeriodListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySchedulePeriodListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySolutionDeviceGroupPageRequest extends $tea.Model {
   fuzzyGroupName?: string;
   iotInstanceId?: string;
@@ -19742,6 +20936,243 @@ export class QuerySolutionDeviceGroupPageResponse extends $tea.Model {
   }
 }
 
+export class QuerySoundCodeLabelBatchFailedResultRequest extends $tea.Model {
+  batchCode?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchCode: 'BatchCode',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchCode: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchFailedResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySoundCodeLabelBatchFailedResultResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySoundCodeLabelBatchFailedResultResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchFailedResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySoundCodeLabelBatchFailedResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySoundCodeLabelBatchFailedResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchListRequest extends $tea.Model {
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySoundCodeLabelBatchListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySoundCodeLabelBatchListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySoundCodeLabelBatchListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySoundCodeLabelBatchListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelListRequest extends $tea.Model {
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  scheduleCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      scheduleCode: 'ScheduleCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      scheduleCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySoundCodeLabelListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySoundCodeLabelListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySoundCodeLabelListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySoundCodeLabelListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySoundCodeListRequest extends $tea.Model {
   iotInstanceId?: string;
   pageId?: number;
@@ -19812,6 +21243,84 @@ export class QuerySoundCodeListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QuerySoundCodeListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeScheduleListRequest extends $tea.Model {
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeScheduleListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySoundCodeScheduleListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySoundCodeScheduleListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeScheduleListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySoundCodeScheduleListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySoundCodeScheduleListResponseBody,
     };
   }
 
@@ -21602,6 +23111,150 @@ export class RRpcResponse extends $tea.Model {
   }
 }
 
+export class RecognizeCarNumRequest extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCarNumResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCarNumResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeCarNumResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeCarNumResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePictureGeneralRequest extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePictureGeneralResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePictureGeneralResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizePictureGeneralResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizePictureGeneralResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshDeviceTunnelSharePasswordRequest extends $tea.Model {
   deviceName?: string;
   iotInstanceId?: string;
@@ -22374,6 +24027,78 @@ export class ResetThingResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ResetThingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrySoundCodeLabelBatchRequest extends $tea.Model {
+  batchCode?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchCode: 'BatchCode',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchCode: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrySoundCodeLabelBatchResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrySoundCodeLabelBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RetrySoundCodeLabelBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RetrySoundCodeLabelBatchResponseBody,
     };
   }
 
@@ -24192,6 +25917,84 @@ export class UnbindDriverFromEdgeInstanceResponse extends $tea.Model {
   }
 }
 
+export class UnbindLicenseProductRequest extends $tea.Model {
+  iotInstanceId?: string;
+  licenseCode?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      licenseCode: 'LicenseCode',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      licenseCode: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindLicenseProductResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindLicenseProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UnbindLicenseProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UnbindLicenseProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindRoleFromEdgeInstanceRequest extends $tea.Model {
   instanceId?: string;
   iotInstanceId?: string;
@@ -25696,6 +27499,339 @@ export class UpdateSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class UpdateSchedulePeriodRequest extends $tea.Model {
+  description?: string;
+  endTime?: string;
+  iotInstanceId?: string;
+  periodCode?: string;
+  soundCodeContent?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endTime: 'EndTime',
+      iotInstanceId: 'IotInstanceId',
+      periodCode: 'PeriodCode',
+      soundCodeContent: 'SoundCodeContent',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endTime: 'string',
+      iotInstanceId: 'string',
+      periodCode: 'string',
+      soundCodeContent: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSchedulePeriodResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSchedulePeriodResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSchedulePeriodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSchedulePeriodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeRequest extends $tea.Model {
+  duration?: number;
+  iotInstanceId?: string;
+  name?: string;
+  soundCode?: string;
+  soundCodeContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      soundCode: 'SoundCode',
+      soundCodeContent: 'SoundCodeContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      iotInstanceId: 'string',
+      name: 'string',
+      soundCode: 'string',
+      soundCodeContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSoundCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSoundCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeLabelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  label?: string;
+  soundCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      label: 'Label',
+      soundCode: 'SoundCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      label: 'string',
+      soundCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeLabelResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeLabelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSoundCodeLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSoundCodeLabelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeScheduleRequest extends $tea.Model {
+  description?: string;
+  endDate?: string;
+  endTime?: string;
+  iotInstanceId?: string;
+  name?: string;
+  scheduleCode?: string;
+  startDate?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endDate: 'EndDate',
+      endTime: 'EndTime',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      scheduleCode: 'ScheduleCode',
+      startDate: 'StartDate',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endDate: 'string',
+      endTime: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+      scheduleCode: 'string',
+      startDate: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeScheduleResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSoundCodeScheduleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSoundCodeScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSoundCodeScheduleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSpeechRequest extends $tea.Model {
   enableSoundCode?: boolean;
   iotInstanceId?: string;
@@ -26813,6 +28949,37 @@ export class BatchUpdateDeviceNicknameRequestDeviceNicknameInfo extends $tea.Mod
       iotId: 'string',
       nickname: 'string',
       productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindLicenseDeviceResponseBodyData extends $tea.Model {
+  checkProgressId?: string;
+  failSum?: number;
+  progress?: number;
+  resultCsvFile?: string;
+  successSum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkProgressId: 'CheckProgressId',
+      failSum: 'FailSum',
+      progress: 'Progress',
+      resultCsvFile: 'ResultCsvFile',
+      successSum: 'SuccessSum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkProgressId: 'string',
+      failSum: 'number',
+      progress: 'number',
+      resultCsvFile: 'string',
+      successSum: 'number',
     };
   }
 
@@ -28401,6 +30568,52 @@ export class GetSoundCodeAudioResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetSoundCodeScheduleResponseBodyData extends $tea.Model {
+  description?: string;
+  endDate?: string;
+  endTime?: string;
+  gmtCreate?: number;
+  name?: string;
+  openType?: string;
+  scheduleCode?: string;
+  startDate?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endDate: 'EndDate',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      name: 'Name',
+      openType: 'OpenType',
+      scheduleCode: 'ScheduleCode',
+      startDate: 'StartDate',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endDate: 'string',
+      endTime: 'string',
+      gmtCreate: 'number',
+      name: 'string',
+      openType: 'string',
+      scheduleCode: 'string',
+      startDate: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSpeechDeviceDetailResponseBodyData extends $tea.Model {
   availableSpace?: number;
   deviceName?: string;
@@ -28989,6 +31202,47 @@ export class ListAnalyticsDataResponseBodyData extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       resultJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem extends $tea.Model {
+  dataSourceItemId?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceItemId: 'DataSourceItemId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceItemId: 'number',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourceItemResponseBodyDataSourceItems extends $tea.Model {
+  dataSourceItem?: ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceItem: 'dataSourceItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceItem: { 'type': 'array', 'itemType': ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem },
     };
   }
 
@@ -34287,6 +36541,84 @@ export class QuerySceneRuleResponseBodyData extends $tea.Model {
   }
 }
 
+export class QuerySchedulePeriodListResponseBodyDataListItems extends $tea.Model {
+  description?: string;
+  endTime?: string;
+  periodCode?: string;
+  soundCodeContent?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endTime: 'EndTime',
+      periodCode: 'PeriodCode',
+      soundCodeContent: 'SoundCodeContent',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endTime: 'string',
+      periodCode: 'string',
+      soundCodeContent: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedulePeriodListResponseBodyDataList extends $tea.Model {
+  items?: QuerySchedulePeriodListResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySchedulePeriodListResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySchedulePeriodListResponseBodyData extends $tea.Model {
+  list?: QuerySchedulePeriodListResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QuerySchedulePeriodListResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySolutionDeviceGroupPageResponseBodyDataListItemName extends $tea.Model {
   deviceCount?: number;
   gmtCreate?: number;
@@ -34368,15 +36700,213 @@ export class QuerySolutionDeviceGroupPageResponseBodyData extends $tea.Model {
   }
 }
 
+export class QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems extends $tea.Model {
+  errorMessage?: string;
+  label?: string;
+  resultCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      label: 'Label',
+      resultCode: 'ResultCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      label: 'string',
+      resultCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchFailedResultResponseBodyData extends $tea.Model {
+  items?: QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySoundCodeLabelBatchFailedResultResponseBodyDataItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchListResponseBodyDataListItems extends $tea.Model {
+  batchCode?: string;
+  description?: string;
+  gmtCreate?: number;
+  status?: string;
+  successNum?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      batchCode: 'BatchCode',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      status: 'Status',
+      successNum: 'SuccessNum',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchCode: 'string',
+      description: 'string',
+      gmtCreate: 'number',
+      status: 'string',
+      successNum: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchListResponseBodyDataList extends $tea.Model {
+  items?: QuerySoundCodeLabelBatchListResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySoundCodeLabelBatchListResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelBatchListResponseBodyData extends $tea.Model {
+  list?: QuerySoundCodeLabelBatchListResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QuerySoundCodeLabelBatchListResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelListResponseBodyDataListItems extends $tea.Model {
+  label?: string;
+  soundCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      soundCode: 'SoundCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      soundCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelListResponseBodyDataList extends $tea.Model {
+  items?: QuerySoundCodeLabelListResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySoundCodeLabelListResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeLabelListResponseBodyData extends $tea.Model {
+  list?: QuerySoundCodeLabelListResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QuerySoundCodeLabelListResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySoundCodeListResponseBodyDataListItems extends $tea.Model {
   duration?: number;
   gmtCreate?: number;
+  name?: string;
+  openType?: string;
   soundCode?: string;
   soundCodeContent?: string;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
       gmtCreate: 'GmtCreate',
+      name: 'Name',
+      openType: 'OpenType',
       soundCode: 'SoundCode',
       soundCodeContent: 'SoundCodeContent',
     };
@@ -34386,6 +36916,8 @@ export class QuerySoundCodeListResponseBodyDataListItems extends $tea.Model {
     return {
       duration: 'number',
       gmtCreate: 'number',
+      name: 'string',
+      openType: 'string',
       soundCode: 'string',
       soundCodeContent: 'string',
     };
@@ -34432,6 +36964,99 @@ export class QuerySoundCodeListResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       list: QuerySoundCodeListResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeScheduleListResponseBodyDataListItems extends $tea.Model {
+  description?: string;
+  endDate?: string;
+  endTime?: string;
+  gmtCreate?: number;
+  name?: string;
+  openType?: string;
+  scheduleCode?: string;
+  startDate?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endDate: 'EndDate',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      name: 'Name',
+      openType: 'OpenType',
+      scheduleCode: 'ScheduleCode',
+      startDate: 'StartDate',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endDate: 'string',
+      endTime: 'string',
+      gmtCreate: 'number',
+      name: 'string',
+      openType: 'string',
+      scheduleCode: 'string',
+      startDate: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeScheduleListResponseBodyDataList extends $tea.Model {
+  items?: QuerySoundCodeScheduleListResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySoundCodeScheduleListResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeScheduleListResponseBodyData extends $tea.Model {
+  list?: QuerySoundCodeScheduleListResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QuerySoundCodeScheduleListResponseBodyDataList,
       pageId: 'number',
       pageSize: 'number',
       total: 'number',
@@ -36455,6 +39080,88 @@ export default class Client extends OpenApi {
     return await this.batchClearEdgeInstanceDeviceConfigWithOptions(request, runtime);
   }
 
+  async batchCreateSoundCodeLabelWithOptions(request: BatchCreateSoundCodeLabelRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateSoundCodeLabelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    if (!Util.isUnset(request.total)) {
+      body["Total"] = request.total;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchCreateSoundCodeLabel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchCreateSoundCodeLabelResponse>(await this.callApi(params, req, runtime), new BatchCreateSoundCodeLabelResponse({}));
+  }
+
+  async batchCreateSoundCodeLabel(request: BatchCreateSoundCodeLabelRequest): Promise<BatchCreateSoundCodeLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchCreateSoundCodeLabelWithOptions(request, runtime);
+  }
+
+  async batchCreateSoundCodeLabelWithLabelsWithOptions(request: BatchCreateSoundCodeLabelWithLabelsRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateSoundCodeLabelWithLabelsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchCreateSoundCodeLabelWithLabels",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchCreateSoundCodeLabelWithLabelsResponse>(await this.callApi(params, req, runtime), new BatchCreateSoundCodeLabelWithLabelsResponse({}));
+  }
+
+  async batchCreateSoundCodeLabelWithLabels(request: BatchCreateSoundCodeLabelWithLabelsRequest): Promise<BatchCreateSoundCodeLabelWithLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchCreateSoundCodeLabelWithLabelsWithOptions(request, runtime);
+  }
+
   async batchDeleteDeviceGroupRelationsWithOptions(request: BatchDeleteDeviceGroupRelationsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDeviceGroupRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37350,6 +40057,84 @@ export default class Client extends OpenApi {
     return await this.bindGatewayToEdgeInstanceWithOptions(request, runtime);
   }
 
+  async bindLicenseDeviceWithOptions(request: BindLicenseDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindLicenseDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotIdList)) {
+      query["IotIdList"] = request.iotIdList;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.licenseCode)) {
+      query["LicenseCode"] = request.licenseCode;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindLicenseDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindLicenseDeviceResponse>(await this.callApi(params, req, runtime), new BindLicenseDeviceResponse({}));
+  }
+
+  async bindLicenseDevice(request: BindLicenseDeviceRequest): Promise<BindLicenseDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindLicenseDeviceWithOptions(request, runtime);
+  }
+
+  async bindLicenseProductWithOptions(request: BindLicenseProductRequest, runtime: $Util.RuntimeOptions): Promise<BindLicenseProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.licenseCode)) {
+      query["LicenseCode"] = request.licenseCode;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindLicenseProduct",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindLicenseProductResponse>(await this.callApi(params, req, runtime), new BindLicenseProductResponse({}));
+  }
+
+  async bindLicenseProduct(request: BindLicenseProductRequest): Promise<BindLicenseProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindLicenseProductWithOptions(request, runtime);
+  }
+
   async bindRoleToEdgeInstanceWithOptions(request: BindRoleToEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<BindRoleToEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37931,6 +40716,43 @@ export default class Client extends OpenApi {
   async createDataAPIService(request: CreateDataAPIServiceRequest): Promise<CreateDataAPIServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataAPIServiceWithOptions(request, runtime);
+  }
+
+  async createDataSourceItemWithOptions(request: CreateDataSourceItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataSourceItem",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataSourceItemResponse>(await this.callApi(params, req, runtime), new CreateDataSourceItemResponse({}));
+  }
+
+  async createDataSourceItem(request: CreateDataSourceItemRequest): Promise<CreateDataSourceItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataSourceItemWithOptions(request, runtime);
   }
 
   async createDeviceDistributeJobWithOptions(request: CreateDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceDistributeJobResponse> {
@@ -39348,6 +42170,55 @@ export default class Client extends OpenApi {
     return await this.createSceneRuleWithOptions(request, runtime);
   }
 
+  async createSchedulePeriodWithOptions(request: CreateSchedulePeriodRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedulePeriodResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    if (!Util.isUnset(request.soundCodeContent)) {
+      body["SoundCodeContent"] = request.soundCodeContent;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSchedulePeriod",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSchedulePeriodResponse>(await this.callApi(params, req, runtime), new CreateSchedulePeriodResponse({}));
+  }
+
+  async createSchedulePeriod(request: CreateSchedulePeriodRequest): Promise<CreateSchedulePeriodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSchedulePeriodWithOptions(request, runtime);
+  }
+
   async createSoundCodeWithOptions(request: CreateSoundCodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateSoundCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39357,6 +42228,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.iotInstanceId)) {
       body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.openType)) {
+      body["OpenType"] = request.openType;
     }
 
     if (!Util.isUnset(request.soundCodeContent)) {
@@ -39383,6 +42262,92 @@ export default class Client extends OpenApi {
   async createSoundCode(request: CreateSoundCodeRequest): Promise<CreateSoundCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSoundCodeWithOptions(request, runtime);
+  }
+
+  async createSoundCodeLabelWithOptions(request: CreateSoundCodeLabelRequest, runtime: $Util.RuntimeOptions): Promise<CreateSoundCodeLabelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.label)) {
+      body["Label"] = request.label;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSoundCodeLabel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSoundCodeLabelResponse>(await this.callApi(params, req, runtime), new CreateSoundCodeLabelResponse({}));
+  }
+
+  async createSoundCodeLabel(request: CreateSoundCodeLabelRequest): Promise<CreateSoundCodeLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSoundCodeLabelWithOptions(request, runtime);
+  }
+
+  async createSoundCodeScheduleWithOptions(request: CreateSoundCodeScheduleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSoundCodeScheduleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.openType)) {
+      body["OpenType"] = request.openType;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSoundCodeSchedule",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSoundCodeScheduleResponse>(await this.callApi(params, req, runtime), new CreateSoundCodeScheduleResponse({}));
+  }
+
+  async createSoundCodeSchedule(request: CreateSoundCodeScheduleRequest): Promise<CreateSoundCodeScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSoundCodeScheduleWithOptions(request, runtime);
   }
 
   async createSpeechWithOptions(tmpReq: CreateSpeechRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpeechResponse> {
@@ -40557,6 +43522,39 @@ export default class Client extends OpenApi {
     return await this.deleteSceneRuleWithOptions(request, runtime);
   }
 
+  async deleteSchedulePeriodWithOptions(request: DeleteSchedulePeriodRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedulePeriodResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.periodCode)) {
+      body["PeriodCode"] = request.periodCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSchedulePeriod",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSchedulePeriodResponse>(await this.callApi(params, req, runtime), new DeleteSchedulePeriodResponse({}));
+  }
+
+  async deleteSchedulePeriod(request: DeleteSchedulePeriodRequest): Promise<DeleteSchedulePeriodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSchedulePeriodWithOptions(request, runtime);
+  }
+
   async deleteSoundCodeWithOptions(request: DeleteSoundCodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSoundCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40588,6 +43586,72 @@ export default class Client extends OpenApi {
   async deleteSoundCode(request: DeleteSoundCodeRequest): Promise<DeleteSoundCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSoundCodeWithOptions(request, runtime);
+  }
+
+  async deleteSoundCodeLabelWithOptions(request: DeleteSoundCodeLabelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSoundCodeLabelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.soundCode)) {
+      body["SoundCode"] = request.soundCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSoundCodeLabel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSoundCodeLabelResponse>(await this.callApi(params, req, runtime), new DeleteSoundCodeLabelResponse({}));
+  }
+
+  async deleteSoundCodeLabel(request: DeleteSoundCodeLabelRequest): Promise<DeleteSoundCodeLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSoundCodeLabelWithOptions(request, runtime);
+  }
+
+  async deleteSoundCodeScheduleWithOptions(request: DeleteSoundCodeScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSoundCodeScheduleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSoundCodeSchedule",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSoundCodeScheduleResponse>(await this.callApi(params, req, runtime), new DeleteSoundCodeScheduleResponse({}));
+  }
+
+  async deleteSoundCodeSchedule(request: DeleteSoundCodeScheduleRequest): Promise<DeleteSoundCodeScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSoundCodeScheduleWithOptions(request, runtime);
   }
 
   async deleteSpeechWithOptions(request: DeleteSpeechRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpeechResponse> {
@@ -41725,6 +44789,39 @@ export default class Client extends OpenApi {
     return await this.getSoundCodeAudioWithOptions(request, runtime);
   }
 
+  async getSoundCodeScheduleWithOptions(request: GetSoundCodeScheduleRequest, runtime: $Util.RuntimeOptions): Promise<GetSoundCodeScheduleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSoundCodeSchedule",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSoundCodeScheduleResponse>(await this.callApi(params, req, runtime), new GetSoundCodeScheduleResponse({}));
+  }
+
+  async getSoundCodeSchedule(request: GetSoundCodeScheduleRequest): Promise<GetSoundCodeScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSoundCodeScheduleWithOptions(request, runtime);
+  }
+
   async getSpeechDeviceDetailWithOptions(request: GetSpeechDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSpeechDeviceDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42342,6 +45439,51 @@ export default class Client extends OpenApi {
   async listAnalyticsData(request: ListAnalyticsDataRequest): Promise<ListAnalyticsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAnalyticsDataWithOptions(request, runtime);
+  }
+
+  async listDataSourceItemWithOptions(request: ListDataSourceItemRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourceItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchName)) {
+      query["SearchName"] = request.searchName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataSourceItem",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataSourceItemResponse>(await this.callApi(params, req, runtime), new ListDataSourceItemResponse({}));
+  }
+
+  async listDataSourceItem(request: ListDataSourceItemRequest): Promise<ListDataSourceItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataSourceItemWithOptions(request, runtime);
   }
 
   async listDeviceDistributeJobWithOptions(request: ListDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceDistributeJobResponse> {
@@ -43182,6 +46324,39 @@ export default class Client extends OpenApi {
   async openIotService(request: OpenIotServiceRequest): Promise<OpenIotServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openIotServiceWithOptions(request, runtime);
+  }
+
+  async packageSoundCodeLabelBatchAudioWithOptions(request: PackageSoundCodeLabelBatchAudioRequest, runtime: $Util.RuntimeOptions): Promise<PackageSoundCodeLabelBatchAudioResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.batchCode)) {
+      body["BatchCode"] = request.batchCode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PackageSoundCodeLabelBatchAudio",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PackageSoundCodeLabelBatchAudioResponse>(await this.callApi(params, req, runtime), new PackageSoundCodeLabelBatchAudioResponse({}));
+  }
+
+  async packageSoundCodeLabelBatchAudio(request: PackageSoundCodeLabelBatchAudioRequest): Promise<PackageSoundCodeLabelBatchAudioResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.packageSoundCodeLabelBatchAudioWithOptions(request, runtime);
   }
 
   async printByTemplateWithOptions(request: PrintByTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PrintByTemplateResponse> {
@@ -46122,6 +49297,47 @@ export default class Client extends OpenApi {
     return await this.querySceneRuleWithOptions(request, runtime);
   }
 
+  async querySchedulePeriodListWithOptions(request: QuerySchedulePeriodListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySchedulePeriodListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySchedulePeriodList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySchedulePeriodListResponse>(await this.callApi(params, req, runtime), new QuerySchedulePeriodListResponse({}));
+  }
+
+  async querySchedulePeriodList(request: QuerySchedulePeriodListRequest): Promise<QuerySchedulePeriodListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySchedulePeriodListWithOptions(request, runtime);
+  }
+
   async querySolutionDeviceGroupPageWithOptions(request: QuerySolutionDeviceGroupPageRequest, runtime: $Util.RuntimeOptions): Promise<QuerySolutionDeviceGroupPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46167,6 +49383,121 @@ export default class Client extends OpenApi {
     return await this.querySolutionDeviceGroupPageWithOptions(request, runtime);
   }
 
+  async querySoundCodeLabelBatchFailedResultWithOptions(request: QuerySoundCodeLabelBatchFailedResultRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundCodeLabelBatchFailedResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.batchCode)) {
+      body["BatchCode"] = request.batchCode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySoundCodeLabelBatchFailedResult",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySoundCodeLabelBatchFailedResultResponse>(await this.callApi(params, req, runtime), new QuerySoundCodeLabelBatchFailedResultResponse({}));
+  }
+
+  async querySoundCodeLabelBatchFailedResult(request: QuerySoundCodeLabelBatchFailedResultRequest): Promise<QuerySoundCodeLabelBatchFailedResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySoundCodeLabelBatchFailedResultWithOptions(request, runtime);
+  }
+
+  async querySoundCodeLabelBatchListWithOptions(request: QuerySoundCodeLabelBatchListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundCodeLabelBatchListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySoundCodeLabelBatchList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySoundCodeLabelBatchListResponse>(await this.callApi(params, req, runtime), new QuerySoundCodeLabelBatchListResponse({}));
+  }
+
+  async querySoundCodeLabelBatchList(request: QuerySoundCodeLabelBatchListRequest): Promise<QuerySoundCodeLabelBatchListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySoundCodeLabelBatchListWithOptions(request, runtime);
+  }
+
+  async querySoundCodeLabelListWithOptions(request: QuerySoundCodeLabelListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundCodeLabelListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySoundCodeLabelList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySoundCodeLabelListResponse>(await this.callApi(params, req, runtime), new QuerySoundCodeLabelListResponse({}));
+  }
+
+  async querySoundCodeLabelList(request: QuerySoundCodeLabelListRequest): Promise<QuerySoundCodeLabelListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySoundCodeLabelListWithOptions(request, runtime);
+  }
+
   async querySoundCodeListWithOptions(request: QuerySoundCodeListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundCodeListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46202,6 +49533,43 @@ export default class Client extends OpenApi {
   async querySoundCodeList(request: QuerySoundCodeListRequest): Promise<QuerySoundCodeListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySoundCodeListWithOptions(request, runtime);
+  }
+
+  async querySoundCodeScheduleListWithOptions(request: QuerySoundCodeScheduleListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundCodeScheduleListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySoundCodeScheduleList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySoundCodeScheduleListResponse>(await this.callApi(params, req, runtime), new QuerySoundCodeScheduleListResponse({}));
+  }
+
+  async querySoundCodeScheduleList(request: QuerySoundCodeScheduleListRequest): Promise<QuerySoundCodeScheduleListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySoundCodeScheduleListWithOptions(request, runtime);
   }
 
   async querySpeechWithOptions(request: QuerySpeechRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechResponse> {
@@ -47107,6 +50475,64 @@ export default class Client extends OpenApi {
     return await this.rRpcWithOptions(request, runtime);
   }
 
+  async recognizeCarNumWithOptions(request: RecognizeCarNumRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarNumResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeCarNum",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCarNumResponse>(await this.callApi(params, req, runtime), new RecognizeCarNumResponse({}));
+  }
+
+  async recognizeCarNum(request: RecognizeCarNumRequest): Promise<RecognizeCarNumResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeCarNumWithOptions(request, runtime);
+  }
+
+  async recognizePictureGeneralWithOptions(request: RecognizePictureGeneralRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePictureGeneralResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizePictureGeneral",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePictureGeneralResponse>(await this.callApi(params, req, runtime), new RecognizePictureGeneralResponse({}));
+  }
+
+  async recognizePictureGeneral(request: RecognizePictureGeneralRequest): Promise<RecognizePictureGeneralResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizePictureGeneralWithOptions(request, runtime);
+  }
+
   async refreshDeviceTunnelSharePasswordWithOptions(request: RefreshDeviceTunnelSharePasswordRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDeviceTunnelSharePasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47499,6 +50925,39 @@ export default class Client extends OpenApi {
   async resetThing(request: ResetThingRequest): Promise<ResetThingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetThingWithOptions(request, runtime);
+  }
+
+  async retrySoundCodeLabelBatchWithOptions(request: RetrySoundCodeLabelBatchRequest, runtime: $Util.RuntimeOptions): Promise<RetrySoundCodeLabelBatchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.batchCode)) {
+      body["BatchCode"] = request.batchCode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetrySoundCodeLabelBatch",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetrySoundCodeLabelBatchResponse>(await this.callApi(params, req, runtime), new RetrySoundCodeLabelBatchResponse({}));
+  }
+
+  async retrySoundCodeLabelBatch(request: RetrySoundCodeLabelBatchRequest): Promise<RetrySoundCodeLabelBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retrySoundCodeLabelBatchWithOptions(request, runtime);
   }
 
   async reupgradeOTATaskWithOptions(request: ReupgradeOTATaskRequest, runtime: $Util.RuntimeOptions): Promise<ReupgradeOTATaskResponse> {
@@ -48445,6 +51904,43 @@ export default class Client extends OpenApi {
     return await this.unbindDriverFromEdgeInstanceWithOptions(request, runtime);
   }
 
+  async unbindLicenseProductWithOptions(request: UnbindLicenseProductRequest, runtime: $Util.RuntimeOptions): Promise<UnbindLicenseProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.licenseCode)) {
+      query["LicenseCode"] = request.licenseCode;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindLicenseProduct",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindLicenseProductResponse>(await this.callApi(params, req, runtime), new UnbindLicenseProductResponse({}));
+  }
+
+  async unbindLicenseProduct(request: UnbindLicenseProductRequest): Promise<UnbindLicenseProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindLicenseProductWithOptions(request, runtime);
+  }
+
   async unbindRoleFromEdgeInstanceWithOptions(request: UnbindRoleFromEdgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindRoleFromEdgeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49279,6 +52775,198 @@ export default class Client extends OpenApi {
   async updateSceneRule(request: UpdateSceneRuleRequest): Promise<UpdateSceneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSceneRuleWithOptions(request, runtime);
+  }
+
+  async updateSchedulePeriodWithOptions(request: UpdateSchedulePeriodRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSchedulePeriodResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.periodCode)) {
+      body["PeriodCode"] = request.periodCode;
+    }
+
+    if (!Util.isUnset(request.soundCodeContent)) {
+      body["SoundCodeContent"] = request.soundCodeContent;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSchedulePeriod",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSchedulePeriodResponse>(await this.callApi(params, req, runtime), new UpdateSchedulePeriodResponse({}));
+  }
+
+  async updateSchedulePeriod(request: UpdateSchedulePeriodRequest): Promise<UpdateSchedulePeriodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSchedulePeriodWithOptions(request, runtime);
+  }
+
+  async updateSoundCodeWithOptions(request: UpdateSoundCodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSoundCodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.soundCode)) {
+      body["SoundCode"] = request.soundCode;
+    }
+
+    if (!Util.isUnset(request.soundCodeContent)) {
+      body["SoundCodeContent"] = request.soundCodeContent;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSoundCode",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSoundCodeResponse>(await this.callApi(params, req, runtime), new UpdateSoundCodeResponse({}));
+  }
+
+  async updateSoundCode(request: UpdateSoundCodeRequest): Promise<UpdateSoundCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSoundCodeWithOptions(request, runtime);
+  }
+
+  async updateSoundCodeLabelWithOptions(request: UpdateSoundCodeLabelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSoundCodeLabelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.label)) {
+      body["Label"] = request.label;
+    }
+
+    if (!Util.isUnset(request.soundCode)) {
+      body["SoundCode"] = request.soundCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSoundCodeLabel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSoundCodeLabelResponse>(await this.callApi(params, req, runtime), new UpdateSoundCodeLabelResponse({}));
+  }
+
+  async updateSoundCodeLabel(request: UpdateSoundCodeLabelRequest): Promise<UpdateSoundCodeLabelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSoundCodeLabelWithOptions(request, runtime);
+  }
+
+  async updateSoundCodeScheduleWithOptions(request: UpdateSoundCodeScheduleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSoundCodeScheduleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.scheduleCode)) {
+      body["ScheduleCode"] = request.scheduleCode;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSoundCodeSchedule",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSoundCodeScheduleResponse>(await this.callApi(params, req, runtime), new UpdateSoundCodeScheduleResponse({}));
+  }
+
+  async updateSoundCodeSchedule(request: UpdateSoundCodeScheduleRequest): Promise<UpdateSoundCodeScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSoundCodeScheduleWithOptions(request, runtime);
   }
 
   async updateSpeechWithOptions(tmpReq: UpdateSpeechRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSpeechResponse> {
