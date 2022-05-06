@@ -695,6 +695,72 @@ export class DeleteRecordTemplateResponse extends $tea.Model {
   }
 }
 
+export class DescribeAppKeyRequest extends $tea.Model {
+  appId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppKeyResponseBody extends $tea.Model {
+  appKey?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppsRequest extends $tea.Model {
   appId?: string;
   order?: string;
@@ -2764,6 +2830,7 @@ export class DescribeAppsResponseBodyAppListApp extends $tea.Model {
   appType?: string;
   billType?: string;
   createTime?: string;
+  region?: string;
   serviceAreas?: DescribeAppsResponseBodyAppListAppServiceAreas;
   status?: number;
   static names(): { [key: string]: string } {
@@ -2773,6 +2840,7 @@ export class DescribeAppsResponseBodyAppListApp extends $tea.Model {
       appType: 'AppType',
       billType: 'BillType',
       createTime: 'CreateTime',
+      region: 'Region',
       serviceAreas: 'ServiceAreas',
       status: 'Status',
     };
@@ -2785,6 +2853,7 @@ export class DescribeAppsResponseBodyAppListApp extends $tea.Model {
       appType: 'string',
       billType: 'string',
       createTime: 'string',
+      region: 'string',
       serviceAreas: DescribeAppsResponseBodyAppListAppServiceAreas,
       status: 'number',
     };
@@ -4618,6 +4687,39 @@ export default class Client extends OpenApi {
   async deleteRecordTemplate(request: DeleteRecordTemplateRequest): Promise<DeleteRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRecordTemplateWithOptions(request, runtime);
+  }
+
+  async describeAppKeyWithOptions(request: DescribeAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppKey",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppKeyResponse>(await this.callApi(params, req, runtime), new DescribeAppKeyResponse({}));
+  }
+
+  async describeAppKey(request: DescribeAppKeyRequest): Promise<DescribeAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppKeyWithOptions(request, runtime);
   }
 
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
