@@ -92,6 +92,56 @@ export class GetOssUploadParamResponse extends $tea.Model {
   }
 }
 
+export class UploadNotaryResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  detailMsg?: string;
+  msg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      detailMsg: 'detailMsg',
+      msg: 'msg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      detailMsg: 'string',
+      msg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadNotaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadNotaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadNotaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOssUploadParamResponseBodyData extends $tea.Model {
   accessKeyId?: string;
   callback?: string;
@@ -172,6 +222,27 @@ export default class Client extends OpenApi {
   async getOssUploadParam(request: GetOssUploadParamRequest): Promise<GetOssUploadParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOssUploadParamWithOptions(request, runtime);
+  }
+
+  async uploadNotaryWithOptions(runtime: $Util.RuntimeOptions): Promise<UploadNotaryResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "UploadNotary",
+      version: "2021-10-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadNotaryResponse>(await this.callApi(params, req, runtime), new UploadNotaryResponse({}));
+  }
+
+  async uploadNotary(): Promise<UploadNotaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadNotaryWithOptions(runtime);
   }
 
 }
