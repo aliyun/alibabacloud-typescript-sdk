@@ -63,10 +63,12 @@ export class AddCidrToConnectionPoolResponseBody extends $tea.Model {
 
 export class AddCidrToConnectionPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddCidrToConnectionPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -74,6 +76,7 @@ export class AddCidrToConnectionPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddCidrToConnectionPoolResponseBody,
     };
   }
@@ -135,10 +138,12 @@ export class AddIoTCloudConnectorToGroupResponseBody extends $tea.Model {
 
 export class AddIoTCloudConnectorToGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddIoTCloudConnectorToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -146,6 +151,7 @@ export class AddIoTCloudConnectorToGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddIoTCloudConnectorToGroupResponseBody,
     };
   }
@@ -213,10 +219,12 @@ export class AssociateIpWithConnectionPoolResponseBody extends $tea.Model {
 
 export class AssociateIpWithConnectionPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssociateIpWithConnectionPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -224,6 +232,7 @@ export class AssociateIpWithConnectionPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssociateIpWithConnectionPoolResponseBody,
     };
   }
@@ -288,10 +297,12 @@ export class AssociateVSwitchWithIoTCloudConnectorResponseBody extends $tea.Mode
 
 export class AssociateVSwitchWithIoTCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssociateVSwitchWithIoTCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -299,6 +310,7 @@ export class AssociateVSwitchWithIoTCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssociateVSwitchWithIoTCloudConnectorResponseBody,
     };
   }
@@ -378,10 +390,12 @@ export class CreateAuthorizationRuleResponseBody extends $tea.Model {
 
 export class CreateAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -389,6 +403,7 @@ export class CreateAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAuthorizationRuleResponseBody,
     };
   }
@@ -462,10 +477,12 @@ export class CreateConnectionPoolResponseBody extends $tea.Model {
 
 export class CreateConnectionPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateConnectionPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -473,6 +490,7 @@ export class CreateConnectionPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateConnectionPoolResponseBody,
     };
   }
@@ -549,10 +567,12 @@ export class CreateDNSServiceRuleResponseBody extends $tea.Model {
 
 export class CreateDNSServiceRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDNSServiceRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -560,6 +580,7 @@ export class CreateDNSServiceRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDNSServiceRuleResponseBody,
     };
   }
@@ -642,10 +663,12 @@ export class CreateGroupAuthorizationRuleResponseBody extends $tea.Model {
 
 export class CreateGroupAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGroupAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -653,6 +676,7 @@ export class CreateGroupAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGroupAuthorizationRuleResponseBody,
     };
   }
@@ -732,10 +756,12 @@ export class CreateGroupDNSServiceRuleResponseBody extends $tea.Model {
 
 export class CreateGroupDNSServiceRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGroupDNSServiceRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -743,6 +769,7 @@ export class CreateGroupDNSServiceRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGroupDNSServiceRuleResponseBody,
     };
   }
@@ -819,10 +846,12 @@ export class CreateIoTCloudConnectorResponseBody extends $tea.Model {
 
 export class CreateIoTCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateIoTCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -830,7 +859,83 @@ export class CreateIoTCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateIoTCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model {
+  ioTCloudConnectorId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateIoTCloudConnectorBackhaulRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIoTCloudConnectorBackhaulRouteResponseBody,
     };
   }
 
@@ -894,10 +999,12 @@ export class CreateIoTCloudConnectorGroupResponseBody extends $tea.Model {
 
 export class CreateIoTCloudConnectorGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateIoTCloudConnectorGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -905,6 +1012,7 @@ export class CreateIoTCloudConnectorGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateIoTCloudConnectorGroupResponseBody,
     };
   }
@@ -972,10 +1080,12 @@ export class CreateServiceResponseBody extends $tea.Model {
 
 export class CreateServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -983,6 +1093,7 @@ export class CreateServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateServiceResponseBody,
     };
   }
@@ -1059,10 +1170,12 @@ export class CreateServiceEntryResponseBody extends $tea.Model {
 
 export class CreateServiceEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateServiceEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1070,6 +1183,7 @@ export class CreateServiceEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateServiceEntryResponseBody,
     };
   }
@@ -1131,10 +1245,12 @@ export class DeleteAuthorizationRuleResponseBody extends $tea.Model {
 
 export class DeleteAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1142,6 +1258,7 @@ export class DeleteAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAuthorizationRuleResponseBody,
     };
   }
@@ -1203,10 +1320,12 @@ export class DeleteConnectionPoolResponseBody extends $tea.Model {
 
 export class DeleteConnectionPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteConnectionPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1214,6 +1333,7 @@ export class DeleteConnectionPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteConnectionPoolResponseBody,
     };
   }
@@ -1275,10 +1395,12 @@ export class DeleteDNSServiceRuleResponseBody extends $tea.Model {
 
 export class DeleteDNSServiceRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDNSServiceRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1286,6 +1408,7 @@ export class DeleteDNSServiceRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDNSServiceRuleResponseBody,
     };
   }
@@ -1347,10 +1470,12 @@ export class DeleteGroupAuthorizationRuleResponseBody extends $tea.Model {
 
 export class DeleteGroupAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGroupAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1358,6 +1483,7 @@ export class DeleteGroupAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGroupAuthorizationRuleResponseBody,
     };
   }
@@ -1419,10 +1545,12 @@ export class DeleteGroupDNSServiceRuleResponseBody extends $tea.Model {
 
 export class DeleteGroupDNSServiceRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGroupDNSServiceRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1430,6 +1558,7 @@ export class DeleteGroupDNSServiceRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGroupDNSServiceRuleResponseBody,
     };
   }
@@ -1488,10 +1617,12 @@ export class DeleteIoTCloudConnectorResponseBody extends $tea.Model {
 
 export class DeleteIoTCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteIoTCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1499,6 +1630,7 @@ export class DeleteIoTCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteIoTCloudConnectorResponseBody,
     };
   }
@@ -1557,10 +1689,12 @@ export class DeleteIoTCloudConnectorGroupResponseBody extends $tea.Model {
 
 export class DeleteIoTCloudConnectorGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteIoTCloudConnectorGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1568,7 +1702,80 @@ export class DeleteIoTCloudConnectorGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteIoTCloudConnectorGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnetorBackhaulRouteRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnetorBackhaulRouteResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnetorBackhaulRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteIoTCloudConnetorBackhaulRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIoTCloudConnetorBackhaulRouteResponseBody,
     };
   }
 
@@ -1629,10 +1836,12 @@ export class DeleteServiceResponseBody extends $tea.Model {
 
 export class DeleteServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1640,6 +1849,7 @@ export class DeleteServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteServiceResponseBody,
     };
   }
@@ -1704,10 +1914,12 @@ export class DeleteServiceEntryResponseBody extends $tea.Model {
 
 export class DeleteServiceEntryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteServiceEntryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1715,6 +1927,7 @@ export class DeleteServiceEntryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteServiceEntryResponseBody,
     };
   }
@@ -1773,10 +1986,12 @@ export class DisableIoTCloudConnectorAccessLogResponseBody extends $tea.Model {
 
 export class DisableIoTCloudConnectorAccessLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableIoTCloudConnectorAccessLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1784,6 +1999,7 @@ export class DisableIoTCloudConnectorAccessLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableIoTCloudConnectorAccessLogResponseBody,
     };
   }
@@ -1851,10 +2067,12 @@ export class DissociateIpFromConnectionPoolResponseBody extends $tea.Model {
 
 export class DissociateIpFromConnectionPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DissociateIpFromConnectionPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1862,6 +2080,7 @@ export class DissociateIpFromConnectionPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DissociateIpFromConnectionPoolResponseBody,
     };
   }
@@ -1920,10 +2139,12 @@ export class DissociateVSwitchFromIoTCloudConnectorResponseBody extends $tea.Mod
 
 export class DissociateVSwitchFromIoTCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DissociateVSwitchFromIoTCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1931,6 +2152,7 @@ export class DissociateVSwitchFromIoTCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DissociateVSwitchFromIoTCloudConnectorResponseBody,
     };
   }
@@ -1995,10 +2217,12 @@ export class EnableIoTCloudConnectorAccessLogResponseBody extends $tea.Model {
 
 export class EnableIoTCloudConnectorAccessLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableIoTCloudConnectorAccessLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2006,6 +2230,7 @@ export class EnableIoTCloudConnectorAccessLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableIoTCloudConnectorAccessLogResponseBody,
     };
   }
@@ -2067,10 +2292,12 @@ export class GetConnectionPoolIpOperationResultResponseBody extends $tea.Model {
 
 export class GetConnectionPoolIpOperationResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetConnectionPoolIpOperationResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2078,6 +2305,7 @@ export class GetConnectionPoolIpOperationResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetConnectionPoolIpOperationResultResponseBody,
     };
   }
@@ -2157,10 +2385,12 @@ export class GetDiagnoseResultForSingleCardResponseBody extends $tea.Model {
 
 export class GetDiagnoseResultForSingleCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDiagnoseResultForSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2168,6 +2398,7 @@ export class GetDiagnoseResultForSingleCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDiagnoseResultForSingleCardResponseBody,
     };
   }
@@ -2235,10 +2466,12 @@ export class GetIoTCloudConnectorAccessLogResponseBody extends $tea.Model {
 
 export class GetIoTCloudConnectorAccessLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetIoTCloudConnectorAccessLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2246,6 +2479,7 @@ export class GetIoTCloudConnectorAccessLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetIoTCloudConnectorAccessLogResponseBody,
     };
   }
@@ -2325,10 +2559,12 @@ export class GetStsInfoAndOssPathResponseBody extends $tea.Model {
 
 export class GetStsInfoAndOssPathResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetStsInfoAndOssPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2336,6 +2572,7 @@ export class GetStsInfoAndOssPathResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetStsInfoAndOssPathResponseBody,
     };
   }
@@ -2388,10 +2625,12 @@ export class GrantVirtualBorderRouterResponseBody extends $tea.Model {
 
 export class GrantVirtualBorderRouterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GrantVirtualBorderRouterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2399,6 +2638,7 @@ export class GrantVirtualBorderRouterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GrantVirtualBorderRouterResponseBody,
     };
   }
@@ -2472,10 +2712,12 @@ export class ListAPNsResponseBody extends $tea.Model {
 
 export class ListAPNsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAPNsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2483,6 +2725,7 @@ export class ListAPNsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAPNsResponseBody,
     };
   }
@@ -2574,10 +2817,12 @@ export class ListAuthorizationRulesResponseBody extends $tea.Model {
 
 export class ListAuthorizationRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAuthorizationRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2585,6 +2830,7 @@ export class ListAuthorizationRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAuthorizationRulesResponseBody,
     };
   }
@@ -2664,10 +2910,12 @@ export class ListConnectionPoolAllIpsResponseBody extends $tea.Model {
 
 export class ListConnectionPoolAllIpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListConnectionPoolAllIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2675,6 +2923,7 @@ export class ListConnectionPoolAllIpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListConnectionPoolAllIpsResponseBody,
     };
   }
@@ -2751,10 +3000,12 @@ export class ListConnectionPoolIpsResponseBody extends $tea.Model {
 
 export class ListConnectionPoolIpsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListConnectionPoolIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2762,6 +3013,7 @@ export class ListConnectionPoolIpsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListConnectionPoolIpsResponseBody,
     };
   }
@@ -2841,10 +3093,12 @@ export class ListConnectionPoolsResponseBody extends $tea.Model {
 
 export class ListConnectionPoolsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListConnectionPoolsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2852,6 +3106,7 @@ export class ListConnectionPoolsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListConnectionPoolsResponseBody,
     };
   }
@@ -2940,10 +3195,12 @@ export class ListDNSServiceRulesResponseBody extends $tea.Model {
 
 export class ListDNSServiceRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDNSServiceRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2951,6 +3208,7 @@ export class ListDNSServiceRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDNSServiceRulesResponseBody,
     };
   }
@@ -3027,10 +3285,12 @@ export class ListDiagnoseInfoForSingleCardResponseBody extends $tea.Model {
 
 export class ListDiagnoseInfoForSingleCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDiagnoseInfoForSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3038,6 +3298,7 @@ export class ListDiagnoseInfoForSingleCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDiagnoseInfoForSingleCardResponseBody,
     };
   }
@@ -3126,10 +3387,12 @@ export class ListGroupAuthorizationRulesResponseBody extends $tea.Model {
 
 export class ListGroupAuthorizationRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGroupAuthorizationRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3137,6 +3400,7 @@ export class ListGroupAuthorizationRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGroupAuthorizationRulesResponseBody,
     };
   }
@@ -3225,10 +3489,12 @@ export class ListGroupDNSServiceRulesResponseBody extends $tea.Model {
 
 export class ListGroupDNSServiceRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGroupDNSServiceRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3236,6 +3502,7 @@ export class ListGroupDNSServiceRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGroupDNSServiceRulesResponseBody,
     };
   }
@@ -3318,10 +3585,12 @@ export class ListIoTCloudConnectorAccessSessionLogsResponseBody extends $tea.Mod
 
 export class ListIoTCloudConnectorAccessSessionLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListIoTCloudConnectorAccessSessionLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3329,6 +3598,7 @@ export class ListIoTCloudConnectorAccessSessionLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListIoTCloudConnectorAccessSessionLogsResponseBody,
     };
   }
@@ -3387,10 +3657,12 @@ export class ListIoTCloudConnectorAvailableZonesResponseBody extends $tea.Model 
 
 export class ListIoTCloudConnectorAvailableZonesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListIoTCloudConnectorAvailableZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3398,6 +3670,7 @@ export class ListIoTCloudConnectorAvailableZonesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListIoTCloudConnectorAvailableZonesResponseBody,
     };
   }
@@ -3474,10 +3747,12 @@ export class ListIoTCloudConnectorGroupsResponseBody extends $tea.Model {
 
 export class ListIoTCloudConnectorGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListIoTCloudConnectorGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3485,6 +3760,7 @@ export class ListIoTCloudConnectorGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListIoTCloudConnectorGroupsResponseBody,
     };
   }
@@ -3576,10 +3852,12 @@ export class ListIoTCloudConnectorsResponseBody extends $tea.Model {
 
 export class ListIoTCloudConnectorsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListIoTCloudConnectorsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3587,7 +3865,92 @@ export class ListIoTCloudConnectorsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListIoTCloudConnectorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCoudConnectorBackhaulRouteRequest extends $tea.Model {
+  ioTCloudConnectorId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCoudConnectorBackhaulRouteResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  routes?: ListIoTCoudConnectorBackhaulRouteResponseBodyRoutes[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      routes: 'Routes',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      routes: { 'type': 'array', 'itemType': ListIoTCoudConnectorBackhaulRouteResponseBodyRoutes },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCoudConnectorBackhaulRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIoTCoudConnectorBackhaulRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIoTCoudConnectorBackhaulRouteResponseBody,
     };
   }
 
@@ -3642,10 +4005,12 @@ export class ListRegionsResponseBody extends $tea.Model {
 
 export class ListRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3653,6 +4018,7 @@ export class ListRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRegionsResponseBody,
     };
   }
@@ -3732,10 +4098,12 @@ export class ListServiceResponseBody extends $tea.Model {
 
 export class ListServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3743,6 +4111,7 @@ export class ListServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListServiceResponseBody,
     };
   }
@@ -3831,10 +4200,12 @@ export class ListServiceEntriesResponseBody extends $tea.Model {
 
 export class ListServiceEntriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListServiceEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3842,6 +4213,7 @@ export class ListServiceEntriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListServiceEntriesResponseBody,
     };
   }
@@ -3903,10 +4275,12 @@ export class MoveAuthorizationRuleToDNSServiceResponseBody extends $tea.Model {
 
 export class MoveAuthorizationRuleToDNSServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MoveAuthorizationRuleToDNSServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3914,6 +4288,7 @@ export class MoveAuthorizationRuleToDNSServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MoveAuthorizationRuleToDNSServiceResponseBody,
     };
   }
@@ -3975,10 +4350,12 @@ export class MoveGroupAuthorizationRuleToDNSServiceResponseBody extends $tea.Mod
 
 export class MoveGroupAuthorizationRuleToDNSServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MoveGroupAuthorizationRuleToDNSServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3986,6 +4363,7 @@ export class MoveGroupAuthorizationRuleToDNSServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MoveGroupAuthorizationRuleToDNSServiceResponseBody,
     };
   }
@@ -4035,10 +4413,12 @@ export class OpenIoTCloudConnectorServiceResponseBody extends $tea.Model {
 
 export class OpenIoTCloudConnectorServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenIoTCloudConnectorServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4046,6 +4426,7 @@ export class OpenIoTCloudConnectorServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenIoTCloudConnectorServiceResponseBody,
     };
   }
@@ -4107,10 +4488,12 @@ export class RemoveIoTCloudConnectorFromGroupResponseBody extends $tea.Model {
 
 export class RemoveIoTCloudConnectorFromGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveIoTCloudConnectorFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4118,6 +4501,7 @@ export class RemoveIoTCloudConnectorFromGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveIoTCloudConnectorFromGroupResponseBody,
     };
   }
@@ -4194,10 +4578,12 @@ export class SubmitDiagnoseTaskForSingleCardResponseBody extends $tea.Model {
 
 export class SubmitDiagnoseTaskForSingleCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitDiagnoseTaskForSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4205,6 +4591,7 @@ export class SubmitDiagnoseTaskForSingleCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitDiagnoseTaskForSingleCardResponseBody,
     };
   }
@@ -4284,10 +4671,12 @@ export class UpdateAuthorizationRuleAttributeResponseBody extends $tea.Model {
 
 export class UpdateAuthorizationRuleAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAuthorizationRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4295,6 +4684,7 @@ export class UpdateAuthorizationRuleAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAuthorizationRuleAttributeResponseBody,
     };
   }
@@ -4368,10 +4758,12 @@ export class UpdateConnectionPoolAttributeResponseBody extends $tea.Model {
 
 export class UpdateConnectionPoolAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateConnectionPoolAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4379,6 +4771,7 @@ export class UpdateConnectionPoolAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateConnectionPoolAttributeResponseBody,
     };
   }
@@ -4455,10 +4848,12 @@ export class UpdateDNSServiceRuleAttributeResponseBody extends $tea.Model {
 
 export class UpdateDNSServiceRuleAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDNSServiceRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4466,6 +4861,7 @@ export class UpdateDNSServiceRuleAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDNSServiceRuleAttributeResponseBody,
     };
   }
@@ -4551,10 +4947,12 @@ export class UpdateGroupAuthorizationRuleAttributeResponseBody extends $tea.Mode
 
 export class UpdateGroupAuthorizationRuleAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGroupAuthorizationRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4562,6 +4960,7 @@ export class UpdateGroupAuthorizationRuleAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGroupAuthorizationRuleAttributeResponseBody,
     };
   }
@@ -4638,10 +5037,12 @@ export class UpdateGroupDNSServiceRuleAttributeResponseBody extends $tea.Model {
 
 export class UpdateGroupDNSServiceRuleAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGroupDNSServiceRuleAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4649,6 +5050,7 @@ export class UpdateGroupDNSServiceRuleAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGroupDNSServiceRuleAttributeResponseBody,
     };
   }
@@ -4719,10 +5121,12 @@ export class UpdateIoTCloudConnectorAttributeResponseBody extends $tea.Model {
 
 export class UpdateIoTCloudConnectorAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateIoTCloudConnectorAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4730,6 +5134,7 @@ export class UpdateIoTCloudConnectorAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateIoTCloudConnectorAttributeResponseBody,
     };
   }
@@ -4794,10 +5199,12 @@ export class UpdateIoTCloudConnectorGroupAttributeResponseBody extends $tea.Mode
 
 export class UpdateIoTCloudConnectorGroupAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateIoTCloudConnectorGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4805,6 +5212,7 @@ export class UpdateIoTCloudConnectorGroupAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateIoTCloudConnectorGroupAttributeResponseBody,
     };
   }
@@ -4872,10 +5280,12 @@ export class UpdateServiceAttributeResponseBody extends $tea.Model {
 
 export class UpdateServiceAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateServiceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4883,6 +5293,7 @@ export class UpdateServiceAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateServiceAttributeResponseBody,
     };
   }
@@ -4953,10 +5364,12 @@ export class UpdateServiceEntryAttributeResponseBody extends $tea.Model {
 
 export class UpdateServiceEntryAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateServiceEntryAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4964,6 +5377,7 @@ export class UpdateServiceEntryAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateServiceEntryAttributeResponseBody,
     };
   }
@@ -5489,6 +5903,8 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
   ioTCloudConnectorId?: string;
   ioTCloudConnectorName?: string;
   ioTCloudConnectorStatus?: string;
+  ipFeature?: string;
+  mode?: string;
   modifyTime?: number;
   rateLimit?: number;
   vSwitchList?: string[];
@@ -5505,6 +5921,8 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
       ioTCloudConnectorStatus: 'IoTCloudConnectorStatus',
+      ipFeature: 'IpFeature',
+      mode: 'Mode',
       modifyTime: 'ModifyTime',
       rateLimit: 'RateLimit',
       vSwitchList: 'VSwitchList',
@@ -5524,11 +5942,44 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       ioTCloudConnectorId: 'string',
       ioTCloudConnectorName: 'string',
       ioTCloudConnectorStatus: 'string',
+      ipFeature: 'string',
+      mode: 'string',
       modifyTime: 'number',
       rateLimit: 'number',
       vSwitchList: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       wildcardDomainEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCoudConnectorBackhaulRouteResponseBodyRoutes extends $tea.Model {
+  description?: string;
+  destinationCidrBlock?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationCidrBlock: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      status: 'string',
     };
   }
 
@@ -6219,6 +6670,47 @@ export default class Client extends OpenApi {
     return await this.createIoTCloudConnectorWithOptions(request, runtime);
   }
 
+  async createIoTCloudConnectorBackhaulRouteWithOptions(request: CreateIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIoTCloudConnectorBackhaulRoute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new CreateIoTCloudConnectorBackhaulRouteResponse({}));
+  }
+
+  async createIoTCloudConnectorBackhaulRoute(request: CreateIoTCloudConnectorBackhaulRouteRequest): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
+  }
+
   async createIoTCloudConnectorGroupWithOptions(request: CreateIoTCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6679,6 +7171,47 @@ export default class Client extends OpenApi {
   async deleteIoTCloudConnectorGroup(request: DeleteIoTCloudConnectorGroupRequest): Promise<DeleteIoTCloudConnectorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIoTCloudConnectorGroupWithOptions(request, runtime);
+  }
+
+  async deleteIoTCloudConnetorBackhaulRouteWithOptions(request: DeleteIoTCloudConnetorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnetorBackhaulRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIoTCloudConnetorBackhaulRoute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIoTCloudConnetorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new DeleteIoTCloudConnetorBackhaulRouteResponse({}));
+  }
+
+  async deleteIoTCloudConnetorBackhaulRoute(request: DeleteIoTCloudConnetorBackhaulRouteRequest): Promise<DeleteIoTCloudConnetorBackhaulRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIoTCloudConnetorBackhaulRouteWithOptions(request, runtime);
   }
 
   async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
@@ -7875,6 +8408,47 @@ export default class Client extends OpenApi {
   async listIoTCloudConnectors(request: ListIoTCloudConnectorsRequest): Promise<ListIoTCloudConnectorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIoTCloudConnectorsWithOptions(request, runtime);
+  }
+
+  async listIoTCoudConnectorBackhaulRouteWithOptions(request: ListIoTCoudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCoudConnectorBackhaulRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIoTCoudConnectorBackhaulRoute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCoudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new ListIoTCoudConnectorBackhaulRouteResponse({}));
+  }
+
+  async listIoTCoudConnectorBackhaulRoute(request: ListIoTCoudConnectorBackhaulRouteRequest): Promise<ListIoTCoudConnectorBackhaulRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIoTCoudConnectorBackhaulRouteWithOptions(request, runtime);
   }
 
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
