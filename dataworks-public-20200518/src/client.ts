@@ -6315,6 +6315,69 @@ export class GetDeploymentResponse extends $tea.Model {
   }
 }
 
+export class GetExtensionRequest extends $tea.Model {
+  extensionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extensionCode: 'ExtensionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExtensionResponseBody extends $tea.Model {
+  extension?: GetExtensionResponseBodyExtension;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: GetExtensionResponseBodyExtension,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExtensionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetExtensionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetExtensionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileRequest extends $tea.Model {
   fileId?: number;
   nodeId?: number;
@@ -9240,6 +9303,72 @@ export class GetOpSensitiveDataResponse extends $tea.Model {
   }
 }
 
+export class GetOptionValueForProjectRequest extends $tea.Model {
+  extensionCode?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extensionCode: 'ExtensionCode',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensionCode: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOptionValueForProjectResponseBody extends $tea.Model {
+  optionValue?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      optionValue: 'OptionValue',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionValue: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOptionValueForProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOptionValueForProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOptionValueForProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPermissionApplyOrderDetailRequest extends $tea.Model {
   flowId?: string;
   static names(): { [key: string]: string } {
@@ -10662,6 +10791,168 @@ export class ListConnectionsResponse extends $tea.Model {
   }
 }
 
+export class ListCurrentTasksForResourceGroupRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  projectEnv?: string;
+  resourceGroupIdentifier?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+      resourceGroupIdentifier: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentTasksForResourceGroupResponseBody extends $tea.Model {
+  data?: ListCurrentTasksForResourceGroupResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListCurrentTasksForResourceGroupResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentTasksForResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCurrentTasksForResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCurrentTasksForResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentUsageForResourceGroupRequest extends $tea.Model {
+  projectEnv?: string;
+  resourceGroupIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      resourceGroupIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentUsageForResourceGroupResponseBody extends $tea.Model {
+  data?: ListCurrentUsageForResourceGroupResponseBodyData;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListCurrentUsageForResourceGroupResponseBodyData,
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentUsageForResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCurrentUsageForResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCurrentUsageForResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDIProjectConfigRequest extends $tea.Model {
   destinationType?: string;
   projectId?: number;
@@ -11589,6 +11880,72 @@ export class ListDeploymentsResponse extends $tea.Model {
   }
 }
 
+export class ListExtensionsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExtensionsResponseBody extends $tea.Model {
+  pagingInfo?: ListExtensionsResponseBodyPagingInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListExtensionsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExtensionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListExtensionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListExtensionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFileTypeRequest extends $tea.Model {
   keyword?: string;
   locale?: string;
@@ -11935,6 +12292,96 @@ export class ListFoldersResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListFoldersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoryTasksForResourceGroupRequest extends $tea.Model {
+  endTime?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  projectEnv?: string;
+  resourceGroupIdentifier?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+      resourceGroupIdentifier: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoryTasksForResourceGroupResponseBody extends $tea.Model {
+  data?: ListHistoryTasksForResourceGroupResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListHistoryTasksForResourceGroupResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoryTasksForResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListHistoryTasksForResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListHistoryTasksForResourceGroupResponseBody,
     };
   }
 
@@ -13933,6 +14380,90 @@ export class ListTopicsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListTopicsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsageForResourceGroupRequest extends $tea.Model {
+  endTime?: number;
+  projectEnv?: string;
+  resourceGroupIdentifier?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      projectEnv: 'ProjectEnv',
+      resourceGroupIdentifier: 'ResourceGroupIdentifier',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      projectEnv: 'string',
+      resourceGroupIdentifier: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsageForResourceGroupResponseBody extends $tea.Model {
+  data?: ListUsageForResourceGroupResponseBodyData[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListUsageForResourceGroupResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsageForResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListUsageForResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListUsageForResourceGroupResponseBody,
     };
   }
 
@@ -20348,6 +20879,99 @@ export class GetDeploymentResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetExtensionResponseBodyExtensionBindEventList extends $tea.Model {
+  eventCode?: string;
+  eventName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCode: 'EventCode',
+      eventName: 'EventName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCode: 'string',
+      eventName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExtensionResponseBodyExtensionEventCategoryList extends $tea.Model {
+  categoryCode?: string;
+  categoryName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryCode: 'CategoryCode',
+      categoryName: 'CategoryName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryCode: 'string',
+      categoryName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExtensionResponseBodyExtension extends $tea.Model {
+  bindEventList?: GetExtensionResponseBodyExtensionBindEventList[];
+  detailUrl?: string;
+  eventCategoryList?: GetExtensionResponseBodyExtensionEventCategoryList[];
+  extensionCode?: string;
+  extensionDesc?: string;
+  extensionName?: string;
+  helpDocUrl?: string;
+  optionSetting?: string;
+  parameterSetting?: string;
+  projectTesting?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bindEventList: 'BindEventList',
+      detailUrl: 'DetailUrl',
+      eventCategoryList: 'EventCategoryList',
+      extensionCode: 'ExtensionCode',
+      extensionDesc: 'ExtensionDesc',
+      extensionName: 'ExtensionName',
+      helpDocUrl: 'HelpDocUrl',
+      optionSetting: 'OptionSetting',
+      parameterSetting: 'ParameterSetting',
+      projectTesting: 'ProjectTesting',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindEventList: { 'type': 'array', 'itemType': GetExtensionResponseBodyExtensionBindEventList },
+      detailUrl: 'string',
+      eventCategoryList: { 'type': 'array', 'itemType': GetExtensionResponseBodyExtensionEventCategoryList },
+      extensionCode: 'string',
+      extensionDesc: 'string',
+      extensionName: 'string',
+      helpDocUrl: 'string',
+      optionSetting: 'string',
+      parameterSetting: 'string',
+      projectTesting: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileResponseBodyDataFile extends $tea.Model {
   advancedSettings?: string;
   autoParsing?: boolean;
@@ -24333,6 +24957,93 @@ export class ListConnectionsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCurrentTasksForResourceGroupResponseBodyDataTasks extends $tea.Model {
+  concurrency?: string;
+  projectName?: string;
+  status?: number;
+  taskId?: string;
+  taskName?: string;
+  taskSource?: string;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      concurrency: 'Concurrency',
+      projectName: 'ProjectName',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskSource: 'TaskSource',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrency: 'string',
+      projectName: 'string',
+      status: 'number',
+      taskId: 'string',
+      taskName: 'string',
+      taskSource: 'string',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentTasksForResourceGroupResponseBodyData extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  tasks?: ListCurrentTasksForResourceGroupResponseBodyDataTasks[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      tasks: 'Tasks',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      tasks: { 'type': 'array', 'itemType': ListCurrentTasksForResourceGroupResponseBodyDataTasks },
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCurrentUsageForResourceGroupResponseBodyData extends $tea.Model {
+  recodeTime?: number;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      recodeTime: 'RecodeTime',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recodeTime: 'number',
+      usage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDIProjectConfigResponseBodyData extends $tea.Model {
   config?: string;
   static names(): { [key: string]: string } {
@@ -25960,6 +26671,90 @@ export class ListDeploymentsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListExtensionsResponseBodyPagingInfoExtensionsBindEventList extends $tea.Model {
+  eventCode?: string;
+  eventName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCode: 'EventCode',
+      eventName: 'EventName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCode: 'string',
+      eventName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExtensionsResponseBodyPagingInfoExtensions extends $tea.Model {
+  bindEventList?: ListExtensionsResponseBodyPagingInfoExtensionsBindEventList[];
+  extensionCode?: string;
+  extensionDesc?: string;
+  extensionName?: string;
+  owner?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bindEventList: 'BindEventList',
+      extensionCode: 'ExtensionCode',
+      extensionDesc: 'ExtensionDesc',
+      extensionName: 'ExtensionName',
+      owner: 'Owner',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindEventList: { 'type': 'array', 'itemType': ListExtensionsResponseBodyPagingInfoExtensionsBindEventList },
+      extensionCode: 'string',
+      extensionDesc: 'string',
+      extensionName: 'string',
+      owner: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExtensionsResponseBodyPagingInfo extends $tea.Model {
+  extensions?: ListExtensionsResponseBodyPagingInfoExtensions[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extensions: 'Extensions',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensions: { 'type': 'array', 'itemType': ListExtensionsResponseBodyPagingInfoExtensions },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFileTypeResponseBodyNodeTypeInfoListNodeTypeInfo extends $tea.Model {
   nodeType?: number;
   nodeTypeName?: string;
@@ -26242,6 +27037,68 @@ export class ListFoldersResponseBodyData extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoryTasksForResourceGroupResponseBodyDataTasks extends $tea.Model {
+  concurrency?: number;
+  projectName?: string;
+  status?: number;
+  taskId?: string;
+  taskName?: string;
+  taskType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      concurrency: 'Concurrency',
+      projectName: 'ProjectName',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrency: 'number',
+      projectName: 'string',
+      status: 'number',
+      taskId: 'string',
+      taskName: 'string',
+      taskType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHistoryTasksForResourceGroupResponseBodyData extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  tasks?: ListHistoryTasksForResourceGroupResponseBodyDataTasks[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      tasks: 'Tasks',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      tasks: { 'type': 'array', 'itemType': ListHistoryTasksForResourceGroupResponseBodyDataTasks },
+      totalNum: 'number',
     };
   }
 
@@ -28176,6 +29033,28 @@ export class ListTopicsResponseBodyData extends $tea.Model {
       pageSize: 'number',
       topics: { 'type': 'array', 'itemType': ListTopicsResponseBodyDataTopics },
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsageForResourceGroupResponseBodyData extends $tea.Model {
+  recodeTime?: number;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      recodeTime: 'RecodeTime',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recodeTime: 'number',
+      usage: 'number',
     };
   }
 
@@ -32197,6 +33076,35 @@ export default class Client extends OpenApi {
     return await this.getDeploymentWithOptions(request, runtime);
   }
 
+  async getExtensionWithOptions(request: GetExtensionRequest, runtime: $Util.RuntimeOptions): Promise<GetExtensionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.extensionCode)) {
+      query["ExtensionCode"] = request.extensionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetExtension",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetExtensionResponse>(await this.callApi(params, req, runtime), new GetExtensionResponse({}));
+  }
+
+  async getExtension(request: GetExtensionRequest): Promise<GetExtensionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getExtensionWithOptions(request, runtime);
+  }
+
   async getFileWithOptions(request: GetFileRequest, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -33534,6 +34442,39 @@ export default class Client extends OpenApi {
     return await this.getOpSensitiveDataWithOptions(request, runtime);
   }
 
+  async getOptionValueForProjectWithOptions(request: GetOptionValueForProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetOptionValueForProjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extensionCode)) {
+      body["ExtensionCode"] = request.extensionCode;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOptionValueForProject",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOptionValueForProjectResponse>(await this.callApi(params, req, runtime), new GetOptionValueForProjectResponse({}));
+  }
+
+  async getOptionValueForProject(request: GetOptionValueForProjectRequest): Promise<GetOptionValueForProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOptionValueForProjectWithOptions(request, runtime);
+  }
+
   async getPermissionApplyOrderDetailWithOptions(request: GetPermissionApplyOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionApplyOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34200,6 +35141,84 @@ export default class Client extends OpenApi {
     return await this.listConnectionsWithOptions(request, runtime);
   }
 
+  async listCurrentTasksForResourceGroupWithOptions(request: ListCurrentTasksForResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListCurrentTasksForResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCurrentTasksForResourceGroup",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCurrentTasksForResourceGroupResponse>(await this.callApi(params, req, runtime), new ListCurrentTasksForResourceGroupResponse({}));
+  }
+
+  async listCurrentTasksForResourceGroup(request: ListCurrentTasksForResourceGroupRequest): Promise<ListCurrentTasksForResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCurrentTasksForResourceGroupWithOptions(request, runtime);
+  }
+
+  async listCurrentUsageForResourceGroupWithOptions(request: ListCurrentUsageForResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListCurrentUsageForResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCurrentUsageForResourceGroup",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCurrentUsageForResourceGroupResponse>(await this.callApi(params, req, runtime), new ListCurrentUsageForResourceGroupResponse({}));
+  }
+
+  async listCurrentUsageForResourceGroup(request: ListCurrentUsageForResourceGroupRequest): Promise<ListCurrentUsageForResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCurrentUsageForResourceGroupWithOptions(request, runtime);
+  }
+
   async listDIProjectConfigWithOptions(request: ListDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34695,6 +35714,31 @@ export default class Client extends OpenApi {
     return await this.listDeploymentsWithOptions(request, runtime);
   }
 
+  async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExtensions",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExtensionsResponse>(await this.callApi(params, req, runtime), new ListExtensionsResponse({}));
+  }
+
+  async listExtensions(request: ListExtensionsRequest): Promise<ListExtensionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listExtensionsWithOptions(request, runtime);
+  }
+
   async listFileTypeWithOptions(request: ListFileTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListFileTypeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -34897,6 +35941,55 @@ export default class Client extends OpenApi {
   async listFolders(request: ListFoldersRequest): Promise<ListFoldersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFoldersWithOptions(request, runtime);
+  }
+
+  async listHistoryTasksForResourceGroupWithOptions(request: ListHistoryTasksForResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoryTasksForResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListHistoryTasksForResourceGroup",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHistoryTasksForResourceGroupResponse>(await this.callApi(params, req, runtime), new ListHistoryTasksForResourceGroupResponse({}));
+  }
+
+  async listHistoryTasksForResourceGroup(request: ListHistoryTasksForResourceGroupRequest): Promise<ListHistoryTasksForResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHistoryTasksForResourceGroupWithOptions(request, runtime);
   }
 
   async listInstanceAmountWithOptions(request: ListInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceAmountResponse> {
@@ -35914,6 +37007,47 @@ export default class Client extends OpenApi {
   async listTopics(request: ListTopicsRequest): Promise<ListTopicsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTopicsWithOptions(request, runtime);
+  }
+
+  async listUsageForResourceGroupWithOptions(request: ListUsageForResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsageForResourceGroupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUsageForResourceGroup",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsageForResourceGroupResponse>(await this.callApi(params, req, runtime), new ListUsageForResourceGroupResponse({}));
+  }
+
+  async listUsageForResourceGroup(request: ListUsageForResourceGroupRequest): Promise<ListUsageForResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUsageForResourceGroupWithOptions(request, runtime);
   }
 
   async publishDataServiceApiWithOptions(request: PublishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<PublishDataServiceApiResponse> {
