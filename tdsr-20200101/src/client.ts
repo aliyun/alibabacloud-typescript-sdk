@@ -4656,7 +4656,7 @@ export class GetHotspotSceneDataResponseBodyData extends $tea.Model {
 }
 
 export class GetPackSceneTaskStatusResponseBodyData extends $tea.Model {
-  progress?: string;
+  progress?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4667,7 +4667,7 @@ export class GetPackSceneTaskStatusResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      progress: 'string',
+      progress: 'number',
       status: 'string',
     };
   }
@@ -4680,7 +4680,7 @@ export class GetPackSceneTaskStatusResponseBodyData extends $tea.Model {
 export class GetScenePackUrlResponseBodyData extends $tea.Model {
   expire?: string;
   url?: string;
-  valid?: string;
+  valid?: boolean;
   static names(): { [key: string]: string } {
     return {
       expire: 'Expire',
@@ -4693,7 +4693,7 @@ export class GetScenePackUrlResponseBodyData extends $tea.Model {
     return {
       expire: 'string',
       url: 'string',
-      valid: 'string',
+      valid: 'boolean',
     };
   }
 
