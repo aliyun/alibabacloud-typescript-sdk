@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/pts20201020",
-  "version": "1.8.15",
+  "version": "1.8.16",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

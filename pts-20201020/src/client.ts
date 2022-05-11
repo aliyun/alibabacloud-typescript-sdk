@@ -66,10 +66,12 @@ export class AdjustJMeterSceneSpeedResponseBody extends $tea.Model {
 
 export class AdjustJMeterSceneSpeedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AdjustJMeterSceneSpeedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -77,6 +79,7 @@ export class AdjustJMeterSceneSpeedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AdjustJMeterSceneSpeedResponseBody,
     };
   }
@@ -141,10 +144,12 @@ export class CreatePtsSceneResponseBody extends $tea.Model {
 
 export class CreatePtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreatePtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -152,6 +157,7 @@ export class CreatePtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreatePtsSceneResponseBody,
     };
   }
@@ -216,10 +222,12 @@ export class CreatePtsSceneBaseLineFromReportResponseBody extends $tea.Model {
 
 export class CreatePtsSceneBaseLineFromReportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreatePtsSceneBaseLineFromReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -227,6 +235,7 @@ export class CreatePtsSceneBaseLineFromReportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreatePtsSceneBaseLineFromReportResponseBody,
     };
   }
@@ -288,10 +297,12 @@ export class DeletePtsSceneResponseBody extends $tea.Model {
 
 export class DeletePtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -299,6 +310,7 @@ export class DeletePtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePtsSceneResponseBody,
     };
   }
@@ -360,10 +372,12 @@ export class DeletePtsSceneBaseLineResponseBody extends $tea.Model {
 
 export class DeletePtsSceneBaseLineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePtsSceneBaseLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -371,6 +385,7 @@ export class DeletePtsSceneBaseLineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePtsSceneBaseLineResponseBody,
     };
   }
@@ -451,10 +466,12 @@ export class DeletePtsScenesResponseBody extends $tea.Model {
 
 export class DeletePtsScenesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePtsScenesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -462,6 +479,7 @@ export class DeletePtsScenesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePtsScenesResponseBody,
     };
   }
@@ -507,10 +525,12 @@ export class GetAllRegionsResponseBody extends $tea.Model {
 
 export class GetAllRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAllRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -518,6 +538,7 @@ export class GetAllRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAllRegionsResponseBody,
     };
   }
@@ -615,10 +636,12 @@ export class GetJMeterLogsResponseBody extends $tea.Model {
 
 export class GetJMeterLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJMeterLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -626,6 +649,7 @@ export class GetJMeterLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJMeterLogsResponseBody,
     };
   }
@@ -699,10 +723,12 @@ export class GetJMeterSampleMetricsResponseBody extends $tea.Model {
 
 export class GetJMeterSampleMetricsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJMeterSampleMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -710,6 +736,7 @@ export class GetJMeterSampleMetricsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJMeterSampleMetricsResponseBody,
     };
   }
@@ -819,10 +846,12 @@ export class GetJMeterSamplingLogsResponseBody extends $tea.Model {
 
 export class GetJMeterSamplingLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJMeterSamplingLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -830,6 +859,7 @@ export class GetJMeterSamplingLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJMeterSamplingLogsResponseBody,
     };
   }
@@ -897,10 +927,12 @@ export class GetJMeterSceneRunningDataResponseBody extends $tea.Model {
 
 export class GetJMeterSceneRunningDataResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJMeterSceneRunningDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -908,6 +940,7 @@ export class GetJMeterSceneRunningDataResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJMeterSceneRunningDataResponseBody,
     };
   }
@@ -972,10 +1005,12 @@ export class GetOpenJMeterSceneResponseBody extends $tea.Model {
 
 export class GetOpenJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetOpenJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -983,6 +1018,7 @@ export class GetOpenJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetOpenJMeterSceneResponseBody,
     };
   }
@@ -1059,10 +1095,12 @@ export class GetPtsReportDetailsResponseBody extends $tea.Model {
 
 export class GetPtsReportDetailsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPtsReportDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1070,6 +1108,7 @@ export class GetPtsReportDetailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPtsReportDetailsResponseBody,
     };
   }
@@ -1140,10 +1179,12 @@ export class GetPtsReportsBySceneIdResponseBody extends $tea.Model {
 
 export class GetPtsReportsBySceneIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPtsReportsBySceneIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1151,6 +1192,7 @@ export class GetPtsReportsBySceneIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPtsReportsBySceneIdResponseBody,
     };
   }
@@ -1215,10 +1257,12 @@ export class GetPtsSceneResponseBody extends $tea.Model {
 
 export class GetPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1226,6 +1270,7 @@ export class GetPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPtsSceneResponseBody,
     };
   }
@@ -1293,10 +1338,12 @@ export class GetPtsSceneBaseLineResponseBody extends $tea.Model {
 
 export class GetPtsSceneBaseLineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPtsSceneBaseLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1304,6 +1351,7 @@ export class GetPtsSceneBaseLineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPtsSceneBaseLineResponseBody,
     };
   }
@@ -1422,10 +1470,12 @@ export class GetPtsSceneRunningDataResponseBody extends $tea.Model {
 
 export class GetPtsSceneRunningDataResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPtsSceneRunningDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1433,6 +1483,7 @@ export class GetPtsSceneRunningDataResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPtsSceneRunningDataResponseBody,
     };
   }
@@ -1506,10 +1557,12 @@ export class GetPtsSceneRunningStatusResponseBody extends $tea.Model {
 
 export class GetPtsSceneRunningStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPtsSceneRunningStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1517,6 +1570,7 @@ export class GetPtsSceneRunningStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPtsSceneRunningStatusResponseBody,
     };
   }
@@ -1599,10 +1653,12 @@ export class GetUserVpcSecurityGroupResponseBody extends $tea.Model {
 
 export class GetUserVpcSecurityGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetUserVpcSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1610,6 +1666,7 @@ export class GetUserVpcSecurityGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetUserVpcSecurityGroupResponseBody,
     };
   }
@@ -1692,10 +1749,12 @@ export class GetUserVpcVSwitchResponseBody extends $tea.Model {
 
 export class GetUserVpcVSwitchResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetUserVpcVSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1703,6 +1762,7 @@ export class GetUserVpcVSwitchResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetUserVpcVSwitchResponseBody,
     };
   }
@@ -1785,10 +1845,12 @@ export class GetUserVpcsResponseBody extends $tea.Model {
 
 export class GetUserVpcsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetUserVpcsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1796,6 +1858,7 @@ export class GetUserVpcsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetUserVpcsResponseBody,
     };
   }
@@ -1878,10 +1941,12 @@ export class ListEnvsResponseBody extends $tea.Model {
 
 export class ListEnvsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEnvsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1889,6 +1954,7 @@ export class ListEnvsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEnvsResponseBody,
     };
   }
@@ -1980,10 +2046,12 @@ export class ListJMeterReportsResponseBody extends $tea.Model {
 
 export class ListJMeterReportsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListJMeterReportsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1991,6 +2059,7 @@ export class ListJMeterReportsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListJMeterReportsResponseBody,
     };
   }
@@ -2073,10 +2142,12 @@ export class ListOpenJMeterScenesResponseBody extends $tea.Model {
 
 export class ListOpenJMeterScenesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListOpenJMeterScenesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2084,6 +2155,7 @@ export class ListOpenJMeterScenesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListOpenJMeterScenesResponseBody,
     };
   }
@@ -2154,10 +2226,12 @@ export class ListPtsSceneResponseBody extends $tea.Model {
 
 export class ListPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2165,6 +2239,7 @@ export class ListPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPtsSceneResponseBody,
     };
   }
@@ -2226,10 +2301,12 @@ export class ModifyPtsSceneResponseBody extends $tea.Model {
 
 export class ModifyPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2237,6 +2314,7 @@ export class ModifyPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyPtsSceneResponseBody,
     };
   }
@@ -2298,10 +2376,12 @@ export class RemoveEnvResponseBody extends $tea.Model {
 
 export class RemoveEnvResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveEnvResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2309,6 +2389,7 @@ export class RemoveEnvResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveEnvResponseBody,
     };
   }
@@ -2370,10 +2451,12 @@ export class RemoveOpenJMeterSceneResponseBody extends $tea.Model {
 
 export class RemoveOpenJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveOpenJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2381,6 +2464,7 @@ export class RemoveOpenJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveOpenJMeterSceneResponseBody,
     };
   }
@@ -2464,10 +2548,12 @@ export class SaveEnvResponseBody extends $tea.Model {
 
 export class SaveEnvResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveEnvResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2475,6 +2561,7 @@ export class SaveEnvResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveEnvResponseBody,
     };
   }
@@ -2558,10 +2645,12 @@ export class SaveOpenJMeterSceneResponseBody extends $tea.Model {
 
 export class SaveOpenJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveOpenJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2569,6 +2658,7 @@ export class SaveOpenJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveOpenJMeterSceneResponseBody,
     };
   }
@@ -2652,10 +2742,12 @@ export class SavePtsSceneResponseBody extends $tea.Model {
 
 export class SavePtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SavePtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2663,6 +2755,7 @@ export class SavePtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SavePtsSceneResponseBody,
     };
   }
@@ -2727,10 +2820,12 @@ export class StartDebugPtsSceneResponseBody extends $tea.Model {
 
 export class StartDebugPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartDebugPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2738,6 +2833,7 @@ export class StartDebugPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartDebugPtsSceneResponseBody,
     };
   }
@@ -2802,10 +2898,12 @@ export class StartDebuggingJMeterSceneResponseBody extends $tea.Model {
 
 export class StartDebuggingJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartDebuggingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2813,6 +2911,7 @@ export class StartDebuggingJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartDebuggingJMeterSceneResponseBody,
     };
   }
@@ -2877,10 +2976,12 @@ export class StartPtsSceneResponseBody extends $tea.Model {
 
 export class StartPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2888,6 +2989,7 @@ export class StartPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartPtsSceneResponseBody,
     };
   }
@@ -2952,10 +3054,12 @@ export class StartTestingJMeterSceneResponseBody extends $tea.Model {
 
 export class StartTestingJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartTestingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2963,6 +3067,7 @@ export class StartTestingJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartTestingJMeterSceneResponseBody,
     };
   }
@@ -3027,10 +3132,12 @@ export class StopDebugPtsSceneResponseBody extends $tea.Model {
 
 export class StopDebugPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopDebugPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3038,6 +3145,7 @@ export class StopDebugPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopDebugPtsSceneResponseBody,
     };
   }
@@ -3099,10 +3207,12 @@ export class StopDebuggingJMeterSceneResponseBody extends $tea.Model {
 
 export class StopDebuggingJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopDebuggingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3110,6 +3220,7 @@ export class StopDebuggingJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopDebuggingJMeterSceneResponseBody,
     };
   }
@@ -3171,10 +3282,12 @@ export class StopPtsSceneResponseBody extends $tea.Model {
 
 export class StopPtsSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopPtsSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3182,6 +3295,7 @@ export class StopPtsSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopPtsSceneResponseBody,
     };
   }
@@ -3243,10 +3357,12 @@ export class StopTestingJMeterSceneResponseBody extends $tea.Model {
 
 export class StopTestingJMeterSceneResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopTestingJMeterSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3254,6 +3370,7 @@ export class StopTestingJMeterSceneResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopTestingJMeterSceneResponseBody,
     };
   }
@@ -3346,10 +3463,12 @@ export class UpdatePtsSceneBaseLineResponseBody extends $tea.Model {
 
 export class UpdatePtsSceneBaseLineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdatePtsSceneBaseLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3357,6 +3476,7 @@ export class UpdatePtsSceneBaseLineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdatePtsSceneBaseLineResponseBody,
     };
   }
@@ -4397,21 +4517,57 @@ export class GetPtsSceneResponseBodySceneLoadConfigRelationLoadConfigList extend
   }
 }
 
+export class GetPtsSceneResponseBodySceneLoadConfigVpcLoadConfig extends $tea.Model {
+  regionId?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPtsSceneResponseBodySceneLoadConfig extends $tea.Model {
   agentCount?: number;
   apiLoadConfigList?: GetPtsSceneResponseBodySceneLoadConfigApiLoadConfigList[];
+  autoStep?: boolean;
   configuration?: GetPtsSceneResponseBodySceneLoadConfigConfiguration;
+  increment?: number;
+  keepTime?: number;
   maxRunningTime?: number;
   relationLoadConfigList?: GetPtsSceneResponseBodySceneLoadConfigRelationLoadConfigList[];
   testMode?: string;
+  vpcLoadConfig?: GetPtsSceneResponseBodySceneLoadConfigVpcLoadConfig;
   static names(): { [key: string]: string } {
     return {
       agentCount: 'AgentCount',
       apiLoadConfigList: 'ApiLoadConfigList',
+      autoStep: 'AutoStep',
       configuration: 'Configuration',
+      increment: 'Increment',
+      keepTime: 'KeepTime',
       maxRunningTime: 'MaxRunningTime',
       relationLoadConfigList: 'RelationLoadConfigList',
       testMode: 'TestMode',
+      vpcLoadConfig: 'VpcLoadConfig',
     };
   }
 
@@ -4419,10 +4575,14 @@ export class GetPtsSceneResponseBodySceneLoadConfig extends $tea.Model {
     return {
       agentCount: 'number',
       apiLoadConfigList: { 'type': 'array', 'itemType': GetPtsSceneResponseBodySceneLoadConfigApiLoadConfigList },
+      autoStep: 'boolean',
       configuration: GetPtsSceneResponseBodySceneLoadConfigConfiguration,
+      increment: 'number',
+      keepTime: 'number',
       maxRunningTime: 'number',
       relationLoadConfigList: { 'type': 'array', 'itemType': GetPtsSceneResponseBodySceneLoadConfigRelationLoadConfigList },
       testMode: 'string',
+      vpcLoadConfig: GetPtsSceneResponseBodySceneLoadConfigVpcLoadConfig,
     };
   }
 
@@ -4913,107 +5073,26 @@ export class GetPtsSceneRunningDataResponseBodyChainMonitorDataList extends $tea
   }
 }
 
-export class GetUserVpcSecurityGroupResponseBodySecurityGroupListTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetUserVpcSecurityGroupResponseBodySecurityGroupList extends $tea.Model {
-  availableInstanceAmount?: number;
-  creationTime?: string;
   description?: string;
-  ecsCount?: number;
-  resourceGroupId?: string;
   securityGroupId?: string;
   securityGroupName?: string;
-  tags?: GetUserVpcSecurityGroupResponseBodySecurityGroupListTags[];
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      availableInstanceAmount: 'AvailableInstanceAmount',
-      creationTime: 'CreationTime',
       description: 'Description',
-      ecsCount: 'EcsCount',
-      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       securityGroupName: 'SecurityGroupName',
-      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      availableInstanceAmount: 'number',
-      creationTime: 'string',
       description: 'string',
-      ecsCount: 'number',
-      resourceGroupId: 'string',
       securityGroupId: 'string',
       securityGroupName: 'string',
-      tags: { 'type': 'array', 'itemType': GetUserVpcSecurityGroupResponseBodySecurityGroupListTags },
       vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserVpcVSwitchResponseBodyVSwitchListRouteTable extends $tea.Model {
-  routeTableId?: string;
-  routeTableType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      routeTableId: 'RouteTableId',
-      routeTableType: 'RouteTableType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      routeTableId: 'string',
-      routeTableType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserVpcVSwitchResponseBodyVSwitchListTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
     };
   }
 
@@ -5024,79 +5103,27 @@ export class GetUserVpcVSwitchResponseBodyVSwitchListTags extends $tea.Model {
 
 export class GetUserVpcVSwitchResponseBodyVSwitchList extends $tea.Model {
   availableIpAddressCount?: number;
-  cidrBlock?: string;
-  creationTime?: string;
-  description?: string;
-  ipv6CidrBlock?: string;
-  isDefault?: boolean;
   maxAgentCount?: number;
-  resourceGroupId?: string;
-  routeTable?: GetUserVpcVSwitchResponseBodyVSwitchListRouteTable[];
-  status?: string;
-  tags?: GetUserVpcVSwitchResponseBodyVSwitchListTags[];
   vSwitchId?: string;
   vSwitchName?: string;
   vpcId?: string;
-  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       availableIpAddressCount: 'AvailableIpAddressCount',
-      cidrBlock: 'CidrBlock',
-      creationTime: 'CreationTime',
-      description: 'Description',
-      ipv6CidrBlock: 'Ipv6CidrBlock',
-      isDefault: 'IsDefault',
       maxAgentCount: 'MaxAgentCount',
-      resourceGroupId: 'ResourceGroupId',
-      routeTable: 'RouteTable',
-      status: 'Status',
-      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vSwitchName: 'VSwitchName',
       vpcId: 'VpcId',
-      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       availableIpAddressCount: 'number',
-      cidrBlock: 'string',
-      creationTime: 'string',
-      description: 'string',
-      ipv6CidrBlock: 'string',
-      isDefault: 'boolean',
       maxAgentCount: 'number',
-      resourceGroupId: 'string',
-      routeTable: { 'type': 'array', 'itemType': GetUserVpcVSwitchResponseBodyVSwitchListRouteTable },
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': GetUserVpcVSwitchResponseBodyVSwitchListTags },
       vSwitchId: 'string',
       vSwitchName: 'string',
       vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserVpcsResponseBodyVpcsTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
     };
   }
 
@@ -5107,36 +5134,20 @@ export class GetUserVpcsResponseBodyVpcsTags extends $tea.Model {
 
 export class GetUserVpcsResponseBodyVpcs extends $tea.Model {
   cidrBlock?: string;
-  creationTime?: string;
   description?: string;
-  ipv6CidrBlock?: string;
-  isDefault?: boolean;
-  natGatewayIds?: string[];
   regionId?: string;
   resourceGroupId?: string;
   routerTableIds?: string[];
-  status?: string;
-  tags?: GetUserVpcsResponseBodyVpcsTags[];
-  userCidrs?: string[];
-  VRouterId?: string;
   vSwitchIds?: string[];
   vpcId?: string;
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
       cidrBlock: 'CidrBlock',
-      creationTime: 'CreationTime',
       description: 'Description',
-      ipv6CidrBlock: 'Ipv6CidrBlock',
-      isDefault: 'IsDefault',
-      natGatewayIds: 'NatGatewayIds',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       routerTableIds: 'RouterTableIds',
-      status: 'Status',
-      tags: 'Tags',
-      userCidrs: 'UserCidrs',
-      VRouterId: 'VRouterId',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
       vpcName: 'VpcName',
@@ -5146,18 +5157,10 @@ export class GetUserVpcsResponseBodyVpcs extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cidrBlock: 'string',
-      creationTime: 'string',
       description: 'string',
-      ipv6CidrBlock: 'string',
-      isDefault: 'boolean',
-      natGatewayIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
       routerTableIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': GetUserVpcsResponseBodyVpcsTags },
-      userCidrs: { 'type': 'array', 'itemType': 'string' },
-      VRouterId: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       vpcName: 'string',
@@ -5808,7 +5811,6 @@ export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
   autoStep?: boolean;
   configuration?: SavePtsSceneRequestSceneLoadConfigConfiguration;
   increment?: number;
-  isVpcTest?: string;
   keepTime?: number;
   maxRunningTime?: number;
   relationLoadConfigList?: SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList[];
@@ -5821,7 +5823,6 @@ export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
       autoStep: 'AutoStep',
       configuration: 'Configuration',
       increment: 'Increment',
-      isVpcTest: 'IsVpcTest',
       keepTime: 'KeepTime',
       maxRunningTime: 'MaxRunningTime',
       relationLoadConfigList: 'RelationLoadConfigList',
@@ -5837,7 +5838,6 @@ export class SavePtsSceneRequestSceneLoadConfig extends $tea.Model {
       autoStep: 'boolean',
       configuration: SavePtsSceneRequestSceneLoadConfigConfiguration,
       increment: 'number',
-      isVpcTest: 'string',
       keepTime: 'number',
       maxRunningTime: 'number',
       relationLoadConfigList: { 'type': 'array', 'itemType': SavePtsSceneRequestSceneLoadConfigRelationLoadConfigList },
@@ -7046,13 +7046,13 @@ export default class Client extends OpenApi {
 
   async modifyPtsSceneWithOptions(request: ModifyPtsSceneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPtsSceneResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.scene)) {
-      query["Scene"] = request.scene;
+      body["Scene"] = request.scene;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyPtsScene",
