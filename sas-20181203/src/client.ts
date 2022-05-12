@@ -3493,6 +3493,7 @@ export class DescribeDomainListResponse extends $tea.Model {
 }
 
 export class DescribeEmgVulItemRequest extends $tea.Model {
+  checkType?: number;
   currentPage?: number;
   lang?: string;
   pageSize?: number;
@@ -3501,6 +3502,7 @@ export class DescribeEmgVulItemRequest extends $tea.Model {
   vulName?: string;
   static names(): { [key: string]: string } {
     return {
+      checkType: 'CheckType',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -3512,6 +3514,7 @@ export class DescribeEmgVulItemRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkType: 'number',
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',
@@ -16541,6 +16544,7 @@ export class DescribeDomainListResponseBodyPageInfo extends $tea.Model {
 
 export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
   aliasName?: string;
+  checkType?: number;
   gmtLastCheck?: number;
   gmtPublish?: number;
   name?: string;
@@ -16551,6 +16555,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      checkType: 'CheckType',
       gmtLastCheck: 'GmtLastCheck',
       gmtPublish: 'GmtPublish',
       name: 'Name',
@@ -16564,6 +16569,7 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      checkType: 'number',
       gmtLastCheck: 'number',
       gmtPublish: 'number',
       name: 'string',
@@ -23717,6 +23723,10 @@ export default class Client extends OpenApi {
   async describeEmgVulItemWithOptions(request: DescribeEmgVulItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmgVulItemResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.checkType)) {
+      query["CheckType"] = request.checkType;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
