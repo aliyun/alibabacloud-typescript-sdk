@@ -554,6 +554,84 @@ export class CheckUserPropertyResponse extends $tea.Model {
   }
 }
 
+export class CopySceneRequest extends $tea.Model {
+  sceneId?: string;
+  sceneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      sceneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopySceneResponseBody extends $tea.Model {
+  code?: number;
+  data?: CopySceneResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CopySceneResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopySceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CopySceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CopySceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetailProjectRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -1146,6 +1224,81 @@ export class GetConnDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetConnDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCopySceneTaskStatusRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCopySceneTaskStatusResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetCopySceneTaskStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetCopySceneTaskStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCopySceneTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCopySceneTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCopySceneTaskStatusResponseBody,
     };
   }
 
@@ -2872,12 +3025,14 @@ export class ListSubSceneRequest extends $tea.Model {
   pageSize?: number;
   sceneId?: string;
   showLayoutData?: boolean;
+  sortField?: string;
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       sceneId: 'SceneId',
       showLayoutData: 'ShowLayoutData',
+      sortField: 'SortField',
     };
   }
 
@@ -2887,6 +3042,7 @@ export class ListSubSceneRequest extends $tea.Model {
       pageSize: 'number',
       sceneId: 'string',
       showLayoutData: 'boolean',
+      sortField: 'string',
     };
   }
 
@@ -4493,10 +4649,12 @@ export class UpdateSceneResponse extends $tea.Model {
 export class UpdateSubSceneRequest extends $tea.Model {
   id?: string;
   name?: string;
+  viewPoint?: number[];
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       name: 'Name',
+      viewPoint: 'ViewPoint',
     };
   }
 
@@ -4504,6 +4662,32 @@ export class UpdateSubSceneRequest extends $tea.Model {
     return {
       id: 'string',
       name: 'string',
+      viewPoint: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneShrinkRequest extends $tea.Model {
+  id?: string;
+  name?: string;
+  viewPointShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      viewPointShrink: 'ViewPoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      viewPointShrink: 'string',
     };
   }
 
@@ -4565,6 +4749,103 @@ export class UpdateSubSceneResponse extends $tea.Model {
   }
 }
 
+export class UpdateSubSceneSeqRequest extends $tea.Model {
+  sceneId?: string;
+  sortSubSceneIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      sortSubSceneIds: 'SortSubSceneIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      sortSubSceneIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneSeqShrinkRequest extends $tea.Model {
+  sceneId?: string;
+  sortSubSceneIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      sortSubSceneIdsShrink: 'SortSubSceneIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      sortSubSceneIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneSeqResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneSeqResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSubSceneSeqResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSubSceneSeqResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddRoomPlanResponseBodyData extends $tea.Model {
   accessId?: string;
   callback?: string;
@@ -4602,6 +4883,25 @@ export class AddRoomPlanResponseBodyData extends $tea.Model {
   }
 }
 
+export class CopySceneResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConnDataResponseBodyList extends $tea.Model {
   id?: string;
   mapId?: string;
@@ -4619,6 +4919,28 @@ export class GetConnDataResponseBodyList extends $tea.Model {
       id: 'string',
       mapId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCopySceneTaskStatusResponseBodyData extends $tea.Model {
+  progress?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      status: 'string',
     };
   }
 
@@ -5513,6 +5835,39 @@ export default class Client extends OpenApi {
     return await this.checkUserPropertyWithOptions(request, runtime);
   }
 
+  async copySceneWithOptions(request: CopySceneRequest, runtime: $Util.RuntimeOptions): Promise<CopySceneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sceneName)) {
+      query["SceneName"] = request.sceneName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CopyScene",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CopySceneResponse>(await this.callApi(params, req, runtime), new CopySceneResponse({}));
+  }
+
+  async copyScene(request: CopySceneRequest): Promise<CopySceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.copySceneWithOptions(request, runtime);
+  }
+
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5714,6 +6069,35 @@ export default class Client extends OpenApi {
   async getConnData(request: GetConnDataRequest): Promise<GetConnDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnDataWithOptions(request, runtime);
+  }
+
+  async getCopySceneTaskStatusWithOptions(request: GetCopySceneTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCopySceneTaskStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCopySceneTaskStatus",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCopySceneTaskStatusResponse>(await this.callApi(params, req, runtime), new GetCopySceneTaskStatusResponse({}));
+  }
+
+  async getCopySceneTaskStatus(request: GetCopySceneTaskStatusRequest): Promise<GetCopySceneTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCopySceneTaskStatusWithOptions(request, runtime);
   }
 
   async getHotspotConfigWithOptions(request: GetHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotConfigResponse> {
@@ -6444,6 +6828,10 @@ export default class Client extends OpenApi {
       query["ShowLayoutData"] = request.showLayoutData;
     }
 
+    if (!Util.isUnset(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7114,8 +7502,14 @@ export default class Client extends OpenApi {
     return await this.updateSceneWithOptions(request, runtime);
   }
 
-  async updateSubSceneWithOptions(request: UpdateSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubSceneResponse> {
-    Util.validateModel(request);
+  async updateSubSceneWithOptions(tmpReq: UpdateSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubSceneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSubSceneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.viewPoint)) {
+      request.viewPointShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.viewPoint, "ViewPoint", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
@@ -7123,6 +7517,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.viewPointShrink)) {
+      query["ViewPoint"] = request.viewPointShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7145,6 +7543,45 @@ export default class Client extends OpenApi {
   async updateSubScene(request: UpdateSubSceneRequest): Promise<UpdateSubSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSubSceneWithOptions(request, runtime);
+  }
+
+  async updateSubSceneSeqWithOptions(tmpReq: UpdateSubSceneSeqRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubSceneSeqResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSubSceneSeqShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sortSubSceneIds)) {
+      request.sortSubSceneIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sortSubSceneIds, "SortSubSceneIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sortSubSceneIdsShrink)) {
+      query["SortSubSceneIds"] = request.sortSubSceneIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSubSceneSeq",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSubSceneSeqResponse>(await this.callApi(params, req, runtime), new UpdateSubSceneSeqResponse({}));
+  }
+
+  async updateSubSceneSeq(request: UpdateSubSceneSeqRequest): Promise<UpdateSubSceneSeqResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSubSceneSeqWithOptions(request, runtime);
   }
 
 }
