@@ -2023,6 +2023,150 @@ export class DeleteSensitiveWordResponse extends $tea.Model {
   }
 }
 
+export class DescribeMeterImpPlayBackTimeByLiveIdRequest extends $tea.Model {
+  appId?: string;
+  endTs?: number;
+  liveId?: string;
+  startTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      endTs: 'EndTs',
+      liveId: 'LiveId',
+      startTs: 'StartTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      endTs: 'number',
+      liveId: 'string',
+      startTs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpPlayBackTimeByLiveIdResponseBody extends $tea.Model {
+  data?: DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpPlayBackTimeByLiveIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMeterImpPlayBackTimeByLiveIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMeterImpPlayBackTimeByLiveIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpWatchLiveTimeByLiveIdRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpWatchLiveTimeByLiveIdResponseBody extends $tea.Model {
+  data?: DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpWatchLiveTimeByLiveIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMeterImpWatchLiveTimeByLiveIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMeterImpWatchLiveTimeByLiveIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -6047,6 +6191,47 @@ export class DeleteSensitiveWordResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DescribeMeterImpPlayBackTimeByLiveIdResponseBodyData extends $tea.Model {
+  watchTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      watchTime: 'WatchTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      watchTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData extends $tea.Model {
+  watchTimeInLatency?: number;
+  watchTimeInLowLatency?: number;
+  static names(): { [key: string]: string } {
+    return {
+      watchTimeInLatency: 'WatchTimeInLatency',
+      watchTimeInLowLatency: 'WatchTimeInLowLatency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      watchTimeInLatency: 'number',
+      watchTimeInLowLatency: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppResponseBodyResult extends $tea.Model {
   appConfigStatus?: string;
   appKey?: string;
@@ -9107,6 +9292,80 @@ export default class Client extends OpenApi {
   async deleteSensitiveWord(request: DeleteSensitiveWordRequest): Promise<DeleteSensitiveWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSensitiveWordWithOptions(request, runtime);
+  }
+
+  async describeMeterImpPlayBackTimeByLiveIdWithOptions(request: DescribeMeterImpPlayBackTimeByLiveIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImpPlayBackTimeByLiveIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      query["LiveId"] = request.liveId;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMeterImpPlayBackTimeByLiveId",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMeterImpPlayBackTimeByLiveIdResponse>(await this.callApi(params, req, runtime), new DescribeMeterImpPlayBackTimeByLiveIdResponse({}));
+  }
+
+  async describeMeterImpPlayBackTimeByLiveId(request: DescribeMeterImpPlayBackTimeByLiveIdRequest): Promise<DescribeMeterImpPlayBackTimeByLiveIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMeterImpPlayBackTimeByLiveIdWithOptions(request, runtime);
+  }
+
+  async describeMeterImpWatchLiveTimeByLiveIdWithOptions(request: DescribeMeterImpWatchLiveTimeByLiveIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImpWatchLiveTimeByLiveIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      query["LiveId"] = request.liveId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMeterImpWatchLiveTimeByLiveId",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMeterImpWatchLiveTimeByLiveIdResponse>(await this.callApi(params, req, runtime), new DescribeMeterImpWatchLiveTimeByLiveIdResponse({}));
+  }
+
+  async describeMeterImpWatchLiveTimeByLiveId(request: DescribeMeterImpWatchLiveTimeByLiveIdRequest): Promise<DescribeMeterImpWatchLiveTimeByLiveIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMeterImpWatchLiveTimeByLiveIdWithOptions(request, runtime);
   }
 
   async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
