@@ -593,6 +593,84 @@ export class CreateSimilarSecurityEventsQueryTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateSuspEventNoteRequest extends $tea.Model {
+  eventId?: number;
+  note?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      note: 'Note',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'number',
+      note: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSuspEventNoteResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSuspEventNoteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSuspEventNoteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSuspEventNoteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVulAutoRepairConfigRequest extends $tea.Model {
   reason?: string;
   type?: string;
@@ -5953,6 +6031,90 @@ export class DescribeNoticeConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeNoticeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnceTaskRequest extends $tea.Model {
+  currentPage?: number;
+  endTimeQuery?: number;
+  pageSize?: number;
+  rootTaskId?: string;
+  startTimeQuery?: number;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      endTimeQuery: 'EndTimeQuery',
+      pageSize: 'PageSize',
+      rootTaskId: 'RootTaskId',
+      startTimeQuery: 'StartTimeQuery',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      endTimeQuery: 'number',
+      pageSize: 'number',
+      rootTaskId: 'string',
+      startTimeQuery: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnceTaskResponseBody extends $tea.Model {
+  pageInfo?: DescribeOnceTaskResponseBodyPageInfo;
+  requestId?: string;
+  taskManageResponseList?: DescribeOnceTaskResponseBodyTaskManageResponseList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      taskManageResponseList: 'TaskManageResponseList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageInfo: DescribeOnceTaskResponseBodyPageInfo,
+      requestId: 'string',
+      taskManageResponseList: { 'type': 'array', 'itemType': DescribeOnceTaskResponseBodyTaskManageResponseList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnceTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOnceTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOnceTaskResponseBody,
     };
   }
 
@@ -17763,6 +17925,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJson extends
 
 export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
   aliasName?: string;
+  canFix?: string;
   canUpdate?: boolean;
   extendContentJson?: DescribeImageVulListResponseBodyVulRecordsExtendContentJson;
   firstTs?: number;
@@ -17783,6 +17946,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      canFix: 'CanFix',
       canUpdate: 'CanUpdate',
       extendContentJson: 'ExtendContentJson',
       firstTs: 'FirstTs',
@@ -17806,6 +17970,7 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      canFix: 'string',
       canUpdate: 'boolean',
       extendContentJson: DescribeImageVulListResponseBodyVulRecordsExtendContentJson,
       firstTs: 'number',
@@ -18117,6 +18282,77 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $tea.Model
       project: 'string',
       route: 'number',
       timeLimit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnceTaskResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOnceTaskResponseBodyTaskManageResponseList extends $tea.Model {
+  detailData?: string;
+  progress?: string;
+  taskEndTime?: number;
+  taskId?: string;
+  taskName?: string;
+  taskStartTime?: number;
+  taskStatus?: number;
+  taskStatusText?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailData: 'DetailData',
+      progress: 'Progress',
+      taskEndTime: 'TaskEndTime',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskStartTime: 'TaskStartTime',
+      taskStatus: 'TaskStatus',
+      taskStatusText: 'TaskStatusText',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailData: 'string',
+      progress: 'string',
+      taskEndTime: 'number',
+      taskId: 'string',
+      taskName: 'string',
+      taskStartTime: 'number',
+      taskStatus: 'number',
+      taskStatusText: 'string',
+      taskType: 'string',
     };
   }
 
@@ -22213,6 +22449,39 @@ export default class Client extends OpenApi {
     return await this.createSimilarSecurityEventsQueryTaskWithOptions(request, runtime);
   }
 
+  async createSuspEventNoteWithOptions(request: CreateSuspEventNoteRequest, runtime: $Util.RuntimeOptions): Promise<CreateSuspEventNoteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSuspEventNote",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSuspEventNoteResponse>(await this.callApi(params, req, runtime), new CreateSuspEventNoteResponse({}));
+  }
+
+  async createSuspEventNote(request: CreateSuspEventNoteRequest): Promise<CreateSuspEventNoteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSuspEventNoteWithOptions(request, runtime);
+  }
+
   async createVulAutoRepairConfigWithOptions(request: CreateVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateVulAutoRepairConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25089,6 +25358,55 @@ export default class Client extends OpenApi {
   async describeNoticeConfig(request: DescribeNoticeConfigRequest): Promise<DescribeNoticeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNoticeConfigWithOptions(request, runtime);
+  }
+
+  async describeOnceTaskWithOptions(request: DescribeOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnceTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTimeQuery)) {
+      query["EndTimeQuery"] = request.endTimeQuery;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.rootTaskId)) {
+      query["RootTaskId"] = request.rootTaskId;
+    }
+
+    if (!Util.isUnset(request.startTimeQuery)) {
+      query["StartTimeQuery"] = request.startTimeQuery;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOnceTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOnceTaskResponse>(await this.callApi(params, req, runtime), new DescribeOnceTaskResponse({}));
+  }
+
+  async describeOnceTask(request: DescribeOnceTaskRequest): Promise<DescribeOnceTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOnceTaskWithOptions(request, runtime);
   }
 
   async describePropertyCountWithOptions(request: DescribePropertyCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyCountResponse> {
