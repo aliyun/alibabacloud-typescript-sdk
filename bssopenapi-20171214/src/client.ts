@@ -9,33 +9,33 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddAccountRelationRequest extends $tea.Model {
-  relationType?: string;
-  parentUserId?: number;
   childNick?: string;
   childUserId?: number;
-  requestId?: string;
+  parentUserId?: number;
   permissionCodes?: string[];
+  relationType?: string;
+  requestId?: string;
   roleCodes?: string[];
   static names(): { [key: string]: string } {
     return {
-      relationType: 'RelationType',
-      parentUserId: 'ParentUserId',
       childNick: 'ChildNick',
       childUserId: 'ChildUserId',
-      requestId: 'RequestId',
+      parentUserId: 'ParentUserId',
       permissionCodes: 'PermissionCodes',
+      relationType: 'RelationType',
+      requestId: 'RequestId',
       roleCodes: 'RoleCodes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      relationType: 'string',
-      parentUserId: 'number',
       childNick: 'string',
       childUserId: 'number',
-      requestId: 'string',
+      parentUserId: 'number',
       permissionCodes: { 'type': 'array', 'itemType': 'string' },
+      relationType: 'string',
+      requestId: 'string',
       roleCodes: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -47,27 +47,27 @@ export class AddAccountRelationRequest extends $tea.Model {
 
 export class AddAccountRelationResponseBody extends $tea.Model {
   code?: string;
+  data?: AddAccountRelationResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: AddAccountRelationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: AddAccountRelationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: AddAccountRelationResponseBodyData,
     };
   }
 
@@ -78,10 +78,12 @@ export class AddAccountRelationResponseBody extends $tea.Model {
 
 export class AddAccountRelationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -89,6 +91,7 @@ export class AddAccountRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddAccountRelationResponseBody,
     };
   }
@@ -99,28 +102,28 @@ export class AddAccountRelationResponse extends $tea.Model {
 }
 
 export class AllocateCostUnitResourceRequest extends $tea.Model {
-  fromUnitUserId?: number;
   fromUnitId?: number;
-  toUnitUserId?: number;
-  toUnitId?: number;
+  fromUnitUserId?: number;
   resourceInstanceList?: AllocateCostUnitResourceRequestResourceInstanceList[];
+  toUnitId?: number;
+  toUnitUserId?: number;
   static names(): { [key: string]: string } {
     return {
-      fromUnitUserId: 'FromUnitUserId',
       fromUnitId: 'FromUnitId',
-      toUnitUserId: 'ToUnitUserId',
-      toUnitId: 'ToUnitId',
+      fromUnitUserId: 'FromUnitUserId',
       resourceInstanceList: 'ResourceInstanceList',
+      toUnitId: 'ToUnitId',
+      toUnitUserId: 'ToUnitUserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fromUnitUserId: 'number',
       fromUnitId: 'number',
-      toUnitUserId: 'number',
-      toUnitId: 'number',
+      fromUnitUserId: 'number',
       resourceInstanceList: { 'type': 'array', 'itemType': AllocateCostUnitResourceRequestResourceInstanceList },
+      toUnitId: 'number',
+      toUnitUserId: 'number',
     };
   }
 
@@ -131,27 +134,27 @@ export class AllocateCostUnitResourceRequest extends $tea.Model {
 
 export class AllocateCostUnitResourceResponseBody extends $tea.Model {
   code?: string;
+  data?: AllocateCostUnitResourceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: AllocateCostUnitResourceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: AllocateCostUnitResourceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: AllocateCostUnitResourceResponseBodyData,
     };
   }
 
@@ -162,10 +165,12 @@ export class AllocateCostUnitResourceResponseBody extends $tea.Model {
 
 export class AllocateCostUnitResourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AllocateCostUnitResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -173,6 +178,7 @@ export class AllocateCostUnitResourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AllocateCostUnitResourceResponseBody,
     };
   }
@@ -183,43 +189,43 @@ export class AllocateCostUnitResourceResponse extends $tea.Model {
 }
 
 export class ApplyInvoiceRequest extends $tea.Model {
-  invoiceAmount?: number;
-  ownerId?: number;
-  customerId?: number;
   addressId?: number;
-  invoicingType?: number;
-  processWay?: number;
   applyUserNick?: string;
+  customerId?: number;
+  invoiceAmount?: number;
   invoiceByAmount?: boolean;
-  userRemark?: string;
+  invoicingType?: number;
+  ownerId?: number;
+  processWay?: number;
   selectedIds?: number[];
+  userRemark?: string;
   static names(): { [key: string]: string } {
     return {
-      invoiceAmount: 'InvoiceAmount',
-      ownerId: 'OwnerId',
-      customerId: 'CustomerId',
       addressId: 'AddressId',
-      invoicingType: 'InvoicingType',
-      processWay: 'ProcessWay',
       applyUserNick: 'ApplyUserNick',
+      customerId: 'CustomerId',
+      invoiceAmount: 'InvoiceAmount',
       invoiceByAmount: 'InvoiceByAmount',
-      userRemark: 'UserRemark',
+      invoicingType: 'InvoicingType',
+      ownerId: 'OwnerId',
+      processWay: 'ProcessWay',
       selectedIds: 'SelectedIds',
+      userRemark: 'UserRemark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      invoiceAmount: 'number',
-      ownerId: 'number',
-      customerId: 'number',
       addressId: 'number',
-      invoicingType: 'number',
-      processWay: 'number',
       applyUserNick: 'string',
+      customerId: 'number',
+      invoiceAmount: 'number',
       invoiceByAmount: 'boolean',
-      userRemark: 'string',
+      invoicingType: 'number',
+      ownerId: 'number',
+      processWay: 'number',
       selectedIds: { 'type': 'array', 'itemType': 'number' },
+      userRemark: 'string',
     };
   }
 
@@ -230,27 +236,27 @@ export class ApplyInvoiceRequest extends $tea.Model {
 
 export class ApplyInvoiceResponseBody extends $tea.Model {
   code?: string;
+  data?: ApplyInvoiceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: ApplyInvoiceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: ApplyInvoiceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: ApplyInvoiceResponseBodyData,
     };
   }
 
@@ -261,10 +267,12 @@ export class ApplyInvoiceResponseBody extends $tea.Model {
 
 export class ApplyInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ApplyInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -272,6 +280,7 @@ export class ApplyInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ApplyInvoiceResponseBody,
     };
   }
@@ -305,27 +314,27 @@ export class CancelOrderRequest extends $tea.Model {
 
 export class CancelOrderResponseBody extends $tea.Model {
   code?: string;
+  data?: CancelOrderResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: CancelOrderResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: CancelOrderResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: CancelOrderResponseBodyData,
     };
   }
 
@@ -336,10 +345,12 @@ export class CancelOrderResponseBody extends $tea.Model {
 
 export class CancelOrderResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -347,6 +358,7 @@ export class CancelOrderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelOrderResponseBody,
     };
   }
@@ -357,37 +369,37 @@ export class CancelOrderResponse extends $tea.Model {
 }
 
 export class ChangeResellerConsumeAmountRequest extends $tea.Model {
-  ownerId?: number;
   adjustType?: string;
   amount?: string;
-  currency?: string;
   businessType?: string;
-  source?: string;
-  outBizId?: string;
+  currency?: string;
   extendMap?: string;
+  outBizId?: string;
+  ownerId?: number;
+  source?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       adjustType: 'AdjustType',
       amount: 'Amount',
-      currency: 'Currency',
       businessType: 'BusinessType',
-      source: 'Source',
-      outBizId: 'OutBizId',
+      currency: 'Currency',
       extendMap: 'ExtendMap',
+      outBizId: 'OutBizId',
+      ownerId: 'OwnerId',
+      source: 'Source',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       adjustType: 'string',
       amount: 'string',
-      currency: 'string',
       businessType: 'string',
-      source: 'string',
-      outBizId: 'string',
+      currency: 'string',
       extendMap: 'string',
+      outBizId: 'string',
+      ownerId: 'number',
+      source: 'string',
     };
   }
 
@@ -398,15 +410,15 @@ export class ChangeResellerConsumeAmountRequest extends $tea.Model {
 
 export class ChangeResellerConsumeAmountResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: string;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -415,8 +427,8 @@ export class ChangeResellerConsumeAmountResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'string',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -429,10 +441,12 @@ export class ChangeResellerConsumeAmountResponseBody extends $tea.Model {
 
 export class ChangeResellerConsumeAmountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ChangeResellerConsumeAmountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -440,6 +454,7 @@ export class ChangeResellerConsumeAmountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ChangeResellerConsumeAmountResponseBody,
     };
   }
@@ -450,31 +465,34 @@ export class ChangeResellerConsumeAmountResponse extends $tea.Model {
 }
 
 export class ConfirmRelationRequest extends $tea.Model {
-  relationType?: string;
-  parentUserId?: number;
-  confirmCode?: string;
   childUserId?: number;
-  requestId?: string;
+  confirmCode?: string;
+  parentUserId?: number;
   permissionCodes?: string[];
+  relationId?: number;
+  relationType?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      relationType: 'RelationType',
-      parentUserId: 'ParentUserId',
-      confirmCode: 'ConfirmCode',
       childUserId: 'ChildUserId',
-      requestId: 'RequestId',
+      confirmCode: 'ConfirmCode',
+      parentUserId: 'ParentUserId',
       permissionCodes: 'PermissionCodes',
+      relationId: 'RelationId',
+      relationType: 'RelationType',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      relationType: 'string',
-      parentUserId: 'number',
-      confirmCode: 'string',
       childUserId: 'number',
-      requestId: 'string',
+      confirmCode: 'string',
+      parentUserId: 'number',
       permissionCodes: { 'type': 'array', 'itemType': 'string' },
+      relationId: 'number',
+      relationType: 'string',
+      requestId: 'string',
     };
   }
 
@@ -485,27 +503,27 @@ export class ConfirmRelationRequest extends $tea.Model {
 
 export class ConfirmRelationResponseBody extends $tea.Model {
   code?: string;
+  data?: ConfirmRelationResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: ConfirmRelationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: ConfirmRelationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: ConfirmRelationResponseBodyData,
     };
   }
 
@@ -516,10 +534,12 @@ export class ConfirmRelationResponseBody extends $tea.Model {
 
 export class ConfirmRelationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ConfirmRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -527,6 +547,7 @@ export class ConfirmRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ConfirmRelationResponseBody,
     };
   }
@@ -537,31 +558,31 @@ export class ConfirmRelationResponse extends $tea.Model {
 }
 
 export class ConvertChargeTypeRequest extends $tea.Model {
+  instanceId?: string;
   ownerId?: number;
-  productType?: string;
-  subscriptionType?: string;
   period?: number;
   productCode?: string;
-  instanceId?: string;
+  productType?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       ownerId: 'OwnerId',
-      productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
       period: 'Period',
       productCode: 'ProductCode',
-      instanceId: 'InstanceId',
+      productType: 'ProductType',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       ownerId: 'number',
-      productType: 'string',
-      subscriptionType: 'string',
       period: 'number',
       productCode: 'string',
-      instanceId: 'string',
+      productType: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -572,27 +593,27 @@ export class ConvertChargeTypeRequest extends $tea.Model {
 
 export class ConvertChargeTypeResponseBody extends $tea.Model {
   code?: string;
+  data?: ConvertChargeTypeResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: ConvertChargeTypeResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: ConvertChargeTypeResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: ConvertChargeTypeResponseBodyData,
     };
   }
 
@@ -603,10 +624,12 @@ export class ConvertChargeTypeResponseBody extends $tea.Model {
 
 export class ConvertChargeTypeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ConvertChargeTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -614,6 +637,7 @@ export class ConvertChargeTypeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ConvertChargeTypeResponseBody,
     };
   }
@@ -624,40 +648,40 @@ export class ConvertChargeTypeResponse extends $tea.Model {
 }
 
 export class CreateAgAccountRequest extends $tea.Model {
-  loginEmail?: string;
   accountAttr?: string;
+  cityName?: string;
   enterpriseName?: string;
   firstName?: string;
   lastName?: string;
+  loginEmail?: string;
   nationCode?: string;
-  provinceName?: string;
-  cityName?: string;
   postcode?: string;
+  provinceName?: string;
   static names(): { [key: string]: string } {
     return {
-      loginEmail: 'LoginEmail',
       accountAttr: 'AccountAttr',
+      cityName: 'CityName',
       enterpriseName: 'EnterpriseName',
       firstName: 'FirstName',
       lastName: 'LastName',
+      loginEmail: 'LoginEmail',
       nationCode: 'NationCode',
-      provinceName: 'ProvinceName',
-      cityName: 'CityName',
       postcode: 'Postcode',
+      provinceName: 'ProvinceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      loginEmail: 'string',
       accountAttr: 'string',
+      cityName: 'string',
       enterpriseName: 'string',
       firstName: 'string',
       lastName: 'string',
+      loginEmail: 'string',
       nationCode: 'string',
-      provinceName: 'string',
-      cityName: 'string',
       postcode: 'string',
+      provinceName: 'string',
     };
   }
 
@@ -667,28 +691,28 @@ export class CreateAgAccountRequest extends $tea.Model {
 }
 
 export class CreateAgAccountResponseBody extends $tea.Model {
+  agRelationDto?: CreateAgAccountResponseBodyAgRelationDto;
   code?: string;
   message?: string;
   requestId?: string;
   success?: boolean;
-  agRelationDto?: CreateAgAccountResponseBodyAgRelationDto;
   static names(): { [key: string]: string } {
     return {
+      agRelationDto: 'AgRelationDto',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      agRelationDto: 'AgRelationDto',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agRelationDto: CreateAgAccountResponseBodyAgRelationDto,
       code: 'string',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      agRelationDto: CreateAgAccountResponseBodyAgRelationDto,
     };
   }
 
@@ -699,10 +723,12 @@ export class CreateAgAccountResponseBody extends $tea.Model {
 
 export class CreateAgAccountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAgAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -710,6 +736,7 @@ export class CreateAgAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAgAccountResponseBody,
     };
   }
@@ -740,27 +767,27 @@ export class CreateCostUnitRequest extends $tea.Model {
 
 export class CreateCostUnitResponseBody extends $tea.Model {
   code?: string;
+  data?: CreateCostUnitResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: CreateCostUnitResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: CreateCostUnitResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: CreateCostUnitResponseBodyData,
     };
   }
 
@@ -771,10 +798,12 @@ export class CreateCostUnitResponseBody extends $tea.Model {
 
 export class CreateCostUnitResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -782,6 +811,7 @@ export class CreateCostUnitResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCostUnitResponseBody,
     };
   }
@@ -792,43 +822,43 @@ export class CreateCostUnitResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
-  productCode?: string;
-  ownerId?: number;
-  productType?: string;
-  subscriptionType?: string;
-  period?: number;
-  renewalStatus?: string;
-  renewPeriod?: number;
   clientToken?: string;
   logistics?: string;
+  ownerId?: number;
   parameter?: CreateInstanceRequestParameter[];
+  period?: number;
+  productCode?: string;
+  productType?: string;
+  renewPeriod?: number;
+  renewalStatus?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
-      ownerId: 'OwnerId',
-      productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
-      period: 'Period',
-      renewalStatus: 'RenewalStatus',
-      renewPeriod: 'RenewPeriod',
       clientToken: 'ClientToken',
       logistics: 'Logistics',
+      ownerId: 'OwnerId',
       parameter: 'Parameter',
+      period: 'Period',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      renewPeriod: 'RenewPeriod',
+      renewalStatus: 'RenewalStatus',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productCode: 'string',
-      ownerId: 'number',
-      productType: 'string',
-      subscriptionType: 'string',
-      period: 'number',
-      renewalStatus: 'string',
-      renewPeriod: 'number',
       clientToken: 'string',
       logistics: 'string',
+      ownerId: 'number',
       parameter: { 'type': 'array', 'itemType': CreateInstanceRequestParameter },
+      period: 'number',
+      productCode: 'string',
+      productType: 'string',
+      renewPeriod: 'number',
+      renewalStatus: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -839,27 +869,27 @@ export class CreateInstanceRequest extends $tea.Model {
 
 export class CreateInstanceResponseBody extends $tea.Model {
   code?: string;
+  data?: CreateInstanceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: CreateInstanceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: CreateInstanceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: CreateInstanceResponseBodyData,
     };
   }
 
@@ -870,10 +900,12 @@ export class CreateInstanceResponseBody extends $tea.Model {
 
 export class CreateInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -881,6 +913,7 @@ export class CreateInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateInstanceResponseBody,
     };
   }
@@ -891,25 +924,25 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateResellerUserQuotaRequest extends $tea.Model {
-  ownerId?: number;
   amount?: string;
   currency?: string;
   outBizId?: string;
+  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       amount: 'Amount',
       currency: 'Currency',
       outBizId: 'OutBizId',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       amount: 'string',
       currency: 'string',
       outBizId: 'string',
+      ownerId: 'number',
     };
   }
 
@@ -920,15 +953,15 @@ export class CreateResellerUserQuotaRequest extends $tea.Model {
 
 export class CreateResellerUserQuotaResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -937,8 +970,8 @@ export class CreateResellerUserQuotaResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -951,10 +984,12 @@ export class CreateResellerUserQuotaResponseBody extends $tea.Model {
 
 export class CreateResellerUserQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateResellerUserQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -962,6 +997,7 @@ export class CreateResellerUserQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateResellerUserQuotaResponseBody,
     };
   }
@@ -972,34 +1008,34 @@ export class CreateResellerUserQuotaResponse extends $tea.Model {
 }
 
 export class CreateResourcePackageRequest extends $tea.Model {
-  ownerId?: number;
-  productCode?: string;
-  packageType?: string;
-  effectiveDate?: string;
-  specification?: string;
   duration?: number;
+  effectiveDate?: string;
+  ownerId?: number;
+  packageType?: string;
   pricingCycle?: string;
+  productCode?: string;
+  specification?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      productCode: 'ProductCode',
-      packageType: 'PackageType',
-      effectiveDate: 'EffectiveDate',
-      specification: 'Specification',
       duration: 'Duration',
+      effectiveDate: 'EffectiveDate',
+      ownerId: 'OwnerId',
+      packageType: 'PackageType',
       pricingCycle: 'PricingCycle',
+      productCode: 'ProductCode',
+      specification: 'Specification',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      productCode: 'string',
-      packageType: 'string',
-      effectiveDate: 'string',
-      specification: 'string',
       duration: 'number',
+      effectiveDate: 'string',
+      ownerId: 'number',
+      packageType: 'string',
       pricingCycle: 'string',
+      productCode: 'string',
+      specification: 'string',
     };
   }
 
@@ -1010,30 +1046,30 @@ export class CreateResourcePackageRequest extends $tea.Model {
 
 export class CreateResourcePackageResponseBody extends $tea.Model {
   code?: string;
+  data?: CreateResourcePackageResponseBodyData;
   message?: string;
+  orderId?: number;
   requestId?: string;
   success?: boolean;
-  orderId?: number;
-  data?: CreateResourcePackageResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      orderId: 'OrderId',
       requestId: 'RequestId',
       success: 'Success',
-      orderId: 'OrderId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: CreateResourcePackageResponseBodyData,
       message: 'string',
+      orderId: 'number',
       requestId: 'string',
       success: 'boolean',
-      orderId: 'number',
-      data: CreateResourcePackageResponseBodyData,
     };
   }
 
@@ -1044,10 +1080,12 @@ export class CreateResourcePackageResponseBody extends $tea.Model {
 
 export class CreateResourcePackageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateResourcePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1055,7 +1093,110 @@ export class CreateResourcePackageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateResourcePackageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlansInstanceRequest extends $tea.Model {
+  commodityCode?: string;
+  duration?: string;
+  effectiveDate?: string;
+  payMode?: string;
+  poolValue?: string;
+  pricingCycle?: string;
+  region?: string;
+  specType?: string;
+  specification?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      duration: 'Duration',
+      effectiveDate: 'EffectiveDate',
+      payMode: 'PayMode',
+      poolValue: 'PoolValue',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+      specType: 'SpecType',
+      specification: 'Specification',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      duration: 'string',
+      effectiveDate: 'string',
+      payMode: 'string',
+      poolValue: 'string',
+      pricingCycle: 'string',
+      region: 'string',
+      specType: 'string',
+      specification: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlansInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateSavingsPlansInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateSavingsPlansInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlansInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSavingsPlansInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSavingsPlansInstanceResponseBody,
     };
   }
 
@@ -1088,27 +1229,27 @@ export class DeleteCostUnitRequest extends $tea.Model {
 
 export class DeleteCostUnitResponseBody extends $tea.Model {
   code?: string;
+  data?: DeleteCostUnitResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DeleteCostUnitResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DeleteCostUnitResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DeleteCostUnitResponseBodyData,
     };
   }
 
@@ -1119,10 +1260,12 @@ export class DeleteCostUnitResponseBody extends $tea.Model {
 
 export class DeleteCostUnitResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1130,6 +1273,7 @@ export class DeleteCostUnitResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCostUnitResponseBody,
     };
   }
@@ -1140,52 +1284,52 @@ export class DeleteCostUnitResponse extends $tea.Model {
 }
 
 export class DescribeInstanceBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
+  billingDate?: string;
+  granularity?: string;
+  instanceID?: string;
+  isBillingItem?: boolean;
+  isHideZeroCharge?: boolean;
+  maxResults?: number;
+  nextToken?: string;
+  ownerId?: number;
   productCode?: string;
   productType?: string;
   subscriptionType?: string;
-  ownerId?: number;
-  isBillingItem?: boolean;
-  nextToken?: string;
-  maxResults?: number;
-  isHideZeroCharge?: boolean;
-  billingDate?: string;
-  granularity?: string;
-  billOwnerId?: number;
-  instanceID?: string;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
+      billingDate: 'BillingDate',
+      granularity: 'Granularity',
+      instanceID: 'InstanceID',
+      isBillingItem: 'IsBillingItem',
+      isHideZeroCharge: 'IsHideZeroCharge',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerId: 'OwnerId',
       productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
-      ownerId: 'OwnerId',
-      isBillingItem: 'IsBillingItem',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      isHideZeroCharge: 'IsHideZeroCharge',
-      billingDate: 'BillingDate',
-      granularity: 'Granularity',
-      billOwnerId: 'BillOwnerId',
-      instanceID: 'InstanceID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
+      billingDate: 'string',
+      granularity: 'string',
+      instanceID: 'string',
+      isBillingItem: 'boolean',
+      isHideZeroCharge: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerId: 'number',
       productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
-      ownerId: 'number',
-      isBillingItem: 'boolean',
-      nextToken: 'string',
-      maxResults: 'number',
-      isHideZeroCharge: 'boolean',
-      billingDate: 'string',
-      granularity: 'string',
-      billOwnerId: 'number',
-      instanceID: 'string',
     };
   }
 
@@ -1196,27 +1340,27 @@ export class DescribeInstanceBillRequest extends $tea.Model {
 
 export class DescribeInstanceBillResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeInstanceBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeInstanceBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeInstanceBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeInstanceBillResponseBodyData,
     };
   }
 
@@ -1227,10 +1371,12 @@ export class DescribeInstanceBillResponseBody extends $tea.Model {
 
 export class DescribeInstanceBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeInstanceBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1238,6 +1384,7 @@ export class DescribeInstanceBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceBillResponseBody,
     };
   }
@@ -1277,27 +1424,27 @@ export class DescribePricingModuleRequest extends $tea.Model {
 
 export class DescribePricingModuleResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribePricingModuleResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribePricingModuleResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribePricingModuleResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribePricingModuleResponseBodyData,
     };
   }
 
@@ -1308,10 +1455,12 @@ export class DescribePricingModuleResponseBody extends $tea.Model {
 
 export class DescribePricingModuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePricingModuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1319,6 +1468,7 @@ export class DescribePricingModuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePricingModuleResponseBody,
     };
   }
@@ -1329,34 +1479,34 @@ export class DescribePricingModuleResponse extends $tea.Model {
 }
 
 export class DescribeResourceCoverageDetailRequest extends $tea.Model {
-  startPeriod?: string;
-  endPeriod?: string;
-  periodType?: string;
-  nextToken?: string;
-  maxResults?: number;
   billOwnerId?: number;
+  endPeriod?: string;
+  maxResults?: number;
+  nextToken?: string;
+  periodType?: string;
   resourceType?: string;
+  startPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
-      endPeriod: 'EndPeriod',
-      periodType: 'PeriodType',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
       billOwnerId: 'BillOwnerId',
+      endPeriod: 'EndPeriod',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      periodType: 'PeriodType',
       resourceType: 'ResourceType',
+      startPeriod: 'StartPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
-      endPeriod: 'string',
-      periodType: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
       billOwnerId: 'number',
+      endPeriod: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      periodType: 'string',
       resourceType: 'string',
+      startPeriod: 'string',
     };
   }
 
@@ -1367,27 +1517,27 @@ export class DescribeResourceCoverageDetailRequest extends $tea.Model {
 
 export class DescribeResourceCoverageDetailResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeResourceCoverageDetailResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeResourceCoverageDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeResourceCoverageDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeResourceCoverageDetailResponseBodyData,
     };
   }
 
@@ -1398,10 +1548,12 @@ export class DescribeResourceCoverageDetailResponseBody extends $tea.Model {
 
 export class DescribeResourceCoverageDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeResourceCoverageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1409,6 +1561,7 @@ export class DescribeResourceCoverageDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeResourceCoverageDetailResponseBody,
     };
   }
@@ -1419,28 +1572,28 @@ export class DescribeResourceCoverageDetailResponse extends $tea.Model {
 }
 
 export class DescribeResourceCoverageTotalRequest extends $tea.Model {
-  startPeriod?: string;
+  billOwnerId?: number;
   endPeriod?: string;
   periodType?: string;
-  billOwnerId?: number;
   resourceType?: string;
+  startPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
+      billOwnerId: 'BillOwnerId',
       endPeriod: 'EndPeriod',
       periodType: 'PeriodType',
-      billOwnerId: 'BillOwnerId',
       resourceType: 'ResourceType',
+      startPeriod: 'StartPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
+      billOwnerId: 'number',
       endPeriod: 'string',
       periodType: 'string',
-      billOwnerId: 'number',
       resourceType: 'string',
+      startPeriod: 'string',
     };
   }
 
@@ -1451,27 +1604,27 @@ export class DescribeResourceCoverageTotalRequest extends $tea.Model {
 
 export class DescribeResourceCoverageTotalResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeResourceCoverageTotalResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeResourceCoverageTotalResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeResourceCoverageTotalResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeResourceCoverageTotalResponseBodyData,
     };
   }
 
@@ -1482,10 +1635,12 @@ export class DescribeResourceCoverageTotalResponseBody extends $tea.Model {
 
 export class DescribeResourceCoverageTotalResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeResourceCoverageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1493,6 +1648,7 @@ export class DescribeResourceCoverageTotalResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeResourceCoverageTotalResponseBody,
     };
   }
@@ -1523,30 +1679,30 @@ export class DescribeResourcePackageProductRequest extends $tea.Model {
 
 export class DescribeResourcePackageProductResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeResourcePackageProductResponseBodyData;
   message?: string;
+  orderId?: number;
   requestId?: string;
   success?: boolean;
-  orderId?: number;
-  data?: DescribeResourcePackageProductResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      orderId: 'OrderId',
       requestId: 'RequestId',
       success: 'Success',
-      orderId: 'OrderId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeResourcePackageProductResponseBodyData,
       message: 'string',
+      orderId: 'number',
       requestId: 'string',
       success: 'boolean',
-      orderId: 'number',
-      data: DescribeResourcePackageProductResponseBodyData,
     };
   }
 
@@ -1557,10 +1713,12 @@ export class DescribeResourcePackageProductResponseBody extends $tea.Model {
 
 export class DescribeResourcePackageProductResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeResourcePackageProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1568,6 +1726,7 @@ export class DescribeResourcePackageProductResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeResourcePackageProductResponseBody,
     };
   }
@@ -1578,34 +1737,34 @@ export class DescribeResourcePackageProductResponse extends $tea.Model {
 }
 
 export class DescribeResourceUsageDetailRequest extends $tea.Model {
-  startPeriod?: string;
-  endPeriod?: string;
-  periodType?: string;
-  nextToken?: string;
-  maxResults?: number;
   billOwnerId?: number;
+  endPeriod?: string;
+  maxResults?: number;
+  nextToken?: string;
+  periodType?: string;
   resourceType?: string;
+  startPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
-      endPeriod: 'EndPeriod',
-      periodType: 'PeriodType',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
       billOwnerId: 'BillOwnerId',
+      endPeriod: 'EndPeriod',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      periodType: 'PeriodType',
       resourceType: 'ResourceType',
+      startPeriod: 'StartPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
-      endPeriod: 'string',
-      periodType: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
       billOwnerId: 'number',
+      endPeriod: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      periodType: 'string',
       resourceType: 'string',
+      startPeriod: 'string',
     };
   }
 
@@ -1616,27 +1775,27 @@ export class DescribeResourceUsageDetailRequest extends $tea.Model {
 
 export class DescribeResourceUsageDetailResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeResourceUsageDetailResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeResourceUsageDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeResourceUsageDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeResourceUsageDetailResponseBodyData,
     };
   }
 
@@ -1647,10 +1806,12 @@ export class DescribeResourceUsageDetailResponseBody extends $tea.Model {
 
 export class DescribeResourceUsageDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeResourceUsageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1658,6 +1819,7 @@ export class DescribeResourceUsageDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeResourceUsageDetailResponseBody,
     };
   }
@@ -1668,28 +1830,28 @@ export class DescribeResourceUsageDetailResponse extends $tea.Model {
 }
 
 export class DescribeResourceUsageTotalRequest extends $tea.Model {
-  startPeriod?: string;
+  billOwnerId?: number;
   endPeriod?: string;
   periodType?: string;
-  billOwnerId?: number;
   resourceType?: string;
+  startPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
+      billOwnerId: 'BillOwnerId',
       endPeriod: 'EndPeriod',
       periodType: 'PeriodType',
-      billOwnerId: 'BillOwnerId',
       resourceType: 'ResourceType',
+      startPeriod: 'StartPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
+      billOwnerId: 'number',
       endPeriod: 'string',
       periodType: 'string',
-      billOwnerId: 'number',
       resourceType: 'string',
+      startPeriod: 'string',
     };
   }
 
@@ -1700,27 +1862,27 @@ export class DescribeResourceUsageTotalRequest extends $tea.Model {
 
 export class DescribeResourceUsageTotalResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeResourceUsageTotalResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeResourceUsageTotalResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeResourceUsageTotalResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeResourceUsageTotalResponseBodyData,
     };
   }
 
@@ -1731,10 +1893,12 @@ export class DescribeResourceUsageTotalResponseBody extends $tea.Model {
 
 export class DescribeResourceUsageTotalResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeResourceUsageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1742,6 +1906,7 @@ export class DescribeResourceUsageTotalResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeResourceUsageTotalResponseBody,
     };
   }
@@ -1752,31 +1917,31 @@ export class DescribeResourceUsageTotalResponse extends $tea.Model {
 }
 
 export class DescribeSavingsPlansCoverageDetailRequest extends $tea.Model {
-  startPeriod?: string;
-  endPeriod?: string;
-  periodType?: string;
-  token?: string;
-  maxResults?: number;
   billOwnerId?: number;
+  endPeriod?: string;
+  maxResults?: number;
+  periodType?: string;
+  startPeriod?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
-      endPeriod: 'EndPeriod',
-      periodType: 'PeriodType',
-      token: 'Token',
-      maxResults: 'MaxResults',
       billOwnerId: 'BillOwnerId',
+      endPeriod: 'EndPeriod',
+      maxResults: 'MaxResults',
+      periodType: 'PeriodType',
+      startPeriod: 'StartPeriod',
+      token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
-      endPeriod: 'string',
-      periodType: 'string',
-      token: 'string',
-      maxResults: 'number',
       billOwnerId: 'number',
+      endPeriod: 'string',
+      maxResults: 'number',
+      periodType: 'string',
+      startPeriod: 'string',
+      token: 'string',
     };
   }
 
@@ -1787,27 +1952,27 @@ export class DescribeSavingsPlansCoverageDetailRequest extends $tea.Model {
 
 export class DescribeSavingsPlansCoverageDetailResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeSavingsPlansCoverageDetailResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeSavingsPlansCoverageDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeSavingsPlansCoverageDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeSavingsPlansCoverageDetailResponseBodyData,
     };
   }
 
@@ -1818,10 +1983,12 @@ export class DescribeSavingsPlansCoverageDetailResponseBody extends $tea.Model {
 
 export class DescribeSavingsPlansCoverageDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSavingsPlansCoverageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1829,6 +1996,7 @@ export class DescribeSavingsPlansCoverageDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSavingsPlansCoverageDetailResponseBody,
     };
   }
@@ -1839,25 +2007,25 @@ export class DescribeSavingsPlansCoverageDetailResponse extends $tea.Model {
 }
 
 export class DescribeSavingsPlansCoverageTotalRequest extends $tea.Model {
-  startPeriod?: string;
+  billOwnerId?: number;
   endPeriod?: string;
   periodType?: string;
-  billOwnerId?: number;
+  startPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
+      billOwnerId: 'BillOwnerId',
       endPeriod: 'EndPeriod',
       periodType: 'PeriodType',
-      billOwnerId: 'BillOwnerId',
+      startPeriod: 'StartPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
+      billOwnerId: 'number',
       endPeriod: 'string',
       periodType: 'string',
-      billOwnerId: 'number',
+      startPeriod: 'string',
     };
   }
 
@@ -1868,27 +2036,27 @@ export class DescribeSavingsPlansCoverageTotalRequest extends $tea.Model {
 
 export class DescribeSavingsPlansCoverageTotalResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeSavingsPlansCoverageTotalResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeSavingsPlansCoverageTotalResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeSavingsPlansCoverageTotalResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeSavingsPlansCoverageTotalResponseBodyData,
     };
   }
 
@@ -1899,10 +2067,12 @@ export class DescribeSavingsPlansCoverageTotalResponseBody extends $tea.Model {
 
 export class DescribeSavingsPlansCoverageTotalResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSavingsPlansCoverageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1910,6 +2080,7 @@ export class DescribeSavingsPlansCoverageTotalResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSavingsPlansCoverageTotalResponseBody,
     };
   }
@@ -1920,31 +2091,31 @@ export class DescribeSavingsPlansCoverageTotalResponse extends $tea.Model {
 }
 
 export class DescribeSavingsPlansUsageDetailRequest extends $tea.Model {
-  startPeriod?: string;
-  endPeriod?: string;
-  periodType?: string;
-  token?: string;
-  maxResults?: number;
   billOwnerId?: number;
+  endPeriod?: string;
+  maxResults?: number;
+  periodType?: string;
+  startPeriod?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
-      endPeriod: 'EndPeriod',
-      periodType: 'PeriodType',
-      token: 'Token',
-      maxResults: 'MaxResults',
       billOwnerId: 'BillOwnerId',
+      endPeriod: 'EndPeriod',
+      maxResults: 'MaxResults',
+      periodType: 'PeriodType',
+      startPeriod: 'StartPeriod',
+      token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
-      endPeriod: 'string',
-      periodType: 'string',
-      token: 'string',
-      maxResults: 'number',
       billOwnerId: 'number',
+      endPeriod: 'string',
+      maxResults: 'number',
+      periodType: 'string',
+      startPeriod: 'string',
+      token: 'string',
     };
   }
 
@@ -1955,27 +2126,27 @@ export class DescribeSavingsPlansUsageDetailRequest extends $tea.Model {
 
 export class DescribeSavingsPlansUsageDetailResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeSavingsPlansUsageDetailResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeSavingsPlansUsageDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeSavingsPlansUsageDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeSavingsPlansUsageDetailResponseBodyData,
     };
   }
 
@@ -1986,10 +2157,12 @@ export class DescribeSavingsPlansUsageDetailResponseBody extends $tea.Model {
 
 export class DescribeSavingsPlansUsageDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSavingsPlansUsageDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1997,6 +2170,7 @@ export class DescribeSavingsPlansUsageDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSavingsPlansUsageDetailResponseBody,
     };
   }
@@ -2007,25 +2181,25 @@ export class DescribeSavingsPlansUsageDetailResponse extends $tea.Model {
 }
 
 export class DescribeSavingsPlansUsageTotalRequest extends $tea.Model {
-  startPeriod?: string;
+  billOwnerId?: number;
   endPeriod?: string;
   periodType?: string;
-  billOwnerId?: number;
+  startPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      startPeriod: 'StartPeriod',
+      billOwnerId: 'BillOwnerId',
       endPeriod: 'EndPeriod',
       periodType: 'PeriodType',
-      billOwnerId: 'BillOwnerId',
+      startPeriod: 'StartPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startPeriod: 'string',
+      billOwnerId: 'number',
       endPeriod: 'string',
       periodType: 'string',
-      billOwnerId: 'number',
+      startPeriod: 'string',
     };
   }
 
@@ -2036,27 +2210,27 @@ export class DescribeSavingsPlansUsageTotalRequest extends $tea.Model {
 
 export class DescribeSavingsPlansUsageTotalResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeSavingsPlansUsageTotalResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeSavingsPlansUsageTotalResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeSavingsPlansUsageTotalResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeSavingsPlansUsageTotalResponseBodyData,
     };
   }
 
@@ -2067,10 +2241,12 @@ export class DescribeSavingsPlansUsageTotalResponseBody extends $tea.Model {
 
 export class DescribeSavingsPlansUsageTotalResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSavingsPlansUsageTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2078,6 +2254,7 @@ export class DescribeSavingsPlansUsageTotalResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSavingsPlansUsageTotalResponseBody,
     };
   }
@@ -2088,51 +2265,51 @@ export class DescribeSavingsPlansUsageTotalResponse extends $tea.Model {
 }
 
 export class DescribeSplitItemBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
+  billingDate?: string;
+  granularity?: string;
+  instanceID?: string;
+  maxResults?: number;
+  nextToken?: string;
+  ownerId?: number;
   productCode?: string;
   productType?: string;
-  subscriptionType?: string;
-  ownerId?: number;
-  nextToken?: string;
-  maxResults?: number;
-  billOwnerId?: number;
-  instanceID?: string;
   splitItemID?: string;
-  granularity?: string;
-  billingDate?: string;
+  subscriptionType?: string;
   tagFilter?: DescribeSplitItemBillRequestTagFilter[];
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
+      billingDate: 'BillingDate',
+      granularity: 'Granularity',
+      instanceID: 'InstanceID',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerId: 'OwnerId',
       productCode: 'ProductCode',
       productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
-      ownerId: 'OwnerId',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      billOwnerId: 'BillOwnerId',
-      instanceID: 'InstanceID',
       splitItemID: 'SplitItemID',
-      granularity: 'Granularity',
-      billingDate: 'BillingDate',
+      subscriptionType: 'SubscriptionType',
       tagFilter: 'TagFilter',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
+      billingDate: 'string',
+      granularity: 'string',
+      instanceID: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerId: 'number',
       productCode: 'string',
       productType: 'string',
-      subscriptionType: 'string',
-      ownerId: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      billOwnerId: 'number',
-      instanceID: 'string',
       splitItemID: 'string',
-      granularity: 'string',
-      billingDate: 'string',
+      subscriptionType: 'string',
       tagFilter: { 'type': 'array', 'itemType': DescribeSplitItemBillRequestTagFilter },
     };
   }
@@ -2144,27 +2321,27 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
 
 export class DescribeSplitItemBillResponseBody extends $tea.Model {
   code?: string;
+  data?: DescribeSplitItemBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: DescribeSplitItemBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DescribeSplitItemBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: DescribeSplitItemBillResponseBodyData,
     };
   }
 
@@ -2175,10 +2352,12 @@ export class DescribeSplitItemBillResponseBody extends $tea.Model {
 
 export class DescribeSplitItemBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSplitItemBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2186,6 +2365,7 @@ export class DescribeSplitItemBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSplitItemBillResponseBody,
     };
   }
@@ -2196,19 +2376,19 @@ export class DescribeSplitItemBillResponse extends $tea.Model {
 }
 
 export class EnableBillGenerationRequest extends $tea.Model {
-  productCode?: string;
   ownerId?: number;
+  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
       ownerId: 'OwnerId',
+      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productCode: 'string',
       ownerId: 'number',
+      productCode: 'string',
     };
   }
 
@@ -2219,27 +2399,27 @@ export class EnableBillGenerationRequest extends $tea.Model {
 
 export class EnableBillGenerationResponseBody extends $tea.Model {
   code?: string;
+  data?: EnableBillGenerationResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: EnableBillGenerationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: EnableBillGenerationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: EnableBillGenerationResponseBodyData,
     };
   }
 
@@ -2250,10 +2430,12 @@ export class EnableBillGenerationResponseBody extends $tea.Model {
 
 export class EnableBillGenerationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableBillGenerationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2261,7 +2443,86 @@ export class EnableBillGenerationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableBillGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountRelationRequest extends $tea.Model {
+  relationId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relationId: 'RelationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relationId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountRelationResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAccountRelationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAccountRelationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccountRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountRelationResponseBody,
     };
   }
 
@@ -2291,27 +2552,27 @@ export class GetCustomerAccountInfoRequest extends $tea.Model {
 
 export class GetCustomerAccountInfoResponseBody extends $tea.Model {
   code?: string;
+  data?: GetCustomerAccountInfoResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: GetCustomerAccountInfoResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: GetCustomerAccountInfoResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: GetCustomerAccountInfoResponseBodyData,
     };
   }
 
@@ -2322,10 +2583,12 @@ export class GetCustomerAccountInfoResponseBody extends $tea.Model {
 
 export class GetCustomerAccountInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCustomerAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2333,6 +2596,7 @@ export class GetCustomerAccountInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCustomerAccountInfoResponseBody,
     };
   }
@@ -2344,27 +2608,27 @@ export class GetCustomerAccountInfoResponse extends $tea.Model {
 
 export class GetCustomerListResponseBody extends $tea.Model {
   code?: string;
+  data?: GetCustomerListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: GetCustomerListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: GetCustomerListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: GetCustomerListResponseBodyData,
     };
   }
 
@@ -2375,10 +2639,12 @@ export class GetCustomerListResponseBody extends $tea.Model {
 
 export class GetCustomerListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCustomerListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2386,6 +2652,7 @@ export class GetCustomerListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCustomerListResponseBody,
     };
   }
@@ -2419,27 +2686,27 @@ export class GetOrderDetailRequest extends $tea.Model {
 
 export class GetOrderDetailResponseBody extends $tea.Model {
   code?: string;
+  data?: GetOrderDetailResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: GetOrderDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: GetOrderDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: GetOrderDetailResponseBodyData,
     };
   }
 
@@ -2450,10 +2717,12 @@ export class GetOrderDetailResponseBody extends $tea.Model {
 
 export class GetOrderDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetOrderDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2461,6 +2730,7 @@ export class GetOrderDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetOrderDetailResponseBody,
     };
   }
@@ -2471,31 +2741,31 @@ export class GetOrderDetailResponse extends $tea.Model {
 }
 
 export class GetPayAsYouGoPriceRequest extends $tea.Model {
+  moduleList?: GetPayAsYouGoPriceRequestModuleList[];
   ownerId?: number;
   productCode?: string;
   productType?: string;
-  subscriptionType?: string;
   region?: string;
-  moduleList?: GetPayAsYouGoPriceRequestModuleList[];
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
+      moduleList: 'ModuleList',
       ownerId: 'OwnerId',
       productCode: 'ProductCode',
       productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
       region: 'Region',
-      moduleList: 'ModuleList',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      moduleList: { 'type': 'array', 'itemType': GetPayAsYouGoPriceRequestModuleList },
       ownerId: 'number',
       productCode: 'string',
       productType: 'string',
-      subscriptionType: 'string',
       region: 'string',
-      moduleList: { 'type': 'array', 'itemType': GetPayAsYouGoPriceRequestModuleList },
+      subscriptionType: 'string',
     };
   }
 
@@ -2506,27 +2776,27 @@ export class GetPayAsYouGoPriceRequest extends $tea.Model {
 
 export class GetPayAsYouGoPriceResponseBody extends $tea.Model {
   code?: string;
+  data?: GetPayAsYouGoPriceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: GetPayAsYouGoPriceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: GetPayAsYouGoPriceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: GetPayAsYouGoPriceResponseBodyData,
     };
   }
 
@@ -2537,10 +2807,12 @@ export class GetPayAsYouGoPriceResponseBody extends $tea.Model {
 
 export class GetPayAsYouGoPriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPayAsYouGoPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2548,6 +2820,7 @@ export class GetPayAsYouGoPriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPayAsYouGoPriceResponseBody,
     };
   }
@@ -2558,40 +2831,40 @@ export class GetPayAsYouGoPriceResponse extends $tea.Model {
 }
 
 export class GetResourcePackagePriceRequest extends $tea.Model {
-  ownerId?: number;
-  productCode?: string;
-  packageType?: string;
-  effectiveDate?: string;
-  specification?: string;
   duration?: number;
-  pricingCycle?: string;
-  orderType?: string;
+  effectiveDate?: string;
   instanceId?: string;
+  orderType?: string;
+  ownerId?: number;
+  packageType?: string;
+  pricingCycle?: string;
+  productCode?: string;
+  specification?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      productCode: 'ProductCode',
-      packageType: 'PackageType',
-      effectiveDate: 'EffectiveDate',
-      specification: 'Specification',
       duration: 'Duration',
-      pricingCycle: 'PricingCycle',
-      orderType: 'OrderType',
+      effectiveDate: 'EffectiveDate',
       instanceId: 'InstanceId',
+      orderType: 'OrderType',
+      ownerId: 'OwnerId',
+      packageType: 'PackageType',
+      pricingCycle: 'PricingCycle',
+      productCode: 'ProductCode',
+      specification: 'Specification',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      productCode: 'string',
-      packageType: 'string',
-      effectiveDate: 'string',
-      specification: 'string',
       duration: 'number',
-      pricingCycle: 'string',
-      orderType: 'string',
+      effectiveDate: 'string',
       instanceId: 'string',
+      orderType: 'string',
+      ownerId: 'number',
+      packageType: 'string',
+      pricingCycle: 'string',
+      productCode: 'string',
+      specification: 'string',
     };
   }
 
@@ -2602,27 +2875,27 @@ export class GetResourcePackagePriceRequest extends $tea.Model {
 
 export class GetResourcePackagePriceResponseBody extends $tea.Model {
   code?: string;
+  data?: GetResourcePackagePriceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: GetResourcePackagePriceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: GetResourcePackagePriceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: GetResourcePackagePriceResponseBodyData,
     };
   }
 
@@ -2633,10 +2906,12 @@ export class GetResourcePackagePriceResponseBody extends $tea.Model {
 
 export class GetResourcePackagePriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetResourcePackagePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2644,6 +2919,7 @@ export class GetResourcePackagePriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetResourcePackagePriceResponseBody,
     };
   }
@@ -2654,46 +2930,46 @@ export class GetResourcePackagePriceResponse extends $tea.Model {
 }
 
 export class GetSubscriptionPriceRequest extends $tea.Model {
-  servicePeriodUnit?: string;
-  subscriptionType?: string;
+  instanceId?: string;
+  moduleList?: GetSubscriptionPriceRequestModuleList[];
+  orderType?: string;
   ownerId?: number;
   productCode?: string;
-  orderType?: string;
-  servicePeriodQuantity?: number;
   productType?: string;
-  region?: string;
-  instanceId?: string;
   quantity?: number;
-  moduleList?: GetSubscriptionPriceRequestModuleList[];
+  region?: string;
+  servicePeriodQuantity?: number;
+  servicePeriodUnit?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      servicePeriodUnit: 'ServicePeriodUnit',
-      subscriptionType: 'SubscriptionType',
+      instanceId: 'InstanceId',
+      moduleList: 'ModuleList',
+      orderType: 'OrderType',
       ownerId: 'OwnerId',
       productCode: 'ProductCode',
-      orderType: 'OrderType',
-      servicePeriodQuantity: 'ServicePeriodQuantity',
       productType: 'ProductType',
-      region: 'Region',
-      instanceId: 'InstanceId',
       quantity: 'Quantity',
-      moduleList: 'ModuleList',
+      region: 'Region',
+      servicePeriodQuantity: 'ServicePeriodQuantity',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      servicePeriodUnit: 'string',
-      subscriptionType: 'string',
+      instanceId: 'string',
+      moduleList: { 'type': 'array', 'itemType': GetSubscriptionPriceRequestModuleList },
+      orderType: 'string',
       ownerId: 'number',
       productCode: 'string',
-      orderType: 'string',
-      servicePeriodQuantity: 'number',
       productType: 'string',
-      region: 'string',
-      instanceId: 'string',
       quantity: 'number',
-      moduleList: { 'type': 'array', 'itemType': GetSubscriptionPriceRequestModuleList },
+      region: 'string',
+      servicePeriodQuantity: 'number',
+      servicePeriodUnit: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -2704,27 +2980,27 @@ export class GetSubscriptionPriceRequest extends $tea.Model {
 
 export class GetSubscriptionPriceResponseBody extends $tea.Model {
   code?: string;
+  data?: GetSubscriptionPriceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: GetSubscriptionPriceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: GetSubscriptionPriceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: GetSubscriptionPriceResponseBodyData,
     };
   }
 
@@ -2735,10 +3011,12 @@ export class GetSubscriptionPriceResponseBody extends $tea.Model {
 
 export class GetSubscriptionPriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSubscriptionPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2746,6 +3024,7 @@ export class GetSubscriptionPriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSubscriptionPriceResponseBody,
     };
   }
@@ -2755,38 +3034,125 @@ export class GetSubscriptionPriceResponse extends $tea.Model {
   }
 }
 
-export class ModifyAccountRelationRequest extends $tea.Model {
-  relationType?: string;
-  relationOperation?: string;
-  parentUserId?: number;
-  childNick?: string;
-  childUserId?: number;
-  requestId?: string;
-  roleCodes?: string[];
-  permissionCodes?: string[];
+export class InquiryPriceRefundInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  instanceId?: string;
+  productCode?: string;
+  productType?: string;
   static names(): { [key: string]: string } {
     return {
-      relationType: 'RelationType',
-      relationOperation: 'RelationOperation',
-      parentUserId: 'ParentUserId',
-      childNick: 'ChildNick',
-      childUserId: 'ChildUserId',
-      requestId: 'RequestId',
-      roleCodes: 'RoleCodes',
-      permissionCodes: 'PermissionCodes',
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      relationType: 'string',
-      relationOperation: 'string',
-      parentUserId: 'number',
+      clientToken: 'string',
+      instanceId: 'string',
+      productCode: 'string',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InquiryPriceRefundInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: InquiryPriceRefundInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: InquiryPriceRefundInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InquiryPriceRefundInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InquiryPriceRefundInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InquiryPriceRefundInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountRelationRequest extends $tea.Model {
+  childNick?: string;
+  childUserId?: number;
+  parentUserId?: number;
+  permissionCodes?: string[];
+  relationId?: number;
+  relationOperation?: string;
+  relationType?: string;
+  requestId?: string;
+  roleCodes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      childNick: 'ChildNick',
+      childUserId: 'ChildUserId',
+      parentUserId: 'ParentUserId',
+      permissionCodes: 'PermissionCodes',
+      relationId: 'RelationId',
+      relationOperation: 'RelationOperation',
+      relationType: 'RelationType',
+      requestId: 'RequestId',
+      roleCodes: 'RoleCodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       childNick: 'string',
       childUserId: 'number',
+      parentUserId: 'number',
+      permissionCodes: { 'type': 'array', 'itemType': 'string' },
+      relationId: 'number',
+      relationOperation: 'string',
+      relationType: 'string',
       requestId: 'string',
       roleCodes: { 'type': 'array', 'itemType': 'string' },
-      permissionCodes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2797,27 +3163,27 @@ export class ModifyAccountRelationRequest extends $tea.Model {
 
 export class ModifyAccountRelationResponseBody extends $tea.Model {
   code?: string;
+  data?: ModifyAccountRelationResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: ModifyAccountRelationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: ModifyAccountRelationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: ModifyAccountRelationResponseBodyData,
     };
   }
 
@@ -2828,10 +3194,12 @@ export class ModifyAccountRelationResponseBody extends $tea.Model {
 
 export class ModifyAccountRelationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2839,6 +3207,7 @@ export class ModifyAccountRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAccountRelationResponseBody,
     };
   }
@@ -2869,27 +3238,27 @@ export class ModifyCostUnitRequest extends $tea.Model {
 
 export class ModifyCostUnitResponseBody extends $tea.Model {
   code?: string;
+  data?: ModifyCostUnitResponseBodyData[];
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: ModifyCostUnitResponseBodyData[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: { 'type': 'array', 'itemType': ModifyCostUnitResponseBodyData },
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: { 'type': 'array', 'itemType': ModifyCostUnitResponseBodyData },
     };
   }
 
@@ -2900,10 +3269,12 @@ export class ModifyCostUnitResponseBody extends $tea.Model {
 
 export class ModifyCostUnitResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2911,6 +3282,7 @@ export class ModifyCostUnitResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyCostUnitResponseBody,
     };
   }
@@ -2921,37 +3293,37 @@ export class ModifyCostUnitResponse extends $tea.Model {
 }
 
 export class ModifyInstanceRequest extends $tea.Model {
-  productCode?: string;
+  clientToken?: string;
+  instanceId?: string;
+  modifyType?: string;
   ownerId?: number;
+  parameter?: ModifyInstanceRequestParameter[];
+  productCode?: string;
   productType?: string;
   subscriptionType?: string;
-  modifyType?: string;
-  instanceId?: string;
-  clientToken?: string;
-  parameter?: ModifyInstanceRequestParameter[];
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      modifyType: 'ModifyType',
       ownerId: 'OwnerId',
+      parameter: 'Parameter',
+      productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
-      modifyType: 'ModifyType',
-      instanceId: 'InstanceId',
-      clientToken: 'ClientToken',
-      parameter: 'Parameter',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productCode: 'string',
+      clientToken: 'string',
+      instanceId: 'string',
+      modifyType: 'string',
       ownerId: 'number',
+      parameter: { 'type': 'array', 'itemType': ModifyInstanceRequestParameter },
+      productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
-      modifyType: 'string',
-      instanceId: 'string',
-      clientToken: 'string',
-      parameter: { 'type': 'array', 'itemType': ModifyInstanceRequestParameter },
     };
   }
 
@@ -2962,27 +3334,27 @@ export class ModifyInstanceRequest extends $tea.Model {
 
 export class ModifyInstanceResponseBody extends $tea.Model {
   code?: string;
+  data?: ModifyInstanceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: ModifyInstanceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: ModifyInstanceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: ModifyInstanceResponseBodyData,
     };
   }
 
@@ -2993,10 +3365,12 @@ export class ModifyInstanceResponseBody extends $tea.Model {
 
 export class ModifyInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3004,6 +3378,7 @@ export class ModifyInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyInstanceResponseBody,
     };
   }
@@ -3015,27 +3390,27 @@ export class ModifyInstanceResponse extends $tea.Model {
 
 export class QueryAccountBalanceResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryAccountBalanceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryAccountBalanceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryAccountBalanceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryAccountBalanceResponseBodyData,
     };
   }
 
@@ -3046,10 +3421,12 @@ export class QueryAccountBalanceResponseBody extends $tea.Model {
 
 export class QueryAccountBalanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryAccountBalanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3057,6 +3434,7 @@ export class QueryAccountBalanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryAccountBalanceResponseBody,
     };
   }
@@ -3067,40 +3445,40 @@ export class QueryAccountBalanceResponse extends $tea.Model {
 }
 
 export class QueryAccountBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
+  billingDate?: string;
+  granularity?: string;
+  isGroupByProduct?: boolean;
+  ownerID?: number;
   pageNum?: number;
   pageSize?: number;
-  ownerID?: number;
-  isGroupByProduct?: boolean;
   productCode?: string;
-  billOwnerId?: number;
-  granularity?: string;
-  billingDate?: string;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
+      billingDate: 'BillingDate',
+      granularity: 'Granularity',
+      isGroupByProduct: 'IsGroupByProduct',
+      ownerID: 'OwnerID',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      ownerID: 'OwnerID',
-      isGroupByProduct: 'IsGroupByProduct',
       productCode: 'ProductCode',
-      billOwnerId: 'BillOwnerId',
-      granularity: 'Granularity',
-      billingDate: 'BillingDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
+      billingDate: 'string',
+      granularity: 'string',
+      isGroupByProduct: 'boolean',
+      ownerID: 'number',
       pageNum: 'number',
       pageSize: 'number',
-      ownerID: 'number',
-      isGroupByProduct: 'boolean',
       productCode: 'string',
-      billOwnerId: 'number',
-      granularity: 'string',
-      billingDate: 'string',
     };
   }
 
@@ -3111,27 +3489,27 @@ export class QueryAccountBillRequest extends $tea.Model {
 
 export class QueryAccountBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryAccountBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryAccountBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryAccountBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryAccountBillResponseBodyData,
     };
   }
 
@@ -3142,10 +3520,12 @@ export class QueryAccountBillResponseBody extends $tea.Model {
 
 export class QueryAccountBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryAccountBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3153,6 +3533,7 @@ export class QueryAccountBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryAccountBillResponseBody,
     };
   }
@@ -3163,40 +3544,40 @@ export class QueryAccountBillResponse extends $tea.Model {
 }
 
 export class QueryAccountTransactionDetailsRequest extends $tea.Model {
-  transactionNumber?: string;
-  recordID?: string;
-  transactionChannelSN?: string;
-  createTimeStart?: string;
   createTimeEnd?: string;
-  transactionType?: string;
-  transactionChannel?: string;
-  nextToken?: string;
+  createTimeStart?: string;
   maxResults?: number;
+  nextToken?: string;
+  recordID?: string;
+  transactionChannel?: string;
+  transactionChannelSN?: string;
+  transactionNumber?: string;
+  transactionType?: string;
   static names(): { [key: string]: string } {
     return {
-      transactionNumber: 'TransactionNumber',
-      recordID: 'RecordID',
-      transactionChannelSN: 'TransactionChannelSN',
-      createTimeStart: 'CreateTimeStart',
       createTimeEnd: 'CreateTimeEnd',
-      transactionType: 'TransactionType',
-      transactionChannel: 'TransactionChannel',
-      nextToken: 'NextToken',
+      createTimeStart: 'CreateTimeStart',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      recordID: 'RecordID',
+      transactionChannel: 'TransactionChannel',
+      transactionChannelSN: 'TransactionChannelSN',
+      transactionNumber: 'TransactionNumber',
+      transactionType: 'TransactionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      transactionNumber: 'string',
-      recordID: 'string',
-      transactionChannelSN: 'string',
-      createTimeStart: 'string',
       createTimeEnd: 'string',
-      transactionType: 'string',
-      transactionChannel: 'string',
-      nextToken: 'string',
+      createTimeStart: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      recordID: 'string',
+      transactionChannel: 'string',
+      transactionChannelSN: 'string',
+      transactionNumber: 'string',
+      transactionType: 'string',
     };
   }
 
@@ -3207,27 +3588,27 @@ export class QueryAccountTransactionDetailsRequest extends $tea.Model {
 
 export class QueryAccountTransactionDetailsResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryAccountTransactionDetailsResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryAccountTransactionDetailsResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryAccountTransactionDetailsResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryAccountTransactionDetailsResponseBodyData,
     };
   }
 
@@ -3238,10 +3619,12 @@ export class QueryAccountTransactionDetailsResponseBody extends $tea.Model {
 
 export class QueryAccountTransactionDetailsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryAccountTransactionDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3249,6 +3632,7 @@ export class QueryAccountTransactionDetailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryAccountTransactionDetailsResponseBody,
     };
   }
@@ -3259,34 +3643,43 @@ export class QueryAccountTransactionDetailsResponse extends $tea.Model {
 }
 
 export class QueryAccountTransactionsRequest extends $tea.Model {
-  transactionNumber?: string;
-  recordID?: string;
-  transactionChannelSN?: string;
-  createTimeStart?: string;
   createTimeEnd?: string;
+  createTimeStart?: string;
   pageNum?: number;
   pageSize?: number;
+  recordID?: string;
+  transactionChannel?: string;
+  transactionChannelSN?: string;
+  transactionFlow?: string;
+  transactionNumber?: string;
+  transactionType?: string;
   static names(): { [key: string]: string } {
     return {
-      transactionNumber: 'TransactionNumber',
-      recordID: 'RecordID',
-      transactionChannelSN: 'TransactionChannelSN',
-      createTimeStart: 'CreateTimeStart',
       createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      recordID: 'RecordID',
+      transactionChannel: 'TransactionChannel',
+      transactionChannelSN: 'TransactionChannelSN',
+      transactionFlow: 'TransactionFlow',
+      transactionNumber: 'TransactionNumber',
+      transactionType: 'TransactionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      transactionNumber: 'string',
-      recordID: 'string',
-      transactionChannelSN: 'string',
-      createTimeStart: 'string',
       createTimeEnd: 'string',
+      createTimeStart: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      recordID: 'string',
+      transactionChannel: 'string',
+      transactionChannelSN: 'string',
+      transactionFlow: 'string',
+      transactionNumber: 'string',
+      transactionType: 'string',
     };
   }
 
@@ -3297,27 +3690,27 @@ export class QueryAccountTransactionsRequest extends $tea.Model {
 
 export class QueryAccountTransactionsResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryAccountTransactionsResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryAccountTransactionsResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryAccountTransactionsResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryAccountTransactionsResponseBodyData,
     };
   }
 
@@ -3328,10 +3721,12 @@ export class QueryAccountTransactionsResponseBody extends $tea.Model {
 
 export class QueryAccountTransactionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryAccountTransactionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3339,6 +3734,7 @@ export class QueryAccountTransactionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryAccountTransactionsResponseBody,
     };
   }
@@ -3349,52 +3745,52 @@ export class QueryAccountTransactionsResponse extends $tea.Model {
 }
 
 export class QueryAvailableInstancesRequest extends $tea.Model {
-  region?: string;
+  createTimeEnd?: string;
+  createTimeStart?: string;
+  endTimeEnd?: string;
+  endTimeStart?: string;
+  instanceIDs?: string;
   ownerId?: number;
   pageNum?: number;
   pageSize?: number;
   productCode?: string;
   productType?: string;
-  subscriptionType?: string;
-  instanceIDs?: string;
-  endTimeStart?: string;
-  endTimeEnd?: string;
-  createTimeStart?: string;
-  createTimeEnd?: string;
+  region?: string;
   renewStatus?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      endTimeEnd: 'EndTimeEnd',
+      endTimeStart: 'EndTimeStart',
+      instanceIDs: 'InstanceIDs',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       productCode: 'ProductCode',
       productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
-      instanceIDs: 'InstanceIDs',
-      endTimeStart: 'EndTimeStart',
-      endTimeEnd: 'EndTimeEnd',
-      createTimeStart: 'CreateTimeStart',
-      createTimeEnd: 'CreateTimeEnd',
+      region: 'Region',
       renewStatus: 'RenewStatus',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
+      createTimeEnd: 'string',
+      createTimeStart: 'string',
+      endTimeEnd: 'string',
+      endTimeStart: 'string',
+      instanceIDs: 'string',
       ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
       productCode: 'string',
       productType: 'string',
-      subscriptionType: 'string',
-      instanceIDs: 'string',
-      endTimeStart: 'string',
-      endTimeEnd: 'string',
-      createTimeStart: 'string',
-      createTimeEnd: 'string',
+      region: 'string',
       renewStatus: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -3405,27 +3801,27 @@ export class QueryAvailableInstancesRequest extends $tea.Model {
 
 export class QueryAvailableInstancesResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryAvailableInstancesResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryAvailableInstancesResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryAvailableInstancesResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryAvailableInstancesResponseBodyData,
     };
   }
 
@@ -3436,10 +3832,12 @@ export class QueryAvailableInstancesResponseBody extends $tea.Model {
 
 export class QueryAvailableInstancesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryAvailableInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3447,6 +3845,7 @@ export class QueryAvailableInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryAvailableInstancesResponseBody,
     };
   }
@@ -3457,46 +3856,46 @@ export class QueryAvailableInstancesResponse extends $tea.Model {
 }
 
 export class QueryBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
-  type?: string;
-  productCode?: string;
-  productType?: string;
-  subscriptionType?: string;
-  isHideZeroCharge?: boolean;
   isDisplayLocalCurrency?: boolean;
+  isHideZeroCharge?: boolean;
   ownerId?: number;
   pageNum?: number;
   pageSize?: number;
-  billOwnerId?: number;
+  productCode?: string;
+  productType?: string;
+  subscriptionType?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
-      type: 'Type',
-      productCode: 'ProductCode',
-      productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
-      isHideZeroCharge: 'IsHideZeroCharge',
       isDisplayLocalCurrency: 'IsDisplayLocalCurrency',
+      isHideZeroCharge: 'IsHideZeroCharge',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      billOwnerId: 'BillOwnerId',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      subscriptionType: 'SubscriptionType',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
-      type: 'string',
-      productCode: 'string',
-      productType: 'string',
-      subscriptionType: 'string',
-      isHideZeroCharge: 'boolean',
       isDisplayLocalCurrency: 'boolean',
+      isHideZeroCharge: 'boolean',
       ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
-      billOwnerId: 'number',
+      productCode: 'string',
+      productType: 'string',
+      subscriptionType: 'string',
+      type: 'string',
     };
   }
 
@@ -3507,27 +3906,27 @@ export class QueryBillRequest extends $tea.Model {
 
 export class QueryBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryBillResponseBodyData,
     };
   }
 
@@ -3538,10 +3937,12 @@ export class QueryBillResponseBody extends $tea.Model {
 
 export class QueryBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3549,6 +3950,7 @@ export class QueryBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryBillResponseBody,
     };
   }
@@ -3559,28 +3961,28 @@ export class QueryBillResponse extends $tea.Model {
 }
 
 export class QueryBillOverviewRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
   productCode?: string;
   productType?: string;
   subscriptionType?: string;
-  billOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
       productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
-      billOwnerId: 'BillOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
       productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
-      billOwnerId: 'number',
     };
   }
 
@@ -3591,27 +3993,27 @@ export class QueryBillOverviewRequest extends $tea.Model {
 
 export class QueryBillOverviewResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryBillOverviewResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryBillOverviewResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryBillOverviewResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryBillOverviewResponseBodyData,
     };
   }
 
@@ -3622,10 +4024,12 @@ export class QueryBillOverviewResponseBody extends $tea.Model {
 
 export class QueryBillOverviewResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryBillOverviewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3633,6 +4037,7 @@ export class QueryBillOverviewResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryBillOverviewResponseBody,
     };
   }
@@ -3644,27 +4049,27 @@ export class QueryBillOverviewResponse extends $tea.Model {
 
 export class QueryBillToOSSSubscriptionResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryBillToOSSSubscriptionResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryBillToOSSSubscriptionResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryBillToOSSSubscriptionResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryBillToOSSSubscriptionResponseBodyData,
     };
   }
 
@@ -3675,10 +4080,12 @@ export class QueryBillToOSSSubscriptionResponseBody extends $tea.Model {
 
 export class QueryBillToOSSSubscriptionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryBillToOSSSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3686,6 +4093,7 @@ export class QueryBillToOSSSubscriptionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryBillToOSSSubscriptionResponseBody,
     };
   }
@@ -3696,22 +4104,22 @@ export class QueryBillToOSSSubscriptionResponse extends $tea.Model {
 }
 
 export class QueryCashCouponsRequest extends $tea.Model {
+  effectiveOrNot?: boolean;
   expiryTimeEnd?: string;
   expiryTimeStart?: string;
-  effectiveOrNot?: boolean;
   static names(): { [key: string]: string } {
     return {
+      effectiveOrNot: 'EffectiveOrNot',
       expiryTimeEnd: 'ExpiryTimeEnd',
       expiryTimeStart: 'ExpiryTimeStart',
-      effectiveOrNot: 'EffectiveOrNot',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      effectiveOrNot: 'boolean',
       expiryTimeEnd: 'string',
       expiryTimeStart: 'string',
-      effectiveOrNot: 'boolean',
     };
   }
 
@@ -3722,27 +4130,27 @@ export class QueryCashCouponsRequest extends $tea.Model {
 
 export class QueryCashCouponsResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryCashCouponsResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryCashCouponsResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryCashCouponsResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryCashCouponsResponseBodyData,
     };
   }
 
@@ -3753,10 +4161,12 @@ export class QueryCashCouponsResponseBody extends $tea.Model {
 
 export class QueryCashCouponsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryCashCouponsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3764,6 +4174,7 @@ export class QueryCashCouponsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCashCouponsResponseBody,
     };
   }
@@ -3775,24 +4186,24 @@ export class QueryCashCouponsResponse extends $tea.Model {
 
 export class QueryCostUnitRequest extends $tea.Model {
   ownerUid?: number;
-  parentUnitId?: number;
   pageNum?: number;
   pageSize?: number;
+  parentUnitId?: number;
   static names(): { [key: string]: string } {
     return {
       ownerUid: 'OwnerUid',
-      parentUnitId: 'ParentUnitId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      parentUnitId: 'ParentUnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerUid: 'number',
-      parentUnitId: 'number',
       pageNum: 'number',
       pageSize: 'number',
+      parentUnitId: 'number',
     };
   }
 
@@ -3803,27 +4214,27 @@ export class QueryCostUnitRequest extends $tea.Model {
 
 export class QueryCostUnitResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryCostUnitResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryCostUnitResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryCostUnitResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryCostUnitResponseBodyData,
     };
   }
 
@@ -3834,10 +4245,12 @@ export class QueryCostUnitResponseBody extends $tea.Model {
 
 export class QueryCostUnitResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryCostUnitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3845,6 +4258,7 @@ export class QueryCostUnitResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCostUnitResponseBody,
     };
   }
@@ -3856,24 +4270,24 @@ export class QueryCostUnitResponse extends $tea.Model {
 
 export class QueryCostUnitResourceRequest extends $tea.Model {
   ownerUid?: number;
-  unitId?: number;
   pageNum?: number;
   pageSize?: number;
+  unitId?: number;
   static names(): { [key: string]: string } {
     return {
       ownerUid: 'OwnerUid',
-      unitId: 'UnitId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      unitId: 'UnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerUid: 'number',
-      unitId: 'number',
       pageNum: 'number',
       pageSize: 'number',
+      unitId: 'number',
     };
   }
 
@@ -3884,27 +4298,27 @@ export class QueryCostUnitResourceRequest extends $tea.Model {
 
 export class QueryCostUnitResourceResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryCostUnitResourceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryCostUnitResourceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryCostUnitResourceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryCostUnitResourceResponseBodyData,
     };
   }
 
@@ -3915,10 +4329,12 @@ export class QueryCostUnitResourceResponseBody extends $tea.Model {
 
 export class QueryCostUnitResourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryCostUnitResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3926,6 +4342,7 @@ export class QueryCostUnitResourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCostUnitResourceResponseBody,
     };
   }
@@ -3956,27 +4373,27 @@ export class QueryCustomerAddressListRequest extends $tea.Model {
 
 export class QueryCustomerAddressListResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryCustomerAddressListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryCustomerAddressListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryCustomerAddressListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryCustomerAddressListResponseBodyData,
     };
   }
 
@@ -3987,10 +4404,12 @@ export class QueryCustomerAddressListResponseBody extends $tea.Model {
 
 export class QueryCustomerAddressListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryCustomerAddressListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3998,6 +4417,7 @@ export class QueryCustomerAddressListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCustomerAddressListResponseBody,
     };
   }
@@ -4008,43 +4428,43 @@ export class QueryCustomerAddressListResponse extends $tea.Model {
 }
 
 export class QueryDPUtilizationDetailRequest extends $tea.Model {
-  instanceId?: string;
-  instanceSpec?: string;
   commodityCode?: string;
   deductedInstanceId?: string;
-  startTime?: string;
   endTime?: string;
+  includeShare?: boolean;
+  instanceId?: string;
+  instanceSpec?: string;
   lastToken?: string;
   limit?: number;
-  includeShare?: boolean;
   prodCode?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      instanceSpec: 'InstanceSpec',
       commodityCode: 'CommodityCode',
       deductedInstanceId: 'DeductedInstanceId',
-      startTime: 'StartTime',
       endTime: 'EndTime',
+      includeShare: 'IncludeShare',
+      instanceId: 'InstanceId',
+      instanceSpec: 'InstanceSpec',
       lastToken: 'LastToken',
       limit: 'Limit',
-      includeShare: 'IncludeShare',
       prodCode: 'ProdCode',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      instanceSpec: 'string',
       commodityCode: 'string',
       deductedInstanceId: 'string',
-      startTime: 'string',
       endTime: 'string',
+      includeShare: 'boolean',
+      instanceId: 'string',
+      instanceSpec: 'string',
       lastToken: 'string',
       limit: 'number',
-      includeShare: 'boolean',
       prodCode: 'string',
+      startTime: 'string',
     };
   }
 
@@ -4055,27 +4475,27 @@ export class QueryDPUtilizationDetailRequest extends $tea.Model {
 
 export class QueryDPUtilizationDetailResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryDPUtilizationDetailResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryDPUtilizationDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryDPUtilizationDetailResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryDPUtilizationDetailResponseBodyData,
     };
   }
 
@@ -4086,10 +4506,12 @@ export class QueryDPUtilizationDetailResponseBody extends $tea.Model {
 
 export class QueryDPUtilizationDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDPUtilizationDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4097,6 +4519,7 @@ export class QueryDPUtilizationDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDPUtilizationDetailResponseBody,
     };
   }
@@ -4107,55 +4530,55 @@ export class QueryDPUtilizationDetailResponse extends $tea.Model {
 }
 
 export class QueryEvaluateListRequest extends $tea.Model {
-  type?: number;
+  billCycle?: string;
+  bizTypeList?: string[];
+  endAmount?: number;
+  endBizTime?: string;
+  endSearchTime?: string;
   outBizId?: string;
   ownerId?: number;
   pageNum?: number;
   pageSize?: number;
-  startAmount?: number;
-  endAmount?: number;
-  startBizTime?: string;
-  endBizTime?: string;
   sortType?: number;
+  startAmount?: number;
+  startBizTime?: string;
   startSearchTime?: string;
-  endSearchTime?: string;
-  billCycle?: string;
-  bizTypeList?: string[];
+  type?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
+      billCycle: 'BillCycle',
+      bizTypeList: 'BizTypeList',
+      endAmount: 'EndAmount',
+      endBizTime: 'EndBizTime',
+      endSearchTime: 'EndSearchTime',
       outBizId: 'OutBizId',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      startAmount: 'StartAmount',
-      endAmount: 'EndAmount',
-      startBizTime: 'StartBizTime',
-      endBizTime: 'EndBizTime',
       sortType: 'SortType',
+      startAmount: 'StartAmount',
+      startBizTime: 'StartBizTime',
       startSearchTime: 'StartSearchTime',
-      endSearchTime: 'EndSearchTime',
-      billCycle: 'BillCycle',
-      bizTypeList: 'BizTypeList',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
+      billCycle: 'string',
+      bizTypeList: { 'type': 'array', 'itemType': 'string' },
+      endAmount: 'number',
+      endBizTime: 'string',
+      endSearchTime: 'string',
       outBizId: 'string',
       ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
-      startAmount: 'number',
-      endAmount: 'number',
-      startBizTime: 'string',
-      endBizTime: 'string',
       sortType: 'number',
+      startAmount: 'number',
+      startBizTime: 'string',
       startSearchTime: 'string',
-      endSearchTime: 'string',
-      billCycle: 'string',
-      bizTypeList: { 'type': 'array', 'itemType': 'string' },
+      type: 'number',
     };
   }
 
@@ -4166,27 +4589,27 @@ export class QueryEvaluateListRequest extends $tea.Model {
 
 export class QueryEvaluateListResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryEvaluateListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryEvaluateListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryEvaluateListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryEvaluateListResponseBodyData,
     };
   }
 
@@ -4197,10 +4620,12 @@ export class QueryEvaluateListResponseBody extends $tea.Model {
 
 export class QueryEvaluateListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryEvaluateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4208,6 +4633,7 @@ export class QueryEvaluateListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryEvaluateListResponseBody,
     };
   }
@@ -4238,27 +4664,27 @@ export class QueryFinancialAccountInfoRequest extends $tea.Model {
 
 export class QueryFinancialAccountInfoResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryFinancialAccountInfoResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryFinancialAccountInfoResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryFinancialAccountInfoResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryFinancialAccountInfoResponseBodyData,
     };
   }
 
@@ -4269,10 +4695,12 @@ export class QueryFinancialAccountInfoResponseBody extends $tea.Model {
 
 export class QueryFinancialAccountInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryFinancialAccountInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4280,6 +4708,7 @@ export class QueryFinancialAccountInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryFinancialAccountInfoResponseBody,
     };
   }
@@ -4290,49 +4719,49 @@ export class QueryFinancialAccountInfoResponse extends $tea.Model {
 }
 
 export class QueryInstanceBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
+  billingDate?: string;
+  granularity?: string;
+  isBillingItem?: boolean;
+  isHideZeroCharge?: boolean;
+  ownerId?: number;
+  pageNum?: number;
+  pageSize?: number;
   productCode?: string;
   productType?: string;
   subscriptionType?: string;
-  ownerId?: number;
-  isBillingItem?: boolean;
-  pageNum?: number;
-  pageSize?: number;
-  isHideZeroCharge?: boolean;
-  billingDate?: string;
-  granularity?: string;
-  billOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
+      billingDate: 'BillingDate',
+      granularity: 'Granularity',
+      isBillingItem: 'IsBillingItem',
+      isHideZeroCharge: 'IsHideZeroCharge',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
-      ownerId: 'OwnerId',
-      isBillingItem: 'IsBillingItem',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      isHideZeroCharge: 'IsHideZeroCharge',
-      billingDate: 'BillingDate',
-      granularity: 'Granularity',
-      billOwnerId: 'BillOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
+      billingDate: 'string',
+      granularity: 'string',
+      isBillingItem: 'boolean',
+      isHideZeroCharge: 'boolean',
+      ownerId: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
       productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
-      ownerId: 'number',
-      isBillingItem: 'boolean',
-      pageNum: 'number',
-      pageSize: 'number',
-      isHideZeroCharge: 'boolean',
-      billingDate: 'string',
-      granularity: 'string',
-      billOwnerId: 'number',
     };
   }
 
@@ -4343,27 +4772,27 @@ export class QueryInstanceBillRequest extends $tea.Model {
 
 export class QueryInstanceBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryInstanceBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryInstanceBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryInstanceBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryInstanceBillResponseBodyData,
     };
   }
 
@@ -4374,10 +4803,12 @@ export class QueryInstanceBillResponseBody extends $tea.Model {
 
 export class QueryInstanceBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryInstanceBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4385,6 +4816,7 @@ export class QueryInstanceBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryInstanceBillResponseBody,
     };
   }
@@ -4395,21 +4827,21 @@ export class QueryInstanceBillResponse extends $tea.Model {
 }
 
 export class QueryInstanceByTagRequest extends $tea.Model {
-  resourceType?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: QueryInstanceByTagRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': QueryInstanceByTagRequestTag },
     };
   }
@@ -4455,10 +4887,12 @@ export class QueryInstanceByTagResponseBody extends $tea.Model {
 
 export class QueryInstanceByTagResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryInstanceByTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4466,6 +4900,7 @@ export class QueryInstanceByTagResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryInstanceByTagResponseBody,
     };
   }
@@ -4476,17 +4911,17 @@ export class QueryInstanceByTagResponse extends $tea.Model {
 }
 
 export class QueryInstanceGaapCostRequest extends $tea.Model {
+  billingCycle?: string;
   pageNum?: number;
   pageSize?: number;
-  billingCycle?: string;
   productCode?: string;
   productType?: string;
   subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
+      billingCycle: 'BillingCycle',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      billingCycle: 'BillingCycle',
       productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
@@ -4495,9 +4930,9 @@ export class QueryInstanceGaapCostRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      billingCycle: 'string',
       pageNum: 'number',
       pageSize: 'number',
-      billingCycle: 'string',
       productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
@@ -4511,27 +4946,27 @@ export class QueryInstanceGaapCostRequest extends $tea.Model {
 
 export class QueryInstanceGaapCostResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryInstanceGaapCostResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryInstanceGaapCostResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryInstanceGaapCostResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryInstanceGaapCostResponseBodyData,
     };
   }
 
@@ -4542,10 +4977,12 @@ export class QueryInstanceGaapCostResponseBody extends $tea.Model {
 
 export class QueryInstanceGaapCostResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryInstanceGaapCostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4553,6 +4990,7 @@ export class QueryInstanceGaapCostResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryInstanceGaapCostResponseBody,
     };
   }
@@ -4583,27 +5021,27 @@ export class QueryInvoicingCustomerListRequest extends $tea.Model {
 
 export class QueryInvoicingCustomerListResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryInvoicingCustomerListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryInvoicingCustomerListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryInvoicingCustomerListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryInvoicingCustomerListResponseBodyData,
     };
   }
 
@@ -4614,10 +5052,12 @@ export class QueryInvoicingCustomerListResponseBody extends $tea.Model {
 
 export class QueryInvoicingCustomerListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryInvoicingCustomerListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4625,6 +5065,7 @@ export class QueryInvoicingCustomerListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryInvoicingCustomerListResponseBody,
     };
   }
@@ -4655,27 +5096,27 @@ export class QueryMonthlyBillRequest extends $tea.Model {
 
 export class QueryMonthlyBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryMonthlyBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryMonthlyBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryMonthlyBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryMonthlyBillResponseBodyData,
     };
   }
 
@@ -4686,10 +5127,12 @@ export class QueryMonthlyBillResponseBody extends $tea.Model {
 
 export class QueryMonthlyBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryMonthlyBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4697,6 +5140,7 @@ export class QueryMonthlyBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryMonthlyBillResponseBody,
     };
   }
@@ -4707,20 +5151,20 @@ export class QueryMonthlyBillResponse extends $tea.Model {
 }
 
 export class QueryMonthlyInstanceConsumptionRequest extends $tea.Model {
-  productCode?: string;
+  billingCycle?: string;
   ownerId?: number;
   pageNum?: number;
   pageSize?: number;
-  billingCycle?: string;
+  productCode?: string;
   productType?: string;
   subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
+      billingCycle: 'BillingCycle',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      billingCycle: 'BillingCycle',
+      productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
     };
@@ -4728,11 +5172,11 @@ export class QueryMonthlyInstanceConsumptionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      productCode: 'string',
+      billingCycle: 'string',
       ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
-      billingCycle: 'string',
+      productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
     };
@@ -4745,27 +5189,27 @@ export class QueryMonthlyInstanceConsumptionRequest extends $tea.Model {
 
 export class QueryMonthlyInstanceConsumptionResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryMonthlyInstanceConsumptionResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryMonthlyInstanceConsumptionResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryMonthlyInstanceConsumptionResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryMonthlyInstanceConsumptionResponseBodyData,
     };
   }
 
@@ -4776,10 +5220,12 @@ export class QueryMonthlyInstanceConsumptionResponseBody extends $tea.Model {
 
 export class QueryMonthlyInstanceConsumptionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryMonthlyInstanceConsumptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4787,6 +5233,7 @@ export class QueryMonthlyInstanceConsumptionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryMonthlyInstanceConsumptionResponseBody,
     };
   }
@@ -4798,42 +5245,42 @@ export class QueryMonthlyInstanceConsumptionResponse extends $tea.Model {
 
 export class QueryOrdersRequest extends $tea.Model {
   createTimeEnd?: string;
+  createTimeStart?: string;
+  orderType?: string;
+  ownerId?: number;
   pageNum?: number;
   pageSize?: number;
+  paymentStatus?: string;
   productCode?: string;
   productType?: string;
   subscriptionType?: string;
-  orderType?: string;
-  paymentStatus?: string;
-  createTimeStart?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      orderType: 'OrderType',
+      ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      paymentStatus: 'PaymentStatus',
       productCode: 'ProductCode',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
-      orderType: 'OrderType',
-      paymentStatus: 'PaymentStatus',
-      createTimeStart: 'CreateTimeStart',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTimeEnd: 'string',
+      createTimeStart: 'string',
+      orderType: 'string',
+      ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
+      paymentStatus: 'string',
       productCode: 'string',
       productType: 'string',
       subscriptionType: 'string',
-      orderType: 'string',
-      paymentStatus: 'string',
-      createTimeStart: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -4844,27 +5291,27 @@ export class QueryOrdersRequest extends $tea.Model {
 
 export class QueryOrdersResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryOrdersResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryOrdersResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryOrdersResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryOrdersResponseBodyData,
     };
   }
 
@@ -4875,10 +5322,12 @@ export class QueryOrdersResponseBody extends $tea.Model {
 
 export class QueryOrdersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryOrdersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4886,6 +5335,7 @@ export class QueryOrdersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryOrdersResponseBody,
     };
   }
@@ -4916,27 +5366,27 @@ export class QueryPermissionListRequest extends $tea.Model {
 
 export class QueryPermissionListResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryPermissionListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryPermissionListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryPermissionListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryPermissionListResponseBodyData,
     };
   }
 
@@ -4947,10 +5397,12 @@ export class QueryPermissionListResponseBody extends $tea.Model {
 
 export class QueryPermissionListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryPermissionListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4958,6 +5410,7 @@ export class QueryPermissionListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryPermissionListResponseBody,
     };
   }
@@ -4968,22 +5421,22 @@ export class QueryPermissionListResponse extends $tea.Model {
 }
 
 export class QueryPrepaidCardsRequest extends $tea.Model {
+  effectiveOrNot?: boolean;
   expiryTimeEnd?: string;
   expiryTimeStart?: string;
-  effectiveOrNot?: boolean;
   static names(): { [key: string]: string } {
     return {
+      effectiveOrNot: 'EffectiveOrNot',
       expiryTimeEnd: 'ExpiryTimeEnd',
       expiryTimeStart: 'ExpiryTimeStart',
-      effectiveOrNot: 'EffectiveOrNot',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      effectiveOrNot: 'boolean',
       expiryTimeEnd: 'string',
       expiryTimeStart: 'string',
-      effectiveOrNot: 'boolean',
     };
   }
 
@@ -4994,27 +5447,27 @@ export class QueryPrepaidCardsRequest extends $tea.Model {
 
 export class QueryPrepaidCardsResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryPrepaidCardsResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryPrepaidCardsResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryPrepaidCardsResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryPrepaidCardsResponseBodyData,
     };
   }
 
@@ -5025,10 +5478,12 @@ export class QueryPrepaidCardsResponseBody extends $tea.Model {
 
 export class QueryPrepaidCardsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryPrepaidCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5036,6 +5491,7 @@ export class QueryPrepaidCardsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryPrepaidCardsResponseBody,
     };
   }
@@ -5046,22 +5502,22 @@ export class QueryPrepaidCardsResponse extends $tea.Model {
 }
 
 export class QueryProductListRequest extends $tea.Model {
-  queryTotalCount?: boolean;
   pageNum?: number;
   pageSize?: number;
+  queryTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
-      queryTotalCount: 'QueryTotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      queryTotalCount: 'QueryTotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      queryTotalCount: 'boolean',
       pageNum: 'number',
       pageSize: 'number',
+      queryTotalCount: 'boolean',
     };
   }
 
@@ -5072,27 +5528,27 @@ export class QueryProductListRequest extends $tea.Model {
 
 export class QueryProductListResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryProductListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryProductListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryProductListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryProductListResponseBodyData,
     };
   }
 
@@ -5103,10 +5559,12 @@ export class QueryProductListResponseBody extends $tea.Model {
 
 export class QueryProductListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryProductListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5114,6 +5572,7 @@ export class QueryProductListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryProductListResponseBody,
     };
   }
@@ -5123,17 +5582,113 @@ export class QueryProductListResponse extends $tea.Model {
   }
 }
 
+export class QueryRIUtilizationDetailRequest extends $tea.Model {
+  deductedInstanceId?: string;
+  endTime?: string;
+  instanceSpec?: string;
+  pageNum?: number;
+  pageSize?: number;
+  RICommodityCode?: string;
+  RIInstanceId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deductedInstanceId: 'DeductedInstanceId',
+      endTime: 'EndTime',
+      instanceSpec: 'InstanceSpec',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      RICommodityCode: 'RICommodityCode',
+      RIInstanceId: 'RIInstanceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deductedInstanceId: 'string',
+      endTime: 'string',
+      instanceSpec: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      RICommodityCode: 'string',
+      RIInstanceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRIUtilizationDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryRIUtilizationDetailResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryRIUtilizationDetailResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRIUtilizationDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryRIUtilizationDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRIUtilizationDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryRedeemRequest extends $tea.Model {
-  expiryTimeStart?: string;
-  expiryTimeEnd?: string;
   effectiveOrNot?: boolean;
+  expiryTimeEnd?: string;
+  expiryTimeStart?: string;
   pageNum?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      expiryTimeStart: 'ExpiryTimeStart',
-      expiryTimeEnd: 'ExpiryTimeEnd',
       effectiveOrNot: 'EffectiveOrNot',
+      expiryTimeEnd: 'ExpiryTimeEnd',
+      expiryTimeStart: 'ExpiryTimeStart',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
     };
@@ -5141,9 +5696,9 @@ export class QueryRedeemRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      expiryTimeStart: 'string',
-      expiryTimeEnd: 'string',
       effectiveOrNot: 'boolean',
+      expiryTimeEnd: 'string',
+      expiryTimeStart: 'string',
       pageNum: 'number',
       pageSize: 'number',
     };
@@ -5156,27 +5711,27 @@ export class QueryRedeemRequest extends $tea.Model {
 
 export class QueryRedeemResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryRedeemResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryRedeemResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryRedeemResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryRedeemResponseBodyData,
     };
   }
 
@@ -5187,10 +5742,12 @@ export class QueryRedeemResponseBody extends $tea.Model {
 
 export class QueryRedeemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryRedeemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5198,6 +5755,7 @@ export class QueryRedeemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRedeemResponseBody,
     };
   }
@@ -5208,25 +5766,25 @@ export class QueryRedeemResponse extends $tea.Model {
 }
 
 export class QueryRelationListRequest extends $tea.Model {
-  userId?: number;
   pageNum?: number;
   pageSize?: number;
   statusList?: string[];
+  userId?: number;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       statusList: 'StatusList',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
       pageNum: 'number',
       pageSize: 'number',
       statusList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'number',
     };
   }
 
@@ -5237,27 +5795,27 @@ export class QueryRelationListRequest extends $tea.Model {
 
 export class QueryRelationListResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryRelationListResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryRelationListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryRelationListResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryRelationListResponseBodyData,
     };
   }
 
@@ -5268,10 +5826,12 @@ export class QueryRelationListResponseBody extends $tea.Model {
 
 export class QueryRelationListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryRelationListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5279,6 +5839,7 @@ export class QueryRelationListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRelationListResponseBody,
     };
   }
@@ -5289,19 +5850,19 @@ export class QueryRelationListResponse extends $tea.Model {
 }
 
 export class QueryResellerAvailableQuotaRequest extends $tea.Model {
-  ownerId?: number;
   itemCodes?: string;
+  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       itemCodes: 'ItemCodes',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       itemCodes: 'string',
+      ownerId: 'number',
     };
   }
 
@@ -5312,15 +5873,15 @@ export class QueryResellerAvailableQuotaRequest extends $tea.Model {
 
 export class QueryResellerAvailableQuotaResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: string;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -5329,8 +5890,8 @@ export class QueryResellerAvailableQuotaResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'string',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -5343,10 +5904,12 @@ export class QueryResellerAvailableQuotaResponseBody extends $tea.Model {
 
 export class QueryResellerAvailableQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryResellerAvailableQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5354,6 +5917,7 @@ export class QueryResellerAvailableQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryResellerAvailableQuotaResponseBody,
     };
   }
@@ -5364,31 +5928,34 @@ export class QueryResellerAvailableQuotaResponse extends $tea.Model {
 }
 
 export class QueryResourcePackageInstancesRequest extends $tea.Model {
-  ownerId?: number;
-  productCode?: string;
-  expiryTimeStart?: string;
   expiryTimeEnd?: string;
+  expiryTimeStart?: string;
+  includePartner?: boolean;
+  ownerId?: number;
   pageNum?: number;
   pageSize?: number;
+  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      productCode: 'ProductCode',
-      expiryTimeStart: 'ExpiryTimeStart',
       expiryTimeEnd: 'ExpiryTimeEnd',
+      expiryTimeStart: 'ExpiryTimeStart',
+      includePartner: 'IncludePartner',
+      ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      productCode: 'string',
-      expiryTimeStart: 'string',
       expiryTimeEnd: 'string',
+      expiryTimeStart: 'string',
+      includePartner: 'boolean',
+      ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
+      productCode: 'string',
     };
   }
 
@@ -5398,37 +5965,37 @@ export class QueryResourcePackageInstancesRequest extends $tea.Model {
 }
 
 export class QueryResourcePackageInstancesResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryResourcePackageInstancesResponseBodyData;
+  message?: string;
+  page?: number;
+  pageSize?: number;
   requestId?: string;
   success?: boolean;
-  code?: string;
-  message?: string;
-  pageSize?: number;
   total?: number;
-  page?: number;
-  data?: QueryResourcePackageInstancesResponseBodyData;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      page: 'Page',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       success: 'Success',
-      code: 'Code',
-      message: 'Message',
-      pageSize: 'PageSize',
       total: 'Total',
-      page: 'Page',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: QueryResourcePackageInstancesResponseBodyData,
+      message: 'string',
+      page: 'number',
+      pageSize: 'number',
       requestId: 'string',
       success: 'boolean',
-      code: 'string',
-      message: 'string',
-      pageSize: 'number',
       total: 'number',
-      page: 'number',
-      data: QueryResourcePackageInstancesResponseBodyData,
     };
   }
 
@@ -5439,10 +6006,12 @@ export class QueryResourcePackageInstancesResponseBody extends $tea.Model {
 
 export class QueryResourcePackageInstancesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryResourcePackageInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5450,6 +6019,7 @@ export class QueryResourcePackageInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryResourcePackageInstancesResponseBody,
     };
   }
@@ -5459,128 +6029,35 @@ export class QueryResourcePackageInstancesResponse extends $tea.Model {
   }
 }
 
-export class QueryRIUtilizationDetailRequest extends $tea.Model {
-  RIInstanceId?: string;
-  instanceSpec?: string;
-  RICommodityCode?: string;
-  deductedInstanceId?: string;
-  startTime?: string;
-  endTime?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      RIInstanceId: 'RIInstanceId',
-      instanceSpec: 'InstanceSpec',
-      RICommodityCode: 'RICommodityCode',
-      deductedInstanceId: 'DeductedInstanceId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      RIInstanceId: 'string',
-      instanceSpec: 'string',
-      RICommodityCode: 'string',
-      deductedInstanceId: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRIUtilizationDetailResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  data?: QueryRIUtilizationDetailResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      data: QueryRIUtilizationDetailResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRIUtilizationDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRIUtilizationDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryRIUtilizationDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QuerySavingsPlansDeductLogRequest extends $tea.Model {
+  endTime?: string;
+  instanceId?: string;
   instanceType?: string;
-  pageSize?: number;
   locale?: string;
   pageNum?: number;
-  instanceId?: string;
+  pageSize?: number;
   startTime?: string;
-  endTime?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
       instanceType: 'InstanceType',
-      pageSize: 'PageSize',
       locale: 'Locale',
       pageNum: 'PageNum',
-      instanceId: 'InstanceId',
+      pageSize: 'PageSize',
       startTime: 'StartTime',
-      endTime: 'EndTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
+      instanceId: 'string',
       instanceType: 'string',
-      pageSize: 'number',
       locale: 'string',
       pageNum: 'number',
-      instanceId: 'string',
+      pageSize: 'number',
       startTime: 'string',
-      endTime: 'string',
     };
   }
 
@@ -5591,27 +6068,27 @@ export class QuerySavingsPlansDeductLogRequest extends $tea.Model {
 
 export class QuerySavingsPlansDeductLogResponseBody extends $tea.Model {
   code?: string;
+  data?: QuerySavingsPlansDeductLogResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QuerySavingsPlansDeductLogResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QuerySavingsPlansDeductLogResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QuerySavingsPlansDeductLogResponseBodyData,
     };
   }
 
@@ -5622,10 +6099,12 @@ export class QuerySavingsPlansDeductLogResponseBody extends $tea.Model {
 
 export class QuerySavingsPlansDeductLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySavingsPlansDeductLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5633,6 +6112,7 @@ export class QuerySavingsPlansDeductLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySavingsPlansDeductLogResponseBody,
     };
   }
@@ -5643,33 +6123,33 @@ export class QuerySavingsPlansDeductLogResponse extends $tea.Model {
 }
 
 export class QuerySavingsPlansInstanceRequest extends $tea.Model {
-  pageSize?: number;
+  endTime?: string;
+  instanceId?: string;
   locale?: string;
   pageNum?: number;
-  instanceId?: string;
+  pageSize?: number;
   startTime?: string;
-  endTime?: string;
   tag?: QuerySavingsPlansInstanceRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
       locale: 'Locale',
       pageNum: 'PageNum',
-      instanceId: 'InstanceId',
+      pageSize: 'PageSize',
       startTime: 'StartTime',
-      endTime: 'EndTime',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
+      endTime: 'string',
+      instanceId: 'string',
       locale: 'string',
       pageNum: 'number',
-      instanceId: 'string',
+      pageSize: 'number',
       startTime: 'string',
-      endTime: 'string',
       tag: { 'type': 'array', 'itemType': QuerySavingsPlansInstanceRequestTag },
     };
   }
@@ -5681,27 +6161,27 @@ export class QuerySavingsPlansInstanceRequest extends $tea.Model {
 
 export class QuerySavingsPlansInstanceResponseBody extends $tea.Model {
   code?: string;
+  data?: QuerySavingsPlansInstanceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QuerySavingsPlansInstanceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QuerySavingsPlansInstanceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QuerySavingsPlansInstanceResponseBodyData,
     };
   }
 
@@ -5712,10 +6192,12 @@ export class QuerySavingsPlansInstanceResponseBody extends $tea.Model {
 
 export class QuerySavingsPlansInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySavingsPlansInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5723,6 +6205,7 @@ export class QuerySavingsPlansInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySavingsPlansInstanceResponseBody,
     };
   }
@@ -5733,49 +6216,49 @@ export class QuerySavingsPlansInstanceResponse extends $tea.Model {
 }
 
 export class QuerySettleBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
-  type?: string;
+  isDisplayLocalCurrency?: boolean;
+  isHideZeroCharge?: boolean;
+  maxResults?: number;
+  nextToken?: string;
+  ownerId?: number;
   productCode?: string;
   productType?: string;
-  subscriptionType?: string;
-  isHideZeroCharge?: boolean;
-  isDisplayLocalCurrency?: boolean;
-  ownerId?: number;
-  nextToken?: string;
-  maxResults?: number;
-  billOwnerId?: number;
   recordID?: string;
+  subscriptionType?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
-      type: 'Type',
+      isDisplayLocalCurrency: 'IsDisplayLocalCurrency',
+      isHideZeroCharge: 'IsHideZeroCharge',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerId: 'OwnerId',
       productCode: 'ProductCode',
       productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
-      isHideZeroCharge: 'IsHideZeroCharge',
-      isDisplayLocalCurrency: 'IsDisplayLocalCurrency',
-      ownerId: 'OwnerId',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      billOwnerId: 'BillOwnerId',
       recordID: 'RecordID',
+      subscriptionType: 'SubscriptionType',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
-      type: 'string',
+      isDisplayLocalCurrency: 'boolean',
+      isHideZeroCharge: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerId: 'number',
       productCode: 'string',
       productType: 'string',
-      subscriptionType: 'string',
-      isHideZeroCharge: 'boolean',
-      isDisplayLocalCurrency: 'boolean',
-      ownerId: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      billOwnerId: 'number',
       recordID: 'string',
+      subscriptionType: 'string',
+      type: 'string',
     };
   }
 
@@ -5786,27 +6269,27 @@ export class QuerySettleBillRequest extends $tea.Model {
 
 export class QuerySettleBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QuerySettleBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QuerySettleBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QuerySettleBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QuerySettleBillResponseBodyData,
     };
   }
 
@@ -5817,10 +6300,12 @@ export class QuerySettleBillResponseBody extends $tea.Model {
 
 export class QuerySettleBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySettleBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5828,6 +6313,7 @@ export class QuerySettleBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySettleBillResponseBody,
     };
   }
@@ -5838,46 +6324,46 @@ export class QuerySettleBillResponse extends $tea.Model {
 }
 
 export class QuerySettlementBillRequest extends $tea.Model {
-  pageSize?: number;
+  billingCycle?: string;
+  endTime?: string;
+  isHideZeroCharge?: boolean;
   ownerId?: number;
   pageNum?: number;
-  billingCycle?: string;
-  startTime?: string;
-  endTime?: string;
-  type?: string;
+  pageSize?: number;
   productCode?: string;
   productType?: string;
+  startTime?: string;
   subscriptionType?: string;
-  isHideZeroCharge?: boolean;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
+      billingCycle: 'BillingCycle',
+      endTime: 'EndTime',
+      isHideZeroCharge: 'IsHideZeroCharge',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
-      billingCycle: 'BillingCycle',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      type: 'Type',
+      pageSize: 'PageSize',
       productCode: 'ProductCode',
       productType: 'ProductType',
+      startTime: 'StartTime',
       subscriptionType: 'SubscriptionType',
-      isHideZeroCharge: 'IsHideZeroCharge',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
+      billingCycle: 'string',
+      endTime: 'string',
+      isHideZeroCharge: 'boolean',
       ownerId: 'number',
       pageNum: 'number',
-      billingCycle: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      type: 'string',
+      pageSize: 'number',
       productCode: 'string',
       productType: 'string',
+      startTime: 'string',
       subscriptionType: 'string',
-      isHideZeroCharge: 'boolean',
+      type: 'string',
     };
   }
 
@@ -5888,27 +6374,27 @@ export class QuerySettlementBillRequest extends $tea.Model {
 
 export class QuerySettlementBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QuerySettlementBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QuerySettlementBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QuerySettlementBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QuerySettlementBillResponseBodyData,
     };
   }
 
@@ -5919,10 +6405,12 @@ export class QuerySettlementBillResponseBody extends $tea.Model {
 
 export class QuerySettlementBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySettlementBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5930,6 +6418,7 @@ export class QuerySettlementBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySettlementBillResponseBody,
     };
   }
@@ -5940,37 +6429,37 @@ export class QuerySettlementBillResponse extends $tea.Model {
 }
 
 export class QuerySplitItemBillRequest extends $tea.Model {
+  billOwnerId?: number;
   billingCycle?: string;
-  productCode?: string;
-  productType?: string;
-  subscriptionType?: string;
   ownerId?: number;
   pageNum?: number;
   pageSize?: number;
-  billOwnerId?: number;
+  productCode?: string;
+  productType?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
+      billOwnerId: 'BillOwnerId',
       billingCycle: 'BillingCycle',
-      productCode: 'ProductCode',
-      productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      billOwnerId: 'BillOwnerId',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      billOwnerId: 'number',
       billingCycle: 'string',
-      productCode: 'string',
-      productType: 'string',
-      subscriptionType: 'string',
       ownerId: 'number',
       pageNum: 'number',
       pageSize: 'number',
-      billOwnerId: 'number',
+      productCode: 'string',
+      productType: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -5981,27 +6470,27 @@ export class QuerySplitItemBillRequest extends $tea.Model {
 
 export class QuerySplitItemBillResponseBody extends $tea.Model {
   code?: string;
+  data?: QuerySplitItemBillResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QuerySplitItemBillResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QuerySplitItemBillResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QuerySplitItemBillResponseBodyData,
     };
   }
 
@@ -6012,10 +6501,12 @@ export class QuerySplitItemBillResponseBody extends $tea.Model {
 
 export class QuerySplitItemBillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySplitItemBillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6023,6 +6514,7 @@ export class QuerySplitItemBillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySplitItemBillResponseBody,
     };
   }
@@ -6033,34 +6525,34 @@ export class QuerySplitItemBillResponse extends $tea.Model {
 }
 
 export class QueryUserOmsDataRequest extends $tea.Model {
-  ownerId?: number;
-  table?: string;
   dataType?: string;
-  startTime?: string;
   endTime?: string;
   marker?: string;
+  ownerId?: number;
   pageSize?: number;
+  startTime?: string;
+  table?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      table: 'Table',
       dataType: 'DataType',
-      startTime: 'StartTime',
       endTime: 'EndTime',
       marker: 'Marker',
+      ownerId: 'OwnerId',
       pageSize: 'PageSize',
+      startTime: 'StartTime',
+      table: 'Table',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      table: 'string',
       dataType: 'string',
-      startTime: 'string',
       endTime: 'string',
       marker: 'string',
+      ownerId: 'number',
       pageSize: 'number',
+      startTime: 'string',
+      table: 'string',
     };
   }
 
@@ -6071,27 +6563,27 @@ export class QueryUserOmsDataRequest extends $tea.Model {
 
 export class QueryUserOmsDataResponseBody extends $tea.Model {
   code?: string;
+  data?: QueryUserOmsDataResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: QueryUserOmsDataResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: QueryUserOmsDataResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: QueryUserOmsDataResponseBodyData,
     };
   }
 
@@ -6102,10 +6594,12 @@ export class QueryUserOmsDataResponseBody extends $tea.Model {
 
 export class QueryUserOmsDataResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryUserOmsDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6113,6 +6607,7 @@ export class QueryUserOmsDataResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryUserOmsDataResponseBody,
     };
   }
@@ -6122,25 +6617,208 @@ export class QueryUserOmsDataResponse extends $tea.Model {
   }
 }
 
+export class RefundInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  immediatelyRelease?: string;
+  instanceId?: string;
+  productCode?: string;
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      immediatelyRelease: 'ImmediatelyRelease',
+      instanceId: 'InstanceId',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      immediatelyRelease: 'string',
+      instanceId: 'string',
+      productCode: 'string',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: RefundInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RefundInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RefundInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefundInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceRequest extends $tea.Model {
+  instanceIds?: string;
+  ownerId?: number;
+  productCode?: string;
+  productType?: string;
+  region?: string;
+  renewStatus?: string;
+  subscriptionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      ownerId: 'OwnerId',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      region: 'Region',
+      renewStatus: 'RenewStatus',
+      subscriptionType: 'SubscriptionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: 'string',
+      ownerId: 'number',
+      productCode: 'string',
+      productType: 'string',
+      region: 'string',
+      renewStatus: 'string',
+      subscriptionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: ReleaseInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ReleaseInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RelieveAccountRelationRequest extends $tea.Model {
-  relationType?: string;
-  parentUserId?: number;
   childUserId?: number;
+  parentUserId?: number;
+  relationId?: number;
+  relationType?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      relationType: 'RelationType',
-      parentUserId: 'ParentUserId',
       childUserId: 'ChildUserId',
+      parentUserId: 'ParentUserId',
+      relationId: 'RelationId',
+      relationType: 'RelationType',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      relationType: 'string',
-      parentUserId: 'number',
       childUserId: 'number',
+      parentUserId: 'number',
+      relationId: 'number',
+      relationType: 'string',
       requestId: 'string',
     };
   }
@@ -6152,27 +6830,27 @@ export class RelieveAccountRelationRequest extends $tea.Model {
 
 export class RelieveAccountRelationResponseBody extends $tea.Model {
   code?: string;
+  data?: RelieveAccountRelationResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: RelieveAccountRelationResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: RelieveAccountRelationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: RelieveAccountRelationResponseBodyData,
     };
   }
 
@@ -6183,10 +6861,12 @@ export class RelieveAccountRelationResponseBody extends $tea.Model {
 
 export class RelieveAccountRelationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RelieveAccountRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6194,6 +6874,7 @@ export class RelieveAccountRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RelieveAccountRelationResponseBody,
     };
   }
@@ -6204,31 +6885,31 @@ export class RelieveAccountRelationResponse extends $tea.Model {
 }
 
 export class RenewInstanceRequest extends $tea.Model {
-  productCode?: string;
-  instanceId?: string;
-  renewPeriod?: number;
   clientToken?: string;
-  productType?: string;
+  instanceId?: string;
   ownerId?: number;
+  productCode?: string;
+  productType?: string;
+  renewPeriod?: number;
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
-      instanceId: 'InstanceId',
-      renewPeriod: 'RenewPeriod',
       clientToken: 'ClientToken',
-      productType: 'ProductType',
+      instanceId: 'InstanceId',
       ownerId: 'OwnerId',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      renewPeriod: 'RenewPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productCode: 'string',
-      instanceId: 'string',
-      renewPeriod: 'number',
       clientToken: 'string',
-      productType: 'string',
+      instanceId: 'string',
       ownerId: 'number',
+      productCode: 'string',
+      productType: 'string',
+      renewPeriod: 'number',
     };
   }
 
@@ -6239,27 +6920,27 @@ export class RenewInstanceRequest extends $tea.Model {
 
 export class RenewInstanceResponseBody extends $tea.Model {
   code?: string;
+  data?: RenewInstanceResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
-  data?: RenewInstanceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: RenewInstanceResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
-      data: RenewInstanceResponseBodyData,
     };
   }
 
@@ -6270,10 +6951,12 @@ export class RenewInstanceResponseBody extends $tea.Model {
 
 export class RenewInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6281,6 +6964,7 @@ export class RenewInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RenewInstanceResponseBody,
     };
   }
@@ -6291,27 +6975,27 @@ export class RenewInstanceResponse extends $tea.Model {
 }
 
 export class RenewResourcePackageRequest extends $tea.Model {
-  ownerId?: number;
-  instanceId?: string;
-  effectiveDate?: string;
   duration?: number;
+  effectiveDate?: string;
+  instanceId?: string;
+  ownerId?: number;
   pricingCycle?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      instanceId: 'InstanceId',
-      effectiveDate: 'EffectiveDate',
       duration: 'Duration',
+      effectiveDate: 'EffectiveDate',
+      instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
       pricingCycle: 'PricingCycle',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      instanceId: 'string',
-      effectiveDate: 'string',
       duration: 'number',
+      effectiveDate: 'string',
+      instanceId: 'string',
+      ownerId: 'number',
       pricingCycle: 'string',
     };
   }
@@ -6323,30 +7007,30 @@ export class RenewResourcePackageRequest extends $tea.Model {
 
 export class RenewResourcePackageResponseBody extends $tea.Model {
   code?: string;
+  data?: RenewResourcePackageResponseBodyData;
   message?: string;
+  orderId?: number;
   requestId?: string;
   success?: boolean;
-  orderId?: number;
-  data?: RenewResourcePackageResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      orderId: 'OrderId',
       requestId: 'RequestId',
       success: 'Success',
-      orderId: 'OrderId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: RenewResourcePackageResponseBodyData,
       message: 'string',
+      orderId: 'number',
       requestId: 'string',
       success: 'boolean',
-      orderId: 'number',
-      data: RenewResourcePackageResponseBodyData,
     };
   }
 
@@ -6357,10 +7041,12 @@ export class RenewResourcePackageResponseBody extends $tea.Model {
 
 export class RenewResourcePackageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RenewResourcePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6368,6 +7054,7 @@ export class RenewResourcePackageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RenewResourcePackageResponseBody,
     };
   }
@@ -6379,36 +7066,36 @@ export class RenewResourcePackageResponse extends $tea.Model {
 
 export class SaveUserCreditRequest extends $tea.Model {
   avoidExpiration?: boolean;
-  avoidPrepaidNotification?: boolean;
-  description?: string;
   avoidNotification?: boolean;
-  creditValue?: string;
   avoidPrepaidExpiration?: boolean;
-  operator?: string;
+  avoidPrepaidNotification?: boolean;
   creditType?: string;
+  creditValue?: string;
+  description?: string;
+  operator?: string;
   static names(): { [key: string]: string } {
     return {
       avoidExpiration: 'AvoidExpiration',
-      avoidPrepaidNotification: 'AvoidPrepaidNotification',
-      description: 'Description',
       avoidNotification: 'AvoidNotification',
-      creditValue: 'CreditValue',
       avoidPrepaidExpiration: 'AvoidPrepaidExpiration',
-      operator: 'Operator',
+      avoidPrepaidNotification: 'AvoidPrepaidNotification',
       creditType: 'CreditType',
+      creditValue: 'CreditValue',
+      description: 'Description',
+      operator: 'Operator',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       avoidExpiration: 'boolean',
-      avoidPrepaidNotification: 'boolean',
-      description: 'string',
       avoidNotification: 'boolean',
-      creditValue: 'string',
       avoidPrepaidExpiration: 'boolean',
-      operator: 'string',
+      avoidPrepaidNotification: 'boolean',
       creditType: 'string',
+      creditValue: 'string',
+      description: 'string',
+      operator: 'string',
     };
   }
 
@@ -6447,10 +7134,12 @@ export class SaveUserCreditResponseBody extends $tea.Model {
 
 export class SaveUserCreditResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveUserCreditResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6458,6 +7147,7 @@ export class SaveUserCreditResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveUserCreditResponseBody,
     };
   }
@@ -6519,10 +7209,12 @@ export class SetAllExpirationDayResponseBody extends $tea.Model {
 
 export class SetAllExpirationDayResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetAllExpirationDayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6530,6 +7222,7 @@ export class SetAllExpirationDayResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetAllExpirationDayResponseBody,
     };
   }
@@ -6541,7 +7234,6 @@ export class SetAllExpirationDayResponse extends $tea.Model {
 
 export class SetCreditLabelActionRequest extends $tea.Model {
   actionType?: string;
-  uid?: string;
   clearCycle?: string;
   creditAmount?: string;
   currencyCode?: string;
@@ -6557,10 +7249,10 @@ export class SetCreditLabelActionRequest extends $tea.Model {
   requestId?: string;
   siteCode?: string;
   source?: string;
+  uid?: string;
   static names(): { [key: string]: string } {
     return {
       actionType: 'ActionType',
-      uid: 'Uid',
       clearCycle: 'ClearCycle',
       creditAmount: 'CreditAmount',
       currencyCode: 'CurrencyCode',
@@ -6576,13 +7268,13 @@ export class SetCreditLabelActionRequest extends $tea.Model {
       requestId: 'RequestId',
       siteCode: 'SiteCode',
       source: 'Source',
+      uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       actionType: 'string',
-      uid: 'string',
       clearCycle: 'string',
       creditAmount: 'string',
       currencyCode: 'string',
@@ -6598,6 +7290,7 @@ export class SetCreditLabelActionRequest extends $tea.Model {
       requestId: 'string',
       siteCode: 'string',
       source: 'string',
+      uid: 'string',
     };
   }
 
@@ -6608,15 +7301,15 @@ export class SetCreditLabelActionRequest extends $tea.Model {
 
 export class SetCreditLabelActionResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -6625,8 +7318,8 @@ export class SetCreditLabelActionResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -6639,10 +7332,12 @@ export class SetCreditLabelActionResponseBody extends $tea.Model {
 
 export class SetCreditLabelActionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetCreditLabelActionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6650,6 +7345,7 @@ export class SetCreditLabelActionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetCreditLabelActionResponseBody,
     };
   }
@@ -6660,37 +7356,37 @@ export class SetCreditLabelActionResponse extends $tea.Model {
 }
 
 export class SetRenewalRequest extends $tea.Model {
-  renewalPeriod?: number;
   instanceIDs?: string;
   ownerId?: number;
   productCode?: string;
   productType?: string;
-  subscriptionType?: string;
+  renewalPeriod?: number;
   renewalPeriodUnit?: string;
   renewalStatus?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      renewalPeriod: 'RenewalPeriod',
       instanceIDs: 'InstanceIDs',
       ownerId: 'OwnerId',
       productCode: 'ProductCode',
       productType: 'ProductType',
-      subscriptionType: 'SubscriptionType',
+      renewalPeriod: 'RenewalPeriod',
       renewalPeriodUnit: 'RenewalPeriodUnit',
       renewalStatus: 'RenewalStatus',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      renewalPeriod: 'number',
       instanceIDs: 'string',
       ownerId: 'number',
       productCode: 'string',
       productType: 'string',
-      subscriptionType: 'string',
+      renewalPeriod: 'number',
       renewalPeriodUnit: 'string',
       renewalStatus: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -6729,10 +7425,12 @@ export class SetRenewalResponseBody extends $tea.Model {
 
 export class SetRenewalResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetRenewalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6740,6 +7438,7 @@ export class SetRenewalResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetRenewalResponseBody,
     };
   }
@@ -6750,22 +7449,22 @@ export class SetRenewalResponse extends $tea.Model {
 }
 
 export class SetResellerUserAlarmThresholdRequest extends $tea.Model {
-  ownerId?: number;
-  alarmType?: string;
   alarmThresholds?: string;
+  alarmType?: string;
+  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      alarmType: 'AlarmType',
       alarmThresholds: 'AlarmThresholds',
+      alarmType: 'AlarmType',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      alarmType: 'string',
       alarmThresholds: 'string',
+      alarmType: 'string',
+      ownerId: 'number',
     };
   }
 
@@ -6776,15 +7475,15 @@ export class SetResellerUserAlarmThresholdRequest extends $tea.Model {
 
 export class SetResellerUserAlarmThresholdResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -6793,8 +7492,8 @@ export class SetResellerUserAlarmThresholdResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -6807,10 +7506,12 @@ export class SetResellerUserAlarmThresholdResponseBody extends $tea.Model {
 
 export class SetResellerUserAlarmThresholdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetResellerUserAlarmThresholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6818,6 +7519,7 @@ export class SetResellerUserAlarmThresholdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetResellerUserAlarmThresholdResponseBody,
     };
   }
@@ -6828,25 +7530,25 @@ export class SetResellerUserAlarmThresholdResponse extends $tea.Model {
 }
 
 export class SetResellerUserQuotaRequest extends $tea.Model {
-  ownerId?: number;
   amount?: string;
   currency?: string;
   outBizId?: string;
+  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       amount: 'Amount',
       currency: 'Currency',
       outBizId: 'OutBizId',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       amount: 'string',
       currency: 'string',
       outBizId: 'string',
+      ownerId: 'number',
     };
   }
 
@@ -6857,15 +7559,15 @@ export class SetResellerUserQuotaRequest extends $tea.Model {
 
 export class SetResellerUserQuotaResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -6874,8 +7576,8 @@ export class SetResellerUserQuotaResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -6888,10 +7590,12 @@ export class SetResellerUserQuotaResponseBody extends $tea.Model {
 
 export class SetResellerUserQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetResellerUserQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6899,6 +7603,7 @@ export class SetResellerUserQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetResellerUserQuotaResponseBody,
     };
   }
@@ -6909,22 +7614,22 @@ export class SetResellerUserQuotaResponse extends $tea.Model {
 }
 
 export class SetResellerUserStatusRequest extends $tea.Model {
+  businessType?: string;
   ownerId?: string;
   status?: string;
-  businessType?: string;
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       ownerId: 'OwnerId',
       status: 'Status',
-      businessType: 'BusinessType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'string',
       ownerId: 'string',
       status: 'string',
-      businessType: 'string',
     };
   }
 
@@ -6935,15 +7640,15 @@ export class SetResellerUserStatusRequest extends $tea.Model {
 
 export class SetResellerUserStatusResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -6952,8 +7657,8 @@ export class SetResellerUserStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -6966,10 +7671,12 @@ export class SetResellerUserStatusResponseBody extends $tea.Model {
 
 export class SetResellerUserStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetResellerUserStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6977,6 +7684,7 @@ export class SetResellerUserStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetResellerUserStatusResponseBody,
     };
   }
@@ -6987,28 +7695,31 @@ export class SetResellerUserStatusResponse extends $tea.Model {
 }
 
 export class SubscribeBillToOSSRequest extends $tea.Model {
+  beginBillingCycle?: string;
+  bucketOwnerId?: number;
+  bucketPath?: string;
+  multAccountRelSubscribe?: string;
   subscribeBucket?: string;
   subscribeType?: string;
-  multAccountRelSubscribe?: string;
-  bucketOwnerId?: number;
-  beginBillingCycle?: string;
   static names(): { [key: string]: string } {
     return {
+      beginBillingCycle: 'BeginBillingCycle',
+      bucketOwnerId: 'BucketOwnerId',
+      bucketPath: 'BucketPath',
+      multAccountRelSubscribe: 'MultAccountRelSubscribe',
       subscribeBucket: 'SubscribeBucket',
       subscribeType: 'SubscribeType',
-      multAccountRelSubscribe: 'MultAccountRelSubscribe',
-      bucketOwnerId: 'BucketOwnerId',
-      beginBillingCycle: 'BeginBillingCycle',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      beginBillingCycle: 'string',
+      bucketOwnerId: 'number',
+      bucketPath: 'string',
+      multAccountRelSubscribe: 'string',
       subscribeBucket: 'string',
       subscribeType: 'string',
-      multAccountRelSubscribe: 'string',
-      bucketOwnerId: 'number',
-      beginBillingCycle: 'string',
     };
   }
 
@@ -7047,10 +7758,12 @@ export class SubscribeBillToOSSResponseBody extends $tea.Model {
 
 export class SubscribeBillToOSSResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubscribeBillToOSSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7058,6 +7771,7 @@ export class SubscribeBillToOSSResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubscribeBillToOSSResponseBody,
     };
   }
@@ -7068,21 +7782,21 @@ export class SubscribeBillToOSSResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
-  resourceType?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
@@ -7094,15 +7808,15 @@ export class TagResourcesRequest extends $tea.Model {
 
 export class TagResourcesResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -7111,8 +7825,8 @@ export class TagResourcesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -7125,10 +7839,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7136,6 +7852,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -7146,19 +7863,19 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UnsubscribeBillToOSSRequest extends $tea.Model {
-  subscribeType?: string;
   multAccountRelSubscribe?: string;
+  subscribeType?: string;
   static names(): { [key: string]: string } {
     return {
-      subscribeType: 'SubscribeType',
       multAccountRelSubscribe: 'MultAccountRelSubscribe',
+      subscribeType: 'SubscribeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subscribeType: 'string',
       multAccountRelSubscribe: 'string',
+      subscribeType: 'string',
     };
   }
 
@@ -7197,10 +7914,12 @@ export class UnsubscribeBillToOSSResponseBody extends $tea.Model {
 
 export class UnsubscribeBillToOSSResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnsubscribeBillToOSSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7208,6 +7927,7 @@ export class UnsubscribeBillToOSSResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnsubscribeBillToOSSResponseBody,
     };
   }
@@ -7218,24 +7938,24 @@ export class UnsubscribeBillToOSSResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  resourceType?: string;
   all?: boolean;
   resourceId?: string[];
+  resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       all: 'All',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       all: 'boolean',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -7247,15 +7967,15 @@ export class UntagResourcesRequest extends $tea.Model {
 
 export class UntagResourcesResponseBody extends $tea.Model {
   code?: string;
-  message?: string;
   data?: boolean;
+  message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -7264,8 +7984,8 @@ export class UntagResourcesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      message: 'string',
       data: 'boolean',
+      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -7278,10 +7998,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7289,6 +8011,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -7299,24 +8022,24 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpgradeResourcePackageRequest extends $tea.Model {
-  ownerId?: number;
-  instanceId?: string;
   effectiveDate?: string;
+  instanceId?: string;
+  ownerId?: number;
   specification?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      instanceId: 'InstanceId',
       effectiveDate: 'EffectiveDate',
+      instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
       specification: 'Specification',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      instanceId: 'string',
       effectiveDate: 'string',
+      instanceId: 'string',
+      ownerId: 'number',
       specification: 'string',
     };
   }
@@ -7328,30 +8051,30 @@ export class UpgradeResourcePackageRequest extends $tea.Model {
 
 export class UpgradeResourcePackageResponseBody extends $tea.Model {
   code?: string;
+  data?: UpgradeResourcePackageResponseBodyData;
   message?: string;
+  orderId?: number;
   requestId?: string;
   success?: boolean;
-  orderId?: number;
-  data?: UpgradeResourcePackageResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      orderId: 'OrderId',
       requestId: 'RequestId',
       success: 'Success',
-      orderId: 'OrderId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: UpgradeResourcePackageResponseBodyData,
       message: 'string',
+      orderId: 'number',
       requestId: 'string',
       success: 'boolean',
-      orderId: 'number',
-      data: UpgradeResourcePackageResponseBodyData,
     };
   }
 
@@ -7362,10 +8085,12 @@ export class UpgradeResourcePackageResponseBody extends $tea.Model {
 
 export class UpgradeResourcePackageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeResourcePackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7373,6 +8098,7 @@ export class UpgradeResourcePackageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeResourcePackageResponseBody,
     };
   }
@@ -7384,15 +8110,18 @@ export class UpgradeResourcePackageResponse extends $tea.Model {
 
 export class AddAccountRelationResponseBodyData extends $tea.Model {
   hostId?: string;
+  relationId?: number;
   static names(): { [key: string]: string } {
     return {
       hostId: 'HostId',
+      relationId: 'RelationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       hostId: 'string',
+      relationId: 'number',
     };
   }
 
@@ -7404,14 +8133,14 @@ export class AddAccountRelationResponseBodyData extends $tea.Model {
 export class AllocateCostUnitResourceRequestResourceInstanceList extends $tea.Model {
   apportionCode?: string;
   commodityCode?: string;
-  resourceUserId?: number;
   resourceId?: string;
+  resourceUserId?: number;
   static names(): { [key: string]: string } {
     return {
       apportionCode: 'ApportionCode',
       commodityCode: 'CommodityCode',
-      resourceUserId: 'ResourceUserId',
       resourceId: 'ResourceId',
+      resourceUserId: 'ResourceUserId',
     };
   }
 
@@ -7419,8 +8148,8 @@ export class AllocateCostUnitResourceRequestResourceInstanceList extends $tea.Mo
     return {
       apportionCode: 'string',
       commodityCode: 'string',
-      resourceUserId: 'number',
       resourceId: 'string',
+      resourceUserId: 'number',
     };
   }
 
@@ -7430,22 +8159,22 @@ export class AllocateCostUnitResourceRequestResourceInstanceList extends $tea.Mo
 }
 
 export class AllocateCostUnitResourceResponseBodyData extends $tea.Model {
-  toUnitUserId?: number;
   isSuccess?: boolean;
   toUnitId?: number;
+  toUnitUserId?: number;
   static names(): { [key: string]: string } {
     return {
-      toUnitUserId: 'ToUnitUserId',
       isSuccess: 'IsSuccess',
       toUnitId: 'ToUnitId',
+      toUnitUserId: 'ToUnitUserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      toUnitUserId: 'number',
       isSuccess: 'boolean',
       toUnitId: 'number',
+      toUnitUserId: 'number',
     };
   }
 
@@ -7531,25 +8260,25 @@ export class ConvertChargeTypeResponseBodyData extends $tea.Model {
 }
 
 export class CreateAgAccountResponseBodyAgRelationDto extends $tea.Model {
-  type?: string;
+  mpk?: string;
   pk?: string;
   ramAdminRoleName?: string;
-  mpk?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
+      mpk: 'Mpk',
       pk: 'Pk',
       ramAdminRoleName: 'RamAdminRoleName',
-      mpk: 'Mpk',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
+      mpk: 'string',
       pk: 'string',
       ramAdminRoleName: 'string',
-      mpk: 'string',
+      type: 'string',
     };
   }
 
@@ -7559,21 +8288,21 @@ export class CreateAgAccountResponseBodyAgRelationDto extends $tea.Model {
 }
 
 export class CreateCostUnitRequestUnitEntityList extends $tea.Model {
-  parentUnitId?: number;
   ownerUid?: number;
+  parentUnitId?: number;
   unitName?: string;
   static names(): { [key: string]: string } {
     return {
-      parentUnitId: 'ParentUnitId',
       ownerUid: 'OwnerUid',
+      parentUnitId: 'ParentUnitId',
       unitName: 'UnitName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parentUnitId: 'number',
       ownerUid: 'number',
+      parentUnitId: 'number',
       unitName: 'string',
     };
   }
@@ -7584,25 +8313,25 @@ export class CreateCostUnitRequestUnitEntityList extends $tea.Model {
 }
 
 export class CreateCostUnitResponseBodyDataCostUnitDtoList extends $tea.Model {
-  parentUnitId?: number;
-  unitName?: string;
-  unitId?: number;
   ownerUid?: number;
+  parentUnitId?: number;
+  unitId?: number;
+  unitName?: string;
   static names(): { [key: string]: string } {
     return {
-      parentUnitId: 'ParentUnitId',
-      unitName: 'UnitName',
-      unitId: 'UnitId',
       ownerUid: 'OwnerUid',
+      parentUnitId: 'ParentUnitId',
+      unitId: 'UnitId',
+      unitName: 'UnitName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parentUnitId: 'number',
-      unitName: 'string',
-      unitId: 'number',
       ownerUid: 'number',
+      parentUnitId: 'number',
+      unitId: 'number',
+      unitName: 'string',
     };
   }
 
@@ -7631,19 +8360,19 @@ export class CreateCostUnitResponseBodyData extends $tea.Model {
 }
 
 export class CreateInstanceRequestParameter extends $tea.Model {
-  value?: string;
   code?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       code: 'Code',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       code: 'string',
+      value: 'string',
     };
   }
 
@@ -7653,19 +8382,19 @@ export class CreateInstanceRequestParameter extends $tea.Model {
 }
 
 export class CreateInstanceResponseBodyData extends $tea.Model {
-  orderId?: string;
   instanceId?: string;
+  orderId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       instanceId: 'InstanceId',
+      orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
       instanceId: 'string',
+      orderId: 'string',
     };
   }
 
@@ -7675,19 +8404,38 @@ export class CreateInstanceResponseBodyData extends $tea.Model {
 }
 
 export class CreateResourcePackageResponseBodyData extends $tea.Model {
-  orderId?: number;
   instanceId?: string;
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSavingsPlansInstanceResponseBodyData extends $tea.Model {
+  orderId?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
-      instanceId: 'string',
     };
   }
 
@@ -7698,21 +8446,21 @@ export class CreateResourcePackageResponseBodyData extends $tea.Model {
 
 export class DeleteCostUnitResponseBodyData extends $tea.Model {
   isSuccess?: boolean;
-  unitId?: number;
   ownerUid?: number;
+  unitId?: number;
   static names(): { [key: string]: string } {
     return {
       isSuccess: 'IsSuccess',
-      unitId: 'UnitId',
       ownerUid: 'OwnerUid',
+      unitId: 'UnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       isSuccess: 'boolean',
-      unitId: 'number',
       ownerUid: 'number',
+      unitId: 'number',
     };
   }
 
@@ -7722,139 +8470,151 @@ export class DeleteCostUnitResponseBodyData extends $tea.Model {
 }
 
 export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
-  billingDate?: string;
-  instanceConfig?: string;
-  internetIP?: string;
-  item?: string;
-  tag?: string;
-  instanceID?: string;
-  currency?: string;
-  billAccountName?: string;
-  deductedByCashCoupons?: number;
-  subscriptionType?: string;
-  bizType?: string;
-  instanceSpec?: string;
-  deductedByCoupons?: number;
-  billingItem?: string;
-  region?: string;
-  outstandingAmount?: number;
-  costUnit?: string;
-  listPriceUnit?: string;
-  resourceGroup?: string;
-  pipCode?: string;
-  servicePeriodUnit?: string;
-  pretaxAmount?: number;
-  commodityCode?: string;
-  productName?: string;
-  nickName?: string;
-  productDetail?: string;
-  usage?: string;
-  intranetIP?: string;
-  ownerID?: string;
-  deductedByPrepaidCard?: number;
-  usageUnit?: string;
+  adjustAmount?: number;
   billAccountID?: string;
-  paymentAmount?: number;
-  invoiceDiscount?: number;
+  billAccountName?: string;
+  billingDate?: string;
+  billingItem?: string;
+  billingItemCode?: string;
+  billingType?: string;
+  bizType?: string;
+  cashAmount?: number;
+  commodityCode?: string;
+  costUnit?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  deductedByCoupons?: number;
+  deductedByPrepaidCard?: number;
   deductedByResourcePackage?: string;
-  productType?: string;
-  servicePeriod?: string;
-  zone?: string;
+  instanceConfig?: string;
+  instanceID?: string;
+  instanceSpec?: string;
+  internetIP?: string;
+  intranetIP?: string;
+  invoiceDiscount?: number;
+  item?: string;
+  itemName?: string;
   listPrice?: string;
+  listPriceUnit?: string;
+  nickName?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
+  paymentAmount?: number;
+  pipCode?: string;
+  pretaxAmount?: number;
   pretaxGrossAmount?: number;
   productCode?: string;
-  billingType?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  region?: string;
+  resourceGroup?: string;
+  servicePeriod?: string;
+  servicePeriodUnit?: string;
+  subscriptionType?: string;
+  tag?: string;
+  usage?: string;
+  usageUnit?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
-      billingDate: 'BillingDate',
-      instanceConfig: 'InstanceConfig',
-      internetIP: 'InternetIP',
-      item: 'Item',
-      tag: 'Tag',
-      instanceID: 'InstanceID',
-      currency: 'Currency',
-      billAccountName: 'BillAccountName',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
-      subscriptionType: 'SubscriptionType',
-      bizType: 'BizType',
-      instanceSpec: 'InstanceSpec',
-      deductedByCoupons: 'DeductedByCoupons',
-      billingItem: 'BillingItem',
-      region: 'Region',
-      outstandingAmount: 'OutstandingAmount',
-      costUnit: 'CostUnit',
-      listPriceUnit: 'ListPriceUnit',
-      resourceGroup: 'ResourceGroup',
-      pipCode: 'PipCode',
-      servicePeriodUnit: 'ServicePeriodUnit',
-      pretaxAmount: 'PretaxAmount',
-      commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      nickName: 'NickName',
-      productDetail: 'ProductDetail',
-      usage: 'Usage',
-      intranetIP: 'IntranetIP',
-      ownerID: 'OwnerID',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
-      usageUnit: 'UsageUnit',
+      adjustAmount: 'AdjustAmount',
       billAccountID: 'BillAccountID',
-      paymentAmount: 'PaymentAmount',
-      invoiceDiscount: 'InvoiceDiscount',
+      billAccountName: 'BillAccountName',
+      billingDate: 'BillingDate',
+      billingItem: 'BillingItem',
+      billingItemCode: 'BillingItemCode',
+      billingType: 'BillingType',
+      bizType: 'BizType',
+      cashAmount: 'CashAmount',
+      commodityCode: 'CommodityCode',
+      costUnit: 'CostUnit',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       deductedByResourcePackage: 'DeductedByResourcePackage',
-      productType: 'ProductType',
-      servicePeriod: 'ServicePeriod',
-      zone: 'Zone',
+      instanceConfig: 'InstanceConfig',
+      instanceID: 'InstanceID',
+      instanceSpec: 'InstanceSpec',
+      internetIP: 'InternetIP',
+      intranetIP: 'IntranetIP',
+      invoiceDiscount: 'InvoiceDiscount',
+      item: 'Item',
+      itemName: 'ItemName',
       listPrice: 'ListPrice',
+      listPriceUnit: 'ListPriceUnit',
+      nickName: 'NickName',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
+      paymentAmount: 'PaymentAmount',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
-      billingType: 'BillingType',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      region: 'Region',
+      resourceGroup: 'ResourceGroup',
+      servicePeriod: 'ServicePeriod',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
+      usage: 'Usage',
+      usageUnit: 'UsageUnit',
+      zone: 'Zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      billingDate: 'string',
-      instanceConfig: 'string',
-      internetIP: 'string',
-      item: 'string',
-      tag: 'string',
-      instanceID: 'string',
-      currency: 'string',
-      billAccountName: 'string',
-      deductedByCashCoupons: 'number',
-      subscriptionType: 'string',
-      bizType: 'string',
-      instanceSpec: 'string',
-      deductedByCoupons: 'number',
-      billingItem: 'string',
-      region: 'string',
-      outstandingAmount: 'number',
-      costUnit: 'string',
-      listPriceUnit: 'string',
-      resourceGroup: 'string',
-      pipCode: 'string',
-      servicePeriodUnit: 'string',
-      pretaxAmount: 'number',
-      commodityCode: 'string',
-      productName: 'string',
-      nickName: 'string',
-      productDetail: 'string',
-      usage: 'string',
-      intranetIP: 'string',
-      ownerID: 'string',
-      deductedByPrepaidCard: 'number',
-      usageUnit: 'string',
+      adjustAmount: 'number',
       billAccountID: 'string',
-      paymentAmount: 'number',
-      invoiceDiscount: 'number',
+      billAccountName: 'string',
+      billingDate: 'string',
+      billingItem: 'string',
+      billingItemCode: 'string',
+      billingType: 'string',
+      bizType: 'string',
+      cashAmount: 'number',
+      commodityCode: 'string',
+      costUnit: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      deductedByCoupons: 'number',
+      deductedByPrepaidCard: 'number',
       deductedByResourcePackage: 'string',
-      productType: 'string',
-      servicePeriod: 'string',
-      zone: 'string',
+      instanceConfig: 'string',
+      instanceID: 'string',
+      instanceSpec: 'string',
+      internetIP: 'string',
+      intranetIP: 'string',
+      invoiceDiscount: 'number',
+      item: 'string',
+      itemName: 'string',
       listPrice: 'string',
+      listPriceUnit: 'string',
+      nickName: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
+      paymentAmount: 'number',
+      pipCode: 'string',
+      pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
       productCode: 'string',
-      billingType: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      region: 'string',
+      resourceGroup: 'string',
+      servicePeriod: 'string',
+      servicePeriodUnit: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
+      usage: 'string',
+      usageUnit: 'string',
+      zone: 'string',
     };
   }
 
@@ -7864,103 +8624,34 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class DescribeInstanceBillResponseBodyData extends $tea.Model {
-  nextToken?: string;
-  billingCycle?: string;
-  maxResults?: number;
   accountID?: string;
-  totalCount?: number;
   accountName?: string;
+  billingCycle?: string;
   items?: DescribeInstanceBillResponseBodyDataItems[];
+  maxResults?: number;
+  nextToken?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      billingCycle: 'BillingCycle',
-      maxResults: 'MaxResults',
       accountID: 'AccountID',
-      totalCount: 'TotalCount',
       accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
       items: 'Items',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      billingCycle: 'string',
-      maxResults: 'number',
       accountID: 'string',
-      totalCount: 'number',
       accountName: 'string',
+      billingCycle: 'string',
       items: { 'type': 'array', 'itemType': DescribeInstanceBillResponseBodyDataItems },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePricingModuleResponseBodyDataModuleListModuleConfigList extends $tea.Model {
-  configList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      configList: 'ConfigList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePricingModuleResponseBodyDataModuleListModule extends $tea.Model {
-  moduleName?: string;
-  priceType?: string;
-  currency?: string;
-  moduleCode?: string;
-  configList?: DescribePricingModuleResponseBodyDataModuleListModuleConfigList;
-  static names(): { [key: string]: string } {
-    return {
-      moduleName: 'ModuleName',
-      priceType: 'PriceType',
-      currency: 'Currency',
-      moduleCode: 'ModuleCode',
-      configList: 'ConfigList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moduleName: 'string',
-      priceType: 'string',
-      currency: 'string',
-      moduleCode: 'string',
-      configList: DescribePricingModuleResponseBodyDataModuleListModuleConfigList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePricingModuleResponseBodyDataModuleList extends $tea.Model {
-  module?: DescribePricingModuleResponseBodyDataModuleListModule[];
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: { 'type': 'array', 'itemType': DescribePricingModuleResponseBodyDataModuleListModule },
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -7970,25 +8661,25 @@ export class DescribePricingModuleResponseBodyDataModuleList extends $tea.Model 
 }
 
 export class DescribePricingModuleResponseBodyDataAttributeListAttributeValuesAttributeValue extends $tea.Model {
+  name?: string;
+  remark?: string;
   type?: string;
   value?: string;
-  remark?: string;
-  name?: string;
   static names(): { [key: string]: string } {
     return {
+      name: 'Name',
+      remark: 'Remark',
       type: 'Type',
       value: 'Value',
-      remark: 'Remark',
-      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      name: 'string',
+      remark: 'string',
       type: 'string',
       value: 'string',
-      remark: 'string',
-      name: 'string',
     };
   }
 
@@ -8063,20 +8754,89 @@ export class DescribePricingModuleResponseBodyDataAttributeList extends $tea.Mod
   }
 }
 
-export class DescribePricingModuleResponseBodyData extends $tea.Model {
-  moduleList?: DescribePricingModuleResponseBodyDataModuleList;
-  attributeList?: DescribePricingModuleResponseBodyDataAttributeList;
+export class DescribePricingModuleResponseBodyDataModuleListModuleConfigList extends $tea.Model {
+  configList?: string[];
   static names(): { [key: string]: string } {
     return {
-      moduleList: 'ModuleList',
-      attributeList: 'AttributeList',
+      configList: 'ConfigList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      moduleList: DescribePricingModuleResponseBodyDataModuleList,
+      configList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePricingModuleResponseBodyDataModuleListModule extends $tea.Model {
+  configList?: DescribePricingModuleResponseBodyDataModuleListModuleConfigList;
+  currency?: string;
+  moduleCode?: string;
+  moduleName?: string;
+  priceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configList: 'ConfigList',
+      currency: 'Currency',
+      moduleCode: 'ModuleCode',
+      moduleName: 'ModuleName',
+      priceType: 'PriceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configList: DescribePricingModuleResponseBodyDataModuleListModuleConfigList,
+      currency: 'string',
+      moduleCode: 'string',
+      moduleName: 'string',
+      priceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePricingModuleResponseBodyDataModuleList extends $tea.Model {
+  module?: DescribePricingModuleResponseBodyDataModuleListModule[];
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: { 'type': 'array', 'itemType': DescribePricingModuleResponseBodyDataModuleListModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePricingModuleResponseBodyData extends $tea.Model {
+  attributeList?: DescribePricingModuleResponseBodyDataAttributeList;
+  moduleList?: DescribePricingModuleResponseBodyDataModuleList;
+  static names(): { [key: string]: string } {
+    return {
+      attributeList: 'AttributeList',
+      moduleList: 'ModuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       attributeList: DescribePricingModuleResponseBodyDataAttributeList,
+      moduleList: DescribePricingModuleResponseBodyDataModuleList,
     };
   }
 
@@ -8086,73 +8846,73 @@ export class DescribePricingModuleResponseBodyData extends $tea.Model {
 }
 
 export class DescribeResourceCoverageDetailResponseBodyDataItems extends $tea.Model {
-  commodityCode?: string;
-  productName?: string;
-  totalQuantity?: number;
-  regionNo?: string;
-  userId?: string;
-  commodityName?: string;
   capacityUnit?: string;
-  instanceId?: string;
-  currency?: string;
-  zoneName?: string;
-  instanceSpec?: string;
-  endTime?: string;
-  startTime?: string;
-  paymentAmount?: number;
+  commodityCode?: string;
+  commodityName?: string;
   coveragePercentage?: number;
-  region?: string;
+  currency?: string;
   deductQuantity?: number;
-  zone?: string;
-  userName?: string;
+  endTime?: string;
+  instanceId?: string;
+  instanceSpec?: string;
+  paymentAmount?: number;
   productCode?: string;
+  productName?: string;
+  region?: string;
+  regionNo?: string;
+  startTime?: string;
+  totalQuantity?: number;
+  userId?: string;
+  userName?: string;
+  zone?: string;
+  zoneName?: string;
   static names(): { [key: string]: string } {
     return {
-      commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      totalQuantity: 'TotalQuantity',
-      regionNo: 'RegionNo',
-      userId: 'UserId',
-      commodityName: 'CommodityName',
       capacityUnit: 'CapacityUnit',
-      instanceId: 'InstanceId',
-      currency: 'Currency',
-      zoneName: 'ZoneName',
-      instanceSpec: 'InstanceSpec',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      paymentAmount: 'PaymentAmount',
+      commodityCode: 'CommodityCode',
+      commodityName: 'CommodityName',
       coveragePercentage: 'CoveragePercentage',
-      region: 'Region',
+      currency: 'Currency',
       deductQuantity: 'DeductQuantity',
-      zone: 'Zone',
-      userName: 'UserName',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      instanceSpec: 'InstanceSpec',
+      paymentAmount: 'PaymentAmount',
       productCode: 'ProductCode',
+      productName: 'ProductName',
+      region: 'Region',
+      regionNo: 'RegionNo',
+      startTime: 'StartTime',
+      totalQuantity: 'TotalQuantity',
+      userId: 'UserId',
+      userName: 'UserName',
+      zone: 'Zone',
+      zoneName: 'ZoneName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      commodityCode: 'string',
-      productName: 'string',
-      totalQuantity: 'number',
-      regionNo: 'string',
-      userId: 'string',
-      commodityName: 'string',
       capacityUnit: 'string',
-      instanceId: 'string',
-      currency: 'string',
-      zoneName: 'string',
-      instanceSpec: 'string',
-      endTime: 'string',
-      startTime: 'string',
-      paymentAmount: 'number',
+      commodityCode: 'string',
+      commodityName: 'string',
       coveragePercentage: 'number',
-      region: 'string',
+      currency: 'string',
       deductQuantity: 'number',
-      zone: 'string',
-      userName: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      instanceSpec: 'string',
+      paymentAmount: 'number',
       productCode: 'string',
+      productName: 'string',
+      region: 'string',
+      regionNo: 'string',
+      startTime: 'string',
+      totalQuantity: 'number',
+      userId: 'string',
+      userName: 'string',
+      zone: 'string',
+      zoneName: 'string',
     };
   }
 
@@ -8162,25 +8922,25 @@ export class DescribeResourceCoverageDetailResponseBodyDataItems extends $tea.Mo
 }
 
 export class DescribeResourceCoverageDetailResponseBodyData extends $tea.Model {
+  items?: DescribeResourceCoverageDetailResponseBodyDataItems[];
+  maxResults?: number;
   nextToken?: string;
   totalCount?: number;
-  maxResults?: number;
-  items?: DescribeResourceCoverageDetailResponseBodyDataItems[];
   static names(): { [key: string]: string } {
     return {
+      items: 'Items',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      items: { 'type': 'array', 'itemType': DescribeResourceCoverageDetailResponseBodyDataItems },
+      maxResults: 'number',
       nextToken: 'string',
       totalCount: 'number',
-      maxResults: 'number',
-      items: { 'type': 'array', 'itemType': DescribeResourceCoverageDetailResponseBodyDataItems },
     };
   }
 
@@ -8213,14 +8973,14 @@ export class DescribeResourceCoverageTotalResponseBodyDataPeriodCoverage extends
 
 export class DescribeResourceCoverageTotalResponseBodyDataTotalCoverage extends $tea.Model {
   capacityUnit?: string;
-  deductQuantity?: number;
   coveragePercentage?: number;
+  deductQuantity?: number;
   totalQuantity?: number;
   static names(): { [key: string]: string } {
     return {
       capacityUnit: 'CapacityUnit',
-      deductQuantity: 'DeductQuantity',
       coveragePercentage: 'CoveragePercentage',
+      deductQuantity: 'DeductQuantity',
       totalQuantity: 'TotalQuantity',
     };
   }
@@ -8228,8 +8988,8 @@ export class DescribeResourceCoverageTotalResponseBodyDataTotalCoverage extends 
   static types(): { [key: string]: any } {
     return {
       capacityUnit: 'string',
-      deductQuantity: 'number',
       coveragePercentage: 'number',
+      deductQuantity: 'number',
       totalQuantity: 'number',
     };
   }
@@ -8303,22 +9063,22 @@ export class DescribeResourcePackageProductResponseBodyDataResourcePackagesResou
 }
 
 export class DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypesPackageTypeSpecificationsSpecificationAvailableDurationsAvailableDuration extends $tea.Model {
-  value?: number;
   name?: string;
   unit?: string;
+  value?: number;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
       unit: 'Unit',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'number',
       name: 'string',
       unit: 'string',
+      value: 'number',
     };
   }
 
@@ -8347,22 +9107,22 @@ export class DescribeResourcePackageProductResponseBodyDataResourcePackagesResou
 }
 
 export class DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypesPackageTypeSpecificationsSpecification extends $tea.Model {
+  availableDurations?: DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypesPackageTypeSpecificationsSpecificationAvailableDurations;
   name?: string;
   value?: string;
-  availableDurations?: DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypesPackageTypeSpecificationsSpecificationAvailableDurations;
   static names(): { [key: string]: string } {
     return {
+      availableDurations: 'AvailableDurations',
       name: 'Name',
       value: 'Value',
-      availableDurations: 'AvailableDurations',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      availableDurations: DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypesPackageTypeSpecificationsSpecificationAvailableDurations,
       name: 'string',
       value: 'string',
-      availableDurations: DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypesPackageTypeSpecificationsSpecificationAvailableDurations,
     };
   }
 
@@ -8438,25 +9198,25 @@ export class DescribeResourcePackageProductResponseBodyDataResourcePackagesResou
 }
 
 export class DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackage extends $tea.Model {
-  productType?: string;
   name?: string;
-  productCode?: string;
   packageTypes?: DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypes;
+  productCode?: string;
+  productType?: string;
   static names(): { [key: string]: string } {
     return {
-      productType: 'ProductType',
       name: 'Name',
-      productCode: 'ProductCode',
       packageTypes: 'PackageTypes',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productType: 'string',
       name: 'string',
-      productCode: 'string',
       packageTypes: DescribeResourcePackageProductResponseBodyDataResourcePackagesResourcePackagePackageTypes,
+      productCode: 'string',
+      productType: 'string',
     };
   }
 
@@ -8504,82 +9264,82 @@ export class DescribeResourcePackageProductResponseBodyData extends $tea.Model {
 }
 
 export class DescribeResourceUsageDetailResponseBodyDataItems extends $tea.Model {
-  status?: string;
-  usagePercentage?: number;
-  resourceInstanceId?: string;
-  totalQuantity?: number;
-  reservationCost?: string;
-  regionNo?: string;
-  userId?: string;
-  statusName?: string;
   capacityUnit?: string;
-  potentialSavedCost?: string;
   currency?: string;
-  zoneName?: string;
-  instanceSpec?: string;
-  endTime?: string;
-  postpaidCost?: string;
-  imageType?: string;
-  startTime?: string;
-  region?: string;
   deductQuantity?: number;
-  savedCost?: string;
-  zone?: string;
-  userName?: string;
+  endTime?: string;
+  imageType?: string;
+  instanceSpec?: string;
+  postpaidCost?: string;
+  potentialSavedCost?: string;
   quantity?: number;
+  region?: string;
+  regionNo?: string;
+  reservationCost?: string;
+  resourceInstanceId?: string;
+  savedCost?: string;
+  startTime?: string;
+  status?: string;
+  statusName?: string;
+  totalQuantity?: number;
+  usagePercentage?: number;
+  userId?: string;
+  userName?: string;
+  zone?: string;
+  zoneName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      usagePercentage: 'UsagePercentage',
-      resourceInstanceId: 'ResourceInstanceId',
-      totalQuantity: 'TotalQuantity',
-      reservationCost: 'ReservationCost',
-      regionNo: 'RegionNo',
-      userId: 'UserId',
-      statusName: 'StatusName',
       capacityUnit: 'CapacityUnit',
-      potentialSavedCost: 'PotentialSavedCost',
       currency: 'Currency',
-      zoneName: 'ZoneName',
-      instanceSpec: 'InstanceSpec',
-      endTime: 'EndTime',
-      postpaidCost: 'PostpaidCost',
-      imageType: 'ImageType',
-      startTime: 'StartTime',
-      region: 'Region',
       deductQuantity: 'DeductQuantity',
-      savedCost: 'SavedCost',
-      zone: 'Zone',
-      userName: 'UserName',
+      endTime: 'EndTime',
+      imageType: 'ImageType',
+      instanceSpec: 'InstanceSpec',
+      postpaidCost: 'PostpaidCost',
+      potentialSavedCost: 'PotentialSavedCost',
       quantity: 'Quantity',
+      region: 'Region',
+      regionNo: 'RegionNo',
+      reservationCost: 'ReservationCost',
+      resourceInstanceId: 'ResourceInstanceId',
+      savedCost: 'SavedCost',
+      startTime: 'StartTime',
+      status: 'Status',
+      statusName: 'StatusName',
+      totalQuantity: 'TotalQuantity',
+      usagePercentage: 'UsagePercentage',
+      userId: 'UserId',
+      userName: 'UserName',
+      zone: 'Zone',
+      zoneName: 'ZoneName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      usagePercentage: 'number',
-      resourceInstanceId: 'string',
-      totalQuantity: 'number',
-      reservationCost: 'string',
-      regionNo: 'string',
-      userId: 'string',
-      statusName: 'string',
       capacityUnit: 'string',
-      potentialSavedCost: 'string',
       currency: 'string',
-      zoneName: 'string',
-      instanceSpec: 'string',
-      endTime: 'string',
-      postpaidCost: 'string',
-      imageType: 'string',
-      startTime: 'string',
-      region: 'string',
       deductQuantity: 'number',
-      savedCost: 'string',
-      zone: 'string',
-      userName: 'string',
+      endTime: 'string',
+      imageType: 'string',
+      instanceSpec: 'string',
+      postpaidCost: 'string',
+      potentialSavedCost: 'string',
       quantity: 'number',
+      region: 'string',
+      regionNo: 'string',
+      reservationCost: 'string',
+      resourceInstanceId: 'string',
+      savedCost: 'string',
+      startTime: 'string',
+      status: 'string',
+      statusName: 'string',
+      totalQuantity: 'number',
+      usagePercentage: 'number',
+      userId: 'string',
+      userName: 'string',
+      zone: 'string',
+      zoneName: 'string',
     };
   }
 
@@ -8589,25 +9349,25 @@ export class DescribeResourceUsageDetailResponseBodyDataItems extends $tea.Model
 }
 
 export class DescribeResourceUsageDetailResponseBodyData extends $tea.Model {
+  items?: DescribeResourceUsageDetailResponseBodyDataItems[];
+  maxResults?: number;
   nextToken?: string;
   totalCount?: number;
-  maxResults?: number;
-  items?: DescribeResourceUsageDetailResponseBodyDataItems[];
   static names(): { [key: string]: string } {
     return {
+      items: 'Items',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      items: { 'type': 'array', 'itemType': DescribeResourceUsageDetailResponseBodyDataItems },
+      maxResults: 'number',
       nextToken: 'string',
       totalCount: 'number',
-      maxResults: 'number',
-      items: { 'type': 'array', 'itemType': DescribeResourceUsageDetailResponseBodyDataItems },
     };
   }
 
@@ -8617,19 +9377,19 @@ export class DescribeResourceUsageDetailResponseBodyData extends $tea.Model {
 }
 
 export class DescribeResourceUsageTotalResponseBodyDataPeriodCoverage extends $tea.Model {
-  usagePercentage?: number;
   period?: string;
+  usagePercentage?: number;
   static names(): { [key: string]: string } {
     return {
-      usagePercentage: 'UsagePercentage',
       period: 'Period',
+      usagePercentage: 'UsagePercentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usagePercentage: 'number',
       period: 'string',
+      usagePercentage: 'number',
     };
   }
 
@@ -8640,27 +9400,27 @@ export class DescribeResourceUsageTotalResponseBodyDataPeriodCoverage extends $t
 
 export class DescribeResourceUsageTotalResponseBodyDataTotalUsage extends $tea.Model {
   postpaidCost?: number;
-  savedCost?: number;
-  usagePercentage?: number;
   potentialSavedCost?: number;
   reservationCost?: number;
+  savedCost?: number;
+  usagePercentage?: number;
   static names(): { [key: string]: string } {
     return {
       postpaidCost: 'PostpaidCost',
-      savedCost: 'SavedCost',
-      usagePercentage: 'UsagePercentage',
       potentialSavedCost: 'PotentialSavedCost',
       reservationCost: 'ReservationCost',
+      savedCost: 'SavedCost',
+      usagePercentage: 'UsagePercentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       postpaidCost: 'number',
-      savedCost: 'number',
-      usagePercentage: 'number',
       potentialSavedCost: 'number',
       reservationCost: 'number',
+      savedCost: 'number',
+      usagePercentage: 'number',
     };
   }
 
@@ -8692,49 +9452,49 @@ export class DescribeResourceUsageTotalResponseBodyData extends $tea.Model {
 }
 
 export class DescribeSavingsPlansCoverageDetailResponseBodyDataItems extends $tea.Model {
-  userId?: number;
-  instanceId?: string;
+  coveragePercentage?: number;
   currency?: string;
+  deductAmount?: number;
+  endPeriod?: string;
+  instanceId?: string;
   instanceSpec?: string;
   postpaidCost?: number;
-  coveragePercentage?: number;
   region?: string;
-  deductAmount?: number;
   startPeriod?: string;
   totalAmount?: number;
+  userId?: number;
   userName?: string;
-  endPeriod?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
-      instanceId: 'InstanceId',
+      coveragePercentage: 'CoveragePercentage',
       currency: 'Currency',
+      deductAmount: 'DeductAmount',
+      endPeriod: 'EndPeriod',
+      instanceId: 'InstanceId',
       instanceSpec: 'InstanceSpec',
       postpaidCost: 'PostpaidCost',
-      coveragePercentage: 'CoveragePercentage',
       region: 'Region',
-      deductAmount: 'DeductAmount',
       startPeriod: 'StartPeriod',
       totalAmount: 'TotalAmount',
+      userId: 'UserId',
       userName: 'UserName',
-      endPeriod: 'EndPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
-      instanceId: 'string',
+      coveragePercentage: 'number',
       currency: 'string',
+      deductAmount: 'number',
+      endPeriod: 'string',
+      instanceId: 'string',
       instanceSpec: 'string',
       postpaidCost: 'number',
-      coveragePercentage: 'number',
       region: 'string',
-      deductAmount: 'number',
       startPeriod: 'string',
       totalAmount: 'number',
+      userId: 'number',
       userName: 'string',
-      endPeriod: 'string',
     };
   }
 
@@ -8744,22 +9504,22 @@ export class DescribeSavingsPlansCoverageDetailResponseBodyDataItems extends $te
 }
 
 export class DescribeSavingsPlansCoverageDetailResponseBodyData extends $tea.Model {
-  totalCount?: number;
-  nextToken?: string;
   items?: DescribeSavingsPlansCoverageDetailResponseBodyDataItems[];
+  nextToken?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
       items: 'Items',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      nextToken: 'string',
       items: { 'type': 'array', 'itemType': DescribeSavingsPlansCoverageDetailResponseBodyDataItems },
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -8835,52 +9595,52 @@ export class DescribeSavingsPlansCoverageTotalResponseBodyData extends $tea.Mode
 }
 
 export class DescribeSavingsPlansUsageDetailResponseBodyDataItems extends $tea.Model {
+  currency?: string;
+  deductValue?: number;
+  endPeriod?: string;
+  instanceId?: string;
+  poolValue?: number;
+  postpaidCost?: number;
+  savedCost?: number;
+  startPeriod?: string;
   status?: string;
   type?: string;
   usagePercentage?: number;
   userId?: number;
-  instanceId?: string;
-  currency?: string;
-  postpaidCost?: number;
-  deductValue?: number;
-  startPeriod?: string;
-  savedCost?: number;
-  poolValue?: number;
   userName?: string;
-  endPeriod?: string;
   static names(): { [key: string]: string } {
     return {
+      currency: 'Currency',
+      deductValue: 'DeductValue',
+      endPeriod: 'EndPeriod',
+      instanceId: 'InstanceId',
+      poolValue: 'PoolValue',
+      postpaidCost: 'PostpaidCost',
+      savedCost: 'SavedCost',
+      startPeriod: 'StartPeriod',
       status: 'Status',
       type: 'Type',
       usagePercentage: 'UsagePercentage',
       userId: 'UserId',
-      instanceId: 'InstanceId',
-      currency: 'Currency',
-      postpaidCost: 'PostpaidCost',
-      deductValue: 'DeductValue',
-      startPeriod: 'StartPeriod',
-      savedCost: 'SavedCost',
-      poolValue: 'PoolValue',
       userName: 'UserName',
-      endPeriod: 'EndPeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      currency: 'string',
+      deductValue: 'number',
+      endPeriod: 'string',
+      instanceId: 'string',
+      poolValue: 'number',
+      postpaidCost: 'number',
+      savedCost: 'number',
+      startPeriod: 'string',
       status: 'string',
       type: 'string',
       usagePercentage: 'number',
       userId: 'number',
-      instanceId: 'string',
-      currency: 'string',
-      postpaidCost: 'number',
-      deductValue: 'number',
-      startPeriod: 'string',
-      savedCost: 'number',
-      poolValue: 'number',
       userName: 'string',
-      endPeriod: 'string',
     };
   }
 
@@ -8890,22 +9650,22 @@ export class DescribeSavingsPlansUsageDetailResponseBodyDataItems extends $tea.M
 }
 
 export class DescribeSavingsPlansUsageDetailResponseBodyData extends $tea.Model {
-  totalCount?: number;
-  nextToken?: string;
   items?: DescribeSavingsPlansUsageDetailResponseBodyDataItems[];
+  nextToken?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
       items: 'Items',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      nextToken: 'string',
       items: { 'type': 'array', 'itemType': DescribeSavingsPlansUsageDetailResponseBodyDataItems },
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -8937,25 +9697,25 @@ export class DescribeSavingsPlansUsageTotalResponseBodyDataPeriodCoverage extend
 }
 
 export class DescribeSavingsPlansUsageTotalResponseBodyDataTotalUsage extends $tea.Model {
+  poolValue?: number;
   postpaidCost?: number;
   savedCost?: number;
   usagePercentage?: number;
-  poolValue?: number;
   static names(): { [key: string]: string } {
     return {
+      poolValue: 'PoolValue',
       postpaidCost: 'PostpaidCost',
       savedCost: 'SavedCost',
       usagePercentage: 'UsagePercentage',
-      poolValue: 'PoolValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      poolValue: 'number',
       postpaidCost: 'number',
       savedCost: 'number',
       usagePercentage: 'number',
-      poolValue: 'number',
     };
   }
 
@@ -8987,19 +9747,19 @@ export class DescribeSavingsPlansUsageTotalResponseBodyData extends $tea.Model {
 }
 
 export class DescribeSplitItemBillRequestTagFilter extends $tea.Model {
-  tagValues?: string[];
   tagKey?: string;
+  tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
-      tagValues: 'TagValues',
       tagKey: 'TagKey',
+      tagValues: 'TagValues',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValues: { 'type': 'array', 'itemType': 'string' },
       tagKey: 'string',
+      tagValues: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -9009,163 +9769,175 @@ export class DescribeSplitItemBillRequestTagFilter extends $tea.Model {
 }
 
 export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
-  splitAccountID?: string;
-  billAccountName?: string;
-  subscriptionType?: string;
-  instanceSpec?: string;
-  deductedByCoupons?: number;
-  region?: string;
-  outstandingAmount?: number;
-  pipCode?: string;
-  commodityCode?: string;
-  nickName?: string;
-  productDetail?: string;
-  usage?: string;
-  intranetIP?: string;
-  usageUnit?: string;
-  splitCommodityCode?: string;
+  adjustAmount?: number;
   billAccountID?: string;
-  productType?: string;
-  deductedByResourcePackage?: string;
-  paymentAmount?: number;
-  splitBillingCycle?: string;
-  servicePeriod?: string;
-  splitItemName?: string;
-  listPrice?: string;
-  zone?: string;
-  pretaxGrossAmount?: number;
-  instanceConfig?: string;
+  billAccountName?: string;
   billingDate?: string;
-  internetIP?: string;
-  item?: string;
-  splitItemID?: string;
-  instanceID?: string;
-  tag?: string;
+  billingItem?: string;
+  billingItemCode?: string;
+  billingType?: string;
+  bizType?: string;
+  cashAmount?: number;
+  commodityCode?: string;
+  costUnit?: string;
   currency?: string;
   deductedByCashCoupons?: number;
-  bizType?: string;
-  billingItem?: string;
-  costUnit?: string;
-  listPriceUnit?: string;
-  resourceGroup?: string;
-  pretaxAmount?: number;
-  servicePeriodUnit?: string;
-  splitBillingDate?: string;
-  productName?: string;
-  splitProductDetail?: string;
-  ownerID?: string;
+  deductedByCoupons?: number;
   deductedByPrepaidCard?: number;
+  deductedByResourcePackage?: string;
+  instanceConfig?: string;
+  instanceID?: string;
+  instanceSpec?: string;
+  internetIP?: string;
+  intranetIP?: string;
   invoiceDiscount?: number;
-  splitAccountName?: string;
-  billingType?: string;
+  item?: string;
+  itemName?: string;
+  listPrice?: string;
+  listPriceUnit?: string;
+  nickName?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
+  paymentAmount?: number;
+  pipCode?: string;
+  pretaxAmount?: number;
+  pretaxGrossAmount?: number;
   productCode?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  region?: string;
+  resourceGroup?: string;
+  servicePeriod?: string;
+  servicePeriodUnit?: string;
+  splitAccountID?: string;
+  splitAccountName?: string;
+  splitBillingCycle?: string;
+  splitBillingDate?: string;
+  splitCommodityCode?: string;
+  splitItemID?: string;
+  splitItemName?: string;
+  splitProductDetail?: string;
+  subscriptionType?: string;
+  tag?: string;
+  usage?: string;
+  usageUnit?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
-      splitAccountID: 'SplitAccountID',
-      billAccountName: 'BillAccountName',
-      subscriptionType: 'SubscriptionType',
-      instanceSpec: 'InstanceSpec',
-      deductedByCoupons: 'DeductedByCoupons',
-      region: 'Region',
-      outstandingAmount: 'OutstandingAmount',
-      pipCode: 'PipCode',
-      commodityCode: 'CommodityCode',
-      nickName: 'NickName',
-      productDetail: 'ProductDetail',
-      usage: 'Usage',
-      intranetIP: 'IntranetIP',
-      usageUnit: 'UsageUnit',
-      splitCommodityCode: 'SplitCommodityCode',
+      adjustAmount: 'AdjustAmount',
       billAccountID: 'BillAccountID',
-      productType: 'ProductType',
-      deductedByResourcePackage: 'DeductedByResourcePackage',
-      paymentAmount: 'PaymentAmount',
-      splitBillingCycle: 'SplitBillingCycle',
-      servicePeriod: 'ServicePeriod',
-      splitItemName: 'SplitItemName',
-      listPrice: 'ListPrice',
-      zone: 'Zone',
-      pretaxGrossAmount: 'PretaxGrossAmount',
-      instanceConfig: 'InstanceConfig',
+      billAccountName: 'BillAccountName',
       billingDate: 'BillingDate',
-      internetIP: 'InternetIP',
-      item: 'Item',
-      splitItemID: 'SplitItemID',
-      instanceID: 'InstanceID',
-      tag: 'Tag',
+      billingItem: 'BillingItem',
+      billingItemCode: 'BillingItemCode',
+      billingType: 'BillingType',
+      bizType: 'BizType',
+      cashAmount: 'CashAmount',
+      commodityCode: 'CommodityCode',
+      costUnit: 'CostUnit',
       currency: 'Currency',
       deductedByCashCoupons: 'DeductedByCashCoupons',
-      bizType: 'BizType',
-      billingItem: 'BillingItem',
-      costUnit: 'CostUnit',
-      listPriceUnit: 'ListPriceUnit',
-      resourceGroup: 'ResourceGroup',
-      pretaxAmount: 'PretaxAmount',
-      servicePeriodUnit: 'ServicePeriodUnit',
-      splitBillingDate: 'SplitBillingDate',
-      productName: 'ProductName',
-      splitProductDetail: 'SplitProductDetail',
-      ownerID: 'OwnerID',
+      deductedByCoupons: 'DeductedByCoupons',
       deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      deductedByResourcePackage: 'DeductedByResourcePackage',
+      instanceConfig: 'InstanceConfig',
+      instanceID: 'InstanceID',
+      instanceSpec: 'InstanceSpec',
+      internetIP: 'InternetIP',
+      intranetIP: 'IntranetIP',
       invoiceDiscount: 'InvoiceDiscount',
-      splitAccountName: 'SplitAccountName',
-      billingType: 'BillingType',
+      item: 'Item',
+      itemName: 'ItemName',
+      listPrice: 'ListPrice',
+      listPriceUnit: 'ListPriceUnit',
+      nickName: 'NickName',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
+      paymentAmount: 'PaymentAmount',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
+      pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      region: 'Region',
+      resourceGroup: 'ResourceGroup',
+      servicePeriod: 'ServicePeriod',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      splitAccountID: 'SplitAccountID',
+      splitAccountName: 'SplitAccountName',
+      splitBillingCycle: 'SplitBillingCycle',
+      splitBillingDate: 'SplitBillingDate',
+      splitCommodityCode: 'SplitCommodityCode',
+      splitItemID: 'SplitItemID',
+      splitItemName: 'SplitItemName',
+      splitProductDetail: 'SplitProductDetail',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
+      usage: 'Usage',
+      usageUnit: 'UsageUnit',
+      zone: 'Zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      splitAccountID: 'string',
-      billAccountName: 'string',
-      subscriptionType: 'string',
-      instanceSpec: 'string',
-      deductedByCoupons: 'number',
-      region: 'string',
-      outstandingAmount: 'number',
-      pipCode: 'string',
-      commodityCode: 'string',
-      nickName: 'string',
-      productDetail: 'string',
-      usage: 'string',
-      intranetIP: 'string',
-      usageUnit: 'string',
-      splitCommodityCode: 'string',
+      adjustAmount: 'number',
       billAccountID: 'string',
-      productType: 'string',
-      deductedByResourcePackage: 'string',
-      paymentAmount: 'number',
-      splitBillingCycle: 'string',
-      servicePeriod: 'string',
-      splitItemName: 'string',
-      listPrice: 'string',
-      zone: 'string',
-      pretaxGrossAmount: 'number',
-      instanceConfig: 'string',
+      billAccountName: 'string',
       billingDate: 'string',
-      internetIP: 'string',
-      item: 'string',
-      splitItemID: 'string',
-      instanceID: 'string',
-      tag: 'string',
+      billingItem: 'string',
+      billingItemCode: 'string',
+      billingType: 'string',
+      bizType: 'string',
+      cashAmount: 'number',
+      commodityCode: 'string',
+      costUnit: 'string',
       currency: 'string',
       deductedByCashCoupons: 'number',
-      bizType: 'string',
-      billingItem: 'string',
-      costUnit: 'string',
-      listPriceUnit: 'string',
-      resourceGroup: 'string',
-      pretaxAmount: 'number',
-      servicePeriodUnit: 'string',
-      splitBillingDate: 'string',
-      productName: 'string',
-      splitProductDetail: 'string',
-      ownerID: 'string',
+      deductedByCoupons: 'number',
       deductedByPrepaidCard: 'number',
+      deductedByResourcePackage: 'string',
+      instanceConfig: 'string',
+      instanceID: 'string',
+      instanceSpec: 'string',
+      internetIP: 'string',
+      intranetIP: 'string',
       invoiceDiscount: 'number',
-      splitAccountName: 'string',
-      billingType: 'string',
+      item: 'string',
+      itemName: 'string',
+      listPrice: 'string',
+      listPriceUnit: 'string',
+      nickName: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
+      paymentAmount: 'number',
+      pipCode: 'string',
+      pretaxAmount: 'number',
+      pretaxGrossAmount: 'number',
       productCode: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      region: 'string',
+      resourceGroup: 'string',
+      servicePeriod: 'string',
+      servicePeriodUnit: 'string',
+      splitAccountID: 'string',
+      splitAccountName: 'string',
+      splitBillingCycle: 'string',
+      splitBillingDate: 'string',
+      splitCommodityCode: 'string',
+      splitItemID: 'string',
+      splitItemName: 'string',
+      splitProductDetail: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
+      usage: 'string',
+      usageUnit: 'string',
+      zone: 'string',
     };
   }
 
@@ -9175,34 +9947,34 @@ export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class DescribeSplitItemBillResponseBodyData extends $tea.Model {
-  nextToken?: string;
-  billingCycle?: string;
-  maxResults?: number;
   accountID?: string;
-  totalCount?: number;
   accountName?: string;
+  billingCycle?: string;
   items?: DescribeSplitItemBillResponseBodyDataItems[];
+  maxResults?: number;
+  nextToken?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      billingCycle: 'BillingCycle',
-      maxResults: 'MaxResults',
       accountID: 'AccountID',
-      totalCount: 'TotalCount',
       accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
       items: 'Items',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      billingCycle: 'string',
-      maxResults: 'number',
       accountID: 'string',
-      totalCount: 'number',
       accountName: 'string',
+      billingCycle: 'string',
       items: { 'type': 'array', 'itemType': DescribeSplitItemBillResponseBodyDataItems },
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -9230,32 +10002,72 @@ export class EnableBillGenerationResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetCustomerAccountInfoResponseBodyData extends $tea.Model {
-  mpk?: number;
-  loginEmail?: string;
-  hostingStatus?: string;
-  accountType?: string;
-  creditLimitStatus?: string;
-  isCertified?: boolean;
+export class GetAccountRelationResponseBodyData extends $tea.Model {
+  childUserId?: number;
+  endTime?: number;
+  gmtModified?: number;
+  id?: number;
+  parentUserId?: number;
+  startTime?: number;
+  status?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      mpk: 'Mpk',
-      loginEmail: 'LoginEmail',
-      hostingStatus: 'HostingStatus',
-      accountType: 'AccountType',
-      creditLimitStatus: 'CreditLimitStatus',
-      isCertified: 'IsCertified',
+      childUserId: 'ChildUserId',
+      endTime: 'EndTime',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      parentUserId: 'ParentUserId',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mpk: 'number',
-      loginEmail: 'string',
-      hostingStatus: 'string',
+      childUserId: 'number',
+      endTime: 'number',
+      gmtModified: 'number',
+      id: 'number',
+      parentUserId: 'number',
+      startTime: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomerAccountInfoResponseBodyData extends $tea.Model {
+  accountType?: string;
+  creditLimitStatus?: string;
+  hostingStatus?: string;
+  isCertified?: boolean;
+  loginEmail?: string;
+  mpk?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountType: 'AccountType',
+      creditLimitStatus: 'CreditLimitStatus',
+      hostingStatus: 'HostingStatus',
+      isCertified: 'IsCertified',
+      loginEmail: 'LoginEmail',
+      mpk: 'Mpk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       accountType: 'string',
       creditLimitStatus: 'string',
+      hostingStatus: 'string',
       isCertified: 'boolean',
+      loginEmail: 'string',
+      mpk: 'number',
     };
   }
 
@@ -9284,94 +10096,94 @@ export class GetCustomerListResponseBodyData extends $tea.Model {
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
-  orderSubType?: string;
+  afterTaxAmount?: string;
+  commodityCode?: string;
+  config?: string;
   createTime?: string;
   currency?: string;
-  config?: string;
-  subscriptionType?: string;
-  usageStartTime?: string;
-  usageEndTime?: string;
-  subOrderId?: string;
-  region?: string;
-  afterTaxAmount?: string;
-  paymentTime?: string;
-  operator?: string;
-  orderType?: string;
-  paymentStatus?: string;
-  quantity?: string;
-  pretaxAmountLocal?: string;
-  tax?: string;
-  originalConfig?: string;
-  pretaxAmount?: string;
-  commodityCode?: string;
-  relatedOrderId?: string;
-  paymentCurrency?: string;
-  productType?: string;
   instanceIDs?: string;
-  pretaxGrossAmount?: string;
+  operator?: string;
   orderId?: string;
+  orderSubType?: string;
+  orderType?: string;
+  originalConfig?: string;
+  paymentCurrency?: string;
+  paymentStatus?: string;
+  paymentTime?: string;
+  pretaxAmount?: string;
+  pretaxAmountLocal?: string;
+  pretaxGrossAmount?: string;
   productCode?: string;
+  productType?: string;
+  quantity?: string;
+  region?: string;
+  relatedOrderId?: string;
+  subOrderId?: string;
+  subscriptionType?: string;
+  tax?: string;
+  usageEndTime?: string;
+  usageStartTime?: string;
   static names(): { [key: string]: string } {
     return {
-      orderSubType: 'OrderSubType',
+      afterTaxAmount: 'AfterTaxAmount',
+      commodityCode: 'CommodityCode',
+      config: 'Config',
       createTime: 'CreateTime',
       currency: 'Currency',
-      config: 'Config',
-      subscriptionType: 'SubscriptionType',
-      usageStartTime: 'UsageStartTime',
-      usageEndTime: 'UsageEndTime',
-      subOrderId: 'SubOrderId',
-      region: 'Region',
-      afterTaxAmount: 'AfterTaxAmount',
-      paymentTime: 'PaymentTime',
-      operator: 'Operator',
-      orderType: 'OrderType',
-      paymentStatus: 'PaymentStatus',
-      quantity: 'Quantity',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      tax: 'Tax',
-      originalConfig: 'OriginalConfig',
-      pretaxAmount: 'PretaxAmount',
-      commodityCode: 'CommodityCode',
-      relatedOrderId: 'RelatedOrderId',
-      paymentCurrency: 'PaymentCurrency',
-      productType: 'ProductType',
       instanceIDs: 'InstanceIDs',
-      pretaxGrossAmount: 'PretaxGrossAmount',
+      operator: 'Operator',
       orderId: 'OrderId',
+      orderSubType: 'OrderSubType',
+      orderType: 'OrderType',
+      originalConfig: 'OriginalConfig',
+      paymentCurrency: 'PaymentCurrency',
+      paymentStatus: 'PaymentStatus',
+      paymentTime: 'PaymentTime',
+      pretaxAmount: 'PretaxAmount',
+      pretaxAmountLocal: 'PretaxAmountLocal',
+      pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productType: 'ProductType',
+      quantity: 'Quantity',
+      region: 'Region',
+      relatedOrderId: 'RelatedOrderId',
+      subOrderId: 'SubOrderId',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
+      usageEndTime: 'UsageEndTime',
+      usageStartTime: 'UsageStartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderSubType: 'string',
+      afterTaxAmount: 'string',
+      commodityCode: 'string',
+      config: 'string',
       createTime: 'string',
       currency: 'string',
-      config: 'string',
-      subscriptionType: 'string',
-      usageStartTime: 'string',
-      usageEndTime: 'string',
-      subOrderId: 'string',
-      region: 'string',
-      afterTaxAmount: 'string',
-      paymentTime: 'string',
-      operator: 'string',
-      orderType: 'string',
-      paymentStatus: 'string',
-      quantity: 'string',
-      pretaxAmountLocal: 'string',
-      tax: 'string',
-      originalConfig: 'string',
-      pretaxAmount: 'string',
-      commodityCode: 'string',
-      relatedOrderId: 'string',
-      paymentCurrency: 'string',
-      productType: 'string',
       instanceIDs: 'string',
-      pretaxGrossAmount: 'string',
+      operator: 'string',
       orderId: 'string',
+      orderSubType: 'string',
+      orderType: 'string',
+      originalConfig: 'string',
+      paymentCurrency: 'string',
+      paymentStatus: 'string',
+      paymentTime: 'string',
+      pretaxAmount: 'string',
+      pretaxAmountLocal: 'string',
+      pretaxGrossAmount: 'string',
       productCode: 'string',
+      productType: 'string',
+      quantity: 'string',
+      region: 'string',
+      relatedOrderId: 'string',
+      subOrderId: 'string',
+      subscriptionType: 'string',
+      tax: 'string',
+      usageEndTime: 'string',
+      usageStartTime: 'string',
     };
   }
 
@@ -9401,27 +10213,27 @@ export class GetOrderDetailResponseBodyDataOrderList extends $tea.Model {
 
 export class GetOrderDetailResponseBodyData extends $tea.Model {
   hostName?: string;
+  orderList?: GetOrderDetailResponseBodyDataOrderList;
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  orderList?: GetOrderDetailResponseBodyDataOrderList;
   static names(): { [key: string]: string } {
     return {
       hostName: 'HostName',
+      orderList: 'OrderList',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      orderList: 'OrderList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       hostName: 'string',
+      orderList: GetOrderDetailResponseBodyDataOrderList,
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      orderList: GetOrderDetailResponseBodyDataOrderList,
     };
   }
 
@@ -9431,22 +10243,22 @@ export class GetOrderDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetPayAsYouGoPriceRequestModuleList extends $tea.Model {
+  config?: string;
   moduleCode?: string;
   priceType?: string;
-  config?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       moduleCode: 'ModuleCode',
       priceType: 'PriceType',
-      config: 'Config',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       moduleCode: 'string',
       priceType: 'string',
-      config: 'string',
     };
   }
 
@@ -9458,16 +10270,16 @@ export class GetPayAsYouGoPriceRequestModuleList extends $tea.Model {
 export class GetPayAsYouGoPriceResponseBodyDataModuleDetailsModuleDetail extends $tea.Model {
   costAfterDiscount?: number;
   invoiceDiscount?: number;
-  unitPrice?: number;
-  originalCost?: number;
   moduleCode?: string;
+  originalCost?: number;
+  unitPrice?: number;
   static names(): { [key: string]: string } {
     return {
       costAfterDiscount: 'CostAfterDiscount',
       invoiceDiscount: 'InvoiceDiscount',
-      unitPrice: 'UnitPrice',
-      originalCost: 'OriginalCost',
       moduleCode: 'ModuleCode',
+      originalCost: 'OriginalCost',
+      unitPrice: 'UnitPrice',
     };
   }
 
@@ -9475,9 +10287,9 @@ export class GetPayAsYouGoPriceResponseBodyDataModuleDetailsModuleDetail extends
     return {
       costAfterDiscount: 'number',
       invoiceDiscount: 'number',
-      unitPrice: 'number',
-      originalCost: 'number',
       moduleCode: 'string',
+      originalCost: 'number',
+      unitPrice: 'number',
     };
   }
 
@@ -9575,19 +10387,19 @@ export class GetPayAsYouGoPriceResponseBodyData extends $tea.Model {
 }
 
 export class GetResourcePackagePriceResponseBodyDataPromotionsPromotion extends $tea.Model {
-  name?: string;
   id?: number;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
       id: 'Id',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
       id: 'number',
+      name: 'string',
     };
   }
 
@@ -9616,28 +10428,28 @@ export class GetResourcePackagePriceResponseBodyDataPromotions extends $tea.Mode
 }
 
 export class GetResourcePackagePriceResponseBodyData extends $tea.Model {
-  originalPrice?: number;
-  discountPrice?: number;
   currency?: string;
-  tradePrice?: number;
+  discountPrice?: number;
+  originalPrice?: number;
   promotions?: GetResourcePackagePriceResponseBodyDataPromotions;
+  tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
-      originalPrice: 'OriginalPrice',
-      discountPrice: 'DiscountPrice',
       currency: 'Currency',
-      tradePrice: 'TradePrice',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
       promotions: 'Promotions',
+      tradePrice: 'TradePrice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      originalPrice: 'number',
-      discountPrice: 'number',
       currency: 'string',
-      tradePrice: 'number',
+      discountPrice: 'number',
+      originalPrice: 'number',
       promotions: GetResourcePackagePriceResponseBodyDataPromotions,
+      tradePrice: 'number',
     };
   }
 
@@ -9647,25 +10459,25 @@ export class GetResourcePackagePriceResponseBodyData extends $tea.Model {
 }
 
 export class GetSubscriptionPriceRequestModuleList extends $tea.Model {
-  moduleStatus?: number;
-  moduleCode?: string;
-  tag?: string;
   config?: string;
+  moduleCode?: string;
+  moduleStatus?: number;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
-      moduleStatus: 'ModuleStatus',
-      moduleCode: 'ModuleCode',
-      tag: 'Tag',
       config: 'Config',
+      moduleCode: 'ModuleCode',
+      moduleStatus: 'ModuleStatus',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      moduleStatus: 'number',
-      moduleCode: 'string',
-      tag: 'string',
       config: 'string',
+      moduleCode: 'string',
+      moduleStatus: 'number',
+      tag: 'string',
     };
   }
 
@@ -9677,16 +10489,16 @@ export class GetSubscriptionPriceRequestModuleList extends $tea.Model {
 export class GetSubscriptionPriceResponseBodyDataModuleDetailsModuleDetail extends $tea.Model {
   costAfterDiscount?: number;
   invoiceDiscount?: number;
-  unitPrice?: number;
-  originalCost?: number;
   moduleCode?: string;
+  originalCost?: number;
+  unitPrice?: number;
   static names(): { [key: string]: string } {
     return {
       costAfterDiscount: 'CostAfterDiscount',
       invoiceDiscount: 'InvoiceDiscount',
-      unitPrice: 'UnitPrice',
-      originalCost: 'OriginalCost',
       moduleCode: 'ModuleCode',
+      originalCost: 'OriginalCost',
+      unitPrice: 'UnitPrice',
     };
   }
 
@@ -9694,9 +10506,9 @@ export class GetSubscriptionPriceResponseBodyDataModuleDetailsModuleDetail exten
     return {
       costAfterDiscount: 'number',
       invoiceDiscount: 'number',
-      unitPrice: 'number',
-      originalCost: 'number',
       moduleCode: 'string',
+      originalCost: 'number',
+      unitPrice: 'number',
     };
   }
 
@@ -9769,34 +10581,62 @@ export class GetSubscriptionPriceResponseBodyDataPromotionDetails extends $tea.M
 }
 
 export class GetSubscriptionPriceResponseBodyData extends $tea.Model {
-  originalPrice?: number;
-  discountPrice?: number;
   currency?: string;
+  discountPrice?: number;
+  moduleDetails?: GetSubscriptionPriceResponseBodyDataModuleDetails;
+  originalPrice?: number;
+  promotionDetails?: GetSubscriptionPriceResponseBodyDataPromotionDetails;
   quantity?: number;
   tradePrice?: number;
-  moduleDetails?: GetSubscriptionPriceResponseBodyDataModuleDetails;
-  promotionDetails?: GetSubscriptionPriceResponseBodyDataPromotionDetails;
   static names(): { [key: string]: string } {
     return {
-      originalPrice: 'OriginalPrice',
-      discountPrice: 'DiscountPrice',
       currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      moduleDetails: 'ModuleDetails',
+      originalPrice: 'OriginalPrice',
+      promotionDetails: 'PromotionDetails',
       quantity: 'Quantity',
       tradePrice: 'TradePrice',
-      moduleDetails: 'ModuleDetails',
-      promotionDetails: 'PromotionDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      originalPrice: 'number',
-      discountPrice: 'number',
       currency: 'string',
+      discountPrice: 'number',
+      moduleDetails: GetSubscriptionPriceResponseBodyDataModuleDetails,
+      originalPrice: 'number',
+      promotionDetails: GetSubscriptionPriceResponseBodyDataPromotionDetails,
       quantity: 'number',
       tradePrice: 'number',
-      moduleDetails: GetSubscriptionPriceResponseBodyDataModuleDetails,
-      promotionDetails: GetSubscriptionPriceResponseBodyDataPromotionDetails,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InquiryPriceRefundInstanceResponseBodyData extends $tea.Model {
+  currency?: string;
+  hostId?: string;
+  instanceId?: string;
+  refundAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      hostId: 'HostId',
+      instanceId: 'InstanceId',
+      refundAmount: 'RefundAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      hostId: 'string',
+      instanceId: 'string',
+      refundAmount: 'number',
     };
   }
 
@@ -9825,22 +10665,22 @@ export class ModifyAccountRelationResponseBodyData extends $tea.Model {
 }
 
 export class ModifyCostUnitRequestUnitEntityList extends $tea.Model {
-  unitId?: number;
   newUnitName?: string;
   ownerUid?: number;
+  unitId?: number;
   static names(): { [key: string]: string } {
     return {
-      unitId: 'UnitId',
       newUnitName: 'NewUnitName',
       ownerUid: 'OwnerUid',
+      unitId: 'UnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      unitId: 'number',
       newUnitName: 'string',
       ownerUid: 'number',
+      unitId: 'number',
     };
   }
 
@@ -9851,21 +10691,21 @@ export class ModifyCostUnitRequestUnitEntityList extends $tea.Model {
 
 export class ModifyCostUnitResponseBodyData extends $tea.Model {
   isSuccess?: boolean;
-  unitId?: number;
   ownerUid?: number;
+  unitId?: number;
   static names(): { [key: string]: string } {
     return {
       isSuccess: 'IsSuccess',
-      unitId: 'UnitId',
       ownerUid: 'OwnerUid',
+      unitId: 'UnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       isSuccess: 'boolean',
-      unitId: 'number',
       ownerUid: 'number',
+      unitId: 'number',
     };
   }
 
@@ -9875,19 +10715,19 @@ export class ModifyCostUnitResponseBodyData extends $tea.Model {
 }
 
 export class ModifyInstanceRequestParameter extends $tea.Model {
-  value?: string;
   code?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       code: 'Code',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       code: 'string',
+      value: 'string',
     };
   }
 
@@ -9897,19 +10737,19 @@ export class ModifyInstanceRequestParameter extends $tea.Model {
 }
 
 export class ModifyInstanceResponseBodyData extends $tea.Model {
-  orderId?: string;
   hostId?: string;
+  orderId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       hostId: 'HostId',
+      orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
       hostId: 'string',
+      orderId: 'string',
     };
   }
 
@@ -9920,27 +10760,27 @@ export class ModifyInstanceResponseBodyData extends $tea.Model {
 
 export class QueryAccountBalanceResponseBodyData extends $tea.Model {
   availableAmount?: string;
-  creditAmount?: string;
-  mybankCreditAmount?: string;
-  currency?: string;
   availableCashAmount?: string;
+  creditAmount?: string;
+  currency?: string;
+  mybankCreditAmount?: string;
   static names(): { [key: string]: string } {
     return {
       availableAmount: 'AvailableAmount',
-      creditAmount: 'CreditAmount',
-      mybankCreditAmount: 'MybankCreditAmount',
-      currency: 'Currency',
       availableCashAmount: 'AvailableCashAmount',
+      creditAmount: 'CreditAmount',
+      currency: 'Currency',
+      mybankCreditAmount: 'MybankCreditAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       availableAmount: 'string',
-      creditAmount: 'string',
-      mybankCreditAmount: 'string',
-      currency: 'string',
       availableCashAmount: 'string',
+      creditAmount: 'string',
+      currency: 'string',
+      mybankCreditAmount: 'string',
     };
   }
 
@@ -9950,73 +10790,79 @@ export class QueryAccountBalanceResponseBodyData extends $tea.Model {
 }
 
 export class QueryAccountBillResponseBodyDataItemsItem extends $tea.Model {
-  pipCode?: string;
-  pretaxAmount?: number;
-  billingDate?: string;
-  productName?: string;
-  ownerName?: string;
-  currency?: string;
-  billAccountName?: string;
-  subscriptionType?: string;
-  deductedByCashCoupons?: number;
-  bizType?: string;
-  ownerID?: string;
-  deductedByPrepaidCard?: number;
-  deductedByCoupons?: number;
+  adjustAmount?: number;
   billAccountID?: string;
-  paymentAmount?: number;
+  billAccountName?: string;
+  billingDate?: string;
+  bizType?: string;
+  cashAmount?: number;
+  costUnit?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  deductedByCoupons?: number;
+  deductedByPrepaidCard?: number;
   invoiceDiscount?: number;
   outstandingAmount?: number;
-  costUnit?: string;
+  ownerID?: string;
+  ownerName?: string;
+  paymentAmount?: number;
+  pipCode?: string;
+  pretaxAmount?: number;
   pretaxGrossAmount?: number;
   productCode?: string;
+  productName?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      pipCode: 'PipCode',
-      pretaxAmount: 'PretaxAmount',
-      billingDate: 'BillingDate',
-      productName: 'ProductName',
-      ownerName: 'OwnerName',
-      currency: 'Currency',
-      billAccountName: 'BillAccountName',
-      subscriptionType: 'SubscriptionType',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
-      bizType: 'BizType',
-      ownerID: 'OwnerID',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
-      deductedByCoupons: 'DeductedByCoupons',
+      adjustAmount: 'AdjustAmount',
       billAccountID: 'BillAccountID',
-      paymentAmount: 'PaymentAmount',
+      billAccountName: 'BillAccountName',
+      billingDate: 'BillingDate',
+      bizType: 'BizType',
+      cashAmount: 'CashAmount',
+      costUnit: 'CostUnit',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       invoiceDiscount: 'InvoiceDiscount',
       outstandingAmount: 'OutstandingAmount',
-      costUnit: 'CostUnit',
+      ownerID: 'OwnerID',
+      ownerName: 'OwnerName',
+      paymentAmount: 'PaymentAmount',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productName: 'ProductName',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pipCode: 'string',
-      pretaxAmount: 'number',
-      billingDate: 'string',
-      productName: 'string',
-      ownerName: 'string',
-      currency: 'string',
-      billAccountName: 'string',
-      subscriptionType: 'string',
-      deductedByCashCoupons: 'number',
-      bizType: 'string',
-      ownerID: 'string',
-      deductedByPrepaidCard: 'number',
-      deductedByCoupons: 'number',
+      adjustAmount: 'number',
       billAccountID: 'string',
-      paymentAmount: 'number',
+      billAccountName: 'string',
+      billingDate: 'string',
+      bizType: 'string',
+      cashAmount: 'number',
+      costUnit: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      deductedByCoupons: 'number',
+      deductedByPrepaidCard: 'number',
       invoiceDiscount: 'number',
       outstandingAmount: 'number',
-      costUnit: 'string',
+      ownerID: 'string',
+      ownerName: 'string',
+      paymentAmount: 'number',
+      pipCode: 'string',
+      pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
       productCode: 'string',
+      productName: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -10045,34 +10891,34 @@ export class QueryAccountBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QueryAccountBillResponseBodyData extends $tea.Model {
-  pageNum?: number;
-  billingCycle?: string;
   accountID?: string;
+  accountName?: string;
+  billingCycle?: string;
+  items?: QueryAccountBillResponseBodyDataItems;
+  pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  accountName?: string;
-  items?: QueryAccountBillResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      billingCycle: 'BillingCycle',
       accountID: 'AccountID',
+      accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
+      items: 'Items',
+      pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      accountName: 'AccountName',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      billingCycle: 'string',
       accountID: 'string',
+      accountName: 'string',
+      billingCycle: 'string',
+      items: QueryAccountBillResponseBodyDataItems,
+      pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      accountName: 'string',
-      items: QueryAccountBillResponseBodyDataItems,
     };
   }
 
@@ -10082,52 +10928,52 @@ export class QueryAccountBillResponseBodyData extends $tea.Model {
 }
 
 export class QueryAccountTransactionDetailsResponseBodyDataAccountTransactionsListAccountTransactionsList extends $tea.Model {
+  amount?: string;
+  balance?: string;
   billingCycle?: string;
-  transactionChannel?: string;
+  fundType?: string;
   recordID?: string;
   remarks?: string;
-  amount?: string;
   transactionAccount?: string;
+  transactionChannel?: string;
+  transactionChannelSN?: string;
+  transactionFlow?: string;
+  transactionNumber?: string;
   transactionTime?: string;
   transactionType?: string;
-  transactionFlow?: string;
-  fundType?: string;
-  transactionChannelSN?: string;
-  transactionNumber?: string;
-  balance?: string;
   static names(): { [key: string]: string } {
     return {
+      amount: 'Amount',
+      balance: 'Balance',
       billingCycle: 'BillingCycle',
-      transactionChannel: 'TransactionChannel',
+      fundType: 'FundType',
       recordID: 'RecordID',
       remarks: 'Remarks',
-      amount: 'Amount',
       transactionAccount: 'TransactionAccount',
+      transactionChannel: 'TransactionChannel',
+      transactionChannelSN: 'TransactionChannelSN',
+      transactionFlow: 'TransactionFlow',
+      transactionNumber: 'TransactionNumber',
       transactionTime: 'TransactionTime',
       transactionType: 'TransactionType',
-      transactionFlow: 'TransactionFlow',
-      fundType: 'FundType',
-      transactionChannelSN: 'TransactionChannelSN',
-      transactionNumber: 'TransactionNumber',
-      balance: 'Balance',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      amount: 'string',
+      balance: 'string',
       billingCycle: 'string',
-      transactionChannel: 'string',
+      fundType: 'string',
       recordID: 'string',
       remarks: 'string',
-      amount: 'string',
       transactionAccount: 'string',
+      transactionChannel: 'string',
+      transactionChannelSN: 'string',
+      transactionFlow: 'string',
+      transactionNumber: 'string',
       transactionTime: 'string',
       transactionType: 'string',
-      transactionFlow: 'string',
-      fundType: 'string',
-      transactionChannelSN: 'string',
-      transactionNumber: 'string',
-      balance: 'string',
     };
   }
 
@@ -10156,28 +11002,28 @@ export class QueryAccountTransactionDetailsResponseBodyDataAccountTransactionsLi
 }
 
 export class QueryAccountTransactionDetailsResponseBodyData extends $tea.Model {
-  nextToken?: string;
-  totalCount?: number;
-  maxResults?: number;
   accountName?: string;
   accountTransactionsList?: QueryAccountTransactionDetailsResponseBodyDataAccountTransactionsList;
+  maxResults?: number;
+  nextToken?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
       accountName: 'AccountName',
       accountTransactionsList: 'AccountTransactionsList',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      totalCount: 'number',
-      maxResults: 'number',
       accountName: 'string',
       accountTransactionsList: QueryAccountTransactionDetailsResponseBodyDataAccountTransactionsList,
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -10187,52 +11033,52 @@ export class QueryAccountTransactionDetailsResponseBodyData extends $tea.Model {
 }
 
 export class QueryAccountTransactionsResponseBodyDataAccountTransactionsListAccountTransactionsList extends $tea.Model {
+  amount?: string;
+  balance?: string;
   billingCycle?: string;
-  transactionChannel?: string;
+  fundType?: string;
   recordID?: string;
   remarks?: string;
-  amount?: string;
   transactionAccount?: string;
+  transactionChannel?: string;
+  transactionChannelSN?: string;
+  transactionFlow?: string;
+  transactionNumber?: string;
   transactionTime?: string;
   transactionType?: string;
-  transactionFlow?: string;
-  fundType?: string;
-  transactionChannelSN?: string;
-  transactionNumber?: string;
-  balance?: string;
   static names(): { [key: string]: string } {
     return {
+      amount: 'Amount',
+      balance: 'Balance',
       billingCycle: 'BillingCycle',
-      transactionChannel: 'TransactionChannel',
+      fundType: 'FundType',
       recordID: 'RecordID',
       remarks: 'Remarks',
-      amount: 'Amount',
       transactionAccount: 'TransactionAccount',
+      transactionChannel: 'TransactionChannel',
+      transactionChannelSN: 'TransactionChannelSN',
+      transactionFlow: 'TransactionFlow',
+      transactionNumber: 'TransactionNumber',
       transactionTime: 'TransactionTime',
       transactionType: 'TransactionType',
-      transactionFlow: 'TransactionFlow',
-      fundType: 'FundType',
-      transactionChannelSN: 'TransactionChannelSN',
-      transactionNumber: 'TransactionNumber',
-      balance: 'Balance',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      amount: 'string',
+      balance: 'string',
       billingCycle: 'string',
-      transactionChannel: 'string',
+      fundType: 'string',
       recordID: 'string',
       remarks: 'string',
-      amount: 'string',
       transactionAccount: 'string',
+      transactionChannel: 'string',
+      transactionChannelSN: 'string',
+      transactionFlow: 'string',
+      transactionNumber: 'string',
       transactionTime: 'string',
       transactionType: 'string',
-      transactionFlow: 'string',
-      fundType: 'string',
-      transactionChannelSN: 'string',
-      transactionNumber: 'string',
-      balance: 'string',
     };
   }
 
@@ -10261,28 +11107,28 @@ export class QueryAccountTransactionsResponseBodyDataAccountTransactionsList ext
 }
 
 export class QueryAccountTransactionsResponseBodyData extends $tea.Model {
+  accountName?: string;
+  accountTransactionsList?: QueryAccountTransactionsResponseBodyDataAccountTransactionsList;
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  accountName?: string;
-  accountTransactionsList?: QueryAccountTransactionsResponseBodyDataAccountTransactionsList;
   static names(): { [key: string]: string } {
     return {
+      accountName: 'AccountName',
+      accountTransactionsList: 'AccountTransactionsList',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      accountName: 'AccountName',
-      accountTransactionsList: 'AccountTransactionsList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountName: 'string',
+      accountTransactionsList: QueryAccountTransactionsResponseBodyDataAccountTransactionsList,
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      accountName: 'string',
-      accountTransactionsList: QueryAccountTransactionsResponseBodyDataAccountTransactionsList,
     };
   }
 
@@ -10292,67 +11138,67 @@ export class QueryAccountTransactionsResponseBodyData extends $tea.Model {
 }
 
 export class QueryAvailableInstancesResponseBodyDataInstanceList extends $tea.Model {
-  subStatus?: string;
-  status?: string;
-  expectedReleaseTime?: string;
-  renewStatus?: string;
   createTime?: string;
-  sellerId?: number;
-  instanceID?: string;
-  seller?: string;
-  stopTime?: string;
-  renewalDurationUnit?: string;
-  subscriptionType?: string;
-  ownerId?: number;
   endTime?: string;
+  expectedReleaseTime?: string;
+  instanceID?: string;
+  ownerId?: number;
+  productCode?: string;
   productType?: string;
   region?: string;
   releaseTime?: string;
+  renewStatus?: string;
   renewalDuration?: number;
-  productCode?: string;
+  renewalDurationUnit?: string;
+  seller?: string;
+  sellerId?: number;
+  status?: string;
+  stopTime?: string;
+  subStatus?: string;
+  subscriptionType?: string;
   static names(): { [key: string]: string } {
     return {
-      subStatus: 'SubStatus',
-      status: 'Status',
-      expectedReleaseTime: 'ExpectedReleaseTime',
-      renewStatus: 'RenewStatus',
       createTime: 'CreateTime',
-      sellerId: 'SellerId',
-      instanceID: 'InstanceID',
-      seller: 'Seller',
-      stopTime: 'StopTime',
-      renewalDurationUnit: 'RenewalDurationUnit',
-      subscriptionType: 'SubscriptionType',
-      ownerId: 'OwnerId',
       endTime: 'EndTime',
+      expectedReleaseTime: 'ExpectedReleaseTime',
+      instanceID: 'InstanceID',
+      ownerId: 'OwnerId',
+      productCode: 'ProductCode',
       productType: 'ProductType',
       region: 'Region',
       releaseTime: 'ReleaseTime',
+      renewStatus: 'RenewStatus',
       renewalDuration: 'RenewalDuration',
-      productCode: 'ProductCode',
+      renewalDurationUnit: 'RenewalDurationUnit',
+      seller: 'Seller',
+      sellerId: 'SellerId',
+      status: 'Status',
+      stopTime: 'StopTime',
+      subStatus: 'SubStatus',
+      subscriptionType: 'SubscriptionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subStatus: 'string',
-      status: 'string',
-      expectedReleaseTime: 'string',
-      renewStatus: 'string',
       createTime: 'string',
-      sellerId: 'number',
-      instanceID: 'string',
-      seller: 'string',
-      stopTime: 'string',
-      renewalDurationUnit: 'string',
-      subscriptionType: 'string',
-      ownerId: 'number',
       endTime: 'string',
+      expectedReleaseTime: 'string',
+      instanceID: 'string',
+      ownerId: 'number',
+      productCode: 'string',
       productType: 'string',
       region: 'string',
       releaseTime: 'string',
+      renewStatus: 'string',
       renewalDuration: 'number',
-      productCode: 'string',
+      renewalDurationUnit: 'string',
+      seller: 'string',
+      sellerId: 'number',
+      status: 'string',
+      stopTime: 'string',
+      subStatus: 'string',
+      subscriptionType: 'string',
     };
   }
 
@@ -10362,25 +11208,25 @@ export class QueryAvailableInstancesResponseBodyDataInstanceList extends $tea.Mo
 }
 
 export class QueryAvailableInstancesResponseBodyData extends $tea.Model {
+  instanceList?: QueryAvailableInstancesResponseBodyDataInstanceList[];
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  instanceList?: QueryAvailableInstancesResponseBodyDataInstanceList[];
   static names(): { [key: string]: string } {
     return {
+      instanceList: 'InstanceList',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      instanceList: 'InstanceList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceList: { 'type': 'array', 'itemType': QueryAvailableInstancesResponseBodyDataInstanceList },
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      instanceList: { 'type': 'array', 'itemType': QueryAvailableInstancesResponseBodyDataInstanceList },
     };
   }
 
@@ -10390,103 +11236,109 @@ export class QueryAvailableInstancesResponseBodyData extends $tea.Model {
 }
 
 export class QueryBillResponseBodyDataItemsItem extends $tea.Model {
-  status?: string;
-  roundDownDiscount?: string;
-  item?: string;
-  currency?: string;
-  usageStartTime?: string;
-  subscriptionType?: string;
-  deductedByCashCoupons?: number;
-  usageEndTime?: string;
-  deductedByCoupons?: number;
-  subOrderId?: string;
-  outstandingAmount?: number;
+  adjustAmount?: number;
   afterTaxAmount?: number;
-  paymentTime?: string;
-  pretaxAmountLocal?: number;
-  tax?: number;
-  pipCode?: string;
-  paymentTransactionID?: string;
-  pretaxAmount?: number;
+  cashAmount?: number;
   commodityCode?: string;
-  productName?: string;
-  recordID?: string;
-  productDetail?: string;
-  paymentCurrency?: string;
-  ownerID?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  deductedByCoupons?: number;
   deductedByPrepaidCard?: number;
-  productType?: string;
   invoiceDiscount?: number;
+  item?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
   paymentAmount?: number;
+  paymentCurrency?: string;
+  paymentTime?: string;
+  paymentTransactionID?: string;
+  pipCode?: string;
+  pretaxAmount?: number;
+  pretaxAmountLocal?: number;
   pretaxGrossAmount?: number;
   productCode?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  recordID?: string;
+  roundDownDiscount?: string;
+  status?: string;
+  subOrderId?: string;
+  subscriptionType?: string;
+  tax?: number;
+  usageEndTime?: string;
+  usageStartTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      roundDownDiscount: 'RoundDownDiscount',
-      item: 'Item',
-      currency: 'Currency',
-      usageStartTime: 'UsageStartTime',
-      subscriptionType: 'SubscriptionType',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
-      usageEndTime: 'UsageEndTime',
-      deductedByCoupons: 'DeductedByCoupons',
-      subOrderId: 'SubOrderId',
-      outstandingAmount: 'OutstandingAmount',
+      adjustAmount: 'AdjustAmount',
       afterTaxAmount: 'AfterTaxAmount',
-      paymentTime: 'PaymentTime',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      tax: 'Tax',
-      pipCode: 'PipCode',
-      paymentTransactionID: 'PaymentTransactionID',
-      pretaxAmount: 'PretaxAmount',
+      cashAmount: 'CashAmount',
       commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      recordID: 'RecordID',
-      productDetail: 'ProductDetail',
-      paymentCurrency: 'PaymentCurrency',
-      ownerID: 'OwnerID',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
       deductedByPrepaidCard: 'DeductedByPrepaidCard',
-      productType: 'ProductType',
       invoiceDiscount: 'InvoiceDiscount',
+      item: 'Item',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
       paymentAmount: 'PaymentAmount',
+      paymentCurrency: 'PaymentCurrency',
+      paymentTime: 'PaymentTime',
+      paymentTransactionID: 'PaymentTransactionID',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
+      pretaxAmountLocal: 'PretaxAmountLocal',
       pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      recordID: 'RecordID',
+      roundDownDiscount: 'RoundDownDiscount',
+      status: 'Status',
+      subOrderId: 'SubOrderId',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
+      usageEndTime: 'UsageEndTime',
+      usageStartTime: 'UsageStartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      roundDownDiscount: 'string',
-      item: 'string',
-      currency: 'string',
-      usageStartTime: 'string',
-      subscriptionType: 'string',
-      deductedByCashCoupons: 'number',
-      usageEndTime: 'string',
-      deductedByCoupons: 'number',
-      subOrderId: 'string',
-      outstandingAmount: 'number',
+      adjustAmount: 'number',
       afterTaxAmount: 'number',
-      paymentTime: 'string',
-      pretaxAmountLocal: 'number',
-      tax: 'number',
-      pipCode: 'string',
-      paymentTransactionID: 'string',
-      pretaxAmount: 'number',
+      cashAmount: 'number',
       commodityCode: 'string',
-      productName: 'string',
-      recordID: 'string',
-      productDetail: 'string',
-      paymentCurrency: 'string',
-      ownerID: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      deductedByCoupons: 'number',
       deductedByPrepaidCard: 'number',
-      productType: 'string',
       invoiceDiscount: 'number',
+      item: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
       paymentAmount: 'number',
+      paymentCurrency: 'string',
+      paymentTime: 'string',
+      paymentTransactionID: 'string',
+      pipCode: 'string',
+      pretaxAmount: 'number',
+      pretaxAmountLocal: 'number',
       pretaxGrossAmount: 'number',
       productCode: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      recordID: 'string',
+      roundDownDiscount: 'string',
+      status: 'string',
+      subOrderId: 'string',
+      subscriptionType: 'string',
+      tax: 'number',
+      usageEndTime: 'string',
+      usageStartTime: 'string',
     };
   }
 
@@ -10515,34 +11367,34 @@ export class QueryBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QueryBillResponseBodyData extends $tea.Model {
-  pageNum?: number;
-  billingCycle?: string;
   accountID?: string;
+  accountName?: string;
+  billingCycle?: string;
+  items?: QueryBillResponseBodyDataItems;
+  pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  accountName?: string;
-  items?: QueryBillResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      billingCycle: 'BillingCycle',
       accountID: 'AccountID',
+      accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
+      items: 'Items',
+      pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      accountName: 'AccountName',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      billingCycle: 'string',
       accountID: 'string',
+      accountName: 'string',
+      billingCycle: 'string',
+      items: QueryBillResponseBodyDataItems,
+      pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      accountName: 'string',
-      items: QueryBillResponseBodyDataItems,
     };
   }
 
@@ -10552,91 +11404,97 @@ export class QueryBillResponseBodyData extends $tea.Model {
 }
 
 export class QueryBillOverviewResponseBodyDataItemsItem extends $tea.Model {
-  roundDownDiscount?: string;
-  item?: string;
-  currency?: string;
-  subscriptionType?: string;
-  deductedByCashCoupons?: number;
+  adjustAmount?: number;
+  afterTaxAmount?: number;
+  billAccountID?: string;
   billAccountName?: string;
   bizType?: string;
+  cashAmount?: number;
+  commodityCode?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
   deductedByCoupons?: number;
+  deductedByPrepaidCard?: number;
+  invoiceDiscount?: number;
+  item?: string;
   outstandingAmount?: number;
-  afterTaxAmount?: number;
-  pretaxAmountLocal?: number;
-  tax?: number;
+  ownerID?: string;
+  paymentAmount?: number;
+  paymentCurrency?: string;
   pipCode?: string;
   pretaxAmount?: number;
-  productName?: string;
-  commodityCode?: string;
-  productDetail?: string;
-  paymentCurrency?: string;
-  ownerID?: string;
-  deductedByPrepaidCard?: number;
-  productType?: string;
-  invoiceDiscount?: number;
-  paymentAmount?: number;
-  billAccountID?: string;
+  pretaxAmountLocal?: number;
   pretaxGrossAmount?: number;
   productCode?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  roundDownDiscount?: string;
+  subscriptionType?: string;
+  tax?: number;
   static names(): { [key: string]: string } {
     return {
-      roundDownDiscount: 'RoundDownDiscount',
-      item: 'Item',
-      currency: 'Currency',
-      subscriptionType: 'SubscriptionType',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
+      adjustAmount: 'AdjustAmount',
+      afterTaxAmount: 'AfterTaxAmount',
+      billAccountID: 'BillAccountID',
       billAccountName: 'BillAccountName',
       bizType: 'BizType',
+      cashAmount: 'CashAmount',
+      commodityCode: 'CommodityCode',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
       deductedByCoupons: 'DeductedByCoupons',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      invoiceDiscount: 'InvoiceDiscount',
+      item: 'Item',
       outstandingAmount: 'OutstandingAmount',
-      afterTaxAmount: 'AfterTaxAmount',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      tax: 'Tax',
+      ownerID: 'OwnerID',
+      paymentAmount: 'PaymentAmount',
+      paymentCurrency: 'PaymentCurrency',
       pipCode: 'PipCode',
       pretaxAmount: 'PretaxAmount',
-      productName: 'ProductName',
-      commodityCode: 'CommodityCode',
-      productDetail: 'ProductDetail',
-      paymentCurrency: 'PaymentCurrency',
-      ownerID: 'OwnerID',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
-      productType: 'ProductType',
-      invoiceDiscount: 'InvoiceDiscount',
-      paymentAmount: 'PaymentAmount',
-      billAccountID: 'BillAccountID',
+      pretaxAmountLocal: 'PretaxAmountLocal',
       pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      roundDownDiscount: 'RoundDownDiscount',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      roundDownDiscount: 'string',
-      item: 'string',
-      currency: 'string',
-      subscriptionType: 'string',
-      deductedByCashCoupons: 'number',
+      adjustAmount: 'number',
+      afterTaxAmount: 'number',
+      billAccountID: 'string',
       billAccountName: 'string',
       bizType: 'string',
+      cashAmount: 'number',
+      commodityCode: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
       deductedByCoupons: 'number',
+      deductedByPrepaidCard: 'number',
+      invoiceDiscount: 'number',
+      item: 'string',
       outstandingAmount: 'number',
-      afterTaxAmount: 'number',
-      pretaxAmountLocal: 'number',
-      tax: 'number',
+      ownerID: 'string',
+      paymentAmount: 'number',
+      paymentCurrency: 'string',
       pipCode: 'string',
       pretaxAmount: 'number',
-      productName: 'string',
-      commodityCode: 'string',
-      productDetail: 'string',
-      paymentCurrency: 'string',
-      ownerID: 'string',
-      deductedByPrepaidCard: 'number',
-      productType: 'string',
-      invoiceDiscount: 'number',
-      paymentAmount: 'number',
-      billAccountID: 'string',
+      pretaxAmountLocal: 'number',
       pretaxGrossAmount: 'number',
       productCode: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      roundDownDiscount: 'string',
+      subscriptionType: 'string',
+      tax: 'number',
     };
   }
 
@@ -10665,24 +11523,24 @@ export class QueryBillOverviewResponseBodyDataItems extends $tea.Model {
 }
 
 export class QueryBillOverviewResponseBodyData extends $tea.Model {
-  billingCycle?: string;
   accountID?: string;
   accountName?: string;
+  billingCycle?: string;
   items?: QueryBillOverviewResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      billingCycle: 'BillingCycle',
       accountID: 'AccountID',
       accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
       items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      billingCycle: 'string',
       accountID: 'string',
       accountName: 'string',
+      billingCycle: 'string',
       items: QueryBillOverviewResponseBodyDataItems,
     };
   }
@@ -10694,27 +11552,30 @@ export class QueryBillOverviewResponseBodyData extends $tea.Model {
 
 export class QueryBillToOSSSubscriptionResponseBodyDataItemsItem extends $tea.Model {
   bucketOwnerId?: number;
-  subscribeType?: string;
+  bucketPath?: string;
   subscribeBucket?: string;
-  subscribeTime?: string;
   subscribeLanguage?: string;
+  subscribeTime?: string;
+  subscribeType?: string;
   static names(): { [key: string]: string } {
     return {
       bucketOwnerId: 'BucketOwnerId',
-      subscribeType: 'SubscribeType',
+      bucketPath: 'BucketPath',
       subscribeBucket: 'SubscribeBucket',
-      subscribeTime: 'SubscribeTime',
       subscribeLanguage: 'SubscribeLanguage',
+      subscribeTime: 'SubscribeTime',
+      subscribeType: 'SubscribeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bucketOwnerId: 'number',
-      subscribeType: 'string',
+      bucketPath: 'string',
       subscribeBucket: 'string',
-      subscribeTime: 'string',
       subscribeLanguage: 'string',
+      subscribeTime: 'string',
+      subscribeType: 'string',
     };
   }
 
@@ -10743,21 +11604,21 @@ export class QueryBillToOSSSubscriptionResponseBodyDataItems extends $tea.Model 
 }
 
 export class QueryBillToOSSSubscriptionResponseBodyData extends $tea.Model {
-  accountName?: string;
   accountID?: string;
+  accountName?: string;
   items?: QueryBillToOSSSubscriptionResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      accountName: 'AccountName',
       accountID: 'AccountID',
+      accountName: 'AccountName',
       items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountName: 'string',
       accountID: 'string',
+      accountName: 'string',
       items: QueryBillToOSSSubscriptionResponseBodyDataItems,
     };
   }
@@ -10768,43 +11629,43 @@ export class QueryBillToOSSSubscriptionResponseBodyData extends $tea.Model {
 }
 
 export class QueryCashCouponsResponseBodyDataCashCoupon extends $tea.Model {
-  status?: string;
+  applicableProducts?: string;
+  applicableScenarios?: string;
+  balance?: string;
+  cashCouponId?: number;
+  cashCouponNo?: string;
+  effectiveTime?: string;
   expiryTime?: string;
   grantedTime?: string;
   nominalValue?: string;
-  effectiveTime?: string;
-  applicableScenarios?: string;
-  cashCouponId?: number;
-  applicableProducts?: string;
-  cashCouponNo?: string;
-  balance?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      applicableProducts: 'ApplicableProducts',
+      applicableScenarios: 'ApplicableScenarios',
+      balance: 'Balance',
+      cashCouponId: 'CashCouponId',
+      cashCouponNo: 'CashCouponNo',
+      effectiveTime: 'EffectiveTime',
       expiryTime: 'ExpiryTime',
       grantedTime: 'GrantedTime',
       nominalValue: 'NominalValue',
-      effectiveTime: 'EffectiveTime',
-      applicableScenarios: 'ApplicableScenarios',
-      cashCouponId: 'CashCouponId',
-      applicableProducts: 'ApplicableProducts',
-      cashCouponNo: 'CashCouponNo',
-      balance: 'Balance',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      applicableProducts: 'string',
+      applicableScenarios: 'string',
+      balance: 'string',
+      cashCouponId: 'number',
+      cashCouponNo: 'string',
+      effectiveTime: 'string',
       expiryTime: 'string',
       grantedTime: 'string',
       nominalValue: 'string',
-      effectiveTime: 'string',
-      applicableScenarios: 'string',
-      cashCouponId: 'number',
-      applicableProducts: 'string',
-      cashCouponNo: 'string',
-      balance: 'string',
+      status: 'string',
     };
   }
 
@@ -10833,25 +11694,25 @@ export class QueryCashCouponsResponseBodyData extends $tea.Model {
 }
 
 export class QueryCostUnitResponseBodyDataCostUnitDtoList extends $tea.Model {
-  parentUnitId?: number;
-  unitName?: string;
-  unitId?: number;
   ownerUid?: number;
+  parentUnitId?: number;
+  unitId?: number;
+  unitName?: string;
   static names(): { [key: string]: string } {
     return {
-      parentUnitId: 'ParentUnitId',
-      unitName: 'UnitName',
-      unitId: 'UnitId',
       ownerUid: 'OwnerUid',
+      parentUnitId: 'ParentUnitId',
+      unitId: 'UnitId',
+      unitName: 'UnitName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parentUnitId: 'number',
-      unitName: 'string',
-      unitId: 'number',
       ownerUid: 'number',
+      parentUnitId: 'number',
+      unitId: 'number',
+      unitName: 'string',
     };
   }
 
@@ -10861,80 +11722,25 @@ export class QueryCostUnitResponseBodyDataCostUnitDtoList extends $tea.Model {
 }
 
 export class QueryCostUnitResponseBodyData extends $tea.Model {
+  costUnitDtoList?: QueryCostUnitResponseBodyDataCostUnitDtoList[];
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  costUnitDtoList?: QueryCostUnitResponseBodyDataCostUnitDtoList[];
   static names(): { [key: string]: string } {
     return {
+      costUnitDtoList: 'CostUnitDtoList',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      costUnitDtoList: 'CostUnitDtoList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      costUnitDtoList: { 'type': 'array', 'itemType': QueryCostUnitResponseBodyDataCostUnitDtoList },
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      costUnitDtoList: { 'type': 'array', 'itemType': QueryCostUnitResponseBodyDataCostUnitDtoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList extends $tea.Model {
-  commodityCode?: string;
-  resourceUserName?: string;
-  commodityName?: string;
-  resourceUserId?: number;
-  apportionName?: string;
-  apportionCode?: string;
-  resourceType?: string;
-  resourceNick?: string;
-  resourceTag?: string;
-  resourceId?: string;
-  resourceGroup?: string;
-  relatedResources?: string;
-  resourceStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      resourceUserName: 'ResourceUserName',
-      commodityName: 'CommodityName',
-      resourceUserId: 'ResourceUserId',
-      apportionName: 'ApportionName',
-      apportionCode: 'ApportionCode',
-      resourceType: 'ResourceType',
-      resourceNick: 'ResourceNick',
-      resourceTag: 'ResourceTag',
-      resourceId: 'ResourceId',
-      resourceGroup: 'ResourceGroup',
-      relatedResources: 'RelatedResources',
-      resourceStatus: 'ResourceStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      resourceUserName: 'string',
-      commodityName: 'string',
-      resourceUserId: 'number',
-      apportionName: 'string',
-      apportionCode: 'string',
-      resourceType: 'string',
-      resourceNick: 'string',
-      resourceTag: 'string',
-      resourceId: 'string',
-      resourceGroup: 'string',
-      relatedResources: 'string',
-      resourceStatus: 'string',
     };
   }
 
@@ -10944,25 +11750,25 @@ export class QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList extend
 }
 
 export class QueryCostUnitResourceResponseBodyDataCostUnit extends $tea.Model {
-  parentUnitId?: number;
-  unitName?: string;
-  unitId?: number;
   ownerUid?: number;
+  parentUnitId?: number;
+  unitId?: number;
+  unitName?: string;
   static names(): { [key: string]: string } {
     return {
-      parentUnitId: 'ParentUnitId',
-      unitName: 'UnitName',
-      unitId: 'UnitId',
       ownerUid: 'OwnerUid',
+      parentUnitId: 'ParentUnitId',
+      unitId: 'UnitId',
+      unitName: 'UnitName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parentUnitId: 'number',
-      unitName: 'string',
-      unitId: 'number',
       ownerUid: 'number',
+      parentUnitId: 'number',
+      unitId: 'number',
+      unitName: 'string',
     };
   }
 
@@ -10972,33 +11778,33 @@ export class QueryCostUnitResourceResponseBodyDataCostUnit extends $tea.Model {
 }
 
 export class QueryCostUnitResourceResponseBodyDataCostUnitStatisInfo extends $tea.Model {
-  totalResourceCount?: number;
   resourceCount?: number;
-  totalUserCount?: number;
-  subUnitCount?: number;
   resourceGroupCount?: number;
+  subUnitCount?: number;
+  totalResourceCount?: number;
   totalResourceGroupCount?: number;
+  totalUserCount?: number;
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalResourceCount: 'TotalResourceCount',
       resourceCount: 'ResourceCount',
-      totalUserCount: 'TotalUserCount',
-      subUnitCount: 'SubUnitCount',
       resourceGroupCount: 'ResourceGroupCount',
+      subUnitCount: 'SubUnitCount',
+      totalResourceCount: 'TotalResourceCount',
       totalResourceGroupCount: 'TotalResourceGroupCount',
+      totalUserCount: 'TotalUserCount',
       userCount: 'UserCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalResourceCount: 'number',
       resourceCount: 'number',
-      totalUserCount: 'number',
-      subUnitCount: 'number',
       resourceGroupCount: 'number',
+      subUnitCount: 'number',
+      totalResourceCount: 'number',
       totalResourceGroupCount: 'number',
+      totalUserCount: 'number',
       userCount: 'number',
     };
   }
@@ -11008,32 +11814,87 @@ export class QueryCostUnitResourceResponseBodyDataCostUnitStatisInfo extends $te
   }
 }
 
-export class QueryCostUnitResourceResponseBodyData extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  totalCount?: number;
-  resourceInstanceDtoList?: QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList[];
-  costUnit?: QueryCostUnitResourceResponseBodyDataCostUnit;
-  costUnitStatisInfo?: QueryCostUnitResourceResponseBodyDataCostUnitStatisInfo;
+export class QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList extends $tea.Model {
+  apportionCode?: string;
+  apportionName?: string;
+  commodityCode?: string;
+  commodityName?: string;
+  relatedResources?: string;
+  resourceGroup?: string;
+  resourceId?: string;
+  resourceNick?: string;
+  resourceStatus?: string;
+  resourceTag?: string;
+  resourceType?: string;
+  resourceUserId?: number;
+  resourceUserName?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      resourceInstanceDtoList: 'ResourceInstanceDtoList',
-      costUnit: 'CostUnit',
-      costUnitStatisInfo: 'CostUnitStatisInfo',
+      apportionCode: 'ApportionCode',
+      apportionName: 'ApportionName',
+      commodityCode: 'CommodityCode',
+      commodityName: 'CommodityName',
+      relatedResources: 'RelatedResources',
+      resourceGroup: 'ResourceGroup',
+      resourceId: 'ResourceId',
+      resourceNick: 'ResourceNick',
+      resourceStatus: 'ResourceStatus',
+      resourceTag: 'ResourceTag',
+      resourceType: 'ResourceType',
+      resourceUserId: 'ResourceUserId',
+      resourceUserName: 'ResourceUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      resourceInstanceDtoList: { 'type': 'array', 'itemType': QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList },
+      apportionCode: 'string',
+      apportionName: 'string',
+      commodityCode: 'string',
+      commodityName: 'string',
+      relatedResources: 'string',
+      resourceGroup: 'string',
+      resourceId: 'string',
+      resourceNick: 'string',
+      resourceStatus: 'string',
+      resourceTag: 'string',
+      resourceType: 'string',
+      resourceUserId: 'number',
+      resourceUserName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCostUnitResourceResponseBodyData extends $tea.Model {
+  costUnit?: QueryCostUnitResourceResponseBodyDataCostUnit;
+  costUnitStatisInfo?: QueryCostUnitResourceResponseBodyDataCostUnitStatisInfo;
+  pageNum?: number;
+  pageSize?: number;
+  resourceInstanceDtoList?: QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      costUnit: 'CostUnit',
+      costUnitStatisInfo: 'CostUnitStatisInfo',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      resourceInstanceDtoList: 'ResourceInstanceDtoList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       costUnit: QueryCostUnitResourceResponseBodyDataCostUnit,
       costUnitStatisInfo: QueryCostUnitResourceResponseBodyDataCostUnitStatisInfo,
+      pageNum: 'number',
+      pageSize: 'number',
+      resourceInstanceDtoList: { 'type': 'array', 'itemType': QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList },
+      totalCount: 'number',
     };
   }
 
@@ -11044,48 +11905,48 @@ export class QueryCostUnitResourceResponseBodyData extends $tea.Model {
 
 export class QueryCustomerAddressListResponseBodyDataCustomerInvoiceAddressListCustomerInvoiceAddress extends $tea.Model {
   addressee?: string;
-  postalCode?: string;
-  userId?: number;
-  city?: string;
-  userNick?: string;
-  street?: string;
-  phone?: string;
-  county?: string;
   bizType?: string;
+  city?: string;
+  county?: string;
   deliveryAddress?: string;
   id?: number;
+  phone?: string;
+  postalCode?: string;
   province?: string;
+  street?: string;
+  userId?: number;
+  userNick?: string;
   static names(): { [key: string]: string } {
     return {
       addressee: 'Addressee',
-      postalCode: 'PostalCode',
-      userId: 'UserId',
-      city: 'City',
-      userNick: 'UserNick',
-      street: 'Street',
-      phone: 'Phone',
-      county: 'County',
       bizType: 'BizType',
+      city: 'City',
+      county: 'County',
       deliveryAddress: 'DeliveryAddress',
       id: 'Id',
+      phone: 'Phone',
+      postalCode: 'PostalCode',
       province: 'Province',
+      street: 'Street',
+      userId: 'UserId',
+      userNick: 'UserNick',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       addressee: 'string',
-      postalCode: 'string',
-      userId: 'number',
-      city: 'string',
-      userNick: 'string',
-      street: 'string',
-      phone: 'string',
-      county: 'string',
       bizType: 'string',
+      city: 'string',
+      county: 'string',
       deliveryAddress: 'string',
       id: 'number',
+      phone: 'string',
+      postalCode: 'string',
       province: 'string',
+      street: 'string',
+      userId: 'number',
+      userNick: 'string',
     };
   }
 
@@ -11133,54 +11994,54 @@ export class QueryCustomerAddressListResponseBodyData extends $tea.Model {
 }
 
 export class QueryDPUtilizationDetailResponseBodyDataDetailListDetailList extends $tea.Model {
-  deductedInstanceId?: string;
-  instanceId?: string;
-  deductHours?: number;
-  shareUid?: number;
   deductDate?: string;
-  instanceSpec?: string;
-  deductedCommodityCode?: string;
-  deductedProductDetail?: string;
-  deductMeasure?: number;
-  region?: string;
-  deductQuantity?: number;
   deductFactorTotal?: number;
+  deductHours?: number;
+  deductMeasure?: number;
+  deductQuantity?: number;
+  deductedCommodityCode?: string;
+  deductedInstanceId?: string;
+  deductedProductDetail?: string;
+  instanceId?: string;
+  instanceSpec?: string;
+  region?: string;
   resCode?: string;
+  shareUid?: number;
   uid?: number;
   static names(): { [key: string]: string } {
     return {
-      deductedInstanceId: 'DeductedInstanceId',
-      instanceId: 'InstanceId',
-      deductHours: 'DeductHours',
-      shareUid: 'ShareUid',
       deductDate: 'DeductDate',
-      instanceSpec: 'InstanceSpec',
-      deductedCommodityCode: 'DeductedCommodityCode',
-      deductedProductDetail: 'DeductedProductDetail',
-      deductMeasure: 'DeductMeasure',
-      region: 'Region',
-      deductQuantity: 'DeductQuantity',
       deductFactorTotal: 'DeductFactorTotal',
+      deductHours: 'DeductHours',
+      deductMeasure: 'DeductMeasure',
+      deductQuantity: 'DeductQuantity',
+      deductedCommodityCode: 'DeductedCommodityCode',
+      deductedInstanceId: 'DeductedInstanceId',
+      deductedProductDetail: 'DeductedProductDetail',
+      instanceId: 'InstanceId',
+      instanceSpec: 'InstanceSpec',
+      region: 'Region',
       resCode: 'ResCode',
+      shareUid: 'ShareUid',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deductedInstanceId: 'string',
-      instanceId: 'string',
-      deductHours: 'number',
-      shareUid: 'number',
       deductDate: 'string',
-      instanceSpec: 'string',
-      deductedCommodityCode: 'string',
-      deductedProductDetail: 'string',
-      deductMeasure: 'number',
-      region: 'string',
-      deductQuantity: 'number',
       deductFactorTotal: 'number',
+      deductHours: 'number',
+      deductMeasure: 'number',
+      deductQuantity: 'number',
+      deductedCommodityCode: 'string',
+      deductedInstanceId: 'string',
+      deductedProductDetail: 'string',
+      instanceId: 'string',
+      instanceSpec: 'string',
+      region: 'string',
       resCode: 'string',
+      shareUid: 'number',
       uid: 'number',
     };
   }
@@ -11210,19 +12071,19 @@ export class QueryDPUtilizationDetailResponseBodyDataDetailList extends $tea.Mod
 }
 
 export class QueryDPUtilizationDetailResponseBodyData extends $tea.Model {
-  nextToken?: string;
   detailList?: QueryDPUtilizationDetailResponseBodyDataDetailList;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
       detailList: 'DetailList',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
       detailList: QueryDPUtilizationDetailResponseBodyDataDetailList,
+      nextToken: 'string',
     };
   }
 
@@ -11232,76 +12093,76 @@ export class QueryDPUtilizationDetailResponseBodyData extends $tea.Model {
 }
 
 export class QueryEvaluateListResponseBodyDataEvaluateListEvaluate extends $tea.Model {
-  type?: number;
-  status?: number;
-  billId?: number;
-  userId?: number;
   billCycle?: string;
-  canInvoiceAmount?: number;
-  offsetAcceptAmount?: number;
-  itemId?: number;
-  outBizId?: string;
-  userNick?: string;
-  gmtModified?: string;
-  opId?: string;
-  bizType?: string;
-  originalAmount?: number;
-  invoicedAmount?: number;
-  gmtCreate?: string;
-  presentAmount?: number;
+  billId?: number;
   bizTime?: string;
-  name?: string;
-  offsetCostAmount?: number;
+  bizType?: string;
+  canInvoiceAmount?: number;
+  gmtCreate?: string;
+  gmtModified?: string;
   id?: number;
+  invoicedAmount?: number;
+  itemId?: number;
+  name?: string;
+  offsetAcceptAmount?: number;
+  offsetCostAmount?: number;
+  opId?: string;
+  originalAmount?: number;
+  outBizId?: string;
+  presentAmount?: number;
+  status?: number;
+  type?: number;
+  userId?: number;
+  userNick?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      status: 'Status',
-      billId: 'BillId',
-      userId: 'UserId',
       billCycle: 'BillCycle',
-      canInvoiceAmount: 'CanInvoiceAmount',
-      offsetAcceptAmount: 'OffsetAcceptAmount',
-      itemId: 'ItemId',
-      outBizId: 'OutBizId',
-      userNick: 'UserNick',
-      gmtModified: 'GmtModified',
-      opId: 'OpId',
-      bizType: 'BizType',
-      originalAmount: 'OriginalAmount',
-      invoicedAmount: 'InvoicedAmount',
-      gmtCreate: 'GmtCreate',
-      presentAmount: 'PresentAmount',
+      billId: 'BillId',
       bizTime: 'BizTime',
-      name: 'Name',
-      offsetCostAmount: 'OffsetCostAmount',
+      bizType: 'BizType',
+      canInvoiceAmount: 'CanInvoiceAmount',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       id: 'Id',
+      invoicedAmount: 'InvoicedAmount',
+      itemId: 'ItemId',
+      name: 'Name',
+      offsetAcceptAmount: 'OffsetAcceptAmount',
+      offsetCostAmount: 'OffsetCostAmount',
+      opId: 'OpId',
+      originalAmount: 'OriginalAmount',
+      outBizId: 'OutBizId',
+      presentAmount: 'PresentAmount',
+      status: 'Status',
+      type: 'Type',
+      userId: 'UserId',
+      userNick: 'UserNick',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
-      status: 'number',
-      billId: 'number',
-      userId: 'number',
       billCycle: 'string',
-      canInvoiceAmount: 'number',
-      offsetAcceptAmount: 'number',
-      itemId: 'number',
-      outBizId: 'string',
-      userNick: 'string',
-      gmtModified: 'string',
-      opId: 'string',
-      bizType: 'string',
-      originalAmount: 'number',
-      invoicedAmount: 'number',
-      gmtCreate: 'string',
-      presentAmount: 'number',
+      billId: 'number',
       bizTime: 'string',
-      name: 'string',
-      offsetCostAmount: 'number',
+      bizType: 'string',
+      canInvoiceAmount: 'number',
+      gmtCreate: 'string',
+      gmtModified: 'string',
       id: 'number',
+      invoicedAmount: 'number',
+      itemId: 'number',
+      name: 'string',
+      offsetAcceptAmount: 'number',
+      offsetCostAmount: 'number',
+      opId: 'string',
+      originalAmount: 'number',
+      outBizId: 'string',
+      presentAmount: 'number',
+      status: 'number',
+      type: 'number',
+      userId: 'number',
+      userNick: 'string',
     };
   }
 
@@ -11330,34 +12191,34 @@ export class QueryEvaluateListResponseBodyDataEvaluateList extends $tea.Model {
 }
 
 export class QueryEvaluateListResponseBodyData extends $tea.Model {
+  evaluateList?: QueryEvaluateListResponseBodyDataEvaluateList;
+  hostId?: string;
   pageNum?: number;
-  totalUnAppliedInvoiceAmount?: number;
   pageSize?: number;
   totalCount?: number;
   totalInvoiceAmount?: number;
-  hostId?: string;
-  evaluateList?: QueryEvaluateListResponseBodyDataEvaluateList;
+  totalUnAppliedInvoiceAmount?: number;
   static names(): { [key: string]: string } {
     return {
+      evaluateList: 'EvaluateList',
+      hostId: 'HostId',
       pageNum: 'PageNum',
-      totalUnAppliedInvoiceAmount: 'TotalUnAppliedInvoiceAmount',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
       totalInvoiceAmount: 'TotalInvoiceAmount',
-      hostId: 'HostId',
-      evaluateList: 'EvaluateList',
+      totalUnAppliedInvoiceAmount: 'TotalUnAppliedInvoiceAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      evaluateList: QueryEvaluateListResponseBodyDataEvaluateList,
+      hostId: 'string',
       pageNum: 'number',
-      totalUnAppliedInvoiceAmount: 'number',
       pageSize: 'number',
       totalCount: 'number',
       totalInvoiceAmount: 'number',
-      hostId: 'string',
-      evaluateList: QueryEvaluateListResponseBodyDataEvaluateList,
+      totalUnAppliedInvoiceAmount: 'number',
     };
   }
 
@@ -11367,31 +12228,31 @@ export class QueryEvaluateListResponseBodyData extends $tea.Model {
 }
 
 export class QueryFinancialAccountInfoResponseBodyData extends $tea.Model {
-  memberNickName?: string;
-  isFinancialAccount?: boolean;
-  memberGroupName?: string;
-  userName?: string;
   accountType?: string;
+  isFinancialAccount?: boolean;
   memberGroupId?: number;
+  memberGroupName?: string;
+  memberNickName?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      memberNickName: 'MemberNickName',
-      isFinancialAccount: 'IsFinancialAccount',
-      memberGroupName: 'MemberGroupName',
-      userName: 'UserName',
       accountType: 'AccountType',
+      isFinancialAccount: 'IsFinancialAccount',
       memberGroupId: 'MemberGroupId',
+      memberGroupName: 'MemberGroupName',
+      memberNickName: 'MemberNickName',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      memberNickName: 'string',
-      isFinancialAccount: 'boolean',
-      memberGroupName: 'string',
-      userName: 'string',
       accountType: 'string',
+      isFinancialAccount: 'boolean',
       memberGroupId: 'number',
+      memberGroupName: 'string',
+      memberNickName: 'string',
+      userName: 'string',
     };
   }
 
@@ -11401,130 +12262,136 @@ export class QueryFinancialAccountInfoResponseBodyData extends $tea.Model {
 }
 
 export class QueryInstanceBillResponseBodyDataItemsItem extends $tea.Model {
+  adjustAmount?: number;
   billingDate?: string;
-  instanceConfig?: string;
-  internetIP?: string;
-  item?: string;
-  tag?: string;
-  instanceID?: string;
+  billingItem?: string;
+  billingType?: string;
+  cashAmount?: number;
+  commodityCode?: string;
+  costUnit?: string;
   currency?: string;
   deductedByCashCoupons?: number;
-  subscriptionType?: string;
-  instanceSpec?: string;
   deductedByCoupons?: number;
-  billingItem?: string;
-  region?: string;
-  outstandingAmount?: number;
-  costUnit?: string;
-  listPriceUnit?: string;
-  resourceGroup?: string;
-  pipCode?: string;
-  servicePeriodUnit?: string;
-  pretaxAmount?: number;
-  commodityCode?: string;
-  productName?: string;
-  nickName?: string;
-  productDetail?: string;
-  usage?: string;
-  intranetIP?: string;
-  ownerID?: string;
   deductedByPrepaidCard?: number;
-  usageUnit?: string;
-  paymentAmount?: number;
-  invoiceDiscount?: number;
   deductedByResourcePackage?: string;
-  productType?: string;
-  servicePeriod?: string;
-  zone?: string;
+  instanceConfig?: string;
+  instanceID?: string;
+  instanceSpec?: string;
+  internetIP?: string;
+  intranetIP?: string;
+  invoiceDiscount?: number;
+  item?: string;
   listPrice?: string;
+  listPriceUnit?: string;
+  nickName?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
+  paymentAmount?: number;
+  pipCode?: string;
+  pretaxAmount?: number;
   pretaxGrossAmount?: number;
   productCode?: string;
-  billingType?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  region?: string;
+  resourceGroup?: string;
+  servicePeriod?: string;
+  servicePeriodUnit?: string;
+  subscriptionType?: string;
+  tag?: string;
+  usage?: string;
+  usageUnit?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustAmount: 'AdjustAmount',
       billingDate: 'BillingDate',
-      instanceConfig: 'InstanceConfig',
-      internetIP: 'InternetIP',
-      item: 'Item',
-      tag: 'Tag',
-      instanceID: 'InstanceID',
+      billingItem: 'BillingItem',
+      billingType: 'BillingType',
+      cashAmount: 'CashAmount',
+      commodityCode: 'CommodityCode',
+      costUnit: 'CostUnit',
       currency: 'Currency',
       deductedByCashCoupons: 'DeductedByCashCoupons',
-      subscriptionType: 'SubscriptionType',
-      instanceSpec: 'InstanceSpec',
       deductedByCoupons: 'DeductedByCoupons',
-      billingItem: 'BillingItem',
-      region: 'Region',
-      outstandingAmount: 'OutstandingAmount',
-      costUnit: 'CostUnit',
-      listPriceUnit: 'ListPriceUnit',
-      resourceGroup: 'ResourceGroup',
-      pipCode: 'PipCode',
-      servicePeriodUnit: 'ServicePeriodUnit',
-      pretaxAmount: 'PretaxAmount',
-      commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      nickName: 'NickName',
-      productDetail: 'ProductDetail',
-      usage: 'Usage',
-      intranetIP: 'IntranetIP',
-      ownerID: 'OwnerID',
       deductedByPrepaidCard: 'DeductedByPrepaidCard',
-      usageUnit: 'UsageUnit',
-      paymentAmount: 'PaymentAmount',
-      invoiceDiscount: 'InvoiceDiscount',
       deductedByResourcePackage: 'DeductedByResourcePackage',
-      productType: 'ProductType',
-      servicePeriod: 'ServicePeriod',
-      zone: 'Zone',
+      instanceConfig: 'InstanceConfig',
+      instanceID: 'InstanceID',
+      instanceSpec: 'InstanceSpec',
+      internetIP: 'InternetIP',
+      intranetIP: 'IntranetIP',
+      invoiceDiscount: 'InvoiceDiscount',
+      item: 'Item',
       listPrice: 'ListPrice',
+      listPriceUnit: 'ListPriceUnit',
+      nickName: 'NickName',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
+      paymentAmount: 'PaymentAmount',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
-      billingType: 'BillingType',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      region: 'Region',
+      resourceGroup: 'ResourceGroup',
+      servicePeriod: 'ServicePeriod',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
+      usage: 'Usage',
+      usageUnit: 'UsageUnit',
+      zone: 'Zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adjustAmount: 'number',
       billingDate: 'string',
-      instanceConfig: 'string',
-      internetIP: 'string',
-      item: 'string',
-      tag: 'string',
-      instanceID: 'string',
+      billingItem: 'string',
+      billingType: 'string',
+      cashAmount: 'number',
+      commodityCode: 'string',
+      costUnit: 'string',
       currency: 'string',
       deductedByCashCoupons: 'number',
-      subscriptionType: 'string',
-      instanceSpec: 'string',
       deductedByCoupons: 'number',
-      billingItem: 'string',
-      region: 'string',
-      outstandingAmount: 'number',
-      costUnit: 'string',
-      listPriceUnit: 'string',
-      resourceGroup: 'string',
-      pipCode: 'string',
-      servicePeriodUnit: 'string',
-      pretaxAmount: 'number',
-      commodityCode: 'string',
-      productName: 'string',
-      nickName: 'string',
-      productDetail: 'string',
-      usage: 'string',
-      intranetIP: 'string',
-      ownerID: 'string',
       deductedByPrepaidCard: 'number',
-      usageUnit: 'string',
-      paymentAmount: 'number',
-      invoiceDiscount: 'number',
       deductedByResourcePackage: 'string',
-      productType: 'string',
-      servicePeriod: 'string',
-      zone: 'string',
+      instanceConfig: 'string',
+      instanceID: 'string',
+      instanceSpec: 'string',
+      internetIP: 'string',
+      intranetIP: 'string',
+      invoiceDiscount: 'number',
+      item: 'string',
       listPrice: 'string',
+      listPriceUnit: 'string',
+      nickName: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
+      paymentAmount: 'number',
+      pipCode: 'string',
+      pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
       productCode: 'string',
-      billingType: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      region: 'string',
+      resourceGroup: 'string',
+      servicePeriod: 'string',
+      servicePeriodUnit: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
+      usage: 'string',
+      usageUnit: 'string',
+      zone: 'string',
     };
   }
 
@@ -11553,34 +12420,34 @@ export class QueryInstanceBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QueryInstanceBillResponseBodyData extends $tea.Model {
-  pageNum?: number;
-  billingCycle?: string;
   accountID?: string;
+  accountName?: string;
+  billingCycle?: string;
+  items?: QueryInstanceBillResponseBodyDataItems;
+  pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  accountName?: string;
-  items?: QueryInstanceBillResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      billingCycle: 'BillingCycle',
       accountID: 'AccountID',
+      accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
+      items: 'Items',
+      pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      accountName: 'AccountName',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      billingCycle: 'string',
       accountID: 'string',
+      accountName: 'string',
+      billingCycle: 'string',
+      items: QueryInstanceBillResponseBodyDataItems,
+      pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      accountName: 'string',
-      items: QueryInstanceBillResponseBodyDataItems,
     };
   }
 
@@ -11659,169 +12526,169 @@ export class QueryInstanceByTagResponseBodyTagResource extends $tea.Model {
 }
 
 export class QueryInstanceGaapCostResponseBodyDataModulesModule extends $tea.Model {
-  gaapDeductedByCashCoupons?: string;
-  subscriptionType?: string;
-  monthGaapPretaxAmount?: string;
-  deductedByCoupons?: string;
-  subOrderId?: string;
-  region?: string;
-  orderType?: string;
-  monthGaapDeductedByPrepaidCard?: string;
-  unallocatedDeductedByCashCoupons?: string;
-  pretaxAmountLocal?: string;
-  billingCycle?: string;
-  payerAccount?: string;
-  monthGaapPretaxAmountLocal?: string;
   accountingUnit?: string;
-  gaapPretaxAmountLocal?: string;
-  unallocatedDeductedByPrepaidCard?: string;
-  productType?: string;
-  paymentAmount?: string;
-  monthGaapPretaxGrossAmount?: string;
   billType?: string;
-  payTime?: string;
-  pretaxGrossAmount?: string;
-  orderId?: string;
-  unallocatedPricingDiscount?: string;
-  monthGaapDeductedByCashCoupons?: string;
-  unallocatedPretaxGrossAmount?: string;
-  instanceID?: string;
-  tag?: string;
+  billingCycle?: string;
   currency?: string;
-  gaapDeductedByCoupons?: string;
   deductedByCashCoupons?: string;
+  deductedByCoupons?: string;
+  deductedByPrepaidCard?: string;
+  gaapDeductedByCashCoupons?: string;
+  gaapDeductedByCoupons?: string;
   gaapDeductedByPrepaidCard?: string;
   gaapPaymentAmount?: string;
-  unallocatedPretaxAmountLocal?: string;
-  monthGaapPricingDiscount?: string;
-  pricingDiscount?: string;
-  gaapPricingDiscount?: string;
-  resourceGroup?: string;
-  unallocatedDeductedByCoupons?: string;
-  pretaxAmount?: string;
-  unallocatedPretaxAmount?: string;
-  gaapPretaxGrossAmount?: string;
-  unallocatedPaymentAmount?: string;
-  paymentCurrency?: string;
-  ownerID?: string;
-  deductedByPrepaidCard?: string;
   gaapPretaxAmount?: string;
+  gaapPretaxAmountLocal?: string;
+  gaapPretaxGrossAmount?: string;
+  gaapPricingDiscount?: string;
+  instanceID?: string;
+  monthGaapDeductedByCashCoupons?: string;
   monthGaapDeductedByCoupons?: string;
+  monthGaapDeductedByPrepaidCard?: string;
   monthGaapPaymentAmount?: string;
+  monthGaapPretaxAmount?: string;
+  monthGaapPretaxAmountLocal?: string;
+  monthGaapPretaxGrossAmount?: string;
+  monthGaapPricingDiscount?: string;
+  orderId?: string;
+  orderType?: string;
+  ownerID?: string;
+  payTime?: string;
+  payerAccount?: string;
+  paymentAmount?: string;
+  paymentCurrency?: string;
+  pretaxAmount?: string;
+  pretaxAmountLocal?: string;
+  pretaxGrossAmount?: string;
+  pricingDiscount?: string;
+  productCode?: string;
+  productType?: string;
+  region?: string;
+  resourceGroup?: string;
+  subOrderId?: string;
+  subscriptionType?: string;
+  tag?: string;
+  unallocatedDeductedByCashCoupons?: string;
+  unallocatedDeductedByCoupons?: string;
+  unallocatedDeductedByPrepaidCard?: string;
+  unallocatedPaymentAmount?: string;
+  unallocatedPretaxAmount?: string;
+  unallocatedPretaxAmountLocal?: string;
+  unallocatedPretaxGrossAmount?: string;
+  unallocatedPricingDiscount?: string;
   usageEndDate?: string;
   usageStartDate?: string;
-  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      gaapDeductedByCashCoupons: 'GaapDeductedByCashCoupons',
-      subscriptionType: 'SubscriptionType',
-      monthGaapPretaxAmount: 'MonthGaapPretaxAmount',
-      deductedByCoupons: 'DeductedByCoupons',
-      subOrderId: 'SubOrderId',
-      region: 'Region',
-      orderType: 'OrderType',
-      monthGaapDeductedByPrepaidCard: 'MonthGaapDeductedByPrepaidCard',
-      unallocatedDeductedByCashCoupons: 'UnallocatedDeductedByCashCoupons',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      billingCycle: 'BillingCycle',
-      payerAccount: 'PayerAccount',
-      monthGaapPretaxAmountLocal: 'MonthGaapPretaxAmountLocal',
       accountingUnit: 'AccountingUnit',
-      gaapPretaxAmountLocal: 'GaapPretaxAmountLocal',
-      unallocatedDeductedByPrepaidCard: 'UnallocatedDeductedByPrepaidCard',
-      productType: 'ProductType',
-      paymentAmount: 'PaymentAmount',
-      monthGaapPretaxGrossAmount: 'MonthGaapPretaxGrossAmount',
       billType: 'BillType',
-      payTime: 'PayTime',
-      pretaxGrossAmount: 'PretaxGrossAmount',
-      orderId: 'OrderId',
-      unallocatedPricingDiscount: 'UnallocatedPricingDiscount',
-      monthGaapDeductedByCashCoupons: 'MonthGaapDeductedByCashCoupons',
-      unallocatedPretaxGrossAmount: 'UnallocatedPretaxGrossAmount',
-      instanceID: 'InstanceID',
-      tag: 'Tag',
+      billingCycle: 'BillingCycle',
       currency: 'Currency',
-      gaapDeductedByCoupons: 'GaapDeductedByCoupons',
       deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      gaapDeductedByCashCoupons: 'GaapDeductedByCashCoupons',
+      gaapDeductedByCoupons: 'GaapDeductedByCoupons',
       gaapDeductedByPrepaidCard: 'GaapDeductedByPrepaidCard',
       gaapPaymentAmount: 'GaapPaymentAmount',
-      unallocatedPretaxAmountLocal: 'UnallocatedPretaxAmountLocal',
-      monthGaapPricingDiscount: 'MonthGaapPricingDiscount',
-      pricingDiscount: 'PricingDiscount',
-      gaapPricingDiscount: 'GaapPricingDiscount',
-      resourceGroup: 'ResourceGroup',
-      unallocatedDeductedByCoupons: 'UnallocatedDeductedByCoupons',
-      pretaxAmount: 'PretaxAmount',
-      unallocatedPretaxAmount: 'UnallocatedPretaxAmount',
-      gaapPretaxGrossAmount: 'GaapPretaxGrossAmount',
-      unallocatedPaymentAmount: 'UnallocatedPaymentAmount',
-      paymentCurrency: 'PaymentCurrency',
-      ownerID: 'OwnerID',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       gaapPretaxAmount: 'GaapPretaxAmount',
+      gaapPretaxAmountLocal: 'GaapPretaxAmountLocal',
+      gaapPretaxGrossAmount: 'GaapPretaxGrossAmount',
+      gaapPricingDiscount: 'GaapPricingDiscount',
+      instanceID: 'InstanceID',
+      monthGaapDeductedByCashCoupons: 'MonthGaapDeductedByCashCoupons',
       monthGaapDeductedByCoupons: 'MonthGaapDeductedByCoupons',
+      monthGaapDeductedByPrepaidCard: 'MonthGaapDeductedByPrepaidCard',
       monthGaapPaymentAmount: 'MonthGaapPaymentAmount',
+      monthGaapPretaxAmount: 'MonthGaapPretaxAmount',
+      monthGaapPretaxAmountLocal: 'MonthGaapPretaxAmountLocal',
+      monthGaapPretaxGrossAmount: 'MonthGaapPretaxGrossAmount',
+      monthGaapPricingDiscount: 'MonthGaapPricingDiscount',
+      orderId: 'OrderId',
+      orderType: 'OrderType',
+      ownerID: 'OwnerID',
+      payTime: 'PayTime',
+      payerAccount: 'PayerAccount',
+      paymentAmount: 'PaymentAmount',
+      paymentCurrency: 'PaymentCurrency',
+      pretaxAmount: 'PretaxAmount',
+      pretaxAmountLocal: 'PretaxAmountLocal',
+      pretaxGrossAmount: 'PretaxGrossAmount',
+      pricingDiscount: 'PricingDiscount',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      region: 'Region',
+      resourceGroup: 'ResourceGroup',
+      subOrderId: 'SubOrderId',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
+      unallocatedDeductedByCashCoupons: 'UnallocatedDeductedByCashCoupons',
+      unallocatedDeductedByCoupons: 'UnallocatedDeductedByCoupons',
+      unallocatedDeductedByPrepaidCard: 'UnallocatedDeductedByPrepaidCard',
+      unallocatedPaymentAmount: 'UnallocatedPaymentAmount',
+      unallocatedPretaxAmount: 'UnallocatedPretaxAmount',
+      unallocatedPretaxAmountLocal: 'UnallocatedPretaxAmountLocal',
+      unallocatedPretaxGrossAmount: 'UnallocatedPretaxGrossAmount',
+      unallocatedPricingDiscount: 'UnallocatedPricingDiscount',
       usageEndDate: 'UsageEndDate',
       usageStartDate: 'UsageStartDate',
-      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gaapDeductedByCashCoupons: 'string',
-      subscriptionType: 'string',
-      monthGaapPretaxAmount: 'string',
-      deductedByCoupons: 'string',
-      subOrderId: 'string',
-      region: 'string',
-      orderType: 'string',
-      monthGaapDeductedByPrepaidCard: 'string',
-      unallocatedDeductedByCashCoupons: 'string',
-      pretaxAmountLocal: 'string',
-      billingCycle: 'string',
-      payerAccount: 'string',
-      monthGaapPretaxAmountLocal: 'string',
       accountingUnit: 'string',
-      gaapPretaxAmountLocal: 'string',
-      unallocatedDeductedByPrepaidCard: 'string',
-      productType: 'string',
-      paymentAmount: 'string',
-      monthGaapPretaxGrossAmount: 'string',
       billType: 'string',
-      payTime: 'string',
-      pretaxGrossAmount: 'string',
-      orderId: 'string',
-      unallocatedPricingDiscount: 'string',
-      monthGaapDeductedByCashCoupons: 'string',
-      unallocatedPretaxGrossAmount: 'string',
-      instanceID: 'string',
-      tag: 'string',
+      billingCycle: 'string',
       currency: 'string',
-      gaapDeductedByCoupons: 'string',
       deductedByCashCoupons: 'string',
+      deductedByCoupons: 'string',
+      deductedByPrepaidCard: 'string',
+      gaapDeductedByCashCoupons: 'string',
+      gaapDeductedByCoupons: 'string',
       gaapDeductedByPrepaidCard: 'string',
       gaapPaymentAmount: 'string',
-      unallocatedPretaxAmountLocal: 'string',
-      monthGaapPricingDiscount: 'string',
-      pricingDiscount: 'string',
-      gaapPricingDiscount: 'string',
-      resourceGroup: 'string',
-      unallocatedDeductedByCoupons: 'string',
-      pretaxAmount: 'string',
-      unallocatedPretaxAmount: 'string',
-      gaapPretaxGrossAmount: 'string',
-      unallocatedPaymentAmount: 'string',
-      paymentCurrency: 'string',
-      ownerID: 'string',
-      deductedByPrepaidCard: 'string',
       gaapPretaxAmount: 'string',
+      gaapPretaxAmountLocal: 'string',
+      gaapPretaxGrossAmount: 'string',
+      gaapPricingDiscount: 'string',
+      instanceID: 'string',
+      monthGaapDeductedByCashCoupons: 'string',
       monthGaapDeductedByCoupons: 'string',
+      monthGaapDeductedByPrepaidCard: 'string',
       monthGaapPaymentAmount: 'string',
+      monthGaapPretaxAmount: 'string',
+      monthGaapPretaxAmountLocal: 'string',
+      monthGaapPretaxGrossAmount: 'string',
+      monthGaapPricingDiscount: 'string',
+      orderId: 'string',
+      orderType: 'string',
+      ownerID: 'string',
+      payTime: 'string',
+      payerAccount: 'string',
+      paymentAmount: 'string',
+      paymentCurrency: 'string',
+      pretaxAmount: 'string',
+      pretaxAmountLocal: 'string',
+      pretaxGrossAmount: 'string',
+      pricingDiscount: 'string',
+      productCode: 'string',
+      productType: 'string',
+      region: 'string',
+      resourceGroup: 'string',
+      subOrderId: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
+      unallocatedDeductedByCashCoupons: 'string',
+      unallocatedDeductedByCoupons: 'string',
+      unallocatedDeductedByPrepaidCard: 'string',
+      unallocatedPaymentAmount: 'string',
+      unallocatedPretaxAmount: 'string',
+      unallocatedPretaxAmountLocal: 'string',
+      unallocatedPretaxGrossAmount: 'string',
+      unallocatedPricingDiscount: 'string',
       usageEndDate: 'string',
       usageStartDate: 'string',
-      productCode: 'string',
     };
   }
 
@@ -11850,28 +12717,28 @@ export class QueryInstanceGaapCostResponseBodyDataModules extends $tea.Model {
 }
 
 export class QueryInstanceGaapCostResponseBodyData extends $tea.Model {
+  hostId?: string;
+  modules?: QueryInstanceGaapCostResponseBodyDataModules;
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  hostId?: string;
-  modules?: QueryInstanceGaapCostResponseBodyDataModules;
   static names(): { [key: string]: string } {
     return {
+      hostId: 'HostId',
+      modules: 'Modules',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      hostId: 'HostId',
-      modules: 'Modules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hostId: 'string',
+      modules: QueryInstanceGaapCostResponseBodyDataModules,
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      hostId: 'string',
-      modules: QueryInstanceGaapCostResponseBodyDataModules,
     };
   }
 
@@ -11881,76 +12748,76 @@ export class QueryInstanceGaapCostResponseBodyData extends $tea.Model {
 }
 
 export class QueryInvoicingCustomerListResponseBodyDataCustomerInvoiceListCustomerInvoice extends $tea.Model {
-  type?: number;
-  status?: number;
   adjustType?: number;
   bank?: string;
-  startCycle?: number;
-  titleChangeInstructions?: string;
-  userId?: number;
-  operatingLicenseAddress?: string;
-  invoiceTitle?: string;
-  userNick?: string;
-  operatingLicensePhone?: string;
-  endCycle?: number;
-  defaultRemark?: string;
-  taxationLicense?: string;
-  registerNo?: string;
-  gmtCreate?: string;
-  taxpayerType?: number;
-  customerType?: number;
-  issueType?: number;
-  id?: number;
   bankNo?: string;
+  customerType?: number;
+  defaultRemark?: string;
+  endCycle?: number;
+  gmtCreate?: string;
+  id?: number;
+  invoiceTitle?: string;
+  issueType?: number;
+  operatingLicenseAddress?: string;
+  operatingLicensePhone?: string;
+  registerNo?: string;
+  startCycle?: number;
+  status?: number;
+  taxationLicense?: string;
+  taxpayerType?: number;
+  titleChangeInstructions?: string;
+  type?: number;
+  userId?: number;
+  userNick?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      status: 'Status',
       adjustType: 'AdjustType',
       bank: 'Bank',
-      startCycle: 'StartCycle',
-      titleChangeInstructions: 'TitleChangeInstructions',
-      userId: 'UserId',
-      operatingLicenseAddress: 'OperatingLicenseAddress',
-      invoiceTitle: 'InvoiceTitle',
-      userNick: 'UserNick',
-      operatingLicensePhone: 'OperatingLicensePhone',
-      endCycle: 'EndCycle',
-      defaultRemark: 'DefaultRemark',
-      taxationLicense: 'TaxationLicense',
-      registerNo: 'RegisterNo',
-      gmtCreate: 'GmtCreate',
-      taxpayerType: 'TaxpayerType',
-      customerType: 'CustomerType',
-      issueType: 'IssueType',
-      id: 'Id',
       bankNo: 'BankNo',
+      customerType: 'CustomerType',
+      defaultRemark: 'DefaultRemark',
+      endCycle: 'EndCycle',
+      gmtCreate: 'GmtCreate',
+      id: 'Id',
+      invoiceTitle: 'InvoiceTitle',
+      issueType: 'IssueType',
+      operatingLicenseAddress: 'OperatingLicenseAddress',
+      operatingLicensePhone: 'OperatingLicensePhone',
+      registerNo: 'RegisterNo',
+      startCycle: 'StartCycle',
+      status: 'Status',
+      taxationLicense: 'TaxationLicense',
+      taxpayerType: 'TaxpayerType',
+      titleChangeInstructions: 'TitleChangeInstructions',
+      type: 'Type',
+      userId: 'UserId',
+      userNick: 'UserNick',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
-      status: 'number',
       adjustType: 'number',
       bank: 'string',
-      startCycle: 'number',
-      titleChangeInstructions: 'string',
-      userId: 'number',
-      operatingLicenseAddress: 'string',
-      invoiceTitle: 'string',
-      userNick: 'string',
-      operatingLicensePhone: 'string',
-      endCycle: 'number',
-      defaultRemark: 'string',
-      taxationLicense: 'string',
-      registerNo: 'string',
-      gmtCreate: 'string',
-      taxpayerType: 'number',
-      customerType: 'number',
-      issueType: 'number',
-      id: 'number',
       bankNo: 'string',
+      customerType: 'number',
+      defaultRemark: 'string',
+      endCycle: 'number',
+      gmtCreate: 'string',
+      id: 'number',
+      invoiceTitle: 'string',
+      issueType: 'number',
+      operatingLicenseAddress: 'string',
+      operatingLicensePhone: 'string',
+      registerNo: 'string',
+      startCycle: 'number',
+      status: 'number',
+      taxationLicense: 'string',
+      taxpayerType: 'number',
+      titleChangeInstructions: 'string',
+      type: 'number',
+      userId: 'number',
+      userNick: 'string',
     };
   }
 
@@ -11998,70 +12865,70 @@ export class QueryInvoicingCustomerListResponseBodyData extends $tea.Model {
 }
 
 export class QueryMonthlyBillResponseBodyDataItemsItem extends $tea.Model {
-  pretaxAmount?: number;
-  solutionCode?: string;
-  item?: string;
+  afterTaxAmount?: number;
   currency?: string;
   deductedByCashCoupons?: number;
-  subscriptionType?: string;
-  paymentCurrency?: string;
-  deductedByPrepaidCard?: number;
   deductedByCoupons?: number;
-  paymentAmount?: number;
+  deductedByPrepaidCard?: number;
   invoiceDiscount?: number;
-  productType?: string;
+  item?: string;
   outstandingAmount?: number;
-  afterTaxAmount?: number;
-  pretaxGrossAmount?: number;
-  solutionName?: string;
-  tax?: number;
+  paymentAmount?: number;
+  paymentCurrency?: string;
+  pretaxAmount?: number;
   pretaxAmountLocal?: number;
+  pretaxGrossAmount?: number;
   productCode?: string;
+  productType?: string;
+  solutionCode?: string;
+  solutionName?: string;
+  subscriptionType?: string;
+  tax?: number;
   static names(): { [key: string]: string } {
     return {
-      pretaxAmount: 'PretaxAmount',
-      solutionCode: 'SolutionCode',
-      item: 'Item',
+      afterTaxAmount: 'AfterTaxAmount',
       currency: 'Currency',
       deductedByCashCoupons: 'DeductedByCashCoupons',
-      subscriptionType: 'SubscriptionType',
-      paymentCurrency: 'PaymentCurrency',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       deductedByCoupons: 'DeductedByCoupons',
-      paymentAmount: 'PaymentAmount',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       invoiceDiscount: 'InvoiceDiscount',
-      productType: 'ProductType',
+      item: 'Item',
       outstandingAmount: 'OutstandingAmount',
-      afterTaxAmount: 'AfterTaxAmount',
-      pretaxGrossAmount: 'PretaxGrossAmount',
-      solutionName: 'SolutionName',
-      tax: 'Tax',
+      paymentAmount: 'PaymentAmount',
+      paymentCurrency: 'PaymentCurrency',
+      pretaxAmount: 'PretaxAmount',
       pretaxAmountLocal: 'PretaxAmountLocal',
+      pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productType: 'ProductType',
+      solutionCode: 'SolutionCode',
+      solutionName: 'SolutionName',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pretaxAmount: 'number',
-      solutionCode: 'string',
-      item: 'string',
+      afterTaxAmount: 'number',
       currency: 'string',
       deductedByCashCoupons: 'number',
-      subscriptionType: 'string',
-      paymentCurrency: 'string',
-      deductedByPrepaidCard: 'number',
       deductedByCoupons: 'number',
-      paymentAmount: 'number',
+      deductedByPrepaidCard: 'number',
       invoiceDiscount: 'number',
-      productType: 'string',
+      item: 'string',
       outstandingAmount: 'number',
-      afterTaxAmount: 'number',
-      pretaxGrossAmount: 'number',
-      solutionName: 'string',
-      tax: 'number',
+      paymentAmount: 'number',
+      paymentCurrency: 'string',
+      pretaxAmount: 'number',
       pretaxAmountLocal: 'number',
+      pretaxGrossAmount: 'number',
       productCode: 'string',
+      productType: 'string',
+      solutionCode: 'string',
+      solutionName: 'string',
+      subscriptionType: 'string',
+      tax: 'number',
     };
   }
 
@@ -12090,28 +12957,28 @@ export class QueryMonthlyBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QueryMonthlyBillResponseBodyData extends $tea.Model {
-  outstandingAmount?: number;
   billingCycle?: string;
-  totalOutstandingAmount?: number;
-  newInvoiceAmount?: number;
   items?: QueryMonthlyBillResponseBodyDataItems;
+  newInvoiceAmount?: number;
+  outstandingAmount?: number;
+  totalOutstandingAmount?: number;
   static names(): { [key: string]: string } {
     return {
-      outstandingAmount: 'OutstandingAmount',
       billingCycle: 'BillingCycle',
-      totalOutstandingAmount: 'TotalOutstandingAmount',
-      newInvoiceAmount: 'NewInvoiceAmount',
       items: 'Items',
+      newInvoiceAmount: 'NewInvoiceAmount',
+      outstandingAmount: 'OutstandingAmount',
+      totalOutstandingAmount: 'TotalOutstandingAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outstandingAmount: 'number',
       billingCycle: 'string',
-      totalOutstandingAmount: 'number',
-      newInvoiceAmount: 'number',
       items: QueryMonthlyBillResponseBodyDataItems,
+      newInvoiceAmount: 'number',
+      outstandingAmount: 'number',
+      totalOutstandingAmount: 'number',
     };
   }
 
@@ -12121,64 +12988,64 @@ export class QueryMonthlyBillResponseBodyData extends $tea.Model {
 }
 
 export class QueryMonthlyInstanceConsumptionResponseBodyDataItemsItem extends $tea.Model {
-  pretaxAmount?: number;
-  discountAmount?: number;
-  payerAccount?: string;
-  tag?: string;
-  instanceID?: string;
+  afterTaxAmount?: number;
   currency?: string;
-  subscriptionType?: string;
-  paymentCurrency?: string;
+  discountAmount?: number;
+  instanceID?: string;
   ownerID?: string;
+  payerAccount?: string;
+  paymentCurrency?: string;
+  pretaxAmount?: number;
+  pretaxAmountLocal?: number;
+  pretaxGrossAmount?: number;
+  productCode?: string;
   productType?: string;
   region?: string;
-  afterTaxAmount?: number;
-  pretaxGrossAmount?: number;
   resourceGroup?: string;
+  subscriptionType?: string;
+  tag?: string;
   tax?: number;
-  pretaxAmountLocal?: number;
-  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pretaxAmount: 'PretaxAmount',
-      discountAmount: 'DiscountAmount',
-      payerAccount: 'PayerAccount',
-      tag: 'Tag',
-      instanceID: 'InstanceID',
+      afterTaxAmount: 'AfterTaxAmount',
       currency: 'Currency',
-      subscriptionType: 'SubscriptionType',
-      paymentCurrency: 'PaymentCurrency',
+      discountAmount: 'DiscountAmount',
+      instanceID: 'InstanceID',
       ownerID: 'OwnerID',
+      payerAccount: 'PayerAccount',
+      paymentCurrency: 'PaymentCurrency',
+      pretaxAmount: 'PretaxAmount',
+      pretaxAmountLocal: 'PretaxAmountLocal',
+      pretaxGrossAmount: 'PretaxGrossAmount',
+      productCode: 'ProductCode',
       productType: 'ProductType',
       region: 'Region',
-      afterTaxAmount: 'AfterTaxAmount',
-      pretaxGrossAmount: 'PretaxGrossAmount',
       resourceGroup: 'ResourceGroup',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
       tax: 'Tax',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pretaxAmount: 'number',
-      discountAmount: 'number',
-      payerAccount: 'string',
-      tag: 'string',
-      instanceID: 'string',
+      afterTaxAmount: 'number',
       currency: 'string',
-      subscriptionType: 'string',
-      paymentCurrency: 'string',
+      discountAmount: 'number',
+      instanceID: 'string',
       ownerID: 'string',
+      payerAccount: 'string',
+      paymentCurrency: 'string',
+      pretaxAmount: 'number',
+      pretaxAmountLocal: 'number',
+      pretaxGrossAmount: 'number',
+      productCode: 'string',
       productType: 'string',
       region: 'string',
-      afterTaxAmount: 'number',
-      pretaxGrossAmount: 'number',
       resourceGroup: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
       tax: 'number',
-      pretaxAmountLocal: 'number',
-      productCode: 'string',
     };
   }
 
@@ -12207,28 +13074,28 @@ export class QueryMonthlyInstanceConsumptionResponseBodyDataItems extends $tea.M
 }
 
 export class QueryMonthlyInstanceConsumptionResponseBodyData extends $tea.Model {
-  pageNum?: number;
   billingCycle?: string;
+  items?: QueryMonthlyInstanceConsumptionResponseBodyDataItems;
+  pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  items?: QueryMonthlyInstanceConsumptionResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
       billingCycle: 'BillingCycle',
+      items: 'Items',
+      pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
       billingCycle: 'string',
+      items: QueryMonthlyInstanceConsumptionResponseBodyDataItems,
+      pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      items: QueryMonthlyInstanceConsumptionResponseBodyDataItems,
     };
   }
 
@@ -12238,64 +13105,64 @@ export class QueryMonthlyInstanceConsumptionResponseBodyData extends $tea.Model 
 }
 
 export class QueryOrdersResponseBodyDataOrderListOrder extends $tea.Model {
-  pretaxAmount?: string;
+  afterTaxAmount?: string;
   commodityCode?: string;
-  relatedOrderId?: string;
   createTime?: string;
   currency?: string;
-  subscriptionType?: string;
-  paymentCurrency?: string;
-  productType?: string;
-  afterTaxAmount?: string;
-  paymentTime?: string;
-  pretaxGrossAmount?: string;
-  orderType?: string;
-  paymentStatus?: string;
   orderId?: string;
-  tax?: string;
+  orderType?: string;
+  paymentCurrency?: string;
+  paymentStatus?: string;
+  paymentTime?: string;
+  pretaxAmount?: string;
   pretaxAmountLocal?: string;
+  pretaxGrossAmount?: string;
   productCode?: string;
+  productType?: string;
+  relatedOrderId?: string;
+  subscriptionType?: string;
+  tax?: string;
   static names(): { [key: string]: string } {
     return {
-      pretaxAmount: 'PretaxAmount',
+      afterTaxAmount: 'AfterTaxAmount',
       commodityCode: 'CommodityCode',
-      relatedOrderId: 'RelatedOrderId',
       createTime: 'CreateTime',
       currency: 'Currency',
-      subscriptionType: 'SubscriptionType',
-      paymentCurrency: 'PaymentCurrency',
-      productType: 'ProductType',
-      afterTaxAmount: 'AfterTaxAmount',
-      paymentTime: 'PaymentTime',
-      pretaxGrossAmount: 'PretaxGrossAmount',
-      orderType: 'OrderType',
-      paymentStatus: 'PaymentStatus',
       orderId: 'OrderId',
-      tax: 'Tax',
+      orderType: 'OrderType',
+      paymentCurrency: 'PaymentCurrency',
+      paymentStatus: 'PaymentStatus',
+      paymentTime: 'PaymentTime',
+      pretaxAmount: 'PretaxAmount',
       pretaxAmountLocal: 'PretaxAmountLocal',
+      pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productType: 'ProductType',
+      relatedOrderId: 'RelatedOrderId',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pretaxAmount: 'string',
+      afterTaxAmount: 'string',
       commodityCode: 'string',
-      relatedOrderId: 'string',
       createTime: 'string',
       currency: 'string',
-      subscriptionType: 'string',
-      paymentCurrency: 'string',
-      productType: 'string',
-      afterTaxAmount: 'string',
-      paymentTime: 'string',
-      pretaxGrossAmount: 'string',
-      orderType: 'string',
-      paymentStatus: 'string',
       orderId: 'string',
-      tax: 'string',
+      orderType: 'string',
+      paymentCurrency: 'string',
+      paymentStatus: 'string',
+      paymentTime: 'string',
+      pretaxAmount: 'string',
       pretaxAmountLocal: 'string',
+      pretaxGrossAmount: 'string',
       productCode: 'string',
+      productType: 'string',
+      relatedOrderId: 'string',
+      subscriptionType: 'string',
+      tax: 'string',
     };
   }
 
@@ -12325,27 +13192,27 @@ export class QueryOrdersResponseBodyDataOrderList extends $tea.Model {
 
 export class QueryOrdersResponseBodyData extends $tea.Model {
   hostName?: string;
+  orderList?: QueryOrdersResponseBodyDataOrderList;
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  orderList?: QueryOrdersResponseBodyDataOrderList;
   static names(): { [key: string]: string } {
     return {
       hostName: 'HostName',
+      orderList: 'OrderList',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      orderList: 'OrderList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       hostName: 'string',
+      orderList: QueryOrdersResponseBodyDataOrderList,
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      orderList: QueryOrdersResponseBodyDataOrderList,
     };
   }
 
@@ -12356,24 +13223,24 @@ export class QueryOrdersResponseBodyData extends $tea.Model {
 
 export class QueryPermissionListResponseBodyDataPermissionList extends $tea.Model {
   endTime?: string;
-  startTime?: string;
   permissionCode?: string;
   permissionName?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      startTime: 'StartTime',
       permissionCode: 'PermissionCode',
       permissionName: 'PermissionName',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      startTime: 'string',
       permissionCode: 'string',
       permissionName: 'string',
+      startTime: 'string',
     };
   }
 
@@ -12384,36 +13251,36 @@ export class QueryPermissionListResponseBodyDataPermissionList extends $tea.Mode
 
 export class QueryPermissionListResponseBodyData extends $tea.Model {
   endTime?: string;
-  relationType?: string;
-  startTime?: string;
-  state?: string;
   masterId?: number;
   memberId?: number;
-  setupTime?: string;
   permissionList?: QueryPermissionListResponseBodyDataPermissionList[];
+  relationType?: string;
+  setupTime?: string;
+  startTime?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      relationType: 'RelationType',
-      startTime: 'StartTime',
-      state: 'State',
       masterId: 'MasterId',
       memberId: 'MemberId',
-      setupTime: 'SetupTime',
       permissionList: 'PermissionList',
+      relationType: 'RelationType',
+      setupTime: 'SetupTime',
+      startTime: 'StartTime',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      relationType: 'string',
-      startTime: 'string',
-      state: 'string',
       masterId: 'number',
       memberId: 'number',
-      setupTime: 'string',
       permissionList: { 'type': 'array', 'itemType': QueryPermissionListResponseBodyDataPermissionList },
+      relationType: 'string',
+      setupTime: 'string',
+      startTime: 'string',
+      state: 'string',
     };
   }
 
@@ -12423,43 +13290,43 @@ export class QueryPermissionListResponseBodyData extends $tea.Model {
 }
 
 export class QueryPrepaidCardsResponseBodyDataPrepaidCard extends $tea.Model {
-  status?: string;
+  applicableProducts?: string;
+  applicableScenarios?: string;
+  balance?: string;
+  effectiveTime?: string;
   expiryTime?: string;
   grantedTime?: string;
   nominalValue?: string;
-  effectiveTime?: string;
-  prepaidCardNo?: string;
-  applicableScenarios?: string;
   prepaidCardId?: number;
-  applicableProducts?: string;
-  balance?: string;
+  prepaidCardNo?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      applicableProducts: 'ApplicableProducts',
+      applicableScenarios: 'ApplicableScenarios',
+      balance: 'Balance',
+      effectiveTime: 'EffectiveTime',
       expiryTime: 'ExpiryTime',
       grantedTime: 'GrantedTime',
       nominalValue: 'NominalValue',
-      effectiveTime: 'EffectiveTime',
-      prepaidCardNo: 'PrepaidCardNo',
-      applicableScenarios: 'ApplicableScenarios',
       prepaidCardId: 'PrepaidCardId',
-      applicableProducts: 'ApplicableProducts',
-      balance: 'Balance',
+      prepaidCardNo: 'PrepaidCardNo',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      applicableProducts: 'string',
+      applicableScenarios: 'string',
+      balance: 'string',
+      effectiveTime: 'string',
       expiryTime: 'string',
       grantedTime: 'string',
       nominalValue: 'string',
-      effectiveTime: 'string',
-      prepaidCardNo: 'string',
-      applicableScenarios: 'string',
       prepaidCardId: 'number',
-      applicableProducts: 'string',
-      balance: 'string',
+      prepaidCardNo: 'string',
+      status: 'string',
     };
   }
 
@@ -12488,25 +13355,25 @@ export class QueryPrepaidCardsResponseBodyData extends $tea.Model {
 }
 
 export class QueryProductListResponseBodyDataProductListProduct extends $tea.Model {
+  productCode?: string;
   productName?: string;
   productType?: string;
   subscriptionType?: string;
-  productCode?: string;
   static names(): { [key: string]: string } {
     return {
+      productCode: 'ProductCode',
       productName: 'ProductName',
       productType: 'ProductType',
       subscriptionType: 'SubscriptionType',
-      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      productCode: 'string',
       productName: 'string',
       productType: 'string',
       subscriptionType: 'string',
-      productCode: 'string',
     };
   }
 
@@ -12537,14 +13404,14 @@ export class QueryProductListResponseBodyDataProductList extends $tea.Model {
 export class QueryProductListResponseBodyData extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
-  totalCount?: number;
   productList?: QueryProductListResponseBodyDataProductList;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       productList: 'ProductList',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -12552,8 +13419,98 @@ export class QueryProductListResponseBodyData extends $tea.Model {
     return {
       pageNum: 'number',
       pageSize: 'number',
-      totalCount: 'number',
       productList: QueryProductListResponseBodyDataProductList,
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRIUtilizationDetailResponseBodyDataDetailListDetailList extends $tea.Model {
+  deductDate?: string;
+  deductFactorTotal?: number;
+  deductHours?: string;
+  deductQuantity?: number;
+  deductedCommodityCode?: string;
+  deductedInstanceId?: string;
+  deductedProductDetail?: string;
+  instanceSpec?: string;
+  RIInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deductDate: 'DeductDate',
+      deductFactorTotal: 'DeductFactorTotal',
+      deductHours: 'DeductHours',
+      deductQuantity: 'DeductQuantity',
+      deductedCommodityCode: 'DeductedCommodityCode',
+      deductedInstanceId: 'DeductedInstanceId',
+      deductedProductDetail: 'DeductedProductDetail',
+      instanceSpec: 'InstanceSpec',
+      RIInstanceId: 'RIInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deductDate: 'string',
+      deductFactorTotal: 'number',
+      deductHours: 'string',
+      deductQuantity: 'number',
+      deductedCommodityCode: 'string',
+      deductedInstanceId: 'string',
+      deductedProductDetail: 'string',
+      instanceSpec: 'string',
+      RIInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRIUtilizationDetailResponseBodyDataDetailList extends $tea.Model {
+  detailList?: QueryRIUtilizationDetailResponseBodyDataDetailListDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      detailList: 'DetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailList: { 'type': 'array', 'itemType': QueryRIUtilizationDetailResponseBodyDataDetailListDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRIUtilizationDetailResponseBodyData extends $tea.Model {
+  detailList?: QueryRIUtilizationDetailResponseBodyDataDetailList;
+  pageNum?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detailList: 'DetailList',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailList: QueryRIUtilizationDetailResponseBodyDataDetailList,
+      pageNum: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -12563,43 +13520,43 @@ export class QueryProductListResponseBodyData extends $tea.Model {
 }
 
 export class QueryRedeemResponseBodyDataRedeemRedeem extends $tea.Model {
-  expiryTime?: string;
-  grantedTime?: string;
-  status?: string;
-  specification?: string;
-  nominalValue?: string;
-  effectiveTime?: string;
-  redeemId?: string;
-  redeemNo?: string;
   applicableProducts?: string;
   balance?: string;
+  effectiveTime?: string;
+  expiryTime?: string;
+  grantedTime?: string;
+  nominalValue?: string;
+  redeemId?: string;
+  redeemNo?: string;
+  specification?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      expiryTime: 'ExpiryTime',
-      grantedTime: 'GrantedTime',
-      status: 'Status',
-      specification: 'Specification',
-      nominalValue: 'NominalValue',
-      effectiveTime: 'EffectiveTime',
-      redeemId: 'RedeemId',
-      redeemNo: 'RedeemNo',
       applicableProducts: 'ApplicableProducts',
       balance: 'Balance',
+      effectiveTime: 'EffectiveTime',
+      expiryTime: 'ExpiryTime',
+      grantedTime: 'GrantedTime',
+      nominalValue: 'NominalValue',
+      redeemId: 'RedeemId',
+      redeemNo: 'RedeemNo',
+      specification: 'Specification',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expiryTime: 'string',
-      grantedTime: 'string',
-      status: 'string',
-      specification: 'string',
-      nominalValue: 'string',
-      effectiveTime: 'string',
-      redeemId: 'string',
-      redeemNo: 'string',
       applicableProducts: 'string',
       balance: 'string',
+      effectiveTime: 'string',
+      expiryTime: 'string',
+      grantedTime: 'string',
+      nominalValue: 'string',
+      redeemId: 'string',
+      redeemNo: 'string',
+      specification: 'string',
+      status: 'string',
     };
   }
 
@@ -12630,14 +13587,14 @@ export class QueryRedeemResponseBodyDataRedeem extends $tea.Model {
 export class QueryRedeemResponseBodyData extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
-  totalCount?: number;
   redeem?: QueryRedeemResponseBodyDataRedeem;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       redeem: 'Redeem',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -12645,8 +13602,8 @@ export class QueryRedeemResponseBodyData extends $tea.Model {
     return {
       pageNum: 'number',
       pageSize: 'number',
-      totalCount: 'number',
       redeem: QueryRedeemResponseBodyDataRedeem,
+      totalCount: 'number',
     };
   }
 
@@ -12656,43 +13613,43 @@ export class QueryRedeemResponseBodyData extends $tea.Model {
 }
 
 export class QueryRelationListResponseBodyDataFinancialRelationInfoList extends $tea.Model {
-  endTime?: string;
-  relationType?: string;
+  accountId?: number;
+  accountName?: string;
   accountNickName?: string;
+  accountType?: string;
+  endTime?: string;
+  relationId?: number;
+  relationType?: string;
+  setupTime?: string;
   startTime?: string;
   state?: string;
-  accountId?: number;
-  setupTime?: string;
-  accountType?: string;
-  accountName?: string;
-  relationId?: number;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      relationType: 'RelationType',
+      accountId: 'AccountId',
+      accountName: 'AccountName',
       accountNickName: 'AccountNickName',
+      accountType: 'AccountType',
+      endTime: 'EndTime',
+      relationId: 'RelationId',
+      relationType: 'RelationType',
+      setupTime: 'SetupTime',
       startTime: 'StartTime',
       state: 'State',
-      accountId: 'AccountId',
-      setupTime: 'SetupTime',
-      accountType: 'AccountType',
-      accountName: 'AccountName',
-      relationId: 'RelationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'string',
-      relationType: 'string',
+      accountId: 'number',
+      accountName: 'string',
       accountNickName: 'string',
+      accountType: 'string',
+      endTime: 'string',
+      relationId: 'number',
+      relationType: 'string',
+      setupTime: 'string',
       startTime: 'string',
       state: 'string',
-      accountId: 'number',
-      setupTime: 'string',
-      accountType: 'string',
-      accountName: 'string',
-      relationId: 'number',
     };
   }
 
@@ -12702,25 +13659,25 @@ export class QueryRelationListResponseBodyDataFinancialRelationInfoList extends 
 }
 
 export class QueryRelationListResponseBodyData extends $tea.Model {
+  financialRelationInfoList?: QueryRelationListResponseBodyDataFinancialRelationInfoList[];
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  financialRelationInfoList?: QueryRelationListResponseBodyDataFinancialRelationInfoList[];
   static names(): { [key: string]: string } {
     return {
+      financialRelationInfoList: 'FinancialRelationInfoList',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      financialRelationInfoList: 'FinancialRelationInfoList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      financialRelationInfoList: { 'type': 'array', 'itemType': QueryRelationListResponseBodyDataFinancialRelationInfoList },
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      financialRelationInfoList: { 'type': 'array', 'itemType': QueryRelationListResponseBodyDataFinancialRelationInfoList },
     };
   }
 
@@ -12749,52 +13706,52 @@ export class QueryResourcePackageInstancesResponseBodyDataInstancesInstanceAppli
 }
 
 export class QueryResourcePackageInstancesResponseBodyDataInstancesInstance extends $tea.Model {
+  applicableProducts?: QueryResourcePackageInstancesResponseBodyDataInstancesInstanceApplicableProducts;
+  deductType?: string;
+  effectiveTime?: string;
   expiryTime?: string;
-  status?: string;
-  remark?: string;
-  remainingAmountUnit?: string;
   instanceId?: string;
   packageType?: string;
-  effectiveTime?: string;
   region?: string;
-  totalAmount?: string;
-  deductType?: string;
-  totalAmountUnit?: string;
   remainingAmount?: string;
-  applicableProducts?: QueryResourcePackageInstancesResponseBodyDataInstancesInstanceApplicableProducts;
+  remainingAmountUnit?: string;
+  remark?: string;
+  status?: string;
+  totalAmount?: string;
+  totalAmountUnit?: string;
   static names(): { [key: string]: string } {
     return {
+      applicableProducts: 'ApplicableProducts',
+      deductType: 'DeductType',
+      effectiveTime: 'EffectiveTime',
       expiryTime: 'ExpiryTime',
-      status: 'Status',
-      remark: 'Remark',
-      remainingAmountUnit: 'RemainingAmountUnit',
       instanceId: 'InstanceId',
       packageType: 'PackageType',
-      effectiveTime: 'EffectiveTime',
       region: 'Region',
-      totalAmount: 'TotalAmount',
-      deductType: 'DeductType',
-      totalAmountUnit: 'TotalAmountUnit',
       remainingAmount: 'RemainingAmount',
-      applicableProducts: 'ApplicableProducts',
+      remainingAmountUnit: 'RemainingAmountUnit',
+      remark: 'Remark',
+      status: 'Status',
+      totalAmount: 'TotalAmount',
+      totalAmountUnit: 'TotalAmountUnit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicableProducts: QueryResourcePackageInstancesResponseBodyDataInstancesInstanceApplicableProducts,
+      deductType: 'string',
+      effectiveTime: 'string',
       expiryTime: 'string',
-      status: 'string',
-      remark: 'string',
-      remainingAmountUnit: 'string',
       instanceId: 'string',
       packageType: 'string',
-      effectiveTime: 'string',
       region: 'string',
-      totalAmount: 'string',
-      deductType: 'string',
-      totalAmountUnit: 'string',
       remainingAmount: 'string',
-      applicableProducts: QueryResourcePackageInstancesResponseBodyDataInstancesInstanceApplicableProducts,
+      remainingAmountUnit: 'string',
+      remark: 'string',
+      status: 'string',
+      totalAmount: 'string',
+      totalAmountUnit: 'string',
     };
   }
 
@@ -12823,118 +13780,28 @@ export class QueryResourcePackageInstancesResponseBodyDataInstances extends $tea
 }
 
 export class QueryResourcePackageInstancesResponseBodyData extends $tea.Model {
+  hostId?: string;
+  instances?: QueryResourcePackageInstancesResponseBodyDataInstances;
   pageNum?: string;
   pageSize?: string;
   totalCount?: string;
-  hostId?: string;
-  instances?: QueryResourcePackageInstancesResponseBodyDataInstances;
   static names(): { [key: string]: string } {
     return {
+      hostId: 'HostId',
+      instances: 'Instances',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      hostId: 'HostId',
-      instances: 'Instances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hostId: 'string',
+      instances: QueryResourcePackageInstancesResponseBodyDataInstances,
       pageNum: 'string',
       pageSize: 'string',
       totalCount: 'string',
-      hostId: 'string',
-      instances: QueryResourcePackageInstancesResponseBodyDataInstances,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRIUtilizationDetailResponseBodyDataDetailListDetailList extends $tea.Model {
-  deductedCommodityCode?: string;
-  deductedProductDetail?: string;
-  deductedInstanceId?: string;
-  deductFactorTotal?: number;
-  deductQuantity?: number;
-  deductHours?: string;
-  deductDate?: string;
-  RIInstanceId?: string;
-  instanceSpec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deductedCommodityCode: 'DeductedCommodityCode',
-      deductedProductDetail: 'DeductedProductDetail',
-      deductedInstanceId: 'DeductedInstanceId',
-      deductFactorTotal: 'DeductFactorTotal',
-      deductQuantity: 'DeductQuantity',
-      deductHours: 'DeductHours',
-      deductDate: 'DeductDate',
-      RIInstanceId: 'RIInstanceId',
-      instanceSpec: 'InstanceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deductedCommodityCode: 'string',
-      deductedProductDetail: 'string',
-      deductedInstanceId: 'string',
-      deductFactorTotal: 'number',
-      deductQuantity: 'number',
-      deductHours: 'string',
-      deductDate: 'string',
-      RIInstanceId: 'string',
-      instanceSpec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRIUtilizationDetailResponseBodyDataDetailList extends $tea.Model {
-  detailList?: QueryRIUtilizationDetailResponseBodyDataDetailListDetailList[];
-  static names(): { [key: string]: string } {
-    return {
-      detailList: 'DetailList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detailList: { 'type': 'array', 'itemType': QueryRIUtilizationDetailResponseBodyDataDetailListDetailList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRIUtilizationDetailResponseBodyData extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  totalCount?: number;
-  detailList?: QueryRIUtilizationDetailResponseBodyDataDetailList;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      detailList: 'DetailList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      detailList: QueryRIUtilizationDetailResponseBodyDataDetailList,
     };
   }
 
@@ -12944,46 +13811,46 @@ export class QueryRIUtilizationDetailResponseBodyData extends $tea.Model {
 }
 
 export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model {
-  endTime?: string;
-  startTime?: string;
-  savingsType?: string;
-  userId?: number;
-  discountRate?: string;
   billModule?: string;
-  instanceId?: string;
-  deductInstanceId?: string;
   deductCommodity?: string;
-  deductRate?: string;
   deductFee?: string;
+  deductInstanceId?: string;
+  deductRate?: string;
+  discountRate?: string;
+  endTime?: string;
+  instanceId?: string;
+  savingsType?: string;
+  startTime?: string;
+  userId?: number;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      savingsType: 'SavingsType',
-      userId: 'UserId',
-      discountRate: 'DiscountRate',
       billModule: 'BillModule',
-      instanceId: 'InstanceId',
-      deductInstanceId: 'DeductInstanceId',
       deductCommodity: 'DeductCommodity',
-      deductRate: 'DeductRate',
       deductFee: 'DeductFee',
+      deductInstanceId: 'DeductInstanceId',
+      deductRate: 'DeductRate',
+      discountRate: 'DiscountRate',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      savingsType: 'SavingsType',
+      startTime: 'StartTime',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'string',
-      startTime: 'string',
-      savingsType: 'string',
-      userId: 'number',
-      discountRate: 'string',
       billModule: 'string',
-      instanceId: 'string',
-      deductInstanceId: 'string',
       deductCommodity: 'string',
-      deductRate: 'string',
       deductFee: 'string',
+      deductInstanceId: 'string',
+      deductRate: 'string',
+      discountRate: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      savingsType: 'string',
+      startTime: 'string',
+      userId: 'number',
     };
   }
 
@@ -12993,25 +13860,25 @@ export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model 
 }
 
 export class QuerySavingsPlansDeductLogResponseBodyData extends $tea.Model {
+  items?: QuerySavingsPlansDeductLogResponseBodyDataItems[];
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  items?: QuerySavingsPlansDeductLogResponseBodyDataItems[];
   static names(): { [key: string]: string } {
     return {
+      items: 'Items',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      items: { 'type': 'array', 'itemType': QuerySavingsPlansDeductLogResponseBodyDataItems },
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      items: { 'type': 'array', 'itemType': QuerySavingsPlansDeductLogResponseBodyDataItems },
     };
   }
 
@@ -13065,58 +13932,73 @@ export class QuerySavingsPlansInstanceResponseBodyDataItemsTags extends $tea.Mod
 }
 
 export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
-  status?: string;
-  savingsType?: string;
-  utilization?: string;
-  prepayFee?: string;
-  instanceId?: string;
-  currency?: string;
-  endTime?: string;
-  startTime?: string;
   allocationStatus?: string;
+  currency?: string;
+  cycle?: string;
+  endTime?: string;
+  endTimestamp?: number;
   instanceFamily?: string;
-  region?: string;
-  totalSave?: string;
-  poolValue?: string;
+  instanceId?: string;
+  lastBillTotalUsage?: string;
+  lastBillUtilization?: string;
   payMode?: string;
+  poolValue?: string;
+  prepayFee?: string;
+  region?: string;
+  savingsType?: string;
+  startTime?: string;
+  startTimestamp?: number;
+  status?: string;
   tags?: QuerySavingsPlansInstanceResponseBodyDataItemsTags[];
+  totalSave?: string;
+  utilization?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      savingsType: 'SavingsType',
-      utilization: 'Utilization',
-      prepayFee: 'PrepayFee',
-      instanceId: 'InstanceId',
-      currency: 'Currency',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
       allocationStatus: 'AllocationStatus',
+      currency: 'Currency',
+      cycle: 'Cycle',
+      endTime: 'EndTime',
+      endTimestamp: 'EndTimestamp',
       instanceFamily: 'InstanceFamily',
-      region: 'Region',
-      totalSave: 'TotalSave',
-      poolValue: 'PoolValue',
+      instanceId: 'InstanceId',
+      lastBillTotalUsage: 'LastBillTotalUsage',
+      lastBillUtilization: 'LastBillUtilization',
       payMode: 'PayMode',
+      poolValue: 'PoolValue',
+      prepayFee: 'PrepayFee',
+      region: 'Region',
+      savingsType: 'SavingsType',
+      startTime: 'StartTime',
+      startTimestamp: 'StartTimestamp',
+      status: 'Status',
       tags: 'Tags',
+      totalSave: 'TotalSave',
+      utilization: 'Utilization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      savingsType: 'string',
-      utilization: 'string',
-      prepayFee: 'string',
-      instanceId: 'string',
-      currency: 'string',
-      endTime: 'string',
-      startTime: 'string',
       allocationStatus: 'string',
+      currency: 'string',
+      cycle: 'string',
+      endTime: 'string',
+      endTimestamp: 'number',
       instanceFamily: 'string',
-      region: 'string',
-      totalSave: 'string',
-      poolValue: 'string',
+      instanceId: 'string',
+      lastBillTotalUsage: 'string',
+      lastBillUtilization: 'string',
       payMode: 'string',
+      poolValue: 'string',
+      prepayFee: 'string',
+      region: 'string',
+      savingsType: 'string',
+      startTime: 'string',
+      startTimestamp: 'number',
+      status: 'string',
       tags: { 'type': 'array', 'itemType': QuerySavingsPlansInstanceResponseBodyDataItemsTags },
+      totalSave: 'string',
+      utilization: 'string',
     };
   }
 
@@ -13126,25 +14008,25 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
 }
 
 export class QuerySavingsPlansInstanceResponseBodyData extends $tea.Model {
+  items?: QuerySavingsPlansInstanceResponseBodyDataItems[];
   pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  items?: QuerySavingsPlansInstanceResponseBodyDataItems[];
   static names(): { [key: string]: string } {
     return {
+      items: 'Items',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      items: { 'type': 'array', 'itemType': QuerySavingsPlansInstanceResponseBodyDataItems },
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      items: { 'type': 'array', 'itemType': QuerySavingsPlansInstanceResponseBodyDataItems },
     };
   }
 
@@ -13154,112 +14036,118 @@ export class QuerySavingsPlansInstanceResponseBodyData extends $tea.Model {
 }
 
 export class QuerySettleBillResponseBodyDataItemsItem extends $tea.Model {
-  status?: string;
-  roundDownDiscount?: string;
-  item?: string;
-  currency?: string;
-  billAccountName?: string;
-  deductedByCashCoupons?: number;
-  subscriptionType?: string;
-  usageStartTime?: string;
-  bizType?: string;
-  usageEndTime?: string;
-  deductedByCoupons?: number;
-  subOrderId?: string;
+  adjustAmount?: number;
   afterTaxAmount?: number;
-  outstandingAmount?: number;
-  paymentTime?: string;
-  tax?: number;
-  pretaxAmountLocal?: number;
-  pipCode?: string;
-  paymentTransactionID?: string;
-  pretaxAmount?: number;
-  commodityCode?: string;
-  productName?: string;
-  recordID?: string;
-  productDetail?: string;
-  paymentCurrency?: string;
-  ownerID?: string;
-  deductedByPrepaidCard?: number;
   billAccountID?: string;
-  paymentAmount?: number;
+  billAccountName?: string;
+  bizType?: string;
+  cashAmount?: number;
+  commodityCode?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  deductedByCoupons?: number;
+  deductedByPrepaidCard?: number;
   invoiceDiscount?: number;
-  productType?: string;
+  item?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
+  paymentAmount?: number;
+  paymentCurrency?: string;
+  paymentTime?: string;
+  paymentTransactionID?: string;
+  pipCode?: string;
+  pretaxAmount?: number;
+  pretaxAmountLocal?: number;
   pretaxGrossAmount?: number;
   productCode?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  recordID?: string;
+  roundDownDiscount?: string;
+  status?: string;
+  subOrderId?: string;
+  subscriptionType?: string;
+  tax?: number;
+  usageEndTime?: string;
+  usageStartTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      roundDownDiscount: 'RoundDownDiscount',
-      item: 'Item',
-      currency: 'Currency',
-      billAccountName: 'BillAccountName',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
-      subscriptionType: 'SubscriptionType',
-      usageStartTime: 'UsageStartTime',
-      bizType: 'BizType',
-      usageEndTime: 'UsageEndTime',
-      deductedByCoupons: 'DeductedByCoupons',
-      subOrderId: 'SubOrderId',
+      adjustAmount: 'AdjustAmount',
       afterTaxAmount: 'AfterTaxAmount',
-      outstandingAmount: 'OutstandingAmount',
-      paymentTime: 'PaymentTime',
-      tax: 'Tax',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      pipCode: 'PipCode',
-      paymentTransactionID: 'PaymentTransactionID',
-      pretaxAmount: 'PretaxAmount',
-      commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      recordID: 'RecordID',
-      productDetail: 'ProductDetail',
-      paymentCurrency: 'PaymentCurrency',
-      ownerID: 'OwnerID',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       billAccountID: 'BillAccountID',
-      paymentAmount: 'PaymentAmount',
+      billAccountName: 'BillAccountName',
+      bizType: 'BizType',
+      cashAmount: 'CashAmount',
+      commodityCode: 'CommodityCode',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       invoiceDiscount: 'InvoiceDiscount',
-      productType: 'ProductType',
+      item: 'Item',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
+      paymentAmount: 'PaymentAmount',
+      paymentCurrency: 'PaymentCurrency',
+      paymentTime: 'PaymentTime',
+      paymentTransactionID: 'PaymentTransactionID',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
+      pretaxAmountLocal: 'PretaxAmountLocal',
       pretaxGrossAmount: 'PretaxGrossAmount',
       productCode: 'ProductCode',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      recordID: 'RecordID',
+      roundDownDiscount: 'RoundDownDiscount',
+      status: 'Status',
+      subOrderId: 'SubOrderId',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
+      usageEndTime: 'UsageEndTime',
+      usageStartTime: 'UsageStartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      roundDownDiscount: 'string',
-      item: 'string',
-      currency: 'string',
-      billAccountName: 'string',
-      deductedByCashCoupons: 'number',
-      subscriptionType: 'string',
-      usageStartTime: 'string',
-      bizType: 'string',
-      usageEndTime: 'string',
-      deductedByCoupons: 'number',
-      subOrderId: 'string',
+      adjustAmount: 'number',
       afterTaxAmount: 'number',
-      outstandingAmount: 'number',
-      paymentTime: 'string',
-      tax: 'number',
-      pretaxAmountLocal: 'number',
-      pipCode: 'string',
-      paymentTransactionID: 'string',
-      pretaxAmount: 'number',
-      commodityCode: 'string',
-      productName: 'string',
-      recordID: 'string',
-      productDetail: 'string',
-      paymentCurrency: 'string',
-      ownerID: 'string',
-      deductedByPrepaidCard: 'number',
       billAccountID: 'string',
-      paymentAmount: 'number',
+      billAccountName: 'string',
+      bizType: 'string',
+      cashAmount: 'number',
+      commodityCode: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      deductedByCoupons: 'number',
+      deductedByPrepaidCard: 'number',
       invoiceDiscount: 'number',
-      productType: 'string',
+      item: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
+      paymentAmount: 'number',
+      paymentCurrency: 'string',
+      paymentTime: 'string',
+      paymentTransactionID: 'string',
+      pipCode: 'string',
+      pretaxAmount: 'number',
+      pretaxAmountLocal: 'number',
       pretaxGrossAmount: 'number',
       productCode: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      recordID: 'string',
+      roundDownDiscount: 'string',
+      status: 'string',
+      subOrderId: 'string',
+      subscriptionType: 'string',
+      tax: 'number',
+      usageEndTime: 'string',
+      usageStartTime: 'string',
     };
   }
 
@@ -13288,34 +14176,34 @@ export class QuerySettleBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QuerySettleBillResponseBodyData extends $tea.Model {
-  nextToken?: string;
-  billingCycle?: string;
-  maxResults?: number;
   accountID?: string;
-  totalCount?: number;
   accountName?: string;
+  billingCycle?: string;
   items?: QuerySettleBillResponseBodyDataItems;
+  maxResults?: number;
+  nextToken?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      billingCycle: 'BillingCycle',
-      maxResults: 'MaxResults',
       accountID: 'AccountID',
-      totalCount: 'TotalCount',
       accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
       items: 'Items',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      billingCycle: 'string',
-      maxResults: 'number',
       accountID: 'string',
-      totalCount: 'number',
       accountName: 'string',
+      billingCycle: 'string',
       items: QuerySettleBillResponseBodyDataItems,
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -13325,142 +14213,142 @@ export class QuerySettleBillResponseBodyData extends $tea.Model {
 }
 
 export class QuerySettlementBillResponseBodyDataItemsItem extends $tea.Model {
-  status?: string;
-  invoiceNo?: string;
-  billID?: string;
-  createTime?: string;
-  item?: string;
-  seller?: string;
-  currency?: string;
-  chargeDiscount?: number;
-  deductedByCashCoupons?: number;
-  config?: string;
-  subscriptionType?: string;
-  usageStartTime?: string;
-  usageEndTime?: string;
-  deductedByCoupons?: number;
-  region?: string;
-  outstandingAmount?: number;
-  afterTaxAmount?: number;
-  paymentTime?: string;
-  solutionID?: string;
-  orderType?: string;
-  clearedTime?: string;
-  quantity?: string;
-  tax?: number;
-  pretaxAmountLocal?: number;
-  pretaxAmount?: number;
-  linkedCustomerOrderID?: string;
   accountDiscount?: number;
-  recordID?: string;
-  payerAccount?: string;
-  promotion?: string;
-  originalOrderID?: string;
-  previousBillingCycleBalance?: number;
-  mybankPaymentAmount?: number;
-  paymentCurrency?: string;
-  orderID?: string;
-  ownerID?: string;
+  afterTaxAmount?: number;
+  billID?: string;
+  chargeDiscount?: number;
+  clearedTime?: string;
+  config?: string;
+  createTime?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  deductedByCoupons?: number;
   deductedByPrepaidCard?: number;
+  invoiceNo?: string;
+  item?: string;
+  linkedCustomerOrderID?: string;
+  mybankPaymentAmount?: number;
+  orderID?: string;
+  orderType?: string;
+  originalOrderID?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
+  payerAccount?: string;
   paymentAmount?: number;
-  productType?: string;
+  paymentCurrency?: string;
+  paymentTime?: string;
+  pretaxAmount?: number;
+  pretaxAmountLocal?: number;
   pretaxGrossAmount?: number;
-  suborderID?: string;
-  solutionName?: string;
+  previousBillingCycleBalance?: number;
   productCode?: string;
+  productType?: string;
+  promotion?: string;
+  quantity?: string;
+  recordID?: string;
+  region?: string;
+  seller?: string;
+  solutionID?: string;
+  solutionName?: string;
+  status?: string;
+  suborderID?: string;
+  subscriptionType?: string;
+  tax?: number;
+  usageEndTime?: string;
+  usageStartTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      invoiceNo: 'InvoiceNo',
-      billID: 'BillID',
-      createTime: 'CreateTime',
-      item: 'Item',
-      seller: 'Seller',
-      currency: 'Currency',
-      chargeDiscount: 'ChargeDiscount',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
-      config: 'Config',
-      subscriptionType: 'SubscriptionType',
-      usageStartTime: 'UsageStartTime',
-      usageEndTime: 'UsageEndTime',
-      deductedByCoupons: 'DeductedByCoupons',
-      region: 'Region',
-      outstandingAmount: 'OutstandingAmount',
-      afterTaxAmount: 'AfterTaxAmount',
-      paymentTime: 'PaymentTime',
-      solutionID: 'SolutionID',
-      orderType: 'OrderType',
-      clearedTime: 'ClearedTime',
-      quantity: 'Quantity',
-      tax: 'Tax',
-      pretaxAmountLocal: 'PretaxAmountLocal',
-      pretaxAmount: 'PretaxAmount',
-      linkedCustomerOrderID: 'LinkedCustomerOrderID',
       accountDiscount: 'AccountDiscount',
-      recordID: 'RecordID',
-      payerAccount: 'PayerAccount',
-      promotion: 'Promotion',
-      originalOrderID: 'OriginalOrderID',
-      previousBillingCycleBalance: 'PreviousBillingCycleBalance',
-      mybankPaymentAmount: 'MybankPaymentAmount',
-      paymentCurrency: 'PaymentCurrency',
-      orderID: 'OrderID',
-      ownerID: 'OwnerID',
+      afterTaxAmount: 'AfterTaxAmount',
+      billID: 'BillID',
+      chargeDiscount: 'ChargeDiscount',
+      clearedTime: 'ClearedTime',
+      config: 'Config',
+      createTime: 'CreateTime',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      deductedByCoupons: 'DeductedByCoupons',
       deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      invoiceNo: 'InvoiceNo',
+      item: 'Item',
+      linkedCustomerOrderID: 'LinkedCustomerOrderID',
+      mybankPaymentAmount: 'MybankPaymentAmount',
+      orderID: 'OrderID',
+      orderType: 'OrderType',
+      originalOrderID: 'OriginalOrderID',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
+      payerAccount: 'PayerAccount',
       paymentAmount: 'PaymentAmount',
-      productType: 'ProductType',
+      paymentCurrency: 'PaymentCurrency',
+      paymentTime: 'PaymentTime',
+      pretaxAmount: 'PretaxAmount',
+      pretaxAmountLocal: 'PretaxAmountLocal',
       pretaxGrossAmount: 'PretaxGrossAmount',
-      suborderID: 'SuborderID',
-      solutionName: 'SolutionName',
+      previousBillingCycleBalance: 'PreviousBillingCycleBalance',
       productCode: 'ProductCode',
+      productType: 'ProductType',
+      promotion: 'Promotion',
+      quantity: 'Quantity',
+      recordID: 'RecordID',
+      region: 'Region',
+      seller: 'Seller',
+      solutionID: 'SolutionID',
+      solutionName: 'SolutionName',
+      status: 'Status',
+      suborderID: 'SuborderID',
+      subscriptionType: 'SubscriptionType',
+      tax: 'Tax',
+      usageEndTime: 'UsageEndTime',
+      usageStartTime: 'UsageStartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      invoiceNo: 'string',
-      billID: 'string',
-      createTime: 'string',
-      item: 'string',
-      seller: 'string',
-      currency: 'string',
-      chargeDiscount: 'number',
-      deductedByCashCoupons: 'number',
-      config: 'string',
-      subscriptionType: 'string',
-      usageStartTime: 'string',
-      usageEndTime: 'string',
-      deductedByCoupons: 'number',
-      region: 'string',
-      outstandingAmount: 'number',
-      afterTaxAmount: 'number',
-      paymentTime: 'string',
-      solutionID: 'string',
-      orderType: 'string',
-      clearedTime: 'string',
-      quantity: 'string',
-      tax: 'number',
-      pretaxAmountLocal: 'number',
-      pretaxAmount: 'number',
-      linkedCustomerOrderID: 'string',
       accountDiscount: 'number',
-      recordID: 'string',
-      payerAccount: 'string',
-      promotion: 'string',
-      originalOrderID: 'string',
-      previousBillingCycleBalance: 'number',
-      mybankPaymentAmount: 'number',
-      paymentCurrency: 'string',
-      orderID: 'string',
-      ownerID: 'string',
+      afterTaxAmount: 'number',
+      billID: 'string',
+      chargeDiscount: 'number',
+      clearedTime: 'string',
+      config: 'string',
+      createTime: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      deductedByCoupons: 'number',
       deductedByPrepaidCard: 'number',
+      invoiceNo: 'string',
+      item: 'string',
+      linkedCustomerOrderID: 'string',
+      mybankPaymentAmount: 'number',
+      orderID: 'string',
+      orderType: 'string',
+      originalOrderID: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
+      payerAccount: 'string',
       paymentAmount: 'number',
-      productType: 'string',
+      paymentCurrency: 'string',
+      paymentTime: 'string',
+      pretaxAmount: 'number',
+      pretaxAmountLocal: 'number',
       pretaxGrossAmount: 'number',
-      suborderID: 'string',
-      solutionName: 'string',
+      previousBillingCycleBalance: 'number',
       productCode: 'string',
+      productType: 'string',
+      promotion: 'string',
+      quantity: 'string',
+      recordID: 'string',
+      region: 'string',
+      seller: 'string',
+      solutionID: 'string',
+      solutionName: 'string',
+      status: 'string',
+      suborderID: 'string',
+      subscriptionType: 'string',
+      tax: 'number',
+      usageEndTime: 'string',
+      usageStartTime: 'string',
     };
   }
 
@@ -13489,28 +14377,28 @@ export class QuerySettlementBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QuerySettlementBillResponseBodyData extends $tea.Model {
-  pageNum?: number;
   billingCycle?: string;
+  items?: QuerySettlementBillResponseBodyDataItems;
+  pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  items?: QuerySettlementBillResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
       billingCycle: 'BillingCycle',
+      items: 'Items',
+      pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
       billingCycle: 'string',
+      items: QuerySettlementBillResponseBodyDataItems,
+      pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      items: QuerySettlementBillResponseBodyDataItems,
     };
   }
 
@@ -13520,151 +14408,157 @@ export class QuerySettlementBillResponseBodyData extends $tea.Model {
 }
 
 export class QuerySplitItemBillResponseBodyDataItemsItem extends $tea.Model {
+  adjustAmount?: number;
   billingDate?: string;
-  instanceConfig?: string;
-  internetIP?: string;
-  splitItemID?: string;
-  item?: string;
-  splitAccountID?: string;
-  tag?: string;
-  instanceID?: string;
+  billingItem?: string;
+  billingType?: string;
+  cashAmount?: number;
+  commodityCode?: string;
+  costUnit?: string;
   currency?: string;
   deductedByCashCoupons?: number;
-  subscriptionType?: string;
-  instanceSpec?: string;
   deductedByCoupons?: number;
-  billingItem?: string;
-  region?: string;
-  outstandingAmount?: number;
-  costUnit?: string;
-  listPriceUnit?: string;
-  resourceGroup?: string;
-  pipCode?: string;
-  servicePeriodUnit?: string;
-  pretaxAmount?: number;
-  commodityCode?: string;
-  productName?: string;
-  splitProductDetail?: string;
-  nickName?: string;
-  productDetail?: string;
-  usage?: string;
-  intranetIP?: string;
-  ownerID?: string;
-  splitCommodityCode?: string;
   deductedByPrepaidCard?: number;
-  usageUnit?: string;
-  paymentAmount?: number;
-  invoiceDiscount?: number;
   deductedByResourcePackage?: string;
-  productType?: string;
-  splitBillingCycle?: string;
-  servicePeriod?: string;
-  splitItemName?: string;
-  zone?: string;
+  instanceConfig?: string;
+  instanceID?: string;
+  instanceSpec?: string;
+  internetIP?: string;
+  intranetIP?: string;
+  invoiceDiscount?: number;
+  item?: string;
   listPrice?: string;
+  listPriceUnit?: string;
+  nickName?: string;
+  outstandingAmount?: number;
+  ownerID?: string;
+  paymentAmount?: number;
+  pipCode?: string;
+  pretaxAmount?: number;
   pretaxGrossAmount?: number;
-  splitAccountName?: string;
   productCode?: string;
-  billingType?: string;
+  productDetail?: string;
+  productName?: string;
+  productType?: string;
+  region?: string;
+  resourceGroup?: string;
+  servicePeriod?: string;
+  servicePeriodUnit?: string;
+  splitAccountID?: string;
+  splitAccountName?: string;
+  splitBillingCycle?: string;
+  splitCommodityCode?: string;
+  splitItemID?: string;
+  splitItemName?: string;
+  splitProductDetail?: string;
+  subscriptionType?: string;
+  tag?: string;
+  usage?: string;
+  usageUnit?: string;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustAmount: 'AdjustAmount',
       billingDate: 'BillingDate',
-      instanceConfig: 'InstanceConfig',
-      internetIP: 'InternetIP',
-      splitItemID: 'SplitItemID',
-      item: 'Item',
-      splitAccountID: 'SplitAccountID',
-      tag: 'Tag',
-      instanceID: 'InstanceID',
+      billingItem: 'BillingItem',
+      billingType: 'BillingType',
+      cashAmount: 'CashAmount',
+      commodityCode: 'CommodityCode',
+      costUnit: 'CostUnit',
       currency: 'Currency',
       deductedByCashCoupons: 'DeductedByCashCoupons',
-      subscriptionType: 'SubscriptionType',
-      instanceSpec: 'InstanceSpec',
       deductedByCoupons: 'DeductedByCoupons',
-      billingItem: 'BillingItem',
-      region: 'Region',
-      outstandingAmount: 'OutstandingAmount',
-      costUnit: 'CostUnit',
-      listPriceUnit: 'ListPriceUnit',
-      resourceGroup: 'ResourceGroup',
-      pipCode: 'PipCode',
-      servicePeriodUnit: 'ServicePeriodUnit',
-      pretaxAmount: 'PretaxAmount',
-      commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      splitProductDetail: 'SplitProductDetail',
-      nickName: 'NickName',
-      productDetail: 'ProductDetail',
-      usage: 'Usage',
-      intranetIP: 'IntranetIP',
-      ownerID: 'OwnerID',
-      splitCommodityCode: 'SplitCommodityCode',
       deductedByPrepaidCard: 'DeductedByPrepaidCard',
-      usageUnit: 'UsageUnit',
-      paymentAmount: 'PaymentAmount',
-      invoiceDiscount: 'InvoiceDiscount',
       deductedByResourcePackage: 'DeductedByResourcePackage',
-      productType: 'ProductType',
-      splitBillingCycle: 'SplitBillingCycle',
-      servicePeriod: 'ServicePeriod',
-      splitItemName: 'SplitItemName',
-      zone: 'Zone',
+      instanceConfig: 'InstanceConfig',
+      instanceID: 'InstanceID',
+      instanceSpec: 'InstanceSpec',
+      internetIP: 'InternetIP',
+      intranetIP: 'IntranetIP',
+      invoiceDiscount: 'InvoiceDiscount',
+      item: 'Item',
       listPrice: 'ListPrice',
+      listPriceUnit: 'ListPriceUnit',
+      nickName: 'NickName',
+      outstandingAmount: 'OutstandingAmount',
+      ownerID: 'OwnerID',
+      paymentAmount: 'PaymentAmount',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
       pretaxGrossAmount: 'PretaxGrossAmount',
-      splitAccountName: 'SplitAccountName',
       productCode: 'ProductCode',
-      billingType: 'BillingType',
+      productDetail: 'ProductDetail',
+      productName: 'ProductName',
+      productType: 'ProductType',
+      region: 'Region',
+      resourceGroup: 'ResourceGroup',
+      servicePeriod: 'ServicePeriod',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      splitAccountID: 'SplitAccountID',
+      splitAccountName: 'SplitAccountName',
+      splitBillingCycle: 'SplitBillingCycle',
+      splitCommodityCode: 'SplitCommodityCode',
+      splitItemID: 'SplitItemID',
+      splitItemName: 'SplitItemName',
+      splitProductDetail: 'SplitProductDetail',
+      subscriptionType: 'SubscriptionType',
+      tag: 'Tag',
+      usage: 'Usage',
+      usageUnit: 'UsageUnit',
+      zone: 'Zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adjustAmount: 'number',
       billingDate: 'string',
-      instanceConfig: 'string',
-      internetIP: 'string',
-      splitItemID: 'string',
-      item: 'string',
-      splitAccountID: 'string',
-      tag: 'string',
-      instanceID: 'string',
+      billingItem: 'string',
+      billingType: 'string',
+      cashAmount: 'number',
+      commodityCode: 'string',
+      costUnit: 'string',
       currency: 'string',
       deductedByCashCoupons: 'number',
-      subscriptionType: 'string',
-      instanceSpec: 'string',
       deductedByCoupons: 'number',
-      billingItem: 'string',
-      region: 'string',
-      outstandingAmount: 'number',
-      costUnit: 'string',
-      listPriceUnit: 'string',
-      resourceGroup: 'string',
-      pipCode: 'string',
-      servicePeriodUnit: 'string',
-      pretaxAmount: 'number',
-      commodityCode: 'string',
-      productName: 'string',
-      splitProductDetail: 'string',
-      nickName: 'string',
-      productDetail: 'string',
-      usage: 'string',
-      intranetIP: 'string',
-      ownerID: 'string',
-      splitCommodityCode: 'string',
       deductedByPrepaidCard: 'number',
-      usageUnit: 'string',
-      paymentAmount: 'number',
-      invoiceDiscount: 'number',
       deductedByResourcePackage: 'string',
-      productType: 'string',
-      splitBillingCycle: 'string',
-      servicePeriod: 'string',
-      splitItemName: 'string',
-      zone: 'string',
+      instanceConfig: 'string',
+      instanceID: 'string',
+      instanceSpec: 'string',
+      internetIP: 'string',
+      intranetIP: 'string',
+      invoiceDiscount: 'number',
+      item: 'string',
       listPrice: 'string',
+      listPriceUnit: 'string',
+      nickName: 'string',
+      outstandingAmount: 'number',
+      ownerID: 'string',
+      paymentAmount: 'number',
+      pipCode: 'string',
+      pretaxAmount: 'number',
       pretaxGrossAmount: 'number',
-      splitAccountName: 'string',
       productCode: 'string',
-      billingType: 'string',
+      productDetail: 'string',
+      productName: 'string',
+      productType: 'string',
+      region: 'string',
+      resourceGroup: 'string',
+      servicePeriod: 'string',
+      servicePeriodUnit: 'string',
+      splitAccountID: 'string',
+      splitAccountName: 'string',
+      splitBillingCycle: 'string',
+      splitCommodityCode: 'string',
+      splitItemID: 'string',
+      splitItemName: 'string',
+      splitProductDetail: 'string',
+      subscriptionType: 'string',
+      tag: 'string',
+      usage: 'string',
+      usageUnit: 'string',
+      zone: 'string',
     };
   }
 
@@ -13693,34 +14587,34 @@ export class QuerySplitItemBillResponseBodyDataItems extends $tea.Model {
 }
 
 export class QuerySplitItemBillResponseBodyData extends $tea.Model {
-  pageNum?: number;
-  billingCycle?: string;
   accountID?: string;
+  accountName?: string;
+  billingCycle?: string;
+  items?: QuerySplitItemBillResponseBodyDataItems;
+  pageNum?: number;
   pageSize?: number;
   totalCount?: number;
-  accountName?: string;
-  items?: QuerySplitItemBillResponseBodyDataItems;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      billingCycle: 'BillingCycle',
       accountID: 'AccountID',
+      accountName: 'AccountName',
+      billingCycle: 'BillingCycle',
+      items: 'Items',
+      pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
-      accountName: 'AccountName',
-      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      billingCycle: 'string',
       accountID: 'string',
+      accountName: 'string',
+      billingCycle: 'string',
+      items: QuerySplitItemBillResponseBodyDataItems,
+      pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      accountName: 'string',
-      items: QuerySplitItemBillResponseBodyDataItems,
     };
   }
 
@@ -13730,22 +14624,66 @@ export class QuerySplitItemBillResponseBodyData extends $tea.Model {
 }
 
 export class QueryUserOmsDataResponseBodyData extends $tea.Model {
-  marker?: string;
   hostId?: string;
+  marker?: string;
   omsData?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
-      marker: 'Marker',
       hostId: 'HostId',
+      marker: 'Marker',
       omsData: 'OmsData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      marker: 'string',
       hostId: 'string',
+      marker: 'string',
       omsData: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefundInstanceResponseBodyData extends $tea.Model {
+  hostId?: string;
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hostId: 'HostId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostId: 'string',
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstanceResponseBodyData extends $tea.Model {
+  hostId?: string;
+  releaseResult?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      hostId: 'HostId',
+      releaseResult: 'ReleaseResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostId: 'string',
+      releaseResult: 'boolean',
     };
   }
 
@@ -13793,19 +14731,19 @@ export class RenewInstanceResponseBodyData extends $tea.Model {
 }
 
 export class RenewResourcePackageResponseBodyData extends $tea.Model {
-  orderId?: number;
   instanceId?: string;
+  orderId?: number;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       instanceId: 'InstanceId',
+      orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'number',
       instanceId: 'string',
+      orderId: 'number',
     };
   }
 
@@ -13837,19 +14775,19 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpgradeResourcePackageResponseBodyData extends $tea.Model {
-  orderId?: number;
   instanceId?: string;
+  orderId?: number;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       instanceId: 'InstanceId',
+      orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'number',
       instanceId: 'string',
+      orderId: 'number',
     };
   }
 
@@ -13939,10 +14877,50 @@ export default class Client extends OpenApi {
 
   async addAccountRelationWithOptions(request: AddAccountRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddAccountRelationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.childNick)) {
+      query["ChildNick"] = request.childNick;
+    }
+
+    if (!Util.isUnset(request.childUserId)) {
+      query["ChildUserId"] = request.childUserId;
+    }
+
+    if (!Util.isUnset(request.parentUserId)) {
+      query["ParentUserId"] = request.parentUserId;
+    }
+
+    if (!Util.isUnset(request.permissionCodes)) {
+      query["PermissionCodes"] = request.permissionCodes;
+    }
+
+    if (!Util.isUnset(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.roleCodes)) {
+      query["RoleCodes"] = request.roleCodes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddAccountRelationResponse>(await this.doRPCRequest("AddAccountRelation", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new AddAccountRelationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddAccountRelation",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddAccountRelationResponse>(await this.callApi(params, req, runtime), new AddAccountRelationResponse({}));
   }
 
   async addAccountRelation(request: AddAccountRelationRequest): Promise<AddAccountRelationResponse> {
@@ -13952,10 +14930,42 @@ export default class Client extends OpenApi {
 
   async allocateCostUnitResourceWithOptions(request: AllocateCostUnitResourceRequest, runtime: $Util.RuntimeOptions): Promise<AllocateCostUnitResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fromUnitId)) {
+      query["FromUnitId"] = request.fromUnitId;
+    }
+
+    if (!Util.isUnset(request.fromUnitUserId)) {
+      query["FromUnitUserId"] = request.fromUnitUserId;
+    }
+
+    if (!Util.isUnset(request.resourceInstanceList)) {
+      query["ResourceInstanceList"] = request.resourceInstanceList;
+    }
+
+    if (!Util.isUnset(request.toUnitId)) {
+      query["ToUnitId"] = request.toUnitId;
+    }
+
+    if (!Util.isUnset(request.toUnitUserId)) {
+      query["ToUnitUserId"] = request.toUnitUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AllocateCostUnitResourceResponse>(await this.doRPCRequest("AllocateCostUnitResource", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateCostUnitResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AllocateCostUnitResource",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AllocateCostUnitResourceResponse>(await this.callApi(params, req, runtime), new AllocateCostUnitResourceResponse({}));
   }
 
   async allocateCostUnitResource(request: AllocateCostUnitResourceRequest): Promise<AllocateCostUnitResourceResponse> {
@@ -13965,10 +14975,62 @@ export default class Client extends OpenApi {
 
   async applyInvoiceWithOptions(request: ApplyInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<ApplyInvoiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addressId)) {
+      query["AddressId"] = request.addressId;
+    }
+
+    if (!Util.isUnset(request.applyUserNick)) {
+      query["ApplyUserNick"] = request.applyUserNick;
+    }
+
+    if (!Util.isUnset(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!Util.isUnset(request.invoiceAmount)) {
+      query["InvoiceAmount"] = request.invoiceAmount;
+    }
+
+    if (!Util.isUnset(request.invoiceByAmount)) {
+      query["InvoiceByAmount"] = request.invoiceByAmount;
+    }
+
+    if (!Util.isUnset(request.invoicingType)) {
+      query["InvoicingType"] = request.invoicingType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.processWay)) {
+      query["ProcessWay"] = request.processWay;
+    }
+
+    if (!Util.isUnset(request.selectedIds)) {
+      query["SelectedIds"] = request.selectedIds;
+    }
+
+    if (!Util.isUnset(request.userRemark)) {
+      query["UserRemark"] = request.userRemark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ApplyInvoiceResponse>(await this.doRPCRequest("ApplyInvoice", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ApplyInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ApplyInvoice",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyInvoiceResponse>(await this.callApi(params, req, runtime), new ApplyInvoiceResponse({}));
   }
 
   async applyInvoice(request: ApplyInvoiceRequest): Promise<ApplyInvoiceResponse> {
@@ -13978,10 +15040,30 @@ export default class Client extends OpenApi {
 
   async cancelOrderWithOptions(request: CancelOrderRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelOrderResponse>(await this.doRPCRequest("CancelOrder", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CancelOrderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelOrder",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelOrderResponse>(await this.callApi(params, req, runtime), new CancelOrderResponse({}));
   }
 
   async cancelOrder(request: CancelOrderRequest): Promise<CancelOrderResponse> {
@@ -13991,10 +15073,54 @@ export default class Client extends OpenApi {
 
   async changeResellerConsumeAmountWithOptions(request: ChangeResellerConsumeAmountRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResellerConsumeAmountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adjustType)) {
+      query["AdjustType"] = request.adjustType;
+    }
+
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.currency)) {
+      query["Currency"] = request.currency;
+    }
+
+    if (!Util.isUnset(request.extendMap)) {
+      query["ExtendMap"] = request.extendMap;
+    }
+
+    if (!Util.isUnset(request.outBizId)) {
+      query["OutBizId"] = request.outBizId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChangeResellerConsumeAmountResponse>(await this.doRPCRequest("ChangeResellerConsumeAmount", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ChangeResellerConsumeAmountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangeResellerConsumeAmount",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResellerConsumeAmountResponse>(await this.callApi(params, req, runtime), new ChangeResellerConsumeAmountResponse({}));
   }
 
   async changeResellerConsumeAmount(request: ChangeResellerConsumeAmountRequest): Promise<ChangeResellerConsumeAmountResponse> {
@@ -14004,10 +15130,50 @@ export default class Client extends OpenApi {
 
   async confirmRelationWithOptions(request: ConfirmRelationRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmRelationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.childUserId)) {
+      query["ChildUserId"] = request.childUserId;
+    }
+
+    if (!Util.isUnset(request.confirmCode)) {
+      query["ConfirmCode"] = request.confirmCode;
+    }
+
+    if (!Util.isUnset(request.parentUserId)) {
+      query["ParentUserId"] = request.parentUserId;
+    }
+
+    if (!Util.isUnset(request.permissionCodes)) {
+      query["PermissionCodes"] = request.permissionCodes;
+    }
+
+    if (!Util.isUnset(request.relationId)) {
+      query["RelationId"] = request.relationId;
+    }
+
+    if (!Util.isUnset(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ConfirmRelationResponse>(await this.doRPCRequest("ConfirmRelation", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ConfirmRelationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConfirmRelation",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfirmRelationResponse>(await this.callApi(params, req, runtime), new ConfirmRelationResponse({}));
   }
 
   async confirmRelation(request: ConfirmRelationRequest): Promise<ConfirmRelationResponse> {
@@ -14017,10 +15183,46 @@ export default class Client extends OpenApi {
 
   async convertChargeTypeWithOptions(request: ConvertChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ConvertChargeTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ConvertChargeTypeResponse>(await this.doRPCRequest("ConvertChargeType", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ConvertChargeTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConvertChargeType",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConvertChargeTypeResponse>(await this.callApi(params, req, runtime), new ConvertChargeTypeResponse({}));
   }
 
   async convertChargeType(request: ConvertChargeTypeRequest): Promise<ConvertChargeTypeResponse> {
@@ -14030,10 +15232,58 @@ export default class Client extends OpenApi {
 
   async createAgAccountWithOptions(request: CreateAgAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAgAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountAttr)) {
+      query["AccountAttr"] = request.accountAttr;
+    }
+
+    if (!Util.isUnset(request.cityName)) {
+      query["CityName"] = request.cityName;
+    }
+
+    if (!Util.isUnset(request.enterpriseName)) {
+      query["EnterpriseName"] = request.enterpriseName;
+    }
+
+    if (!Util.isUnset(request.firstName)) {
+      query["FirstName"] = request.firstName;
+    }
+
+    if (!Util.isUnset(request.lastName)) {
+      query["LastName"] = request.lastName;
+    }
+
+    if (!Util.isUnset(request.loginEmail)) {
+      query["LoginEmail"] = request.loginEmail;
+    }
+
+    if (!Util.isUnset(request.nationCode)) {
+      query["NationCode"] = request.nationCode;
+    }
+
+    if (!Util.isUnset(request.postcode)) {
+      query["Postcode"] = request.postcode;
+    }
+
+    if (!Util.isUnset(request.provinceName)) {
+      query["ProvinceName"] = request.provinceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAgAccountResponse>(await this.doRPCRequest("CreateAgAccount", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAgAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAgAccount",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAgAccountResponse>(await this.callApi(params, req, runtime), new CreateAgAccountResponse({}));
   }
 
   async createAgAccount(request: CreateAgAccountRequest): Promise<CreateAgAccountResponse> {
@@ -14043,10 +15293,26 @@ export default class Client extends OpenApi {
 
   async createCostUnitWithOptions(request: CreateCostUnitRequest, runtime: $Util.RuntimeOptions): Promise<CreateCostUnitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.unitEntityList)) {
+      query["UnitEntityList"] = request.unitEntityList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCostUnitResponse>(await this.doRPCRequest("CreateCostUnit", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCostUnitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCostUnit",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCostUnitResponse>(await this.callApi(params, req, runtime), new CreateCostUnitResponse({}));
   }
 
   async createCostUnit(request: CreateCostUnitRequest): Promise<CreateCostUnitResponse> {
@@ -14056,10 +15322,62 @@ export default class Client extends OpenApi {
 
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.logistics)) {
+      query["Logistics"] = request.logistics;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameter)) {
+      query["Parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.renewPeriod)) {
+      query["RenewPeriod"] = request.renewPeriod;
+    }
+
+    if (!Util.isUnset(request.renewalStatus)) {
+      query["RenewalStatus"] = request.renewalStatus;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateInstanceResponse>(await this.doRPCRequest("CreateInstance", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
@@ -14069,10 +15387,38 @@ export default class Client extends OpenApi {
 
   async createResellerUserQuotaWithOptions(request: CreateResellerUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<CreateResellerUserQuotaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.currency)) {
+      query["Currency"] = request.currency;
+    }
+
+    if (!Util.isUnset(request.outBizId)) {
+      query["OutBizId"] = request.outBizId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateResellerUserQuotaResponse>(await this.doRPCRequest("CreateResellerUserQuota", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateResellerUserQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateResellerUserQuota",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResellerUserQuotaResponse>(await this.callApi(params, req, runtime), new CreateResellerUserQuotaResponse({}));
   }
 
   async createResellerUserQuota(request: CreateResellerUserQuotaRequest): Promise<CreateResellerUserQuotaResponse> {
@@ -14082,10 +15428,50 @@ export default class Client extends OpenApi {
 
   async createResourcePackageWithOptions(request: CreateResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourcePackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.effectiveDate)) {
+      query["EffectiveDate"] = request.effectiveDate;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packageType)) {
+      query["PackageType"] = request.packageType;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.specification)) {
+      query["Specification"] = request.specification;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateResourcePackageResponse>(await this.doRPCRequest("CreateResourcePackage", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateResourcePackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateResourcePackage",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourcePackageResponse>(await this.callApi(params, req, runtime), new CreateResourcePackageResponse({}));
   }
 
   async createResourcePackage(request: CreateResourcePackageRequest): Promise<CreateResourcePackageResponse> {
@@ -14093,12 +15479,97 @@ export default class Client extends OpenApi {
     return await this.createResourcePackageWithOptions(request, runtime);
   }
 
+  async createSavingsPlansInstanceWithOptions(request: CreateSavingsPlansInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateSavingsPlansInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.effectiveDate)) {
+      query["EffectiveDate"] = request.effectiveDate;
+    }
+
+    if (!Util.isUnset(request.payMode)) {
+      query["PayMode"] = request.payMode;
+    }
+
+    if (!Util.isUnset(request.poolValue)) {
+      query["PoolValue"] = request.poolValue;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    if (!Util.isUnset(request.specification)) {
+      query["Specification"] = request.specification;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSavingsPlansInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSavingsPlansInstanceResponse>(await this.callApi(params, req, runtime), new CreateSavingsPlansInstanceResponse({}));
+  }
+
+  async createSavingsPlansInstance(request: CreateSavingsPlansInstanceRequest): Promise<CreateSavingsPlansInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSavingsPlansInstanceWithOptions(request, runtime);
+  }
+
   async deleteCostUnitWithOptions(request: DeleteCostUnitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCostUnitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerUid)) {
+      query["OwnerUid"] = request.ownerUid;
+    }
+
+    if (!Util.isUnset(request.unitId)) {
+      query["UnitId"] = request.unitId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCostUnitResponse>(await this.doRPCRequest("DeleteCostUnit", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCostUnitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCostUnit",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCostUnitResponse>(await this.callApi(params, req, runtime), new DeleteCostUnitResponse({}));
   }
 
   async deleteCostUnit(request: DeleteCostUnitRequest): Promise<DeleteCostUnitResponse> {
@@ -14108,10 +15579,74 @@ export default class Client extends OpenApi {
 
   async describeInstanceBillWithOptions(request: DescribeInstanceBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.billingDate)) {
+      query["BillingDate"] = request.billingDate;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.instanceID)) {
+      query["InstanceID"] = request.instanceID;
+    }
+
+    if (!Util.isUnset(request.isBillingItem)) {
+      query["IsBillingItem"] = request.isBillingItem;
+    }
+
+    if (!Util.isUnset(request.isHideZeroCharge)) {
+      query["IsHideZeroCharge"] = request.isHideZeroCharge;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstanceBillResponse>(await this.doRPCRequest("DescribeInstanceBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceBillResponse>(await this.callApi(params, req, runtime), new DescribeInstanceBillResponse({}));
   }
 
   async describeInstanceBill(request: DescribeInstanceBillRequest): Promise<DescribeInstanceBillResponse> {
@@ -14121,10 +15656,38 @@ export default class Client extends OpenApi {
 
   async describePricingModuleWithOptions(request: DescribePricingModuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribePricingModuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePricingModuleResponse>(await this.doRPCRequest("DescribePricingModule", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePricingModuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePricingModule",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePricingModuleResponse>(await this.callApi(params, req, runtime), new DescribePricingModuleResponse({}));
   }
 
   async describePricingModule(request: DescribePricingModuleRequest): Promise<DescribePricingModuleResponse> {
@@ -14134,10 +15697,50 @@ export default class Client extends OpenApi {
 
   async describeResourceCoverageDetailWithOptions(request: DescribeResourceCoverageDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceCoverageDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeResourceCoverageDetailResponse>(await this.doRPCRequest("DescribeResourceCoverageDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeResourceCoverageDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceCoverageDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourceCoverageDetailResponse>(await this.callApi(params, req, runtime), new DescribeResourceCoverageDetailResponse({}));
   }
 
   async describeResourceCoverageDetail(request: DescribeResourceCoverageDetailRequest): Promise<DescribeResourceCoverageDetailResponse> {
@@ -14147,10 +15750,42 @@ export default class Client extends OpenApi {
 
   async describeResourceCoverageTotalWithOptions(request: DescribeResourceCoverageTotalRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceCoverageTotalResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeResourceCoverageTotalResponse>(await this.doRPCRequest("DescribeResourceCoverageTotal", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeResourceCoverageTotalResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceCoverageTotal",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourceCoverageTotalResponse>(await this.callApi(params, req, runtime), new DescribeResourceCoverageTotalResponse({}));
   }
 
   async describeResourceCoverageTotal(request: DescribeResourceCoverageTotalRequest): Promise<DescribeResourceCoverageTotalResponse> {
@@ -14160,10 +15795,26 @@ export default class Client extends OpenApi {
 
   async describeResourcePackageProductWithOptions(request: DescribeResourcePackageProductRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourcePackageProductResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeResourcePackageProductResponse>(await this.doRPCRequest("DescribeResourcePackageProduct", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeResourcePackageProductResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourcePackageProduct",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourcePackageProductResponse>(await this.callApi(params, req, runtime), new DescribeResourcePackageProductResponse({}));
   }
 
   async describeResourcePackageProduct(request: DescribeResourcePackageProductRequest): Promise<DescribeResourcePackageProductResponse> {
@@ -14173,10 +15824,50 @@ export default class Client extends OpenApi {
 
   async describeResourceUsageDetailWithOptions(request: DescribeResourceUsageDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceUsageDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeResourceUsageDetailResponse>(await this.doRPCRequest("DescribeResourceUsageDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeResourceUsageDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceUsageDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourceUsageDetailResponse>(await this.callApi(params, req, runtime), new DescribeResourceUsageDetailResponse({}));
   }
 
   async describeResourceUsageDetail(request: DescribeResourceUsageDetailRequest): Promise<DescribeResourceUsageDetailResponse> {
@@ -14186,10 +15877,42 @@ export default class Client extends OpenApi {
 
   async describeResourceUsageTotalWithOptions(request: DescribeResourceUsageTotalRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceUsageTotalResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeResourceUsageTotalResponse>(await this.doRPCRequest("DescribeResourceUsageTotal", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeResourceUsageTotalResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceUsageTotal",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourceUsageTotalResponse>(await this.callApi(params, req, runtime), new DescribeResourceUsageTotalResponse({}));
   }
 
   async describeResourceUsageTotal(request: DescribeResourceUsageTotalRequest): Promise<DescribeResourceUsageTotalResponse> {
@@ -14199,10 +15922,46 @@ export default class Client extends OpenApi {
 
   async describeSavingsPlansCoverageDetailWithOptions(request: DescribeSavingsPlansCoverageDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSavingsPlansCoverageDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSavingsPlansCoverageDetailResponse>(await this.doRPCRequest("DescribeSavingsPlansCoverageDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSavingsPlansCoverageDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSavingsPlansCoverageDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSavingsPlansCoverageDetailResponse>(await this.callApi(params, req, runtime), new DescribeSavingsPlansCoverageDetailResponse({}));
   }
 
   async describeSavingsPlansCoverageDetail(request: DescribeSavingsPlansCoverageDetailRequest): Promise<DescribeSavingsPlansCoverageDetailResponse> {
@@ -14212,10 +15971,38 @@ export default class Client extends OpenApi {
 
   async describeSavingsPlansCoverageTotalWithOptions(request: DescribeSavingsPlansCoverageTotalRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSavingsPlansCoverageTotalResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSavingsPlansCoverageTotalResponse>(await this.doRPCRequest("DescribeSavingsPlansCoverageTotal", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSavingsPlansCoverageTotalResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSavingsPlansCoverageTotal",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSavingsPlansCoverageTotalResponse>(await this.callApi(params, req, runtime), new DescribeSavingsPlansCoverageTotalResponse({}));
   }
 
   async describeSavingsPlansCoverageTotal(request: DescribeSavingsPlansCoverageTotalRequest): Promise<DescribeSavingsPlansCoverageTotalResponse> {
@@ -14225,10 +16012,46 @@ export default class Client extends OpenApi {
 
   async describeSavingsPlansUsageDetailWithOptions(request: DescribeSavingsPlansUsageDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSavingsPlansUsageDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSavingsPlansUsageDetailResponse>(await this.doRPCRequest("DescribeSavingsPlansUsageDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSavingsPlansUsageDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSavingsPlansUsageDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSavingsPlansUsageDetailResponse>(await this.callApi(params, req, runtime), new DescribeSavingsPlansUsageDetailResponse({}));
   }
 
   async describeSavingsPlansUsageDetail(request: DescribeSavingsPlansUsageDetailRequest): Promise<DescribeSavingsPlansUsageDetailResponse> {
@@ -14238,10 +16061,38 @@ export default class Client extends OpenApi {
 
   async describeSavingsPlansUsageTotalWithOptions(request: DescribeSavingsPlansUsageTotalRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSavingsPlansUsageTotalResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.endPeriod)) {
+      query["EndPeriod"] = request.endPeriod;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.startPeriod)) {
+      query["StartPeriod"] = request.startPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSavingsPlansUsageTotalResponse>(await this.doRPCRequest("DescribeSavingsPlansUsageTotal", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSavingsPlansUsageTotalResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSavingsPlansUsageTotal",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSavingsPlansUsageTotalResponse>(await this.callApi(params, req, runtime), new DescribeSavingsPlansUsageTotalResponse({}));
   }
 
   async describeSavingsPlansUsageTotal(request: DescribeSavingsPlansUsageTotalRequest): Promise<DescribeSavingsPlansUsageTotalResponse> {
@@ -14251,10 +16102,74 @@ export default class Client extends OpenApi {
 
   async describeSplitItemBillWithOptions(request: DescribeSplitItemBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSplitItemBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.billingDate)) {
+      query["BillingDate"] = request.billingDate;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.instanceID)) {
+      query["InstanceID"] = request.instanceID;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.splitItemID)) {
+      query["SplitItemID"] = request.splitItemID;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    if (!Util.isUnset(request.tagFilter)) {
+      query["TagFilter"] = request.tagFilter;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSplitItemBillResponse>(await this.doRPCRequest("DescribeSplitItemBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSplitItemBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSplitItemBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSplitItemBillResponse>(await this.callApi(params, req, runtime), new DescribeSplitItemBillResponse({}));
   }
 
   async describeSplitItemBill(request: DescribeSplitItemBillRequest): Promise<DescribeSplitItemBillResponse> {
@@ -14264,10 +16179,30 @@ export default class Client extends OpenApi {
 
   async enableBillGenerationWithOptions(request: EnableBillGenerationRequest, runtime: $Util.RuntimeOptions): Promise<EnableBillGenerationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableBillGenerationResponse>(await this.doRPCRequest("EnableBillGeneration", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new EnableBillGenerationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableBillGeneration",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableBillGenerationResponse>(await this.callApi(params, req, runtime), new EnableBillGenerationResponse({}));
   }
 
   async enableBillGeneration(request: EnableBillGenerationRequest): Promise<EnableBillGenerationResponse> {
@@ -14275,12 +16210,53 @@ export default class Client extends OpenApi {
     return await this.enableBillGenerationWithOptions(request, runtime);
   }
 
+  async getAccountRelationWithOptions(request: GetAccountRelationRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountRelationResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccountRelation",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountRelationResponse>(await this.callApi(params, req, runtime), new GetAccountRelationResponse({}));
+  }
+
+  async getAccountRelation(request: GetAccountRelationRequest): Promise<GetAccountRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccountRelationWithOptions(request, runtime);
+  }
+
   async getCustomerAccountInfoWithOptions(request: GetCustomerAccountInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomerAccountInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetCustomerAccountInfoResponse>(await this.doRPCRequest("GetCustomerAccountInfo", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetCustomerAccountInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCustomerAccountInfo",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomerAccountInfoResponse>(await this.callApi(params, req, runtime), new GetCustomerAccountInfoResponse({}));
   }
 
   async getCustomerAccountInfo(request: GetCustomerAccountInfoRequest): Promise<GetCustomerAccountInfoResponse> {
@@ -14290,7 +16266,18 @@ export default class Client extends OpenApi {
 
   async getCustomerListWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCustomerListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetCustomerListResponse>(await this.doRPCRequest("GetCustomerList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetCustomerListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCustomerList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomerListResponse>(await this.callApi(params, req, runtime), new GetCustomerListResponse({}));
   }
 
   async getCustomerList(): Promise<GetCustomerListResponse> {
@@ -14300,10 +16287,30 @@ export default class Client extends OpenApi {
 
   async getOrderDetailWithOptions(request: GetOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetOrderDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetOrderDetailResponse>(await this.doRPCRequest("GetOrderDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetOrderDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetOrderDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOrderDetailResponse>(await this.callApi(params, req, runtime), new GetOrderDetailResponse({}));
   }
 
   async getOrderDetail(request: GetOrderDetailRequest): Promise<GetOrderDetailResponse> {
@@ -14313,10 +16320,46 @@ export default class Client extends OpenApi {
 
   async getPayAsYouGoPriceWithOptions(request: GetPayAsYouGoPriceRequest, runtime: $Util.RuntimeOptions): Promise<GetPayAsYouGoPriceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.moduleList)) {
+      query["ModuleList"] = request.moduleList;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPayAsYouGoPriceResponse>(await this.doRPCRequest("GetPayAsYouGoPrice", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetPayAsYouGoPriceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPayAsYouGoPrice",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPayAsYouGoPriceResponse>(await this.callApi(params, req, runtime), new GetPayAsYouGoPriceResponse({}));
   }
 
   async getPayAsYouGoPrice(request: GetPayAsYouGoPriceRequest): Promise<GetPayAsYouGoPriceResponse> {
@@ -14326,10 +16369,58 @@ export default class Client extends OpenApi {
 
   async getResourcePackagePriceWithOptions(request: GetResourcePackagePriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourcePackagePriceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.effectiveDate)) {
+      query["EffectiveDate"] = request.effectiveDate;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packageType)) {
+      query["PackageType"] = request.packageType;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.specification)) {
+      query["Specification"] = request.specification;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetResourcePackagePriceResponse>(await this.doRPCRequest("GetResourcePackagePrice", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetResourcePackagePriceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetResourcePackagePrice",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourcePackagePriceResponse>(await this.callApi(params, req, runtime), new GetResourcePackagePriceResponse({}));
   }
 
   async getResourcePackagePrice(request: GetResourcePackagePriceRequest): Promise<GetResourcePackagePriceResponse> {
@@ -14339,10 +16430,66 @@ export default class Client extends OpenApi {
 
   async getSubscriptionPriceWithOptions(request: GetSubscriptionPriceRequest, runtime: $Util.RuntimeOptions): Promise<GetSubscriptionPriceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleList)) {
+      query["ModuleList"] = request.moduleList;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.servicePeriodQuantity)) {
+      query["ServicePeriodQuantity"] = request.servicePeriodQuantity;
+    }
+
+    if (!Util.isUnset(request.servicePeriodUnit)) {
+      query["ServicePeriodUnit"] = request.servicePeriodUnit;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSubscriptionPriceResponse>(await this.doRPCRequest("GetSubscriptionPrice", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetSubscriptionPriceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSubscriptionPrice",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSubscriptionPriceResponse>(await this.callApi(params, req, runtime), new GetSubscriptionPriceResponse({}));
   }
 
   async getSubscriptionPrice(request: GetSubscriptionPriceRequest): Promise<GetSubscriptionPriceResponse> {
@@ -14350,12 +16497,101 @@ export default class Client extends OpenApi {
     return await this.getSubscriptionPriceWithOptions(request, runtime);
   }
 
+  async inquiryPriceRefundInstanceWithOptions(request: InquiryPriceRefundInstanceRequest, runtime: $Util.RuntimeOptions): Promise<InquiryPriceRefundInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InquiryPriceRefundInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InquiryPriceRefundInstanceResponse>(await this.callApi(params, req, runtime), new InquiryPriceRefundInstanceResponse({}));
+  }
+
+  async inquiryPriceRefundInstance(request: InquiryPriceRefundInstanceRequest): Promise<InquiryPriceRefundInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.inquiryPriceRefundInstanceWithOptions(request, runtime);
+  }
+
   async modifyAccountRelationWithOptions(request: ModifyAccountRelationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountRelationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.childNick)) {
+      query["ChildNick"] = request.childNick;
+    }
+
+    if (!Util.isUnset(request.childUserId)) {
+      query["ChildUserId"] = request.childUserId;
+    }
+
+    if (!Util.isUnset(request.parentUserId)) {
+      query["ParentUserId"] = request.parentUserId;
+    }
+
+    if (!Util.isUnset(request.permissionCodes)) {
+      query["PermissionCodes"] = request.permissionCodes;
+    }
+
+    if (!Util.isUnset(request.relationId)) {
+      query["RelationId"] = request.relationId;
+    }
+
+    if (!Util.isUnset(request.relationOperation)) {
+      query["RelationOperation"] = request.relationOperation;
+    }
+
+    if (!Util.isUnset(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.roleCodes)) {
+      query["RoleCodes"] = request.roleCodes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyAccountRelationResponse>(await this.doRPCRequest("ModifyAccountRelation", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAccountRelationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAccountRelation",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccountRelationResponse>(await this.callApi(params, req, runtime), new ModifyAccountRelationResponse({}));
   }
 
   async modifyAccountRelation(request: ModifyAccountRelationRequest): Promise<ModifyAccountRelationResponse> {
@@ -14365,10 +16601,26 @@ export default class Client extends OpenApi {
 
   async modifyCostUnitWithOptions(request: ModifyCostUnitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCostUnitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.unitEntityList)) {
+      query["UnitEntityList"] = request.unitEntityList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyCostUnitResponse>(await this.doRPCRequest("ModifyCostUnit", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCostUnitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyCostUnit",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCostUnitResponse>(await this.callApi(params, req, runtime), new ModifyCostUnitResponse({}));
   }
 
   async modifyCostUnit(request: ModifyCostUnitRequest): Promise<ModifyCostUnitResponse> {
@@ -14378,10 +16630,54 @@ export default class Client extends OpenApi {
 
   async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.parameter)) {
+      query["Parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyInstanceResponse>(await this.doRPCRequest("ModifyInstance", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyInstanceResponse({}));
   }
 
   async modifyInstance(request: ModifyInstanceRequest): Promise<ModifyInstanceResponse> {
@@ -14391,7 +16687,18 @@ export default class Client extends OpenApi {
 
   async queryAccountBalanceWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryAccountBalanceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<QueryAccountBalanceResponse>(await this.doRPCRequest("QueryAccountBalance", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAccountBalanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAccountBalance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAccountBalanceResponse>(await this.callApi(params, req, runtime), new QueryAccountBalanceResponse({}));
   }
 
   async queryAccountBalance(): Promise<QueryAccountBalanceResponse> {
@@ -14401,10 +16708,58 @@ export default class Client extends OpenApi {
 
   async queryAccountBillWithOptions(request: QueryAccountBillRequest, runtime: $Util.RuntimeOptions): Promise<QueryAccountBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.billingDate)) {
+      query["BillingDate"] = request.billingDate;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.isGroupByProduct)) {
+      query["IsGroupByProduct"] = request.isGroupByProduct;
+    }
+
+    if (!Util.isUnset(request.ownerID)) {
+      query["OwnerID"] = request.ownerID;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAccountBillResponse>(await this.doRPCRequest("QueryAccountBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAccountBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAccountBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAccountBillResponse>(await this.callApi(params, req, runtime), new QueryAccountBillResponse({}));
   }
 
   async queryAccountBill(request: QueryAccountBillRequest): Promise<QueryAccountBillResponse> {
@@ -14414,10 +16769,58 @@ export default class Client extends OpenApi {
 
   async queryAccountTransactionDetailsWithOptions(request: QueryAccountTransactionDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QueryAccountTransactionDetailsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.recordID)) {
+      query["RecordID"] = request.recordID;
+    }
+
+    if (!Util.isUnset(request.transactionChannel)) {
+      query["TransactionChannel"] = request.transactionChannel;
+    }
+
+    if (!Util.isUnset(request.transactionChannelSN)) {
+      query["TransactionChannelSN"] = request.transactionChannelSN;
+    }
+
+    if (!Util.isUnset(request.transactionNumber)) {
+      query["TransactionNumber"] = request.transactionNumber;
+    }
+
+    if (!Util.isUnset(request.transactionType)) {
+      query["TransactionType"] = request.transactionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAccountTransactionDetailsResponse>(await this.doRPCRequest("QueryAccountTransactionDetails", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAccountTransactionDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAccountTransactionDetails",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAccountTransactionDetailsResponse>(await this.callApi(params, req, runtime), new QueryAccountTransactionDetailsResponse({}));
   }
 
   async queryAccountTransactionDetails(request: QueryAccountTransactionDetailsRequest): Promise<QueryAccountTransactionDetailsResponse> {
@@ -14427,10 +16830,62 @@ export default class Client extends OpenApi {
 
   async queryAccountTransactionsWithOptions(request: QueryAccountTransactionsRequest, runtime: $Util.RuntimeOptions): Promise<QueryAccountTransactionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.recordID)) {
+      query["RecordID"] = request.recordID;
+    }
+
+    if (!Util.isUnset(request.transactionChannel)) {
+      query["TransactionChannel"] = request.transactionChannel;
+    }
+
+    if (!Util.isUnset(request.transactionChannelSN)) {
+      query["TransactionChannelSN"] = request.transactionChannelSN;
+    }
+
+    if (!Util.isUnset(request.transactionFlow)) {
+      query["TransactionFlow"] = request.transactionFlow;
+    }
+
+    if (!Util.isUnset(request.transactionNumber)) {
+      query["TransactionNumber"] = request.transactionNumber;
+    }
+
+    if (!Util.isUnset(request.transactionType)) {
+      query["TransactionType"] = request.transactionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAccountTransactionsResponse>(await this.doRPCRequest("QueryAccountTransactions", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAccountTransactionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAccountTransactions",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAccountTransactionsResponse>(await this.callApi(params, req, runtime), new QueryAccountTransactionsResponse({}));
   }
 
   async queryAccountTransactions(request: QueryAccountTransactionsRequest): Promise<QueryAccountTransactionsResponse> {
@@ -14440,10 +16895,74 @@ export default class Client extends OpenApi {
 
   async queryAvailableInstancesWithOptions(request: QueryAvailableInstancesRequest, runtime: $Util.RuntimeOptions): Promise<QueryAvailableInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.endTimeEnd)) {
+      query["EndTimeEnd"] = request.endTimeEnd;
+    }
+
+    if (!Util.isUnset(request.endTimeStart)) {
+      query["EndTimeStart"] = request.endTimeStart;
+    }
+
+    if (!Util.isUnset(request.instanceIDs)) {
+      query["InstanceIDs"] = request.instanceIDs;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.renewStatus)) {
+      query["RenewStatus"] = request.renewStatus;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAvailableInstancesResponse>(await this.doRPCRequest("QueryAvailableInstances", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAvailableInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAvailableInstances",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAvailableInstancesResponse>(await this.callApi(params, req, runtime), new QueryAvailableInstancesResponse({}));
   }
 
   async queryAvailableInstances(request: QueryAvailableInstancesRequest): Promise<QueryAvailableInstancesResponse> {
@@ -14453,10 +16972,66 @@ export default class Client extends OpenApi {
 
   async queryBillWithOptions(request: QueryBillRequest, runtime: $Util.RuntimeOptions): Promise<QueryBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.isDisplayLocalCurrency)) {
+      query["IsDisplayLocalCurrency"] = request.isDisplayLocalCurrency;
+    }
+
+    if (!Util.isUnset(request.isHideZeroCharge)) {
+      query["IsHideZeroCharge"] = request.isHideZeroCharge;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryBillResponse>(await this.doRPCRequest("QueryBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryBillResponse>(await this.callApi(params, req, runtime), new QueryBillResponse({}));
   }
 
   async queryBill(request: QueryBillRequest): Promise<QueryBillResponse> {
@@ -14466,10 +17041,42 @@ export default class Client extends OpenApi {
 
   async queryBillOverviewWithOptions(request: QueryBillOverviewRequest, runtime: $Util.RuntimeOptions): Promise<QueryBillOverviewResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryBillOverviewResponse>(await this.doRPCRequest("QueryBillOverview", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryBillOverviewResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryBillOverview",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryBillOverviewResponse>(await this.callApi(params, req, runtime), new QueryBillOverviewResponse({}));
   }
 
   async queryBillOverview(request: QueryBillOverviewRequest): Promise<QueryBillOverviewResponse> {
@@ -14479,7 +17086,18 @@ export default class Client extends OpenApi {
 
   async queryBillToOSSSubscriptionWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryBillToOSSSubscriptionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<QueryBillToOSSSubscriptionResponse>(await this.doRPCRequest("QueryBillToOSSSubscription", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryBillToOSSSubscriptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryBillToOSSSubscription",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryBillToOSSSubscriptionResponse>(await this.callApi(params, req, runtime), new QueryBillToOSSSubscriptionResponse({}));
   }
 
   async queryBillToOSSSubscription(): Promise<QueryBillToOSSSubscriptionResponse> {
@@ -14489,10 +17107,34 @@ export default class Client extends OpenApi {
 
   async queryCashCouponsWithOptions(request: QueryCashCouponsRequest, runtime: $Util.RuntimeOptions): Promise<QueryCashCouponsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.effectiveOrNot)) {
+      query["EffectiveOrNot"] = request.effectiveOrNot;
+    }
+
+    if (!Util.isUnset(request.expiryTimeEnd)) {
+      query["ExpiryTimeEnd"] = request.expiryTimeEnd;
+    }
+
+    if (!Util.isUnset(request.expiryTimeStart)) {
+      query["ExpiryTimeStart"] = request.expiryTimeStart;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryCashCouponsResponse>(await this.doRPCRequest("QueryCashCoupons", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCashCouponsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCashCoupons",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCashCouponsResponse>(await this.callApi(params, req, runtime), new QueryCashCouponsResponse({}));
   }
 
   async queryCashCoupons(request: QueryCashCouponsRequest): Promise<QueryCashCouponsResponse> {
@@ -14502,10 +17144,38 @@ export default class Client extends OpenApi {
 
   async queryCostUnitWithOptions(request: QueryCostUnitRequest, runtime: $Util.RuntimeOptions): Promise<QueryCostUnitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerUid)) {
+      query["OwnerUid"] = request.ownerUid;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentUnitId)) {
+      query["ParentUnitId"] = request.parentUnitId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryCostUnitResponse>(await this.doRPCRequest("QueryCostUnit", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCostUnitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCostUnit",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCostUnitResponse>(await this.callApi(params, req, runtime), new QueryCostUnitResponse({}));
   }
 
   async queryCostUnit(request: QueryCostUnitRequest): Promise<QueryCostUnitResponse> {
@@ -14515,10 +17185,38 @@ export default class Client extends OpenApi {
 
   async queryCostUnitResourceWithOptions(request: QueryCostUnitResourceRequest, runtime: $Util.RuntimeOptions): Promise<QueryCostUnitResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerUid)) {
+      query["OwnerUid"] = request.ownerUid;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.unitId)) {
+      query["UnitId"] = request.unitId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryCostUnitResourceResponse>(await this.doRPCRequest("QueryCostUnitResource", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCostUnitResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCostUnitResource",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCostUnitResourceResponse>(await this.callApi(params, req, runtime), new QueryCostUnitResourceResponse({}));
   }
 
   async queryCostUnitResource(request: QueryCostUnitResourceRequest): Promise<QueryCostUnitResourceResponse> {
@@ -14528,10 +17226,26 @@ export default class Client extends OpenApi {
 
   async queryCustomerAddressListWithOptions(request: QueryCustomerAddressListRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomerAddressListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryCustomerAddressListResponse>(await this.doRPCRequest("QueryCustomerAddressList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCustomerAddressListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCustomerAddressList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCustomerAddressListResponse>(await this.callApi(params, req, runtime), new QueryCustomerAddressListResponse({}));
   }
 
   async queryCustomerAddressList(request: QueryCustomerAddressListRequest): Promise<QueryCustomerAddressListResponse> {
@@ -14541,10 +17255,62 @@ export default class Client extends OpenApi {
 
   async queryDPUtilizationDetailWithOptions(request: QueryDPUtilizationDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDPUtilizationDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.deductedInstanceId)) {
+      query["DeductedInstanceId"] = request.deductedInstanceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.includeShare)) {
+      query["IncludeShare"] = request.includeShare;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceSpec)) {
+      query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!Util.isUnset(request.lastToken)) {
+      query["LastToken"] = request.lastToken;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.prodCode)) {
+      query["ProdCode"] = request.prodCode;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDPUtilizationDetailResponse>(await this.doRPCRequest("QueryDPUtilizationDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDPUtilizationDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDPUtilizationDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDPUtilizationDetailResponse>(await this.callApi(params, req, runtime), new QueryDPUtilizationDetailResponse({}));
   }
 
   async queryDPUtilizationDetail(request: QueryDPUtilizationDetailRequest): Promise<QueryDPUtilizationDetailResponse> {
@@ -14554,10 +17320,78 @@ export default class Client extends OpenApi {
 
   async queryEvaluateListWithOptions(request: QueryEvaluateListRequest, runtime: $Util.RuntimeOptions): Promise<QueryEvaluateListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billCycle)) {
+      query["BillCycle"] = request.billCycle;
+    }
+
+    if (!Util.isUnset(request.bizTypeList)) {
+      query["BizTypeList"] = request.bizTypeList;
+    }
+
+    if (!Util.isUnset(request.endAmount)) {
+      query["EndAmount"] = request.endAmount;
+    }
+
+    if (!Util.isUnset(request.endBizTime)) {
+      query["EndBizTime"] = request.endBizTime;
+    }
+
+    if (!Util.isUnset(request.endSearchTime)) {
+      query["EndSearchTime"] = request.endSearchTime;
+    }
+
+    if (!Util.isUnset(request.outBizId)) {
+      query["OutBizId"] = request.outBizId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.startAmount)) {
+      query["StartAmount"] = request.startAmount;
+    }
+
+    if (!Util.isUnset(request.startBizTime)) {
+      query["StartBizTime"] = request.startBizTime;
+    }
+
+    if (!Util.isUnset(request.startSearchTime)) {
+      query["StartSearchTime"] = request.startSearchTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryEvaluateListResponse>(await this.doRPCRequest("QueryEvaluateList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryEvaluateListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryEvaluateList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEvaluateListResponse>(await this.callApi(params, req, runtime), new QueryEvaluateListResponse({}));
   }
 
   async queryEvaluateList(request: QueryEvaluateListRequest): Promise<QueryEvaluateListResponse> {
@@ -14567,10 +17401,26 @@ export default class Client extends OpenApi {
 
   async queryFinancialAccountInfoWithOptions(request: QueryFinancialAccountInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryFinancialAccountInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryFinancialAccountInfoResponse>(await this.doRPCRequest("QueryFinancialAccountInfo", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryFinancialAccountInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryFinancialAccountInfo",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryFinancialAccountInfoResponse>(await this.callApi(params, req, runtime), new QueryFinancialAccountInfoResponse({}));
   }
 
   async queryFinancialAccountInfo(request: QueryFinancialAccountInfoRequest): Promise<QueryFinancialAccountInfoResponse> {
@@ -14580,10 +17430,70 @@ export default class Client extends OpenApi {
 
   async queryInstanceBillWithOptions(request: QueryInstanceBillRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.billingDate)) {
+      query["BillingDate"] = request.billingDate;
+    }
+
+    if (!Util.isUnset(request.granularity)) {
+      query["Granularity"] = request.granularity;
+    }
+
+    if (!Util.isUnset(request.isBillingItem)) {
+      query["IsBillingItem"] = request.isBillingItem;
+    }
+
+    if (!Util.isUnset(request.isHideZeroCharge)) {
+      query["IsHideZeroCharge"] = request.isHideZeroCharge;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryInstanceBillResponse>(await this.doRPCRequest("QueryInstanceBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInstanceBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryInstanceBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstanceBillResponse>(await this.callApi(params, req, runtime), new QueryInstanceBillResponse({}));
   }
 
   async queryInstanceBill(request: QueryInstanceBillRequest): Promise<QueryInstanceBillResponse> {
@@ -14593,10 +17503,34 @@ export default class Client extends OpenApi {
 
   async queryInstanceByTagWithOptions(request: QueryInstanceByTagRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceByTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryInstanceByTagResponse>(await this.doRPCRequest("QueryInstanceByTag", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInstanceByTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryInstanceByTag",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstanceByTagResponse>(await this.callApi(params, req, runtime), new QueryInstanceByTagResponse({}));
   }
 
   async queryInstanceByTag(request: QueryInstanceByTagRequest): Promise<QueryInstanceByTagResponse> {
@@ -14606,10 +17540,46 @@ export default class Client extends OpenApi {
 
   async queryInstanceGaapCostWithOptions(request: QueryInstanceGaapCostRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceGaapCostResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryInstanceGaapCostResponse>(await this.doRPCRequest("QueryInstanceGaapCost", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInstanceGaapCostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryInstanceGaapCost",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInstanceGaapCostResponse>(await this.callApi(params, req, runtime), new QueryInstanceGaapCostResponse({}));
   }
 
   async queryInstanceGaapCost(request: QueryInstanceGaapCostRequest): Promise<QueryInstanceGaapCostResponse> {
@@ -14619,10 +17589,26 @@ export default class Client extends OpenApi {
 
   async queryInvoicingCustomerListWithOptions(request: QueryInvoicingCustomerListRequest, runtime: $Util.RuntimeOptions): Promise<QueryInvoicingCustomerListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryInvoicingCustomerListResponse>(await this.doRPCRequest("QueryInvoicingCustomerList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInvoicingCustomerListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryInvoicingCustomerList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryInvoicingCustomerListResponse>(await this.callApi(params, req, runtime), new QueryInvoicingCustomerListResponse({}));
   }
 
   async queryInvoicingCustomerList(request: QueryInvoicingCustomerListRequest): Promise<QueryInvoicingCustomerListResponse> {
@@ -14632,10 +17618,26 @@ export default class Client extends OpenApi {
 
   async queryMonthlyBillWithOptions(request: QueryMonthlyBillRequest, runtime: $Util.RuntimeOptions): Promise<QueryMonthlyBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryMonthlyBillResponse>(await this.doRPCRequest("QueryMonthlyBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMonthlyBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryMonthlyBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMonthlyBillResponse>(await this.callApi(params, req, runtime), new QueryMonthlyBillResponse({}));
   }
 
   async queryMonthlyBill(request: QueryMonthlyBillRequest): Promise<QueryMonthlyBillResponse> {
@@ -14645,10 +17647,50 @@ export default class Client extends OpenApi {
 
   async queryMonthlyInstanceConsumptionWithOptions(request: QueryMonthlyInstanceConsumptionRequest, runtime: $Util.RuntimeOptions): Promise<QueryMonthlyInstanceConsumptionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryMonthlyInstanceConsumptionResponse>(await this.doRPCRequest("QueryMonthlyInstanceConsumption", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMonthlyInstanceConsumptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryMonthlyInstanceConsumption",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMonthlyInstanceConsumptionResponse>(await this.callApi(params, req, runtime), new QueryMonthlyInstanceConsumptionResponse({}));
   }
 
   async queryMonthlyInstanceConsumption(request: QueryMonthlyInstanceConsumptionRequest): Promise<QueryMonthlyInstanceConsumptionResponse> {
@@ -14658,10 +17700,62 @@ export default class Client extends OpenApi {
 
   async queryOrdersWithOptions(request: QueryOrdersRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrdersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.paymentStatus)) {
+      query["PaymentStatus"] = request.paymentStatus;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryOrdersResponse>(await this.doRPCRequest("QueryOrders", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryOrdersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryOrders",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOrdersResponse>(await this.callApi(params, req, runtime), new QueryOrdersResponse({}));
   }
 
   async queryOrders(request: QueryOrdersRequest): Promise<QueryOrdersResponse> {
@@ -14671,10 +17765,26 @@ export default class Client extends OpenApi {
 
   async queryPermissionListWithOptions(request: QueryPermissionListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPermissionListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.relationId)) {
+      query["RelationId"] = request.relationId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryPermissionListResponse>(await this.doRPCRequest("QueryPermissionList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPermissionListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryPermissionList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPermissionListResponse>(await this.callApi(params, req, runtime), new QueryPermissionListResponse({}));
   }
 
   async queryPermissionList(request: QueryPermissionListRequest): Promise<QueryPermissionListResponse> {
@@ -14684,10 +17794,34 @@ export default class Client extends OpenApi {
 
   async queryPrepaidCardsWithOptions(request: QueryPrepaidCardsRequest, runtime: $Util.RuntimeOptions): Promise<QueryPrepaidCardsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.effectiveOrNot)) {
+      query["EffectiveOrNot"] = request.effectiveOrNot;
+    }
+
+    if (!Util.isUnset(request.expiryTimeEnd)) {
+      query["ExpiryTimeEnd"] = request.expiryTimeEnd;
+    }
+
+    if (!Util.isUnset(request.expiryTimeStart)) {
+      query["ExpiryTimeStart"] = request.expiryTimeStart;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryPrepaidCardsResponse>(await this.doRPCRequest("QueryPrepaidCards", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPrepaidCardsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryPrepaidCards",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPrepaidCardsResponse>(await this.callApi(params, req, runtime), new QueryPrepaidCardsResponse({}));
   }
 
   async queryPrepaidCards(request: QueryPrepaidCardsRequest): Promise<QueryPrepaidCardsResponse> {
@@ -14697,10 +17831,34 @@ export default class Client extends OpenApi {
 
   async queryProductListWithOptions(request: QueryProductListRequest, runtime: $Util.RuntimeOptions): Promise<QueryProductListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryTotalCount)) {
+      query["QueryTotalCount"] = request.queryTotalCount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryProductListResponse>(await this.doRPCRequest("QueryProductList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryProductListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryProductList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryProductListResponse>(await this.callApi(params, req, runtime), new QueryProductListResponse({}));
   }
 
   async queryProductList(request: QueryProductListRequest): Promise<QueryProductListResponse> {
@@ -14708,13 +17866,81 @@ export default class Client extends OpenApi {
     return await this.queryProductListWithOptions(request, runtime);
   }
 
+  async queryRIUtilizationDetailWithOptions(request: QueryRIUtilizationDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRIUtilizationDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deductedInstanceId)) {
+      query["DeductedInstanceId"] = request.deductedInstanceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceSpec)) {
+      query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.RICommodityCode)) {
+      query["RICommodityCode"] = request.RICommodityCode;
+    }
+
+    if (!Util.isUnset(request.RIInstanceId)) {
+      query["RIInstanceId"] = request.RIInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryRIUtilizationDetail",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRIUtilizationDetailResponse>(await this.callApi(params, req, runtime), new QueryRIUtilizationDetailResponse({}));
+  }
+
+  async queryRIUtilizationDetail(request: QueryRIUtilizationDetailRequest): Promise<QueryRIUtilizationDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryRIUtilizationDetailWithOptions(request, runtime);
+  }
+
   async queryRedeemWithOptions(request: QueryRedeemRequest, runtime: $Util.RuntimeOptions): Promise<QueryRedeemResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryRedeemResponse>(await this.doRPCRequest("QueryRedeem", "2017-12-14", "HTTPS", "GET", "AK", "json", req, runtime), new QueryRedeemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRedeem",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRedeemResponse>(await this.callApi(params, req, runtime), new QueryRedeemResponse({}));
   }
 
   async queryRedeem(request: QueryRedeemRequest): Promise<QueryRedeemResponse> {
@@ -14724,10 +17950,38 @@ export default class Client extends OpenApi {
 
   async queryRelationListWithOptions(request: QueryRelationListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRelationListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryRelationListResponse>(await this.doRPCRequest("QueryRelationList", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRelationListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRelationList",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRelationListResponse>(await this.callApi(params, req, runtime), new QueryRelationListResponse({}));
   }
 
   async queryRelationList(request: QueryRelationListRequest): Promise<QueryRelationListResponse> {
@@ -14737,10 +17991,30 @@ export default class Client extends OpenApi {
 
   async queryResellerAvailableQuotaWithOptions(request: QueryResellerAvailableQuotaRequest, runtime: $Util.RuntimeOptions): Promise<QueryResellerAvailableQuotaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.itemCodes)) {
+      query["ItemCodes"] = request.itemCodes;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryResellerAvailableQuotaResponse>(await this.doRPCRequest("QueryResellerAvailableQuota", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryResellerAvailableQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryResellerAvailableQuota",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryResellerAvailableQuotaResponse>(await this.callApi(params, req, runtime), new QueryResellerAvailableQuotaResponse({}));
   }
 
   async queryResellerAvailableQuota(request: QueryResellerAvailableQuotaRequest): Promise<QueryResellerAvailableQuotaResponse> {
@@ -14750,10 +18024,50 @@ export default class Client extends OpenApi {
 
   async queryResourcePackageInstancesWithOptions(request: QueryResourcePackageInstancesRequest, runtime: $Util.RuntimeOptions): Promise<QueryResourcePackageInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expiryTimeEnd)) {
+      query["ExpiryTimeEnd"] = request.expiryTimeEnd;
+    }
+
+    if (!Util.isUnset(request.expiryTimeStart)) {
+      query["ExpiryTimeStart"] = request.expiryTimeStart;
+    }
+
+    if (!Util.isUnset(request.includePartner)) {
+      query["IncludePartner"] = request.includePartner;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryResourcePackageInstancesResponse>(await this.doRPCRequest("QueryResourcePackageInstances", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryResourcePackageInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryResourcePackageInstances",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryResourcePackageInstancesResponse>(await this.callApi(params, req, runtime), new QueryResourcePackageInstancesResponse({}));
   }
 
   async queryResourcePackageInstances(request: QueryResourcePackageInstancesRequest): Promise<QueryResourcePackageInstancesResponse> {
@@ -14761,25 +18075,52 @@ export default class Client extends OpenApi {
     return await this.queryResourcePackageInstancesWithOptions(request, runtime);
   }
 
-  async queryRIUtilizationDetailWithOptions(request: QueryRIUtilizationDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRIUtilizationDetailResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryRIUtilizationDetailResponse>(await this.doRPCRequest("QueryRIUtilizationDetail", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRIUtilizationDetailResponse({}));
-  }
-
-  async queryRIUtilizationDetail(request: QueryRIUtilizationDetailRequest): Promise<QueryRIUtilizationDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryRIUtilizationDetailWithOptions(request, runtime);
-  }
-
   async querySavingsPlansDeductLogWithOptions(request: QuerySavingsPlansDeductLogRequest, runtime: $Util.RuntimeOptions): Promise<QuerySavingsPlansDeductLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.locale)) {
+      query["Locale"] = request.locale;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QuerySavingsPlansDeductLogResponse>(await this.doRPCRequest("QuerySavingsPlansDeductLog", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySavingsPlansDeductLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySavingsPlansDeductLog",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySavingsPlansDeductLogResponse>(await this.callApi(params, req, runtime), new QuerySavingsPlansDeductLogResponse({}));
   }
 
   async querySavingsPlansDeductLog(request: QuerySavingsPlansDeductLogRequest): Promise<QuerySavingsPlansDeductLogResponse> {
@@ -14789,10 +18130,50 @@ export default class Client extends OpenApi {
 
   async querySavingsPlansInstanceWithOptions(request: QuerySavingsPlansInstanceRequest, runtime: $Util.RuntimeOptions): Promise<QuerySavingsPlansInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.locale)) {
+      query["Locale"] = request.locale;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QuerySavingsPlansInstanceResponse>(await this.doRPCRequest("QuerySavingsPlansInstance", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySavingsPlansInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySavingsPlansInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySavingsPlansInstanceResponse>(await this.callApi(params, req, runtime), new QuerySavingsPlansInstanceResponse({}));
   }
 
   async querySavingsPlansInstance(request: QuerySavingsPlansInstanceRequest): Promise<QuerySavingsPlansInstanceResponse> {
@@ -14802,10 +18183,70 @@ export default class Client extends OpenApi {
 
   async querySettleBillWithOptions(request: QuerySettleBillRequest, runtime: $Util.RuntimeOptions): Promise<QuerySettleBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.isDisplayLocalCurrency)) {
+      query["IsDisplayLocalCurrency"] = request.isDisplayLocalCurrency;
+    }
+
+    if (!Util.isUnset(request.isHideZeroCharge)) {
+      query["IsHideZeroCharge"] = request.isHideZeroCharge;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.recordID)) {
+      query["RecordID"] = request.recordID;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QuerySettleBillResponse>(await this.doRPCRequest("QuerySettleBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySettleBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySettleBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySettleBillResponse>(await this.callApi(params, req, runtime), new QuerySettleBillResponse({}));
   }
 
   async querySettleBill(request: QuerySettleBillRequest): Promise<QuerySettleBillResponse> {
@@ -14815,10 +18256,66 @@ export default class Client extends OpenApi {
 
   async querySettlementBillWithOptions(request: QuerySettlementBillRequest, runtime: $Util.RuntimeOptions): Promise<QuerySettlementBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.isHideZeroCharge)) {
+      query["IsHideZeroCharge"] = request.isHideZeroCharge;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QuerySettlementBillResponse>(await this.doRPCRequest("QuerySettlementBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySettlementBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySettlementBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySettlementBillResponse>(await this.callApi(params, req, runtime), new QuerySettlementBillResponse({}));
   }
 
   async querySettlementBill(request: QuerySettlementBillRequest): Promise<QuerySettlementBillResponse> {
@@ -14828,10 +18325,54 @@ export default class Client extends OpenApi {
 
   async querySplitItemBillWithOptions(request: QuerySplitItemBillRequest, runtime: $Util.RuntimeOptions): Promise<QuerySplitItemBillResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.billOwnerId)) {
+      query["BillOwnerId"] = request.billOwnerId;
+    }
+
+    if (!Util.isUnset(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QuerySplitItemBillResponse>(await this.doRPCRequest("QuerySplitItemBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySplitItemBillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySplitItemBill",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySplitItemBillResponse>(await this.callApi(params, req, runtime), new QuerySplitItemBillResponse({}));
   }
 
   async querySplitItemBill(request: QuerySplitItemBillRequest): Promise<QuerySplitItemBillResponse> {
@@ -14841,10 +18382,50 @@ export default class Client extends OpenApi {
 
   async queryUserOmsDataWithOptions(request: QueryUserOmsDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserOmsDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.table)) {
+      query["Table"] = request.table;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryUserOmsDataResponse>(await this.doRPCRequest("QueryUserOmsData", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryUserOmsDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryUserOmsData",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryUserOmsDataResponse>(await this.callApi(params, req, runtime), new QueryUserOmsDataResponse({}));
   }
 
   async queryUserOmsData(request: QueryUserOmsDataRequest): Promise<QueryUserOmsDataResponse> {
@@ -14852,12 +18433,142 @@ export default class Client extends OpenApi {
     return await this.queryUserOmsDataWithOptions(request, runtime);
   }
 
+  async refundInstanceWithOptions(request: RefundInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RefundInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.immediatelyRelease)) {
+      query["ImmediatelyRelease"] = request.immediatelyRelease;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefundInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefundInstanceResponse>(await this.callApi(params, req, runtime), new RefundInstanceResponse({}));
+  }
+
+  async refundInstance(request: RefundInstanceRequest): Promise<RefundInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refundInstanceWithOptions(request, runtime);
+  }
+
+  async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.renewStatus)) {
+      query["RenewStatus"] = request.renewStatus;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceResponse({}));
+  }
+
+  async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseInstanceWithOptions(request, runtime);
+  }
+
   async relieveAccountRelationWithOptions(request: RelieveAccountRelationRequest, runtime: $Util.RuntimeOptions): Promise<RelieveAccountRelationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.childUserId)) {
+      query["ChildUserId"] = request.childUserId;
+    }
+
+    if (!Util.isUnset(request.parentUserId)) {
+      query["ParentUserId"] = request.parentUserId;
+    }
+
+    if (!Util.isUnset(request.relationId)) {
+      query["RelationId"] = request.relationId;
+    }
+
+    if (!Util.isUnset(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RelieveAccountRelationResponse>(await this.doRPCRequest("RelieveAccountRelation", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new RelieveAccountRelationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RelieveAccountRelation",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RelieveAccountRelationResponse>(await this.callApi(params, req, runtime), new RelieveAccountRelationResponse({}));
   }
 
   async relieveAccountRelation(request: RelieveAccountRelationRequest): Promise<RelieveAccountRelationResponse> {
@@ -14867,10 +18578,46 @@ export default class Client extends OpenApi {
 
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.renewPeriod)) {
+      query["RenewPeriod"] = request.renewPeriod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RenewInstanceResponse>(await this.doRPCRequest("RenewInstance", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new RenewInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenewInstance",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
@@ -14880,10 +18627,42 @@ export default class Client extends OpenApi {
 
   async renewResourcePackageWithOptions(request: RenewResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<RenewResourcePackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.effectiveDate)) {
+      query["EffectiveDate"] = request.effectiveDate;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RenewResourcePackageResponse>(await this.doRPCRequest("RenewResourcePackage", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new RenewResourcePackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenewResourcePackage",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewResourcePackageResponse>(await this.callApi(params, req, runtime), new RenewResourcePackageResponse({}));
   }
 
   async renewResourcePackage(request: RenewResourcePackageRequest): Promise<RenewResourcePackageResponse> {
@@ -14893,10 +18672,54 @@ export default class Client extends OpenApi {
 
   async saveUserCreditWithOptions(request: SaveUserCreditRequest, runtime: $Util.RuntimeOptions): Promise<SaveUserCreditResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.avoidExpiration)) {
+      query["AvoidExpiration"] = request.avoidExpiration;
+    }
+
+    if (!Util.isUnset(request.avoidNotification)) {
+      query["AvoidNotification"] = request.avoidNotification;
+    }
+
+    if (!Util.isUnset(request.avoidPrepaidExpiration)) {
+      query["AvoidPrepaidExpiration"] = request.avoidPrepaidExpiration;
+    }
+
+    if (!Util.isUnset(request.avoidPrepaidNotification)) {
+      query["AvoidPrepaidNotification"] = request.avoidPrepaidNotification;
+    }
+
+    if (!Util.isUnset(request.creditType)) {
+      query["CreditType"] = request.creditType;
+    }
+
+    if (!Util.isUnset(request.creditValue)) {
+      query["CreditValue"] = request.creditValue;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      query["Operator"] = request.operator;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveUserCreditResponse>(await this.doRPCRequest("SaveUserCredit", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SaveUserCreditResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveUserCredit",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveUserCreditResponse>(await this.callApi(params, req, runtime), new SaveUserCreditResponse({}));
   }
 
   async saveUserCredit(request: SaveUserCreditRequest): Promise<SaveUserCreditResponse> {
@@ -14906,10 +18729,30 @@ export default class Client extends OpenApi {
 
   async setAllExpirationDayWithOptions(request: SetAllExpirationDayRequest, runtime: $Util.RuntimeOptions): Promise<SetAllExpirationDayResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.unifyExpireDay)) {
+      query["UnifyExpireDay"] = request.unifyExpireDay;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetAllExpirationDayResponse>(await this.doRPCRequest("SetAllExpirationDay", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAllExpirationDayResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetAllExpirationDay",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAllExpirationDayResponse>(await this.callApi(params, req, runtime), new SetAllExpirationDayResponse({}));
   }
 
   async setAllExpirationDay(request: SetAllExpirationDayRequest): Promise<SetAllExpirationDayResponse> {
@@ -14919,10 +18762,90 @@ export default class Client extends OpenApi {
 
   async setCreditLabelActionWithOptions(request: SetCreditLabelActionRequest, runtime: $Util.RuntimeOptions): Promise<SetCreditLabelActionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!Util.isUnset(request.clearCycle)) {
+      query["ClearCycle"] = request.clearCycle;
+    }
+
+    if (!Util.isUnset(request.creditAmount)) {
+      query["CreditAmount"] = request.creditAmount;
+    }
+
+    if (!Util.isUnset(request.currencyCode)) {
+      query["CurrencyCode"] = request.currencyCode;
+    }
+
+    if (!Util.isUnset(request.dailyCycle)) {
+      query["DailyCycle"] = request.dailyCycle;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.isNeedAddSettleLabel)) {
+      query["IsNeedAddSettleLabel"] = request.isNeedAddSettleLabel;
+    }
+
+    if (!Util.isUnset(request.isNeedAdjustCreditAccount)) {
+      query["IsNeedAdjustCreditAccount"] = request.isNeedAdjustCreditAccount;
+    }
+
+    if (!Util.isUnset(request.isNeedSaveNotifyRule)) {
+      query["IsNeedSaveNotifyRule"] = request.isNeedSaveNotifyRule;
+    }
+
+    if (!Util.isUnset(request.isNeedSetCreditAmount)) {
+      query["IsNeedSetCreditAmount"] = request.isNeedSetCreditAmount;
+    }
+
+    if (!Util.isUnset(request.needNotice)) {
+      query["NeedNotice"] = request.needNotice;
+    }
+
+    if (!Util.isUnset(request.newCreateMode)) {
+      query["NewCreateMode"] = request.newCreateMode;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      query["Operator"] = request.operator;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.siteCode)) {
+      query["SiteCode"] = request.siteCode;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      query["Uid"] = request.uid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetCreditLabelActionResponse>(await this.doRPCRequest("SetCreditLabelAction", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetCreditLabelActionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetCreditLabelAction",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetCreditLabelActionResponse>(await this.callApi(params, req, runtime), new SetCreditLabelActionResponse({}));
   }
 
   async setCreditLabelAction(request: SetCreditLabelActionRequest): Promise<SetCreditLabelActionResponse> {
@@ -14932,10 +18855,54 @@ export default class Client extends OpenApi {
 
   async setRenewalWithOptions(request: SetRenewalRequest, runtime: $Util.RuntimeOptions): Promise<SetRenewalResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIDs)) {
+      query["InstanceIDs"] = request.instanceIDs;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.renewalPeriod)) {
+      query["RenewalPeriod"] = request.renewalPeriod;
+    }
+
+    if (!Util.isUnset(request.renewalPeriodUnit)) {
+      query["RenewalPeriodUnit"] = request.renewalPeriodUnit;
+    }
+
+    if (!Util.isUnset(request.renewalStatus)) {
+      query["RenewalStatus"] = request.renewalStatus;
+    }
+
+    if (!Util.isUnset(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetRenewalResponse>(await this.doRPCRequest("SetRenewal", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetRenewalResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetRenewal",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetRenewalResponse>(await this.callApi(params, req, runtime), new SetRenewalResponse({}));
   }
 
   async setRenewal(request: SetRenewalRequest): Promise<SetRenewalResponse> {
@@ -14945,10 +18912,34 @@ export default class Client extends OpenApi {
 
   async setResellerUserAlarmThresholdWithOptions(request: SetResellerUserAlarmThresholdRequest, runtime: $Util.RuntimeOptions): Promise<SetResellerUserAlarmThresholdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmThresholds)) {
+      query["AlarmThresholds"] = request.alarmThresholds;
+    }
+
+    if (!Util.isUnset(request.alarmType)) {
+      query["AlarmType"] = request.alarmType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetResellerUserAlarmThresholdResponse>(await this.doRPCRequest("SetResellerUserAlarmThreshold", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetResellerUserAlarmThresholdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetResellerUserAlarmThreshold",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetResellerUserAlarmThresholdResponse>(await this.callApi(params, req, runtime), new SetResellerUserAlarmThresholdResponse({}));
   }
 
   async setResellerUserAlarmThreshold(request: SetResellerUserAlarmThresholdRequest): Promise<SetResellerUserAlarmThresholdResponse> {
@@ -14958,10 +18949,38 @@ export default class Client extends OpenApi {
 
   async setResellerUserQuotaWithOptions(request: SetResellerUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetResellerUserQuotaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.currency)) {
+      query["Currency"] = request.currency;
+    }
+
+    if (!Util.isUnset(request.outBizId)) {
+      query["OutBizId"] = request.outBizId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetResellerUserQuotaResponse>(await this.doRPCRequest("SetResellerUserQuota", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetResellerUserQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetResellerUserQuota",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetResellerUserQuotaResponse>(await this.callApi(params, req, runtime), new SetResellerUserQuotaResponse({}));
   }
 
   async setResellerUserQuota(request: SetResellerUserQuotaRequest): Promise<SetResellerUserQuotaResponse> {
@@ -14971,10 +18990,34 @@ export default class Client extends OpenApi {
 
   async setResellerUserStatusWithOptions(request: SetResellerUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetResellerUserStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetResellerUserStatusResponse>(await this.doRPCRequest("SetResellerUserStatus", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetResellerUserStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetResellerUserStatus",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetResellerUserStatusResponse>(await this.callApi(params, req, runtime), new SetResellerUserStatusResponse({}));
   }
 
   async setResellerUserStatus(request: SetResellerUserStatusRequest): Promise<SetResellerUserStatusResponse> {
@@ -14984,10 +19027,46 @@ export default class Client extends OpenApi {
 
   async subscribeBillToOSSWithOptions(request: SubscribeBillToOSSRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeBillToOSSResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginBillingCycle)) {
+      query["BeginBillingCycle"] = request.beginBillingCycle;
+    }
+
+    if (!Util.isUnset(request.bucketOwnerId)) {
+      query["BucketOwnerId"] = request.bucketOwnerId;
+    }
+
+    if (!Util.isUnset(request.bucketPath)) {
+      query["BucketPath"] = request.bucketPath;
+    }
+
+    if (!Util.isUnset(request.multAccountRelSubscribe)) {
+      query["MultAccountRelSubscribe"] = request.multAccountRelSubscribe;
+    }
+
+    if (!Util.isUnset(request.subscribeBucket)) {
+      query["SubscribeBucket"] = request.subscribeBucket;
+    }
+
+    if (!Util.isUnset(request.subscribeType)) {
+      query["SubscribeType"] = request.subscribeType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SubscribeBillToOSSResponse>(await this.doRPCRequest("SubscribeBillToOSS", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SubscribeBillToOSSResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubscribeBillToOSS",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubscribeBillToOSSResponse>(await this.callApi(params, req, runtime), new SubscribeBillToOSSResponse({}));
   }
 
   async subscribeBillToOSS(request: SubscribeBillToOSSRequest): Promise<SubscribeBillToOSSResponse> {
@@ -14997,10 +19076,34 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -15010,10 +19113,30 @@ export default class Client extends OpenApi {
 
   async unsubscribeBillToOSSWithOptions(request: UnsubscribeBillToOSSRequest, runtime: $Util.RuntimeOptions): Promise<UnsubscribeBillToOSSResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.multAccountRelSubscribe)) {
+      query["MultAccountRelSubscribe"] = request.multAccountRelSubscribe;
+    }
+
+    if (!Util.isUnset(request.subscribeType)) {
+      query["SubscribeType"] = request.subscribeType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnsubscribeBillToOSSResponse>(await this.doRPCRequest("UnsubscribeBillToOSS", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new UnsubscribeBillToOSSResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnsubscribeBillToOSS",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnsubscribeBillToOSSResponse>(await this.callApi(params, req, runtime), new UnsubscribeBillToOSSResponse({}));
   }
 
   async unsubscribeBillToOSS(request: UnsubscribeBillToOSSRequest): Promise<UnsubscribeBillToOSSResponse> {
@@ -15023,10 +19146,38 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -15036,10 +19187,38 @@ export default class Client extends OpenApi {
 
   async upgradeResourcePackageWithOptions(request: UpgradeResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeResourcePackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.effectiveDate)) {
+      query["EffectiveDate"] = request.effectiveDate;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.specification)) {
+      query["Specification"] = request.specification;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpgradeResourcePackageResponse>(await this.doRPCRequest("UpgradeResourcePackage", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeResourcePackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeResourcePackage",
+      version: "2017-12-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeResourcePackageResponse>(await this.callApi(params, req, runtime), new UpgradeResourcePackageResponse({}));
   }
 
   async upgradeResourcePackage(request: UpgradeResourcePackageRequest): Promise<UpgradeResourcePackageResponse> {
