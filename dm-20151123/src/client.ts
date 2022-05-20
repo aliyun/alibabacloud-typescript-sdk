@@ -8,6 +8,78 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddIpfilterRequest extends $tea.Model {
+  ipAddress?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIpfilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIpfilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddIpfilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddIpfilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApproveReplyMailAddressRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -57,10 +129,12 @@ export class ApproveReplyMailAddressResponseBody extends $tea.Model {
 
 export class ApproveReplyMailAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ApproveReplyMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -68,6 +142,7 @@ export class ApproveReplyMailAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ApproveReplyMailAddressResponseBody,
     };
   }
@@ -150,10 +225,12 @@ export class BatchSendMailResponseBody extends $tea.Model {
 
 export class BatchSendMailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BatchSendMailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -161,6 +238,7 @@ export class BatchSendMailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchSendMailResponseBody,
     };
   }
@@ -222,10 +300,12 @@ export class CheckDomainResponseBody extends $tea.Model {
 
 export class CheckDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -233,6 +313,7 @@ export class CheckDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckDomainResponseBody,
     };
   }
@@ -297,10 +378,12 @@ export class CheckReplyToMailAddressResponseBody extends $tea.Model {
 
 export class CheckReplyToMailAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckReplyToMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -308,6 +391,7 @@ export class CheckReplyToMailAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckReplyToMailAddressResponseBody,
     };
   }
@@ -369,10 +453,12 @@ export class CreateDomainResponseBody extends $tea.Model {
 
 export class CreateDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -380,6 +466,7 @@ export class CreateDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDomainResponseBody,
     };
   }
@@ -447,10 +534,12 @@ export class CreateMailAddressResponseBody extends $tea.Model {
 
 export class CreateMailAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -458,6 +547,7 @@ export class CreateMailAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateMailAddressResponseBody,
     };
   }
@@ -525,10 +615,12 @@ export class CreateReceiverResponseBody extends $tea.Model {
 
 export class CreateReceiverResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateReceiverResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -536,6 +628,7 @@ export class CreateReceiverResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateReceiverResponseBody,
     };
   }
@@ -597,10 +690,12 @@ export class CreateTagResponseBody extends $tea.Model {
 
 export class CreateTagResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -608,6 +703,7 @@ export class CreateTagResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateTagResponseBody,
     };
   }
@@ -666,10 +762,12 @@ export class DeleteDomainResponseBody extends $tea.Model {
 
 export class DeleteDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -677,7 +775,83 @@ export class DeleteDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpfilterByEdmIdRequest extends $tea.Model {
+  fromType?: number;
+  id?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromType: 'FromType',
+      id: 'Id',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromType: 'number',
+      id: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpfilterByEdmIdResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpfilterByEdmIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteIpfilterByEdmIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIpfilterByEdmIdResponseBody,
     };
   }
 
@@ -735,10 +909,12 @@ export class DeleteMailAddressResponseBody extends $tea.Model {
 
 export class DeleteMailAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -746,6 +922,7 @@ export class DeleteMailAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteMailAddressResponseBody,
     };
   }
@@ -804,10 +981,12 @@ export class DeleteReceiverResponseBody extends $tea.Model {
 
 export class DeleteReceiverResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteReceiverResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -815,6 +994,7 @@ export class DeleteReceiverResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteReceiverResponseBody,
     };
   }
@@ -876,10 +1056,12 @@ export class DeleteReceiverDetailResponseBody extends $tea.Model {
 
 export class DeleteReceiverDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteReceiverDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -887,6 +1069,7 @@ export class DeleteReceiverDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteReceiverDetailResponseBody,
     };
   }
@@ -945,10 +1128,12 @@ export class DeleteTagResponseBody extends $tea.Model {
 
 export class DeleteTagResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -956,6 +1141,7 @@ export class DeleteTagResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTagResponseBody,
     };
   }
@@ -1056,10 +1242,12 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
 
 export class DescAccountSummaryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescAccountSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1067,6 +1255,7 @@ export class DescAccountSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescAccountSummaryResponseBody,
     };
   }
@@ -1182,10 +1371,12 @@ export class DescDomainResponseBody extends $tea.Model {
 
 export class DescDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1193,7 +1384,161 @@ export class DescDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpProtectionRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpProtectionResponseBody extends $tea.Model {
+  ipProtection?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipProtection: 'IpProtection',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipProtection: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpProtectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetIpProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIpProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpfilterListRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpfilterListResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  data?: GetIpfilterListResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      data: GetIpfilterListResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpfilterListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetIpfilterListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIpfilterListResponseBody,
     };
   }
 
@@ -1290,10 +1635,12 @@ export class GetTrackListResponseBody extends $tea.Model {
 
 export class GetTrackListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTrackListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1301,6 +1648,7 @@ export class GetTrackListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTrackListResponseBody,
     };
   }
@@ -1404,10 +1752,12 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $tea.Model {
 
 export class GetTrackListByMailFromAndTagNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTrackListByMailFromAndTagNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1415,6 +1765,7 @@ export class GetTrackListByMailFromAndTagNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTrackListByMailFromAndTagNameResponseBody,
     };
   }
@@ -1479,10 +1830,12 @@ export class ModifyMailAddressResponseBody extends $tea.Model {
 
 export class ModifyMailAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1490,6 +1843,7 @@ export class ModifyMailAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyMailAddressResponseBody,
     };
   }
@@ -1554,10 +1908,12 @@ export class ModifyPWByDomainResponseBody extends $tea.Model {
 
 export class ModifyPWByDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyPWByDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1565,6 +1921,7 @@ export class ModifyPWByDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyPWByDomainResponseBody,
     };
   }
@@ -1626,10 +1983,12 @@ export class ModifyTagResponseBody extends $tea.Model {
 
 export class ModifyTagResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1637,6 +1996,7 @@ export class ModifyTagResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyTagResponseBody,
     };
   }
@@ -1716,10 +2076,12 @@ export class QueryDomainByParamResponseBody extends $tea.Model {
 
 export class QueryDomainByParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1727,6 +2089,7 @@ export class QueryDomainByParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainByParamResponseBody,
     };
   }
@@ -1806,10 +2169,12 @@ export class QueryInvalidAddressResponseBody extends $tea.Model {
 
 export class QueryInvalidAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryInvalidAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1817,6 +2182,7 @@ export class QueryInvalidAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryInvalidAddressResponseBody,
     };
   }
@@ -1896,10 +2262,12 @@ export class QueryMailAddressByParamResponseBody extends $tea.Model {
 
 export class QueryMailAddressByParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryMailAddressByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1907,6 +2275,7 @@ export class QueryMailAddressByParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryMailAddressByParamResponseBody,
     };
   }
@@ -1986,10 +2355,12 @@ export class QueryReceiverByParamResponseBody extends $tea.Model {
 
 export class QueryReceiverByParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryReceiverByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1997,6 +2368,7 @@ export class QueryReceiverByParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryReceiverByParamResponseBody,
     };
   }
@@ -2076,10 +2448,12 @@ export class QueryReceiverDetailResponseBody extends $tea.Model {
 
 export class QueryReceiverDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryReceiverDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2087,6 +2461,7 @@ export class QueryReceiverDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryReceiverDetailResponseBody,
     };
   }
@@ -2163,10 +2538,12 @@ export class QueryTagByParamResponseBody extends $tea.Model {
 
 export class QueryTagByParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTagByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2174,6 +2551,7 @@ export class QueryTagByParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTagByParamResponseBody,
     };
   }
@@ -2253,10 +2631,12 @@ export class QueryTaskByParamResponseBody extends $tea.Model {
 
 export class QueryTaskByParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTaskByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2264,6 +2644,7 @@ export class QueryTaskByParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTaskByParamResponseBody,
     };
   }
@@ -2334,10 +2715,12 @@ export class SaveReceiverDetailResponseBody extends $tea.Model {
 
 export class SaveReceiverDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveReceiverDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2345,6 +2728,7 @@ export class SaveReceiverDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveReceiverDetailResponseBody,
     };
   }
@@ -2424,10 +2808,12 @@ export class SendTestByTemplateResponseBody extends $tea.Model {
 
 export class SendTestByTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SendTestByTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2435,6 +2821,7 @@ export class SendTestByTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SendTestByTemplateResponseBody,
     };
   }
@@ -2508,10 +2895,12 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $tea.Model 
 
 export class SenderStatisticsByTagNameAndBatchIDResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SenderStatisticsByTagNameAndBatchIDResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2519,6 +2908,7 @@ export class SenderStatisticsByTagNameAndBatchIDResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SenderStatisticsByTagNameAndBatchIDResponseBody,
     };
   }
@@ -2604,10 +2994,12 @@ export class SenderStatisticsDetailByParamResponseBody extends $tea.Model {
 
 export class SenderStatisticsDetailByParamResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SenderStatisticsDetailByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2615,6 +3007,7 @@ export class SenderStatisticsDetailByParamResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SenderStatisticsDetailByParamResponseBody,
     };
   }
@@ -2709,10 +3102,12 @@ export class SingleSendMailResponseBody extends $tea.Model {
 
 export class SingleSendMailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SingleSendMailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2720,7 +3115,80 @@ export class SingleSendMailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SingleSendMailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpProtectionRequest extends $tea.Model {
+  ipProtection?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipProtection: 'IpProtection',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipProtection: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpProtectionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpProtectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateIpProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateIpProtectionResponseBody,
     };
   }
 
@@ -2781,10 +3249,12 @@ export class UpdateMailAddressMsgCallBackUrlResponseBody extends $tea.Model {
 
 export class UpdateMailAddressMsgCallBackUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateMailAddressMsgCallBackUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2792,7 +3262,52 @@ export class UpdateMailAddressMsgCallBackUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateMailAddressMsgCallBackUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpfilterListResponseBodyDataIpfilters extends $tea.Model {
+  createTime?: string;
+  id?: string;
+  ipAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      id: 'Id',
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      id: 'string',
+      ipAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpfilterListResponseBodyData extends $tea.Model {
+  ipfilters?: GetIpfilterListResponseBodyDataIpfilters[];
+  static names(): { [key: string]: string } {
+    return {
+      ipfilters: 'ipfilters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipfilters: { 'type': 'array', 'itemType': GetIpfilterListResponseBodyDataIpfilters },
     };
   }
 
@@ -3493,6 +4008,47 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addIpfilterWithOptions(request: AddIpfilterRequest, runtime: $Util.RuntimeOptions): Promise<AddIpfilterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ipAddress)) {
+      query["IpAddress"] = request.ipAddress;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddIpfilter",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddIpfilterResponse>(await this.callApi(params, req, runtime), new AddIpfilterResponse({}));
+  }
+
+  async addIpfilter(request: AddIpfilterRequest): Promise<AddIpfilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addIpfilterWithOptions(request, runtime);
+  }
+
   async approveReplyMailAddressWithOptions(request: ApproveReplyMailAddressRequest, runtime: $Util.RuntimeOptions): Promise<ApproveReplyMailAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3914,6 +4470,51 @@ export default class Client extends OpenApi {
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  async deleteIpfilterByEdmIdWithOptions(request: DeleteIpfilterByEdmIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpfilterByEdmIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fromType)) {
+      query["FromType"] = request.fromType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIpfilterByEdmId",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpfilterByEdmIdResponse>(await this.callApi(params, req, runtime), new DeleteIpfilterByEdmIdResponse({}));
+  }
+
+  async deleteIpfilterByEdmId(request: DeleteIpfilterByEdmIdRequest): Promise<DeleteIpfilterByEdmIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIpfilterByEdmIdWithOptions(request, runtime);
+  }
+
   async deleteMailAddressWithOptions(request: DeleteMailAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMailAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4158,6 +4759,80 @@ export default class Client extends OpenApi {
   async descDomain(request: DescDomainRequest): Promise<DescDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.descDomainWithOptions(request, runtime);
+  }
+
+  async getIpProtectionWithOptions(request: GetIpProtectionRequest, runtime: $Util.RuntimeOptions): Promise<GetIpProtectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIpProtection",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIpProtectionResponse>(await this.callApi(params, req, runtime), new GetIpProtectionResponse({}));
+  }
+
+  async getIpProtection(request: GetIpProtectionRequest): Promise<GetIpProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIpProtectionWithOptions(request, runtime);
+  }
+
+  async getIpfilterListWithOptions(request: GetIpfilterListRequest, runtime: $Util.RuntimeOptions): Promise<GetIpfilterListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIpfilterList",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIpfilterListResponse>(await this.callApi(params, req, runtime), new GetIpfilterListResponse({}));
+  }
+
+  async getIpfilterList(request: GetIpfilterListRequest): Promise<GetIpfilterListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIpfilterListWithOptions(request, runtime);
   }
 
   async getTrackListWithOptions(request: GetTrackListRequest, runtime: $Util.RuntimeOptions): Promise<GetTrackListResponse> {
@@ -5127,6 +5802,47 @@ export default class Client extends OpenApi {
   async singleSendMail(request: SingleSendMailRequest): Promise<SingleSendMailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.singleSendMailWithOptions(request, runtime);
+  }
+
+  async updateIpProtectionWithOptions(request: UpdateIpProtectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpProtectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ipProtection)) {
+      query["IpProtection"] = request.ipProtection;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateIpProtection",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIpProtectionResponse>(await this.callApi(params, req, runtime), new UpdateIpProtectionResponse({}));
+  }
+
+  async updateIpProtection(request: UpdateIpProtectionRequest): Promise<UpdateIpProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateIpProtectionWithOptions(request, runtime);
   }
 
   async updateMailAddressMsgCallBackUrlWithOptions(request: UpdateMailAddressMsgCallBackUrlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMailAddressMsgCallBackUrlResponse> {
