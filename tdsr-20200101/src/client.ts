@@ -2671,18 +2671,30 @@ export class GetWindowConfigResponse extends $tea.Model {
 
 export class LabelBuildRequest extends $tea.Model {
   mode?: string;
+  optimizeModelEffect?: string;
+  optimizeWallWidth?: string;
+  planStyle?: string;
   sceneId?: string;
+  wallHeight?: number;
   static names(): { [key: string]: string } {
     return {
       mode: 'Mode',
+      optimizeModelEffect: 'OptimizeModelEffect',
+      optimizeWallWidth: 'OptimizeWallWidth',
+      planStyle: 'PlanStyle',
       sceneId: 'SceneId',
+      wallHeight: 'WallHeight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mode: 'string',
+      optimizeModelEffect: 'string',
+      optimizeWallWidth: 'string',
+      planStyle: 'string',
       sceneId: 'string',
+      wallHeight: 'number',
     };
   }
 
@@ -6664,8 +6676,24 @@ export default class Client extends OpenApi {
       query["Mode"] = request.mode;
     }
 
+    if (!Util.isUnset(request.optimizeModelEffect)) {
+      query["OptimizeModelEffect"] = request.optimizeModelEffect;
+    }
+
+    if (!Util.isUnset(request.optimizeWallWidth)) {
+      query["OptimizeWallWidth"] = request.optimizeWallWidth;
+    }
+
+    if (!Util.isUnset(request.planStyle)) {
+      query["PlanStyle"] = request.planStyle;
+    }
+
     if (!Util.isUnset(request.sceneId)) {
       query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.wallHeight)) {
+      query["WallHeight"] = request.wallHeight;
     }
 
     let req = new $OpenApi.OpenApiRequest({
