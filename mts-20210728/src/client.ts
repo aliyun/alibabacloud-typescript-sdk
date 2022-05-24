@@ -69,10 +69,12 @@ export class QueryCopyrightResponseBody extends $tea.Model {
 
 export class QueryCopyrightResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryCopyrightResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -80,6 +82,7 @@ export class QueryCopyrightResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCopyrightResponseBody,
     };
   }
@@ -138,10 +141,12 @@ export class QueryCopyrightExtractResponseBody extends $tea.Model {
 
 export class QueryCopyrightExtractResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryCopyrightExtractResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -149,6 +154,7 @@ export class QueryCopyrightExtractResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCopyrightExtractResponseBody,
     };
   }
@@ -210,10 +216,12 @@ export class QueryTraceAbResponseBody extends $tea.Model {
 
 export class QueryTraceAbResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTraceAbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -221,6 +229,7 @@ export class QueryTraceAbResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTraceAbResponseBody,
     };
   }
@@ -279,10 +288,12 @@ export class QueryTraceExtractResponseBody extends $tea.Model {
 
 export class QueryTraceExtractResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTraceExtractResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -290,6 +301,7 @@ export class QueryTraceExtractResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTraceExtractResponseBody,
     };
   }
@@ -366,10 +378,12 @@ export class QueryTraceMuResponseBody extends $tea.Model {
 
 export class QueryTraceMuResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTraceMuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -377,6 +391,7 @@ export class QueryTraceMuResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTraceMuResponseBody,
     };
   }
@@ -444,10 +459,12 @@ export class SubmitCopyrightExtractResponseBody extends $tea.Model {
 
 export class SubmitCopyrightExtractResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitCopyrightExtractResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -455,6 +472,7 @@ export class SubmitCopyrightExtractResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitCopyrightExtractResponseBody,
     };
   }
@@ -475,6 +493,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
   totalTime?: number;
   url?: string;
   userData?: string;
+  visibleMessage?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
@@ -487,6 +506,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       totalTime: 'TotalTime',
       url: 'Url',
       userData: 'UserData',
+      visibleMessage: 'VisibleMessage',
     };
   }
 
@@ -502,6 +522,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       totalTime: 'number',
       url: 'string',
       userData: 'string',
+      visibleMessage: 'string',
     };
   }
 
@@ -540,10 +561,12 @@ export class SubmitCopyrightJobResponseBody extends $tea.Model {
 
 export class SubmitCopyrightJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitCopyrightJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -551,6 +574,7 @@ export class SubmitCopyrightJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitCopyrightJobResponseBody,
     };
   }
@@ -621,10 +645,12 @@ export class SubmitImageCopyrightResponseBody extends $tea.Model {
 
 export class SubmitImageCopyrightResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitImageCopyrightResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -632,6 +658,7 @@ export class SubmitImageCopyrightResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitImageCopyrightResponseBody,
     };
   }
@@ -714,10 +741,12 @@ export class SubmitTraceAbResponseBody extends $tea.Model {
 
 export class SubmitTraceAbResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitTraceAbResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -725,6 +754,7 @@ export class SubmitTraceAbResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitTraceAbResponseBody,
     };
   }
@@ -792,10 +822,12 @@ export class SubmitTraceExtractResponseBody extends $tea.Model {
 
 export class SubmitTraceExtractResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitTraceExtractResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -803,6 +835,7 @@ export class SubmitTraceExtractResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitTraceExtractResponseBody,
     };
   }
@@ -870,10 +903,12 @@ export class SubmitTracemuResponseBody extends $tea.Model {
 
 export class SubmitTracemuResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitTracemuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -881,6 +916,7 @@ export class SubmitTracemuResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitTracemuResponseBody,
     };
   }
@@ -1561,6 +1597,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userData)) {
       body["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.visibleMessage)) {
+      body["VisibleMessage"] = request.visibleMessage;
     }
 
     let req = new $OpenApi.OpenApiRequest({
