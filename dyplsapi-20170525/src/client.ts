@@ -1206,6 +1206,127 @@ export class CreatePickUpWaybillResponse extends $tea.Model {
   }
 }
 
+export class CreatePickUpWaybillPreQueryRequest extends $tea.Model {
+  consigneeInfo?: CreatePickUpWaybillPreQueryRequestConsigneeInfo;
+  cpCode?: string;
+  orderChannels?: string;
+  outerOrderCode?: string;
+  preWeight?: string;
+  senderInfo?: CreatePickUpWaybillPreQueryRequestSenderInfo;
+  static names(): { [key: string]: string } {
+    return {
+      consigneeInfo: 'ConsigneeInfo',
+      cpCode: 'CpCode',
+      orderChannels: 'OrderChannels',
+      outerOrderCode: 'OuterOrderCode',
+      preWeight: 'PreWeight',
+      senderInfo: 'SenderInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consigneeInfo: CreatePickUpWaybillPreQueryRequestConsigneeInfo,
+      cpCode: 'string',
+      orderChannels: 'string',
+      outerOrderCode: 'string',
+      preWeight: 'string',
+      senderInfo: CreatePickUpWaybillPreQueryRequestSenderInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryShrinkRequest extends $tea.Model {
+  consigneeInfoShrink?: string;
+  cpCode?: string;
+  orderChannels?: string;
+  outerOrderCode?: string;
+  preWeight?: string;
+  senderInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consigneeInfoShrink: 'ConsigneeInfo',
+      cpCode: 'CpCode',
+      orderChannels: 'OrderChannels',
+      outerOrderCode: 'OuterOrderCode',
+      preWeight: 'PreWeight',
+      senderInfoShrink: 'SenderInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consigneeInfoShrink: 'string',
+      cpCode: 'string',
+      orderChannels: 'string',
+      outerOrderCode: 'string',
+      preWeight: 'string',
+      senderInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBody extends $tea.Model {
+  data?: CreatePickUpWaybillPreQueryResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreatePickUpWaybillPreQueryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePickUpWaybillPreQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePickUpWaybillPreQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSecretBlacklistRequest extends $tea.Model {
   blackNo?: string;
   blackType?: string;
@@ -3049,6 +3170,255 @@ export class CreatePickUpWaybillResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo extends $tea.Model {
+  addressDetail?: string;
+  areaName?: string;
+  cityName?: string;
+  provinceName?: string;
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestConsigneeInfo extends $tea.Model {
+  addressInfo?: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo;
+  mobile?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressInfo: 'AddressInfo',
+      mobile: 'Mobile',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressInfo: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo,
+      mobile: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $tea.Model {
+  addressDetail?: string;
+  areaName?: string;
+  cityName?: string;
+  provinceName?: string;
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestSenderInfo extends $tea.Model {
+  addressInfo?: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo;
+  mobile?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressInfo: 'AddressInfo',
+      mobile: 'Mobile',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressInfo: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo,
+      mobile: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList extends $tea.Model {
+  endTime?: string;
+  selectDisableTip?: string;
+  selectable?: boolean;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      selectDisableTip: 'SelectDisableTip',
+      selectable: 'Selectable',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      selectDisableTip: 'string',
+      selectable: 'boolean',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes extends $tea.Model {
+  date?: string;
+  dateSelectable?: boolean;
+  timeList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList[];
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      dateSelectable: 'DateSelectable',
+      timeList: 'TimeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      dateSelectable: 'boolean',
+      timeList: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime extends $tea.Model {
+  name?: string;
+  selectDisableTip?: string;
+  selectable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      selectDisableTip: 'SelectDisableTip',
+      selectable: 'Selectable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      selectDisableTip: 'string',
+      selectable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList extends $tea.Model {
+  appointTimes?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes[];
+  prePrice?: string;
+  realTime?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime;
+  static names(): { [key: string]: string } {
+    return {
+      appointTimes: 'AppointTimes',
+      prePrice: 'PrePrice',
+      realTime: 'RealTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appointTimes: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes },
+      prePrice: 'string',
+      realTime: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyData extends $tea.Model {
+  code?: string;
+  cpTimeSelectList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList[];
+  errorCode?: string;
+  errorMsg?: string;
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      cpTimeSelectList: 'CpTimeSelectList',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      cpTimeSelectList: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList },
+      errorCode: 'string',
+      errorMsg: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecretAsrDetailResponseBodyDataSentences extends $tea.Model {
   beginTime?: number;
   channelId?: number;
@@ -3395,6 +3765,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dyplsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -4208,6 +4579,65 @@ export default class Client extends OpenApi {
   async createPickUpWaybill(request: CreatePickUpWaybillRequest): Promise<CreatePickUpWaybillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPickUpWaybillWithOptions(request, runtime);
+  }
+
+  async createPickUpWaybillPreQueryWithOptions(tmpReq: CreatePickUpWaybillPreQueryRequest, runtime: $Util.RuntimeOptions): Promise<CreatePickUpWaybillPreQueryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePickUpWaybillPreQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.consigneeInfo))) {
+      request.consigneeInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.consigneeInfo), "ConsigneeInfo", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.senderInfo))) {
+      request.senderInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.senderInfo), "SenderInfo", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.consigneeInfoShrink)) {
+      query["ConsigneeInfo"] = request.consigneeInfoShrink;
+    }
+
+    if (!Util.isUnset(request.cpCode)) {
+      query["CpCode"] = request.cpCode;
+    }
+
+    if (!Util.isUnset(request.orderChannels)) {
+      query["OrderChannels"] = request.orderChannels;
+    }
+
+    if (!Util.isUnset(request.outerOrderCode)) {
+      query["OuterOrderCode"] = request.outerOrderCode;
+    }
+
+    if (!Util.isUnset(request.preWeight)) {
+      query["PreWeight"] = request.preWeight;
+    }
+
+    if (!Util.isUnset(request.senderInfoShrink)) {
+      query["SenderInfo"] = request.senderInfoShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePickUpWaybillPreQuery",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePickUpWaybillPreQueryResponse>(await this.callApi(params, req, runtime), new CreatePickUpWaybillPreQueryResponse({}));
+  }
+
+  async createPickUpWaybillPreQuery(request: CreatePickUpWaybillPreQueryRequest): Promise<CreatePickUpWaybillPreQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPickUpWaybillPreQueryWithOptions(request, runtime);
   }
 
   async deleteSecretBlacklistWithOptions(request: DeleteSecretBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretBlacklistResponse> {
