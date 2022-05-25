@@ -2435,6 +2435,84 @@ export class GetSingleConnDataResponse extends $tea.Model {
   }
 }
 
+export class GetSourcePackStatusRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourcePackStatusResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetSourcePackStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetSourcePackStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourcePackStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSourcePackStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSourcePackStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSubSceneTaskStatusRequest extends $tea.Model {
   subSceneId?: string;
   static names(): { [key: string]: string } {
@@ -2671,7 +2749,7 @@ export class GetWindowConfigResponse extends $tea.Model {
 
 export class LabelBuildRequest extends $tea.Model {
   mode?: string;
-  optimizeModelEffect?: string;
+  modelStyle?: string;
   optimizeWallWidth?: string;
   planStyle?: string;
   sceneId?: string;
@@ -2679,7 +2757,7 @@ export class LabelBuildRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       mode: 'Mode',
-      optimizeModelEffect: 'OptimizeModelEffect',
+      modelStyle: 'ModelStyle',
       optimizeWallWidth: 'OptimizeWallWidth',
       planStyle: 'PlanStyle',
       sceneId: 'SceneId',
@@ -2690,7 +2768,7 @@ export class LabelBuildRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       mode: 'string',
-      optimizeModelEffect: 'string',
+      modelStyle: 'string',
       optimizeWallWidth: 'string',
       planStyle: 'string',
       sceneId: 'string',
@@ -3284,6 +3362,81 @@ export class PackSceneResponse extends $tea.Model {
   }
 }
 
+export class PackSourceRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PackSourceResponseBody extends $tea.Model {
+  code?: number;
+  data?: PackSourceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: PackSourceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PackSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PackSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PackSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PredImageRequest extends $tea.Model {
   correctVertical?: boolean;
   countDetectDoor?: number;
@@ -3624,6 +3777,7 @@ export class PublishStatusResponseBody extends $tea.Model {
   requestId?: string;
   status?: string;
   success?: boolean;
+  syncStatus?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -3631,6 +3785,7 @@ export class PublishStatusResponseBody extends $tea.Model {
       requestId: 'RequestId',
       status: 'Status',
       success: 'Success',
+      syncStatus: 'SyncStatus',
     };
   }
 
@@ -3641,6 +3796,7 @@ export class PublishStatusResponseBody extends $tea.Model {
       requestId: 'string',
       status: 'string',
       success: 'boolean',
+      syncStatus: 'string',
     };
   }
 
@@ -5389,6 +5545,28 @@ export class GetSingleConnDataResponseBodyList extends $tea.Model {
   }
 }
 
+export class GetSourcePackStatusResponseBodyData extends $tea.Model {
+  progress?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSubSceneTaskStatusResponseBodyList extends $tea.Model {
   errorCode?: string;
   errorMsg?: string;
@@ -5568,6 +5746,25 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
 }
 
 export class PackSceneResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PackSourceResponseBodyData extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6582,6 +6779,35 @@ export default class Client extends OpenApi {
     return await this.getSingleConnDataWithOptions(request, runtime);
   }
 
+  async getSourcePackStatusWithOptions(request: GetSourcePackStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSourcePackStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSourcePackStatus",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSourcePackStatusResponse>(await this.callApi(params, req, runtime), new GetSourcePackStatusResponse({}));
+  }
+
+  async getSourcePackStatus(request: GetSourcePackStatusRequest): Promise<GetSourcePackStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSourcePackStatusWithOptions(request, runtime);
+  }
+
   async getSubSceneTaskStatusWithOptions(request: GetSubSceneTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSubSceneTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6676,8 +6902,8 @@ export default class Client extends OpenApi {
       query["Mode"] = request.mode;
     }
 
-    if (!Util.isUnset(request.optimizeModelEffect)) {
-      query["OptimizeModelEffect"] = request.optimizeModelEffect;
+    if (!Util.isUnset(request.modelStyle)) {
+      query["ModelStyle"] = request.modelStyle;
     }
 
     if (!Util.isUnset(request.optimizeWallWidth)) {
@@ -6942,6 +7168,35 @@ export default class Client extends OpenApi {
   async packScene(request: PackSceneRequest): Promise<PackSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.packSceneWithOptions(request, runtime);
+  }
+
+  async packSourceWithOptions(request: PackSourceRequest, runtime: $Util.RuntimeOptions): Promise<PackSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PackSource",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PackSourceResponse>(await this.callApi(params, req, runtime), new PackSourceResponse({}));
+  }
+
+  async packSource(request: PackSourceRequest): Promise<PackSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.packSourceWithOptions(request, runtime);
   }
 
   async predImageWithOptions(request: PredImageRequest, runtime: $Util.RuntimeOptions): Promise<PredImageResponse> {
