@@ -306,18 +306,15 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class GenerateDeviceCodeRequest extends $tea.Model {
-  clientId?: string;
   scope?: string;
   static names(): { [key: string]: string } {
     return {
-      clientId: 'client_id',
       scope: 'scope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientId: 'string',
       scope: 'string',
     };
   }
@@ -1967,10 +1964,6 @@ export default class Client extends OpenApi {
     instanceId = OpenApiUtil.getEncodeParam(instanceId);
     applicationId = OpenApiUtil.getEncodeParam(applicationId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
-      query["client_id"] = request.clientId;
-    }
-
     if (!Util.isUnset(request.scope)) {
       query["scope"] = request.scope;
     }
