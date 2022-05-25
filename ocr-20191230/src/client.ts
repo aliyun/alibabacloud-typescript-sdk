@@ -76,10 +76,12 @@ export class DetectCardScreenshotResponseBody extends $tea.Model {
 
 export class DetectCardScreenshotResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetectCardScreenshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -87,6 +89,7 @@ export class DetectCardScreenshotResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetectCardScreenshotResponseBody,
     };
   }
@@ -139,10 +142,12 @@ export class GetAsyncJobResultResponseBody extends $tea.Model {
 
 export class GetAsyncJobResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAsyncJobResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -150,6 +155,7 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAsyncJobResultResponseBody,
     };
   }
@@ -221,10 +227,12 @@ export class RecognizeAccountPageResponseBody extends $tea.Model {
 
 export class RecognizeAccountPageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeAccountPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -232,6 +240,7 @@ export class RecognizeAccountPageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeAccountPageResponseBody,
     };
   }
@@ -303,10 +312,12 @@ export class RecognizeBankCardResponseBody extends $tea.Model {
 
 export class RecognizeBankCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBankCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -314,6 +325,7 @@ export class RecognizeBankCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBankCardResponseBody,
     };
   }
@@ -385,10 +397,12 @@ export class RecognizeBusinessCardResponseBody extends $tea.Model {
 
 export class RecognizeBusinessCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBusinessCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -396,6 +410,7 @@ export class RecognizeBusinessCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBusinessCardResponseBody,
     };
   }
@@ -467,10 +482,12 @@ export class RecognizeBusinessLicenseResponseBody extends $tea.Model {
 
 export class RecognizeBusinessLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBusinessLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -478,6 +495,7 @@ export class RecognizeBusinessLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBusinessLicenseResponseBody,
     };
   }
@@ -561,10 +579,12 @@ export class RecognizeCharacterResponseBody extends $tea.Model {
 
 export class RecognizeCharacterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCharacterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -572,6 +592,7 @@ export class RecognizeCharacterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCharacterResponseBody,
     };
   }
@@ -643,10 +664,12 @@ export class RecognizeChinapassportResponseBody extends $tea.Model {
 
 export class RecognizeChinapassportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeChinapassportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -654,6 +677,7 @@ export class RecognizeChinapassportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeChinapassportResponseBody,
     };
   }
@@ -731,10 +755,12 @@ export class RecognizeDriverLicenseResponseBody extends $tea.Model {
 
 export class RecognizeDriverLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeDriverLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -742,6 +768,7 @@ export class RecognizeDriverLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeDriverLicenseResponseBody,
     };
   }
@@ -819,10 +846,12 @@ export class RecognizeDrivingLicenseResponseBody extends $tea.Model {
 
 export class RecognizeDrivingLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeDrivingLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -830,6 +859,7 @@ export class RecognizeDrivingLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeDrivingLicenseResponseBody,
     };
   }
@@ -907,10 +937,12 @@ export class RecognizeIdentityCardResponseBody extends $tea.Model {
 
 export class RecognizeIdentityCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeIdentityCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -918,7 +950,93 @@ export class RecognizeIdentityCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeIdentityCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardRequest extends $tea.Model {
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBody extends $tea.Model {
+  data?: RecognizeIndonesiaIdentityCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeIndonesiaIdentityCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeIndonesiaIdentityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeIndonesiaIdentityCardResponseBody,
     };
   }
 
@@ -989,10 +1107,12 @@ export class RecognizeLicensePlateResponseBody extends $tea.Model {
 
 export class RecognizeLicensePlateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeLicensePlateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1000,7 +1120,93 @@ export class RecognizeLicensePlateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeLicensePlateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardRequest extends $tea.Model {
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBody extends $tea.Model {
+  data?: RecognizeMalaysiaIdentityCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeMalaysiaIdentityCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeMalaysiaIdentityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeMalaysiaIdentityCardResponseBody,
     };
   }
 
@@ -1071,10 +1277,12 @@ export class RecognizePassportMRZResponseBody extends $tea.Model {
 
 export class RecognizePassportMRZResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizePassportMRZResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1082,6 +1290,7 @@ export class RecognizePassportMRZResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizePassportMRZResponseBody,
     };
   }
@@ -1153,10 +1362,12 @@ export class RecognizePdfResponseBody extends $tea.Model {
 
 export class RecognizePdfResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizePdfResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1164,6 +1375,7 @@ export class RecognizePdfResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizePdfResponseBody,
     };
   }
@@ -1235,10 +1447,12 @@ export class RecognizePoiNameResponseBody extends $tea.Model {
 
 export class RecognizePoiNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizePoiNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1246,6 +1460,7 @@ export class RecognizePoiNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizePoiNameResponseBody,
     };
   }
@@ -1298,10 +1513,12 @@ export class RecognizeQrCodeResponseBody extends $tea.Model {
 
 export class RecognizeQrCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeQrCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1309,6 +1526,7 @@ export class RecognizeQrCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeQrCodeResponseBody,
     };
   }
@@ -1380,10 +1598,12 @@ export class RecognizeQuotaInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeQuotaInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeQuotaInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1391,7 +1611,93 @@ export class RecognizeQuotaInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeQuotaInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardRequest extends $tea.Model {
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBody extends $tea.Model {
+  data?: RecognizeRussiaIdentityCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeRussiaIdentityCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeRussiaIdentityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeRussiaIdentityCardResponseBody,
     };
   }
 
@@ -1462,10 +1768,12 @@ export class RecognizeStampResponseBody extends $tea.Model {
 
 export class RecognizeStampResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeStampResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1473,6 +1781,7 @@ export class RecognizeStampResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeStampResponseBody,
     };
   }
@@ -1574,10 +1883,12 @@ export class RecognizeTableResponseBody extends $tea.Model {
 
 export class RecognizeTableResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTableResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1585,6 +1896,7 @@ export class RecognizeTableResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTableResponseBody,
     };
   }
@@ -1656,10 +1968,12 @@ export class RecognizeTakeoutOrderResponseBody extends $tea.Model {
 
 export class RecognizeTakeoutOrderResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTakeoutOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1667,6 +1981,7 @@ export class RecognizeTakeoutOrderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTakeoutOrderResponseBody,
     };
   }
@@ -1738,10 +2053,12 @@ export class RecognizeTaxiInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeTaxiInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTaxiInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1749,6 +2066,7 @@ export class RecognizeTaxiInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTaxiInvoiceResponseBody,
     };
   }
@@ -1820,10 +2138,12 @@ export class RecognizeTicketInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeTicketInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTicketInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1831,6 +2151,7 @@ export class RecognizeTicketInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTicketInvoiceResponseBody,
     };
   }
@@ -1902,10 +2223,12 @@ export class RecognizeTrainTicketResponseBody extends $tea.Model {
 
 export class RecognizeTrainTicketResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTrainTicketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1913,7 +2236,99 @@ export class RecognizeTrainTicketResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTrainTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardRequest extends $tea.Model {
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecognizeTurkeyIdentityCardResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RecognizeTurkeyIdentityCardResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeTurkeyIdentityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeTurkeyIdentityCardResponseBody,
     };
   }
 
@@ -1984,10 +2399,12 @@ export class RecognizeUkraineIdentityCardResponseBody extends $tea.Model {
 
 export class RecognizeUkraineIdentityCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeUkraineIdentityCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1995,6 +2412,7 @@ export class RecognizeUkraineIdentityCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeUkraineIdentityCardResponseBody,
     };
   }
@@ -2072,10 +2490,12 @@ export class RecognizeVATInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeVATInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVATInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2083,6 +2503,7 @@ export class RecognizeVATInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVATInvoiceResponseBody,
     };
   }
@@ -2154,10 +2575,12 @@ export class RecognizeVINCodeResponseBody extends $tea.Model {
 
 export class RecognizeVINCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVINCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2165,6 +2588,7 @@ export class RecognizeVINCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVINCodeResponseBody,
     };
   }
@@ -2236,10 +2660,12 @@ export class RecognizeVerificationcodeResponseBody extends $tea.Model {
 
 export class RecognizeVerificationcodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVerificationcodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2247,6 +2673,7 @@ export class RecognizeVerificationcodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVerificationcodeResponseBody,
     };
   }
@@ -2355,10 +2782,12 @@ export class RecognizeVideoCastCrewListResponseBody extends $tea.Model {
 
 export class RecognizeVideoCastCrewListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVideoCastCrewListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2366,6 +2795,7 @@ export class RecognizeVideoCastCrewListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVideoCastCrewListResponseBody,
     };
   }
@@ -2418,10 +2848,12 @@ export class RecognizeVideoCharacterResponseBody extends $tea.Model {
 
 export class RecognizeVideoCharacterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVideoCharacterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2429,7 +2861,93 @@ export class RecognizeVideoCharacterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVideoCharacterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardRequest extends $tea.Model {
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBody extends $tea.Model {
+  data?: RecognizeVietnamIdentityCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeVietnamIdentityCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeVietnamIdentityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeVietnamIdentityCardResponseBody,
     };
   }
 
@@ -2512,10 +3030,12 @@ export class TrimDocumentResponseBody extends $tea.Model {
 
 export class TrimDocumentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TrimDocumentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2523,6 +3043,7 @@ export class TrimDocumentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TrimDocumentResponseBody,
     };
   }
@@ -3632,6 +4153,1122 @@ export class RecognizeIdentityCardResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressFifthLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressFifthLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFifthLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataAddressFifthLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressFirstLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFirstLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataAddressFirstLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressFourthLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressFourthLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFourthLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataAddressFourthLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressSecondLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressSecondLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataAddressSecondLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressThirdLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataAddressThirdLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressThirdLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataAddressThirdLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataBirthDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataBirthDate extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataBirthDateKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataBirthDateKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataBirthPlaceKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataBirthPlace extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataBirthPlaceKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataBirthPlaceKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataCardBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataCardBox extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataCardBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataCardBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataExpiryDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataExpiryDate extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataExpiryDateKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataExpiryDateKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataGenderKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataGender extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataGenderKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataGenderKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataHeightKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataHeight extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataHeightKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataHeightKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataIdNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataIdNumber extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataIdNumberKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataIdNumberKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataLicenseNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataLicenseNumber extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataLicenseNumberKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataLicenseNumberKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataMaritalStatusKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataMaritalStatus extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataMaritalStatusKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataMaritalStatusKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataNameFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataNameFirstLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataNameFirstLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataNameFirstLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataNameSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataNameSecondLine extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataNameSecondLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataNameSecondLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataNationalityKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataNationality extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataNationalityKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataNationalityKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataOccupationKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataOccupation extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataOccupationKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataOccupationKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataPortraitBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataPortraitBox extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataPortraitBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataPortraitBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataProvinceKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataProvince extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataProvinceKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataProvinceKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataReligionKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataReligion extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataReligionKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataReligionKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataSexKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyDataSex extends $tea.Model {
+  keyPoints?: RecognizeIndonesiaIdentityCardResponseBodyDataSexKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeIndonesiaIdentityCardResponseBodyDataSexKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIndonesiaIdentityCardResponseBodyData extends $tea.Model {
+  addressFifthLine?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFifthLine;
+  addressFirstLine?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFirstLine;
+  addressFourthLine?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFourthLine;
+  addressSecondLine?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressSecondLine;
+  addressThirdLine?: RecognizeIndonesiaIdentityCardResponseBodyDataAddressThirdLine;
+  birthDate?: RecognizeIndonesiaIdentityCardResponseBodyDataBirthDate;
+  birthPlace?: RecognizeIndonesiaIdentityCardResponseBodyDataBirthPlace;
+  cardBox?: RecognizeIndonesiaIdentityCardResponseBodyDataCardBox;
+  expiryDate?: RecognizeIndonesiaIdentityCardResponseBodyDataExpiryDate;
+  gender?: RecognizeIndonesiaIdentityCardResponseBodyDataGender;
+  height?: RecognizeIndonesiaIdentityCardResponseBodyDataHeight;
+  idNumber?: RecognizeIndonesiaIdentityCardResponseBodyDataIdNumber;
+  licenseNumber?: RecognizeIndonesiaIdentityCardResponseBodyDataLicenseNumber;
+  maritalStatus?: RecognizeIndonesiaIdentityCardResponseBodyDataMaritalStatus;
+  nameFirstLine?: RecognizeIndonesiaIdentityCardResponseBodyDataNameFirstLine;
+  nameSecondLine?: RecognizeIndonesiaIdentityCardResponseBodyDataNameSecondLine;
+  nationality?: RecognizeIndonesiaIdentityCardResponseBodyDataNationality;
+  occupation?: RecognizeIndonesiaIdentityCardResponseBodyDataOccupation;
+  portraitBox?: RecognizeIndonesiaIdentityCardResponseBodyDataPortraitBox;
+  province?: RecognizeIndonesiaIdentityCardResponseBodyDataProvince;
+  religion?: RecognizeIndonesiaIdentityCardResponseBodyDataReligion;
+  sex?: RecognizeIndonesiaIdentityCardResponseBodyDataSex;
+  static names(): { [key: string]: string } {
+    return {
+      addressFifthLine: 'AddressFifthLine',
+      addressFirstLine: 'AddressFirstLine',
+      addressFourthLine: 'AddressFourthLine',
+      addressSecondLine: 'AddressSecondLine',
+      addressThirdLine: 'AddressThirdLine',
+      birthDate: 'BirthDate',
+      birthPlace: 'BirthPlace',
+      cardBox: 'CardBox',
+      expiryDate: 'ExpiryDate',
+      gender: 'Gender',
+      height: 'Height',
+      idNumber: 'IdNumber',
+      licenseNumber: 'LicenseNumber',
+      maritalStatus: 'MaritalStatus',
+      nameFirstLine: 'NameFirstLine',
+      nameSecondLine: 'NameSecondLine',
+      nationality: 'Nationality',
+      occupation: 'Occupation',
+      portraitBox: 'PortraitBox',
+      province: 'Province',
+      religion: 'Religion',
+      sex: 'Sex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressFifthLine: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFifthLine,
+      addressFirstLine: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFirstLine,
+      addressFourthLine: RecognizeIndonesiaIdentityCardResponseBodyDataAddressFourthLine,
+      addressSecondLine: RecognizeIndonesiaIdentityCardResponseBodyDataAddressSecondLine,
+      addressThirdLine: RecognizeIndonesiaIdentityCardResponseBodyDataAddressThirdLine,
+      birthDate: RecognizeIndonesiaIdentityCardResponseBodyDataBirthDate,
+      birthPlace: RecognizeIndonesiaIdentityCardResponseBodyDataBirthPlace,
+      cardBox: RecognizeIndonesiaIdentityCardResponseBodyDataCardBox,
+      expiryDate: RecognizeIndonesiaIdentityCardResponseBodyDataExpiryDate,
+      gender: RecognizeIndonesiaIdentityCardResponseBodyDataGender,
+      height: RecognizeIndonesiaIdentityCardResponseBodyDataHeight,
+      idNumber: RecognizeIndonesiaIdentityCardResponseBodyDataIdNumber,
+      licenseNumber: RecognizeIndonesiaIdentityCardResponseBodyDataLicenseNumber,
+      maritalStatus: RecognizeIndonesiaIdentityCardResponseBodyDataMaritalStatus,
+      nameFirstLine: RecognizeIndonesiaIdentityCardResponseBodyDataNameFirstLine,
+      nameSecondLine: RecognizeIndonesiaIdentityCardResponseBodyDataNameSecondLine,
+      nationality: RecognizeIndonesiaIdentityCardResponseBodyDataNationality,
+      occupation: RecognizeIndonesiaIdentityCardResponseBodyDataOccupation,
+      portraitBox: RecognizeIndonesiaIdentityCardResponseBodyDataPortraitBox,
+      province: RecognizeIndonesiaIdentityCardResponseBodyDataProvince,
+      religion: RecognizeIndonesiaIdentityCardResponseBodyDataReligion,
+      sex: RecognizeIndonesiaIdentityCardResponseBodyDataSex,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeLicensePlateResponseBodyDataPlatesPositions extends $tea.Model {
   x?: number;
   y?: number;
@@ -3727,6 +5364,772 @@ export class RecognizeLicensePlateResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       plates: { 'type': 'array', 'itemType': RecognizeLicensePlateResponseBodyDataPlates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressFifthLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressFifthLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFifthLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataAddressFifthLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressFirstLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFirstLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataAddressFirstLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressFourthLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressFourthLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFourthLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataAddressFourthLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressSecondLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressSecondLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataAddressSecondLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressThirdLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataAddressThirdLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressThirdLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataAddressThirdLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataCardBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataCardBox extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataCardBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataCardBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataDriveClassKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataDriveClass extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataDriveClassKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataDriveClassKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataExpiryDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataExpiryDate extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataExpiryDateKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataExpiryDateKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataIdNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataIdNumber extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataIdNumberKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataIdNumberKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataIssueDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataIssueDate extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataIssueDateKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataIssueDateKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataNameFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataNameFirstLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataNameFirstLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataNameFirstLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataNameSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataNameSecondLine extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataNameSecondLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataNameSecondLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataNationalityKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataNationality extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataNationalityKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataNationalityKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataPortraitBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataPortraitBox extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataPortraitBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataPortraitBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataSexKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyDataSex extends $tea.Model {
+  keyPoints?: RecognizeMalaysiaIdentityCardResponseBodyDataSexKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeMalaysiaIdentityCardResponseBodyDataSexKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeMalaysiaIdentityCardResponseBodyData extends $tea.Model {
+  addressFifthLine?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFifthLine;
+  addressFirstLine?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFirstLine;
+  addressFourthLine?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFourthLine;
+  addressSecondLine?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressSecondLine;
+  addressThirdLine?: RecognizeMalaysiaIdentityCardResponseBodyDataAddressThirdLine;
+  cardBox?: RecognizeMalaysiaIdentityCardResponseBodyDataCardBox;
+  driveClass?: RecognizeMalaysiaIdentityCardResponseBodyDataDriveClass;
+  expiryDate?: RecognizeMalaysiaIdentityCardResponseBodyDataExpiryDate;
+  idNumber?: RecognizeMalaysiaIdentityCardResponseBodyDataIdNumber;
+  issueDate?: RecognizeMalaysiaIdentityCardResponseBodyDataIssueDate;
+  nameFirstLine?: RecognizeMalaysiaIdentityCardResponseBodyDataNameFirstLine;
+  nameSecondLine?: RecognizeMalaysiaIdentityCardResponseBodyDataNameSecondLine;
+  nationality?: RecognizeMalaysiaIdentityCardResponseBodyDataNationality;
+  portraitBox?: RecognizeMalaysiaIdentityCardResponseBodyDataPortraitBox;
+  sex?: RecognizeMalaysiaIdentityCardResponseBodyDataSex;
+  static names(): { [key: string]: string } {
+    return {
+      addressFifthLine: 'AddressFifthLine',
+      addressFirstLine: 'AddressFirstLine',
+      addressFourthLine: 'AddressFourthLine',
+      addressSecondLine: 'AddressSecondLine',
+      addressThirdLine: 'AddressThirdLine',
+      cardBox: 'CardBox',
+      driveClass: 'DriveClass',
+      expiryDate: 'ExpiryDate',
+      idNumber: 'IdNumber',
+      issueDate: 'IssueDate',
+      nameFirstLine: 'NameFirstLine',
+      nameSecondLine: 'NameSecondLine',
+      nationality: 'Nationality',
+      portraitBox: 'PortraitBox',
+      sex: 'Sex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressFifthLine: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFifthLine,
+      addressFirstLine: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFirstLine,
+      addressFourthLine: RecognizeMalaysiaIdentityCardResponseBodyDataAddressFourthLine,
+      addressSecondLine: RecognizeMalaysiaIdentityCardResponseBodyDataAddressSecondLine,
+      addressThirdLine: RecognizeMalaysiaIdentityCardResponseBodyDataAddressThirdLine,
+      cardBox: RecognizeMalaysiaIdentityCardResponseBodyDataCardBox,
+      driveClass: RecognizeMalaysiaIdentityCardResponseBodyDataDriveClass,
+      expiryDate: RecognizeMalaysiaIdentityCardResponseBodyDataExpiryDate,
+      idNumber: RecognizeMalaysiaIdentityCardResponseBodyDataIdNumber,
+      issueDate: RecognizeMalaysiaIdentityCardResponseBodyDataIssueDate,
+      nameFirstLine: RecognizeMalaysiaIdentityCardResponseBodyDataNameFirstLine,
+      nameSecondLine: RecognizeMalaysiaIdentityCardResponseBodyDataNameSecondLine,
+      nationality: RecognizeMalaysiaIdentityCardResponseBodyDataNationality,
+      portraitBox: RecognizeMalaysiaIdentityCardResponseBodyDataPortraitBox,
+      sex: RecognizeMalaysiaIdentityCardResponseBodyDataSex,
     };
   }
 
@@ -4176,6 +6579,622 @@ export class RecognizeQuotaInvoiceResponseBodyData extends $tea.Model {
       orgHeight: 'number',
       orgWidth: 'number',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthDate extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataBirthDateKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataBirthDateKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceFirstLine extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceFirstLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceFirstLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceSecondLine extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceSecondLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceSecondLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceThirdLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceThirdLine extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceThirdLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceThirdLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataCardBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataCardBox extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataCardBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataCardBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataGivenNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataGivenName extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataGivenNameKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataGivenNameKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataIdNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataIdNumber extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataIdNumberKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataIdNumberKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataPaternalNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataPaternalName extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataPaternalNameKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataPaternalNameKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataPortraitBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataPortraitBox extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataPortraitBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataPortraitBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataSexKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataSex extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataSexKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataSexKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataSurnameFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataSurnameFirstLine extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataSurnameFirstLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataSurnameFirstLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataSurnameSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyDataSurnameSecondLine extends $tea.Model {
+  keyPoints?: RecognizeRussiaIdentityCardResponseBodyDataSurnameSecondLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeRussiaIdentityCardResponseBodyDataSurnameSecondLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRussiaIdentityCardResponseBodyData extends $tea.Model {
+  birthDate?: RecognizeRussiaIdentityCardResponseBodyDataBirthDate;
+  birthPlaceFirstLine?: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceFirstLine;
+  birthPlaceSecondLine?: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceSecondLine;
+  birthPlaceThirdLine?: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceThirdLine;
+  cardBox?: RecognizeRussiaIdentityCardResponseBodyDataCardBox;
+  givenName?: RecognizeRussiaIdentityCardResponseBodyDataGivenName;
+  idNumber?: RecognizeRussiaIdentityCardResponseBodyDataIdNumber;
+  paternalName?: RecognizeRussiaIdentityCardResponseBodyDataPaternalName;
+  portraitBox?: RecognizeRussiaIdentityCardResponseBodyDataPortraitBox;
+  sex?: RecognizeRussiaIdentityCardResponseBodyDataSex;
+  surnameFirstLine?: RecognizeRussiaIdentityCardResponseBodyDataSurnameFirstLine;
+  surnameSecondLine?: RecognizeRussiaIdentityCardResponseBodyDataSurnameSecondLine;
+  static names(): { [key: string]: string } {
+    return {
+      birthDate: 'BirthDate',
+      birthPlaceFirstLine: 'BirthPlaceFirstLine',
+      birthPlaceSecondLine: 'BirthPlaceSecondLine',
+      birthPlaceThirdLine: 'BirthPlaceThirdLine',
+      cardBox: 'CardBox',
+      givenName: 'GivenName',
+      idNumber: 'IdNumber',
+      paternalName: 'PaternalName',
+      portraitBox: 'PortraitBox',
+      sex: 'Sex',
+      surnameFirstLine: 'SurnameFirstLine',
+      surnameSecondLine: 'SurnameSecondLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      birthDate: RecognizeRussiaIdentityCardResponseBodyDataBirthDate,
+      birthPlaceFirstLine: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceFirstLine,
+      birthPlaceSecondLine: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceSecondLine,
+      birthPlaceThirdLine: RecognizeRussiaIdentityCardResponseBodyDataBirthPlaceThirdLine,
+      cardBox: RecognizeRussiaIdentityCardResponseBodyDataCardBox,
+      givenName: RecognizeRussiaIdentityCardResponseBodyDataGivenName,
+      idNumber: RecognizeRussiaIdentityCardResponseBodyDataIdNumber,
+      paternalName: RecognizeRussiaIdentityCardResponseBodyDataPaternalName,
+      portraitBox: RecognizeRussiaIdentityCardResponseBodyDataPortraitBox,
+      sex: RecognizeRussiaIdentityCardResponseBodyDataSex,
+      surnameFirstLine: RecognizeRussiaIdentityCardResponseBodyDataSurnameFirstLine,
+      surnameSecondLine: RecognizeRussiaIdentityCardResponseBodyDataSurnameSecondLine,
     };
   }
 
@@ -4825,6 +7844,2222 @@ export class RecognizeTrainTicketResponseBodyData extends $tea.Model {
       number: 'string',
       price: 'number',
       seat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataAuxiliaryToolsKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataAuxiliaryTools extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataAuxiliaryToolsKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataAuxiliaryToolsKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataBirthDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataBirthDate extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataBirthDateKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataBirthDateKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataBirthPlaceKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataBirthPlace extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataBirthPlaceKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataBirthPlaceKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataBloodTypeKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataBloodType extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataBloodTypeKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataBloodTypeKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataCardBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataCardBox extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataCardBoxKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataCardBoxKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataCiltKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataCilt extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataCiltKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataCiltKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDocumentNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDocumentNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataDocumentNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataDocumentNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDriveClassKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDriveClass extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataDriveClassKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataDriveClassKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDueDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDueDate extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataDueDateKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataDueDateKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDuzenleyenKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataDuzenleyen extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataDuzenleyenKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataDuzenleyenKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataEntryNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataEntryNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataEntryNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataEntryNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataExpiryDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataExpiryDate extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataExpiryDateKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataExpiryDateKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataFatherNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataFatherName extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataFatherNameKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataFatherNameKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataForeignersIdKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataForeignersId extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataForeignersIdKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataForeignersIdKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataGenderKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataGender extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataGenderKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataGenderKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataGivenNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataGivenName extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataGivenNameKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataGivenNameKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIdNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIdNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataIdNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataIdNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssueByKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssueBy extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataIssueByKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataIssueByKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssueCountyKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssueCounty extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataIssueCountyKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataIssueCountyKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssueDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssueDate extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataIssueDateKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataIssueDateKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssuePlaceKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataIssuePlace extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataIssuePlaceKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataIssuePlaceKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataKutukKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataKutuk extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataKutukKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataKutukKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataLicenseNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataLicenseNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataLicenseNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataLicenseNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataMaritalStatusKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataMaritalStatus extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataMaritalStatusKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataMaritalStatusKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataMotherNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataMotherName extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataMotherNameKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataMotherNameKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataName extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataNameKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataNameKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataNationalityKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataNationality extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataNationalityKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataNationalityKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataNeighborhoodVillageKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataNeighborhoodVillage extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataNeighborhoodVillageKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataNeighborhoodVillageKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataPageNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataPageNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataPageNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataPageNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataPassportNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataPassportNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataPassportNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataPassportNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataPortraitBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataPortraitBox extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataPortraitBoxKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataPortraitBoxKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataProvinceKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataProvince extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataProvinceKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataProvinceKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataProvinceOfResidenceKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataProvinceOfResidence extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataProvinceOfResidenceKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataProvinceOfResidenceKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataReasonOfIssueKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataReasonOfIssue extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataReasonOfIssueKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataReasonOfIssueKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataRegisterNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataRegisterNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataRegisterNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataRegisterNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataReligionKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataReligion extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataReligionKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataReligionKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSayfaKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSayfa extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataSayfaKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataSayfaKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSeriKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSeri extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataSeriKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataSeriKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSexKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSex extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataSexKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataSexKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSurnameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataSurname extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataSurnameKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataSurnameKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataTypeOfResidencePermitKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataTypeOfResidencePermit extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataTypeOfResidencePermitKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataTypeOfResidencePermitKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataValidUntilKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataValidUntil extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataValidUntilKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataValidUntilKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataVillageKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataVillage extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataVillageKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataVillageKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataVolumeNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyDataVolumeNumber extends $tea.Model {
+  keyPoints?: RecognizeTurkeyIdentityCardResponseBodyDataVolumeNumberKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeTurkeyIdentityCardResponseBodyDataVolumeNumberKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTurkeyIdentityCardResponseBodyData extends $tea.Model {
+  auxiliaryTools?: RecognizeTurkeyIdentityCardResponseBodyDataAuxiliaryTools;
+  birthDate?: RecognizeTurkeyIdentityCardResponseBodyDataBirthDate;
+  birthPlace?: RecognizeTurkeyIdentityCardResponseBodyDataBirthPlace;
+  bloodType?: RecognizeTurkeyIdentityCardResponseBodyDataBloodType;
+  cardBox?: RecognizeTurkeyIdentityCardResponseBodyDataCardBox;
+  cilt?: RecognizeTurkeyIdentityCardResponseBodyDataCilt;
+  documentNumber?: RecognizeTurkeyIdentityCardResponseBodyDataDocumentNumber;
+  driveClass?: RecognizeTurkeyIdentityCardResponseBodyDataDriveClass;
+  dueDate?: RecognizeTurkeyIdentityCardResponseBodyDataDueDate;
+  duzenleyen?: RecognizeTurkeyIdentityCardResponseBodyDataDuzenleyen;
+  entryNumber?: RecognizeTurkeyIdentityCardResponseBodyDataEntryNumber;
+  expiryDate?: RecognizeTurkeyIdentityCardResponseBodyDataExpiryDate;
+  fatherName?: RecognizeTurkeyIdentityCardResponseBodyDataFatherName;
+  foreignersId?: RecognizeTurkeyIdentityCardResponseBodyDataForeignersId;
+  gender?: RecognizeTurkeyIdentityCardResponseBodyDataGender;
+  givenName?: RecognizeTurkeyIdentityCardResponseBodyDataGivenName;
+  idNumber?: RecognizeTurkeyIdentityCardResponseBodyDataIdNumber;
+  issueBy?: RecognizeTurkeyIdentityCardResponseBodyDataIssueBy;
+  issueCounty?: RecognizeTurkeyIdentityCardResponseBodyDataIssueCounty;
+  issueDate?: RecognizeTurkeyIdentityCardResponseBodyDataIssueDate;
+  issuePlace?: RecognizeTurkeyIdentityCardResponseBodyDataIssuePlace;
+  kutuk?: RecognizeTurkeyIdentityCardResponseBodyDataKutuk;
+  licenseNumber?: RecognizeTurkeyIdentityCardResponseBodyDataLicenseNumber;
+  maritalStatus?: RecognizeTurkeyIdentityCardResponseBodyDataMaritalStatus;
+  motherName?: RecognizeTurkeyIdentityCardResponseBodyDataMotherName;
+  name?: RecognizeTurkeyIdentityCardResponseBodyDataName;
+  nationality?: RecognizeTurkeyIdentityCardResponseBodyDataNationality;
+  neighborhoodVillage?: RecognizeTurkeyIdentityCardResponseBodyDataNeighborhoodVillage;
+  pageNumber?: RecognizeTurkeyIdentityCardResponseBodyDataPageNumber;
+  passportNumber?: RecognizeTurkeyIdentityCardResponseBodyDataPassportNumber;
+  portraitBox?: RecognizeTurkeyIdentityCardResponseBodyDataPortraitBox;
+  province?: RecognizeTurkeyIdentityCardResponseBodyDataProvince;
+  provinceOfResidence?: RecognizeTurkeyIdentityCardResponseBodyDataProvinceOfResidence;
+  reasonOfIssue?: RecognizeTurkeyIdentityCardResponseBodyDataReasonOfIssue;
+  registerNumber?: RecognizeTurkeyIdentityCardResponseBodyDataRegisterNumber;
+  religion?: RecognizeTurkeyIdentityCardResponseBodyDataReligion;
+  sayfa?: RecognizeTurkeyIdentityCardResponseBodyDataSayfa;
+  seri?: RecognizeTurkeyIdentityCardResponseBodyDataSeri;
+  sex?: RecognizeTurkeyIdentityCardResponseBodyDataSex;
+  surname?: RecognizeTurkeyIdentityCardResponseBodyDataSurname;
+  typeOfResidencePermit?: RecognizeTurkeyIdentityCardResponseBodyDataTypeOfResidencePermit;
+  validUntil?: RecognizeTurkeyIdentityCardResponseBodyDataValidUntil;
+  village?: RecognizeTurkeyIdentityCardResponseBodyDataVillage;
+  volumeNumber?: RecognizeTurkeyIdentityCardResponseBodyDataVolumeNumber;
+  static names(): { [key: string]: string } {
+    return {
+      auxiliaryTools: 'AuxiliaryTools',
+      birthDate: 'BirthDate',
+      birthPlace: 'BirthPlace',
+      bloodType: 'BloodType',
+      cardBox: 'CardBox',
+      cilt: 'Cilt',
+      documentNumber: 'DocumentNumber',
+      driveClass: 'DriveClass',
+      dueDate: 'DueDate',
+      duzenleyen: 'Duzenleyen',
+      entryNumber: 'EntryNumber',
+      expiryDate: 'ExpiryDate',
+      fatherName: 'FatherName',
+      foreignersId: 'ForeignersId',
+      gender: 'Gender',
+      givenName: 'GivenName',
+      idNumber: 'IdNumber',
+      issueBy: 'IssueBy',
+      issueCounty: 'IssueCounty',
+      issueDate: 'IssueDate',
+      issuePlace: 'IssuePlace',
+      kutuk: 'Kutuk',
+      licenseNumber: 'LicenseNumber',
+      maritalStatus: 'MaritalStatus',
+      motherName: 'MotherName',
+      name: 'Name',
+      nationality: 'Nationality',
+      neighborhoodVillage: 'NeighborhoodVillage',
+      pageNumber: 'PageNumber',
+      passportNumber: 'PassportNumber',
+      portraitBox: 'PortraitBox',
+      province: 'Province',
+      provinceOfResidence: 'ProvinceOfResidence',
+      reasonOfIssue: 'ReasonOfIssue',
+      registerNumber: 'RegisterNumber',
+      religion: 'Religion',
+      sayfa: 'Sayfa',
+      seri: 'Seri',
+      sex: 'Sex',
+      surname: 'Surname',
+      typeOfResidencePermit: 'TypeOfResidencePermit',
+      validUntil: 'ValidUntil',
+      village: 'Village',
+      volumeNumber: 'VolumeNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auxiliaryTools: RecognizeTurkeyIdentityCardResponseBodyDataAuxiliaryTools,
+      birthDate: RecognizeTurkeyIdentityCardResponseBodyDataBirthDate,
+      birthPlace: RecognizeTurkeyIdentityCardResponseBodyDataBirthPlace,
+      bloodType: RecognizeTurkeyIdentityCardResponseBodyDataBloodType,
+      cardBox: RecognizeTurkeyIdentityCardResponseBodyDataCardBox,
+      cilt: RecognizeTurkeyIdentityCardResponseBodyDataCilt,
+      documentNumber: RecognizeTurkeyIdentityCardResponseBodyDataDocumentNumber,
+      driveClass: RecognizeTurkeyIdentityCardResponseBodyDataDriveClass,
+      dueDate: RecognizeTurkeyIdentityCardResponseBodyDataDueDate,
+      duzenleyen: RecognizeTurkeyIdentityCardResponseBodyDataDuzenleyen,
+      entryNumber: RecognizeTurkeyIdentityCardResponseBodyDataEntryNumber,
+      expiryDate: RecognizeTurkeyIdentityCardResponseBodyDataExpiryDate,
+      fatherName: RecognizeTurkeyIdentityCardResponseBodyDataFatherName,
+      foreignersId: RecognizeTurkeyIdentityCardResponseBodyDataForeignersId,
+      gender: RecognizeTurkeyIdentityCardResponseBodyDataGender,
+      givenName: RecognizeTurkeyIdentityCardResponseBodyDataGivenName,
+      idNumber: RecognizeTurkeyIdentityCardResponseBodyDataIdNumber,
+      issueBy: RecognizeTurkeyIdentityCardResponseBodyDataIssueBy,
+      issueCounty: RecognizeTurkeyIdentityCardResponseBodyDataIssueCounty,
+      issueDate: RecognizeTurkeyIdentityCardResponseBodyDataIssueDate,
+      issuePlace: RecognizeTurkeyIdentityCardResponseBodyDataIssuePlace,
+      kutuk: RecognizeTurkeyIdentityCardResponseBodyDataKutuk,
+      licenseNumber: RecognizeTurkeyIdentityCardResponseBodyDataLicenseNumber,
+      maritalStatus: RecognizeTurkeyIdentityCardResponseBodyDataMaritalStatus,
+      motherName: RecognizeTurkeyIdentityCardResponseBodyDataMotherName,
+      name: RecognizeTurkeyIdentityCardResponseBodyDataName,
+      nationality: RecognizeTurkeyIdentityCardResponseBodyDataNationality,
+      neighborhoodVillage: RecognizeTurkeyIdentityCardResponseBodyDataNeighborhoodVillage,
+      pageNumber: RecognizeTurkeyIdentityCardResponseBodyDataPageNumber,
+      passportNumber: RecognizeTurkeyIdentityCardResponseBodyDataPassportNumber,
+      portraitBox: RecognizeTurkeyIdentityCardResponseBodyDataPortraitBox,
+      province: RecognizeTurkeyIdentityCardResponseBodyDataProvince,
+      provinceOfResidence: RecognizeTurkeyIdentityCardResponseBodyDataProvinceOfResidence,
+      reasonOfIssue: RecognizeTurkeyIdentityCardResponseBodyDataReasonOfIssue,
+      registerNumber: RecognizeTurkeyIdentityCardResponseBodyDataRegisterNumber,
+      religion: RecognizeTurkeyIdentityCardResponseBodyDataReligion,
+      sayfa: RecognizeTurkeyIdentityCardResponseBodyDataSayfa,
+      seri: RecognizeTurkeyIdentityCardResponseBodyDataSeri,
+      sex: RecognizeTurkeyIdentityCardResponseBodyDataSex,
+      surname: RecognizeTurkeyIdentityCardResponseBodyDataSurname,
+      typeOfResidencePermit: RecognizeTurkeyIdentityCardResponseBodyDataTypeOfResidencePermit,
+      validUntil: RecognizeTurkeyIdentityCardResponseBodyDataValidUntil,
+      village: RecognizeTurkeyIdentityCardResponseBodyDataVillage,
+      volumeNumber: RecognizeTurkeyIdentityCardResponseBodyDataVolumeNumber,
     };
   }
 
@@ -6104,6 +11339,772 @@ export class RecognizeVideoCharacterResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeVietnamIdentityCardResponseBodyDataAddressFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataAddressFirstLine extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataAddressFirstLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataAddressFirstLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataAddressSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataAddressSecondLine extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataAddressSecondLineKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataAddressSecondLineKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataBirthDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataBirthDate extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataBirthDateKeyPoints[];
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataBirthDateKeyPoints },
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataCardBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataCardBox extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataCardBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataCardBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataDriveClassKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataDriveClass extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataDriveClassKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataDriveClassKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataExpiryDateKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataExpiryDate extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataExpiryDateKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataExpiryDateKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataFullNameKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataFullName extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataFullNameKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataFullNameKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataIdNumberKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataIdNumber extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataIdNumberKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataIdNumberKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataNationalityKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataNationality extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataNationalityKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataNationalityKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceFirstLine extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceFirstLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceFirstLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceSecondLine extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceSecondLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceSecondLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataPortraitBoxKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataPortraitBox extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataPortraitBoxKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataPortraitBoxKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceFirstLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceFirstLine extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceFirstLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceFirstLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceSecondLineKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceSecondLine extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceSecondLineKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceSecondLineKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataSexKeyPoints extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyDataSex extends $tea.Model {
+  keyPoints?: RecognizeVietnamIdentityCardResponseBodyDataSexKeyPoints[];
+  score?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RecognizeVietnamIdentityCardResponseBodyDataSexKeyPoints },
+      score: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVietnamIdentityCardResponseBodyData extends $tea.Model {
+  addressFirstLine?: RecognizeVietnamIdentityCardResponseBodyDataAddressFirstLine;
+  addressSecondLine?: RecognizeVietnamIdentityCardResponseBodyDataAddressSecondLine;
+  birthDate?: RecognizeVietnamIdentityCardResponseBodyDataBirthDate;
+  cardBox?: RecognizeVietnamIdentityCardResponseBodyDataCardBox;
+  driveClass?: RecognizeVietnamIdentityCardResponseBodyDataDriveClass;
+  expiryDate?: RecognizeVietnamIdentityCardResponseBodyDataExpiryDate;
+  fullName?: RecognizeVietnamIdentityCardResponseBodyDataFullName;
+  idNumber?: RecognizeVietnamIdentityCardResponseBodyDataIdNumber;
+  nationality?: RecognizeVietnamIdentityCardResponseBodyDataNationality;
+  originPlaceFirstLine?: RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceFirstLine;
+  originPlaceSecondLine?: RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceSecondLine;
+  portraitBox?: RecognizeVietnamIdentityCardResponseBodyDataPortraitBox;
+  residencePlaceFirstLine?: RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceFirstLine;
+  residencePlaceSecondLine?: RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceSecondLine;
+  sex?: RecognizeVietnamIdentityCardResponseBodyDataSex;
+  static names(): { [key: string]: string } {
+    return {
+      addressFirstLine: 'AddressFirstLine',
+      addressSecondLine: 'AddressSecondLine',
+      birthDate: 'BirthDate',
+      cardBox: 'CardBox',
+      driveClass: 'DriveClass',
+      expiryDate: 'ExpiryDate',
+      fullName: 'FullName',
+      idNumber: 'IdNumber',
+      nationality: 'Nationality',
+      originPlaceFirstLine: 'OriginPlaceFirstLine',
+      originPlaceSecondLine: 'OriginPlaceSecondLine',
+      portraitBox: 'PortraitBox',
+      residencePlaceFirstLine: 'ResidencePlaceFirstLine',
+      residencePlaceSecondLine: 'ResidencePlaceSecondLine',
+      sex: 'Sex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressFirstLine: RecognizeVietnamIdentityCardResponseBodyDataAddressFirstLine,
+      addressSecondLine: RecognizeVietnamIdentityCardResponseBodyDataAddressSecondLine,
+      birthDate: RecognizeVietnamIdentityCardResponseBodyDataBirthDate,
+      cardBox: RecognizeVietnamIdentityCardResponseBodyDataCardBox,
+      driveClass: RecognizeVietnamIdentityCardResponseBodyDataDriveClass,
+      expiryDate: RecognizeVietnamIdentityCardResponseBodyDataExpiryDate,
+      fullName: RecognizeVietnamIdentityCardResponseBodyDataFullName,
+      idNumber: RecognizeVietnamIdentityCardResponseBodyDataIdNumber,
+      nationality: RecognizeVietnamIdentityCardResponseBodyDataNationality,
+      originPlaceFirstLine: RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceFirstLine,
+      originPlaceSecondLine: RecognizeVietnamIdentityCardResponseBodyDataOriginPlaceSecondLine,
+      portraitBox: RecognizeVietnamIdentityCardResponseBodyDataPortraitBox,
+      residencePlaceFirstLine: RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceFirstLine,
+      residencePlaceSecondLine: RecognizeVietnamIdentityCardResponseBodyDataResidencePlaceSecondLine,
+      sex: RecognizeVietnamIdentityCardResponseBodyDataSex,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrimDocumentResponseBodyData extends $tea.Model {
   content?: string;
   static names(): { [key: string]: string } {
@@ -7225,6 +13226,109 @@ export default class Client extends OpenApi {
     return recognizeIdentityCardResp;
   }
 
+  async recognizeIndonesiaIdentityCardWithOptions(request: RecognizeIndonesiaIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIndonesiaIdentityCardResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeIndonesiaIdentityCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeIndonesiaIdentityCardResponse>(await this.callApi(params, req, runtime), new RecognizeIndonesiaIdentityCardResponse({}));
+  }
+
+  async recognizeIndonesiaIdentityCard(request: RecognizeIndonesiaIdentityCardRequest): Promise<RecognizeIndonesiaIdentityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeIndonesiaIdentityCardWithOptions(request, runtime);
+  }
+
+  async recognizeIndonesiaIdentityCardAdvance(request: RecognizeIndonesiaIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIndonesiaIdentityCardResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeIndonesiaIdentityCardReq = new RecognizeIndonesiaIdentityCardRequest({ });
+    OpenApiUtil.convert(request, recognizeIndonesiaIdentityCardReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeIndonesiaIdentityCardReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeIndonesiaIdentityCardResp = await this.recognizeIndonesiaIdentityCardWithOptions(recognizeIndonesiaIdentityCardReq, runtime);
+    return recognizeIndonesiaIdentityCardResp;
+  }
+
   async recognizeLicensePlateWithOptions(request: RecognizeLicensePlateRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLicensePlateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7326,6 +13430,109 @@ export default class Client extends OpenApi {
 
     let recognizeLicensePlateResp = await this.recognizeLicensePlateWithOptions(recognizeLicensePlateReq, runtime);
     return recognizeLicensePlateResp;
+  }
+
+  async recognizeMalaysiaIdentityCardWithOptions(request: RecognizeMalaysiaIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMalaysiaIdentityCardResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeMalaysiaIdentityCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeMalaysiaIdentityCardResponse>(await this.callApi(params, req, runtime), new RecognizeMalaysiaIdentityCardResponse({}));
+  }
+
+  async recognizeMalaysiaIdentityCard(request: RecognizeMalaysiaIdentityCardRequest): Promise<RecognizeMalaysiaIdentityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeMalaysiaIdentityCardWithOptions(request, runtime);
+  }
+
+  async recognizeMalaysiaIdentityCardAdvance(request: RecognizeMalaysiaIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMalaysiaIdentityCardResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeMalaysiaIdentityCardReq = new RecognizeMalaysiaIdentityCardRequest({ });
+    OpenApiUtil.convert(request, recognizeMalaysiaIdentityCardReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeMalaysiaIdentityCardReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeMalaysiaIdentityCardResp = await this.recognizeMalaysiaIdentityCardWithOptions(recognizeMalaysiaIdentityCardReq, runtime);
+    return recognizeMalaysiaIdentityCardResp;
   }
 
   async recognizePassportMRZWithOptions(request: RecognizePassportMRZRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePassportMRZResponse> {
@@ -7767,6 +13974,109 @@ export default class Client extends OpenApi {
 
     let recognizeQuotaInvoiceResp = await this.recognizeQuotaInvoiceWithOptions(recognizeQuotaInvoiceReq, runtime);
     return recognizeQuotaInvoiceResp;
+  }
+
+  async recognizeRussiaIdentityCardWithOptions(request: RecognizeRussiaIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRussiaIdentityCardResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeRussiaIdentityCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeRussiaIdentityCardResponse>(await this.callApi(params, req, runtime), new RecognizeRussiaIdentityCardResponse({}));
+  }
+
+  async recognizeRussiaIdentityCard(request: RecognizeRussiaIdentityCardRequest): Promise<RecognizeRussiaIdentityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeRussiaIdentityCardWithOptions(request, runtime);
+  }
+
+  async recognizeRussiaIdentityCardAdvance(request: RecognizeRussiaIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRussiaIdentityCardResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeRussiaIdentityCardReq = new RecognizeRussiaIdentityCardRequest({ });
+    OpenApiUtil.convert(request, recognizeRussiaIdentityCardReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeRussiaIdentityCardReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeRussiaIdentityCardResp = await this.recognizeRussiaIdentityCardWithOptions(recognizeRussiaIdentityCardReq, runtime);
+    return recognizeRussiaIdentityCardResp;
   }
 
   async recognizeStampWithOptions(request: RecognizeStampRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStampResponse> {
@@ -8407,6 +14717,109 @@ export default class Client extends OpenApi {
     return recognizeTrainTicketResp;
   }
 
+  async recognizeTurkeyIdentityCardWithOptions(request: RecognizeTurkeyIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTurkeyIdentityCardResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeTurkeyIdentityCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTurkeyIdentityCardResponse>(await this.callApi(params, req, runtime), new RecognizeTurkeyIdentityCardResponse({}));
+  }
+
+  async recognizeTurkeyIdentityCard(request: RecognizeTurkeyIdentityCardRequest): Promise<RecognizeTurkeyIdentityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeTurkeyIdentityCardWithOptions(request, runtime);
+  }
+
+  async recognizeTurkeyIdentityCardAdvance(request: RecognizeTurkeyIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTurkeyIdentityCardResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeTurkeyIdentityCardReq = new RecognizeTurkeyIdentityCardRequest({ });
+    OpenApiUtil.convert(request, recognizeTurkeyIdentityCardReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeTurkeyIdentityCardReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeTurkeyIdentityCardResp = await this.recognizeTurkeyIdentityCardWithOptions(recognizeTurkeyIdentityCardReq, runtime);
+    return recognizeTurkeyIdentityCardResp;
+  }
+
   async recognizeUkraineIdentityCardWithOptions(request: RecognizeUkraineIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeUkraineIdentityCardResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8967,6 +15380,109 @@ export default class Client extends OpenApi {
   async recognizeVideoCharacter(request: RecognizeVideoCharacterRequest): Promise<RecognizeVideoCharacterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeVideoCharacterWithOptions(request, runtime);
+  }
+
+  async recognizeVietnamIdentityCardWithOptions(request: RecognizeVietnamIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVietnamIdentityCardResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeVietnamIdentityCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVietnamIdentityCardResponse>(await this.callApi(params, req, runtime), new RecognizeVietnamIdentityCardResponse({}));
+  }
+
+  async recognizeVietnamIdentityCard(request: RecognizeVietnamIdentityCardRequest): Promise<RecognizeVietnamIdentityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVietnamIdentityCardWithOptions(request, runtime);
+  }
+
+  async recognizeVietnamIdentityCardAdvance(request: RecognizeVietnamIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVietnamIdentityCardResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeVietnamIdentityCardReq = new RecognizeVietnamIdentityCardRequest({ });
+    OpenApiUtil.convert(request, recognizeVietnamIdentityCardReq);
+    if (!Util.isUnset(request.imageUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeVietnamIdentityCardReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeVietnamIdentityCardResp = await this.recognizeVietnamIdentityCardWithOptions(recognizeVietnamIdentityCardReq, runtime);
+    return recognizeVietnamIdentityCardResp;
   }
 
   async trimDocumentWithOptions(request: TrimDocumentRequest, runtime: $Util.RuntimeOptions): Promise<TrimDocumentResponse> {
