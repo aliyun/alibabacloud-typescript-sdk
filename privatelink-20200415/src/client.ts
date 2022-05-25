@@ -60,10 +60,12 @@ export class AddUserToVpcEndpointServiceResponseBody extends $tea.Model {
 
 export class AddUserToVpcEndpointServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddUserToVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -71,6 +73,7 @@ export class AddUserToVpcEndpointServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddUserToVpcEndpointServiceResponseBody,
     };
   }
@@ -138,10 +141,12 @@ export class AddZoneToVpcEndpointResponseBody extends $tea.Model {
 
 export class AddZoneToVpcEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddZoneToVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -149,6 +154,7 @@ export class AddZoneToVpcEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddZoneToVpcEndpointResponseBody,
     };
   }
@@ -213,10 +219,12 @@ export class AttachResourceToVpcEndpointServiceResponseBody extends $tea.Model {
 
 export class AttachResourceToVpcEndpointServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachResourceToVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -224,6 +232,7 @@ export class AttachResourceToVpcEndpointServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachResourceToVpcEndpointServiceResponseBody,
     };
   }
@@ -285,10 +294,12 @@ export class AttachSecurityGroupToVpcEndpointResponseBody extends $tea.Model {
 
 export class AttachSecurityGroupToVpcEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachSecurityGroupToVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -296,6 +307,7 @@ export class AttachSecurityGroupToVpcEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachSecurityGroupToVpcEndpointResponseBody,
     };
   }
@@ -329,10 +341,12 @@ export class CheckProductOpenResponseBody extends $tea.Model {
 
 export class CheckProductOpenResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckProductOpenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -340,6 +354,7 @@ export class CheckProductOpenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckProductOpenResponseBody,
     };
   }
@@ -461,10 +476,12 @@ export class CreateVpcEndpointResponseBody extends $tea.Model {
 
 export class CreateVpcEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -472,6 +489,7 @@ export class CreateVpcEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVpcEndpointResponseBody,
     };
   }
@@ -572,10 +590,12 @@ export class CreateVpcEndpointServiceResponseBody extends $tea.Model {
 
 export class CreateVpcEndpointServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -583,6 +603,7 @@ export class CreateVpcEndpointServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVpcEndpointServiceResponseBody,
     };
   }
@@ -641,10 +662,12 @@ export class DeleteVpcEndpointResponseBody extends $tea.Model {
 
 export class DeleteVpcEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -652,6 +675,7 @@ export class DeleteVpcEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVpcEndpointResponseBody,
     };
   }
@@ -710,10 +734,12 @@ export class DeleteVpcEndpointServiceResponseBody extends $tea.Model {
 
 export class DeleteVpcEndpointServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -721,6 +747,7 @@ export class DeleteVpcEndpointServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVpcEndpointServiceResponseBody,
     };
   }
@@ -773,10 +800,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -784,6 +813,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -836,10 +866,12 @@ export class DescribeZonesResponseBody extends $tea.Model {
 
 export class DescribeZonesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -847,6 +879,7 @@ export class DescribeZonesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeZonesResponseBody,
     };
   }
@@ -911,10 +944,12 @@ export class DetachResourceFromVpcEndpointServiceResponseBody extends $tea.Model
 
 export class DetachResourceFromVpcEndpointServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachResourceFromVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -922,6 +957,7 @@ export class DetachResourceFromVpcEndpointServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachResourceFromVpcEndpointServiceResponseBody,
     };
   }
@@ -983,10 +1019,12 @@ export class DetachSecurityGroupFromVpcEndpointResponseBody extends $tea.Model {
 
 export class DetachSecurityGroupFromVpcEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachSecurityGroupFromVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -994,6 +1032,7 @@ export class DetachSecurityGroupFromVpcEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachSecurityGroupFromVpcEndpointResponseBody,
     };
   }
@@ -1055,10 +1094,12 @@ export class DisableVpcEndpointConnectionResponseBody extends $tea.Model {
 
 export class DisableVpcEndpointConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableVpcEndpointConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1066,6 +1107,7 @@ export class DisableVpcEndpointConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableVpcEndpointConnectionResponseBody,
     };
   }
@@ -1133,10 +1175,12 @@ export class DisableVpcEndpointZoneConnectionResponseBody extends $tea.Model {
 
 export class DisableVpcEndpointZoneConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableVpcEndpointZoneConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1144,6 +1188,7 @@ export class DisableVpcEndpointZoneConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableVpcEndpointZoneConnectionResponseBody,
     };
   }
@@ -1208,10 +1253,12 @@ export class EnableVpcEndpointConnectionResponseBody extends $tea.Model {
 
 export class EnableVpcEndpointConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableVpcEndpointConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1219,6 +1266,7 @@ export class EnableVpcEndpointConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableVpcEndpointConnectionResponseBody,
     };
   }
@@ -1283,10 +1331,12 @@ export class EnableVpcEndpointZoneConnectionResponseBody extends $tea.Model {
 
 export class EnableVpcEndpointZoneConnectionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableVpcEndpointZoneConnectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1294,6 +1344,7 @@ export class EnableVpcEndpointZoneConnectionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableVpcEndpointZoneConnectionResponseBody,
     };
   }
@@ -1400,10 +1451,12 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
 
 export class GetVpcEndpointAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetVpcEndpointAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1411,6 +1464,7 @@ export class GetVpcEndpointAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetVpcEndpointAttributeResponseBody,
     };
   }
@@ -1514,10 +1568,12 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
 
 export class GetVpcEndpointServiceAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetVpcEndpointServiceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1525,6 +1581,7 @@ export class GetVpcEndpointServiceAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetVpcEndpointServiceAttributeResponseBody,
     };
   }
@@ -1582,7 +1639,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
 
 export class ListVpcEndpointConnectionsResponseBody extends $tea.Model {
   connections?: ListVpcEndpointConnectionsResponseBodyConnections[];
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -1597,7 +1654,7 @@ export class ListVpcEndpointConnectionsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       connections: { 'type': 'array', 'itemType': ListVpcEndpointConnectionsResponseBodyConnections },
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
     };
@@ -1610,10 +1667,12 @@ export class ListVpcEndpointConnectionsResponseBody extends $tea.Model {
 
 export class ListVpcEndpointConnectionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointConnectionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1621,6 +1680,7 @@ export class ListVpcEndpointConnectionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointConnectionsResponseBody,
     };
   }
@@ -1659,7 +1719,7 @@ export class ListVpcEndpointSecurityGroupsRequest extends $tea.Model {
 }
 
 export class ListVpcEndpointSecurityGroupsResponseBody extends $tea.Model {
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   securityGroups?: ListVpcEndpointSecurityGroupsResponseBodySecurityGroups[];
@@ -1674,7 +1734,7 @@ export class ListVpcEndpointSecurityGroupsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       securityGroups: { 'type': 'array', 'itemType': ListVpcEndpointSecurityGroupsResponseBodySecurityGroups },
@@ -1688,10 +1748,12 @@ export class ListVpcEndpointSecurityGroupsResponseBody extends $tea.Model {
 
 export class ListVpcEndpointSecurityGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointSecurityGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1699,6 +1761,7 @@ export class ListVpcEndpointSecurityGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointSecurityGroupsResponseBody,
     };
   }
@@ -1737,7 +1800,7 @@ export class ListVpcEndpointServiceResourcesRequest extends $tea.Model {
 }
 
 export class ListVpcEndpointServiceResourcesResponseBody extends $tea.Model {
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   resources?: ListVpcEndpointServiceResourcesResponseBodyResources[];
@@ -1752,7 +1815,7 @@ export class ListVpcEndpointServiceResourcesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': ListVpcEndpointServiceResourcesResponseBodyResources },
@@ -1766,10 +1829,12 @@ export class ListVpcEndpointServiceResourcesResponseBody extends $tea.Model {
 
 export class ListVpcEndpointServiceResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointServiceResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1777,6 +1842,7 @@ export class ListVpcEndpointServiceResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointServiceResourcesResponseBody,
     };
   }
@@ -1818,7 +1884,7 @@ export class ListVpcEndpointServiceUsersRequest extends $tea.Model {
 }
 
 export class ListVpcEndpointServiceUsersResponseBody extends $tea.Model {
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   users?: ListVpcEndpointServiceUsersResponseBodyUsers[];
@@ -1833,7 +1899,7 @@ export class ListVpcEndpointServiceUsersResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       users: { 'type': 'array', 'itemType': ListVpcEndpointServiceUsersResponseBodyUsers },
@@ -1847,10 +1913,12 @@ export class ListVpcEndpointServiceUsersResponseBody extends $tea.Model {
 
 export class ListVpcEndpointServiceUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointServiceUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1858,6 +1926,7 @@ export class ListVpcEndpointServiceUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointServiceUsersResponseBody,
     };
   }
@@ -1914,7 +1983,7 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
 }
 
 export class ListVpcEndpointServicesResponseBody extends $tea.Model {
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   services?: ListVpcEndpointServicesResponseBodyServices[];
@@ -1929,7 +1998,7 @@ export class ListVpcEndpointServicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       services: { 'type': 'array', 'itemType': ListVpcEndpointServicesResponseBodyServices },
@@ -1943,10 +2012,12 @@ export class ListVpcEndpointServicesResponseBody extends $tea.Model {
 
 export class ListVpcEndpointServicesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointServicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1954,6 +2025,7 @@ export class ListVpcEndpointServicesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointServicesResponseBody,
     };
   }
@@ -1998,7 +2070,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $tea.Model {
 }
 
 export class ListVpcEndpointServicesByEndUserResponseBody extends $tea.Model {
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   services?: ListVpcEndpointServicesByEndUserResponseBodyServices[];
@@ -2013,7 +2085,7 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       services: { 'type': 'array', 'itemType': ListVpcEndpointServicesByEndUserResponseBodyServices },
@@ -2027,10 +2099,12 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $tea.Model {
 
 export class ListVpcEndpointServicesByEndUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointServicesByEndUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2038,6 +2112,7 @@ export class ListVpcEndpointServicesByEndUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointServicesByEndUserResponseBody,
     };
   }
@@ -2076,7 +2151,7 @@ export class ListVpcEndpointZonesRequest extends $tea.Model {
 }
 
 export class ListVpcEndpointZonesResponseBody extends $tea.Model {
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   zones?: ListVpcEndpointZonesResponseBodyZones[];
@@ -2091,7 +2166,7 @@ export class ListVpcEndpointZonesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       zones: { 'type': 'array', 'itemType': ListVpcEndpointZonesResponseBodyZones },
@@ -2105,10 +2180,12 @@ export class ListVpcEndpointZonesResponseBody extends $tea.Model {
 
 export class ListVpcEndpointZonesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2116,6 +2193,7 @@ export class ListVpcEndpointZonesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointZonesResponseBody,
     };
   }
@@ -2173,7 +2251,7 @@ export class ListVpcEndpointsRequest extends $tea.Model {
 
 export class ListVpcEndpointsResponseBody extends $tea.Model {
   endpoints?: ListVpcEndpointsResponseBodyEndpoints[];
-  maxResults?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -2188,7 +2266,7 @@ export class ListVpcEndpointsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endpoints: { 'type': 'array', 'itemType': ListVpcEndpointsResponseBodyEndpoints },
-      maxResults: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
     };
@@ -2201,10 +2279,12 @@ export class ListVpcEndpointsResponseBody extends $tea.Model {
 
 export class ListVpcEndpointsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVpcEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2212,6 +2292,7 @@ export class ListVpcEndpointsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVpcEndpointsResponseBody,
     };
   }
@@ -2264,10 +2345,12 @@ export class OpenPrivateLinkServiceResponseBody extends $tea.Model {
 
 export class OpenPrivateLinkServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenPrivateLinkServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2275,6 +2358,7 @@ export class OpenPrivateLinkServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenPrivateLinkServiceResponseBody,
     };
   }
@@ -2336,10 +2420,12 @@ export class RemoveUserFromVpcEndpointServiceResponseBody extends $tea.Model {
 
 export class RemoveUserFromVpcEndpointServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveUserFromVpcEndpointServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2347,6 +2433,7 @@ export class RemoveUserFromVpcEndpointServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveUserFromVpcEndpointServiceResponseBody,
     };
   }
@@ -2408,10 +2495,12 @@ export class RemoveZoneFromVpcEndpointResponseBody extends $tea.Model {
 
 export class RemoveZoneFromVpcEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveZoneFromVpcEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2419,6 +2508,7 @@ export class RemoveZoneFromVpcEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveZoneFromVpcEndpointResponseBody,
     };
   }
@@ -2483,10 +2573,12 @@ export class UpdateVpcEndpointAttributeResponseBody extends $tea.Model {
 
 export class UpdateVpcEndpointAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateVpcEndpointAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2494,6 +2586,7 @@ export class UpdateVpcEndpointAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateVpcEndpointAttributeResponseBody,
     };
   }
@@ -2558,10 +2651,12 @@ export class UpdateVpcEndpointConnectionAttributeResponseBody extends $tea.Model
 
 export class UpdateVpcEndpointConnectionAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateVpcEndpointConnectionAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2569,6 +2664,7 @@ export class UpdateVpcEndpointConnectionAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateVpcEndpointConnectionAttributeResponseBody,
     };
   }
@@ -2639,10 +2735,12 @@ export class UpdateVpcEndpointServiceAttributeResponseBody extends $tea.Model {
 
 export class UpdateVpcEndpointServiceAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateVpcEndpointServiceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2650,6 +2748,7 @@ export class UpdateVpcEndpointServiceAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateVpcEndpointServiceAttributeResponseBody,
     };
   }
@@ -2714,10 +2813,12 @@ export class UpdateVpcEndpointServiceResourceAttributeResponseBody extends $tea.
 
 export class UpdateVpcEndpointServiceResourceAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateVpcEndpointServiceResourceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2725,6 +2826,7 @@ export class UpdateVpcEndpointServiceResourceAttributeResponse extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateVpcEndpointServiceResourceAttributeResponseBody,
     };
   }
@@ -2801,10 +2903,12 @@ export class UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody extend
 
 export class UpdateVpcEndpointZoneConnectionResourceAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2812,6 +2916,7 @@ export class UpdateVpcEndpointZoneConnectionResourceAttributeResponse extends $t
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody,
     };
   }
