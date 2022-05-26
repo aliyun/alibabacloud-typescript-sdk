@@ -4711,6 +4711,65 @@ export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
   }
 }
 
+export class ListWorkitemTimeResponseBody extends $tea.Model {
+  code?: number;
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  workitemTime?: ListWorkitemTimeResponseBodyWorkitemTime[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      workitemTime: 'workitemTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      workitemTime: { 'type': 'array', 'itemType': ListWorkitemTimeResponseBodyWorkitemTime },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemTimeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListWorkitemTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkitemTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkitemsRequest extends $tea.Model {
   category?: string;
   conditions?: string;
@@ -9858,6 +9917,52 @@ export class ListWorkItemWorkFlowStatusResponseBodyStatuses extends $tea.Model {
   }
 }
 
+export class ListWorkitemTimeResponseBodyWorkitemTime extends $tea.Model {
+  actualTime?: number;
+  description?: string;
+  gmtCreate?: number;
+  gmtEnd?: number;
+  gmtModified?: number;
+  gmtStart?: number;
+  identifier?: string;
+  recordUser?: string;
+  type?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actualTime: 'actualTime',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      gmtEnd: 'gmtEnd',
+      gmtModified: 'gmtModified',
+      gmtStart: 'gmtStart',
+      identifier: 'identifier',
+      recordUser: 'recordUser',
+      type: 'type',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actualTime: 'number',
+      description: 'string',
+      gmtCreate: 'number',
+      gmtEnd: 'number',
+      gmtModified: 'number',
+      gmtStart: 'number',
+      identifier: 'string',
+      recordUser: 'string',
+      type: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkitemsResponseBodyWorkitems extends $tea.Model {
   assignedTo?: string;
   categoryIdentifier?: string;
@@ -12661,6 +12766,32 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListWorkItemWorkFlowStatusResponse>(await this.callApi(params, req, runtime), new ListWorkItemWorkFlowStatusResponse({}));
+  }
+
+  async listWorkitemTime(organizationId: string, workitemId: string): Promise<ListWorkitemTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkitemTimeWithOptions(organizationId, workitemId, headers, runtime);
+  }
+
+  async listWorkitemTimeWithOptions(organizationId: string, workitemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemTimeResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    workitemId = OpenApiUtil.getEncodeParam(workitemId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkitemTime",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/workitems/${workitemId}/time/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkitemTimeResponse>(await this.callApi(params, req, runtime), new ListWorkitemTimeResponse({}));
   }
 
   async listWorkitems(organizationId: string, request: ListWorkitemsRequest): Promise<ListWorkitemsResponse> {
