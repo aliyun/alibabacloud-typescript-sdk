@@ -57,10 +57,12 @@ export class AddDiskReplicaPairResponseBody extends $tea.Model {
 
 export class AddDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -68,6 +70,7 @@ export class AddDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDiskReplicaPairResponseBody,
     };
   }
@@ -141,10 +144,12 @@ export class CreateDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class CreateDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -152,6 +157,7 @@ export class CreateDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDiskReplicaGroupResponseBody,
     };
   }
@@ -246,10 +252,12 @@ export class CreateDiskReplicaPairResponseBody extends $tea.Model {
 
 export class CreateDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -257,6 +265,7 @@ export class CreateDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDiskReplicaPairResponseBody,
     };
   }
@@ -312,10 +321,12 @@ export class DeleteDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class DeleteDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -323,6 +334,7 @@ export class DeleteDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDiskReplicaGroupResponseBody,
     };
   }
@@ -378,10 +390,12 @@ export class DeleteDiskReplicaPairResponseBody extends $tea.Model {
 
 export class DeleteDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -389,6 +403,7 @@ export class DeleteDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDiskReplicaPairResponseBody,
     };
   }
@@ -456,10 +471,12 @@ export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
 
 export class DescribeDiskReplicaGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDiskReplicaGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -467,76 +484,8 @@ export class DescribeDiskReplicaGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDiskReplicaGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairProgressRequest extends $tea.Model {
-  regionId?: string;
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairProgressResponseBody extends $tea.Model {
-  progress?: number;
-  recoverPoint?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      progress: 'Progress',
-      recoverPoint: 'RecoverPoint',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      progress: 'number',
-      recoverPoint: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairProgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDiskReplicaPairProgressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDiskReplicaPairProgressResponseBody,
     };
   }
 
@@ -606,10 +555,12 @@ export class DescribeDiskReplicaPairsResponseBody extends $tea.Model {
 
 export class DescribeDiskReplicaPairsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDiskReplicaPairsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -617,6 +568,7 @@ export class DescribeDiskReplicaPairsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDiskReplicaPairsResponseBody,
     };
   }
@@ -675,10 +627,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -686,6 +640,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -741,10 +696,12 @@ export class FailoverDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class FailoverDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: FailoverDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -752,6 +709,7 @@ export class FailoverDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: FailoverDiskReplicaGroupResponseBody,
     };
   }
@@ -807,10 +765,12 @@ export class FailoverDiskReplicaPairResponseBody extends $tea.Model {
 
 export class FailoverDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: FailoverDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -818,6 +778,7 @@ export class FailoverDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: FailoverDiskReplicaPairResponseBody,
     };
   }
@@ -882,10 +843,12 @@ export class ModifyDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class ModifyDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -893,6 +856,7 @@ export class ModifyDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDiskReplicaGroupResponseBody,
     };
   }
@@ -960,10 +924,12 @@ export class ModifyDiskReplicaPairResponseBody extends $tea.Model {
 
 export class ModifyDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -971,6 +937,7 @@ export class ModifyDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDiskReplicaPairResponseBody,
     };
   }
@@ -1029,10 +996,12 @@ export class RemoveDiskReplicaPairResponseBody extends $tea.Model {
 
 export class RemoveDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1040,6 +1009,7 @@ export class RemoveDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveDiskReplicaPairResponseBody,
     };
   }
@@ -1101,10 +1071,12 @@ export class ReprotectDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class ReprotectDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReprotectDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1112,6 +1084,7 @@ export class ReprotectDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReprotectDiskReplicaGroupResponseBody,
     };
   }
@@ -1167,10 +1140,12 @@ export class ReprotectDiskReplicaPairResponseBody extends $tea.Model {
 
 export class ReprotectDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReprotectDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1178,6 +1153,7 @@ export class ReprotectDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReprotectDiskReplicaPairResponseBody,
     };
   }
@@ -1236,10 +1212,12 @@ export class StartDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class StartDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1247,6 +1225,7 @@ export class StartDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartDiskReplicaGroupResponseBody,
     };
   }
@@ -1305,10 +1284,12 @@ export class StartDiskReplicaPairResponseBody extends $tea.Model {
 
 export class StartDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1316,6 +1297,7 @@ export class StartDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartDiskReplicaPairResponseBody,
     };
   }
@@ -1371,10 +1353,12 @@ export class StopDiskReplicaGroupResponseBody extends $tea.Model {
 
 export class StopDiskReplicaGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopDiskReplicaGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1382,6 +1366,7 @@ export class StopDiskReplicaGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopDiskReplicaGroupResponseBody,
     };
   }
@@ -1437,10 +1422,12 @@ export class StopDiskReplicaPairResponseBody extends $tea.Model {
 
 export class StopDiskReplicaPairResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopDiskReplicaPairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1448,6 +1435,7 @@ export class StopDiskReplicaPairResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopDiskReplicaPairResponseBody,
     };
   }
@@ -1520,6 +1508,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
   destinationDiskId?: string;
   destinationRegion?: string;
   destinationZoneId?: string;
+  expiredTime?: number;
   lastRecoverPoint?: number;
   pairName?: string;
   primaryRegion?: string;
@@ -1545,6 +1534,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       destinationDiskId: 'DestinationDiskId',
       destinationRegion: 'DestinationRegion',
       destinationZoneId: 'DestinationZoneId',
+      expiredTime: 'ExpiredTime',
       lastRecoverPoint: 'LastRecoverPoint',
       pairName: 'PairName',
       primaryRegion: 'PrimaryRegion',
@@ -1573,6 +1563,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
       destinationDiskId: 'string',
       destinationRegion: 'string',
       destinationZoneId: 'string',
+      expiredTime: 'number',
       lastRecoverPoint: 'number',
       pairName: 'string',
       primaryRegion: 'string',
@@ -1966,39 +1957,6 @@ export default class Client extends OpenApi {
   async describeDiskReplicaGroups(request: DescribeDiskReplicaGroupsRequest): Promise<DescribeDiskReplicaGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiskReplicaGroupsWithOptions(request, runtime);
-  }
-
-  async describeDiskReplicaPairProgressWithOptions(request: DescribeDiskReplicaPairProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairProgressResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.replicaPairId)) {
-      query["ReplicaPairId"] = request.replicaPairId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDiskReplicaPairProgress",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDiskReplicaPairProgressResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairProgressResponse({}));
-  }
-
-  async describeDiskReplicaPairProgress(request: DescribeDiskReplicaPairProgressRequest): Promise<DescribeDiskReplicaPairProgressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDiskReplicaPairProgressWithOptions(request, runtime);
   }
 
   async describeDiskReplicaPairsWithOptions(request: DescribeDiskReplicaPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairsResponse> {
