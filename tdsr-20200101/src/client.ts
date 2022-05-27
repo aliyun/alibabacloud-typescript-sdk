@@ -746,6 +746,7 @@ export class DetailSceneRequest extends $tea.Model {
 
 export class DetailSceneResponseBody extends $tea.Model {
   code?: number;
+  coverUrl?: string;
   gmtCreate?: number;
   gmtModified?: number;
   id?: string;
@@ -761,6 +762,7 @@ export class DetailSceneResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      coverUrl: 'CoverUrl',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
@@ -779,6 +781,7 @@ export class DetailSceneResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      coverUrl: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
       id: 'string',
@@ -5642,6 +5645,7 @@ export class ListProjectResponseBodyList extends $tea.Model {
 }
 
 export class ListSceneResponseBodyList extends $tea.Model {
+  coverUrl?: string;
   gmtCreate?: number;
   gmtModified?: number;
   id?: string;
@@ -5653,6 +5657,7 @@ export class ListSceneResponseBodyList extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      coverUrl: 'CoverUrl',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
@@ -5667,6 +5672,7 @@ export class ListSceneResponseBodyList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      coverUrl: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
       id: 'string',
