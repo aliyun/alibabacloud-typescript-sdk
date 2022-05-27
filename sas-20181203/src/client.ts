@@ -1223,6 +1223,126 @@ export class DeleteVpcHoneyPotResponse extends $tea.Model {
   }
 }
 
+export class DescribeAccessKeyLeakDetailRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessKeyLeakDetailResponseBody extends $tea.Model {
+  accesskeyId?: string;
+  asset?: string;
+  code?: string;
+  dealTime?: string;
+  dealType?: string;
+  githubFileName?: string;
+  githubFileType?: string;
+  githubFileUpdateTime?: string;
+  githubFileUrl?: string;
+  githubRepoName?: string;
+  githubRepoUrl?: string;
+  githubUser?: string;
+  githubUserPicUrl?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  remark?: string;
+  requestId?: string;
+  source?: string;
+  type?: string;
+  whitelistStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accesskeyId: 'AccesskeyId',
+      asset: 'Asset',
+      code: 'Code',
+      dealTime: 'DealTime',
+      dealType: 'DealType',
+      githubFileName: 'GithubFileName',
+      githubFileType: 'GithubFileType',
+      githubFileUpdateTime: 'GithubFileUpdateTime',
+      githubFileUrl: 'GithubFileUrl',
+      githubRepoName: 'GithubRepoName',
+      githubRepoUrl: 'GithubRepoUrl',
+      githubUser: 'GithubUser',
+      githubUserPicUrl: 'GithubUserPicUrl',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      source: 'Source',
+      type: 'Type',
+      whitelistStatus: 'WhitelistStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accesskeyId: 'string',
+      asset: 'string',
+      code: 'string',
+      dealTime: 'string',
+      dealType: 'string',
+      githubFileName: 'string',
+      githubFileType: 'string',
+      githubFileUpdateTime: 'string',
+      githubFileUrl: 'string',
+      githubRepoName: 'string',
+      githubRepoUrl: 'string',
+      githubUser: 'string',
+      githubUserPicUrl: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      remark: 'string',
+      requestId: 'string',
+      source: 'string',
+      type: 'string',
+      whitelistStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessKeyLeakDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAccessKeyLeakDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAccessKeyLeakDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccesskeyLeakListRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
@@ -1511,6 +1631,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
   remark?: string;
   sourceIp?: string;
   tacticId?: string;
+  uniqueInfo?: string;
   static names(): { [key: string]: string } {
     return {
       alarmEventName: 'AlarmEventName',
@@ -1527,6 +1648,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       remark: 'Remark',
       sourceIp: 'SourceIp',
       tacticId: 'TacticId',
+      uniqueInfo: 'UniqueInfo',
     };
   }
 
@@ -1546,6 +1668,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       remark: 'string',
       sourceIp: 'string',
       tacticId: 'string',
+      uniqueInfo: 'string',
     };
   }
 
@@ -21389,6 +21512,8 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
 
 export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   aliasName?: string;
+  authVersion?: string;
+  bind?: boolean;
   extendContentJson?: DescribeVulListResponseBodyVulRecordsExtendContentJson;
   firstTs?: number;
   groupId?: number;
@@ -21401,6 +21526,7 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   name?: string;
   necessity?: string;
   online?: boolean;
+  osName?: string;
   osVersion?: string;
   primaryId?: number;
   regionId?: string;
@@ -21415,6 +21541,8 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aliasName: 'AliasName',
+      authVersion: 'AuthVersion',
+      bind: 'Bind',
       extendContentJson: 'ExtendContentJson',
       firstTs: 'FirstTs',
       groupId: 'GroupId',
@@ -21427,6 +21555,7 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       name: 'Name',
       necessity: 'Necessity',
       online: 'Online',
+      osName: 'OsName',
       osVersion: 'OsVersion',
       primaryId: 'PrimaryId',
       regionId: 'RegionId',
@@ -21444,6 +21573,8 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliasName: 'string',
+      authVersion: 'string',
+      bind: 'boolean',
       extendContentJson: DescribeVulListResponseBodyVulRecordsExtendContentJson,
       firstTs: 'number',
       groupId: 'number',
@@ -21456,6 +21587,7 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       name: 'string',
       necessity: 'string',
       online: 'boolean',
+      osName: 'string',
       osVersion: 'string',
       primaryId: 'number',
       regionId: 'string',
@@ -22762,6 +22894,35 @@ export default class Client extends OpenApi {
     return await this.deleteVpcHoneyPotWithOptions(request, runtime);
   }
 
+  async describeAccessKeyLeakDetailWithOptions(request: DescribeAccessKeyLeakDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessKeyLeakDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessKeyLeakDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessKeyLeakDetailResponse>(await this.callApi(params, req, runtime), new DescribeAccessKeyLeakDetailResponse({}));
+  }
+
+  async describeAccessKeyLeakDetail(request: DescribeAccessKeyLeakDetailRequest): Promise<DescribeAccessKeyLeakDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAccessKeyLeakDetailWithOptions(request, runtime);
+  }
+
   async describeAccesskeyLeakListWithOptions(request: DescribeAccesskeyLeakListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccesskeyLeakListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22982,6 +23143,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tacticId)) {
       query["TacticId"] = request.tacticId;
+    }
+
+    if (!Util.isUnset(request.uniqueInfo)) {
+      query["UniqueInfo"] = request.uniqueInfo;
     }
 
     let req = new $OpenApi.OpenApiRequest({
