@@ -6066,6 +6066,72 @@ export class GetDataServiceApiResponse extends $tea.Model {
   }
 }
 
+export class GetDataServiceApiTestRequest extends $tea.Model {
+  testId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      testId: 'TestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      testId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceApiTestResponseBody extends $tea.Model {
+  data?: GetDataServiceApiTestResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetDataServiceApiTestResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataServiceApiTestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDataServiceApiTestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataServiceApiTestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataServiceApplicationRequest extends $tea.Model {
   applicationId?: number;
   projectId?: number;
@@ -6535,6 +6601,84 @@ export class GetDeploymentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDeploymentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDutyRosterRequest extends $tea.Model {
+  beginTime?: number;
+  dutyRosterIdentifier?: string;
+  endTime?: number;
+  userType?: string;
+  watchkeeper?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      dutyRosterIdentifier: 'DutyRosterIdentifier',
+      endTime: 'EndTime',
+      userType: 'UserType',
+      watchkeeper: 'Watchkeeper',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      dutyRosterIdentifier: 'string',
+      endTime: 'number',
+      userType: 'string',
+      watchkeeper: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDutyRosterResponseBody extends $tea.Model {
+  paging?: GetDutyRosterResponseBodyPaging;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paging: 'Paging',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paging: GetDutyRosterResponseBodyPaging,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDutyRosterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDutyRosterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDutyRosterResponseBody,
     };
   }
 
@@ -11604,6 +11748,75 @@ export class ListDataServiceApiAuthoritiesResponse extends $tea.Model {
   }
 }
 
+export class ListDataServiceApiTestRequest extends $tea.Model {
+  apiId?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataServiceApiTestResponseBody extends $tea.Model {
+  data?: ListDataServiceApiTestResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListDataServiceApiTestResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataServiceApiTestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDataServiceApiTestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataServiceApiTestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataServiceApisRequest extends $tea.Model {
   apiNameKeyword?: string;
   apiPathKeyword?: string;
@@ -12310,6 +12523,81 @@ export class ListDeploymentsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDeploymentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDutyRostersRequest extends $tea.Model {
+  dutyRosterName?: string;
+  dutyRosterOwner?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dutyRosterName: 'DutyRosterName',
+      dutyRosterOwner: 'DutyRosterOwner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dutyRosterName: 'string',
+      dutyRosterOwner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDutyRostersResponseBody extends $tea.Model {
+  paging?: ListDutyRostersResponseBodyPaging;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paging: 'Paging',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paging: ListDutyRostersResponseBodyPaging,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDutyRostersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDutyRostersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDutyRostersResponseBody,
     };
   }
 
@@ -17034,6 +17322,87 @@ export class TerminateDISyncInstanceResponse extends $tea.Model {
   }
 }
 
+export class TestDataServiceApiRequest extends $tea.Model {
+  apiId?: number;
+  bodyContent?: string;
+  bodyParams?: TestDataServiceApiRequestBodyParams[];
+  headParams?: TestDataServiceApiRequestHeadParams[];
+  pathParams?: TestDataServiceApiRequestPathParams[];
+  queryParam?: TestDataServiceApiRequestQueryParam[];
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      bodyContent: 'BodyContent',
+      bodyParams: 'BodyParams',
+      headParams: 'HeadParams',
+      pathParams: 'PathParams',
+      queryParam: 'QueryParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      bodyContent: 'string',
+      bodyParams: { 'type': 'array', 'itemType': TestDataServiceApiRequestBodyParams },
+      headParams: { 'type': 'array', 'itemType': TestDataServiceApiRequestHeadParams },
+      pathParams: { 'type': 'array', 'itemType': TestDataServiceApiRequestPathParams },
+      queryParam: { 'type': 'array', 'itemType': TestDataServiceApiRequestQueryParam },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiResponseBody extends $tea.Model {
+  data?: TestDataServiceApiResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: TestDataServiceApiResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TestDataServiceApiResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TestDataServiceApiResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TestNetworkConnectionRequest extends $tea.Model {
   datasourceName?: string;
   envType?: string;
@@ -20949,6 +21318,46 @@ export class GetDataServiceApiResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetDataServiceApiTestResponseBodyData extends $tea.Model {
+  apiId?: number;
+  costTime?: string;
+  debugInfo?: string;
+  nodesDebugInfo?: string;
+  paramMap?: string;
+  retCode?: number;
+  retResult?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      costTime: 'CostTime',
+      debugInfo: 'DebugInfo',
+      nodesDebugInfo: 'NodesDebugInfo',
+      paramMap: 'ParamMap',
+      retCode: 'RetCode',
+      retResult: 'RetResult',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      costTime: 'string',
+      debugInfo: 'string',
+      nodesDebugInfo: 'string',
+      paramMap: 'string',
+      retCode: 'number',
+      retResult: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataServiceApplicationResponseBodyData extends $tea.Model {
   applicationCode?: string;
   applicationId?: number;
@@ -21639,6 +22048,62 @@ export class GetDeploymentResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deployment: GetDeploymentResponseBodyDataDeployment,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDutyRosterResponseBodyPagingDutyRoster extends $tea.Model {
+  endLong?: number;
+  startLong?: number;
+  watchkeeper?: string;
+  watchkeeperName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endLong: 'EndLong',
+      startLong: 'StartLong',
+      watchkeeper: 'Watchkeeper',
+      watchkeeperName: 'WatchkeeperName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endLong: 'number',
+      startLong: 'number',
+      watchkeeper: 'string',
+      watchkeeperName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDutyRosterResponseBodyPaging extends $tea.Model {
+  dutyRoster?: GetDutyRosterResponseBodyPagingDutyRoster[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dutyRoster: 'DutyRoster',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dutyRoster: { 'type': 'array', 'itemType': GetDutyRosterResponseBodyPagingDutyRoster },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -26010,6 +26475,46 @@ export class ListDataServiceApiAuthoritiesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListDataServiceApiTestResponseBodyData extends $tea.Model {
+  apiId?: number;
+  costTime?: number;
+  createTime?: number;
+  paramMap?: string;
+  retCode?: number;
+  retResult?: string;
+  status?: string;
+  testId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      costTime: 'CostTime',
+      createTime: 'CreateTime',
+      paramMap: 'ParamMap',
+      retCode: 'RetCode',
+      retResult: 'RetResult',
+      status: 'Status',
+      testId: 'TestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'number',
+      costTime: 'number',
+      createTime: 'number',
+      paramMap: 'string',
+      retCode: 'number',
+      retResult: 'string',
+      status: 'string',
+      testId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataServiceApisResponseBodyDataApisRegistrationDetailsRegistrationErrorCodes extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -27428,6 +27933,56 @@ export class ListDeploymentsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deployments: { 'type': 'array', 'itemType': ListDeploymentsResponseBodyDataDeployments },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDutyRostersResponseBodyPagingDutyRosters extends $tea.Model {
+  dutyRosterIdentifier?: string;
+  dutyRosterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dutyRosterIdentifier: 'DutyRosterIdentifier',
+      dutyRosterName: 'DutyRosterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dutyRosterIdentifier: 'string',
+      dutyRosterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDutyRostersResponseBodyPaging extends $tea.Model {
+  dutyRosters?: ListDutyRostersResponseBodyPagingDutyRosters[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dutyRosters: 'DutyRosters',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dutyRosters: { 'type': 'array', 'itemType': ListDutyRostersResponseBodyPagingDutyRosters },
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -30102,6 +30657,113 @@ export class TerminateDISyncInstanceResponseBodyData extends $tea.Model {
     return {
       message: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiRequestBodyParams extends $tea.Model {
+  paramKey?: string;
+  paramValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramKey: 'ParamKey',
+      paramValue: 'ParamValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramKey: 'string',
+      paramValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiRequestHeadParams extends $tea.Model {
+  paramKey?: string;
+  paramValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramKey: 'ParamKey',
+      paramValue: 'ParamValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramKey: 'string',
+      paramValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiRequestPathParams extends $tea.Model {
+  paramKey?: string;
+  paramValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramKey: 'ParamKey',
+      paramValue: 'ParamValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramKey: 'string',
+      paramValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiRequestQueryParam extends $tea.Model {
+  paramKey?: string;
+  paramValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramKey: 'ParamKey',
+      paramValue: 'ParamValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramKey: 'string',
+      paramValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestDataServiceApiResponseBodyData extends $tea.Model {
+  testId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      testId: 'TestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      testId: 'string',
     };
   }
 
@@ -33706,6 +34368,31 @@ export default class Client extends OpenApi {
     return await this.getDataServiceApiWithOptions(request, runtime);
   }
 
+  async getDataServiceApiTestWithOptions(request: GetDataServiceApiTestRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiTestResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataServiceApiTest",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataServiceApiTestResponse>(await this.callApi(params, req, runtime), new GetDataServiceApiTestResponse({}));
+  }
+
+  async getDataServiceApiTest(request: GetDataServiceApiTestRequest): Promise<GetDataServiceApiTestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataServiceApiTestWithOptions(request, runtime);
+  }
+
   async getDataServiceApplicationWithOptions(request: GetDataServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -33934,6 +34621,51 @@ export default class Client extends OpenApi {
   async getDeployment(request: GetDeploymentRequest): Promise<GetDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeploymentWithOptions(request, runtime);
+  }
+
+  async getDutyRosterWithOptions(request: GetDutyRosterRequest, runtime: $Util.RuntimeOptions): Promise<GetDutyRosterResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginTime)) {
+      body["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.dutyRosterIdentifier)) {
+      body["DutyRosterIdentifier"] = request.dutyRosterIdentifier;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      body["UserType"] = request.userType;
+    }
+
+    if (!Util.isUnset(request.watchkeeper)) {
+      body["Watchkeeper"] = request.watchkeeper;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDutyRoster",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDutyRosterResponse>(await this.callApi(params, req, runtime), new GetDutyRosterResponse({}));
+  }
+
+  async getDutyRoster(request: GetDutyRosterRequest): Promise<GetDutyRosterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDutyRosterWithOptions(request, runtime);
   }
 
   async getExtensionWithOptions(request: GetExtensionRequest, runtime: $Util.RuntimeOptions): Promise<GetExtensionResponse> {
@@ -36196,6 +36928,31 @@ export default class Client extends OpenApi {
     return await this.listDataServiceApiAuthoritiesWithOptions(request, runtime);
   }
 
+  async listDataServiceApiTestWithOptions(request: ListDataServiceApiTestRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiTestResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataServiceApiTest",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataServiceApiTestResponse>(await this.callApi(params, req, runtime), new ListDataServiceApiTestResponse({}));
+  }
+
+  async listDataServiceApiTest(request: ListDataServiceApiTestRequest): Promise<ListDataServiceApiTestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataServiceApiTestWithOptions(request, runtime);
+  }
+
   async listDataServiceApisWithOptions(request: ListDataServiceApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApisResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36572,6 +37329,47 @@ export default class Client extends OpenApi {
   async listDeployments(request: ListDeploymentsRequest): Promise<ListDeploymentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDeploymentsWithOptions(request, runtime);
+  }
+
+  async listDutyRostersWithOptions(request: ListDutyRostersRequest, runtime: $Util.RuntimeOptions): Promise<ListDutyRostersResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dutyRosterName)) {
+      body["DutyRosterName"] = request.dutyRosterName;
+    }
+
+    if (!Util.isUnset(request.dutyRosterOwner)) {
+      body["DutyRosterOwner"] = request.dutyRosterOwner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDutyRosters",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDutyRostersResponse>(await this.callApi(params, req, runtime), new ListDutyRostersResponse({}));
+  }
+
+  async listDutyRosters(request: ListDutyRostersRequest): Promise<ListDutyRostersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDutyRostersWithOptions(request, runtime);
   }
 
   async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
@@ -38921,6 +39719,57 @@ export default class Client extends OpenApi {
   async terminateDISyncInstance(request: TerminateDISyncInstanceRequest): Promise<TerminateDISyncInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateDISyncInstanceWithOptions(request, runtime);
+  }
+
+  async testDataServiceApiWithOptions(request: TestDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<TestDataServiceApiResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bodyContent)) {
+      body["BodyContent"] = request.bodyContent;
+    }
+
+    if (!Util.isUnset(request.bodyParams)) {
+      body["BodyParams"] = request.bodyParams;
+    }
+
+    if (!Util.isUnset(request.headParams)) {
+      body["HeadParams"] = request.headParams;
+    }
+
+    if (!Util.isUnset(request.pathParams)) {
+      body["PathParams"] = request.pathParams;
+    }
+
+    if (!Util.isUnset(request.queryParam)) {
+      body["QueryParam"] = request.queryParam;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TestDataServiceApi",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TestDataServiceApiResponse>(await this.callApi(params, req, runtime), new TestDataServiceApiResponse({}));
+  }
+
+  async testDataServiceApi(request: TestDataServiceApiRequest): Promise<TestDataServiceApiResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.testDataServiceApiWithOptions(request, runtime);
   }
 
   async testNetworkConnectionWithOptions(request: TestNetworkConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TestNetworkConnectionResponse> {
