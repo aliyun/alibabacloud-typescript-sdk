@@ -224,12 +224,14 @@ export class ListAppSessionsResponseBody extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       appSessions: 'AppSessions',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -239,6 +241,7 @@ export class ListAppSessionsResponseBody extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
