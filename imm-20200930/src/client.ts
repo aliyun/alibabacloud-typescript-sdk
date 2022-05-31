@@ -2560,6 +2560,154 @@ export class CreateFigureClustersMergingTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateImageModerationTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  interval?: number;
+  maxFrames?: number;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  reviewer?: string;
+  scenes?: string[];
+  sourceURI?: string;
+  tags?: { [key: string]: any };
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      interval: 'Interval',
+      maxFrames: 'MaxFrames',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      reviewer: 'Reviewer',
+      scenes: 'Scenes',
+      sourceURI: 'SourceURI',
+      tags: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      interval: 'number',
+      maxFrames: 'number',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      reviewer: 'string',
+      scenes: { 'type': 'array', 'itemType': 'string' },
+      sourceURI: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  interval?: number;
+  maxFrames?: number;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  reviewer?: string;
+  scenesShrink?: string;
+  sourceURI?: string;
+  tagsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      interval: 'Interval',
+      maxFrames: 'MaxFrames',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      reviewer: 'Reviewer',
+      scenesShrink: 'Scenes',
+      sourceURI: 'SourceURI',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      interval: 'number',
+      maxFrames: 'number',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      reviewer: 'string',
+      scenesShrink: 'string',
+      sourceURI: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageModerationTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageModerationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateImageModerationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageModerationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notifyEndpoint?: string;
@@ -3227,6 +3375,154 @@ export class CreateStoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateStoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoModerationTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  interval?: number;
+  maxFrames?: number;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  reviewer?: string;
+  scenes?: string[];
+  sourceURI?: string;
+  tags?: { [key: string]: any };
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      interval: 'Interval',
+      maxFrames: 'MaxFrames',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      reviewer: 'Reviewer',
+      scenes: 'Scenes',
+      sourceURI: 'SourceURI',
+      tags: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      interval: 'number',
+      maxFrames: 'number',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      reviewer: 'string',
+      scenes: { 'type': 'array', 'itemType': 'string' },
+      sourceURI: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  interval?: number;
+  maxFrames?: number;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  reviewer?: string;
+  scenesShrink?: string;
+  sourceURI?: string;
+  tagsShrink?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      interval: 'Interval',
+      maxFrames: 'MaxFrames',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      reviewer: 'Reviewer',
+      scenesShrink: 'Scenes',
+      sourceURI: 'SourceURI',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      interval: 'number',
+      maxFrames: 'number',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      reviewer: 'string',
+      scenesShrink: 'string',
+      sourceURI: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoModerationTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoModerationTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateVideoModerationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVideoModerationTaskResponseBody,
     };
   }
 
@@ -4029,6 +4325,75 @@ export class DetectImageScoreResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetectImageScoreResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTextAnomalyRequest extends $tea.Model {
+  content?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTextAnomalyResponseBody extends $tea.Model {
+  requestId?: string;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      suggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTextAnomalyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetectTextAnomalyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectTextAnomalyResponseBody,
     };
   }
 
@@ -8357,6 +8722,89 @@ export default class Client extends OpenApi {
     return await this.createFigureClustersMergingTaskWithOptions(request, runtime);
   }
 
+  async createImageModerationTaskWithOptions(tmpReq: CreateImageModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageModerationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateImageModerationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.scenes)) {
+      request.scenesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scenes, "Scenes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.maxFrames)) {
+      query["MaxFrames"] = request.maxFrames;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.reviewer)) {
+      query["Reviewer"] = request.reviewer;
+    }
+
+    if (!Util.isUnset(request.scenesShrink)) {
+      query["Scenes"] = request.scenesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateImageModerationTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageModerationTaskResponse>(await this.callApi(params, req, runtime), new CreateImageModerationTaskResponse({}));
+  }
+
+  async createImageModerationTask(request: CreateImageModerationTaskRequest): Promise<CreateImageModerationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createImageModerationTaskWithOptions(request, runtime);
+  }
+
   async createMediaConvertTaskWithOptions(tmpReq: CreateMediaConvertTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMediaConvertTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateMediaConvertTaskShrinkRequest({ });
@@ -8769,6 +9217,89 @@ export default class Client extends OpenApi {
     return await this.createStoryWithOptions(request, runtime);
   }
 
+  async createVideoModerationTaskWithOptions(tmpReq: CreateVideoModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoModerationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateVideoModerationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.scenes)) {
+      request.scenesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scenes, "Scenes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.maxFrames)) {
+      query["MaxFrames"] = request.maxFrames;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.reviewer)) {
+      query["Reviewer"] = request.reviewer;
+    }
+
+    if (!Util.isUnset(request.scenesShrink)) {
+      query["Scenes"] = request.scenesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVideoModerationTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVideoModerationTaskResponse>(await this.callApi(params, req, runtime), new CreateVideoModerationTaskResponse({}));
+  }
+
+  async createVideoModerationTask(request: CreateVideoModerationTaskRequest): Promise<CreateVideoModerationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVideoModerationTaskWithOptions(request, runtime);
+  }
+
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9153,6 +9684,39 @@ export default class Client extends OpenApi {
   async detectImageScore(request: DetectImageScoreRequest): Promise<DetectImageScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageScoreWithOptions(request, runtime);
+  }
+
+  async detectTextAnomalyWithOptions(request: DetectTextAnomalyRequest, runtime: $Util.RuntimeOptions): Promise<DetectTextAnomalyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectTextAnomaly",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectTextAnomalyResponse>(await this.callApi(params, req, runtime), new DetectTextAnomalyResponse({}));
+  }
+
+  async detectTextAnomaly(request: DetectTextAnomalyRequest): Promise<DetectTextAnomalyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectTextAnomalyWithOptions(request, runtime);
   }
 
   async fuzzyQueryWithOptions(request: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
