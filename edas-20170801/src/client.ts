@@ -7789,6 +7789,78 @@ export class ListK8sIngressRulesResponse extends $tea.Model {
   }
 }
 
+export class ListK8sNamespacesRequest extends $tea.Model {
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListK8sNamespacesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListK8sNamespacesResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListK8sNamespacesResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListK8sNamespacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListK8sNamespacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListK8sNamespacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListK8sSecretsRequest extends $tea.Model {
   clusterId?: string;
   condition?: string;
@@ -15231,15 +15303,18 @@ export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupCompo
 
 export class GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroup extends $tea.Model {
   components?: GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents;
+  env?: string;
   static names(): { [key: string]: string } {
     return {
       components: 'Components',
+      env: 'Env',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       components: GetK8sApplicationResponseBodyApplcationDeployGroupsDeployGroupComponents,
+      env: 'string',
     };
   }
 
@@ -17996,6 +18071,25 @@ export class ListK8sIngressRulesResponseBodyData extends $tea.Model {
       clusterName: 'string',
       ingressConfs: { 'type': 'array', 'itemType': ListK8sIngressRulesResponseBodyDataIngressConfs },
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListK8sNamespacesResponseBodyData extends $tea.Model {
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
     };
   }
 
@@ -24914,6 +25008,37 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListK8sIngressRulesResponse>(await this.callApi(params, req, runtime), new ListK8sIngressRulesResponse({}));
+  }
+
+  async listK8sNamespaces(request: ListK8sNamespacesRequest): Promise<ListK8sNamespacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listK8sNamespacesWithOptions(request, headers, runtime);
+  }
+
+  async listK8sNamespacesWithOptions(request: ListK8sNamespacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListK8sNamespacesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListK8sNamespaces",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/v5/k8s/acs/k8s_namespace`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListK8sNamespacesResponse>(await this.callApi(params, req, runtime), new ListK8sNamespacesResponse({}));
   }
 
   async listK8sSecrets(request: ListK8sSecretsRequest): Promise<ListK8sSecretsResponse> {
