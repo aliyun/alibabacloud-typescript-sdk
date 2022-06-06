@@ -85,10 +85,12 @@ export class RecognizeAdvancedResponseBody extends $tea.Model {
 
 export class RecognizeAdvancedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeAdvancedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -96,6 +98,7 @@ export class RecognizeAdvancedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeAdvancedResponseBody,
     };
   }
@@ -157,10 +160,12 @@ export class RecognizeAirItineraryResponseBody extends $tea.Model {
 
 export class RecognizeAirItineraryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeAirItineraryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -168,7 +173,83 @@ export class RecognizeAirItineraryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeAirItineraryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankAcceptanceRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankAcceptanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankAcceptanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeBankAcceptanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeBankAcceptanceResponseBody,
     };
   }
 
@@ -229,10 +310,12 @@ export class RecognizeBankAccountLicenseResponseBody extends $tea.Model {
 
 export class RecognizeBankAccountLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBankAccountLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -240,6 +323,7 @@ export class RecognizeBankAccountLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBankAccountLicenseResponseBody,
     };
   }
@@ -301,10 +385,12 @@ export class RecognizeBankCardResponseBody extends $tea.Model {
 
 export class RecognizeBankCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBankCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -312,6 +398,7 @@ export class RecognizeBankCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBankCardResponseBody,
     };
   }
@@ -373,10 +460,12 @@ export class RecognizeBasicResponseBody extends $tea.Model {
 
 export class RecognizeBasicResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBasicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -384,6 +473,7 @@ export class RecognizeBasicResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBasicResponseBody,
     };
   }
@@ -463,10 +553,12 @@ export class RecognizeBatchRecognizeResponseBody extends $tea.Model {
 
 export class RecognizeBatchRecognizeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBatchRecognizeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -474,6 +566,7 @@ export class RecognizeBatchRecognizeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBatchRecognizeResponseBody,
     };
   }
@@ -535,10 +628,12 @@ export class RecognizeBirthCertificationResponseBody extends $tea.Model {
 
 export class RecognizeBirthCertificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBirthCertificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -546,6 +641,7 @@ export class RecognizeBirthCertificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBirthCertificationResponseBody,
     };
   }
@@ -607,10 +703,12 @@ export class RecognizeBusShipTicketResponseBody extends $tea.Model {
 
 export class RecognizeBusShipTicketResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBusShipTicketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -618,6 +716,7 @@ export class RecognizeBusShipTicketResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBusShipTicketResponseBody,
     };
   }
@@ -679,10 +778,12 @@ export class RecognizeBusinessLicenseResponseBody extends $tea.Model {
 
 export class RecognizeBusinessLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeBusinessLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -690,6 +791,7 @@ export class RecognizeBusinessLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeBusinessLicenseResponseBody,
     };
   }
@@ -751,10 +853,12 @@ export class RecognizeCarInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeCarInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCarInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -762,6 +866,7 @@ export class RecognizeCarInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCarInvoiceResponseBody,
     };
   }
@@ -823,10 +928,12 @@ export class RecognizeCarNumberResponseBody extends $tea.Model {
 
 export class RecognizeCarNumberResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCarNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -834,6 +941,7 @@ export class RecognizeCarNumberResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCarNumberResponseBody,
     };
   }
@@ -895,10 +1003,12 @@ export class RecognizeCarVinCodeResponseBody extends $tea.Model {
 
 export class RecognizeCarVinCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCarVinCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -906,6 +1016,7 @@ export class RecognizeCarVinCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCarVinCodeResponseBody,
     };
   }
@@ -970,10 +1081,12 @@ export class RecognizeChinesePassportResponseBody extends $tea.Model {
 
 export class RecognizeChinesePassportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeChinesePassportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -981,6 +1094,7 @@ export class RecognizeChinesePassportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeChinesePassportResponseBody,
     };
   }
@@ -1042,10 +1156,12 @@ export class RecognizeCommonPrintedInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeCommonPrintedInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCommonPrintedInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1053,6 +1169,7 @@ export class RecognizeCommonPrintedInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCommonPrintedInvoiceResponseBody,
     };
   }
@@ -1114,10 +1231,12 @@ export class RecognizeCosmeticProduceLicenseResponseBody extends $tea.Model {
 
 export class RecognizeCosmeticProduceLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCosmeticProduceLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1125,7 +1244,83 @@ export class RecognizeCosmeticProduceLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCosmeticProduceLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCovidTestReportRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCovidTestReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCovidTestReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeCovidTestReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeCovidTestReportResponseBody,
     };
   }
 
@@ -1186,10 +1381,12 @@ export class RecognizeCtwoMedicalDeviceManageLicenseResponseBody extends $tea.Mo
 
 export class RecognizeCtwoMedicalDeviceManageLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeCtwoMedicalDeviceManageLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1197,6 +1394,7 @@ export class RecognizeCtwoMedicalDeviceManageLicenseResponse extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeCtwoMedicalDeviceManageLicenseResponseBody,
     };
   }
@@ -1255,10 +1453,12 @@ export class RecognizeDeleteExcelRecordResponseBody extends $tea.Model {
 
 export class RecognizeDeleteExcelRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeDeleteExcelRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1266,6 +1466,7 @@ export class RecognizeDeleteExcelRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeDeleteExcelRecordResponseBody,
     };
   }
@@ -1327,10 +1528,12 @@ export class RecognizeDrivingLicenseResponseBody extends $tea.Model {
 
 export class RecognizeDrivingLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeDrivingLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1338,6 +1541,7 @@ export class RecognizeDrivingLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeDrivingLicenseResponseBody,
     };
   }
@@ -1399,10 +1603,12 @@ export class RecognizeEduFormulaResponseBody extends $tea.Model {
 
 export class RecognizeEduFormulaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEduFormulaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1410,6 +1616,7 @@ export class RecognizeEduFormulaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEduFormulaResponseBody,
     };
   }
@@ -1471,10 +1678,12 @@ export class RecognizeEduOralCalculationResponseBody extends $tea.Model {
 
 export class RecognizeEduOralCalculationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEduOralCalculationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1482,6 +1691,7 @@ export class RecognizeEduOralCalculationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEduOralCalculationResponseBody,
     };
   }
@@ -1552,10 +1762,12 @@ export class RecognizeEduPaperCutResponseBody extends $tea.Model {
 
 export class RecognizeEduPaperCutResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEduPaperCutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1563,6 +1775,7 @@ export class RecognizeEduPaperCutResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEduPaperCutResponseBody,
     };
   }
@@ -1633,10 +1846,12 @@ export class RecognizeEduPaperOcrResponseBody extends $tea.Model {
 
 export class RecognizeEduPaperOcrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEduPaperOcrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1644,6 +1859,7 @@ export class RecognizeEduPaperOcrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEduPaperOcrResponseBody,
     };
   }
@@ -1711,10 +1927,12 @@ export class RecognizeEduPaperStructedResponseBody extends $tea.Model {
 
 export class RecognizeEduPaperStructedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEduPaperStructedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1722,6 +1940,7 @@ export class RecognizeEduPaperStructedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEduPaperStructedResponseBody,
     };
   }
@@ -1786,10 +2005,12 @@ export class RecognizeEduQuestionOcrResponseBody extends $tea.Model {
 
 export class RecognizeEduQuestionOcrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEduQuestionOcrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1797,6 +2018,7 @@ export class RecognizeEduQuestionOcrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEduQuestionOcrResponseBody,
     };
   }
@@ -1864,10 +2086,12 @@ export class RecognizeEnglishResponseBody extends $tea.Model {
 
 export class RecognizeEnglishResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEnglishResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1875,6 +2099,7 @@ export class RecognizeEnglishResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEnglishResponseBody,
     };
   }
@@ -1936,10 +2161,12 @@ export class RecognizeEstateCertificationResponseBody extends $tea.Model {
 
 export class RecognizeEstateCertificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeEstateCertificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1947,6 +2174,7 @@ export class RecognizeEstateCertificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeEstateCertificationResponseBody,
     };
   }
@@ -2017,10 +2245,12 @@ export class RecognizeExcelExportResponseBody extends $tea.Model {
 
 export class RecognizeExcelExportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeExcelExportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2028,6 +2258,7 @@ export class RecognizeExcelExportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeExcelExportResponseBody,
     };
   }
@@ -2089,10 +2320,12 @@ export class RecognizeExcelRecordResponseBody extends $tea.Model {
 
 export class RecognizeExcelRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeExcelRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2100,6 +2333,7 @@ export class RecognizeExcelRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeExcelRecordResponseBody,
     };
   }
@@ -2164,10 +2398,12 @@ export class RecognizeExitEntryPermitToHKResponseBody extends $tea.Model {
 
 export class RecognizeExitEntryPermitToHKResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeExitEntryPermitToHKResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2175,6 +2411,7 @@ export class RecognizeExitEntryPermitToHKResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeExitEntryPermitToHKResponseBody,
     };
   }
@@ -2239,10 +2476,12 @@ export class RecognizeExitEntryPermitToMainlandResponseBody extends $tea.Model {
 
 export class RecognizeExitEntryPermitToMainlandResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeExitEntryPermitToMainlandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2250,6 +2489,7 @@ export class RecognizeExitEntryPermitToMainlandResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeExitEntryPermitToMainlandResponseBody,
     };
   }
@@ -2311,10 +2551,12 @@ export class RecognizeFoodManageLicenseResponseBody extends $tea.Model {
 
 export class RecognizeFoodManageLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeFoodManageLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2322,6 +2564,7 @@ export class RecognizeFoodManageLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeFoodManageLicenseResponseBody,
     };
   }
@@ -2383,10 +2626,12 @@ export class RecognizeFoodProduceLicenseResponseBody extends $tea.Model {
 
 export class RecognizeFoodProduceLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeFoodProduceLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2394,6 +2639,7 @@ export class RecognizeFoodProduceLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeFoodProduceLicenseResponseBody,
     };
   }
@@ -2455,10 +2701,12 @@ export class RecognizeGeneralResponseBody extends $tea.Model {
 
 export class RecognizeGeneralResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeGeneralResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2466,6 +2714,7 @@ export class RecognizeGeneralResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeGeneralResponseBody,
     };
   }
@@ -2539,10 +2788,12 @@ export class RecognizeHandwritingResponseBody extends $tea.Model {
 
 export class RecognizeHandwritingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeHandwritingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2550,6 +2801,7 @@ export class RecognizeHandwritingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeHandwritingResponseBody,
     };
   }
@@ -2611,10 +2863,12 @@ export class RecognizeHealthCodeResponseBody extends $tea.Model {
 
 export class RecognizeHealthCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeHealthCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2622,6 +2876,7 @@ export class RecognizeHealthCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeHealthCodeResponseBody,
     };
   }
@@ -2683,10 +2938,12 @@ export class RecognizeHotelConsumeResponseBody extends $tea.Model {
 
 export class RecognizeHotelConsumeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeHotelConsumeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2694,6 +2951,7 @@ export class RecognizeHotelConsumeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeHotelConsumeResponseBody,
     };
   }
@@ -2704,10 +2962,12 @@ export class RecognizeHotelConsumeResponse extends $tea.Model {
 }
 
 export class RecognizeHouseholdRequest extends $tea.Model {
+  isResidentPage?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      isResidentPage: 'IsResidentPage',
       url: 'Url',
       body: 'body',
     };
@@ -2715,6 +2975,7 @@ export class RecognizeHouseholdRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      isResidentPage: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -2755,10 +3016,12 @@ export class RecognizeHouseholdResponseBody extends $tea.Model {
 
 export class RecognizeHouseholdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeHouseholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2766,6 +3029,7 @@ export class RecognizeHouseholdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeHouseholdResponseBody,
     };
   }
@@ -2830,10 +3094,12 @@ export class RecognizeIdcardResponseBody extends $tea.Model {
 
 export class RecognizeIdcardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeIdcardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2841,6 +3107,7 @@ export class RecognizeIdcardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeIdcardResponseBody,
     };
   }
@@ -2902,10 +3169,12 @@ export class RecognizeInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2913,6 +3182,7 @@ export class RecognizeInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeInvoiceResponseBody,
     };
   }
@@ -2983,10 +3253,12 @@ export class RecognizeJanpaneseResponseBody extends $tea.Model {
 
 export class RecognizeJanpaneseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeJanpaneseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2994,6 +3266,7 @@ export class RecognizeJanpaneseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeJanpaneseResponseBody,
     };
   }
@@ -3064,10 +3337,12 @@ export class RecognizeKoreanResponseBody extends $tea.Model {
 
 export class RecognizeKoreanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeKoreanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3075,6 +3350,7 @@ export class RecognizeKoreanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeKoreanResponseBody,
     };
   }
@@ -3145,10 +3421,12 @@ export class RecognizeLatinResponseBody extends $tea.Model {
 
 export class RecognizeLatinResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeLatinResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3156,6 +3434,7 @@ export class RecognizeLatinResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeLatinResponseBody,
     };
   }
@@ -3217,10 +3496,12 @@ export class RecognizeMedicalDeviceManageLicenseResponseBody extends $tea.Model 
 
 export class RecognizeMedicalDeviceManageLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeMedicalDeviceManageLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3228,6 +3509,7 @@ export class RecognizeMedicalDeviceManageLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeMedicalDeviceManageLicenseResponseBody,
     };
   }
@@ -3289,10 +3571,12 @@ export class RecognizeMedicalDeviceProduceLicenseResponseBody extends $tea.Model
 
 export class RecognizeMedicalDeviceProduceLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeMedicalDeviceProduceLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3300,6 +3584,7 @@ export class RecognizeMedicalDeviceProduceLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeMedicalDeviceProduceLicenseResponseBody,
     };
   }
@@ -3361,10 +3646,12 @@ export class RecognizeMixedInvoicesResponseBody extends $tea.Model {
 
 export class RecognizeMixedInvoicesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeMixedInvoicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3372,6 +3659,7 @@ export class RecognizeMixedInvoicesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeMixedInvoicesResponseBody,
     };
   }
@@ -3485,10 +3773,12 @@ export class RecognizeMultiLanguageResponseBody extends $tea.Model {
 
 export class RecognizeMultiLanguageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeMultiLanguageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3496,6 +3786,7 @@ export class RecognizeMultiLanguageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeMultiLanguageResponseBody,
     };
   }
@@ -3557,10 +3848,12 @@ export class RecognizeNonTaxInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeNonTaxInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeNonTaxInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3568,6 +3861,7 @@ export class RecognizeNonTaxInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeNonTaxInvoiceResponseBody,
     };
   }
@@ -3629,10 +3923,12 @@ export class RecognizePassportResponseBody extends $tea.Model {
 
 export class RecognizePassportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizePassportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3640,6 +3936,7 @@ export class RecognizePassportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizePassportResponseBody,
     };
   }
@@ -3701,10 +3998,12 @@ export class RecognizePaymentRecordResponseBody extends $tea.Model {
 
 export class RecognizePaymentRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizePaymentRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3712,6 +4011,7 @@ export class RecognizePaymentRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizePaymentRecordResponseBody,
     };
   }
@@ -3773,10 +4073,12 @@ export class RecognizePurchaseRecordResponseBody extends $tea.Model {
 
 export class RecognizePurchaseRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizePurchaseRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3784,6 +4086,7 @@ export class RecognizePurchaseRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizePurchaseRecordResponseBody,
     };
   }
@@ -3845,10 +4148,12 @@ export class RecognizeQuotaInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeQuotaInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeQuotaInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3856,6 +4161,7 @@ export class RecognizeQuotaInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeQuotaInvoiceResponseBody,
     };
   }
@@ -3917,10 +4223,12 @@ export class RecognizeRideHailingItineraryResponseBody extends $tea.Model {
 
 export class RecognizeRideHailingItineraryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeRideHailingItineraryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3928,6 +4236,7 @@ export class RecognizeRideHailingItineraryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeRideHailingItineraryResponseBody,
     };
   }
@@ -3989,10 +4298,12 @@ export class RecognizeRollTicketResponseBody extends $tea.Model {
 
 export class RecognizeRollTicketResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeRollTicketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4000,6 +4311,7 @@ export class RecognizeRollTicketResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeRollTicketResponseBody,
     };
   }
@@ -4070,10 +4382,12 @@ export class RecognizeRussianResponseBody extends $tea.Model {
 
 export class RecognizeRussianResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeRussianResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4081,7 +4395,83 @@ export class RecognizeRussianResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeRussianResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeShoppingReceiptRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeShoppingReceiptResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeShoppingReceiptResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeShoppingReceiptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeShoppingReceiptResponseBody,
     };
   }
 
@@ -4142,10 +4532,12 @@ export class RecognizeSocialSecurityCardResponseBody extends $tea.Model {
 
 export class RecognizeSocialSecurityCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeSocialSecurityCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4153,7 +4545,83 @@ export class RecognizeSocialSecurityCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeSocialSecurityCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeSocialSecurityCardVersionIIRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeSocialSecurityCardVersionIIResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeSocialSecurityCardVersionIIResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RecognizeSocialSecurityCardVersionIIResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RecognizeSocialSecurityCardVersionIIResponseBody,
     };
   }
 
@@ -4223,10 +4691,12 @@ export class RecognizeTableOcrResponseBody extends $tea.Model {
 
 export class RecognizeTableOcrResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTableOcrResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4234,6 +4704,7 @@ export class RecognizeTableOcrResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTableOcrResponseBody,
     };
   }
@@ -4295,10 +4766,12 @@ export class RecognizeTaxClearanceCertificateResponseBody extends $tea.Model {
 
 export class RecognizeTaxClearanceCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTaxClearanceCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4306,6 +4779,7 @@ export class RecognizeTaxClearanceCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTaxClearanceCertificateResponseBody,
     };
   }
@@ -4367,10 +4841,12 @@ export class RecognizeTaxiInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeTaxiInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTaxiInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4378,6 +4854,7 @@ export class RecognizeTaxiInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTaxiInvoiceResponseBody,
     };
   }
@@ -4448,10 +4925,12 @@ export class RecognizeThaiResponseBody extends $tea.Model {
 
 export class RecognizeThaiResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeThaiResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4459,6 +4938,7 @@ export class RecognizeThaiResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeThaiResponseBody,
     };
   }
@@ -4520,10 +5000,12 @@ export class RecognizeTollInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeTollInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTollInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4531,6 +5013,7 @@ export class RecognizeTollInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTollInvoiceResponseBody,
     };
   }
@@ -4592,10 +5075,12 @@ export class RecognizeTradeMarkCertificationResponseBody extends $tea.Model {
 
 export class RecognizeTradeMarkCertificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTradeMarkCertificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4603,6 +5088,7 @@ export class RecognizeTradeMarkCertificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTradeMarkCertificationResponseBody,
     };
   }
@@ -4664,10 +5150,12 @@ export class RecognizeTrainInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeTrainInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTrainInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4675,6 +5163,7 @@ export class RecognizeTrainInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTrainInvoiceResponseBody,
     };
   }
@@ -4736,10 +5225,12 @@ export class RecognizeTravelCardResponseBody extends $tea.Model {
 
 export class RecognizeTravelCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeTravelCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4747,6 +5238,7 @@ export class RecognizeTravelCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeTravelCardResponseBody,
     };
   }
@@ -4808,10 +5300,12 @@ export class RecognizeUsedCarInvoiceResponseBody extends $tea.Model {
 
 export class RecognizeUsedCarInvoiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeUsedCarInvoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4819,6 +5313,7 @@ export class RecognizeUsedCarInvoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeUsedCarInvoiceResponseBody,
     };
   }
@@ -4880,10 +5375,12 @@ export class RecognizeVehicleCertificationResponseBody extends $tea.Model {
 
 export class RecognizeVehicleCertificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVehicleCertificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4891,6 +5388,7 @@ export class RecognizeVehicleCertificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVehicleCertificationResponseBody,
     };
   }
@@ -4952,10 +5450,12 @@ export class RecognizeVehicleLicenseResponseBody extends $tea.Model {
 
 export class RecognizeVehicleLicenseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVehicleLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4963,6 +5463,7 @@ export class RecognizeVehicleLicenseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVehicleLicenseResponseBody,
     };
   }
@@ -5024,10 +5525,12 @@ export class RecognizeVehicleRegistrationResponseBody extends $tea.Model {
 
 export class RecognizeVehicleRegistrationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeVehicleRegistrationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5035,6 +5538,7 @@ export class RecognizeVehicleRegistrationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeVehicleRegistrationResponseBody,
     };
   }
@@ -5096,10 +5600,12 @@ export class RecognizeWaybillResponseBody extends $tea.Model {
 
 export class RecognizeWaybillResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecognizeWaybillResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5107,6 +5613,7 @@ export class RecognizeWaybillResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecognizeWaybillResponseBody,
     };
   }
@@ -5231,6 +5738,37 @@ export default class Client extends OpenApi {
   async recognizeAirItinerary(request: RecognizeAirItineraryRequest): Promise<RecognizeAirItineraryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeAirItineraryWithOptions(request, runtime);
+  }
+
+  async recognizeBankAcceptanceWithOptions(request: RecognizeBankAcceptanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAcceptanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeBankAcceptance",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBankAcceptanceResponse>(await this.callApi(params, req, runtime), new RecognizeBankAcceptanceResponse({}));
+  }
+
+  async recognizeBankAcceptance(request: RecognizeBankAcceptanceRequest): Promise<RecognizeBankAcceptanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeBankAcceptanceWithOptions(request, runtime);
   }
 
   async recognizeBankAccountLicenseWithOptions(request: RecognizeBankAccountLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAccountLicenseResponse> {
@@ -5664,6 +6202,37 @@ export default class Client extends OpenApi {
   async recognizeCosmeticProduceLicense(request: RecognizeCosmeticProduceLicenseRequest): Promise<RecognizeCosmeticProduceLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeCosmeticProduceLicenseWithOptions(request, runtime);
+  }
+
+  async recognizeCovidTestReportWithOptions(request: RecognizeCovidTestReportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCovidTestReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeCovidTestReport",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCovidTestReportResponse>(await this.callApi(params, req, runtime), new RecognizeCovidTestReportResponse({}));
+  }
+
+  async recognizeCovidTestReport(request: RecognizeCovidTestReportRequest): Promise<RecognizeCovidTestReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeCovidTestReportWithOptions(request, runtime);
   }
 
   async recognizeCtwoMedicalDeviceManageLicenseWithOptions(request: RecognizeCtwoMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCtwoMedicalDeviceManageLicenseResponse> {
@@ -6402,6 +6971,10 @@ export default class Client extends OpenApi {
   async recognizeHouseholdWithOptions(request: RecognizeHouseholdRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHouseholdResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.isResidentPage)) {
+      query["IsResidentPage"] = request.isResidentPage;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
@@ -7035,6 +7608,37 @@ export default class Client extends OpenApi {
     return await this.recognizeRussianWithOptions(request, runtime);
   }
 
+  async recognizeShoppingReceiptWithOptions(request: RecognizeShoppingReceiptRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeShoppingReceiptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeShoppingReceipt",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeShoppingReceiptResponse>(await this.callApi(params, req, runtime), new RecognizeShoppingReceiptResponse({}));
+  }
+
+  async recognizeShoppingReceipt(request: RecognizeShoppingReceiptRequest): Promise<RecognizeShoppingReceiptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeShoppingReceiptWithOptions(request, runtime);
+  }
+
   async recognizeSocialSecurityCardWithOptions(request: RecognizeSocialSecurityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeSocialSecurityCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7064,6 +7668,37 @@ export default class Client extends OpenApi {
   async recognizeSocialSecurityCard(request: RecognizeSocialSecurityCardRequest): Promise<RecognizeSocialSecurityCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeSocialSecurityCardWithOptions(request, runtime);
+  }
+
+  async recognizeSocialSecurityCardVersionIIWithOptions(request: RecognizeSocialSecurityCardVersionIIRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeSocialSecurityCardVersionIIResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeSocialSecurityCardVersionII",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeSocialSecurityCardVersionIIResponse>(await this.callApi(params, req, runtime), new RecognizeSocialSecurityCardVersionIIResponse({}));
+  }
+
+  async recognizeSocialSecurityCardVersionII(request: RecognizeSocialSecurityCardVersionIIRequest): Promise<RecognizeSocialSecurityCardVersionIIResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeSocialSecurityCardVersionIIWithOptions(request, runtime);
   }
 
   async recognizeTableOcrWithOptions(request: RecognizeTableOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableOcrResponse> {
