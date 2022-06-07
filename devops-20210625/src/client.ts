@@ -452,6 +452,96 @@ export class CreateHostGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateOAuthTokenRequest extends $tea.Model {
+  clientId?: string;
+  clientSecret?: string;
+  code?: string;
+  grantType?: string;
+  login?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'clientId',
+      clientSecret: 'clientSecret',
+      code: 'code',
+      grantType: 'grantType',
+      login: 'login',
+      scope: 'scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      clientSecret: 'string',
+      code: 'string',
+      grantType: 'string',
+      login: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOAuthTokenResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateOAuthTokenResponseBodyResult;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateOAuthTokenResponseBodyResult,
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOAuthTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOAuthTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOAuthTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequest extends $tea.Model {
   customCode?: string;
   name?: string;
@@ -6646,6 +6736,34 @@ export class AddWebhookResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateOAuthTokenResponseBodyResult extends $tea.Model {
+  accessToken?: string;
+  id?: string;
+  scope?: string;
+  tokenType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      id: 'id',
+      scope: 'scope',
+      tokenType: 'tokenType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      id: 'string',
+      scope: 'string',
+      tokenType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectResponseBodyProject extends $tea.Model {
   categoryIdentifier?: string;
   creator?: string;
@@ -10575,6 +10693,57 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<CreateHostGroupResponse>(await this.callApi(params, req, runtime), new CreateHostGroupResponse({}));
+  }
+
+  async createOAuthToken(request: CreateOAuthTokenRequest): Promise<CreateOAuthTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOAuthTokenWithOptions(request, headers, runtime);
+  }
+
+  async createOAuthTokenWithOptions(request: CreateOAuthTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOAuthTokenResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["clientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.clientSecret)) {
+      body["clientSecret"] = request.clientSecret;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      body["code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.grantType)) {
+      body["grantType"] = request.grantType;
+    }
+
+    if (!Util.isUnset(request.login)) {
+      body["login"] = request.login;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOAuthToken",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/login/oauth/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOAuthTokenResponse>(await this.callApi(params, req, runtime), new CreateOAuthTokenResponse({}));
   }
 
   async createProject(organizationId: string, request: CreateProjectRequest): Promise<CreateProjectResponse> {
