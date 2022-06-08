@@ -9,25 +9,25 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AsymmetricDecryptRequest extends $tea.Model {
+  algorithm?: string;
   ciphertextBlob?: string;
   keyId?: string;
   keyVersionId?: string;
-  algorithm?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       ciphertextBlob: 'CiphertextBlob',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
-      algorithm: 'Algorithm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       ciphertextBlob: 'string',
       keyId: 'string',
       keyVersionId: 'string',
-      algorithm: 'string',
     };
   }
 
@@ -37,25 +37,25 @@ export class AsymmetricDecryptRequest extends $tea.Model {
 }
 
 export class AsymmetricDecryptResponseBody extends $tea.Model {
-  requestId?: string;
-  plaintext?: string;
   keyId?: string;
   keyVersionId?: string;
+  plaintext?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      plaintext: 'Plaintext',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      plaintext: 'Plaintext',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      plaintext: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      plaintext: 'string',
+      requestId: 'string',
     };
   }
 
@@ -66,10 +66,12 @@ export class AsymmetricDecryptResponseBody extends $tea.Model {
 
 export class AsymmetricDecryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AsymmetricDecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -77,6 +79,7 @@ export class AsymmetricDecryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AsymmetricDecryptResponseBody,
     };
   }
@@ -87,25 +90,25 @@ export class AsymmetricDecryptResponse extends $tea.Model {
 }
 
 export class AsymmetricEncryptRequest extends $tea.Model {
-  plaintext?: string;
+  algorithm?: string;
   keyId?: string;
   keyVersionId?: string;
-  algorithm?: string;
+  plaintext?: string;
   static names(): { [key: string]: string } {
     return {
-      plaintext: 'Plaintext',
+      algorithm: 'Algorithm',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
-      algorithm: 'Algorithm',
+      plaintext: 'Plaintext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      plaintext: 'string',
+      algorithm: 'string',
       keyId: 'string',
       keyVersionId: 'string',
-      algorithm: 'string',
+      plaintext: 'string',
     };
   }
 
@@ -115,25 +118,25 @@ export class AsymmetricEncryptRequest extends $tea.Model {
 }
 
 export class AsymmetricEncryptResponseBody extends $tea.Model {
-  requestId?: string;
   ciphertextBlob?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ciphertextBlob: 'CiphertextBlob',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ciphertextBlob: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -144,10 +147,12 @@ export class AsymmetricEncryptResponseBody extends $tea.Model {
 
 export class AsymmetricEncryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AsymmetricEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -155,6 +160,7 @@ export class AsymmetricEncryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AsymmetricEncryptResponseBody,
     };
   }
@@ -165,25 +171,25 @@ export class AsymmetricEncryptResponse extends $tea.Model {
 }
 
 export class AsymmetricSignRequest extends $tea.Model {
-  keyId?: string;
-  keyVersionId?: string;
   algorithm?: string;
   digest?: string;
+  keyId?: string;
+  keyVersionId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
-      keyVersionId: 'KeyVersionId',
       algorithm: 'Algorithm',
       digest: 'Digest',
+      keyId: 'KeyId',
+      keyVersionId: 'KeyVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
-      keyVersionId: 'string',
       algorithm: 'string',
       digest: 'string',
+      keyId: 'string',
+      keyVersionId: 'string',
     };
   }
 
@@ -193,25 +199,25 @@ export class AsymmetricSignRequest extends $tea.Model {
 }
 
 export class AsymmetricSignResponseBody extends $tea.Model {
-  requestId?: string;
-  value?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      value: 'Value',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      value: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
+      value: 'string',
     };
   }
 
@@ -222,10 +228,12 @@ export class AsymmetricSignResponseBody extends $tea.Model {
 
 export class AsymmetricSignResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AsymmetricSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -233,6 +241,7 @@ export class AsymmetricSignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AsymmetricSignResponseBody,
     };
   }
@@ -243,27 +252,27 @@ export class AsymmetricSignResponse extends $tea.Model {
 }
 
 export class AsymmetricVerifyRequest extends $tea.Model {
-  keyId?: string;
-  keyVersionId?: string;
   algorithm?: string;
   digest?: string;
+  keyId?: string;
+  keyVersionId?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
-      keyVersionId: 'KeyVersionId',
       algorithm: 'Algorithm',
       digest: 'Digest',
+      keyId: 'KeyId',
+      keyVersionId: 'KeyVersionId',
       value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
-      keyVersionId: 'string',
       algorithm: 'string',
       digest: 'string',
+      keyId: 'string',
+      keyVersionId: 'string',
       value: 'string',
     };
   }
@@ -274,25 +283,25 @@ export class AsymmetricVerifyRequest extends $tea.Model {
 }
 
 export class AsymmetricVerifyResponseBody extends $tea.Model {
-  requestId?: string;
-  value?: boolean;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
+  value?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      value: 'Value',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      value: 'boolean',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
+      value: 'boolean',
     };
   }
 
@@ -303,10 +312,12 @@ export class AsymmetricVerifyResponseBody extends $tea.Model {
 
 export class AsymmetricVerifyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AsymmetricVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -314,6 +325,7 @@ export class AsymmetricVerifyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AsymmetricVerifyResponseBody,
     };
   }
@@ -363,10 +375,12 @@ export class CancelKeyDeletionResponseBody extends $tea.Model {
 
 export class CancelKeyDeletionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelKeyDeletionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -374,6 +388,7 @@ export class CancelKeyDeletionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelKeyDeletionResponseBody,
     };
   }
@@ -384,21 +399,21 @@ export class CancelKeyDeletionResponse extends $tea.Model {
 }
 
 export class CertificatePrivateKeyDecryptRequest extends $tea.Model {
-  certificateId?: string;
   algorithm?: string;
+  certificateId?: string;
   ciphertextBlob?: string;
   static names(): { [key: string]: string } {
     return {
-      certificateId: 'CertificateId',
       algorithm: 'Algorithm',
+      certificateId: 'CertificateId',
       ciphertextBlob: 'CiphertextBlob',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certificateId: 'string',
       algorithm: 'string',
+      certificateId: 'string',
       ciphertextBlob: 'string',
     };
   }
@@ -409,22 +424,22 @@ export class CertificatePrivateKeyDecryptRequest extends $tea.Model {
 }
 
 export class CertificatePrivateKeyDecryptResponseBody extends $tea.Model {
-  requestId?: string;
   certificateId?: string;
   plaintext?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateId: 'CertificateId',
       plaintext: 'Plaintext',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateId: 'string',
       plaintext: 'string',
+      requestId: 'string',
     };
   }
 
@@ -435,10 +450,12 @@ export class CertificatePrivateKeyDecryptResponseBody extends $tea.Model {
 
 export class CertificatePrivateKeyDecryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CertificatePrivateKeyDecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -446,6 +463,7 @@ export class CertificatePrivateKeyDecryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CertificatePrivateKeyDecryptResponseBody,
     };
   }
@@ -456,25 +474,25 @@ export class CertificatePrivateKeyDecryptResponse extends $tea.Model {
 }
 
 export class CertificatePrivateKeySignRequest extends $tea.Model {
-  certificateId?: string;
   algorithm?: string;
-  messageType?: string;
+  certificateId?: string;
   message?: string;
+  messageType?: string;
   static names(): { [key: string]: string } {
     return {
-      certificateId: 'CertificateId',
       algorithm: 'Algorithm',
-      messageType: 'MessageType',
+      certificateId: 'CertificateId',
       message: 'Message',
+      messageType: 'MessageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certificateId: 'string',
       algorithm: 'string',
-      messageType: 'string',
+      certificateId: 'string',
       message: 'string',
+      messageType: 'string',
     };
   }
 
@@ -484,22 +502,22 @@ export class CertificatePrivateKeySignRequest extends $tea.Model {
 }
 
 export class CertificatePrivateKeySignResponseBody extends $tea.Model {
-  signatureValue?: string;
-  requestId?: string;
   certificateId?: string;
+  requestId?: string;
+  signatureValue?: string;
   static names(): { [key: string]: string } {
     return {
-      signatureValue: 'SignatureValue',
-      requestId: 'RequestId',
       certificateId: 'CertificateId',
+      requestId: 'RequestId',
+      signatureValue: 'SignatureValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      signatureValue: 'string',
-      requestId: 'string',
       certificateId: 'string',
+      requestId: 'string',
+      signatureValue: 'string',
     };
   }
 
@@ -510,10 +528,12 @@ export class CertificatePrivateKeySignResponseBody extends $tea.Model {
 
 export class CertificatePrivateKeySignResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CertificatePrivateKeySignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -521,6 +541,7 @@ export class CertificatePrivateKeySignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CertificatePrivateKeySignResponseBody,
     };
   }
@@ -531,21 +552,21 @@ export class CertificatePrivateKeySignResponse extends $tea.Model {
 }
 
 export class CertificatePublicKeyEncryptRequest extends $tea.Model {
-  certificateId?: string;
   algorithm?: string;
+  certificateId?: string;
   plaintext?: string;
   static names(): { [key: string]: string } {
     return {
-      certificateId: 'CertificateId',
       algorithm: 'Algorithm',
+      certificateId: 'CertificateId',
       plaintext: 'Plaintext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certificateId: 'string',
       algorithm: 'string',
+      certificateId: 'string',
       plaintext: 'string',
     };
   }
@@ -556,22 +577,22 @@ export class CertificatePublicKeyEncryptRequest extends $tea.Model {
 }
 
 export class CertificatePublicKeyEncryptResponseBody extends $tea.Model {
-  requestId?: string;
-  ciphertextBlob?: string;
   certificateId?: string;
+  ciphertextBlob?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      ciphertextBlob: 'CiphertextBlob',
       certificateId: 'CertificateId',
+      ciphertextBlob: 'CiphertextBlob',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      ciphertextBlob: 'string',
       certificateId: 'string',
+      ciphertextBlob: 'string',
+      requestId: 'string',
     };
   }
 
@@ -582,10 +603,12 @@ export class CertificatePublicKeyEncryptResponseBody extends $tea.Model {
 
 export class CertificatePublicKeyEncryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CertificatePublicKeyEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -593,6 +616,7 @@ export class CertificatePublicKeyEncryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CertificatePublicKeyEncryptResponseBody,
     };
   }
@@ -603,15 +627,15 @@ export class CertificatePublicKeyEncryptResponse extends $tea.Model {
 }
 
 export class CertificatePublicKeyVerifyRequest extends $tea.Model {
-  certificateId?: string;
   algorithm?: string;
+  certificateId?: string;
   message?: string;
   messageType?: string;
   signatureValue?: string;
   static names(): { [key: string]: string } {
     return {
-      certificateId: 'CertificateId',
       algorithm: 'Algorithm',
+      certificateId: 'CertificateId',
       message: 'Message',
       messageType: 'MessageType',
       signatureValue: 'SignatureValue',
@@ -620,8 +644,8 @@ export class CertificatePublicKeyVerifyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      certificateId: 'string',
       algorithm: 'string',
+      certificateId: 'string',
       message: 'string',
       messageType: 'string',
       signatureValue: 'string',
@@ -634,21 +658,21 @@ export class CertificatePublicKeyVerifyRequest extends $tea.Model {
 }
 
 export class CertificatePublicKeyVerifyResponseBody extends $tea.Model {
-  requestId?: string;
   certificateId?: string;
+  requestId?: string;
   signatureValid?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateId: 'CertificateId',
+      requestId: 'RequestId',
       signatureValid: 'SignatureValid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateId: 'string',
+      requestId: 'string',
       signatureValid: 'boolean',
     };
   }
@@ -660,10 +684,12 @@ export class CertificatePublicKeyVerifyResponseBody extends $tea.Model {
 
 export class CertificatePublicKeyVerifyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CertificatePublicKeyVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -671,6 +697,7 @@ export class CertificatePublicKeyVerifyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CertificatePublicKeyVerifyResponseBody,
     };
   }
@@ -681,19 +708,19 @@ export class CertificatePublicKeyVerifyResponse extends $tea.Model {
 }
 
 export class CreateAliasRequest extends $tea.Model {
-  keyId?: string;
   aliasName?: string;
+  keyId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
       aliasName: 'AliasName',
+      keyId: 'KeyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
       aliasName: 'string',
+      keyId: 'string',
     };
   }
 
@@ -723,10 +750,12 @@ export class CreateAliasResponseBody extends $tea.Model {
 
 export class CreateAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -734,6 +763,7 @@ export class CreateAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAliasResponseBody,
     };
   }
@@ -744,25 +774,25 @@ export class CreateAliasResponse extends $tea.Model {
 }
 
 export class CreateCertificateRequest extends $tea.Model {
+  exportablePrivateKey?: boolean;
+  keySpec?: string;
   subject?: string;
   subjectAlternativeNames?: { [key: string]: any };
-  keySpec?: string;
-  protectionLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      exportablePrivateKey: 'ExportablePrivateKey',
+      keySpec: 'KeySpec',
       subject: 'Subject',
       subjectAlternativeNames: 'SubjectAlternativeNames',
-      keySpec: 'KeySpec',
-      protectionLevel: 'ProtectionLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      exportablePrivateKey: 'boolean',
+      keySpec: 'string',
       subject: 'string',
       subjectAlternativeNames: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      keySpec: 'string',
-      protectionLevel: 'string',
     };
   }
 
@@ -772,25 +802,25 @@ export class CreateCertificateRequest extends $tea.Model {
 }
 
 export class CreateCertificateShrinkRequest extends $tea.Model {
+  exportablePrivateKey?: boolean;
+  keySpec?: string;
   subject?: string;
   subjectAlternativeNamesShrink?: string;
-  keySpec?: string;
-  protectionLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      exportablePrivateKey: 'ExportablePrivateKey',
+      keySpec: 'KeySpec',
       subject: 'Subject',
       subjectAlternativeNamesShrink: 'SubjectAlternativeNames',
-      keySpec: 'KeySpec',
-      protectionLevel: 'ProtectionLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      exportablePrivateKey: 'boolean',
+      keySpec: 'string',
       subject: 'string',
       subjectAlternativeNamesShrink: 'string',
-      keySpec: 'string',
-      protectionLevel: 'string',
     };
   }
 
@@ -800,25 +830,25 @@ export class CreateCertificateShrinkRequest extends $tea.Model {
 }
 
 export class CreateCertificateResponseBody extends $tea.Model {
+  arn?: string;
+  certificateId?: string;
   csr?: string;
   requestId?: string;
-  certificateId?: string;
-  arn?: string;
   static names(): { [key: string]: string } {
     return {
+      arn: 'Arn',
+      certificateId: 'CertificateId',
       csr: 'Csr',
       requestId: 'RequestId',
-      certificateId: 'CertificateId',
-      arn: 'Arn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arn: 'string',
+      certificateId: 'string',
       csr: 'string',
       requestId: 'string',
-      certificateId: 'string',
-      arn: 'string',
     };
   }
 
@@ -829,10 +859,12 @@ export class CreateCertificateResponseBody extends $tea.Model {
 
 export class CreateCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -840,98 +872,8 @@ export class CreateCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCertificateAuthorityRequest extends $tea.Model {
-  certificateAuthorityConfiguration?: { [key: string]: any };
-  certificateAuthorityType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityConfiguration: 'CertificateAuthorityConfiguration',
-      certificateAuthorityType: 'CertificateAuthorityType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      certificateAuthorityType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCertificateAuthorityShrinkRequest extends $tea.Model {
-  certificateAuthorityConfigurationShrink?: string;
-  certificateAuthorityType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityConfigurationShrink: 'CertificateAuthorityConfiguration',
-      certificateAuthorityType: 'CertificateAuthorityType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityConfigurationShrink: 'string',
-      certificateAuthorityType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCertificateAuthorityResponseBody extends $tea.Model {
-  certificateAuthorityArn?: string;
-  requestId?: string;
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityArn: 'CertificateAuthorityArn',
-      requestId: 'RequestId',
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityArn: 'string',
-      requestId: 'string',
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCertificateAuthorityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateCertificateAuthorityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateCertificateAuthorityResponseBody,
     };
   }
 
@@ -942,33 +884,33 @@ export class CreateCertificateAuthorityResponse extends $tea.Model {
 
 export class CreateKeyRequest extends $tea.Model {
   description?: string;
+  enableAutomaticRotation?: boolean;
+  keySpec?: string;
   keyUsage?: string;
   origin?: string;
   protectionLevel?: string;
-  enableAutomaticRotation?: boolean;
   rotationInterval?: string;
-  keySpec?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      enableAutomaticRotation: 'EnableAutomaticRotation',
+      keySpec: 'KeySpec',
       keyUsage: 'KeyUsage',
       origin: 'Origin',
       protectionLevel: 'ProtectionLevel',
-      enableAutomaticRotation: 'EnableAutomaticRotation',
       rotationInterval: 'RotationInterval',
-      keySpec: 'KeySpec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      enableAutomaticRotation: 'boolean',
+      keySpec: 'string',
       keyUsage: 'string',
       origin: 'string',
       protectionLevel: 'string',
-      enableAutomaticRotation: 'boolean',
       rotationInterval: 'string',
-      keySpec: 'string',
     };
   }
 
@@ -978,19 +920,19 @@ export class CreateKeyRequest extends $tea.Model {
 }
 
 export class CreateKeyResponseBody extends $tea.Model {
-  requestId?: string;
   keyMetadata?: CreateKeyResponseBodyKeyMetadata;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       keyMetadata: 'KeyMetadata',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       keyMetadata: CreateKeyResponseBodyKeyMetadata,
+      requestId: 'string',
     };
   }
 
@@ -1001,10 +943,12 @@ export class CreateKeyResponseBody extends $tea.Model {
 
 export class CreateKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1012,6 +956,7 @@ export class CreateKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateKeyResponseBody,
     };
   }
@@ -1041,19 +986,19 @@ export class CreateKeyVersionRequest extends $tea.Model {
 }
 
 export class CreateKeyVersionResponseBody extends $tea.Model {
-  requestId?: string;
   keyVersion?: CreateKeyVersionResponseBodyKeyVersion;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       keyVersion: 'KeyVersion',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       keyVersion: CreateKeyVersionResponseBodyKeyVersion,
+      requestId: 'string',
     };
   }
 
@@ -1064,10 +1009,12 @@ export class CreateKeyVersionResponseBody extends $tea.Model {
 
 export class CreateKeyVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateKeyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1075,6 +1022,7 @@ export class CreateKeyVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateKeyVersionResponseBody,
     };
   }
@@ -1085,46 +1033,46 @@ export class CreateKeyVersionResponse extends $tea.Model {
 }
 
 export class CreateSecretRequest extends $tea.Model {
-  secretName?: string;
-  versionId?: string;
+  description?: string;
+  enableAutomaticRotation?: boolean;
   encryptionKeyId?: string;
+  extendedConfig?: { [key: string]: any };
+  rotationInterval?: string;
   secretData?: string;
   secretDataType?: string;
-  description?: string;
-  tags?: string;
+  secretName?: string;
   secretType?: string;
-  extendedConfig?: { [key: string]: any };
-  enableAutomaticRotation?: boolean;
-  rotationInterval?: string;
+  tags?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
-      versionId: 'VersionId',
+      description: 'Description',
+      enableAutomaticRotation: 'EnableAutomaticRotation',
       encryptionKeyId: 'EncryptionKeyId',
+      extendedConfig: 'ExtendedConfig',
+      rotationInterval: 'RotationInterval',
       secretData: 'SecretData',
       secretDataType: 'SecretDataType',
-      description: 'Description',
-      tags: 'Tags',
+      secretName: 'SecretName',
       secretType: 'SecretType',
-      extendedConfig: 'ExtendedConfig',
-      enableAutomaticRotation: 'EnableAutomaticRotation',
-      rotationInterval: 'RotationInterval',
+      tags: 'Tags',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
-      versionId: 'string',
+      description: 'string',
+      enableAutomaticRotation: 'boolean',
       encryptionKeyId: 'string',
+      extendedConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      rotationInterval: 'string',
       secretData: 'string',
       secretDataType: 'string',
-      description: 'string',
-      tags: 'string',
+      secretName: 'string',
       secretType: 'string',
-      extendedConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      enableAutomaticRotation: 'boolean',
-      rotationInterval: 'string',
+      tags: 'string',
+      versionId: 'string',
     };
   }
 
@@ -1134,46 +1082,46 @@ export class CreateSecretRequest extends $tea.Model {
 }
 
 export class CreateSecretShrinkRequest extends $tea.Model {
-  secretName?: string;
-  versionId?: string;
+  description?: string;
+  enableAutomaticRotation?: boolean;
   encryptionKeyId?: string;
+  extendedConfigShrink?: string;
+  rotationInterval?: string;
   secretData?: string;
   secretDataType?: string;
-  description?: string;
-  tags?: string;
+  secretName?: string;
   secretType?: string;
-  extendedConfigShrink?: string;
-  enableAutomaticRotation?: boolean;
-  rotationInterval?: string;
+  tags?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
-      versionId: 'VersionId',
+      description: 'Description',
+      enableAutomaticRotation: 'EnableAutomaticRotation',
       encryptionKeyId: 'EncryptionKeyId',
+      extendedConfigShrink: 'ExtendedConfig',
+      rotationInterval: 'RotationInterval',
       secretData: 'SecretData',
       secretDataType: 'SecretDataType',
-      description: 'Description',
-      tags: 'Tags',
+      secretName: 'SecretName',
       secretType: 'SecretType',
-      extendedConfigShrink: 'ExtendedConfig',
-      enableAutomaticRotation: 'EnableAutomaticRotation',
-      rotationInterval: 'RotationInterval',
+      tags: 'Tags',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
-      versionId: 'string',
+      description: 'string',
+      enableAutomaticRotation: 'boolean',
       encryptionKeyId: 'string',
+      extendedConfigShrink: 'string',
+      rotationInterval: 'string',
       secretData: 'string',
       secretDataType: 'string',
-      description: 'string',
-      tags: 'string',
+      secretName: 'string',
       secretType: 'string',
-      extendedConfigShrink: 'string',
-      enableAutomaticRotation: 'boolean',
-      rotationInterval: 'string',
+      tags: 'string',
+      versionId: 'string',
     };
   }
 
@@ -1183,40 +1131,40 @@ export class CreateSecretShrinkRequest extends $tea.Model {
 }
 
 export class CreateSecretResponseBody extends $tea.Model {
-  secretName?: string;
-  versionId?: string;
-  nextRotationDate?: string;
-  requestId?: string;
-  secretType?: string;
-  rotationInterval?: string;
-  extendedConfig?: string;
   arn?: string;
   automaticRotation?: string;
+  extendedConfig?: string;
+  nextRotationDate?: string;
+  requestId?: string;
+  rotationInterval?: string;
+  secretName?: string;
+  secretType?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
-      versionId: 'VersionId',
-      nextRotationDate: 'NextRotationDate',
-      requestId: 'RequestId',
-      secretType: 'SecretType',
-      rotationInterval: 'RotationInterval',
-      extendedConfig: 'ExtendedConfig',
       arn: 'Arn',
       automaticRotation: 'AutomaticRotation',
+      extendedConfig: 'ExtendedConfig',
+      nextRotationDate: 'NextRotationDate',
+      requestId: 'RequestId',
+      rotationInterval: 'RotationInterval',
+      secretName: 'SecretName',
+      secretType: 'SecretType',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
-      versionId: 'string',
-      nextRotationDate: 'string',
-      requestId: 'string',
-      secretType: 'string',
-      rotationInterval: 'string',
-      extendedConfig: 'string',
       arn: 'string',
       automaticRotation: 'string',
+      extendedConfig: 'string',
+      nextRotationDate: 'string',
+      requestId: 'string',
+      rotationInterval: 'string',
+      secretName: 'string',
+      secretType: 'string',
+      versionId: 'string',
     };
   }
 
@@ -1227,10 +1175,12 @@ export class CreateSecretResponseBody extends $tea.Model {
 
 export class CreateSecretResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1238,6 +1188,7 @@ export class CreateSecretResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSecretResponseBody,
     };
   }
@@ -1292,25 +1243,25 @@ export class DecryptShrinkRequest extends $tea.Model {
 }
 
 export class DecryptResponseBody extends $tea.Model {
-  requestId?: string;
-  plaintext?: string;
   keyId?: string;
   keyVersionId?: string;
+  plaintext?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      plaintext: 'Plaintext',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      plaintext: 'Plaintext',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      plaintext: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      plaintext: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1321,10 +1272,12 @@ export class DecryptResponseBody extends $tea.Model {
 
 export class DecryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DecryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1332,6 +1285,7 @@ export class DecryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DecryptResponseBody,
     };
   }
@@ -1381,10 +1335,12 @@ export class DeleteAliasResponseBody extends $tea.Model {
 
 export class DeleteAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1392,6 +1348,7 @@ export class DeleteAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAliasResponseBody,
     };
   }
@@ -1441,10 +1398,12 @@ export class DeleteCertificateResponseBody extends $tea.Model {
 
 export class DeleteCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1452,67 +1411,8 @@ export class DeleteCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCertificateAuthorityRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCertificateAuthorityResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCertificateAuthorityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteCertificateAuthorityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteCertificateAuthorityResponseBody,
     };
   }
 
@@ -1561,10 +1461,12 @@ export class DeleteKeyMaterialResponseBody extends $tea.Model {
 
 export class DeleteKeyMaterialResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteKeyMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1572,6 +1474,7 @@ export class DeleteKeyMaterialResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteKeyMaterialResponseBody,
     };
   }
@@ -1582,22 +1485,22 @@ export class DeleteKeyMaterialResponse extends $tea.Model {
 }
 
 export class DeleteSecretRequest extends $tea.Model {
-  secretName?: string;
   forceDeleteWithoutRecovery?: string;
   recoveryWindowInDays?: string;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
       forceDeleteWithoutRecovery: 'ForceDeleteWithoutRecovery',
       recoveryWindowInDays: 'RecoveryWindowInDays',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
       forceDeleteWithoutRecovery: 'string',
       recoveryWindowInDays: 'string',
+      secretName: 'string',
     };
   }
 
@@ -1607,22 +1510,22 @@ export class DeleteSecretRequest extends $tea.Model {
 }
 
 export class DeleteSecretResponseBody extends $tea.Model {
-  secretName?: string;
-  requestId?: string;
   plannedDeleteTime?: string;
+  requestId?: string;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
-      requestId: 'RequestId',
       plannedDeleteTime: 'PlannedDeleteTime',
+      requestId: 'RequestId',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
-      requestId: 'string',
       plannedDeleteTime: 'string',
+      requestId: 'string',
+      secretName: 'string',
     };
   }
 
@@ -1633,10 +1536,12 @@ export class DeleteSecretResponseBody extends $tea.Model {
 
 export class DeleteSecretResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1644,6 +1549,7 @@ export class DeleteSecretResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSecretResponseBody,
     };
   }
@@ -1654,19 +1560,19 @@ export class DeleteSecretResponse extends $tea.Model {
 }
 
 export class DescribeAccountKmsStatusResponseBody extends $tea.Model {
-  requestId?: string;
   accountStatus?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accountStatus: 'AccountStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accountStatus: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1677,10 +1583,12 @@ export class DescribeAccountKmsStatusResponseBody extends $tea.Model {
 
 export class DescribeAccountKmsStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAccountKmsStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1688,6 +1596,7 @@ export class DescribeAccountKmsStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAccountKmsStatusResponseBody,
     };
   }
@@ -1717,67 +1626,67 @@ export class DescribeCertificateRequest extends $tea.Model {
 }
 
 export class DescribeCertificateResponseBody extends $tea.Model {
-  status?: string;
-  protectionLevel?: string;
-  requestId?: string;
-  issuer?: string;
+  arn?: string;
   certificateId?: string;
   createdAt?: string;
+  exportablePrivateKey?: boolean;
+  issuer?: string;
   keySpec?: string;
-  subjectAlternativeNames?: string[];
-  signatureAlgorithm?: string;
-  subjectKeyIdentifier?: string;
   notAfter?: string;
-  updatedAt?: string;
-  subject?: string;
-  serial?: string;
-  subjectPublicKey?: string;
-  arn?: string;
   notBefore?: string;
+  requestId?: string;
+  serial?: string;
+  signatureAlgorithm?: string;
+  status?: string;
+  subject?: string;
+  subjectAlternativeNames?: string[];
+  subjectKeyIdentifier?: string;
+  subjectPublicKey?: string;
   tags?: { [key: string]: any };
+  updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      protectionLevel: 'ProtectionLevel',
-      requestId: 'RequestId',
-      issuer: 'Issuer',
+      arn: 'Arn',
       certificateId: 'CertificateId',
       createdAt: 'CreatedAt',
+      exportablePrivateKey: 'ExportablePrivateKey',
+      issuer: 'Issuer',
       keySpec: 'KeySpec',
-      subjectAlternativeNames: 'SubjectAlternativeNames',
-      signatureAlgorithm: 'SignatureAlgorithm',
-      subjectKeyIdentifier: 'SubjectKeyIdentifier',
       notAfter: 'NotAfter',
-      updatedAt: 'UpdatedAt',
-      subject: 'Subject',
-      serial: 'Serial',
-      subjectPublicKey: 'SubjectPublicKey',
-      arn: 'Arn',
       notBefore: 'NotBefore',
+      requestId: 'RequestId',
+      serial: 'Serial',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      subject: 'Subject',
+      subjectAlternativeNames: 'SubjectAlternativeNames',
+      subjectKeyIdentifier: 'SubjectKeyIdentifier',
+      subjectPublicKey: 'SubjectPublicKey',
       tags: 'Tags',
+      updatedAt: 'UpdatedAt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      protectionLevel: 'string',
-      requestId: 'string',
-      issuer: 'string',
+      arn: 'string',
       certificateId: 'string',
       createdAt: 'string',
+      exportablePrivateKey: 'boolean',
+      issuer: 'string',
       keySpec: 'string',
-      subjectAlternativeNames: { 'type': 'array', 'itemType': 'string' },
-      signatureAlgorithm: 'string',
-      subjectKeyIdentifier: 'string',
       notAfter: 'string',
-      updatedAt: 'string',
-      subject: 'string',
-      serial: 'string',
-      subjectPublicKey: 'string',
-      arn: 'string',
       notBefore: 'string',
+      requestId: 'string',
+      serial: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      subject: 'string',
+      subjectAlternativeNames: { 'type': 'array', 'itemType': 'string' },
+      subjectKeyIdentifier: 'string',
+      subjectPublicKey: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      updatedAt: 'string',
     };
   }
 
@@ -1788,10 +1697,12 @@ export class DescribeCertificateResponseBody extends $tea.Model {
 
 export class DescribeCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1799,70 +1710,8 @@ export class DescribeCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponseBody extends $tea.Model {
-  requestId?: string;
-  certificateAuthority?: DescribeCertificateAuthorityResponseBodyCertificateAuthority;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificateAuthority: 'CertificateAuthority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificateAuthority: DescribeCertificateAuthorityResponseBodyCertificateAuthority,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeCertificateAuthorityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeCertificateAuthorityResponseBody,
     };
   }
 
@@ -1891,19 +1740,19 @@ export class DescribeKeyRequest extends $tea.Model {
 }
 
 export class DescribeKeyResponseBody extends $tea.Model {
-  requestId?: string;
   keyMetadata?: DescribeKeyResponseBodyKeyMetadata;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       keyMetadata: 'KeyMetadata',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       keyMetadata: DescribeKeyResponseBodyKeyMetadata,
+      requestId: 'string',
     };
   }
 
@@ -1914,10 +1763,12 @@ export class DescribeKeyResponseBody extends $tea.Model {
 
 export class DescribeKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1925,6 +1776,7 @@ export class DescribeKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeKeyResponseBody,
     };
   }
@@ -1957,19 +1809,19 @@ export class DescribeKeyVersionRequest extends $tea.Model {
 }
 
 export class DescribeKeyVersionResponseBody extends $tea.Model {
-  requestId?: string;
   keyVersion?: DescribeKeyVersionResponseBodyKeyVersion;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       keyVersion: 'KeyVersion',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       keyVersion: DescribeKeyVersionResponseBodyKeyVersion,
+      requestId: 'string',
     };
   }
 
@@ -1980,10 +1832,12 @@ export class DescribeKeyVersionResponseBody extends $tea.Model {
 
 export class DescribeKeyVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeKeyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1991,6 +1845,7 @@ export class DescribeKeyVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeKeyVersionResponseBody,
     };
   }
@@ -2001,19 +1856,19 @@ export class DescribeKeyVersionResponse extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: DescribeRegionsResponseBodyRegions,
+      requestId: 'string',
     };
   }
 
@@ -2024,10 +1879,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2035,6 +1892,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -2045,19 +1903,19 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeSecretRequest extends $tea.Model {
-  secretName?: string;
   fetchTags?: string;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
       fetchTags: 'FetchTags',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
       fetchTags: 'string',
+      secretName: 'string',
     };
   }
 
@@ -2067,58 +1925,58 @@ export class DescribeSecretRequest extends $tea.Model {
 }
 
 export class DescribeSecretResponseBody extends $tea.Model {
-  description?: string;
-  rotationInterval?: string;
-  lastRotationDate?: string;
-  requestId?: string;
-  secretType?: string;
-  createTime?: string;
-  automaticRotation?: string;
-  secretName?: string;
-  nextRotationDate?: string;
-  updateTime?: string;
-  extendedConfig?: string;
-  plannedDeleteTime?: string;
   arn?: string;
-  tags?: DescribeSecretResponseBodyTags;
+  automaticRotation?: string;
+  createTime?: string;
+  description?: string;
   encryptionKeyId?: string;
+  extendedConfig?: string;
+  lastRotationDate?: string;
+  nextRotationDate?: string;
+  plannedDeleteTime?: string;
+  requestId?: string;
+  rotationInterval?: string;
+  secretName?: string;
+  secretType?: string;
+  tags?: DescribeSecretResponseBodyTags;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      rotationInterval: 'RotationInterval',
-      lastRotationDate: 'LastRotationDate',
-      requestId: 'RequestId',
-      secretType: 'SecretType',
-      createTime: 'CreateTime',
-      automaticRotation: 'AutomaticRotation',
-      secretName: 'SecretName',
-      nextRotationDate: 'NextRotationDate',
-      updateTime: 'UpdateTime',
-      extendedConfig: 'ExtendedConfig',
-      plannedDeleteTime: 'PlannedDeleteTime',
       arn: 'Arn',
-      tags: 'Tags',
+      automaticRotation: 'AutomaticRotation',
+      createTime: 'CreateTime',
+      description: 'Description',
       encryptionKeyId: 'EncryptionKeyId',
+      extendedConfig: 'ExtendedConfig',
+      lastRotationDate: 'LastRotationDate',
+      nextRotationDate: 'NextRotationDate',
+      plannedDeleteTime: 'PlannedDeleteTime',
+      requestId: 'RequestId',
+      rotationInterval: 'RotationInterval',
+      secretName: 'SecretName',
+      secretType: 'SecretType',
+      tags: 'Tags',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      rotationInterval: 'string',
-      lastRotationDate: 'string',
-      requestId: 'string',
-      secretType: 'string',
-      createTime: 'string',
-      automaticRotation: 'string',
-      secretName: 'string',
-      nextRotationDate: 'string',
-      updateTime: 'string',
-      extendedConfig: 'string',
-      plannedDeleteTime: 'string',
       arn: 'string',
-      tags: DescribeSecretResponseBodyTags,
+      automaticRotation: 'string',
+      createTime: 'string',
+      description: 'string',
       encryptionKeyId: 'string',
+      extendedConfig: 'string',
+      lastRotationDate: 'string',
+      nextRotationDate: 'string',
+      plannedDeleteTime: 'string',
+      requestId: 'string',
+      rotationInterval: 'string',
+      secretName: 'string',
+      secretType: 'string',
+      tags: DescribeSecretResponseBodyTags,
+      updateTime: 'string',
     };
   }
 
@@ -2129,10 +1987,12 @@ export class DescribeSecretResponseBody extends $tea.Model {
 
 export class DescribeSecretResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2140,54 +2000,8 @@ export class DescribeSecretResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSecretResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBody extends $tea.Model {
-  protectionLevels?: DescribeServiceResponseBodyProtectionLevels;
-  requestId?: string;
-  keySpecs?: DescribeServiceResponseBodyKeySpecs;
-  static names(): { [key: string]: string } {
-    return {
-      protectionLevels: 'ProtectionLevels',
-      requestId: 'RequestId',
-      keySpecs: 'KeySpecs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protectionLevels: DescribeServiceResponseBodyProtectionLevels,
-      requestId: 'string',
-      keySpecs: DescribeServiceResponseBodyKeySpecs,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeServiceResponseBody,
     };
   }
 
@@ -2236,10 +2050,12 @@ export class DisableKeyResponseBody extends $tea.Model {
 
 export class DisableKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2247,6 +2063,7 @@ export class DisableKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableKeyResponseBody,
     };
   }
@@ -2296,10 +2113,12 @@ export class EnableKeyResponseBody extends $tea.Model {
 
 export class EnableKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2307,6 +2126,7 @@ export class EnableKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableKeyResponseBody,
     };
   }
@@ -2317,22 +2137,22 @@ export class EnableKeyResponse extends $tea.Model {
 }
 
 export class EncryptRequest extends $tea.Model {
+  encryptionContext?: { [key: string]: any };
   keyId?: string;
   plaintext?: string;
-  encryptionContext?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      encryptionContext: 'EncryptionContext',
       keyId: 'KeyId',
       plaintext: 'Plaintext',
-      encryptionContext: 'EncryptionContext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       keyId: 'string',
       plaintext: 'string',
-      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2342,22 +2162,22 @@ export class EncryptRequest extends $tea.Model {
 }
 
 export class EncryptShrinkRequest extends $tea.Model {
+  encryptionContextShrink?: string;
   keyId?: string;
   plaintext?: string;
-  encryptionContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      encryptionContextShrink: 'EncryptionContext',
       keyId: 'KeyId',
       plaintext: 'Plaintext',
-      encryptionContextShrink: 'EncryptionContext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContextShrink: 'string',
       keyId: 'string',
       plaintext: 'string',
-      encryptionContextShrink: 'string',
     };
   }
 
@@ -2367,25 +2187,25 @@ export class EncryptShrinkRequest extends $tea.Model {
 }
 
 export class EncryptResponseBody extends $tea.Model {
-  requestId?: string;
   ciphertextBlob?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ciphertextBlob: 'CiphertextBlob',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ciphertextBlob: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2396,10 +2216,12 @@ export class EncryptResponseBody extends $tea.Model {
 
 export class EncryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2407,88 +2229,8 @@ export class EncryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EncryptResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportCertificateRequest extends $tea.Model {
-  certificateId?: string;
-  passphrase?: string;
-  exportFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateId: 'CertificateId',
-      passphrase: 'Passphrase',
-      exportFormat: 'ExportFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateId: 'string',
-      passphrase: 'string',
-      exportFormat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportCertificateResponseBody extends $tea.Model {
-  privateKey?: string;
-  requestId?: string;
-  certificateId?: string;
-  certificateChain?: string;
-  PKCS12Blob?: string;
-  certificate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      privateKey: 'PrivateKey',
-      requestId: 'RequestId',
-      certificateId: 'CertificateId',
-      certificateChain: 'CertificateChain',
-      PKCS12Blob: 'PKCS12Blob',
-      certificate: 'Certificate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      privateKey: 'string',
-      requestId: 'string',
-      certificateId: 'string',
-      certificateChain: 'string',
-      PKCS12Blob: 'string',
-      certificate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExportCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExportCertificateResponseBody,
     };
   }
 
@@ -2501,15 +2243,15 @@ export class ExportDataKeyRequest extends $tea.Model {
   ciphertextBlob?: string;
   encryptionContext?: { [key: string]: any };
   publicKeyBlob?: string;
-  wrappingKeySpec?: string;
   wrappingAlgorithm?: string;
+  wrappingKeySpec?: string;
   static names(): { [key: string]: string } {
     return {
       ciphertextBlob: 'CiphertextBlob',
       encryptionContext: 'EncryptionContext',
       publicKeyBlob: 'PublicKeyBlob',
-      wrappingKeySpec: 'WrappingKeySpec',
       wrappingAlgorithm: 'WrappingAlgorithm',
+      wrappingKeySpec: 'WrappingKeySpec',
     };
   }
 
@@ -2518,8 +2260,8 @@ export class ExportDataKeyRequest extends $tea.Model {
       ciphertextBlob: 'string',
       encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       publicKeyBlob: 'string',
-      wrappingKeySpec: 'string',
       wrappingAlgorithm: 'string',
+      wrappingKeySpec: 'string',
     };
   }
 
@@ -2532,15 +2274,15 @@ export class ExportDataKeyShrinkRequest extends $tea.Model {
   ciphertextBlob?: string;
   encryptionContextShrink?: string;
   publicKeyBlob?: string;
-  wrappingKeySpec?: string;
   wrappingAlgorithm?: string;
+  wrappingKeySpec?: string;
   static names(): { [key: string]: string } {
     return {
       ciphertextBlob: 'CiphertextBlob',
       encryptionContextShrink: 'EncryptionContext',
       publicKeyBlob: 'PublicKeyBlob',
-      wrappingKeySpec: 'WrappingKeySpec',
       wrappingAlgorithm: 'WrappingAlgorithm',
+      wrappingKeySpec: 'WrappingKeySpec',
     };
   }
 
@@ -2549,8 +2291,8 @@ export class ExportDataKeyShrinkRequest extends $tea.Model {
       ciphertextBlob: 'string',
       encryptionContextShrink: 'string',
       publicKeyBlob: 'string',
-      wrappingKeySpec: 'string',
       wrappingAlgorithm: 'string',
+      wrappingKeySpec: 'string',
     };
   }
 
@@ -2560,25 +2302,25 @@ export class ExportDataKeyShrinkRequest extends $tea.Model {
 }
 
 export class ExportDataKeyResponseBody extends $tea.Model {
-  requestId?: string;
   exportedDataKey?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       exportedDataKey: 'ExportedDataKey',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       exportedDataKey: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2589,10 +2331,12 @@ export class ExportDataKeyResponseBody extends $tea.Model {
 
 export class ExportDataKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ExportDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2600,6 +2344,7 @@ export class ExportDataKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ExportDataKeyResponseBody,
     };
   }
@@ -2610,34 +2355,34 @@ export class ExportDataKeyResponse extends $tea.Model {
 }
 
 export class GenerateAndExportDataKeyRequest extends $tea.Model {
+  encryptionContext?: { [key: string]: any };
   keyId?: string;
   keySpec?: string;
   numberOfBytes?: number;
-  encryptionContext?: { [key: string]: any };
   publicKeyBlob?: string;
-  wrappingKeySpec?: string;
   wrappingAlgorithm?: string;
+  wrappingKeySpec?: string;
   static names(): { [key: string]: string } {
     return {
+      encryptionContext: 'EncryptionContext',
       keyId: 'KeyId',
       keySpec: 'KeySpec',
       numberOfBytes: 'NumberOfBytes',
-      encryptionContext: 'EncryptionContext',
       publicKeyBlob: 'PublicKeyBlob',
-      wrappingKeySpec: 'WrappingKeySpec',
       wrappingAlgorithm: 'WrappingAlgorithm',
+      wrappingKeySpec: 'WrappingKeySpec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       keyId: 'string',
       keySpec: 'string',
       numberOfBytes: 'number',
-      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       publicKeyBlob: 'string',
-      wrappingKeySpec: 'string',
       wrappingAlgorithm: 'string',
+      wrappingKeySpec: 'string',
     };
   }
 
@@ -2647,34 +2392,34 @@ export class GenerateAndExportDataKeyRequest extends $tea.Model {
 }
 
 export class GenerateAndExportDataKeyShrinkRequest extends $tea.Model {
+  encryptionContextShrink?: string;
   keyId?: string;
   keySpec?: string;
   numberOfBytes?: number;
-  encryptionContextShrink?: string;
   publicKeyBlob?: string;
-  wrappingKeySpec?: string;
   wrappingAlgorithm?: string;
+  wrappingKeySpec?: string;
   static names(): { [key: string]: string } {
     return {
+      encryptionContextShrink: 'EncryptionContext',
       keyId: 'KeyId',
       keySpec: 'KeySpec',
       numberOfBytes: 'NumberOfBytes',
-      encryptionContextShrink: 'EncryptionContext',
       publicKeyBlob: 'PublicKeyBlob',
-      wrappingKeySpec: 'WrappingKeySpec',
       wrappingAlgorithm: 'WrappingAlgorithm',
+      wrappingKeySpec: 'WrappingKeySpec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContextShrink: 'string',
       keyId: 'string',
       keySpec: 'string',
       numberOfBytes: 'number',
-      encryptionContextShrink: 'string',
       publicKeyBlob: 'string',
-      wrappingKeySpec: 'string',
       wrappingAlgorithm: 'string',
+      wrappingKeySpec: 'string',
     };
   }
 
@@ -2684,28 +2429,28 @@ export class GenerateAndExportDataKeyShrinkRequest extends $tea.Model {
 }
 
 export class GenerateAndExportDataKeyResponseBody extends $tea.Model {
-  requestId?: string;
   ciphertextBlob?: string;
   exportedDataKey?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ciphertextBlob: 'CiphertextBlob',
       exportedDataKey: 'ExportedDataKey',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ciphertextBlob: 'string',
       exportedDataKey: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2716,10 +2461,12 @@ export class GenerateAndExportDataKeyResponseBody extends $tea.Model {
 
 export class GenerateAndExportDataKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GenerateAndExportDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2727,6 +2474,7 @@ export class GenerateAndExportDataKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GenerateAndExportDataKeyResponseBody,
     };
   }
@@ -2737,25 +2485,25 @@ export class GenerateAndExportDataKeyResponse extends $tea.Model {
 }
 
 export class GenerateDataKeyRequest extends $tea.Model {
+  encryptionContext?: { [key: string]: any };
   keyId?: string;
   keySpec?: string;
   numberOfBytes?: number;
-  encryptionContext?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      encryptionContext: 'EncryptionContext',
       keyId: 'KeyId',
       keySpec: 'KeySpec',
       numberOfBytes: 'NumberOfBytes',
-      encryptionContext: 'EncryptionContext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       keyId: 'string',
       keySpec: 'string',
       numberOfBytes: 'number',
-      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2765,25 +2513,25 @@ export class GenerateDataKeyRequest extends $tea.Model {
 }
 
 export class GenerateDataKeyShrinkRequest extends $tea.Model {
+  encryptionContextShrink?: string;
   keyId?: string;
   keySpec?: string;
   numberOfBytes?: number;
-  encryptionContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      encryptionContextShrink: 'EncryptionContext',
       keyId: 'KeyId',
       keySpec: 'KeySpec',
       numberOfBytes: 'NumberOfBytes',
-      encryptionContextShrink: 'EncryptionContext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContextShrink: 'string',
       keyId: 'string',
       keySpec: 'string',
       numberOfBytes: 'number',
-      encryptionContextShrink: 'string',
     };
   }
 
@@ -2793,28 +2541,28 @@ export class GenerateDataKeyShrinkRequest extends $tea.Model {
 }
 
 export class GenerateDataKeyResponseBody extends $tea.Model {
-  requestId?: string;
   ciphertextBlob?: string;
-  plaintext?: string;
   keyId?: string;
   keyVersionId?: string;
+  plaintext?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ciphertextBlob: 'CiphertextBlob',
-      plaintext: 'Plaintext',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      plaintext: 'Plaintext',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ciphertextBlob: 'string',
-      plaintext: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      plaintext: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2825,10 +2573,12 @@ export class GenerateDataKeyResponseBody extends $tea.Model {
 
 export class GenerateDataKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GenerateDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2836,6 +2586,7 @@ export class GenerateDataKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GenerateDataKeyResponseBody,
     };
   }
@@ -2846,25 +2597,25 @@ export class GenerateDataKeyResponse extends $tea.Model {
 }
 
 export class GenerateDataKeyWithoutPlaintextRequest extends $tea.Model {
+  encryptionContext?: { [key: string]: any };
   keyId?: string;
   keySpec?: string;
   numberOfBytes?: number;
-  encryptionContext?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      encryptionContext: 'EncryptionContext',
       keyId: 'KeyId',
       keySpec: 'KeySpec',
       numberOfBytes: 'NumberOfBytes',
-      encryptionContext: 'EncryptionContext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       keyId: 'string',
       keySpec: 'string',
       numberOfBytes: 'number',
-      encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2874,25 +2625,25 @@ export class GenerateDataKeyWithoutPlaintextRequest extends $tea.Model {
 }
 
 export class GenerateDataKeyWithoutPlaintextShrinkRequest extends $tea.Model {
+  encryptionContextShrink?: string;
   keyId?: string;
   keySpec?: string;
   numberOfBytes?: number;
-  encryptionContextShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      encryptionContextShrink: 'EncryptionContext',
       keyId: 'KeyId',
       keySpec: 'KeySpec',
       numberOfBytes: 'NumberOfBytes',
-      encryptionContextShrink: 'EncryptionContext',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      encryptionContextShrink: 'string',
       keyId: 'string',
       keySpec: 'string',
       numberOfBytes: 'number',
-      encryptionContextShrink: 'string',
     };
   }
 
@@ -2902,25 +2653,25 @@ export class GenerateDataKeyWithoutPlaintextShrinkRequest extends $tea.Model {
 }
 
 export class GenerateDataKeyWithoutPlaintextResponseBody extends $tea.Model {
-  requestId?: string;
   ciphertextBlob?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ciphertextBlob: 'CiphertextBlob',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ciphertextBlob: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2931,10 +2682,12 @@ export class GenerateDataKeyWithoutPlaintextResponseBody extends $tea.Model {
 
 export class GenerateDataKeyWithoutPlaintextResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GenerateDataKeyWithoutPlaintextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2942,6 +2695,7 @@ export class GenerateDataKeyWithoutPlaintextResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GenerateDataKeyWithoutPlaintextResponseBody,
     };
   }
@@ -2971,28 +2725,28 @@ export class GetCertificateRequest extends $tea.Model {
 }
 
 export class GetCertificateResponseBody extends $tea.Model {
+  certificate?: string;
+  certificateChain?: string;
+  certificateId?: string;
   csr?: string;
   requestId?: string;
-  certificateId?: string;
-  certificateChain?: string;
-  certificate?: string;
   static names(): { [key: string]: string } {
     return {
+      certificate: 'Certificate',
+      certificateChain: 'CertificateChain',
+      certificateId: 'CertificateId',
       csr: 'Csr',
       requestId: 'RequestId',
-      certificateId: 'CertificateId',
-      certificateChain: 'CertificateChain',
-      certificate: 'Certificate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificate: 'string',
+      certificateChain: 'string',
+      certificateId: 'string',
       csr: 'string',
       requestId: 'string',
-      certificateId: 'string',
-      certificateChain: 'string',
-      certificate: 'string',
     };
   }
 
@@ -3003,10 +2757,12 @@ export class GetCertificateResponseBody extends $tea.Model {
 
 export class GetCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3014,205 +2770,8 @@ export class GetCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertificateAuthorityCertificateRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertificateAuthorityCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  certificateChain?: string;
-  certificate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificateChain: 'CertificateChain',
-      certificate: 'Certificate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificateChain: 'string',
-      certificate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertificateAuthorityCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetCertificateAuthorityCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCertificateAuthorityCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertificateAuthorityCsrRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertificateAuthorityCsrResponseBody extends $tea.Model {
-  csr?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      csr: 'Csr',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      csr: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCertificateAuthorityCsrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetCertificateAuthorityCsrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCertificateAuthorityCsrResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIssuedCertificateRequest extends $tea.Model {
-  certificateSerial?: string;
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateSerial: 'CertificateSerial',
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateSerial: 'string',
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIssuedCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  certificateChain?: string;
-  certificate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificateChain: 'CertificateChain',
-      certificate: 'Certificate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificateChain: 'string',
-      certificate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIssuedCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetIssuedCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetIssuedCertificateResponseBody,
     };
   }
 
@@ -3247,28 +2806,28 @@ export class GetParametersForImportRequest extends $tea.Model {
 }
 
 export class GetParametersForImportResponseBody extends $tea.Model {
-  requestId?: string;
-  publicKey?: string;
-  keyId?: string;
-  tokenExpireTime?: string;
   importToken?: string;
+  keyId?: string;
+  publicKey?: string;
+  requestId?: string;
+  tokenExpireTime?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      publicKey: 'PublicKey',
-      keyId: 'KeyId',
-      tokenExpireTime: 'TokenExpireTime',
       importToken: 'ImportToken',
+      keyId: 'KeyId',
+      publicKey: 'PublicKey',
+      requestId: 'RequestId',
+      tokenExpireTime: 'TokenExpireTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      publicKey: 'string',
-      keyId: 'string',
-      tokenExpireTime: 'string',
       importToken: 'string',
+      keyId: 'string',
+      publicKey: 'string',
+      requestId: 'string',
+      tokenExpireTime: 'string',
     };
   }
 
@@ -3279,10 +2838,12 @@ export class GetParametersForImportResponseBody extends $tea.Model {
 
 export class GetParametersForImportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetParametersForImportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3290,6 +2851,7 @@ export class GetParametersForImportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetParametersForImportResponseBody,
     };
   }
@@ -3322,25 +2884,25 @@ export class GetPublicKeyRequest extends $tea.Model {
 }
 
 export class GetPublicKeyResponseBody extends $tea.Model {
-  requestId?: string;
-  publicKey?: string;
   keyId?: string;
   keyVersionId?: string;
+  publicKey?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      publicKey: 'PublicKey',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      publicKey: 'PublicKey',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      publicKey: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      publicKey: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3351,10 +2913,12 @@ export class GetPublicKeyResponseBody extends $tea.Model {
 
 export class GetPublicKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPublicKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3362,6 +2926,7 @@ export class GetPublicKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPublicKeyResponseBody,
     };
   }
@@ -3372,33 +2937,33 @@ export class GetPublicKeyResponse extends $tea.Model {
 }
 
 export class GetRandomPasswordRequest extends $tea.Model {
-  passwordLength?: string;
   excludeCharacters?: string;
   excludeLowercase?: string;
-  excludeUppercase?: string;
   excludeNumbers?: string;
   excludePunctuation?: string;
+  excludeUppercase?: string;
+  passwordLength?: string;
   requireEachIncludedType?: string;
   static names(): { [key: string]: string } {
     return {
-      passwordLength: 'PasswordLength',
       excludeCharacters: 'ExcludeCharacters',
       excludeLowercase: 'ExcludeLowercase',
-      excludeUppercase: 'ExcludeUppercase',
       excludeNumbers: 'ExcludeNumbers',
       excludePunctuation: 'ExcludePunctuation',
+      excludeUppercase: 'ExcludeUppercase',
+      passwordLength: 'PasswordLength',
       requireEachIncludedType: 'RequireEachIncludedType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      passwordLength: 'string',
       excludeCharacters: 'string',
       excludeLowercase: 'string',
-      excludeUppercase: 'string',
       excludeNumbers: 'string',
       excludePunctuation: 'string',
+      excludeUppercase: 'string',
+      passwordLength: 'string',
       requireEachIncludedType: 'string',
     };
   }
@@ -3432,10 +2997,12 @@ export class GetRandomPasswordResponseBody extends $tea.Model {
 
 export class GetRandomPasswordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetRandomPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3443,6 +3010,7 @@ export class GetRandomPasswordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetRandomPasswordResponseBody,
     };
   }
@@ -3453,25 +3021,25 @@ export class GetRandomPasswordResponse extends $tea.Model {
 }
 
 export class GetSecretValueRequest extends $tea.Model {
-  secretName?: string;
-  versionStage?: string;
-  versionId?: string;
   fetchExtendedConfig?: boolean;
+  secretName?: string;
+  versionId?: string;
+  versionStage?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
-      versionStage: 'VersionStage',
-      versionId: 'VersionId',
       fetchExtendedConfig: 'FetchExtendedConfig',
+      secretName: 'SecretName',
+      versionId: 'VersionId',
+      versionStage: 'VersionStage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
-      versionStage: 'string',
-      versionId: 'string',
       fetchExtendedConfig: 'boolean',
+      secretName: 'string',
+      versionId: 'string',
+      versionStage: 'string',
     };
   }
 
@@ -3481,52 +3049,52 @@ export class GetSecretValueRequest extends $tea.Model {
 }
 
 export class GetSecretValueResponseBody extends $tea.Model {
-  versionId?: string;
-  rotationInterval?: string;
-  lastRotationDate?: string;
-  requestId?: string;
-  secretType?: string;
-  createTime?: string;
-  secretDataType?: string;
-  versionStages?: GetSecretValueResponseBodyVersionStages;
   automaticRotation?: string;
-  secretName?: string;
-  nextRotationDate?: string;
+  createTime?: string;
   extendedConfig?: string;
+  lastRotationDate?: string;
+  nextRotationDate?: string;
+  requestId?: string;
+  rotationInterval?: string;
   secretData?: string;
+  secretDataType?: string;
+  secretName?: string;
+  secretType?: string;
+  versionId?: string;
+  versionStages?: GetSecretValueResponseBodyVersionStages;
   static names(): { [key: string]: string } {
     return {
-      versionId: 'VersionId',
-      rotationInterval: 'RotationInterval',
-      lastRotationDate: 'LastRotationDate',
-      requestId: 'RequestId',
-      secretType: 'SecretType',
-      createTime: 'CreateTime',
-      secretDataType: 'SecretDataType',
-      versionStages: 'VersionStages',
       automaticRotation: 'AutomaticRotation',
-      secretName: 'SecretName',
-      nextRotationDate: 'NextRotationDate',
+      createTime: 'CreateTime',
       extendedConfig: 'ExtendedConfig',
+      lastRotationDate: 'LastRotationDate',
+      nextRotationDate: 'NextRotationDate',
+      requestId: 'RequestId',
+      rotationInterval: 'RotationInterval',
       secretData: 'SecretData',
+      secretDataType: 'SecretDataType',
+      secretName: 'SecretName',
+      secretType: 'SecretType',
+      versionId: 'VersionId',
+      versionStages: 'VersionStages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionId: 'string',
-      rotationInterval: 'string',
-      lastRotationDate: 'string',
-      requestId: 'string',
-      secretType: 'string',
-      createTime: 'string',
-      secretDataType: 'string',
-      versionStages: GetSecretValueResponseBodyVersionStages,
       automaticRotation: 'string',
-      secretName: 'string',
-      nextRotationDate: 'string',
+      createTime: 'string',
       extendedConfig: 'string',
+      lastRotationDate: 'string',
+      nextRotationDate: 'string',
+      requestId: 'string',
+      rotationInterval: 'string',
       secretData: 'string',
+      secretDataType: 'string',
+      secretName: 'string',
+      secretType: 'string',
+      versionId: 'string',
+      versionStages: GetSecretValueResponseBodyVersionStages,
     };
   }
 
@@ -3537,10 +3105,12 @@ export class GetSecretValueResponseBody extends $tea.Model {
 
 export class GetSecretValueResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSecretValueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3548,6 +3118,7 @@ export class GetSecretValueResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSecretValueResponseBody,
     };
   }
@@ -3557,244 +3128,25 @@ export class GetSecretValueResponse extends $tea.Model {
   }
 }
 
-export class ImportCertificateRequest extends $tea.Model {
-  PKCS12Blob?: string;
-  passphrase?: string;
-  static names(): { [key: string]: string } {
-    return {
-      PKCS12Blob: 'PKCS12Blob',
-      passphrase: 'Passphrase',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      PKCS12Blob: 'string',
-      passphrase: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  certificateId?: string;
-  arn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificateId: 'CertificateId',
-      arn: 'Arn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificateId: 'string',
-      arn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ImportCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ImportCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportCertificateAuthorityCertificateRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  certificate?: string;
-  certificateChain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-      certificate: 'Certificate',
-      certificateChain: 'CertificateChain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-      certificate: 'string',
-      certificateChain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportCertificateAuthorityCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportCertificateAuthorityCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ImportCertificateAuthorityCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ImportCertificateAuthorityCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportEncryptionCertificateRequest extends $tea.Model {
-  certificateId?: string;
-  encryptedSymmetricKey?: string;
-  encryptedPrivateKey?: string;
-  symmetricAlgorithm?: string;
-  asymmetricAlgorithm?: string;
-  certificate?: string;
-  certificateChain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateId: 'CertificateId',
-      encryptedSymmetricKey: 'EncryptedSymmetricKey',
-      encryptedPrivateKey: 'EncryptedPrivateKey',
-      symmetricAlgorithm: 'SymmetricAlgorithm',
-      asymmetricAlgorithm: 'AsymmetricAlgorithm',
-      certificate: 'Certificate',
-      certificateChain: 'CertificateChain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateId: 'string',
-      encryptedSymmetricKey: 'string',
-      encryptedPrivateKey: 'string',
-      symmetricAlgorithm: 'string',
-      asymmetricAlgorithm: 'string',
-      certificate: 'string',
-      certificateChain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportEncryptionCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  certificateId?: string;
-  arn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificateId: 'CertificateId',
-      arn: 'Arn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificateId: 'string',
-      arn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportEncryptionCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ImportEncryptionCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ImportEncryptionCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportKeyMaterialRequest extends $tea.Model {
-  keyId?: string;
   encryptedKeyMaterial?: string;
   importToken?: string;
+  keyId?: string;
   keyMaterialExpireUnix?: number;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
       encryptedKeyMaterial: 'EncryptedKeyMaterial',
       importToken: 'ImportToken',
+      keyId: 'KeyId',
       keyMaterialExpireUnix: 'KeyMaterialExpireUnix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
       encryptedKeyMaterial: 'string',
       importToken: 'string',
+      keyId: 'string',
       keyMaterialExpireUnix: 'number',
     };
   }
@@ -3825,10 +3177,12 @@ export class ImportKeyMaterialResponseBody extends $tea.Model {
 
 export class ImportKeyMaterialResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ImportKeyMaterialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3836,79 +3190,8 @@ export class ImportKeyMaterialResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ImportKeyMaterialResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IssueCertificateRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  csr?: string;
-  validity?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-      csr: 'Csr',
-      validity: 'Validity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-      csr: 'string',
-      validity: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IssueCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  certificateSerial?: string;
-  certificateAuthorityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificateSerial: 'CertificateSerial',
-      certificateAuthorityId: 'CertificateAuthorityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificateSerial: 'string',
-      certificateAuthorityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IssueCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: IssueCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: IssueCertificateResponseBody,
     };
   }
 
@@ -3940,28 +3223,28 @@ export class ListAliasesRequest extends $tea.Model {
 }
 
 export class ListAliasesResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   aliases?: ListAliasesResponseBodyAliases;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       aliases: 'Aliases',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       aliases: ListAliasesResponseBodyAliases,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3972,10 +3255,12 @@ export class ListAliasesResponseBody extends $tea.Model {
 
 export class ListAliasesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAliasesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3983,6 +3268,7 @@ export class ListAliasesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAliasesResponseBody,
     };
   }
@@ -4018,28 +3304,28 @@ export class ListAliasesByKeyIdRequest extends $tea.Model {
 }
 
 export class ListAliasesByKeyIdResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   aliases?: ListAliasesByKeyIdResponseBodyAliases;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       aliases: 'Aliases',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       aliases: ListAliasesByKeyIdResponseBodyAliases,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -4050,10 +3336,12 @@ export class ListAliasesByKeyIdResponseBody extends $tea.Model {
 
 export class ListAliasesByKeyIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAliasesByKeyIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4061,241 +3349,8 @@ export class ListAliasesByKeyIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAliasesByKeyIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificateAuthoritiesRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificateAuthoritiesResponseBody extends $tea.Model {
-  certificateAuthorities?: ListCertificateAuthoritiesResponseBodyCertificateAuthorities[];
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorities: 'CertificateAuthorities',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorities: { 'type': 'array', 'itemType': ListCertificateAuthoritiesResponseBodyCertificateAuthorities },
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificateAuthoritiesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCertificateAuthoritiesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCertificateAuthoritiesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificatesRequest extends $tea.Model {
-  subject?: string;
-  issuer?: string;
-  status?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      subject: 'Subject',
-      issuer: 'Issuer',
-      status: 'Status',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subject: 'string',
-      issuer: 'string',
-      status: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificatesResponseBody extends $tea.Model {
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  certificateSummaryList?: ListCertificatesResponseBodyCertificateSummaryList;
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      certificateSummaryList: 'CertificateSummaryList',
-      totalSize: 'TotalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      certificateSummaryList: ListCertificatesResponseBodyCertificateSummaryList,
-      totalSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCertificatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCertificatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListKeysRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  filters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      filters: 'Filters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      filters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListKeysResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  keys?: ListKeysResponseBodyKeys;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      keys: 'Keys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      keys: ListKeysResponseBodyKeys,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListKeysResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListKeysResponseBody,
     };
   }
 
@@ -4331,27 +3386,27 @@ export class ListKeyVersionsRequest extends $tea.Model {
 
 export class ListKeyVersionsResponseBody extends $tea.Model {
   keyVersions?: ListKeyVersionsResponseBodyKeyVersions;
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       keyVersions: 'KeyVersions',
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       keyVersions: ListKeyVersionsResponseBodyKeyVersions,
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -4362,10 +3417,12 @@ export class ListKeyVersionsResponseBody extends $tea.Model {
 
 export class ListKeyVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListKeyVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4373,7 +3430,89 @@ export class ListKeyVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListKeyVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKeysRequest extends $tea.Model {
+  filters?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filters: 'Filters',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filters: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKeysResponseBody extends $tea.Model {
+  keys?: ListKeysResponseBodyKeys;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'Keys',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: ListKeysResponseBodyKeys,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListKeysResponseBody,
     };
   }
 
@@ -4425,10 +3564,12 @@ export class ListResourceTagsResponseBody extends $tea.Model {
 
 export class ListResourceTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListResourceTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4436,6 +3577,7 @@ export class ListResourceTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListResourceTagsResponseBody,
     };
   }
@@ -4445,107 +3587,26 @@ export class ListResourceTagsResponse extends $tea.Model {
   }
 }
 
-export class ListSecretsRequest extends $tea.Model {
-  fetchTags?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  filters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fetchTags: 'FetchTags',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      filters: 'Filters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fetchTags: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      filters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  secretList?: ListSecretsResponseBodySecretList;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      secretList: 'SecretList',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      secretList: ListSecretsResponseBodySecretList,
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSecretsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSecretsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListSecretVersionIdsRequest extends $tea.Model {
-  secretName?: string;
   includeDeprecated?: string;
   pageNumber?: number;
   pageSize?: number;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
       includeDeprecated: 'IncludeDeprecated',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
       includeDeprecated: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      secretName: 'string',
     };
   }
 
@@ -4555,30 +3616,30 @@ export class ListSecretVersionIdsRequest extends $tea.Model {
 }
 
 export class ListSecretVersionIdsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   secretName?: string;
   totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   versionIds?: ListSecretVersionIdsResponseBodyVersionIds;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       secretName: 'SecretName',
       totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       versionIds: 'VersionIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       secretName: 'string',
       totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       versionIds: ListSecretVersionIdsResponseBodyVersionIds,
     };
   }
@@ -4590,10 +3651,12 @@ export class ListSecretVersionIdsResponseBody extends $tea.Model {
 
 export class ListSecretVersionIdsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSecretVersionIdsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4601,7 +3664,92 @@ export class ListSecretVersionIdsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSecretVersionIdsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretsRequest extends $tea.Model {
+  fetchTags?: string;
+  filters?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fetchTags: 'FetchTags',
+      filters: 'Filters',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fetchTags: 'string',
+      filters: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  secretList?: ListSecretsResponseBodySecretList;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      secretList: 'SecretList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      secretList: ListSecretsResponseBodySecretList,
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSecretsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSecretsResponseBody,
     };
   }
 
@@ -4631,10 +3779,12 @@ export class OpenKmsServiceResponseBody extends $tea.Model {
 
 export class OpenKmsServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenKmsServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4642,6 +3792,7 @@ export class OpenKmsServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenKmsServiceResponseBody,
     };
   }
@@ -4652,27 +3803,27 @@ export class OpenKmsServiceResponse extends $tea.Model {
 }
 
 export class PutSecretValueRequest extends $tea.Model {
-  versionId?: string;
-  secretName?: string;
   secretData?: string;
   secretDataType?: string;
+  secretName?: string;
+  versionId?: string;
   versionStages?: string;
   static names(): { [key: string]: string } {
     return {
-      versionId: 'VersionId',
-      secretName: 'SecretName',
       secretData: 'SecretData',
       secretDataType: 'SecretDataType',
+      secretName: 'SecretName',
+      versionId: 'VersionId',
       versionStages: 'VersionStages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionId: 'string',
-      secretName: 'string',
       secretData: 'string',
       secretDataType: 'string',
+      secretName: 'string',
+      versionId: 'string',
       versionStages: 'string',
     };
   }
@@ -4683,24 +3834,24 @@ export class PutSecretValueRequest extends $tea.Model {
 }
 
 export class PutSecretValueResponseBody extends $tea.Model {
+  requestId?: string;
   secretName?: string;
   versionId?: string;
-  requestId?: string;
   versionStages?: PutSecretValueResponseBodyVersionStages;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
       secretName: 'SecretName',
       versionId: 'VersionId',
-      requestId: 'RequestId',
       versionStages: 'VersionStages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requestId: 'string',
       secretName: 'string',
       versionId: 'string',
-      requestId: 'string',
       versionStages: PutSecretValueResponseBodyVersionStages,
     };
   }
@@ -4712,10 +3863,12 @@ export class PutSecretValueResponseBody extends $tea.Model {
 
 export class PutSecretValueResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PutSecretValueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4723,6 +3876,7 @@ export class PutSecretValueResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PutSecretValueResponseBody,
     };
   }
@@ -4734,33 +3888,33 @@ export class PutSecretValueResponse extends $tea.Model {
 
 export class ReEncryptRequest extends $tea.Model {
   ciphertextBlob?: string;
-  sourceKeyId?: string;
-  sourceKeyVersionId?: string;
+  destinationEncryptionContext?: { [key: string]: any };
+  destinationKeyId?: string;
   sourceEncryptionAlgorithm?: string;
   sourceEncryptionContext?: { [key: string]: any };
-  destinationKeyId?: string;
-  destinationEncryptionContext?: { [key: string]: any };
+  sourceKeyId?: string;
+  sourceKeyVersionId?: string;
   static names(): { [key: string]: string } {
     return {
       ciphertextBlob: 'CiphertextBlob',
-      sourceKeyId: 'SourceKeyId',
-      sourceKeyVersionId: 'SourceKeyVersionId',
+      destinationEncryptionContext: 'DestinationEncryptionContext',
+      destinationKeyId: 'DestinationKeyId',
       sourceEncryptionAlgorithm: 'SourceEncryptionAlgorithm',
       sourceEncryptionContext: 'SourceEncryptionContext',
-      destinationKeyId: 'DestinationKeyId',
-      destinationEncryptionContext: 'DestinationEncryptionContext',
+      sourceKeyId: 'SourceKeyId',
+      sourceKeyVersionId: 'SourceKeyVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ciphertextBlob: 'string',
-      sourceKeyId: 'string',
-      sourceKeyVersionId: 'string',
+      destinationEncryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      destinationKeyId: 'string',
       sourceEncryptionAlgorithm: 'string',
       sourceEncryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      destinationKeyId: 'string',
-      destinationEncryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      sourceKeyId: 'string',
+      sourceKeyVersionId: 'string',
     };
   }
 
@@ -4771,33 +3925,33 @@ export class ReEncryptRequest extends $tea.Model {
 
 export class ReEncryptShrinkRequest extends $tea.Model {
   ciphertextBlob?: string;
-  sourceKeyId?: string;
-  sourceKeyVersionId?: string;
+  destinationEncryptionContextShrink?: string;
+  destinationKeyId?: string;
   sourceEncryptionAlgorithm?: string;
   sourceEncryptionContextShrink?: string;
-  destinationKeyId?: string;
-  destinationEncryptionContextShrink?: string;
+  sourceKeyId?: string;
+  sourceKeyVersionId?: string;
   static names(): { [key: string]: string } {
     return {
       ciphertextBlob: 'CiphertextBlob',
-      sourceKeyId: 'SourceKeyId',
-      sourceKeyVersionId: 'SourceKeyVersionId',
+      destinationEncryptionContextShrink: 'DestinationEncryptionContext',
+      destinationKeyId: 'DestinationKeyId',
       sourceEncryptionAlgorithm: 'SourceEncryptionAlgorithm',
       sourceEncryptionContextShrink: 'SourceEncryptionContext',
-      destinationKeyId: 'DestinationKeyId',
-      destinationEncryptionContextShrink: 'DestinationEncryptionContext',
+      sourceKeyId: 'SourceKeyId',
+      sourceKeyVersionId: 'SourceKeyVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ciphertextBlob: 'string',
-      sourceKeyId: 'string',
-      sourceKeyVersionId: 'string',
+      destinationEncryptionContextShrink: 'string',
+      destinationKeyId: 'string',
       sourceEncryptionAlgorithm: 'string',
       sourceEncryptionContextShrink: 'string',
-      destinationKeyId: 'string',
-      destinationEncryptionContextShrink: 'string',
+      sourceKeyId: 'string',
+      sourceKeyVersionId: 'string',
     };
   }
 
@@ -4807,25 +3961,25 @@ export class ReEncryptShrinkRequest extends $tea.Model {
 }
 
 export class ReEncryptResponseBody extends $tea.Model {
-  requestId?: string;
   ciphertextBlob?: string;
   keyId?: string;
   keyVersionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ciphertextBlob: 'CiphertextBlob',
       keyId: 'KeyId',
       keyVersionId: 'KeyVersionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ciphertextBlob: 'string',
       keyId: 'string',
       keyVersionId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4836,10 +3990,12 @@ export class ReEncryptResponseBody extends $tea.Model {
 
 export class ReEncryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4847,6 +4003,7 @@ export class ReEncryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReEncryptResponseBody,
     };
   }
@@ -4876,19 +4033,19 @@ export class RestoreSecretRequest extends $tea.Model {
 }
 
 export class RestoreSecretResponseBody extends $tea.Model {
-  secretName?: string;
   requestId?: string;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
       requestId: 'RequestId',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
       requestId: 'string',
+      secretName: 'string',
     };
   }
 
@@ -4899,10 +4056,12 @@ export class RestoreSecretResponseBody extends $tea.Model {
 
 export class RestoreSecretResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RestoreSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4910,70 +4069,8 @@ export class RestoreSecretResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RestoreSecretResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeIssuedCertificateRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  certificateSerial?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-      certificateSerial: 'CertificateSerial',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-      certificateSerial: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeIssuedCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeIssuedCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RevokeIssuedCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RevokeIssuedCertificateResponseBody,
     };
   }
 
@@ -5005,25 +4102,25 @@ export class RotateSecretRequest extends $tea.Model {
 }
 
 export class RotateSecretResponseBody extends $tea.Model {
-  versionId?: string;
-  secretName?: string;
-  requestId?: string;
   arn?: string;
+  requestId?: string;
+  secretName?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      versionId: 'VersionId',
-      secretName: 'SecretName',
-      requestId: 'RequestId',
       arn: 'Arn',
+      requestId: 'RequestId',
+      secretName: 'SecretName',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionId: 'string',
-      secretName: 'string',
-      requestId: 'string',
       arn: 'string',
+      requestId: 'string',
+      secretName: 'string',
+      versionId: 'string',
     };
   }
 
@@ -5034,10 +4131,12 @@ export class RotateSecretResponseBody extends $tea.Model {
 
 export class RotateSecretResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RotateSecretResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5045,6 +4144,7 @@ export class RotateSecretResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RotateSecretResponseBody,
     };
   }
@@ -5097,10 +4197,12 @@ export class ScheduleKeyDeletionResponseBody extends $tea.Model {
 
 export class ScheduleKeyDeletionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ScheduleKeyDeletionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5108,6 +4210,7 @@ export class ScheduleKeyDeletionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ScheduleKeyDeletionResponseBody,
     };
   }
@@ -5117,26 +4220,95 @@ export class ScheduleKeyDeletionResponse extends $tea.Model {
   }
 }
 
-export class TagResourceRequest extends $tea.Model {
-  keyId?: string;
-  tags?: string;
-  secretName?: string;
-  certificateId?: string;
+export class SetDeletionProtectionRequest extends $tea.Model {
+  deletionProtectionDescription?: string;
+  enableDeletionProtection?: boolean;
+  protectedResourceArn?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
-      tags: 'Tags',
-      secretName: 'SecretName',
-      certificateId: 'CertificateId',
+      deletionProtectionDescription: 'DeletionProtectionDescription',
+      enableDeletionProtection: 'EnableDeletionProtection',
+      protectedResourceArn: 'ProtectedResourceArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
-      tags: 'string',
-      secretName: 'string',
+      deletionProtectionDescription: 'string',
+      enableDeletionProtection: 'boolean',
+      protectedResourceArn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDeletionProtectionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDeletionProtectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDeletionProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDeletionProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourceRequest extends $tea.Model {
+  certificateId?: string;
+  keyId?: string;
+  secretName?: string;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateId: 'CertificateId',
+      keyId: 'KeyId',
+      secretName: 'SecretName',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       certificateId: 'string',
+      keyId: 'string',
+      secretName: 'string',
+      tags: 'string',
     };
   }
 
@@ -5166,10 +4338,12 @@ export class TagResourceResponseBody extends $tea.Model {
 
 export class TagResourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5177,6 +4351,7 @@ export class TagResourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourceResponseBody,
     };
   }
@@ -5187,25 +4362,25 @@ export class TagResourceResponse extends $tea.Model {
 }
 
 export class UntagResourceRequest extends $tea.Model {
-  keyId?: string;
-  tagKeys?: string;
-  secretName?: string;
   certificateId?: string;
+  keyId?: string;
+  secretName?: string;
+  tagKeys?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
-      tagKeys: 'TagKeys',
-      secretName: 'SecretName',
       certificateId: 'CertificateId',
+      keyId: 'KeyId',
+      secretName: 'SecretName',
+      tagKeys: 'TagKeys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
-      tagKeys: 'string',
-      secretName: 'string',
       certificateId: 'string',
+      keyId: 'string',
+      secretName: 'string',
+      tagKeys: 'string',
     };
   }
 
@@ -5235,10 +4410,12 @@ export class UntagResourceResponseBody extends $tea.Model {
 
 export class UntagResourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5246,6 +4423,7 @@ export class UntagResourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourceResponseBody,
     };
   }
@@ -5256,19 +4434,19 @@ export class UntagResourceResponse extends $tea.Model {
 }
 
 export class UpdateAliasRequest extends $tea.Model {
-  keyId?: string;
   aliasName?: string;
+  keyId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
       aliasName: 'AliasName',
+      keyId: 'KeyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
       aliasName: 'string',
+      keyId: 'string',
     };
   }
 
@@ -5298,10 +4476,12 @@ export class UpdateAliasResponseBody extends $tea.Model {
 
 export class UpdateAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5309,98 +4489,8 @@ export class UpdateAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAliasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCertificateAuthorityRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  revocationConfiguration?: { [key: string]: any };
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-      revocationConfiguration: 'RevocationConfiguration',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-      revocationConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCertificateAuthorityShrinkRequest extends $tea.Model {
-  certificateAuthorityId?: string;
-  revocationConfigurationShrink?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateAuthorityId: 'CertificateAuthorityId',
-      revocationConfigurationShrink: 'RevocationConfiguration',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateAuthorityId: 'string',
-      revocationConfigurationShrink: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCertificateAuthorityResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCertificateAuthorityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateCertificateAuthorityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateCertificateAuthorityResponseBody,
     };
   }
 
@@ -5452,10 +4542,12 @@ export class UpdateCertificateStatusResponseBody extends $tea.Model {
 
 export class UpdateCertificateStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateCertificateStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5463,6 +4555,7 @@ export class UpdateCertificateStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateCertificateStatusResponseBody,
     };
   }
@@ -5473,19 +4566,19 @@ export class UpdateCertificateStatusResponse extends $tea.Model {
 }
 
 export class UpdateKeyDescriptionRequest extends $tea.Model {
-  keyId?: string;
   description?: string;
+  keyId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
       description: 'Description',
+      keyId: 'KeyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
       description: 'string',
+      keyId: 'string',
     };
   }
 
@@ -5515,10 +4608,12 @@ export class UpdateKeyDescriptionResponseBody extends $tea.Model {
 
 export class UpdateKeyDescriptionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateKeyDescriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5526,6 +4621,7 @@ export class UpdateKeyDescriptionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateKeyDescriptionResponseBody,
     };
   }
@@ -5536,21 +4632,21 @@ export class UpdateKeyDescriptionResponse extends $tea.Model {
 }
 
 export class UpdateRotationPolicyRequest extends $tea.Model {
-  keyId?: string;
   enableAutomaticRotation?: boolean;
+  keyId?: string;
   rotationInterval?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
       enableAutomaticRotation: 'EnableAutomaticRotation',
+      keyId: 'KeyId',
       rotationInterval: 'RotationInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
       enableAutomaticRotation: 'boolean',
+      keyId: 'string',
       rotationInterval: 'string',
     };
   }
@@ -5581,10 +4677,12 @@ export class UpdateRotationPolicyResponseBody extends $tea.Model {
 
 export class UpdateRotationPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateRotationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5592,6 +4690,7 @@ export class UpdateRotationPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateRotationPolicyResponseBody,
     };
   }
@@ -5601,23 +4700,120 @@ export class UpdateRotationPolicyResponse extends $tea.Model {
   }
 }
 
-export class UpdateSecretRotationPolicyRequest extends $tea.Model {
+export class UpdateSecretRequest extends $tea.Model {
+  extendedConfig?: UpdateSecretRequestExtendedConfig;
+  description?: string;
   secretName?: string;
-  enableAutomaticRotation?: boolean;
-  rotationInterval?: string;
   static names(): { [key: string]: string } {
     return {
+      extendedConfig: 'ExtendedConfig',
+      description: 'Description',
       secretName: 'SecretName',
-      enableAutomaticRotation: 'EnableAutomaticRotation',
-      rotationInterval: 'RotationInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      extendedConfig: UpdateSecretRequestExtendedConfig,
+      description: 'string',
       secretName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSecretShrinkRequest extends $tea.Model {
+  extendedConfig?: UpdateSecretShrinkRequestExtendedConfig;
+  description?: string;
+  secretName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extendedConfig: 'ExtendedConfig',
+      description: 'Description',
+      secretName: 'SecretName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendedConfig: UpdateSecretShrinkRequestExtendedConfig,
+      description: 'string',
+      secretName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSecretResponseBody extends $tea.Model {
+  requestId?: string;
+  secretName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      secretName: 'SecretName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      secretName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSecretResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateSecretResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSecretResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSecretRotationPolicyRequest extends $tea.Model {
+  enableAutomaticRotation?: boolean;
+  rotationInterval?: string;
+  secretName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAutomaticRotation: 'EnableAutomaticRotation',
+      rotationInterval: 'RotationInterval',
+      secretName: 'SecretName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       enableAutomaticRotation: 'boolean',
       rotationInterval: 'string',
+      secretName: 'string',
     };
   }
 
@@ -5627,19 +4823,19 @@ export class UpdateSecretRotationPolicyRequest extends $tea.Model {
 }
 
 export class UpdateSecretRotationPolicyResponseBody extends $tea.Model {
-  secretName?: string;
   requestId?: string;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
       requestId: 'RequestId',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
       requestId: 'string',
+      secretName: 'string',
     };
   }
 
@@ -5650,10 +4846,12 @@ export class UpdateSecretRotationPolicyResponseBody extends $tea.Model {
 
 export class UpdateSecretRotationPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSecretRotationPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5661,6 +4859,7 @@ export class UpdateSecretRotationPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSecretRotationPolicyResponseBody,
     };
   }
@@ -5671,25 +4870,25 @@ export class UpdateSecretRotationPolicyResponse extends $tea.Model {
 }
 
 export class UpdateSecretVersionStageRequest extends $tea.Model {
+  moveToVersion?: string;
+  removeFromVersion?: string;
   secretName?: string;
   versionStage?: string;
-  removeFromVersion?: string;
-  moveToVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      moveToVersion: 'MoveToVersion',
+      removeFromVersion: 'RemoveFromVersion',
       secretName: 'SecretName',
       versionStage: 'VersionStage',
-      removeFromVersion: 'RemoveFromVersion',
-      moveToVersion: 'MoveToVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      moveToVersion: 'string',
+      removeFromVersion: 'string',
       secretName: 'string',
       versionStage: 'string',
-      removeFromVersion: 'string',
-      moveToVersion: 'string',
     };
   }
 
@@ -5699,19 +4898,19 @@ export class UpdateSecretVersionStageRequest extends $tea.Model {
 }
 
 export class UpdateSecretVersionStageResponseBody extends $tea.Model {
-  secretName?: string;
   requestId?: string;
+  secretName?: string;
   static names(): { [key: string]: string } {
     return {
-      secretName: 'SecretName',
       requestId: 'RequestId',
+      secretName: 'SecretName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      secretName: 'string',
       requestId: 'string',
+      secretName: 'string',
     };
   }
 
@@ -5722,10 +4921,12 @@ export class UpdateSecretVersionStageResponseBody extends $tea.Model {
 
 export class UpdateSecretVersionStageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSecretVersionStageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5733,6 +4934,7 @@ export class UpdateSecretVersionStageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSecretVersionStageResponseBody,
     };
   }
@@ -5743,22 +4945,22 @@ export class UpdateSecretVersionStageResponse extends $tea.Model {
 }
 
 export class UploadCertificateRequest extends $tea.Model {
-  certificateId?: string;
   certificate?: string;
   certificateChain?: string;
+  certificateId?: string;
   static names(): { [key: string]: string } {
     return {
-      certificateId: 'CertificateId',
       certificate: 'Certificate',
       certificateChain: 'CertificateChain',
+      certificateId: 'CertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certificateId: 'string',
       certificate: 'string',
       certificateChain: 'string',
+      certificateId: 'string',
     };
   }
 
@@ -5788,10 +4990,12 @@ export class UploadCertificateResponseBody extends $tea.Model {
 
 export class UploadCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UploadCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5799,6 +5003,7 @@ export class UploadCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UploadCertificateResponseBody,
     };
   }
@@ -5809,64 +5014,64 @@ export class UploadCertificateResponse extends $tea.Model {
 }
 
 export class CreateKeyResponseBodyKeyMetadata extends $tea.Model {
-  keyId?: string;
-  nextRotationDate?: string;
-  keyState?: string;
-  rotationInterval?: string;
   arn?: string;
+  automaticRotation?: string;
+  creationDate?: string;
   creator?: string;
   deleteDate?: string;
-  lastRotationDate?: string;
   description?: string;
-  primaryKeyVersion?: string;
-  origin?: string;
+  keyId?: string;
   keySpec?: string;
-  materialExpireTime?: string;
-  automaticRotation?: string;
-  protectionLevel?: string;
+  keyState?: string;
   keyUsage?: string;
-  creationDate?: string;
+  lastRotationDate?: string;
+  materialExpireTime?: string;
+  nextRotationDate?: string;
+  origin?: string;
+  primaryKeyVersion?: string;
+  protectionLevel?: string;
+  rotationInterval?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
-      nextRotationDate: 'NextRotationDate',
-      keyState: 'KeyState',
-      rotationInterval: 'RotationInterval',
       arn: 'Arn',
+      automaticRotation: 'AutomaticRotation',
+      creationDate: 'CreationDate',
       creator: 'Creator',
       deleteDate: 'DeleteDate',
-      lastRotationDate: 'LastRotationDate',
       description: 'Description',
-      primaryKeyVersion: 'PrimaryKeyVersion',
-      origin: 'Origin',
+      keyId: 'KeyId',
       keySpec: 'KeySpec',
-      materialExpireTime: 'MaterialExpireTime',
-      automaticRotation: 'AutomaticRotation',
-      protectionLevel: 'ProtectionLevel',
+      keyState: 'KeyState',
       keyUsage: 'KeyUsage',
-      creationDate: 'CreationDate',
+      lastRotationDate: 'LastRotationDate',
+      materialExpireTime: 'MaterialExpireTime',
+      nextRotationDate: 'NextRotationDate',
+      origin: 'Origin',
+      primaryKeyVersion: 'PrimaryKeyVersion',
+      protectionLevel: 'ProtectionLevel',
+      rotationInterval: 'RotationInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
-      nextRotationDate: 'string',
-      keyState: 'string',
-      rotationInterval: 'string',
       arn: 'string',
+      automaticRotation: 'string',
+      creationDate: 'string',
       creator: 'string',
       deleteDate: 'string',
-      lastRotationDate: 'string',
       description: 'string',
-      primaryKeyVersion: 'string',
-      origin: 'string',
+      keyId: 'string',
       keySpec: 'string',
-      materialExpireTime: 'string',
-      automaticRotation: 'string',
-      protectionLevel: 'string',
+      keyState: 'string',
       keyUsage: 'string',
-      creationDate: 'string',
+      lastRotationDate: 'string',
+      materialExpireTime: 'string',
+      nextRotationDate: 'string',
+      origin: 'string',
+      primaryKeyVersion: 'string',
+      protectionLevel: 'string',
+      rotationInterval: 'string',
     };
   }
 
@@ -5876,186 +5081,22 @@ export class CreateKeyResponseBodyKeyMetadata extends $tea.Model {
 }
 
 export class CreateKeyVersionResponseBodyKeyVersion extends $tea.Model {
-  keyVersionId?: string;
-  keyId?: string;
   creationDate?: string;
+  keyId?: string;
+  keyVersionId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyVersionId: 'KeyVersionId',
-      keyId: 'KeyId',
       creationDate: 'CreationDate',
+      keyId: 'KeyId',
+      keyVersionId: 'KeyVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyVersionId: 'string',
-      keyId: 'string',
       creationDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponseBodyCertificateAuthorityCertificateAuthorityConfigurationSubject extends $tea.Model {
-  serialNumber?: string;
-  organization?: string;
-  locality?: string;
-  commonName?: string;
-  organizationalUnit?: string;
-  country?: string;
-  province?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serialNumber: 'SerialNumber',
-      organization: 'Organization',
-      locality: 'Locality',
-      commonName: 'CommonName',
-      organizationalUnit: 'OrganizationalUnit',
-      country: 'Country',
-      province: 'Province',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNumber: 'string',
-      organization: 'string',
-      locality: 'string',
-      commonName: 'string',
-      organizationalUnit: 'string',
-      country: 'string',
-      province: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponseBodyCertificateAuthorityCertificateAuthorityConfiguration extends $tea.Model {
-  keySpec?: string;
-  protectionLevel?: string;
-  subject?: DescribeCertificateAuthorityResponseBodyCertificateAuthorityCertificateAuthorityConfigurationSubject;
-  static names(): { [key: string]: string } {
-    return {
-      keySpec: 'KeySpec',
-      protectionLevel: 'ProtectionLevel',
-      subject: 'Subject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keySpec: 'string',
-      protectionLevel: 'string',
-      subject: DescribeCertificateAuthorityResponseBodyCertificateAuthorityCertificateAuthorityConfigurationSubject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponseBodyCertificateAuthorityRevocationConfigurationCrlConfiguration extends $tea.Model {
-  customCname?: string;
-  enabled?: boolean;
-  expirationInDays?: number;
-  ossBucketName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customCname: 'CustomCname',
-      enabled: 'Enabled',
-      expirationInDays: 'ExpirationInDays',
-      ossBucketName: 'OssBucketName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customCname: 'string',
-      enabled: 'boolean',
-      expirationInDays: 'number',
-      ossBucketName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponseBodyCertificateAuthorityRevocationConfiguration extends $tea.Model {
-  crlConfiguration?: DescribeCertificateAuthorityResponseBodyCertificateAuthorityRevocationConfigurationCrlConfiguration;
-  static names(): { [key: string]: string } {
-    return {
-      crlConfiguration: 'CrlConfiguration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      crlConfiguration: DescribeCertificateAuthorityResponseBodyCertificateAuthorityRevocationConfigurationCrlConfiguration,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificateAuthorityResponseBodyCertificateAuthority extends $tea.Model {
-  type?: string;
-  status?: string;
-  serial?: string;
-  createdAt?: string;
-  failureReason?: string;
-  notAfter?: string;
-  arn?: string;
-  certificateAuthorityConfiguration?: DescribeCertificateAuthorityResponseBodyCertificateAuthorityCertificateAuthorityConfiguration;
-  lastStateChangeAt?: string;
-  notBefore?: string;
-  revocationConfiguration?: DescribeCertificateAuthorityResponseBodyCertificateAuthorityRevocationConfiguration;
-  id?: string;
-  restorableUntil?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      status: 'Status',
-      serial: 'Serial',
-      createdAt: 'CreatedAt',
-      failureReason: 'FailureReason',
-      notAfter: 'NotAfter',
-      arn: 'Arn',
-      certificateAuthorityConfiguration: 'CertificateAuthorityConfiguration',
-      lastStateChangeAt: 'LastStateChangeAt',
-      notBefore: 'NotBefore',
-      revocationConfiguration: 'RevocationConfiguration',
-      id: 'Id',
-      restorableUntil: 'RestorableUntil',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      status: 'string',
-      serial: 'string',
-      createdAt: 'string',
-      failureReason: 'string',
-      notAfter: 'string',
-      arn: 'string',
-      certificateAuthorityConfiguration: DescribeCertificateAuthorityResponseBodyCertificateAuthorityCertificateAuthorityConfiguration,
-      lastStateChangeAt: 'string',
-      notBefore: 'string',
-      revocationConfiguration: DescribeCertificateAuthorityResponseBodyCertificateAuthorityRevocationConfiguration,
-      id: 'string',
-      restorableUntil: 'number',
+      keyId: 'string',
+      keyVersionId: 'string',
     };
   }
 
@@ -6065,64 +5106,70 @@ export class DescribeCertificateAuthorityResponseBodyCertificateAuthority extend
 }
 
 export class DescribeKeyResponseBodyKeyMetadata extends $tea.Model {
-  keyId?: string;
-  nextRotationDate?: string;
-  keyState?: string;
-  rotationInterval?: string;
   arn?: string;
+  automaticRotation?: string;
+  creationDate?: string;
   creator?: string;
   deleteDate?: string;
-  lastRotationDate?: string;
+  deletionProtection?: string;
+  deletionProtectionDescription?: string;
   description?: string;
-  primaryKeyVersion?: string;
-  origin?: string;
+  keyId?: string;
   keySpec?: string;
-  materialExpireTime?: string;
-  automaticRotation?: string;
-  protectionLevel?: string;
+  keyState?: string;
   keyUsage?: string;
-  creationDate?: string;
+  lastRotationDate?: string;
+  materialExpireTime?: string;
+  nextRotationDate?: string;
+  origin?: string;
+  primaryKeyVersion?: string;
+  protectionLevel?: string;
+  rotationInterval?: string;
   static names(): { [key: string]: string } {
     return {
-      keyId: 'KeyId',
-      nextRotationDate: 'NextRotationDate',
-      keyState: 'KeyState',
-      rotationInterval: 'RotationInterval',
       arn: 'Arn',
+      automaticRotation: 'AutomaticRotation',
+      creationDate: 'CreationDate',
       creator: 'Creator',
       deleteDate: 'DeleteDate',
-      lastRotationDate: 'LastRotationDate',
+      deletionProtection: 'DeletionProtection',
+      deletionProtectionDescription: 'DeletionProtectionDescription',
       description: 'Description',
-      primaryKeyVersion: 'PrimaryKeyVersion',
-      origin: 'Origin',
+      keyId: 'KeyId',
       keySpec: 'KeySpec',
-      materialExpireTime: 'MaterialExpireTime',
-      automaticRotation: 'AutomaticRotation',
-      protectionLevel: 'ProtectionLevel',
+      keyState: 'KeyState',
       keyUsage: 'KeyUsage',
-      creationDate: 'CreationDate',
+      lastRotationDate: 'LastRotationDate',
+      materialExpireTime: 'MaterialExpireTime',
+      nextRotationDate: 'NextRotationDate',
+      origin: 'Origin',
+      primaryKeyVersion: 'PrimaryKeyVersion',
+      protectionLevel: 'ProtectionLevel',
+      rotationInterval: 'RotationInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyId: 'string',
-      nextRotationDate: 'string',
-      keyState: 'string',
-      rotationInterval: 'string',
       arn: 'string',
+      automaticRotation: 'string',
+      creationDate: 'string',
       creator: 'string',
       deleteDate: 'string',
-      lastRotationDate: 'string',
+      deletionProtection: 'string',
+      deletionProtectionDescription: 'string',
       description: 'string',
-      primaryKeyVersion: 'string',
-      origin: 'string',
+      keyId: 'string',
       keySpec: 'string',
-      materialExpireTime: 'string',
-      automaticRotation: 'string',
-      protectionLevel: 'string',
+      keyState: 'string',
       keyUsage: 'string',
-      creationDate: 'string',
+      lastRotationDate: 'string',
+      materialExpireTime: 'string',
+      nextRotationDate: 'string',
+      origin: 'string',
+      primaryKeyVersion: 'string',
+      protectionLevel: 'string',
+      rotationInterval: 'string',
     };
   }
 
@@ -6132,22 +5179,22 @@ export class DescribeKeyResponseBodyKeyMetadata extends $tea.Model {
 }
 
 export class DescribeKeyVersionResponseBodyKeyVersion extends $tea.Model {
-  keyVersionId?: string;
-  keyId?: string;
   creationDate?: string;
+  keyId?: string;
+  keyVersionId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyVersionId: 'KeyVersionId',
-      keyId: 'KeyId',
       creationDate: 'CreationDate',
+      keyId: 'KeyId',
+      keyVersionId: 'KeyVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyVersionId: 'string',
-      keyId: 'string',
       creationDate: 'string',
+      keyId: 'string',
+      keyVersionId: 'string',
     };
   }
 
@@ -6195,19 +5242,19 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeSecretResponseBodyTagsTag extends $tea.Model {
-  tagValue?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -6227,126 +5274,6 @@ export class DescribeSecretResponseBodyTags extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tag: { 'type': 'array', 'itemType': DescribeSecretResponseBodyTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBodyProtectionLevelsProtectionLevel extends $tea.Model {
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBodyProtectionLevels extends $tea.Model {
-  protectionLevel?: DescribeServiceResponseBodyProtectionLevelsProtectionLevel[];
-  static names(): { [key: string]: string } {
-    return {
-      protectionLevel: 'ProtectionLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protectionLevel: { 'type': 'array', 'itemType': DescribeServiceResponseBodyProtectionLevelsProtectionLevel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBodyKeySpecsKeySpecSupportedProtectionLevels extends $tea.Model {
-  supportedProtectionLevel?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedProtectionLevel: 'SupportedProtectionLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedProtectionLevel: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBodyKeySpecsKeySpecUsages extends $tea.Model {
-  usage?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      usage: 'Usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      usage: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBodyKeySpecsKeySpec extends $tea.Model {
-  supportedProtectionLevels?: DescribeServiceResponseBodyKeySpecsKeySpecSupportedProtectionLevels;
-  name?: string;
-  usages?: DescribeServiceResponseBodyKeySpecsKeySpecUsages;
-  static names(): { [key: string]: string } {
-    return {
-      supportedProtectionLevels: 'SupportedProtectionLevels',
-      name: 'Name',
-      usages: 'Usages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedProtectionLevels: DescribeServiceResponseBodyKeySpecsKeySpecSupportedProtectionLevels,
-      name: 'string',
-      usages: DescribeServiceResponseBodyKeySpecsKeySpecUsages,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceResponseBodyKeySpecs extends $tea.Model {
-  keySpec?: DescribeServiceResponseBodyKeySpecsKeySpec[];
-  static names(): { [key: string]: string } {
-    return {
-      keySpec: 'KeySpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keySpec: { 'type': 'array', 'itemType': DescribeServiceResponseBodyKeySpecsKeySpec },
     };
   }
 
@@ -6376,21 +5303,21 @@ export class GetSecretValueResponseBodyVersionStages extends $tea.Model {
 
 export class ListAliasesResponseBodyAliasesAlias extends $tea.Model {
   aliasArn?: string;
-  keyId?: string;
   aliasName?: string;
+  keyId?: string;
   static names(): { [key: string]: string } {
     return {
       aliasArn: 'AliasArn',
-      keyId: 'KeyId',
       aliasName: 'AliasName',
+      keyId: 'KeyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aliasArn: 'string',
-      keyId: 'string',
       aliasName: 'string',
+      keyId: 'string',
     };
   }
 
@@ -6420,21 +5347,21 @@ export class ListAliasesResponseBodyAliases extends $tea.Model {
 
 export class ListAliasesByKeyIdResponseBodyAliasesAlias extends $tea.Model {
   aliasArn?: string;
-  keyId?: string;
   aliasName?: string;
+  keyId?: string;
   static names(): { [key: string]: string } {
     return {
       aliasArn: 'AliasArn',
-      keyId: 'KeyId',
       aliasName: 'AliasName',
+      keyId: 'KeyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aliasArn: 'string',
-      keyId: 'string',
       aliasName: 'string',
+      keyId: 'string',
     };
   }
 
@@ -6462,35 +5389,23 @@ export class ListAliasesByKeyIdResponseBodyAliases extends $tea.Model {
   }
 }
 
-export class ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertificateAuthorityConfigurationSubject extends $tea.Model {
-  serialNumber?: string;
-  organization?: string;
-  locality?: string;
-  commonName?: string;
-  organizationalUnit?: string;
-  country?: string;
-  province?: string;
+export class ListKeyVersionsResponseBodyKeyVersionsKeyVersion extends $tea.Model {
+  creationDate?: string;
+  keyId?: string;
+  keyVersionId?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      organization: 'Organization',
-      locality: 'Locality',
-      commonName: 'CommonName',
-      organizationalUnit: 'OrganizationalUnit',
-      country: 'Country',
-      province: 'Province',
+      creationDate: 'CreationDate',
+      keyId: 'KeyId',
+      keyVersionId: 'KeyVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      organization: 'string',
-      locality: 'string',
-      commonName: 'string',
-      organizationalUnit: 'string',
-      country: 'string',
-      province: 'string',
+      creationDate: 'string',
+      keyId: 'string',
+      keyVersionId: 'string',
     };
   }
 
@@ -6499,184 +5414,17 @@ export class ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertifi
   }
 }
 
-export class ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertificateAuthorityConfiguration extends $tea.Model {
-  keySpec?: string;
-  protectionLevel?: string;
-  subject?: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertificateAuthorityConfigurationSubject;
+export class ListKeyVersionsResponseBodyKeyVersions extends $tea.Model {
+  keyVersion?: ListKeyVersionsResponseBodyKeyVersionsKeyVersion[];
   static names(): { [key: string]: string } {
     return {
-      keySpec: 'KeySpec',
-      protectionLevel: 'ProtectionLevel',
-      subject: 'Subject',
+      keyVersion: 'KeyVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keySpec: 'string',
-      protectionLevel: 'string',
-      subject: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertificateAuthorityConfigurationSubject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesRevocationConfigurationCrlConfiguration extends $tea.Model {
-  customCname?: string;
-  enabled?: boolean;
-  expirationInDays?: number;
-  ossBucketName?: number;
-  static names(): { [key: string]: string } {
-    return {
-      customCname: 'CustomCname',
-      enabled: 'Enabled',
-      expirationInDays: 'ExpirationInDays',
-      ossBucketName: 'OssBucketName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customCname: 'string',
-      enabled: 'boolean',
-      expirationInDays: 'number',
-      ossBucketName: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesRevocationConfiguration extends $tea.Model {
-  crlConfiguration?: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesRevocationConfigurationCrlConfiguration;
-  static names(): { [key: string]: string } {
-    return {
-      crlConfiguration: 'CrlConfiguration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      crlConfiguration: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesRevocationConfigurationCrlConfiguration,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificateAuthoritiesResponseBodyCertificateAuthorities extends $tea.Model {
-  type?: string;
-  status?: string;
-  serial?: string;
-  createdAt?: string;
-  failureReason?: string;
-  notAfter?: string;
-  arn?: string;
-  certificateAuthorityConfiguration?: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertificateAuthorityConfiguration;
-  lastStateChangeAt?: string;
-  notBefore?: string;
-  revocationConfiguration?: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesRevocationConfiguration;
-  id?: string;
-  restorableUntil?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      status: 'Status',
-      serial: 'Serial',
-      createdAt: 'CreatedAt',
-      failureReason: 'FailureReason',
-      notAfter: 'NotAfter',
-      arn: 'Arn',
-      certificateAuthorityConfiguration: 'CertificateAuthorityConfiguration',
-      lastStateChangeAt: 'LastStateChangeAt',
-      notBefore: 'NotBefore',
-      revocationConfiguration: 'RevocationConfiguration',
-      id: 'Id',
-      restorableUntil: 'RestorableUntil',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      status: 'string',
-      serial: 'string',
-      createdAt: 'string',
-      failureReason: 'string',
-      notAfter: 'string',
-      arn: 'string',
-      certificateAuthorityConfiguration: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesCertificateAuthorityConfiguration,
-      lastStateChangeAt: 'string',
-      notBefore: 'string',
-      revocationConfiguration: ListCertificateAuthoritiesResponseBodyCertificateAuthoritiesRevocationConfiguration,
-      id: 'string',
-      restorableUntil: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificatesResponseBodyCertificateSummaryListCertificateSummary extends $tea.Model {
-  status?: string;
-  keySpec?: string;
-  subject?: string;
-  protectionLevel?: string;
-  issuer?: string;
-  notBefore?: string;
-  notAfter?: string;
-  certificateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      keySpec: 'KeySpec',
-      subject: 'Subject',
-      protectionLevel: 'ProtectionLevel',
-      issuer: 'Issuer',
-      notBefore: 'NotBefore',
-      notAfter: 'NotAfter',
-      certificateId: 'CertificateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      keySpec: 'string',
-      subject: 'string',
-      protectionLevel: 'string',
-      issuer: 'string',
-      notBefore: 'string',
-      notAfter: 'string',
-      certificateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCertificatesResponseBodyCertificateSummaryList extends $tea.Model {
-  certificateSummary?: ListCertificatesResponseBodyCertificateSummaryListCertificateSummary[];
-  static names(): { [key: string]: string } {
-    return {
-      certificateSummary: 'CertificateSummary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateSummary: { 'type': 'array', 'itemType': ListCertificatesResponseBodyCertificateSummaryListCertificateSummary },
+      keyVersion: { 'type': 'array', 'itemType': ListKeyVersionsResponseBodyKeyVersionsKeyVersion },
     };
   }
 
@@ -6726,67 +5474,23 @@ export class ListKeysResponseBodyKeys extends $tea.Model {
   }
 }
 
-export class ListKeyVersionsResponseBodyKeyVersionsKeyVersion extends $tea.Model {
-  keyVersionId?: string;
-  keyId?: string;
-  creationDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyVersionId: 'KeyVersionId',
-      keyId: 'KeyId',
-      creationDate: 'CreationDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyVersionId: 'string',
-      keyId: 'string',
-      creationDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListKeyVersionsResponseBodyKeyVersions extends $tea.Model {
-  keyVersion?: ListKeyVersionsResponseBodyKeyVersionsKeyVersion[];
-  static names(): { [key: string]: string } {
-    return {
-      keyVersion: 'KeyVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyVersion: { 'type': 'array', 'itemType': ListKeyVersionsResponseBodyKeyVersionsKeyVersion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListResourceTagsResponseBodyTagsTag extends $tea.Model {
   keyId?: string;
-  tagValue?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
       keyId: 'KeyId',
-      tagValue: 'TagValue',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       keyId: 'string',
-      tagValue: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -6806,100 +5510,6 @@ export class ListResourceTagsResponseBodyTags extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tag: { 'type': 'array', 'itemType': ListResourceTagsResponseBodyTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretsResponseBodySecretListSecretTagsTag extends $tea.Model {
-  tagValue?: string;
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagValue: 'TagValue',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagValue: 'string',
-      tagKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretsResponseBodySecretListSecretTags extends $tea.Model {
-  tag?: ListSecretsResponseBodySecretListSecretTagsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': ListSecretsResponseBodySecretListSecretTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretsResponseBodySecretListSecret extends $tea.Model {
-  updateTime?: string;
-  createTime?: string;
-  secretName?: string;
-  tags?: ListSecretsResponseBodySecretListSecretTags;
-  secretType?: string;
-  plannedDeleteTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      createTime: 'CreateTime',
-      secretName: 'SecretName',
-      tags: 'Tags',
-      secretType: 'SecretType',
-      plannedDeleteTime: 'PlannedDeleteTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'string',
-      createTime: 'string',
-      secretName: 'string',
-      tags: ListSecretsResponseBodySecretListSecretTags,
-      secretType: 'string',
-      plannedDeleteTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretsResponseBodySecretList extends $tea.Model {
-  secret?: ListSecretsResponseBodySecretListSecret[];
-  static names(): { [key: string]: string } {
-    return {
-      secret: 'Secret',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      secret: { 'type': 'array', 'itemType': ListSecretsResponseBodySecretListSecret },
     };
   }
 
@@ -6971,6 +5581,100 @@ export class ListSecretVersionIdsResponseBodyVersionIds extends $tea.Model {
   }
 }
 
+export class ListSecretsResponseBodySecretListSecretTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretsResponseBodySecretListSecretTags extends $tea.Model {
+  tag?: ListSecretsResponseBodySecretListSecretTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': ListSecretsResponseBodySecretListSecretTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretsResponseBodySecretListSecret extends $tea.Model {
+  createTime?: string;
+  plannedDeleteTime?: string;
+  secretName?: string;
+  secretType?: string;
+  tags?: ListSecretsResponseBodySecretListSecretTags;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      plannedDeleteTime: 'PlannedDeleteTime',
+      secretName: 'SecretName',
+      secretType: 'SecretType',
+      tags: 'Tags',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      plannedDeleteTime: 'string',
+      secretName: 'string',
+      secretType: 'string',
+      tags: ListSecretsResponseBodySecretListSecretTags,
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretsResponseBodySecretList extends $tea.Model {
+  secret?: ListSecretsResponseBodySecretListSecret[];
+  static names(): { [key: string]: string } {
+    return {
+      secret: 'Secret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secret: { 'type': 'array', 'itemType': ListSecretsResponseBodySecretListSecret },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PutSecretValueResponseBodyVersionStages extends $tea.Model {
   versionStage?: string[];
   static names(): { [key: string]: string } {
@@ -6982,6 +5686,44 @@ export class PutSecretValueResponseBodyVersionStages extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       versionStage: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSecretRequestExtendedConfig extends $tea.Model {
+  customData?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      customData: 'CustomData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSecretShrinkRequestExtendedConfig extends $tea.Model {
+  customData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customData: 'CustomData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customData: 'string',
     };
   }
 
@@ -7015,10 +5757,38 @@ export default class Client extends OpenApi {
 
   async asymmetricDecryptWithOptions(request: AsymmetricDecryptRequest, runtime: $Util.RuntimeOptions): Promise<AsymmetricDecryptResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyVersionId)) {
+      query["KeyVersionId"] = request.keyVersionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AsymmetricDecryptResponse>(await this.doRPCRequest("AsymmetricDecrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new AsymmetricDecryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AsymmetricDecrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AsymmetricDecryptResponse>(await this.callApi(params, req, runtime), new AsymmetricDecryptResponse({}));
   }
 
   async asymmetricDecrypt(request: AsymmetricDecryptRequest): Promise<AsymmetricDecryptResponse> {
@@ -7028,10 +5798,38 @@ export default class Client extends OpenApi {
 
   async asymmetricEncryptWithOptions(request: AsymmetricEncryptRequest, runtime: $Util.RuntimeOptions): Promise<AsymmetricEncryptResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyVersionId)) {
+      query["KeyVersionId"] = request.keyVersionId;
+    }
+
+    if (!Util.isUnset(request.plaintext)) {
+      query["Plaintext"] = request.plaintext;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AsymmetricEncryptResponse>(await this.doRPCRequest("AsymmetricEncrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new AsymmetricEncryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AsymmetricEncrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AsymmetricEncryptResponse>(await this.callApi(params, req, runtime), new AsymmetricEncryptResponse({}));
   }
 
   async asymmetricEncrypt(request: AsymmetricEncryptRequest): Promise<AsymmetricEncryptResponse> {
@@ -7041,10 +5839,38 @@ export default class Client extends OpenApi {
 
   async asymmetricSignWithOptions(request: AsymmetricSignRequest, runtime: $Util.RuntimeOptions): Promise<AsymmetricSignResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyVersionId)) {
+      query["KeyVersionId"] = request.keyVersionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AsymmetricSignResponse>(await this.doRPCRequest("AsymmetricSign", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new AsymmetricSignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AsymmetricSign",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AsymmetricSignResponse>(await this.callApi(params, req, runtime), new AsymmetricSignResponse({}));
   }
 
   async asymmetricSign(request: AsymmetricSignRequest): Promise<AsymmetricSignResponse> {
@@ -7054,10 +5880,42 @@ export default class Client extends OpenApi {
 
   async asymmetricVerifyWithOptions(request: AsymmetricVerifyRequest, runtime: $Util.RuntimeOptions): Promise<AsymmetricVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyVersionId)) {
+      query["KeyVersionId"] = request.keyVersionId;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AsymmetricVerifyResponse>(await this.doRPCRequest("AsymmetricVerify", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new AsymmetricVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AsymmetricVerify",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AsymmetricVerifyResponse>(await this.callApi(params, req, runtime), new AsymmetricVerifyResponse({}));
   }
 
   async asymmetricVerify(request: AsymmetricVerifyRequest): Promise<AsymmetricVerifyResponse> {
@@ -7067,10 +5925,26 @@ export default class Client extends OpenApi {
 
   async cancelKeyDeletionWithOptions(request: CancelKeyDeletionRequest, runtime: $Util.RuntimeOptions): Promise<CancelKeyDeletionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelKeyDeletionResponse>(await this.doRPCRequest("CancelKeyDeletion", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CancelKeyDeletionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelKeyDeletion",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelKeyDeletionResponse>(await this.callApi(params, req, runtime), new CancelKeyDeletionResponse({}));
   }
 
   async cancelKeyDeletion(request: CancelKeyDeletionRequest): Promise<CancelKeyDeletionResponse> {
@@ -7080,10 +5954,34 @@ export default class Client extends OpenApi {
 
   async certificatePrivateKeyDecryptWithOptions(request: CertificatePrivateKeyDecryptRequest, runtime: $Util.RuntimeOptions): Promise<CertificatePrivateKeyDecryptResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CertificatePrivateKeyDecryptResponse>(await this.doRPCRequest("CertificatePrivateKeyDecrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CertificatePrivateKeyDecryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CertificatePrivateKeyDecrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CertificatePrivateKeyDecryptResponse>(await this.callApi(params, req, runtime), new CertificatePrivateKeyDecryptResponse({}));
   }
 
   async certificatePrivateKeyDecrypt(request: CertificatePrivateKeyDecryptRequest): Promise<CertificatePrivateKeyDecryptResponse> {
@@ -7093,10 +5991,38 @@ export default class Client extends OpenApi {
 
   async certificatePrivateKeySignWithOptions(request: CertificatePrivateKeySignRequest, runtime: $Util.RuntimeOptions): Promise<CertificatePrivateKeySignResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CertificatePrivateKeySignResponse>(await this.doRPCRequest("CertificatePrivateKeySign", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CertificatePrivateKeySignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CertificatePrivateKeySign",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CertificatePrivateKeySignResponse>(await this.callApi(params, req, runtime), new CertificatePrivateKeySignResponse({}));
   }
 
   async certificatePrivateKeySign(request: CertificatePrivateKeySignRequest): Promise<CertificatePrivateKeySignResponse> {
@@ -7106,10 +6032,34 @@ export default class Client extends OpenApi {
 
   async certificatePublicKeyEncryptWithOptions(request: CertificatePublicKeyEncryptRequest, runtime: $Util.RuntimeOptions): Promise<CertificatePublicKeyEncryptResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.plaintext)) {
+      query["Plaintext"] = request.plaintext;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CertificatePublicKeyEncryptResponse>(await this.doRPCRequest("CertificatePublicKeyEncrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CertificatePublicKeyEncryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CertificatePublicKeyEncrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CertificatePublicKeyEncryptResponse>(await this.callApi(params, req, runtime), new CertificatePublicKeyEncryptResponse({}));
   }
 
   async certificatePublicKeyEncrypt(request: CertificatePublicKeyEncryptRequest): Promise<CertificatePublicKeyEncryptResponse> {
@@ -7119,10 +6069,42 @@ export default class Client extends OpenApi {
 
   async certificatePublicKeyVerifyWithOptions(request: CertificatePublicKeyVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CertificatePublicKeyVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.signatureValue)) {
+      query["SignatureValue"] = request.signatureValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CertificatePublicKeyVerifyResponse>(await this.doRPCRequest("CertificatePublicKeyVerify", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CertificatePublicKeyVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CertificatePublicKeyVerify",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CertificatePublicKeyVerifyResponse>(await this.callApi(params, req, runtime), new CertificatePublicKeyVerifyResponse({}));
   }
 
   async certificatePublicKeyVerify(request: CertificatePublicKeyVerifyRequest): Promise<CertificatePublicKeyVerifyResponse> {
@@ -7132,10 +6114,30 @@ export default class Client extends OpenApi {
 
   async createAliasWithOptions(request: CreateAliasRequest, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAliasResponse>(await this.doRPCRequest("CreateAlias", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAlias",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
   }
 
   async createAlias(request: CreateAliasRequest): Promise<CreateAliasResponse> {
@@ -7151,10 +6153,38 @@ export default class Client extends OpenApi {
       request.subjectAlternativeNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subjectAlternativeNames, "SubjectAlternativeNames", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.exportablePrivateKey)) {
+      query["ExportablePrivateKey"] = request.exportablePrivateKey;
+    }
+
+    if (!Util.isUnset(request.keySpec)) {
+      query["KeySpec"] = request.keySpec;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.subjectAlternativeNamesShrink)) {
+      query["SubjectAlternativeNames"] = request.subjectAlternativeNamesShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCertificateResponse>(await this.doRPCRequest("CreateCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCertificate",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateResponse>(await this.callApi(params, req, runtime), new CreateCertificateResponse({}));
   }
 
   async createCertificate(request: CreateCertificateRequest): Promise<CreateCertificateResponse> {
@@ -7162,31 +6192,52 @@ export default class Client extends OpenApi {
     return await this.createCertificateWithOptions(request, runtime);
   }
 
-  async createCertificateAuthorityWithOptions(tmpReq: CreateCertificateAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateAuthorityResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateCertificateAuthorityShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.certificateAuthorityConfiguration)) {
-      request.certificateAuthorityConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.certificateAuthorityConfiguration, "CertificateAuthorityConfiguration", "json");
+  async createKeyWithOptions(request: CreateKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableAutomaticRotation)) {
+      query["EnableAutomaticRotation"] = request.enableAutomaticRotation;
+    }
+
+    if (!Util.isUnset(request.keySpec)) {
+      query["KeySpec"] = request.keySpec;
+    }
+
+    if (!Util.isUnset(request.keyUsage)) {
+      query["KeyUsage"] = request.keyUsage;
+    }
+
+    if (!Util.isUnset(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!Util.isUnset(request.protectionLevel)) {
+      query["ProtectionLevel"] = request.protectionLevel;
+    }
+
+    if (!Util.isUnset(request.rotationInterval)) {
+      query["RotationInterval"] = request.rotationInterval;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCertificateAuthorityResponse>(await this.doRPCRequest("CreateCertificateAuthority", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCertificateAuthorityResponse({}));
-  }
-
-  async createCertificateAuthority(request: CreateCertificateAuthorityRequest): Promise<CreateCertificateAuthorityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createCertificateAuthorityWithOptions(request, runtime);
-  }
-
-  async createKeyWithOptions(request: CreateKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "CreateKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<CreateKeyResponse>(await this.doRPCRequest("CreateKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateKeyResponse({}));
+    return $tea.cast<CreateKeyResponse>(await this.callApi(params, req, runtime), new CreateKeyResponse({}));
   }
 
   async createKey(request: CreateKeyRequest): Promise<CreateKeyResponse> {
@@ -7196,10 +6247,26 @@ export default class Client extends OpenApi {
 
   async createKeyVersionWithOptions(request: CreateKeyVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateKeyVersionResponse>(await this.doRPCRequest("CreateKeyVersion", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateKeyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateKeyVersion",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateKeyVersionResponse>(await this.callApi(params, req, runtime), new CreateKeyVersionResponse({}));
   }
 
   async createKeyVersion(request: CreateKeyVersionRequest): Promise<CreateKeyVersionResponse> {
@@ -7215,10 +6282,66 @@ export default class Client extends OpenApi {
       request.extendedConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendedConfig, "ExtendedConfig", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableAutomaticRotation)) {
+      query["EnableAutomaticRotation"] = request.enableAutomaticRotation;
+    }
+
+    if (!Util.isUnset(request.encryptionKeyId)) {
+      query["EncryptionKeyId"] = request.encryptionKeyId;
+    }
+
+    if (!Util.isUnset(request.extendedConfigShrink)) {
+      query["ExtendedConfig"] = request.extendedConfigShrink;
+    }
+
+    if (!Util.isUnset(request.rotationInterval)) {
+      query["RotationInterval"] = request.rotationInterval;
+    }
+
+    if (!Util.isUnset(request.secretData)) {
+      query["SecretData"] = request.secretData;
+    }
+
+    if (!Util.isUnset(request.secretDataType)) {
+      query["SecretDataType"] = request.secretDataType;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.secretType)) {
+      query["SecretType"] = request.secretType;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateSecretResponse>(await this.doRPCRequest("CreateSecret", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSecret",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSecretResponse>(await this.callApi(params, req, runtime), new CreateSecretResponse({}));
   }
 
   async createSecret(request: CreateSecretRequest): Promise<CreateSecretResponse> {
@@ -7234,10 +6357,30 @@ export default class Client extends OpenApi {
       request.encryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext, "EncryptionContext", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
+    if (!Util.isUnset(request.encryptionContextShrink)) {
+      query["EncryptionContext"] = request.encryptionContextShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DecryptResponse>(await this.doRPCRequest("Decrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DecryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Decrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DecryptResponse>(await this.callApi(params, req, runtime), new DecryptResponse({}));
   }
 
   async decrypt(request: DecryptRequest): Promise<DecryptResponse> {
@@ -7247,10 +6390,26 @@ export default class Client extends OpenApi {
 
   async deleteAliasWithOptions(request: DeleteAliasRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAliasResponse>(await this.doRPCRequest("DeleteAlias", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAlias",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
   }
 
   async deleteAlias(request: DeleteAliasRequest): Promise<DeleteAliasResponse> {
@@ -7260,10 +6419,26 @@ export default class Client extends OpenApi {
 
   async deleteCertificateWithOptions(request: DeleteCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCertificateResponse>(await this.doRPCRequest("DeleteCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCertificate",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCertificateResponse>(await this.callApi(params, req, runtime), new DeleteCertificateResponse({}));
   }
 
   async deleteCertificate(request: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
@@ -7271,25 +6446,28 @@ export default class Client extends OpenApi {
     return await this.deleteCertificateWithOptions(request, runtime);
   }
 
-  async deleteCertificateAuthorityWithOptions(request: DeleteCertificateAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateAuthorityResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteCertificateAuthorityResponse>(await this.doRPCRequest("DeleteCertificateAuthority", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCertificateAuthorityResponse({}));
-  }
-
-  async deleteCertificateAuthority(request: DeleteCertificateAuthorityRequest): Promise<DeleteCertificateAuthorityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteCertificateAuthorityWithOptions(request, runtime);
-  }
-
   async deleteKeyMaterialWithOptions(request: DeleteKeyMaterialRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKeyMaterialResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteKeyMaterialResponse>(await this.doRPCRequest("DeleteKeyMaterial", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteKeyMaterialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteKeyMaterial",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteKeyMaterialResponse>(await this.callApi(params, req, runtime), new DeleteKeyMaterialResponse({}));
   }
 
   async deleteKeyMaterial(request: DeleteKeyMaterialRequest): Promise<DeleteKeyMaterialResponse> {
@@ -7299,10 +6477,34 @@ export default class Client extends OpenApi {
 
   async deleteSecretWithOptions(request: DeleteSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.forceDeleteWithoutRecovery)) {
+      query["ForceDeleteWithoutRecovery"] = request.forceDeleteWithoutRecovery;
+    }
+
+    if (!Util.isUnset(request.recoveryWindowInDays)) {
+      query["RecoveryWindowInDays"] = request.recoveryWindowInDays;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSecretResponse>(await this.doRPCRequest("DeleteSecret", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSecret",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSecretResponse>(await this.callApi(params, req, runtime), new DeleteSecretResponse({}));
   }
 
   async deleteSecret(request: DeleteSecretRequest): Promise<DeleteSecretResponse> {
@@ -7312,7 +6514,18 @@ export default class Client extends OpenApi {
 
   async describeAccountKmsStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAccountKmsStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeAccountKmsStatusResponse>(await this.doRPCRequest("DescribeAccountKmsStatus", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccountKmsStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccountKmsStatus",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccountKmsStatusResponse>(await this.callApi(params, req, runtime), new DescribeAccountKmsStatusResponse({}));
   }
 
   async describeAccountKmsStatus(): Promise<DescribeAccountKmsStatusResponse> {
@@ -7322,10 +6535,26 @@ export default class Client extends OpenApi {
 
   async describeCertificateWithOptions(request: DescribeCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCertificateResponse>(await this.doRPCRequest("DescribeCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCertificate",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCertificateResponse>(await this.callApi(params, req, runtime), new DescribeCertificateResponse({}));
   }
 
   async describeCertificate(request: DescribeCertificateRequest): Promise<DescribeCertificateResponse> {
@@ -7333,25 +6562,28 @@ export default class Client extends OpenApi {
     return await this.describeCertificateWithOptions(request, runtime);
   }
 
-  async describeCertificateAuthorityWithOptions(request: DescribeCertificateAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateAuthorityResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeCertificateAuthorityResponse>(await this.doRPCRequest("DescribeCertificateAuthority", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCertificateAuthorityResponse({}));
-  }
-
-  async describeCertificateAuthority(request: DescribeCertificateAuthorityRequest): Promise<DescribeCertificateAuthorityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeCertificateAuthorityWithOptions(request, runtime);
-  }
-
   async describeKeyWithOptions(request: DescribeKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeKeyResponse>(await this.doRPCRequest("DescribeKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKeyResponse>(await this.callApi(params, req, runtime), new DescribeKeyResponse({}));
   }
 
   async describeKey(request: DescribeKeyRequest): Promise<DescribeKeyResponse> {
@@ -7361,10 +6593,30 @@ export default class Client extends OpenApi {
 
   async describeKeyVersionWithOptions(request: DescribeKeyVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKeyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyVersionId)) {
+      query["KeyVersionId"] = request.keyVersionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeKeyVersionResponse>(await this.doRPCRequest("DescribeKeyVersion", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeKeyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeKeyVersion",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKeyVersionResponse>(await this.callApi(params, req, runtime), new DescribeKeyVersionResponse({}));
   }
 
   async describeKeyVersion(request: DescribeKeyVersionRequest): Promise<DescribeKeyVersionResponse> {
@@ -7374,7 +6626,18 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(): Promise<DescribeRegionsResponse> {
@@ -7384,10 +6647,30 @@ export default class Client extends OpenApi {
 
   async describeSecretWithOptions(request: DescribeSecretRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fetchTags)) {
+      query["FetchTags"] = request.fetchTags;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSecretResponse>(await this.doRPCRequest("DescribeSecret", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecret",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecretResponse>(await this.callApi(params, req, runtime), new DescribeSecretResponse({}));
   }
 
   async describeSecret(request: DescribeSecretRequest): Promise<DescribeSecretResponse> {
@@ -7395,22 +6678,28 @@ export default class Client extends OpenApi {
     return await this.describeSecretWithOptions(request, runtime);
   }
 
-  async describeServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeServiceResponse>(await this.doRPCRequest("DescribeService", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeServiceResponse({}));
-  }
-
-  async describeService(): Promise<DescribeServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeServiceWithOptions(runtime);
-  }
-
   async disableKeyWithOptions(request: DisableKeyRequest, runtime: $Util.RuntimeOptions): Promise<DisableKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableKeyResponse>(await this.doRPCRequest("DisableKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DisableKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableKeyResponse>(await this.callApi(params, req, runtime), new DisableKeyResponse({}));
   }
 
   async disableKey(request: DisableKeyRequest): Promise<DisableKeyResponse> {
@@ -7420,10 +6709,26 @@ export default class Client extends OpenApi {
 
   async enableKeyWithOptions(request: EnableKeyRequest, runtime: $Util.RuntimeOptions): Promise<EnableKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableKeyResponse>(await this.doRPCRequest("EnableKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new EnableKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableKeyResponse>(await this.callApi(params, req, runtime), new EnableKeyResponse({}));
   }
 
   async enableKey(request: EnableKeyRequest): Promise<EnableKeyResponse> {
@@ -7439,28 +6744,39 @@ export default class Client extends OpenApi {
       request.encryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext, "EncryptionContext", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.encryptionContextShrink)) {
+      query["EncryptionContext"] = request.encryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.plaintext)) {
+      query["Plaintext"] = request.plaintext;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EncryptResponse>(await this.doRPCRequest("Encrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new EncryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Encrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EncryptResponse>(await this.callApi(params, req, runtime), new EncryptResponse({}));
   }
 
   async encrypt(request: EncryptRequest): Promise<EncryptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.encryptWithOptions(request, runtime);
-  }
-
-  async exportCertificateWithOptions(request: ExportCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ExportCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ExportCertificateResponse>(await this.doRPCRequest("ExportCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ExportCertificateResponse({}));
-  }
-
-  async exportCertificate(request: ExportCertificateRequest): Promise<ExportCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.exportCertificateWithOptions(request, runtime);
   }
 
   async exportDataKeyWithOptions(tmpReq: ExportDataKeyRequest, runtime: $Util.RuntimeOptions): Promise<ExportDataKeyResponse> {
@@ -7471,10 +6787,42 @@ export default class Client extends OpenApi {
       request.encryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext, "EncryptionContext", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
+    if (!Util.isUnset(request.encryptionContextShrink)) {
+      query["EncryptionContext"] = request.encryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.publicKeyBlob)) {
+      query["PublicKeyBlob"] = request.publicKeyBlob;
+    }
+
+    if (!Util.isUnset(request.wrappingAlgorithm)) {
+      query["WrappingAlgorithm"] = request.wrappingAlgorithm;
+    }
+
+    if (!Util.isUnset(request.wrappingKeySpec)) {
+      query["WrappingKeySpec"] = request.wrappingKeySpec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ExportDataKeyResponse>(await this.doRPCRequest("ExportDataKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ExportDataKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExportDataKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportDataKeyResponse>(await this.callApi(params, req, runtime), new ExportDataKeyResponse({}));
   }
 
   async exportDataKey(request: ExportDataKeyRequest): Promise<ExportDataKeyResponse> {
@@ -7490,10 +6838,50 @@ export default class Client extends OpenApi {
       request.encryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext, "EncryptionContext", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.encryptionContextShrink)) {
+      query["EncryptionContext"] = request.encryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keySpec)) {
+      query["KeySpec"] = request.keySpec;
+    }
+
+    if (!Util.isUnset(request.numberOfBytes)) {
+      query["NumberOfBytes"] = request.numberOfBytes;
+    }
+
+    if (!Util.isUnset(request.publicKeyBlob)) {
+      query["PublicKeyBlob"] = request.publicKeyBlob;
+    }
+
+    if (!Util.isUnset(request.wrappingAlgorithm)) {
+      query["WrappingAlgorithm"] = request.wrappingAlgorithm;
+    }
+
+    if (!Util.isUnset(request.wrappingKeySpec)) {
+      query["WrappingKeySpec"] = request.wrappingKeySpec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GenerateAndExportDataKeyResponse>(await this.doRPCRequest("GenerateAndExportDataKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateAndExportDataKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateAndExportDataKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateAndExportDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateAndExportDataKeyResponse({}));
   }
 
   async generateAndExportDataKey(request: GenerateAndExportDataKeyRequest): Promise<GenerateAndExportDataKeyResponse> {
@@ -7509,10 +6897,38 @@ export default class Client extends OpenApi {
       request.encryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext, "EncryptionContext", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.encryptionContextShrink)) {
+      query["EncryptionContext"] = request.encryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keySpec)) {
+      query["KeySpec"] = request.keySpec;
+    }
+
+    if (!Util.isUnset(request.numberOfBytes)) {
+      query["NumberOfBytes"] = request.numberOfBytes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GenerateDataKeyResponse>(await this.doRPCRequest("GenerateDataKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateDataKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateDataKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateDataKeyResponse>(await this.callApi(params, req, runtime), new GenerateDataKeyResponse({}));
   }
 
   async generateDataKey(request: GenerateDataKeyRequest): Promise<GenerateDataKeyResponse> {
@@ -7528,10 +6944,38 @@ export default class Client extends OpenApi {
       request.encryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionContext, "EncryptionContext", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.encryptionContextShrink)) {
+      query["EncryptionContext"] = request.encryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keySpec)) {
+      query["KeySpec"] = request.keySpec;
+    }
+
+    if (!Util.isUnset(request.numberOfBytes)) {
+      query["NumberOfBytes"] = request.numberOfBytes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GenerateDataKeyWithoutPlaintextResponse>(await this.doRPCRequest("GenerateDataKeyWithoutPlaintext", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateDataKeyWithoutPlaintextResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateDataKeyWithoutPlaintext",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateDataKeyWithoutPlaintextResponse>(await this.callApi(params, req, runtime), new GenerateDataKeyWithoutPlaintextResponse({}));
   }
 
   async generateDataKeyWithoutPlaintext(request: GenerateDataKeyWithoutPlaintextRequest): Promise<GenerateDataKeyWithoutPlaintextResponse> {
@@ -7541,10 +6985,26 @@ export default class Client extends OpenApi {
 
   async getCertificateWithOptions(request: GetCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetCertificateResponse>(await this.doRPCRequest("GetCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCertificate",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCertificateResponse>(await this.callApi(params, req, runtime), new GetCertificateResponse({}));
   }
 
   async getCertificate(request: GetCertificateRequest): Promise<GetCertificateResponse> {
@@ -7552,51 +7012,36 @@ export default class Client extends OpenApi {
     return await this.getCertificateWithOptions(request, runtime);
   }
 
-  async getCertificateAuthorityCertificateWithOptions(request: GetCertificateAuthorityCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetCertificateAuthorityCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetCertificateAuthorityCertificateResponse>(await this.doRPCRequest("GetCertificateAuthorityCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetCertificateAuthorityCertificateResponse({}));
-  }
-
-  async getCertificateAuthorityCertificate(request: GetCertificateAuthorityCertificateRequest): Promise<GetCertificateAuthorityCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCertificateAuthorityCertificateWithOptions(request, runtime);
-  }
-
-  async getCertificateAuthorityCsrWithOptions(request: GetCertificateAuthorityCsrRequest, runtime: $Util.RuntimeOptions): Promise<GetCertificateAuthorityCsrResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetCertificateAuthorityCsrResponse>(await this.doRPCRequest("GetCertificateAuthorityCsr", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetCertificateAuthorityCsrResponse({}));
-  }
-
-  async getCertificateAuthorityCsr(request: GetCertificateAuthorityCsrRequest): Promise<GetCertificateAuthorityCsrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCertificateAuthorityCsrWithOptions(request, runtime);
-  }
-
-  async getIssuedCertificateWithOptions(request: GetIssuedCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetIssuedCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetIssuedCertificateResponse>(await this.doRPCRequest("GetIssuedCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetIssuedCertificateResponse({}));
-  }
-
-  async getIssuedCertificate(request: GetIssuedCertificateRequest): Promise<GetIssuedCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getIssuedCertificateWithOptions(request, runtime);
-  }
-
   async getParametersForImportWithOptions(request: GetParametersForImportRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersForImportResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.wrappingAlgorithm)) {
+      query["WrappingAlgorithm"] = request.wrappingAlgorithm;
+    }
+
+    if (!Util.isUnset(request.wrappingKeySpec)) {
+      query["WrappingKeySpec"] = request.wrappingKeySpec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetParametersForImportResponse>(await this.doRPCRequest("GetParametersForImport", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetParametersForImportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetParametersForImport",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetParametersForImportResponse>(await this.callApi(params, req, runtime), new GetParametersForImportResponse({}));
   }
 
   async getParametersForImport(request: GetParametersForImportRequest): Promise<GetParametersForImportResponse> {
@@ -7606,10 +7051,30 @@ export default class Client extends OpenApi {
 
   async getPublicKeyWithOptions(request: GetPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyVersionId)) {
+      query["KeyVersionId"] = request.keyVersionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPublicKeyResponse>(await this.doRPCRequest("GetPublicKey", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetPublicKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPublicKey",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPublicKeyResponse({}));
   }
 
   async getPublicKey(request: GetPublicKeyRequest): Promise<GetPublicKeyResponse> {
@@ -7619,10 +7084,50 @@ export default class Client extends OpenApi {
 
   async getRandomPasswordWithOptions(request: GetRandomPasswordRequest, runtime: $Util.RuntimeOptions): Promise<GetRandomPasswordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.excludeCharacters)) {
+      query["ExcludeCharacters"] = request.excludeCharacters;
+    }
+
+    if (!Util.isUnset(request.excludeLowercase)) {
+      query["ExcludeLowercase"] = request.excludeLowercase;
+    }
+
+    if (!Util.isUnset(request.excludeNumbers)) {
+      query["ExcludeNumbers"] = request.excludeNumbers;
+    }
+
+    if (!Util.isUnset(request.excludePunctuation)) {
+      query["ExcludePunctuation"] = request.excludePunctuation;
+    }
+
+    if (!Util.isUnset(request.excludeUppercase)) {
+      query["ExcludeUppercase"] = request.excludeUppercase;
+    }
+
+    if (!Util.isUnset(request.passwordLength)) {
+      query["PasswordLength"] = request.passwordLength;
+    }
+
+    if (!Util.isUnset(request.requireEachIncludedType)) {
+      query["RequireEachIncludedType"] = request.requireEachIncludedType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRandomPasswordResponse>(await this.doRPCRequest("GetRandomPassword", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetRandomPasswordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRandomPassword",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRandomPasswordResponse>(await this.callApi(params, req, runtime), new GetRandomPasswordResponse({}));
   }
 
   async getRandomPassword(request: GetRandomPasswordRequest): Promise<GetRandomPasswordResponse> {
@@ -7632,10 +7137,38 @@ export default class Client extends OpenApi {
 
   async getSecretValueWithOptions(request: GetSecretValueRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretValueResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fetchExtendedConfig)) {
+      query["FetchExtendedConfig"] = request.fetchExtendedConfig;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    if (!Util.isUnset(request.versionStage)) {
+      query["VersionStage"] = request.versionStage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSecretValueResponse>(await this.doRPCRequest("GetSecretValue", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecretValueResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSecretValue",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSecretValueResponse>(await this.callApi(params, req, runtime), new GetSecretValueResponse({}));
   }
 
   async getSecretValue(request: GetSecretValueRequest): Promise<GetSecretValueResponse> {
@@ -7643,51 +7176,40 @@ export default class Client extends OpenApi {
     return await this.getSecretValueWithOptions(request, runtime);
   }
 
-  async importCertificateWithOptions(request: ImportCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ImportCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ImportCertificateResponse>(await this.doRPCRequest("ImportCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImportCertificateResponse({}));
-  }
-
-  async importCertificate(request: ImportCertificateRequest): Promise<ImportCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importCertificateWithOptions(request, runtime);
-  }
-
-  async importCertificateAuthorityCertificateWithOptions(request: ImportCertificateAuthorityCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ImportCertificateAuthorityCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ImportCertificateAuthorityCertificateResponse>(await this.doRPCRequest("ImportCertificateAuthorityCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImportCertificateAuthorityCertificateResponse({}));
-  }
-
-  async importCertificateAuthorityCertificate(request: ImportCertificateAuthorityCertificateRequest): Promise<ImportCertificateAuthorityCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importCertificateAuthorityCertificateWithOptions(request, runtime);
-  }
-
-  async importEncryptionCertificateWithOptions(request: ImportEncryptionCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ImportEncryptionCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ImportEncryptionCertificateResponse>(await this.doRPCRequest("ImportEncryptionCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImportEncryptionCertificateResponse({}));
-  }
-
-  async importEncryptionCertificate(request: ImportEncryptionCertificateRequest): Promise<ImportEncryptionCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importEncryptionCertificateWithOptions(request, runtime);
-  }
-
   async importKeyMaterialWithOptions(request: ImportKeyMaterialRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyMaterialResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.encryptedKeyMaterial)) {
+      query["EncryptedKeyMaterial"] = request.encryptedKeyMaterial;
+    }
+
+    if (!Util.isUnset(request.importToken)) {
+      query["ImportToken"] = request.importToken;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.keyMaterialExpireUnix)) {
+      query["KeyMaterialExpireUnix"] = request.keyMaterialExpireUnix;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ImportKeyMaterialResponse>(await this.doRPCRequest("ImportKeyMaterial", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImportKeyMaterialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImportKeyMaterial",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportKeyMaterialResponse>(await this.callApi(params, req, runtime), new ImportKeyMaterialResponse({}));
   }
 
   async importKeyMaterial(request: ImportKeyMaterialRequest): Promise<ImportKeyMaterialResponse> {
@@ -7695,25 +7217,32 @@ export default class Client extends OpenApi {
     return await this.importKeyMaterialWithOptions(request, runtime);
   }
 
-  async issueCertificateWithOptions(request: IssueCertificateRequest, runtime: $Util.RuntimeOptions): Promise<IssueCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<IssueCertificateResponse>(await this.doRPCRequest("IssueCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new IssueCertificateResponse({}));
-  }
-
-  async issueCertificate(request: IssueCertificateRequest): Promise<IssueCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.issueCertificateWithOptions(request, runtime);
-  }
-
   async listAliasesWithOptions(request: ListAliasesRequest, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAliasesResponse>(await this.doRPCRequest("ListAliases", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAliasesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAliases",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
   }
 
   async listAliases(request: ListAliasesRequest): Promise<ListAliasesResponse> {
@@ -7723,10 +7252,34 @@ export default class Client extends OpenApi {
 
   async listAliasesByKeyIdWithOptions(request: ListAliasesByKeyIdRequest, runtime: $Util.RuntimeOptions): Promise<ListAliasesByKeyIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAliasesByKeyIdResponse>(await this.doRPCRequest("ListAliasesByKeyId", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAliasesByKeyIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAliasesByKeyId",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAliasesByKeyIdResponse>(await this.callApi(params, req, runtime), new ListAliasesByKeyIdResponse({}));
   }
 
   async listAliasesByKeyId(request: ListAliasesByKeyIdRequest): Promise<ListAliasesByKeyIdResponse> {
@@ -7734,51 +7287,36 @@ export default class Client extends OpenApi {
     return await this.listAliasesByKeyIdWithOptions(request, runtime);
   }
 
-  async listCertificateAuthoritiesWithOptions(request: ListCertificateAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<ListCertificateAuthoritiesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCertificateAuthoritiesResponse>(await this.doRPCRequest("ListCertificateAuthorities", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListCertificateAuthoritiesResponse({}));
-  }
-
-  async listCertificateAuthorities(request: ListCertificateAuthoritiesRequest): Promise<ListCertificateAuthoritiesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCertificateAuthoritiesWithOptions(request, runtime);
-  }
-
-  async listCertificatesWithOptions(request: ListCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCertificatesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCertificatesResponse>(await this.doRPCRequest("ListCertificates", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListCertificatesResponse({}));
-  }
-
-  async listCertificates(request: ListCertificatesRequest): Promise<ListCertificatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCertificatesWithOptions(request, runtime);
-  }
-
-  async listKeysWithOptions(request: ListKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListKeysResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListKeysResponse>(await this.doRPCRequest("ListKeys", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListKeysResponse({}));
-  }
-
-  async listKeys(request: ListKeysRequest): Promise<ListKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listKeysWithOptions(request, runtime);
-  }
-
   async listKeyVersionsWithOptions(request: ListKeyVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListKeyVersionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListKeyVersionsResponse>(await this.doRPCRequest("ListKeyVersions", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListKeyVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListKeyVersions",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListKeyVersionsResponse>(await this.callApi(params, req, runtime), new ListKeyVersionsResponse({}));
   }
 
   async listKeyVersions(request: ListKeyVersionsRequest): Promise<ListKeyVersionsResponse> {
@@ -7786,12 +7324,65 @@ export default class Client extends OpenApi {
     return await this.listKeyVersionsWithOptions(request, runtime);
   }
 
+  async listKeysWithOptions(request: ListKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListKeys",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListKeysResponse>(await this.callApi(params, req, runtime), new ListKeysResponse({}));
+  }
+
+  async listKeys(request: ListKeysRequest): Promise<ListKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listKeysWithOptions(request, runtime);
+  }
+
   async listResourceTagsWithOptions(request: ListResourceTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListResourceTagsResponse>(await this.doRPCRequest("ListResourceTags", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListResourceTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListResourceTags",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceTagsResponse>(await this.callApi(params, req, runtime), new ListResourceTagsResponse({}));
   }
 
   async listResourceTags(request: ListResourceTagsRequest): Promise<ListResourceTagsResponse> {
@@ -7799,25 +7390,40 @@ export default class Client extends OpenApi {
     return await this.listResourceTagsWithOptions(request, runtime);
   }
 
-  async listSecretsWithOptions(request: ListSecretsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListSecretsResponse>(await this.doRPCRequest("ListSecrets", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListSecretsResponse({}));
-  }
-
-  async listSecrets(request: ListSecretsRequest): Promise<ListSecretsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSecretsWithOptions(request, runtime);
-  }
-
   async listSecretVersionIdsWithOptions(request: ListSecretVersionIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretVersionIdsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.includeDeprecated)) {
+      query["IncludeDeprecated"] = request.includeDeprecated;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSecretVersionIdsResponse>(await this.doRPCRequest("ListSecretVersionIds", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListSecretVersionIdsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSecretVersionIds",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSecretVersionIdsResponse>(await this.callApi(params, req, runtime), new ListSecretVersionIdsResponse({}));
   }
 
   async listSecretVersionIds(request: ListSecretVersionIdsRequest): Promise<ListSecretVersionIdsResponse> {
@@ -7825,9 +7431,61 @@ export default class Client extends OpenApi {
     return await this.listSecretVersionIdsWithOptions(request, runtime);
   }
 
+  async listSecretsWithOptions(request: ListSecretsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fetchTags)) {
+      query["FetchTags"] = request.fetchTags;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSecrets",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSecretsResponse>(await this.callApi(params, req, runtime), new ListSecretsResponse({}));
+  }
+
+  async listSecrets(request: ListSecretsRequest): Promise<ListSecretsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSecretsWithOptions(request, runtime);
+  }
+
   async openKmsServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenKmsServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<OpenKmsServiceResponse>(await this.doRPCRequest("OpenKmsService", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new OpenKmsServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenKmsService",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenKmsServiceResponse>(await this.callApi(params, req, runtime), new OpenKmsServiceResponse({}));
   }
 
   async openKmsService(): Promise<OpenKmsServiceResponse> {
@@ -7837,10 +7495,42 @@ export default class Client extends OpenApi {
 
   async putSecretValueWithOptions(request: PutSecretValueRequest, runtime: $Util.RuntimeOptions): Promise<PutSecretValueResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.secretData)) {
+      query["SecretData"] = request.secretData;
+    }
+
+    if (!Util.isUnset(request.secretDataType)) {
+      query["SecretDataType"] = request.secretDataType;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    if (!Util.isUnset(request.versionStages)) {
+      query["VersionStages"] = request.versionStages;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PutSecretValueResponse>(await this.doRPCRequest("PutSecretValue", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new PutSecretValueResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PutSecretValue",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PutSecretValueResponse>(await this.callApi(params, req, runtime), new PutSecretValueResponse({}));
   }
 
   async putSecretValue(request: PutSecretValueRequest): Promise<PutSecretValueResponse> {
@@ -7852,18 +7542,58 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new ReEncryptShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.sourceEncryptionContext)) {
-      request.sourceEncryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceEncryptionContext, "SourceEncryptionContext", "json");
-    }
-
     if (!Util.isUnset(tmpReq.destinationEncryptionContext)) {
       request.destinationEncryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.destinationEncryptionContext, "DestinationEncryptionContext", "json");
     }
 
+    if (!Util.isUnset(tmpReq.sourceEncryptionContext)) {
+      request.sourceEncryptionContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceEncryptionContext, "SourceEncryptionContext", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ciphertextBlob)) {
+      query["CiphertextBlob"] = request.ciphertextBlob;
+    }
+
+    if (!Util.isUnset(request.destinationEncryptionContextShrink)) {
+      query["DestinationEncryptionContext"] = request.destinationEncryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.destinationKeyId)) {
+      query["DestinationKeyId"] = request.destinationKeyId;
+    }
+
+    if (!Util.isUnset(request.sourceEncryptionAlgorithm)) {
+      query["SourceEncryptionAlgorithm"] = request.sourceEncryptionAlgorithm;
+    }
+
+    if (!Util.isUnset(request.sourceEncryptionContextShrink)) {
+      query["SourceEncryptionContext"] = request.sourceEncryptionContextShrink;
+    }
+
+    if (!Util.isUnset(request.sourceKeyId)) {
+      query["SourceKeyId"] = request.sourceKeyId;
+    }
+
+    if (!Util.isUnset(request.sourceKeyVersionId)) {
+      query["SourceKeyVersionId"] = request.sourceKeyVersionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ReEncryptResponse>(await this.doRPCRequest("ReEncrypt", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ReEncryptResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReEncrypt",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReEncryptResponse>(await this.callApi(params, req, runtime), new ReEncryptResponse({}));
   }
 
   async reEncrypt(request: ReEncryptRequest): Promise<ReEncryptResponse> {
@@ -7873,10 +7603,26 @@ export default class Client extends OpenApi {
 
   async restoreSecretWithOptions(request: RestoreSecretRequest, runtime: $Util.RuntimeOptions): Promise<RestoreSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RestoreSecretResponse>(await this.doRPCRequest("RestoreSecret", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new RestoreSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestoreSecret",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestoreSecretResponse>(await this.callApi(params, req, runtime), new RestoreSecretResponse({}));
   }
 
   async restoreSecret(request: RestoreSecretRequest): Promise<RestoreSecretResponse> {
@@ -7884,25 +7630,32 @@ export default class Client extends OpenApi {
     return await this.restoreSecretWithOptions(request, runtime);
   }
 
-  async revokeIssuedCertificateWithOptions(request: RevokeIssuedCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RevokeIssuedCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RevokeIssuedCertificateResponse>(await this.doRPCRequest("RevokeIssuedCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new RevokeIssuedCertificateResponse({}));
-  }
-
-  async revokeIssuedCertificate(request: RevokeIssuedCertificateRequest): Promise<RevokeIssuedCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.revokeIssuedCertificateWithOptions(request, runtime);
-  }
-
   async rotateSecretWithOptions(request: RotateSecretRequest, runtime: $Util.RuntimeOptions): Promise<RotateSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RotateSecretResponse>(await this.doRPCRequest("RotateSecret", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new RotateSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RotateSecret",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RotateSecretResponse>(await this.callApi(params, req, runtime), new RotateSecretResponse({}));
   }
 
   async rotateSecret(request: RotateSecretRequest): Promise<RotateSecretResponse> {
@@ -7912,10 +7665,30 @@ export default class Client extends OpenApi {
 
   async scheduleKeyDeletionWithOptions(request: ScheduleKeyDeletionRequest, runtime: $Util.RuntimeOptions): Promise<ScheduleKeyDeletionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.pendingWindowInDays)) {
+      query["PendingWindowInDays"] = request.pendingWindowInDays;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ScheduleKeyDeletionResponse>(await this.doRPCRequest("ScheduleKeyDeletion", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ScheduleKeyDeletionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ScheduleKeyDeletion",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScheduleKeyDeletionResponse>(await this.callApi(params, req, runtime), new ScheduleKeyDeletionResponse({}));
   }
 
   async scheduleKeyDeletion(request: ScheduleKeyDeletionRequest): Promise<ScheduleKeyDeletionResponse> {
@@ -7923,12 +7696,77 @@ export default class Client extends OpenApi {
     return await this.scheduleKeyDeletionWithOptions(request, runtime);
   }
 
+  async setDeletionProtectionWithOptions(request: SetDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetDeletionProtectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deletionProtectionDescription)) {
+      query["DeletionProtectionDescription"] = request.deletionProtectionDescription;
+    }
+
+    if (!Util.isUnset(request.enableDeletionProtection)) {
+      query["EnableDeletionProtection"] = request.enableDeletionProtection;
+    }
+
+    if (!Util.isUnset(request.protectedResourceArn)) {
+      query["ProtectedResourceArn"] = request.protectedResourceArn;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDeletionProtection",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
+  }
+
+  async setDeletionProtection(request: SetDeletionProtectionRequest): Promise<SetDeletionProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDeletionProtectionWithOptions(request, runtime);
+  }
+
   async tagResourceWithOptions(request: TagResourceRequest, runtime: $Util.RuntimeOptions): Promise<TagResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourceResponse>(await this.doRPCRequest("TagResource", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResource",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
   }
 
   async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
@@ -7938,10 +7776,38 @@ export default class Client extends OpenApi {
 
   async untagResourceWithOptions(request: UntagResourceRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.tagKeys)) {
+      query["TagKeys"] = request.tagKeys;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourceResponse>(await this.doRPCRequest("UntagResource", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResource",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
   }
 
   async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
@@ -7951,10 +7817,30 @@ export default class Client extends OpenApi {
 
   async updateAliasWithOptions(request: UpdateAliasRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAliasResponse>(await this.doRPCRequest("UpdateAlias", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAlias",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
   }
 
   async updateAlias(request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
@@ -7962,31 +7848,32 @@ export default class Client extends OpenApi {
     return await this.updateAliasWithOptions(request, runtime);
   }
 
-  async updateCertificateAuthorityWithOptions(tmpReq: UpdateCertificateAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCertificateAuthorityResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateCertificateAuthorityShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.revocationConfiguration)) {
-      request.revocationConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.revocationConfiguration, "RevocationConfiguration", "json");
+  async updateCertificateStatusWithOptions(request: UpdateCertificateStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCertificateStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateCertificateAuthorityResponse>(await this.doRPCRequest("UpdateCertificateAuthority", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCertificateAuthorityResponse({}));
-  }
-
-  async updateCertificateAuthority(request: UpdateCertificateAuthorityRequest): Promise<UpdateCertificateAuthorityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateCertificateAuthorityWithOptions(request, runtime);
-  }
-
-  async updateCertificateStatusWithOptions(request: UpdateCertificateStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCertificateStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "UpdateCertificateStatus",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<UpdateCertificateStatusResponse>(await this.doRPCRequest("UpdateCertificateStatus", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCertificateStatusResponse({}));
+    return $tea.cast<UpdateCertificateStatusResponse>(await this.callApi(params, req, runtime), new UpdateCertificateStatusResponse({}));
   }
 
   async updateCertificateStatus(request: UpdateCertificateStatusRequest): Promise<UpdateCertificateStatusResponse> {
@@ -7996,10 +7883,30 @@ export default class Client extends OpenApi {
 
   async updateKeyDescriptionWithOptions(request: UpdateKeyDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateKeyDescriptionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateKeyDescriptionResponse>(await this.doRPCRequest("UpdateKeyDescription", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateKeyDescriptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateKeyDescription",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateKeyDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateKeyDescriptionResponse({}));
   }
 
   async updateKeyDescription(request: UpdateKeyDescriptionRequest): Promise<UpdateKeyDescriptionResponse> {
@@ -8009,10 +7916,34 @@ export default class Client extends OpenApi {
 
   async updateRotationPolicyWithOptions(request: UpdateRotationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRotationPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableAutomaticRotation)) {
+      query["EnableAutomaticRotation"] = request.enableAutomaticRotation;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.rotationInterval)) {
+      query["RotationInterval"] = request.rotationInterval;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateRotationPolicyResponse>(await this.doRPCRequest("UpdateRotationPolicy", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRotationPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRotationPolicy",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRotationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRotationPolicyResponse({}));
   }
 
   async updateRotationPolicy(request: UpdateRotationPolicyRequest): Promise<UpdateRotationPolicyResponse> {
@@ -8020,12 +7951,73 @@ export default class Client extends OpenApi {
     return await this.updateRotationPolicyWithOptions(request, runtime);
   }
 
+  async updateSecretWithOptions(request: UpdateSecretRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecretResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.extendedConfig))) {
+      query["ExtendedConfig"] = request.extendedConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSecret",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSecretResponse>(await this.callApi(params, req, runtime), new UpdateSecretResponse({}));
+  }
+
+  async updateSecret(request: UpdateSecretRequest): Promise<UpdateSecretResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSecretWithOptions(request, runtime);
+  }
+
   async updateSecretRotationPolicyWithOptions(request: UpdateSecretRotationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecretRotationPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableAutomaticRotation)) {
+      query["EnableAutomaticRotation"] = request.enableAutomaticRotation;
+    }
+
+    if (!Util.isUnset(request.rotationInterval)) {
+      query["RotationInterval"] = request.rotationInterval;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateSecretRotationPolicyResponse>(await this.doRPCRequest("UpdateSecretRotationPolicy", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSecretRotationPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateSecretRotationPolicy",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSecretRotationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateSecretRotationPolicyResponse({}));
   }
 
   async updateSecretRotationPolicy(request: UpdateSecretRotationPolicyRequest): Promise<UpdateSecretRotationPolicyResponse> {
@@ -8035,10 +8027,38 @@ export default class Client extends OpenApi {
 
   async updateSecretVersionStageWithOptions(request: UpdateSecretVersionStageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecretVersionStageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.moveToVersion)) {
+      query["MoveToVersion"] = request.moveToVersion;
+    }
+
+    if (!Util.isUnset(request.removeFromVersion)) {
+      query["RemoveFromVersion"] = request.removeFromVersion;
+    }
+
+    if (!Util.isUnset(request.secretName)) {
+      query["SecretName"] = request.secretName;
+    }
+
+    if (!Util.isUnset(request.versionStage)) {
+      query["VersionStage"] = request.versionStage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateSecretVersionStageResponse>(await this.doRPCRequest("UpdateSecretVersionStage", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSecretVersionStageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateSecretVersionStage",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSecretVersionStageResponse>(await this.callApi(params, req, runtime), new UpdateSecretVersionStageResponse({}));
   }
 
   async updateSecretVersionStage(request: UpdateSecretVersionStageRequest): Promise<UpdateSecretVersionStageResponse> {
@@ -8048,10 +8068,34 @@ export default class Client extends OpenApi {
 
   async uploadCertificateWithOptions(request: UploadCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certificate)) {
+      query["Certificate"] = request.certificate;
+    }
+
+    if (!Util.isUnset(request.certificateChain)) {
+      query["CertificateChain"] = request.certificateChain;
+    }
+
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UploadCertificateResponse>(await this.doRPCRequest("UploadCertificate", "2016-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UploadCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UploadCertificate",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadCertificateResponse>(await this.callApi(params, req, runtime), new UploadCertificateResponse({}));
   }
 
   async uploadCertificate(request: UploadCertificateRequest): Promise<UploadCertificateResponse> {
