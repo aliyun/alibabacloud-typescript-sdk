@@ -1447,6 +1447,7 @@ export class ScreenChestCTRequest extends $tea.Model {
   orgId?: string;
   orgName?: string;
   URLList?: ScreenChestCTRequestURLList[];
+  verbose?: number;
   static names(): { [key: string]: string } {
     return {
       dataFormat: 'DataFormat',
@@ -1454,6 +1455,7 @@ export class ScreenChestCTRequest extends $tea.Model {
       orgId: 'OrgId',
       orgName: 'OrgName',
       URLList: 'URLList',
+      verbose: 'Verbose',
     };
   }
 
@@ -1464,6 +1466,7 @@ export class ScreenChestCTRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       URLList: { 'type': 'array', 'itemType': ScreenChestCTRequestURLList },
+      verbose: 'number',
     };
   }
 
@@ -3077,6 +3080,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
   detectRibFracture?: ScreenChestCTResponseBodyDataDetectRibFracture;
   errorMessage?: string;
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
+  URLList?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       analyzeChestVessel: 'AnalyzeChestVessel',
@@ -3085,6 +3089,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       detectRibFracture: 'DetectRibFracture',
       errorMessage: 'ErrorMessage',
       lungNodule: 'LungNodule',
+      URLList: 'URLList',
     };
   }
 
@@ -3096,6 +3101,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       detectRibFracture: ScreenChestCTResponseBodyDataDetectRibFracture,
       errorMessage: 'string',
       lungNodule: ScreenChestCTResponseBodyDataLungNodule,
+      URLList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -4249,6 +4255,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.URLList)) {
       body["URLList"] = request.URLList;
+    }
+
+    if (!Util.isUnset(request.verbose)) {
+      body["Verbose"] = request.verbose;
     }
 
     let req = new $OpenApi.OpenApiRequest({
