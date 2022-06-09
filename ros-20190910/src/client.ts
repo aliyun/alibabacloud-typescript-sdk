@@ -2143,11 +2143,13 @@ export class GetFeatureDetailsRequest extends $tea.Model {
 
 export class GetFeatureDetailsResponseBody extends $tea.Model {
   requestId?: string;
+  resourceCleaner?: GetFeatureDetailsResponseBodyResourceCleaner;
   templateScratch?: GetFeatureDetailsResponseBodyTemplateScratch;
   terraform?: GetFeatureDetailsResponseBodyTerraform;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      resourceCleaner: 'ResourceCleaner',
       templateScratch: 'TemplateScratch',
       terraform: 'Terraform',
     };
@@ -2156,6 +2158,7 @@ export class GetFeatureDetailsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      resourceCleaner: GetFeatureDetailsResponseBodyResourceCleaner,
       templateScratch: GetFeatureDetailsResponseBodyTemplateScratch,
       terraform: GetFeatureDetailsResponseBodyTerraform,
     };
@@ -3085,6 +3088,7 @@ export class GetStackResourceResponse extends $tea.Model {
 export class GetTemplateRequest extends $tea.Model {
   changeSetId?: string;
   includePermission?: string;
+  includeTags?: string;
   regionId?: string;
   stackGroupName?: string;
   stackId?: string;
@@ -3095,6 +3099,7 @@ export class GetTemplateRequest extends $tea.Model {
     return {
       changeSetId: 'ChangeSetId',
       includePermission: 'IncludePermission',
+      includeTags: 'IncludeTags',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
       stackId: 'StackId',
@@ -3108,6 +3113,7 @@ export class GetTemplateRequest extends $tea.Model {
     return {
       changeSetId: 'string',
       includePermission: 'string',
+      includeTags: 'string',
       regionId: 'string',
       stackGroupName: 'string',
       stackId: 'string',
@@ -3135,6 +3141,7 @@ export class GetTemplateResponseBody extends $tea.Model {
   shareType?: string;
   stackGroupName?: string;
   stackId?: string;
+  tags?: GetTemplateResponseBodyTags[];
   templateARN?: string;
   templateBody?: string;
   templateId?: string;
@@ -3155,6 +3162,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       shareType: 'ShareType',
       stackGroupName: 'StackGroupName',
       stackId: 'StackId',
+      tags: 'Tags',
       templateARN: 'TemplateARN',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
@@ -3178,6 +3186,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       shareType: 'string',
       stackGroupName: 'string',
       stackId: 'string',
+      tags: { 'type': 'array', 'itemType': GetTemplateResponseBodyTags },
       templateARN: 'string',
       templateBody: 'string',
       templateId: 'string',
@@ -4947,6 +4956,7 @@ export class ListTemplateVersionsResponse extends $tea.Model {
 }
 
 export class ListTemplatesRequest extends $tea.Model {
+  includeTags?: string;
   pageNumber?: number;
   pageSize?: number;
   resourceGroupId?: string;
@@ -4955,6 +4965,7 @@ export class ListTemplatesRequest extends $tea.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      includeTags: 'IncludeTags',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
@@ -4966,6 +4977,7 @@ export class ListTemplatesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      includeTags: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
@@ -7097,6 +7109,50 @@ export class GetChangeSetResponseBodyParameters extends $tea.Model {
   }
 }
 
+export class GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes extends $tea.Model {
+  resourceType?: string;
+  sideEffects?: string[];
+  supportedFilters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      sideEffects: 'SideEffects',
+      supportedFilters: 'SupportedFilters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      sideEffects: { 'type': 'array', 'itemType': 'string' },
+      supportedFilters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyResourceCleaner extends $tea.Model {
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes extends $tea.Model {
   resourceType?: string;
   sourceResourceGroupSupported?: boolean;
@@ -7912,6 +7968,28 @@ export class GetTemplateResponseBodyPermissions extends $tea.Model {
       shareSource: 'string',
       templateVersion: 'string',
       versionOption: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -9038,12 +9116,35 @@ export class ListTemplatesRequestTag extends $tea.Model {
   }
 }
 
+export class ListTemplatesResponseBodyTemplatesTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   createTime?: string;
   description?: string;
   ownerId?: string;
   resourceGroupId?: string;
   shareType?: string;
+  tags?: ListTemplatesResponseBodyTemplatesTags[];
   templateARN?: string;
   templateId?: string;
   templateName?: string;
@@ -9056,6 +9157,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
       templateARN: 'TemplateARN',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
@@ -9071,6 +9173,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       ownerId: 'string',
       resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplatesTags },
       templateARN: 'string',
       templateId: 'string',
       templateName: 'string',
@@ -11235,6 +11338,10 @@ export default class Client extends OpenApi {
       query["IncludePermission"] = request.includePermission;
     }
 
+    if (!Util.isUnset(request.includeTags)) {
+      query["IncludeTags"] = request.includeTags;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -12226,6 +12333,10 @@ export default class Client extends OpenApi {
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.includeTags)) {
+      query["IncludeTags"] = request.includeTags;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
