@@ -1562,6 +1562,7 @@ export class AppUseTimeReportRequestPayload extends $tea.Model {
   resourceType?: number;
   stepCode?: string;
   vipType?: number;
+  originUuid?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
@@ -1570,6 +1571,7 @@ export class AppUseTimeReportRequestPayload extends $tea.Model {
       resourceType: 'ResourceType',
       stepCode: 'StepCode',
       vipType: 'VipType',
+      originUuid: 'originUuid',
     };
   }
 
@@ -1581,6 +1583,7 @@ export class AppUseTimeReportRequestPayload extends $tea.Model {
       resourceType: 'number',
       stepCode: 'string',
       vipType: 'number',
+      originUuid: 'string',
     };
   }
 
@@ -2415,13 +2418,16 @@ export class PullCashierRequestDeviceInfo extends $tea.Model {
 }
 
 export class PullCashierRequestPayload extends $tea.Model {
+  originUuid?: string;
   static names(): { [key: string]: string } {
     return {
+      originUuid: 'originUuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      originUuid: 'string',
     };
   }
 
@@ -2833,6 +2839,7 @@ export class VideoAppReportRequestPayload extends $tea.Model {
   isLogin?: boolean;
   isVip?: boolean;
   loginNick?: string;
+  originUuid?: string;
   phone?: string;
   pkgName?: string;
   startTime?: number;
@@ -2842,6 +2849,7 @@ export class VideoAppReportRequestPayload extends $tea.Model {
       isLogin: 'isLogin',
       isVip: 'isVip',
       loginNick: 'loginNick',
+      originUuid: 'originUuid',
       phone: 'phone',
       pkgName: 'pkgName',
       startTime: 'startTime',
@@ -2854,6 +2862,7 @@ export class VideoAppReportRequestPayload extends $tea.Model {
       isLogin: 'boolean',
       isVip: 'boolean',
       loginNick: 'string',
+      originUuid: 'string',
       phone: 'string',
       pkgName: 'string',
       startTime: 'number',
