@@ -3509,6 +3509,141 @@ export class SkipTrialPolicyResponse extends $tea.Model {
   }
 }
 
+export class StartGameLiveRequest extends $tea.Model {
+  gameSession?: string;
+  videoPushAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gameSession: 'GameSession',
+      videoPushAddress: 'VideoPushAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gameSession: 'string',
+      videoPushAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartGameLiveResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartGameLiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartGameLiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartGameLiveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopGameLiveRequest extends $tea.Model {
+  gameSession?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gameSession: 'GameSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gameSession: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopGameLiveResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopGameLiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopGameLiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopGameLiveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopGameSessionRequest extends $tea.Model {
   accessKey?: string;
   bizParam?: string;
@@ -6945,6 +7080,68 @@ export default class Client extends OpenApi {
   async skipTrialPolicy(request: SkipTrialPolicyRequest): Promise<SkipTrialPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.skipTrialPolicyWithOptions(request, runtime);
+  }
+
+  async startGameLiveWithOptions(request: StartGameLiveRequest, runtime: $Util.RuntimeOptions): Promise<StartGameLiveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.gameSession)) {
+      query["GameSession"] = request.gameSession;
+    }
+
+    if (!Util.isUnset(request.videoPushAddress)) {
+      query["VideoPushAddress"] = request.videoPushAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartGameLive",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartGameLiveResponse>(await this.callApi(params, req, runtime), new StartGameLiveResponse({}));
+  }
+
+  async startGameLive(request: StartGameLiveRequest): Promise<StartGameLiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startGameLiveWithOptions(request, runtime);
+  }
+
+  async stopGameLiveWithOptions(request: StopGameLiveRequest, runtime: $Util.RuntimeOptions): Promise<StopGameLiveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.gameSession)) {
+      query["GameSession"] = request.gameSession;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopGameLive",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopGameLiveResponse>(await this.callApi(params, req, runtime), new StopGameLiveResponse({}));
+  }
+
+  async stopGameLive(request: StopGameLiveRequest): Promise<StopGameLiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopGameLiveWithOptions(request, runtime);
   }
 
   async stopGameSessionWithOptions(request: StopGameSessionRequest, runtime: $Util.RuntimeOptions): Promise<StopGameSessionResponse> {
