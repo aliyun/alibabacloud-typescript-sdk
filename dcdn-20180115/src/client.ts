@@ -1198,15 +1198,18 @@ export class CreateDcdnDeliverTaskRequest extends $tea.Model {
 }
 
 export class CreateDcdnDeliverTaskResponseBody extends $tea.Model {
+  deliverId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      deliverId: 'DeliverId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deliverId: 'string',
       requestId: 'string',
     };
   }
@@ -4514,6 +4517,90 @@ export class DescribeDcdnDomainIpaBpsDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDcdnDomainIpaBpsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainIpaConnDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ownerId?: number;
+  splitBy?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      splitBy: 'SplitBy',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      splitBy: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainIpaConnDataResponseBody extends $tea.Model {
+  connectionDataPerInterval?: DescribeDcdnDomainIpaConnDataResponseBodyConnectionDataPerInterval;
+  endTime?: string;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionDataPerInterval: 'ConnectionDataPerInterval',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDataPerInterval: DescribeDcdnDomainIpaConnDataResponseBodyConnectionDataPerInterval,
+      endTime: 'string',
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainIpaConnDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnDomainIpaConnDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnDomainIpaConnDataResponseBody,
     };
   }
 
@@ -13491,6 +13578,84 @@ export class SetDcdnDomainStagingConfigResponse extends $tea.Model {
   }
 }
 
+export class SetDcdnFullDomainsBlockIPRequest extends $tea.Model {
+  blockInterval?: number;
+  IPList?: string;
+  operationType?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockInterval: 'BlockInterval',
+      IPList: 'IPList',
+      operationType: 'OperationType',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockInterval: 'number',
+      IPList: 'string',
+      operationType: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnFullDomainsBlockIPResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDcdnFullDomainsBlockIPResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDcdnFullDomainsBlockIPResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDcdnFullDomainsBlockIPResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDcdnUserConfigRequest extends $tea.Model {
   configs?: string;
   functionId?: number;
@@ -15879,6 +16044,50 @@ export class DescribeDcdnDomainIpaBpsDataResponseBodyBpsDataPerInterval extends 
   static types(): { [key: string]: any } {
     return {
       dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainIpaBpsDataResponseBodyBpsDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainIpaConnDataResponseBodyConnectionDataPerIntervalDataModule extends $tea.Model {
+  connections?: number;
+  domain?: string;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      domain: 'Domain',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      domain: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainIpaConnDataResponseBodyConnectionDataPerInterval extends $tea.Model {
+  dataModule?: DescribeDcdnDomainIpaConnDataResponseBodyConnectionDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainIpaConnDataResponseBodyConnectionDataPerIntervalDataModule },
     };
   }
 
@@ -22504,6 +22713,51 @@ export default class Client extends OpenApi {
     return await this.describeDcdnDomainIpaBpsDataWithOptions(request, runtime);
   }
 
+  async describeDcdnDomainIpaConnDataWithOptions(request: DescribeDcdnDomainIpaConnDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaConnDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.splitBy)) {
+      query["SplitBy"] = request.splitBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDomainIpaConnData",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDomainIpaConnDataResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainIpaConnDataResponse({}));
+  }
+
+  async describeDcdnDomainIpaConnData(request: DescribeDcdnDomainIpaConnDataRequest): Promise<DescribeDcdnDomainIpaConnDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDomainIpaConnDataWithOptions(request, runtime);
+  }
+
   async describeDcdnDomainIpaTrafficDataWithOptions(request: DescribeDcdnDomainIpaTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26959,6 +27213,49 @@ export default class Client extends OpenApi {
   async setDcdnDomainStagingConfig(request: SetDcdnDomainStagingConfigRequest): Promise<SetDcdnDomainStagingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDcdnDomainStagingConfigWithOptions(request, runtime);
+  }
+
+  async setDcdnFullDomainsBlockIPWithOptions(request: SetDcdnFullDomainsBlockIPRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnFullDomainsBlockIPResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.blockInterval)) {
+      body["BlockInterval"] = request.blockInterval;
+    }
+
+    if (!Util.isUnset(request.IPList)) {
+      body["IPList"] = request.IPList;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDcdnFullDomainsBlockIP",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDcdnFullDomainsBlockIPResponse>(await this.callApi(params, req, runtime), new SetDcdnFullDomainsBlockIPResponse({}));
+  }
+
+  async setDcdnFullDomainsBlockIP(request: SetDcdnFullDomainsBlockIPRequest): Promise<SetDcdnFullDomainsBlockIPResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDcdnFullDomainsBlockIPWithOptions(request, runtime);
   }
 
   async setDcdnUserConfigWithOptions(request: SetDcdnUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnUserConfigResponse> {
