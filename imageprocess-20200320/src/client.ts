@@ -2847,20 +2847,51 @@ export class ScreenChestCTResponseBodyDataAnalyzeChestVessel extends $tea.Model 
   }
 }
 
-export class ScreenChestCTResponseBodyDataCACS extends $tea.Model {
-  resultUrl?: string;
-  score?: string;
+export class ScreenChestCTResponseBodyDataCACSDetections extends $tea.Model {
+  calciumId?: number;
+  calciumScore?: number;
+  calciumVolume?: number;
   static names(): { [key: string]: string } {
     return {
-      resultUrl: 'ResultUrl',
-      score: 'Score',
+      calciumId: 'CalciumId',
+      calciumScore: 'CalciumScore',
+      calciumVolume: 'CalciumVolume',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      calciumId: 'number',
+      calciumScore: 'number',
+      calciumVolume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataCACS extends $tea.Model {
+  detections?: ScreenChestCTResponseBodyDataCACSDetections[];
+  resultUrl?: string;
+  score?: string;
+  volumeScore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detections: 'Detections',
+      resultUrl: 'ResultUrl',
+      score: 'Score',
+      volumeScore: 'VolumeScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataCACSDetections },
       resultUrl: 'string',
       score: 'string',
+      volumeScore: 'string',
     };
   }
 
@@ -2892,6 +2923,106 @@ export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
       newProbability: 'string',
       normalProbability: 'string',
       otherProbability: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectLymphLesions extends $tea.Model {
+  boxes?: number[];
+  diametermm?: number[];
+  keySlice?: number;
+  recist?: number[][];
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      boxes: 'Boxes',
+      diametermm: 'Diametermm',
+      keySlice: 'KeySlice',
+      recist: 'Recist',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boxes: { 'type': 'array', 'itemType': 'number' },
+      diametermm: { 'type': 'array', 'itemType': 'number' },
+      keySlice: 'number',
+      recist: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectLymph extends $tea.Model {
+  lesions?: ScreenChestCTResponseBodyDataDetectLymphLesions[];
+  static names(): { [key: string]: string } {
+    return {
+      lesions: 'Lesions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesions: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataDetectLymphLesions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectPdacLesion extends $tea.Model {
+  mask?: string;
+  nonPdacVol?: string;
+  pancVol?: string;
+  pdacVol?: string;
+  possibilities?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      mask: 'Mask',
+      nonPdacVol: 'NonPdacVol',
+      pancVol: 'PancVol',
+      pdacVol: 'PdacVol',
+      possibilities: 'Possibilities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mask: 'string',
+      nonPdacVol: 'string',
+      pancVol: 'string',
+      pdacVol: 'string',
+      possibilities: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectPdac extends $tea.Model {
+  lesion?: ScreenChestCTResponseBodyDataDetectPdacLesion;
+  static names(): { [key: string]: string } {
+    return {
+      lesion: 'Lesion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lesion: ScreenChestCTResponseBodyDataDetectPdacLesion,
     };
   }
 
@@ -3077,6 +3208,8 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
   analyzeChestVessel?: ScreenChestCTResponseBodyDataAnalyzeChestVessel;
   CACS?: ScreenChestCTResponseBodyDataCACS;
   covid?: ScreenChestCTResponseBodyDataCovid;
+  detectLymph?: ScreenChestCTResponseBodyDataDetectLymph;
+  detectPdac?: ScreenChestCTResponseBodyDataDetectPdac;
   detectRibFracture?: ScreenChestCTResponseBodyDataDetectRibFracture;
   errorMessage?: string;
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
@@ -3086,6 +3219,8 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       analyzeChestVessel: 'AnalyzeChestVessel',
       CACS: 'CACS',
       covid: 'Covid',
+      detectLymph: 'DetectLymph',
+      detectPdac: 'DetectPdac',
       detectRibFracture: 'DetectRibFracture',
       errorMessage: 'ErrorMessage',
       lungNodule: 'LungNodule',
@@ -3098,6 +3233,8 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       analyzeChestVessel: ScreenChestCTResponseBodyDataAnalyzeChestVessel,
       CACS: ScreenChestCTResponseBodyDataCACS,
       covid: ScreenChestCTResponseBodyDataCovid,
+      detectLymph: ScreenChestCTResponseBodyDataDetectLymph,
+      detectPdac: ScreenChestCTResponseBodyDataDetectPdac,
       detectRibFracture: ScreenChestCTResponseBodyDataDetectRibFracture,
       errorMessage: 'string',
       lungNodule: ScreenChestCTResponseBodyDataLungNodule,
