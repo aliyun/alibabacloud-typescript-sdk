@@ -4026,12 +4026,14 @@ export class ListDsMenusRequest extends $tea.Model {
   agentKey?: string;
   instanceId?: string;
   robotEnv?: number;
+  source?: number;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
       instanceId: 'InstanceId',
       robotEnv: 'RobotEnv',
+      source: 'Source',
       tags: 'Tags',
     };
   }
@@ -4041,6 +4043,7 @@ export class ListDsMenusRequest extends $tea.Model {
       agentKey: 'string',
       instanceId: 'string',
       robotEnv: 'number',
+      source: 'number',
       tags: 'string',
     };
   }
@@ -9330,6 +9333,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.robotEnv)) {
       query["RobotEnv"] = request.robotEnv;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
     }
 
     if (!Util.isUnset(request.tags)) {
