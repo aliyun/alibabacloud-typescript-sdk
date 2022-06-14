@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dds20151201",
-  "version": "3.6.6",
+  "version": "3.6.7",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.4.1",
     "@alicloud/endpoint-util": "^0.0.1",
-    "@alicloud/openapi-util": "^0.2.7"
+    "@alicloud/openapi-util": "^0.2.9"
   },
   "files": [
     "dist",
