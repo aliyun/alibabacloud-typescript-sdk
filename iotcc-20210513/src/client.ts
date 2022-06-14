@@ -601,6 +601,7 @@ export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
   policy?: string;
   regionId?: string;
   sourceCidrs?: string[];
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authorizationRuleDescription: 'AuthorizationRuleDescription',
@@ -613,6 +614,7 @@ export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
       policy: 'Policy',
       regionId: 'RegionId',
       sourceCidrs: 'SourceCidrs',
+      type: 'Type',
     };
   }
 
@@ -628,6 +630,7 @@ export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
       policy: 'string',
       regionId: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
     };
   }
 
@@ -788,6 +791,7 @@ export class CreateIoTCloudConnectorRequest extends $tea.Model {
   ioTCloudConnectorName?: string;
   regionId?: string;
   resourceUid?: number;
+  type?: string;
   wildcardDomainEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -799,6 +803,7 @@ export class CreateIoTCloudConnectorRequest extends $tea.Model {
       ioTCloudConnectorName: 'IoTCloudConnectorName',
       regionId: 'RegionId',
       resourceUid: 'ResourceUid',
+      type: 'Type',
       wildcardDomainEnabled: 'WildcardDomainEnabled',
     };
   }
@@ -813,6 +818,7 @@ export class CreateIoTCloudConnectorRequest extends $tea.Model {
       ioTCloudConnectorName: 'string',
       regionId: 'string',
       resourceUid: 'number',
+      type: 'string',
       wildcardDomainEnabled: 'boolean',
     };
   }
@@ -950,6 +956,7 @@ export class CreateIoTCloudConnectorGroupRequest extends $tea.Model {
   dryRun?: boolean;
   name?: string;
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -957,6 +964,7 @@ export class CreateIoTCloudConnectorGroupRequest extends $tea.Model {
       dryRun: 'DryRun',
       name: 'Name',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -967,6 +975,7 @@ export class CreateIoTCloudConnectorGroupRequest extends $tea.Model {
       dryRun: 'boolean',
       name: 'string',
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -3319,6 +3328,7 @@ export class ListGroupAuthorizationRulesRequest extends $tea.Model {
   nextToken?: string;
   policy?: string[];
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authorizationRuleIds: 'AuthorizationRuleIds',
@@ -3331,6 +3341,7 @@ export class ListGroupAuthorizationRulesRequest extends $tea.Model {
       nextToken: 'NextToken',
       policy: 'Policy',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -3346,6 +3357,7 @@ export class ListGroupAuthorizationRulesRequest extends $tea.Model {
       nextToken: 'string',
       policy: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -3687,6 +3699,7 @@ export class ListIoTCloudConnectorGroupsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       ioTCloudConnectorGroupIds: 'IoTCloudConnectorGroupIds',
@@ -3695,6 +3708,7 @@ export class ListIoTCloudConnectorGroupsRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -3706,6 +3720,7 @@ export class ListIoTCloudConnectorGroupsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -5709,6 +5724,7 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
   ioTCloudConnectorGroupId?: string;
   policy?: string;
   sourceCidrs?: string[];
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authorizationRuleDescription: 'AuthorizationRuleDescription',
@@ -5720,6 +5736,7 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
       ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       policy: 'Policy',
       sourceCidrs: 'SourceCidrs',
+      type: 'Type',
     };
   }
 
@@ -5734,6 +5751,7 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
       ioTCloudConnectorGroupId: 'string',
       policy: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
     };
   }
 
@@ -5866,6 +5884,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
   ioTCloudConnectorGroupStatus?: string;
   ioTCloudConnectors?: ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors[];
   name?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -5874,6 +5893,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
       ioTCloudConnectorGroupStatus: 'IoTCloudConnectorGroupStatus',
       ioTCloudConnectors: 'IoTCloudConnectors',
       name: 'Name',
+      type: 'Type',
     };
   }
 
@@ -5885,6 +5905,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
       ioTCloudConnectorGroupStatus: 'string',
       ioTCloudConnectors: { 'type': 'array', 'itemType': ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors },
       name: 'string',
+      type: 'string',
     };
   }
 
@@ -5907,6 +5928,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
   mode?: string;
   modifyTime?: number;
   rateLimit?: number;
+  type?: string;
   vSwitchList?: string[];
   vpcId?: string;
   wildcardDomainEnabled?: boolean;
@@ -5925,6 +5947,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       mode: 'Mode',
       modifyTime: 'ModifyTime',
       rateLimit: 'RateLimit',
+      type: 'Type',
       vSwitchList: 'VSwitchList',
       vpcId: 'VpcId',
       wildcardDomainEnabled: 'WildcardDomainEnabled',
@@ -5946,6 +5969,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       mode: 'string',
       modifyTime: 'number',
       rateLimit: 'number',
+      type: 'string',
       vSwitchList: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       wildcardDomainEnabled: 'boolean',
@@ -6526,6 +6550,10 @@ export default class Client extends OpenApi {
       query["SourceCidrs"] = request.sourceCidrs;
     }
 
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6644,6 +6672,10 @@ export default class Client extends OpenApi {
       query["ResourceUid"] = request.resourceUid;
     }
 
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     if (!Util.isUnset(request.wildcardDomainEnabled)) {
       query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
     }
@@ -6732,6 +6764,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8115,6 +8151,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8317,6 +8357,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
