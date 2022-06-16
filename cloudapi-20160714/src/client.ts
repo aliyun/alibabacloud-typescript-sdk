@@ -4728,6 +4728,7 @@ export class DescribeApisByAppRequest extends $tea.Model {
   apiName?: string;
   apiUid?: string;
   appId?: number;
+  description?: string;
   method?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -4738,6 +4739,7 @@ export class DescribeApisByAppRequest extends $tea.Model {
       apiName: 'ApiName',
       apiUid: 'ApiUid',
       appId: 'AppId',
+      description: 'Description',
       method: 'Method',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -4751,6 +4753,7 @@ export class DescribeApisByAppRequest extends $tea.Model {
       apiName: 'string',
       apiUid: 'string',
       appId: 'number',
+      description: 'string',
       method: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -6366,6 +6369,93 @@ export class DescribeHistoryApisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeHistoryApisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesRequest extends $tea.Model {
+  enableTagAuthorization?: boolean;
+  instanceId?: string;
+  language?: string;
+  securityToken?: string;
+  tag?: DescribeInstancesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      enableTagAuthorization: 'EnableTagAuthorization',
+      instanceId: 'InstanceId',
+      language: 'Language',
+      securityToken: 'SecurityToken',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTagAuthorization: 'boolean',
+      instanceId: 'string',
+      language: 'string',
+      securityToken: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeInstancesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBody extends $tea.Model {
+  instances?: DescribeInstancesResponseBodyInstances;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: DescribeInstancesResponseBodyInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstancesResponseBody,
     };
   }
 
@@ -10792,6 +10882,78 @@ export class SdkGenerateByAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SdkGenerateByAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SdkGenerateByAppForRegionRequest extends $tea.Model {
+  appId?: number;
+  language?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      language: 'Language',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      language: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SdkGenerateByAppForRegionResponseBody extends $tea.Model {
+  downloadLink?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadLink: 'DownloadLink',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadLink: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SdkGenerateByAppForRegionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SdkGenerateByAppForRegionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SdkGenerateByAppForRegionResponseBody,
     };
   }
 
@@ -16490,6 +16652,179 @@ export class DescribeHistoryApisResponseBodyApiHisItems extends $tea.Model {
   }
 }
 
+export class DescribeInstancesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributesSpecAttribute extends $tea.Model {
+  localName?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributes extends $tea.Model {
+  specAttribute?: DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributesSpecAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      specAttribute: 'SpecAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specAttribute: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributesSpecAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $tea.Model {
+  classicEgressAddress?: string;
+  createdTime?: string;
+  egressIpv6Enable?: boolean;
+  expiredTime?: string;
+  httpsPolicies?: string;
+  instanceChargeType?: string;
+  instanceId?: string;
+  instanceName?: string;
+  instanceRpsLimit?: number;
+  instanceSpec?: string;
+  instanceSpecAttributes?: DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributes;
+  instanceType?: string;
+  internetEgressAddress?: string;
+  regionId?: string;
+  status?: string;
+  supportIpv6?: boolean;
+  userVpcId?: string;
+  userVswitchId?: string;
+  vipTypeList?: string;
+  vpcEgressAddress?: string;
+  vpcIntranetEnable?: boolean;
+  vpcOwnerId?: number;
+  vpcSlbIntranetEnable?: boolean;
+  zoneId?: string;
+  zoneLocalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classicEgressAddress: 'ClassicEgressAddress',
+      createdTime: 'CreatedTime',
+      egressIpv6Enable: 'EgressIpv6Enable',
+      expiredTime: 'ExpiredTime',
+      httpsPolicies: 'HttpsPolicies',
+      instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceRpsLimit: 'InstanceRpsLimit',
+      instanceSpec: 'InstanceSpec',
+      instanceSpecAttributes: 'InstanceSpecAttributes',
+      instanceType: 'InstanceType',
+      internetEgressAddress: 'InternetEgressAddress',
+      regionId: 'RegionId',
+      status: 'Status',
+      supportIpv6: 'SupportIpv6',
+      userVpcId: 'UserVpcId',
+      userVswitchId: 'UserVswitchId',
+      vipTypeList: 'VipTypeList',
+      vpcEgressAddress: 'VpcEgressAddress',
+      vpcIntranetEnable: 'VpcIntranetEnable',
+      vpcOwnerId: 'VpcOwnerId',
+      vpcSlbIntranetEnable: 'VpcSlbIntranetEnable',
+      zoneId: 'ZoneId',
+      zoneLocalName: 'ZoneLocalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classicEgressAddress: 'string',
+      createdTime: 'string',
+      egressIpv6Enable: 'boolean',
+      expiredTime: 'string',
+      httpsPolicies: 'string',
+      instanceChargeType: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceRpsLimit: 'number',
+      instanceSpec: 'string',
+      instanceSpecAttributes: DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributes,
+      instanceType: 'string',
+      internetEgressAddress: 'string',
+      regionId: 'string',
+      status: 'string',
+      supportIpv6: 'boolean',
+      userVpcId: 'string',
+      userVswitchId: 'string',
+      vipTypeList: 'string',
+      vpcEgressAddress: 'string',
+      vpcIntranetEnable: 'boolean',
+      vpcOwnerId: 'number',
+      vpcSlbIntranetEnable: 'boolean',
+      zoneId: 'string',
+      zoneLocalName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstances extends $tea.Model {
+  instanceAttribute?: DescribeInstancesResponseBodyInstancesInstanceAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceAttribute: 'InstanceAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceAttribute: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIpControlPolicyItemsResponseBodyIpControlPolicyItemsIpControlPolicyItem extends $tea.Model {
   appId?: string;
   cidrIp?: string;
@@ -20855,6 +21190,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!Util.isUnset(request.method)) {
       query["Method"] = request.method;
     }
@@ -21648,6 +21987,51 @@ export default class Client extends OpenApi {
   async describeHistoryApis(request: DescribeHistoryApisRequest): Promise<DescribeHistoryApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryApisWithOptions(request, runtime);
+  }
+
+  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableTagAuthorization)) {
+      query["EnableTagAuthorization"] = request.enableTagAuthorization;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstances",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+  }
+
+  async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstancesWithOptions(request, runtime);
   }
 
   async describeIpControlPolicyItemsWithOptions(request: DescribeIpControlPolicyItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpControlPolicyItemsResponse> {
@@ -24194,6 +24578,43 @@ export default class Client extends OpenApi {
   async sdkGenerateByApp(request: SdkGenerateByAppRequest): Promise<SdkGenerateByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sdkGenerateByAppWithOptions(request, runtime);
+  }
+
+  async sdkGenerateByAppForRegionWithOptions(request: SdkGenerateByAppForRegionRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByAppForRegionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SdkGenerateByAppForRegion",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SdkGenerateByAppForRegionResponse>(await this.callApi(params, req, runtime), new SdkGenerateByAppForRegionResponse({}));
+  }
+
+  async sdkGenerateByAppForRegion(request: SdkGenerateByAppForRegionRequest): Promise<SdkGenerateByAppForRegionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sdkGenerateByAppForRegionWithOptions(request, runtime);
   }
 
   async sdkGenerateByGroupWithOptions(request: SdkGenerateByGroupRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByGroupResponse> {
