@@ -695,6 +695,28 @@ export class PhoneNumberEncryptResponse extends $tea.Model {
   }
 }
 
+export class PvrCallbackFCUResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ThreeElementsVerificationRequest extends $tea.Model {
   authCode?: string;
   certCode?: string;
@@ -1520,6 +1542,27 @@ export default class Client extends OpenApi {
   async phoneNumberEncrypt(request: PhoneNumberEncryptRequest): Promise<PhoneNumberEncryptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.phoneNumberEncryptWithOptions(request, runtime);
+  }
+
+  async pvrCallbackFCUWithOptions(runtime: $Util.RuntimeOptions): Promise<PvrCallbackFCUResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "PvrCallbackFCU",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "none",
+    });
+    return $tea.cast<PvrCallbackFCUResponse>(await this.callApi(params, req, runtime), new PvrCallbackFCUResponse({}));
+  }
+
+  async pvrCallbackFCU(): Promise<PvrCallbackFCUResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pvrCallbackFCUWithOptions(runtime);
   }
 
   async threeElementsVerificationWithOptions(request: ThreeElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ThreeElementsVerificationResponse> {
