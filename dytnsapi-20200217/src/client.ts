@@ -69,10 +69,12 @@ export class DescribeEmptyNumberDetectResponseBody extends $tea.Model {
 
 export class DescribeEmptyNumberDetectResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeEmptyNumberDetectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -80,6 +82,7 @@ export class DescribeEmptyNumberDetectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeEmptyNumberDetectResponseBody,
     };
   }
@@ -159,10 +162,12 @@ export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
 
 export class DescribePhoneNumberAnalysisResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePhoneNumberAnalysisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -170,6 +175,7 @@ export class DescribePhoneNumberAnalysisResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePhoneNumberAnalysisResponseBody,
     };
   }
@@ -237,10 +243,12 @@ export class DescribePhoneNumberAttributeResponseBody extends $tea.Model {
 
 export class DescribePhoneNumberAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePhoneNumberAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -248,6 +256,7 @@ export class DescribePhoneNumberAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePhoneNumberAttributeResponseBody,
     };
   }
@@ -324,10 +333,12 @@ export class DescribePhoneNumberOnlineTimeResponseBody extends $tea.Model {
 
 export class DescribePhoneNumberOnlineTimeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePhoneNumberOnlineTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -335,6 +346,7 @@ export class DescribePhoneNumberOnlineTimeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePhoneNumberOnlineTimeResponseBody,
     };
   }
@@ -405,10 +417,12 @@ export class DescribePhoneNumberResaleResponseBody extends $tea.Model {
 
 export class DescribePhoneNumberResaleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePhoneNumberResaleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -416,6 +430,7 @@ export class DescribePhoneNumberResaleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePhoneNumberResaleResponseBody,
     };
   }
@@ -483,10 +498,12 @@ export class DescribePhoneNumberStatusResponseBody extends $tea.Model {
 
 export class DescribePhoneNumberStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePhoneNumberStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -494,6 +511,7 @@ export class DescribePhoneNumberStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePhoneNumberStatusResponseBody,
     };
   }
@@ -567,10 +585,12 @@ export class InvalidPhoneNumberFilterResponseBody extends $tea.Model {
 
 export class InvalidPhoneNumberFilterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: InvalidPhoneNumberFilterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -578,6 +598,7 @@ export class InvalidPhoneNumberFilterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: InvalidPhoneNumberFilterResponseBody,
     };
   }
@@ -651,10 +672,12 @@ export class PhoneNumberEncryptResponseBody extends $tea.Model {
 
 export class PhoneNumberEncryptResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PhoneNumberEncryptResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -662,6 +685,7 @@ export class PhoneNumberEncryptResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PhoneNumberEncryptResponseBody,
     };
   }
@@ -671,17 +695,181 @@ export class PhoneNumberEncryptResponse extends $tea.Model {
   }
 }
 
-export class PvrCallbackFCUResponse extends $tea.Model {
+export class ThreeElementsVerificationRequest extends $tea.Model {
+  authCode?: string;
+  certCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  name?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      certCode: 'CertCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      certCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      name: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ThreeElementsVerificationResponseBody extends $tea.Model {
+  code?: string;
+  data?: ThreeElementsVerificationResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ThreeElementsVerificationResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ThreeElementsVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
+  body: ThreeElementsVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ThreeElementsVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TwoElementsVerificationRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  name?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      name: 'Name',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      name: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TwoElementsVerificationResponseBody extends $tea.Model {
+  code?: string;
+  data?: TwoElementsVerificationResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': TwoElementsVerificationResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TwoElementsVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TwoElementsVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TwoElementsVerificationResponseBody,
     };
   }
 
@@ -879,6 +1067,50 @@ export class PhoneNumberEncryptResponseBodyData extends $tea.Model {
       encryptedNumber: 'string',
       expireTime: 'string',
       originalNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ThreeElementsVerificationResponseBodyData extends $tea.Model {
+  basicCarrier?: string;
+  isConsistent?: number;
+  static names(): { [key: string]: string } {
+    return {
+      basicCarrier: 'BasicCarrier',
+      isConsistent: 'IsConsistent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicCarrier: 'string',
+      isConsistent: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TwoElementsVerificationResponseBodyData extends $tea.Model {
+  basicCarrier?: string;
+  isConsistent?: number;
+  static names(): { [key: string]: string } {
+    return {
+      basicCarrier: 'BasicCarrier',
+      isConsistent: 'IsConsistent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicCarrier: 'string',
+      isConsistent: 'number',
     };
   }
 
@@ -1290,10 +1522,46 @@ export default class Client extends OpenApi {
     return await this.phoneNumberEncryptWithOptions(request, runtime);
   }
 
-  async pvrCallbackFCUWithOptions(runtime: $Util.RuntimeOptions): Promise<PvrCallbackFCUResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async threeElementsVerificationWithOptions(request: ThreeElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ThreeElementsVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.certCode)) {
+      query["CertCode"] = request.certCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
-      action: "PvrCallbackFCU",
+      action: "ThreeElementsVerification",
       version: "2020-02-17",
       protocol: "HTTPS",
       pathname: "/",
@@ -1301,14 +1569,67 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
-      bodyType: "none",
+      bodyType: "json",
     });
-    return $tea.cast<PvrCallbackFCUResponse>(await this.callApi(params, req, runtime), new PvrCallbackFCUResponse({}));
+    return $tea.cast<ThreeElementsVerificationResponse>(await this.callApi(params, req, runtime), new ThreeElementsVerificationResponse({}));
   }
 
-  async pvrCallbackFCU(): Promise<PvrCallbackFCUResponse> {
+  async threeElementsVerification(request: ThreeElementsVerificationRequest): Promise<ThreeElementsVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.pvrCallbackFCUWithOptions(runtime);
+    return await this.threeElementsVerificationWithOptions(request, runtime);
+  }
+
+  async twoElementsVerificationWithOptions(request: TwoElementsVerificationRequest, runtime: $Util.RuntimeOptions): Promise<TwoElementsVerificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TwoElementsVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TwoElementsVerificationResponse>(await this.callApi(params, req, runtime), new TwoElementsVerificationResponse({}));
+  }
+
+  async twoElementsVerification(request: TwoElementsVerificationRequest): Promise<TwoElementsVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.twoElementsVerificationWithOptions(request, runtime);
   }
 
 }

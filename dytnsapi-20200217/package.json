@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dytnsapi20200217",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.4.1",
     "@alicloud/endpoint-util": "^0.0.1",
-    "@alicloud/openapi-util": "^0.2.7"
+    "@alicloud/openapi-util": "^0.2.9"
   },
   "files": [
     "dist",
