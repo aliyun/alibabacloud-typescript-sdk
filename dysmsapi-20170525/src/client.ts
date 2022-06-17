@@ -72,10 +72,12 @@ export class AddShortUrlResponseBody extends $tea.Model {
 
 export class AddShortUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -83,6 +85,7 @@ export class AddShortUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddShortUrlResponseBody,
     };
   }
@@ -159,10 +162,12 @@ export class AddSmsSignResponseBody extends $tea.Model {
 
 export class AddSmsSignResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddSmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -170,6 +175,7 @@ export class AddSmsSignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddSmsSignResponseBody,
     };
   }
@@ -246,10 +252,12 @@ export class AddSmsTemplateResponseBody extends $tea.Model {
 
 export class AddSmsTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddSmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -257,7 +265,186 @@ export class AddSmsTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportRequest extends $tea.Model {
+  mobiles?: { [key: string]: any }[];
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobiles: 'Mobiles',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobiles: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any }[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckMobilesCardSupportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckMobilesCardSupportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateRequest extends $tea.Model {
+  memo?: string;
+  template?: { [key: string]: any };
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memo: 'Memo',
+      template: 'Template',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memo: 'string',
+      template: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
+  memo?: string;
+  templateShrink?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memo: 'Memo',
+      templateShrink: 'Template',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memo: 'string',
+      templateShrink: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateCardSmsTemplateResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateCardSmsTemplateResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateCardSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCardSmsTemplateResponseBody,
     };
   }
 
@@ -321,10 +508,12 @@ export class DeleteShortUrlResponseBody extends $tea.Model {
 
 export class DeleteShortUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -332,6 +521,7 @@ export class DeleteShortUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteShortUrlResponseBody,
     };
   }
@@ -399,10 +589,12 @@ export class DeleteSmsSignResponseBody extends $tea.Model {
 
 export class DeleteSmsSignResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -410,6 +602,7 @@ export class DeleteSmsSignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSmsSignResponseBody,
     };
   }
@@ -477,10 +670,12 @@ export class DeleteSmsTemplateResponseBody extends $tea.Model {
 
 export class DeleteSmsTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -488,7 +683,229 @@ export class DeleteSmsTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsLinkRequest extends $tea.Model {
+  cardTemplateCode?: string;
+  cardTemplateParamJson?: string;
+  outId?: string;
+  phoneNumberJson?: string;
+  signNameJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardTemplateCode: 'CardTemplateCode',
+      cardTemplateParamJson: 'CardTemplateParamJson',
+      outId: 'OutId',
+      phoneNumberJson: 'PhoneNumberJson',
+      signNameJson: 'SignNameJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardTemplateCode: 'string',
+      cardTemplateParamJson: 'string',
+      outId: 'string',
+      phoneNumberJson: 'string',
+      signNameJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsLinkResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCardSmsLinkResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCardSmsLinkResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsLinkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCardSmsLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardSmsLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdRequest extends $tea.Model {
+  extendInfo?: string;
+  fileSize?: number;
+  memo?: string;
+  ossKey?: string;
+  resourceType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extendInfo: 'ExtendInfo',
+      fileSize: 'FileSize',
+      memo: 'Memo',
+      ossKey: 'OssKey',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendInfo: 'string',
+      fileSize: 'number',
+      memo: 'string',
+      ossKey: 'string',
+      resourceType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMediaResourceIdResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMediaResourceIdResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMediaResourceIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaResourceIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetOSSInfoForCardTemplateResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetOSSInfoForCardTemplateResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOSSInfoForCardTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOSSInfoForCardTemplateResponseBody,
     };
   }
 
@@ -573,10 +990,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -584,6 +1003,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -660,10 +1080,12 @@ export class ModifySmsSignResponseBody extends $tea.Model {
 
 export class ModifySmsSignResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -671,6 +1093,7 @@ export class ModifySmsSignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySmsSignResponseBody,
     };
   }
@@ -750,10 +1173,12 @@ export class ModifySmsTemplateResponseBody extends $tea.Model {
 
 export class ModifySmsTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifySmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -761,7 +1186,158 @@ export class ModifySmsTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifySmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateRequest extends $tea.Model {
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryCardSmsTemplateResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryCardSmsTemplateResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCardSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCardSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateReportRequest extends $tea.Model {
+  endDate?: string;
+  startDate?: string;
+  templateCodes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+      templateCodes: 'TemplateCodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      startDate: 'string',
+      templateCodes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any }[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryCardSmsTemplateReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCardSmsTemplateReportResponseBody,
     };
   }
 
@@ -843,10 +1419,12 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
 
 export class QuerySendDetailsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySendDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -854,6 +1432,7 @@ export class QuerySendDetailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySendDetailsResponseBody,
     };
   }
@@ -933,10 +1512,12 @@ export class QuerySendStatisticsResponseBody extends $tea.Model {
 
 export class QuerySendStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySendStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -944,6 +1525,7 @@ export class QuerySendStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySendStatisticsResponseBody,
     };
   }
@@ -1011,10 +1593,12 @@ export class QueryShortUrlResponseBody extends $tea.Model {
 
 export class QueryShortUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryShortUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1022,6 +1606,7 @@ export class QueryShortUrlResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryShortUrlResponseBody,
     };
   }
@@ -1098,10 +1683,12 @@ export class QuerySmsSignResponseBody extends $tea.Model {
 
 export class QuerySmsSignResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySmsSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1109,6 +1696,7 @@ export class QuerySmsSignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySmsSignResponseBody,
     };
   }
@@ -1179,10 +1767,12 @@ export class QuerySmsSignListResponseBody extends $tea.Model {
 
 export class QuerySmsSignListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySmsSignListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1190,6 +1780,7 @@ export class QuerySmsSignListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySmsSignListResponseBody,
     };
   }
@@ -1275,10 +1866,12 @@ export class QuerySmsTemplateResponseBody extends $tea.Model {
 
 export class QuerySmsTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySmsTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1286,6 +1879,7 @@ export class QuerySmsTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySmsTemplateResponseBody,
     };
   }
@@ -1356,10 +1950,12 @@ export class QuerySmsTemplateListResponseBody extends $tea.Model {
 
 export class QuerySmsTemplateListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QuerySmsTemplateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1367,7 +1963,110 @@ export class QuerySmsTemplateListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QuerySmsTemplateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBatchCardSmsRequest extends $tea.Model {
+  cardTemplateCode?: string;
+  cardTemplateParamJson?: string;
+  digitalTemplateCode?: string;
+  digitalTemplateParamJson?: string;
+  fallbackType?: string;
+  outId?: string;
+  phoneNumberJson?: string;
+  signNameJson?: string;
+  smsTemplateCode?: string;
+  smsTemplateParamJson?: string;
+  smsUpExtendCodeJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardTemplateCode: 'CardTemplateCode',
+      cardTemplateParamJson: 'CardTemplateParamJson',
+      digitalTemplateCode: 'DigitalTemplateCode',
+      digitalTemplateParamJson: 'DigitalTemplateParamJson',
+      fallbackType: 'FallbackType',
+      outId: 'OutId',
+      phoneNumberJson: 'PhoneNumberJson',
+      signNameJson: 'SignNameJson',
+      smsTemplateCode: 'SmsTemplateCode',
+      smsTemplateParamJson: 'SmsTemplateParamJson',
+      smsUpExtendCodeJson: 'SmsUpExtendCodeJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardTemplateCode: 'string',
+      cardTemplateParamJson: 'string',
+      digitalTemplateCode: 'string',
+      digitalTemplateParamJson: 'string',
+      fallbackType: 'string',
+      outId: 'string',
+      phoneNumberJson: 'string',
+      signNameJson: 'string',
+      smsTemplateCode: 'string',
+      smsTemplateParamJson: 'string',
+      smsUpExtendCodeJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBatchCardSmsResponseBody extends $tea.Model {
+  code?: string;
+  data?: SendBatchCardSmsResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SendBatchCardSmsResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBatchCardSmsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendBatchCardSmsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendBatchCardSmsResponseBody,
     };
   }
 
@@ -1446,10 +2145,12 @@ export class SendBatchSmsResponseBody extends $tea.Model {
 
 export class SendBatchSmsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SendBatchSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1457,7 +2158,107 @@ export class SendBatchSmsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SendBatchSmsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsRequest extends $tea.Model {
+  cardObjects?: SendCardSmsRequestCardObjects[];
+  cardTemplateCode?: string;
+  digitalTemplateCode?: string;
+  digitalTemplateParam?: string;
+  fallbackType?: string;
+  outId?: string;
+  signName?: string;
+  smsTemplateCode?: string;
+  smsTemplateParam?: string;
+  smsUpExtendCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardObjects: 'CardObjects',
+      cardTemplateCode: 'CardTemplateCode',
+      digitalTemplateCode: 'DigitalTemplateCode',
+      digitalTemplateParam: 'DigitalTemplateParam',
+      fallbackType: 'FallbackType',
+      outId: 'OutId',
+      signName: 'SignName',
+      smsTemplateCode: 'SmsTemplateCode',
+      smsTemplateParam: 'SmsTemplateParam',
+      smsUpExtendCode: 'SmsUpExtendCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardObjects: { 'type': 'array', 'itemType': SendCardSmsRequestCardObjects },
+      cardTemplateCode: 'string',
+      digitalTemplateCode: 'string',
+      digitalTemplateParam: 'string',
+      fallbackType: 'string',
+      outId: 'string',
+      signName: 'string',
+      smsTemplateCode: 'string',
+      smsTemplateParam: 'string',
+      smsUpExtendCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsResponseBody extends $tea.Model {
+  code?: string;
+  data?: SendCardSmsResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SendCardSmsResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendCardSmsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendCardSmsResponseBody,
     };
   }
 
@@ -1539,10 +2340,12 @@ export class SendSmsResponseBody extends $tea.Model {
 
 export class SendSmsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SendSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1550,6 +2353,7 @@ export class SendSmsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SendSmsResponseBody,
     };
   }
@@ -1626,10 +2430,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1637,6 +2443,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -1716,10 +2523,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1727,6 +2536,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -1775,6 +2585,115 @@ export class AddSmsSignRequestSignFileList extends $tea.Model {
     return {
       fileContents: 'string',
       fileSuffix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponseBodyData extends $tea.Model {
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsLinkResponseBodyData extends $tea.Model {
+  cardPhoneNumbers?: string;
+  cardSignNames?: string;
+  cardSmsLinks?: string;
+  cardTmpState?: number;
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardPhoneNumbers: 'CardPhoneNumbers',
+      cardSignNames: 'CardSignNames',
+      cardSmsLinks: 'CardSmsLinks',
+      cardTmpState: 'CardTmpState',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardPhoneNumbers: 'string',
+      cardSignNames: 'string',
+      cardSmsLinks: 'string',
+      cardTmpState: 'number',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponseBodyData extends $tea.Model {
+  resourceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  aliUid?: string;
+  bucket?: string;
+  expireTime?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  startPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      aliUid: 'AliUid',
+      bucket: 'Bucket',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+      startPath: 'StartPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      aliUid: 'string',
+      bucket: 'string',
+      expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+      startPath: 'string',
     };
   }
 
@@ -1866,6 +2785,25 @@ export class ModifySmsSignRequestSignFileList extends $tea.Model {
     return {
       fileContents: 'string',
       fileSuffix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateResponseBodyData extends $tea.Model {
+  templates?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      templates: 'Templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templates: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -2150,6 +3088,99 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model 
   }
 }
 
+export class SendBatchCardSmsResponseBodyData extends $tea.Model {
+  bizCardId?: string;
+  bizDigitalId?: string;
+  bizSmsId?: string;
+  cardTmpState?: number;
+  mediaMobiles?: string;
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCardId: 'BizCardId',
+      bizDigitalId: 'BizDigitalId',
+      bizSmsId: 'BizSmsId',
+      cardTmpState: 'CardTmpState',
+      mediaMobiles: 'MediaMobiles',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCardId: 'string',
+      bizDigitalId: 'string',
+      bizSmsId: 'string',
+      cardTmpState: 'number',
+      mediaMobiles: 'string',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsRequestCardObjects extends $tea.Model {
+  customUrl?: string;
+  dyncParams?: string;
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customUrl: 'customUrl',
+      dyncParams: 'dyncParams',
+      mobile: 'mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customUrl: 'string',
+      dyncParams: 'string',
+      mobile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsResponseBodyData extends $tea.Model {
+  bizCardId?: string;
+  bizDigitalId?: string;
+  bizSmsId?: string;
+  cardTmpState?: number;
+  mediaMobiles?: string;
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCardId: 'BizCardId',
+      bizDigitalId: 'BizDigitalId',
+      bizSmsId: 'BizSmsId',
+      cardTmpState: 'CardTmpState',
+      mediaMobiles: 'MediaMobiles',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCardId: 'string',
+      bizDigitalId: 'string',
+      bizSmsId: 'string',
+      cardTmpState: 'number',
+      mediaMobiles: 'string',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -2360,6 +3391,82 @@ export default class Client extends OpenApi {
     return await this.addSmsTemplateWithOptions(request, runtime);
   }
 
+  async checkMobilesCardSupportWithOptions(request: CheckMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<CheckMobilesCardSupportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mobiles)) {
+      query["Mobiles"] = request.mobiles;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckMobilesCardSupport",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new CheckMobilesCardSupportResponse({}));
+  }
+
+  async checkMobilesCardSupport(request: CheckMobilesCardSupportRequest): Promise<CheckMobilesCardSupportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkMobilesCardSupportWithOptions(request, runtime);
+  }
+
+  async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateCardSmsTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.memo)) {
+      query["Memo"] = request.memo;
+    }
+
+    if (!Util.isUnset(request.templateShrink)) {
+      query["Template"] = request.templateShrink;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCardSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateCardSmsTemplateResponse({}));
+  }
+
+  async createCardSmsTemplate(request: CreateCardSmsTemplateRequest): Promise<CreateCardSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCardSmsTemplateWithOptions(request, runtime);
+  }
+
   async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2483,6 +3590,117 @@ export default class Client extends OpenApi {
   async deleteSmsTemplate(request: DeleteSmsTemplateRequest): Promise<DeleteSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSmsTemplateWithOptions(request, runtime);
+  }
+
+  async getCardSmsLinkWithOptions(request: GetCardSmsLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsLinkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cardTemplateCode)) {
+      query["CardTemplateCode"] = request.cardTemplateCode;
+    }
+
+    if (!Util.isUnset(request.cardTemplateParamJson)) {
+      query["CardTemplateParamJson"] = request.cardTemplateParamJson;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.phoneNumberJson)) {
+      query["PhoneNumberJson"] = request.phoneNumberJson;
+    }
+
+    if (!Util.isUnset(request.signNameJson)) {
+      query["SignNameJson"] = request.signNameJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCardSmsLink",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardSmsLinkResponse>(await this.callApi(params, req, runtime), new GetCardSmsLinkResponse({}));
+  }
+
+  async getCardSmsLink(request: GetCardSmsLinkRequest): Promise<GetCardSmsLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardSmsLinkWithOptions(request, runtime);
+  }
+
+  async getMediaResourceIdWithOptions(request: GetMediaResourceIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaResourceIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.extendInfo)) {
+      query["ExtendInfo"] = request.extendInfo;
+    }
+
+    if (!Util.isUnset(request.fileSize)) {
+      query["FileSize"] = request.fileSize;
+    }
+
+    if (!Util.isUnset(request.memo)) {
+      query["Memo"] = request.memo;
+    }
+
+    if (!Util.isUnset(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMediaResourceId",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMediaResourceIdResponse>(await this.callApi(params, req, runtime), new GetMediaResourceIdResponse({}));
+  }
+
+  async getMediaResourceId(request: GetMediaResourceIdRequest): Promise<GetMediaResourceIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMediaResourceIdWithOptions(request, runtime);
+  }
+
+  async getOSSInfoForCardTemplateWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForCardTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetOSSInfoForCardTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOSSInfoForCardTemplateResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForCardTemplateResponse({}));
+  }
+
+  async getOSSInfoForCardTemplate(): Promise<GetOSSInfoForCardTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOSSInfoForCardTemplateWithOptions(runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -2660,6 +3878,72 @@ export default class Client extends OpenApi {
   async modifySmsTemplate(request: ModifySmsTemplateRequest): Promise<ModifySmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySmsTemplateWithOptions(request, runtime);
+  }
+
+  async queryCardSmsTemplateWithOptions(request: QueryCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCardSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateResponse({}));
+  }
+
+  async queryCardSmsTemplate(request: QueryCardSmsTemplateRequest): Promise<QueryCardSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCardSmsTemplateWithOptions(request, runtime);
+  }
+
+  async queryCardSmsTemplateReportWithOptions(request: QueryCardSmsTemplateReportRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateReportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.templateCodes)) {
+      query["TemplateCodes"] = request.templateCodes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCardSmsTemplateReport",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCardSmsTemplateReportResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateReportResponse({}));
+  }
+
+  async queryCardSmsTemplateReport(request: QueryCardSmsTemplateReportRequest): Promise<QueryCardSmsTemplateReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCardSmsTemplateReportWithOptions(request, runtime);
   }
 
   async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
@@ -2991,6 +4275,75 @@ export default class Client extends OpenApi {
     return await this.querySmsTemplateListWithOptions(request, runtime);
   }
 
+  async sendBatchCardSmsWithOptions(request: SendBatchCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchCardSmsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cardTemplateCode)) {
+      query["CardTemplateCode"] = request.cardTemplateCode;
+    }
+
+    if (!Util.isUnset(request.cardTemplateParamJson)) {
+      query["CardTemplateParamJson"] = request.cardTemplateParamJson;
+    }
+
+    if (!Util.isUnset(request.digitalTemplateCode)) {
+      query["DigitalTemplateCode"] = request.digitalTemplateCode;
+    }
+
+    if (!Util.isUnset(request.digitalTemplateParamJson)) {
+      query["DigitalTemplateParamJson"] = request.digitalTemplateParamJson;
+    }
+
+    if (!Util.isUnset(request.fallbackType)) {
+      query["FallbackType"] = request.fallbackType;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.phoneNumberJson)) {
+      query["PhoneNumberJson"] = request.phoneNumberJson;
+    }
+
+    if (!Util.isUnset(request.signNameJson)) {
+      query["SignNameJson"] = request.signNameJson;
+    }
+
+    if (!Util.isUnset(request.smsTemplateCode)) {
+      query["SmsTemplateCode"] = request.smsTemplateCode;
+    }
+
+    if (!Util.isUnset(request.smsTemplateParamJson)) {
+      query["SmsTemplateParamJson"] = request.smsTemplateParamJson;
+    }
+
+    if (!Util.isUnset(request.smsUpExtendCodeJson)) {
+      query["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendBatchCardSms",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendBatchCardSmsResponse>(await this.callApi(params, req, runtime), new SendBatchCardSmsResponse({}));
+  }
+
+  async sendBatchCardSms(request: SendBatchCardSmsRequest): Promise<SendBatchCardSmsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendBatchCardSmsWithOptions(request, runtime);
+  }
+
   async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchSmsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3046,6 +4399,71 @@ export default class Client extends OpenApi {
   async sendBatchSms(request: SendBatchSmsRequest): Promise<SendBatchSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendBatchSmsWithOptions(request, runtime);
+  }
+
+  async sendCardSmsWithOptions(request: SendCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendCardSmsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cardObjects)) {
+      query["CardObjects"] = request.cardObjects;
+    }
+
+    if (!Util.isUnset(request.cardTemplateCode)) {
+      query["CardTemplateCode"] = request.cardTemplateCode;
+    }
+
+    if (!Util.isUnset(request.digitalTemplateCode)) {
+      query["DigitalTemplateCode"] = request.digitalTemplateCode;
+    }
+
+    if (!Util.isUnset(request.digitalTemplateParam)) {
+      query["DigitalTemplateParam"] = request.digitalTemplateParam;
+    }
+
+    if (!Util.isUnset(request.fallbackType)) {
+      query["FallbackType"] = request.fallbackType;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!Util.isUnset(request.smsTemplateCode)) {
+      query["SmsTemplateCode"] = request.smsTemplateCode;
+    }
+
+    if (!Util.isUnset(request.smsTemplateParam)) {
+      query["SmsTemplateParam"] = request.smsTemplateParam;
+    }
+
+    if (!Util.isUnset(request.smsUpExtendCode)) {
+      query["SmsUpExtendCode"] = request.smsUpExtendCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendCardSms",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendCardSmsResponse>(await this.callApi(params, req, runtime), new SendCardSmsResponse({}));
+  }
+
+  async sendCardSms(request: SendCardSmsRequest): Promise<SendCardSmsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendCardSmsWithOptions(request, runtime);
   }
 
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
