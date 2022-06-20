@@ -871,19 +871,25 @@ export class DeleteFlowCategoryRequest extends $tea.Model {
 }
 
 export class DeleteFlowCategoryResponseBody extends $tea.Model {
-  data?: boolean;
+  flowId?: string;
+  jobId?: string;
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
+      flowId: 'FlowId',
+      jobId: 'JobId',
       requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: 'boolean',
+      flowId: 'string',
+      jobId: 'string',
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -2511,6 +2517,129 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowForWebRequest extends $tea.Model {
+  alertConf?: string;
+  alertDingDingGroupBizId?: string;
+  alertUserGroupBizId?: string;
+  clusterId?: string;
+  createCluster?: boolean;
+  cronExpr?: string;
+  description?: string;
+  endSchedule?: number;
+  graph?: string;
+  hostName?: string;
+  id?: string;
+  name?: string;
+  namespace?: string;
+  parentCategory?: string;
+  parentFlowList?: string;
+  periodic?: boolean;
+  projectId?: string;
+  regionId?: string;
+  startSchedule?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertConf: 'AlertConf',
+      alertDingDingGroupBizId: 'AlertDingDingGroupBizId',
+      alertUserGroupBizId: 'AlertUserGroupBizId',
+      clusterId: 'ClusterId',
+      createCluster: 'CreateCluster',
+      cronExpr: 'CronExpr',
+      description: 'Description',
+      endSchedule: 'EndSchedule',
+      graph: 'Graph',
+      hostName: 'HostName',
+      id: 'Id',
+      name: 'Name',
+      namespace: 'Namespace',
+      parentCategory: 'ParentCategory',
+      parentFlowList: 'ParentFlowList',
+      periodic: 'Periodic',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      startSchedule: 'StartSchedule',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConf: 'string',
+      alertDingDingGroupBizId: 'string',
+      alertUserGroupBizId: 'string',
+      clusterId: 'string',
+      createCluster: 'boolean',
+      cronExpr: 'string',
+      description: 'string',
+      endSchedule: 'number',
+      graph: 'string',
+      hostName: 'string',
+      id: 'string',
+      name: 'string',
+      namespace: 'string',
+      parentCategory: 'string',
+      parentFlowList: 'string',
+      periodic: 'boolean',
+      projectId: 'string',
+      regionId: 'string',
+      startSchedule: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowForWebResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowForWebResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyFlowForWebResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyFlowForWebResponseBody,
     };
   }
 
@@ -6580,6 +6709,111 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async modifyFlowForWebWithOptions(request: ModifyFlowForWebRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowForWebResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alertConf)) {
+      query["AlertConf"] = request.alertConf;
+    }
+
+    if (!Util.isUnset(request.alertDingDingGroupBizId)) {
+      query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
+    }
+
+    if (!Util.isUnset(request.alertUserGroupBizId)) {
+      query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.createCluster)) {
+      query["CreateCluster"] = request.createCluster;
+    }
+
+    if (!Util.isUnset(request.cronExpr)) {
+      query["CronExpr"] = request.cronExpr;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endSchedule)) {
+      query["EndSchedule"] = request.endSchedule;
+    }
+
+    if (!Util.isUnset(request.graph)) {
+      query["Graph"] = request.graph;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.parentCategory)) {
+      query["ParentCategory"] = request.parentCategory;
+    }
+
+    if (!Util.isUnset(request.parentFlowList)) {
+      query["ParentFlowList"] = request.parentFlowList;
+    }
+
+    if (!Util.isUnset(request.periodic)) {
+      query["Periodic"] = request.periodic;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startSchedule)) {
+      query["StartSchedule"] = request.startSchedule;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyFlowForWeb",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyFlowForWebResponse>(await this.callApi(params, req, runtime), new ModifyFlowForWebResponse({}));
+  }
+
+  async modifyFlowForWeb(request: ModifyFlowForWebRequest): Promise<ModifyFlowForWebResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyFlowForWebWithOptions(request, runtime);
   }
 
   async modifyFlowJobWithOptions(request: ModifyFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowJobResponse> {
