@@ -869,6 +869,37 @@ export class CreateDSEntityValueRequest extends $tea.Model {
   }
 }
 
+export class CreateDSEntityValueShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  content?: string;
+  entityId?: number;
+  instanceId?: string;
+  synonymsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      content: 'Content',
+      entityId: 'EntityId',
+      instanceId: 'InstanceId',
+      synonymsShrink: 'Synonyms',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      content: 'string',
+      entityId: 'number',
+      instanceId: 'string',
+      synonymsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDSEntityValueResponseBody extends $tea.Model {
   entityValueId?: number;
   requestId?: string;
@@ -4022,87 +4053,6 @@ export class ListDSEntityValueResponse extends $tea.Model {
   }
 }
 
-export class ListDsMenusRequest extends $tea.Model {
-  agentKey?: string;
-  instanceId?: string;
-  robotEnv?: number;
-  source?: number;
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentKey: 'AgentKey',
-      instanceId: 'InstanceId',
-      robotEnv: 'RobotEnv',
-      source: 'Source',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentKey: 'string',
-      instanceId: 'string',
-      robotEnv: 'number',
-      source: 'number',
-      tags: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDsMenusResponseBody extends $tea.Model {
-  ext?: string;
-  menus?: ListDsMenusResponseBodyMenus[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ext: 'Ext',
-      menus: 'Menus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ext: 'string',
-      menus: { 'type': 'array', 'itemType': ListDsMenusResponseBodyMenus },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDsMenusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDsMenusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDsMenusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListInstanceRequest extends $tea.Model {
   agentKey?: string;
   name?: string;
@@ -4194,11 +4144,15 @@ export class ListIntentRequest extends $tea.Model {
   agentKey?: string;
   instanceId?: string;
   intentName?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
       instanceId: 'InstanceId',
       intentName: 'IntentName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
@@ -4207,6 +4161,8 @@ export class ListIntentRequest extends $tea.Model {
       agentKey: 'string',
       instanceId: 'string',
       intentName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -5170,6 +5126,40 @@ export class UpdateDSEntityValueRequest extends $tea.Model {
   }
 }
 
+export class UpdateDSEntityValueShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  content?: string;
+  entityId?: number;
+  entityValueId?: number;
+  instanceId?: string;
+  synonymsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      content: 'Content',
+      entityId: 'EntityId',
+      entityValueId: 'EntityValueId',
+      instanceId: 'InstanceId',
+      synonymsShrink: 'Synonyms',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      content: 'string',
+      entityId: 'number',
+      entityValueId: 'number',
+      instanceId: 'string',
+      synonymsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDSEntityValueResponseBody extends $tea.Model {
   entityValueId?: number;
   requestId?: string;
@@ -5911,31 +5901,6 @@ export class AssociateResponseBodyAssociate extends $tea.Model {
   }
 }
 
-export class ChatResponseBodyMessagesCardList extends $tea.Model {
-  answerSource?: string;
-  msgType?: string;
-  platform?: string;
-  static names(): { [key: string]: string } {
-    return {
-      answerSource: 'AnswerSource',
-      msgType: 'MsgType',
-      platform: 'Platform',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      answerSource: 'string',
-      msgType: 'string',
-      platform: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ChatResponseBodyMessagesKnowledgeRelatedKnowledges extends $tea.Model {
   knowledgeId?: string;
   title?: string;
@@ -6127,7 +6092,6 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
 export class ChatResponseBodyMessages extends $tea.Model {
   answerSource?: string;
   answerType?: string;
-  cardList?: ChatResponseBodyMessagesCardList[];
   knowledge?: ChatResponseBodyMessagesKnowledge;
   recommends?: ChatResponseBodyMessagesRecommends[];
   text?: ChatResponseBodyMessagesText;
@@ -6137,7 +6101,6 @@ export class ChatResponseBodyMessages extends $tea.Model {
     return {
       answerSource: 'AnswerSource',
       answerType: 'AnswerType',
-      cardList: 'CardList',
       knowledge: 'Knowledge',
       recommends: 'Recommends',
       text: 'Text',
@@ -6150,7 +6113,6 @@ export class ChatResponseBodyMessages extends $tea.Model {
     return {
       answerSource: 'string',
       answerType: 'string',
-      cardList: { 'type': 'array', 'itemType': ChatResponseBodyMessagesCardList },
       knowledge: ChatResponseBodyMessagesKnowledge,
       recommends: { 'type': 'array', 'itemType': ChatResponseBodyMessagesRecommends },
       text: ChatResponseBodyMessagesText,
@@ -6662,34 +6624,6 @@ export class ListDSEntityValueResponseBodyEntityValues extends $tea.Model {
       entityValueId: 'number',
       modifyTime: 'string',
       synonyms: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDsMenusResponseBodyMenus extends $tea.Model {
-  tag?: string;
-  title?: string;
-  titleEn?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-      title: 'Title',
-      titleEn: 'TitleEn',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: 'string',
-      title: 'string',
-      titleEn: 'string',
-      url: 'string',
     };
   }
 
@@ -7801,8 +7735,14 @@ export default class Client extends OpenApi {
     return await this.createDSEntityWithOptions(request, runtime);
   }
 
-  async createDSEntityValueWithOptions(request: CreateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityValueResponse> {
-    Util.validateModel(request);
+  async createDSEntityValueWithOptions(tmpReq: CreateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityValueResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDSEntityValueShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.synonyms)) {
+      request.synonymsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synonyms, "Synonyms", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -7820,12 +7760,14 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.synonyms)) {
-      query["Synonyms"] = request.synonyms;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.synonymsShrink)) {
+      body["Synonyms"] = request.synonymsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDSEntityValue",
@@ -9320,51 +9262,6 @@ export default class Client extends OpenApi {
     return await this.listDSEntityValueWithOptions(request, runtime);
   }
 
-  async listDsMenusWithOptions(request: ListDsMenusRequest, runtime: $Util.RuntimeOptions): Promise<ListDsMenusResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.agentKey)) {
-      query["AgentKey"] = request.agentKey;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.robotEnv)) {
-      query["RobotEnv"] = request.robotEnv;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.tags)) {
-      query["Tags"] = request.tags;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDsMenus",
-      version: "2022-04-08",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDsMenusResponse>(await this.callApi(params, req, runtime), new ListDsMenusResponse({}));
-  }
-
-  async listDsMenus(request: ListDsMenusRequest): Promise<ListDsMenusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDsMenusWithOptions(request, runtime);
-  }
-
   async listInstanceWithOptions(request: ListInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9423,6 +9320,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.intentName)) {
       query["IntentName"] = request.intentName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9905,8 +9810,14 @@ export default class Client extends OpenApi {
     return await this.updateDSEntityWithOptions(request, runtime);
   }
 
-  async updateDSEntityValueWithOptions(request: UpdateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDSEntityValueResponse> {
-    Util.validateModel(request);
+  async updateDSEntityValueWithOptions(tmpReq: UpdateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDSEntityValueResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDSEntityValueShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.synonyms)) {
+      request.synonymsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synonyms, "Synonyms", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -9928,12 +9839,14 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.synonyms)) {
-      query["Synonyms"] = request.synonyms;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.synonymsShrink)) {
+      body["Synonyms"] = request.synonymsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDSEntityValue",
