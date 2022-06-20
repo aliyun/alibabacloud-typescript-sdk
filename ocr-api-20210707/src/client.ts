@@ -1255,10 +1255,12 @@ export class RecognizeCosmeticProduceLicenseResponse extends $tea.Model {
 }
 
 export class RecognizeCovidTestReportRequest extends $tea.Model {
+  multipleResult?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      multipleResult: 'MultipleResult',
       url: 'Url',
       body: 'body',
     };
@@ -1266,6 +1268,7 @@ export class RecognizeCovidTestReportRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      multipleResult: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -6207,6 +6210,10 @@ export default class Client extends OpenApi {
   async recognizeCovidTestReportWithOptions(request: RecognizeCovidTestReportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCovidTestReportResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.multipleResult)) {
+      query["MultipleResult"] = request.multipleResult;
+    }
+
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
     }
