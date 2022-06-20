@@ -1729,11 +1729,13 @@ export class CalcCACSRequestURLList extends $tea.Model {
 }
 
 export class CalcCACSResponseBodyDataDetections extends $tea.Model {
+  calciumCenter?: number[];
   calciumId?: number;
   calciumScore?: number;
   calciumVolume?: number;
   static names(): { [key: string]: string } {
     return {
+      calciumCenter: 'CalciumCenter',
       calciumId: 'CalciumId',
       calciumScore: 'CalciumScore',
       calciumVolume: 'CalciumVolume',
@@ -1742,6 +1744,7 @@ export class CalcCACSResponseBodyDataDetections extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      calciumCenter: { 'type': 'array', 'itemType': 'number' },
       calciumId: 'number',
       calciumScore: 'number',
       calciumVolume: 'number',
@@ -2848,11 +2851,13 @@ export class ScreenChestCTResponseBodyDataAnalyzeChestVessel extends $tea.Model 
 }
 
 export class ScreenChestCTResponseBodyDataCACSDetections extends $tea.Model {
+  calciumCenter?: number[];
   calciumId?: number;
   calciumScore?: number;
   calciumVolume?: number;
   static names(): { [key: string]: string } {
     return {
+      calciumCenter: 'CalciumCenter',
       calciumId: 'CalciumId',
       calciumScore: 'CalciumScore',
       calciumVolume: 'CalciumVolume',
@@ -2861,6 +2866,7 @@ export class ScreenChestCTResponseBodyDataCACSDetections extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      calciumCenter: { 'type': 'array', 'itemType': 'number' },
       calciumId: 'number',
       calciumScore: 'number',
       calciumVolume: 'number',
