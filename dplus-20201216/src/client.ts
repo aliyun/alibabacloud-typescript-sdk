@@ -54,10 +54,12 @@ export class AePredictCategoryAdvanceRequest extends $tea.Model {
 
 export class AePredictCategoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -65,6 +67,7 @@ export class AePredictCategoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -114,10 +117,12 @@ export class AePropRecAdvanceRequest extends $tea.Model {
 
 export class AePropRecResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -125,6 +130,7 @@ export class AePropRecResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -138,15 +144,15 @@ export class AlivisionImgdupRequest extends $tea.Model {
   imageHeight?: number;
   imageWidth?: number;
   outputImageNum?: number;
-  picNum?: number;
-  picUrl?: string;
+  picNumList?: string;
+  picUrlList?: string;
   static names(): { [key: string]: string } {
     return {
       imageHeight: 'ImageHeight',
       imageWidth: 'ImageWidth',
       outputImageNum: 'OutputImageNum',
-      picNum: 'PicNum',
-      picUrl: 'PicUrl',
+      picNumList: 'PicNumList',
+      picUrlList: 'PicUrlList',
     };
   }
 
@@ -155,39 +161,8 @@ export class AlivisionImgdupRequest extends $tea.Model {
       imageHeight: 'number',
       imageWidth: 'number',
       outputImageNum: 'number',
-      picNum: 'number',
-      picUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AlivisionImgdupAdvanceRequest extends $tea.Model {
-  picUrlObject: Readable;
-  imageHeight?: number;
-  imageWidth?: number;
-  outputImageNum?: number;
-  picNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      picUrlObject: 'PicUrlObject',
-      imageHeight: 'ImageHeight',
-      imageWidth: 'ImageWidth',
-      outputImageNum: 'OutputImageNum',
-      picNum: 'PicNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      picUrlObject: 'Readable',
-      imageHeight: 'number',
-      imageWidth: 'number',
-      outputImageNum: 'number',
-      picNum: 'number',
+      picNumList: 'string',
+      picUrlList: 'string',
     };
   }
 
@@ -198,10 +173,12 @@ export class AlivisionImgdupAdvanceRequest extends $tea.Model {
 
 export class AlivisionImgdupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -209,6 +186,7 @@ export class AlivisionImgdupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -307,10 +285,12 @@ export class CreateImageAmazonTaskResponseBody extends $tea.Model {
 
 export class CreateImageAmazonTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateImageAmazonTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -318,6 +298,7 @@ export class CreateImageAmazonTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateImageAmazonTaskResponseBody,
     };
   }
@@ -404,10 +385,12 @@ export class CreateRemoveWorkTaskResponseBody extends $tea.Model {
 
 export class CreateRemoveWorkTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRemoveWorkTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -415,6 +398,7 @@ export class CreateRemoveWorkTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRemoveWorkTaskResponseBody,
     };
   }
@@ -482,10 +466,12 @@ export class FaceshifterTAdvanceRequest extends $tea.Model {
 
 export class FaceshifterTResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -493,6 +479,7 @@ export class FaceshifterTResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -554,10 +541,12 @@ export class GetTaskResultResponseBody extends $tea.Model {
 
 export class GetTaskResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTaskResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -565,6 +554,7 @@ export class GetTaskResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTaskResultResponseBody,
     };
   }
@@ -626,10 +616,12 @@ export class GetTaskStatusResponseBody extends $tea.Model {
 
 export class GetTaskStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTaskStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -637,6 +629,7 @@ export class GetTaskStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTaskStatusResponseBody,
     };
   }
@@ -698,10 +691,12 @@ export class KuajingSegAdvanceRequest extends $tea.Model {
 
 export class KuajingSegResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -709,6 +704,7 @@ export class KuajingSegResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -758,10 +754,12 @@ export class RemoveWordsAdvanceRequest extends $tea.Model {
 
 export class RemoveWordsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -769,6 +767,7 @@ export class RemoveWordsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -836,10 +835,12 @@ export class ReplaceBackgroundAdvanceRequest extends $tea.Model {
 
 export class ReplaceBackgroundResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -847,6 +848,7 @@ export class ReplaceBackgroundResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -886,10 +888,12 @@ export class SeleteCommodityRequest extends $tea.Model {
 
 export class SeleteCommodityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -897,6 +901,7 @@ export class SeleteCommodityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -936,10 +941,12 @@ export class SeleteCommodityByBToBRequest extends $tea.Model {
 
 export class SeleteCommodityByBToBResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -947,6 +954,7 @@ export class SeleteCommodityByBToBResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -996,10 +1004,12 @@ export class TbPredictCategoryAdvanceRequest extends $tea.Model {
 
 export class TbPredictCategoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1007,6 +1017,7 @@ export class TbPredictCategoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -1056,10 +1067,12 @@ export class TbPropRecAdvanceRequest extends $tea.Model {
 
 export class TbPropRecResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1067,6 +1080,7 @@ export class TbPropRecResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -1100,10 +1114,12 @@ export class TransferUrlByBtoBRequest extends $tea.Model {
 
 export class TransferUrlByBtoBResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1111,6 +1127,7 @@ export class TransferUrlByBtoBResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -1121,13 +1138,13 @@ export class TransferUrlByBtoBResponse extends $tea.Model {
 }
 
 export class GetTaskResultResponseBodyData extends $tea.Model {
-  resuslt?: string;
+  result?: string;
   status?: number;
   statusName?: string;
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      resuslt: 'Resuslt',
+      result: 'Result',
       status: 'Status',
       statusName: 'StatusName',
       taskId: 'TaskId',
@@ -1136,7 +1153,7 @@ export class GetTaskResultResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      resuslt: 'string',
+      result: 'string',
       status: 'number',
       statusName: 'string',
       taskId: 'number',
@@ -1417,12 +1434,12 @@ export default class Client extends OpenApi {
       body["OutputImageNum"] = request.outputImageNum;
     }
 
-    if (!Util.isUnset(request.picNum)) {
-      body["PicNum"] = request.picNum;
+    if (!Util.isUnset(request.picNumList)) {
+      body["PicNumList"] = request.picNumList;
     }
 
-    if (!Util.isUnset(request.picUrl)) {
-      body["PicUrl"] = request.picUrl;
+    if (!Util.isUnset(request.picUrlList)) {
+      body["PicUrlList"] = request.picUrlList;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1445,80 +1462,6 @@ export default class Client extends OpenApi {
   async alivisionImgdup(request: AlivisionImgdupRequest): Promise<AlivisionImgdupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.alivisionImgdupWithOptions(request, runtime);
-  }
-
-  async alivisionImgdupAdvance(request: AlivisionImgdupAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AlivisionImgdupResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "dplus",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let alivisionImgdupReq = new AlivisionImgdupRequest({ });
-    OpenApiUtil.convert(request, alivisionImgdupReq);
-    if (!Util.isUnset(request.picUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.picUrlObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      alivisionImgdupReq.picUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let alivisionImgdupResp = await this.alivisionImgdupWithOptions(alivisionImgdupReq, runtime);
-    return alivisionImgdupResp;
   }
 
   async createImageAmazonTaskWithOptions(tmpReq: CreateImageAmazonTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageAmazonTaskResponse> {
