@@ -10271,6 +10271,7 @@ export class DescribeVulListRequest extends $tea.Model {
   dealed?: string;
   groupId?: string;
   lang?: string;
+  name?: string;
   necessity?: string;
   pageSize?: number;
   remark?: string;
@@ -10285,6 +10286,7 @@ export class DescribeVulListRequest extends $tea.Model {
       dealed: 'Dealed',
       groupId: 'GroupId',
       lang: 'Lang',
+      name: 'Name',
       necessity: 'Necessity',
       pageSize: 'PageSize',
       remark: 'Remark',
@@ -10302,6 +10304,7 @@ export class DescribeVulListRequest extends $tea.Model {
       dealed: 'string',
       groupId: 'string',
       lang: 'string',
+      name: 'string',
       necessity: 'string',
       pageSize: 'number',
       remark: 'string',
@@ -14098,6 +14101,84 @@ export class OperateVulsResponse extends $tea.Model {
   }
 }
 
+export class OperationCancelIgnoreSuspEventRequest extends $tea.Model {
+  securityEventIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      securityEventIds: 'SecurityEventIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityEventIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperationCancelIgnoreSuspEventResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperationCancelIgnoreSuspEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OperationCancelIgnoreSuspEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperationCancelIgnoreSuspEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperationSuspEventsRequest extends $tea.Model {
   from?: string;
   operation?: string;
@@ -14568,6 +14649,7 @@ export class QueryGroupIdByGroupNameResponse extends $tea.Model {
 
 export class QueryGroupedSecurityEventMarkMissListRequest extends $tea.Model {
   currentPage?: number;
+  disposalWay?: string;
   eventName?: string;
   from?: string;
   lang?: string;
@@ -14577,6 +14659,7 @@ export class QueryGroupedSecurityEventMarkMissListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      disposalWay: 'DisposalWay',
       eventName: 'EventName',
       from: 'From',
       lang: 'Lang',
@@ -14589,6 +14672,7 @@ export class QueryGroupedSecurityEventMarkMissListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      disposalWay: 'string',
       eventName: 'string',
       from: 'string',
       lang: 'string',
@@ -18222,6 +18306,7 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   trojan?: number;
   uuid?: string;
   vul?: number;
+  weakPWNum?: number;
   static names(): { [key: string]: string } {
     return {
       account: 'Account',
@@ -18236,6 +18321,7 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
       trojan: 'Trojan',
       uuid: 'Uuid',
       vul: 'Vul',
+      weakPWNum: 'WeakPWNum',
     };
   }
 
@@ -18253,6 +18339,7 @@ export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
       trojan: 'number',
       uuid: 'string',
       vul: 'number',
+      weakPWNum: 'number',
     };
   }
 
@@ -22125,6 +22212,7 @@ export class PublicSyncAndCreateImageScanTaskResponseBodyData extends $tea.Model
 
 export class QueryGroupedSecurityEventMarkMissListResponseBodyList extends $tea.Model {
   aliUid?: number;
+  disposalWay?: string;
   eventName?: string;
   eventNameOriginal?: string;
   eventType?: string;
@@ -22137,6 +22225,7 @@ export class QueryGroupedSecurityEventMarkMissListResponseBodyList extends $tea.
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
+      disposalWay: 'DisposalWay',
       eventName: 'EventName',
       eventNameOriginal: 'EventNameOriginal',
       eventType: 'EventType',
@@ -22152,6 +22241,7 @@ export class QueryGroupedSecurityEventMarkMissListResponseBodyList extends $tea.
   static types(): { [key: string]: any } {
     return {
       aliUid: 'number',
+      disposalWay: 'string',
       eventName: 'string',
       eventNameOriginal: 'string',
       eventType: 'string',
@@ -27756,6 +27846,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     if (!Util.isUnset(request.necessity)) {
       query["Necessity"] = request.necessity;
     }
@@ -29920,6 +30014,35 @@ export default class Client extends OpenApi {
     return await this.operateVulsWithOptions(request, runtime);
   }
 
+  async operationCancelIgnoreSuspEventWithOptions(request: OperationCancelIgnoreSuspEventRequest, runtime: $Util.RuntimeOptions): Promise<OperationCancelIgnoreSuspEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.securityEventIds)) {
+      query["SecurityEventIds"] = request.securityEventIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperationCancelIgnoreSuspEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperationCancelIgnoreSuspEventResponse>(await this.callApi(params, req, runtime), new OperationCancelIgnoreSuspEventResponse({}));
+  }
+
+  async operationCancelIgnoreSuspEvent(request: OperationCancelIgnoreSuspEventRequest): Promise<OperationCancelIgnoreSuspEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operationCancelIgnoreSuspEventWithOptions(request, runtime);
+  }
+
   async operationSuspEventsWithOptions(request: OperationSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<OperationSuspEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30193,6 +30316,10 @@ export default class Client extends OpenApi {
   async queryGroupedSecurityEventMarkMissListWithOptions(request: QueryGroupedSecurityEventMarkMissListRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupedSecurityEventMarkMissListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.disposalWay)) {
+      query["DisposalWay"] = request.disposalWay;
+    }
+
     if (!Util.isUnset(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
