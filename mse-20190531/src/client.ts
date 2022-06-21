@@ -7998,6 +7998,90 @@ export class ListGatewaySlbResponse extends $tea.Model {
   }
 }
 
+export class ListInstancesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  region?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      region: 'Region',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      region: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListInstancesResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListInstancesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListListenersByConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   dataId?: string;
@@ -8746,6 +8830,90 @@ export class ListServiceSourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListServiceSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVgroupsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  region?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      region: 'Region',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      region: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVgroupsResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListVgroupsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListVgroupsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVgroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListVgroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVgroupsResponseBody,
     };
   }
 
@@ -17492,6 +17660,121 @@ export class ListGatewaySlbResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyData extends $tea.Model {
+  appClusterId?: string;
+  appVersion?: string;
+  dbPassword?: string;
+  dbUrl?: string;
+  dbUserName?: string;
+  endDate?: number;
+  environmentId?: number;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  imageVersion?: string;
+  instanceId?: string;
+  isCreatedRedis?: boolean;
+  isCreatedSlb?: boolean;
+  k8sResourceId?: number;
+  name?: string;
+  nameServer?: string;
+  nameServerPublic?: string;
+  orderId?: string;
+  podCidr?: string;
+  primaryUser?: string;
+  region?: string;
+  replica?: number;
+  seataServerUniqueId?: string;
+  securityGroup?: string;
+  spec?: string;
+  startDate?: string;
+  status?: number;
+  statusDesc?: string;
+  storeMode?: string;
+  vpc?: string;
+  vswitch?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appClusterId: 'AppClusterId',
+      appVersion: 'AppVersion',
+      dbPassword: 'DbPassword',
+      dbUrl: 'DbUrl',
+      dbUserName: 'DbUserName',
+      endDate: 'EndDate',
+      environmentId: 'EnvironmentId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      imageVersion: 'ImageVersion',
+      instanceId: 'InstanceId',
+      isCreatedRedis: 'IsCreatedRedis',
+      isCreatedSlb: 'IsCreatedSlb',
+      k8sResourceId: 'K8sResourceId',
+      name: 'Name',
+      nameServer: 'NameServer',
+      nameServerPublic: 'NameServerPublic',
+      orderId: 'OrderId',
+      podCidr: 'PodCidr',
+      primaryUser: 'PrimaryUser',
+      region: 'Region',
+      replica: 'Replica',
+      seataServerUniqueId: 'SeataServerUniqueId',
+      securityGroup: 'SecurityGroup',
+      spec: 'Spec',
+      startDate: 'StartDate',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+      storeMode: 'StoreMode',
+      vpc: 'Vpc',
+      vswitch: 'Vswitch',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appClusterId: 'string',
+      appVersion: 'string',
+      dbPassword: 'string',
+      dbUrl: 'string',
+      dbUserName: 'string',
+      endDate: 'number',
+      environmentId: 'number',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      imageVersion: 'string',
+      instanceId: 'string',
+      isCreatedRedis: 'boolean',
+      isCreatedSlb: 'boolean',
+      k8sResourceId: 'number',
+      name: 'string',
+      nameServer: 'string',
+      nameServerPublic: 'string',
+      orderId: 'string',
+      podCidr: 'string',
+      primaryUser: 'string',
+      region: 'string',
+      replica: 'number',
+      seataServerUniqueId: 'string',
+      securityGroup: 'string',
+      spec: 'string',
+      startDate: 'string',
+      status: 'number',
+      statusDesc: 'string',
+      storeMode: 'string',
+      vpc: 'string',
+      vswitch: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListListenersByConfigResponseBodyListeners extends $tea.Model {
   ip?: string;
   md5?: string;
@@ -17787,6 +18070,46 @@ export class ListServiceSourceResponseBodyData extends $tea.Model {
       source: 'string',
       sourceUniqueId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVgroupsResponseBodyData extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  name?: string;
+  nameServer?: string;
+  primaryUser?: string;
+  region?: string;
+  seataServerUniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      nameServer: 'NameServer',
+      primaryUser: 'PrimaryUser',
+      region: 'Region',
+      seataServerUniqueId: 'SeataServerUniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      nameServer: 'string',
+      primaryUser: 'string',
+      region: 'string',
+      seataServerUniqueId: 'string',
     };
   }
 
@@ -22904,6 +23227,31 @@ export default class Client extends OpenApi {
     return await this.listGatewaySlbWithOptions(request, runtime);
   }
 
+  async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstances",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+  }
+
+  async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstancesWithOptions(request, runtime);
+  }
+
   async listListenersByConfigWithOptions(request: ListListenersByConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23258,6 +23606,31 @@ export default class Client extends OpenApi {
   async listServiceSource(request: ListServiceSourceRequest): Promise<ListServiceSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceSourceWithOptions(request, runtime);
+  }
+
+  async listVgroupsWithOptions(request: ListVgroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListVgroupsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListVgroups",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVgroupsResponse>(await this.callApi(params, req, runtime), new ListVgroupsResponse({}));
+  }
+
+  async listVgroups(request: ListVgroupsRequest): Promise<ListVgroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listVgroupsWithOptions(request, runtime);
   }
 
   async listZnodeChildrenWithOptions(request: ListZnodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<ListZnodeChildrenResponse> {
