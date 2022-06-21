@@ -533,6 +533,75 @@ export class AddNetworkInterfaceToInstanceResponse extends $tea.Model {
   }
 }
 
+export class AssignPrivateIpAddressesRequest extends $tea.Model {
+  networkInterfaceId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceId: 'NetworkInterfaceId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressesResponseBody extends $tea.Model {
+  assignedPrivateIpAddressesSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedPrivateIpAddressesSet: 'AssignedPrivateIpAddressesSet',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedPrivateIpAddressesSet: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AssignPrivateIpAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssignPrivateIpAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssociateEnsEipAddressRequest extends $tea.Model {
   allocationId?: string;
   instanceId?: string;
@@ -677,12 +746,10 @@ export class AttachDiskResponse extends $tea.Model {
 export class AttachEnsInstancesRequest extends $tea.Model {
   instanceId?: string;
   scripts?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       scripts: 'Scripts',
-      version: 'Version',
     };
   }
 
@@ -690,7 +757,6 @@ export class AttachEnsInstancesRequest extends $tea.Model {
     return {
       instanceId: 'string',
       scripts: 'string',
-      version: 'string',
     };
   }
 
@@ -972,6 +1038,81 @@ export class CreateApplicationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClassicNetworkRequest extends $tea.Model {
+  cidrBlock?: string;
+  description?: string;
+  ensRegionId?: string;
+  networkName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      description: 'Description',
+      ensRegionId: 'EnsRegionId',
+      networkName: 'NetworkName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      description: 'string',
+      ensRegionId: 'string',
+      networkName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClassicNetworkResponseBody extends $tea.Model {
+  networkId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkId: 'NetworkId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClassicNetworkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateClassicNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClassicNetworkResponseBody,
     };
   }
 
@@ -2594,7 +2735,6 @@ export class CreateVSwitchRequest extends $tea.Model {
   ensRegionId?: string;
   networkId?: string;
   vSwitchName?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       cidrBlock: 'CidrBlock',
@@ -2602,7 +2742,6 @@ export class CreateVSwitchRequest extends $tea.Model {
       ensRegionId: 'EnsRegionId',
       networkId: 'NetworkId',
       vSwitchName: 'VSwitchName',
-      version: 'Version',
     };
   }
 
@@ -2613,7 +2752,6 @@ export class CreateVSwitchRequest extends $tea.Model {
       ensRegionId: 'string',
       networkId: 'string',
       vSwitchName: 'string',
-      version: 'string',
     };
   }
 
@@ -9640,12 +9778,10 @@ export class JoinPublicIpsToEpnInstanceResponse extends $tea.Model {
 export class JoinSecurityGroupRequest extends $tea.Model {
   instanceId?: string;
   securityGroupId?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       securityGroupId: 'SecurityGroupId',
-      version: 'Version',
     };
   }
 
@@ -9653,7 +9789,6 @@ export class JoinSecurityGroupRequest extends $tea.Model {
     return {
       instanceId: 'string',
       securityGroupId: 'string',
-      version: 'string',
     };
   }
 
@@ -10732,7 +10867,6 @@ export class PreCreateEnsServiceRequest extends $tea.Model {
   schedulingStrategy?: string;
   systemDiskSize?: string;
   userData?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidthType: 'BandwidthType',
@@ -10749,7 +10883,6 @@ export class PreCreateEnsServiceRequest extends $tea.Model {
       schedulingStrategy: 'SchedulingStrategy',
       systemDiskSize: 'SystemDiskSize',
       userData: 'UserData',
-      version: 'Version',
     };
   }
 
@@ -10769,7 +10902,6 @@ export class PreCreateEnsServiceRequest extends $tea.Model {
       schedulingStrategy: 'string',
       systemDiskSize: 'string',
       userData: 'string',
-      version: 'string',
     };
   }
 
@@ -12106,6 +12238,7 @@ export class RunInstancesRequest extends $tea.Model {
   period?: number;
   periodUnit?: string;
   privateIpAddress?: string;
+  publicIpIdentification?: boolean;
   scheduleAreaLevel?: string;
   schedulingPriceStrategy?: string;
   schedulingStrategy?: string;
@@ -12135,6 +12268,7 @@ export class RunInstancesRequest extends $tea.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       privateIpAddress: 'PrivateIpAddress',
+      publicIpIdentification: 'PublicIpIdentification',
       scheduleAreaLevel: 'ScheduleAreaLevel',
       schedulingPriceStrategy: 'SchedulingPriceStrategy',
       schedulingStrategy: 'SchedulingStrategy',
@@ -12167,6 +12301,7 @@ export class RunInstancesRequest extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       privateIpAddress: 'string',
+      publicIpIdentification: 'boolean',
       scheduleAreaLevel: 'string',
       schedulingPriceStrategy: 'string',
       schedulingStrategy: 'string',
@@ -12203,6 +12338,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   period?: number;
   periodUnit?: string;
   privateIpAddress?: string;
+  publicIpIdentification?: boolean;
   scheduleAreaLevel?: string;
   schedulingPriceStrategy?: string;
   schedulingStrategy?: string;
@@ -12232,6 +12368,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       privateIpAddress: 'PrivateIpAddress',
+      publicIpIdentification: 'PublicIpIdentification',
       scheduleAreaLevel: 'ScheduleAreaLevel',
       schedulingPriceStrategy: 'SchedulingPriceStrategy',
       schedulingStrategy: 'SchedulingStrategy',
@@ -12264,6 +12401,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       privateIpAddress: 'string',
+      publicIpIdentification: 'boolean',
       scheduleAreaLevel: 'string',
       schedulingPriceStrategy: 'string',
       schedulingStrategy: 'string',
@@ -13486,6 +13624,72 @@ export class UnAssociateEnsEipAddressResponse extends $tea.Model {
   }
 }
 
+export class UnassignPrivateIpAddressesRequest extends $tea.Model {
+  networkInterfaceId?: string;
+  privateIpAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceId: 'string',
+      privateIpAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignPrivateIpAddressesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassignPrivateIpAddressesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnassignPrivateIpAddressesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnassignPrivateIpAddressesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeApplicationRequest extends $tea.Model {
   appId?: string;
   template?: string;
@@ -13628,6 +13832,28 @@ export class AddBackendServersResponseBodyBackendServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': AddBackendServersResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet extends $tea.Model {
+  networkInterfaceId?: string;
+  privateIpSet?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceId: 'NetworkInterfaceId',
+      privateIpSet: 'PrivateIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceId: 'string',
+      privateIpSet: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -16876,6 +17102,47 @@ export class DescribeNetworkAttributeResponseBodyVSwitchIds extends $tea.Model {
   }
 }
 
+export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet extends $tea.Model {
+  primary?: boolean;
+  privateIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      primary: 'Primary',
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      primary: 'boolean',
+      privateIpAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets extends $tea.Model {
+  privateIpSet?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet[];
+  static names(): { [key: string]: string } {
+    return {
+      privateIpSet: 'PrivateIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpSet: { 'type': 'array', 'itemType': DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSet extends $tea.Model {
   creationTime?: string;
   ensRegionId?: string;
@@ -16884,6 +17151,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
   networkInterfaceId?: string;
   primaryIp?: string;
   primaryIpType?: string;
+  privateIpSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets;
   status?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
@@ -16895,6 +17163,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       networkInterfaceId: 'NetworkInterfaceId',
       primaryIp: 'PrimaryIp',
       primaryIpType: 'PrimaryIpType',
+      privateIpSets: 'PrivateIpSets',
       status: 'Status',
       vSwitchId: 'VSwitchId',
     };
@@ -16909,6 +17178,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
       networkInterfaceId: 'string',
       primaryIp: 'string',
       primaryIpType: 'string',
+      privateIpSets: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets,
       status: 'string',
       vSwitchId: 'string',
     };
@@ -18291,6 +18561,39 @@ export default class Client extends OpenApi {
     return await this.addNetworkInterfaceToInstanceWithOptions(request, runtime);
   }
 
+  async assignPrivateIpAddressesWithOptions(request: AssignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<AssignPrivateIpAddressesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssignPrivateIpAddresses",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssignPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressesResponse({}));
+  }
+
+  async assignPrivateIpAddresses(request: AssignPrivateIpAddressesRequest): Promise<AssignPrivateIpAddressesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assignPrivateIpAddressesWithOptions(request, runtime);
+  }
+
   async associateEnsEipAddressWithOptions(request: AssociateEnsEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEnsEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18374,10 +18677,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scripts)) {
       query["Scripts"] = request.scripts;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18547,6 +18846,47 @@ export default class Client extends OpenApi {
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
+  }
+
+  async createClassicNetworkWithOptions(request: CreateClassicNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateClassicNetworkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cidrBlock)) {
+      query["CidrBlock"] = request.cidrBlock;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.networkName)) {
+      query["NetworkName"] = request.networkName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateClassicNetwork",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClassicNetworkResponse>(await this.callApi(params, req, runtime), new CreateClassicNetworkResponse({}));
+  }
+
+  async createClassicNetwork(request: CreateClassicNetworkRequest): Promise<CreateClassicNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createClassicNetworkWithOptions(request, runtime);
   }
 
   async createDiskWithOptions(request: CreateDiskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskResponse> {
@@ -19632,10 +19972,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.vSwitchName)) {
       query["VSwitchName"] = request.vSwitchName;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22871,10 +23207,6 @@ export default class Client extends OpenApi {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23504,10 +23836,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userData)) {
       query["UserData"] = request.userData;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24278,6 +24606,10 @@ export default class Client extends OpenApi {
       query["PrivateIpAddress"] = request.privateIpAddress;
     }
 
+    if (!Util.isUnset(request.publicIpIdentification)) {
+      query["PublicIpIdentification"] = request.publicIpIdentification;
+    }
+
     if (!Util.isUnset(request.scheduleAreaLevel)) {
       query["ScheduleAreaLevel"] = request.scheduleAreaLevel;
     }
@@ -25038,6 +25370,39 @@ export default class Client extends OpenApi {
   async unAssociateEnsEipAddress(request: UnAssociateEnsEipAddressRequest): Promise<UnAssociateEnsEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unAssociateEnsEipAddressWithOptions(request, runtime);
+  }
+
+  async unassignPrivateIpAddressesWithOptions(request: UnassignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<UnassignPrivateIpAddressesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnassignPrivateIpAddresses",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnassignPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new UnassignPrivateIpAddressesResponse({}));
+  }
+
+  async unassignPrivateIpAddresses(request: UnassignPrivateIpAddressesRequest): Promise<UnassignPrivateIpAddressesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unassignPrivateIpAddressesWithOptions(request, runtime);
   }
 
   async upgradeApplicationWithOptions(request: UpgradeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeApplicationResponse> {
