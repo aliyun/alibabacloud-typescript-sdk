@@ -2285,24 +2285,18 @@ export class RecognizeTurkeyIdentityCardAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeTurkeyIdentityCardResponseBody extends $tea.Model {
-  code?: string;
   data?: RecognizeTurkeyIdentityCardResponseBodyData;
-  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       data: 'Data',
-      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: RecognizeTurkeyIdentityCardResponseBodyData,
-      message: 'string',
       requestId: 'string',
     };
   }
