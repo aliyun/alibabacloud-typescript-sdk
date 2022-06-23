@@ -8,42 +8,20 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddMemberRequest extends $tea.Model {
-  conferenceId?: string;
-  fromUserId?: string;
-  toUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      fromUserId: 'FromUserId',
-      toUserId: 'ToUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      fromUserId: 'string',
-      toUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMemberResponseBody extends $tea.Model {
+export class AssetsAuditAssetResponse extends $tea.Model {
   requestId?: string;
+  status?: RpcStatus;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      status: RpcStatus,
     };
   }
 
@@ -52,67 +30,23 @@ export class AddMemberResponseBody extends $tea.Model {
   }
 }
 
-export class AddMemberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddMemberResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AgreeLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  fromUserId?: string;
-  toUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      fromUserId: 'FromUserId',
-      toUserId: 'ToUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      fromUserId: 'string',
-      toUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AgreeLinkMicResponseBody extends $tea.Model {
+export class AssetsCreateAssetResponse extends $tea.Model {
+  asset?: CommonAsset;
   requestId?: string;
+  status?: RpcStatus;
   static names(): { [key: string]: string } {
     return {
+      asset: 'Asset',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      asset: CommonAsset,
       requestId: 'string',
+      status: RpcStatus,
     };
   }
 
@@ -121,64 +55,23 @@ export class AgreeLinkMicResponseBody extends $tea.Model {
   }
 }
 
-export class AgreeLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AgreeLinkMicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AgreeLinkMicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyLinkMicResponseBody extends $tea.Model {
+export class AssetsDeleteAssetResponse extends $tea.Model {
+  asset?: CommonAsset;
   requestId?: string;
+  status?: RpcStatus;
   static names(): { [key: string]: string } {
     return {
+      asset: 'Asset',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      asset: CommonAsset,
       requestId: 'string',
+      status: RpcStatus,
     };
   }
 
@@ -187,23 +80,292 @@ export class ApplyLinkMicResponseBody extends $tea.Model {
   }
 }
 
-export class ApplyLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyLinkMicResponseBody;
+export class AssetsGetAssetResponse extends $tea.Model {
+  asset?: CommonAsset;
+  requestId?: string;
+  status?: RpcStatus;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
+      asset: 'Asset',
+      requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ApplyLinkMicResponseBody,
+      asset: CommonAsset,
+      requestId: 'string',
+      status: RpcStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssetsListAssetsRequest extends $tea.Model {
+  appId?: string;
+  fieldMask?: string;
+  maxResults?: number;
+  nextToken?: string;
+  params?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      fieldMask: 'FieldMask',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      params: 'Params',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      fieldMask: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      params: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssetsListAssetsResponse extends $tea.Model {
+  assets?: CommonAsset[];
+  nextToken?: string;
+  requestId?: string;
+  status?: RpcStatus;
+  static names(): { [key: string]: string } {
+    return {
+      assets: 'Assets',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assets: { 'type': 'array', 'itemType': CommonAsset },
+      nextToken: 'string',
+      requestId: 'string',
+      status: RpcStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssetsUpdateAssetResponse extends $tea.Model {
+  asset?: CommonAsset;
+  requestId?: string;
+  status?: RpcStatus;
+  static names(): { [key: string]: string } {
+    return {
+      asset: 'Asset',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asset: CommonAsset,
+      requestId: 'string',
+      status: RpcStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonAddress extends $tea.Model {
+  address?: string;
+  city?: string;
+  country?: string;
+  state?: string;
+  zip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      city: 'City',
+      country: 'Country',
+      state: 'State',
+      zip: 'Zip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      city: 'string',
+      country: 'string',
+      state: 'string',
+      zip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonAsset extends $tea.Model {
+  address?: CommonAddress;
+  appId?: string;
+  auditStatus?: string;
+  author?: string;
+  createdAt?: string;
+  description?: string;
+  extends?: { [key: string]: any };
+  id?: string;
+  images?: CommonMediaResource[];
+  labels?: { [key: string]: any };
+  location?: TypeLatLng;
+  source?: string;
+  status?: string;
+  synopsis?: string;
+  tags?: string[];
+  title?: string;
+  updatedAt?: string;
+  videos?: CommonMediaResource[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      appId: 'AppId',
+      auditStatus: 'AuditStatus',
+      author: 'Author',
+      createdAt: 'CreatedAt',
+      description: 'Description',
+      extends: 'Extends',
+      id: 'Id',
+      images: 'Images',
+      labels: 'Labels',
+      location: 'Location',
+      source: 'Source',
+      status: 'Status',
+      synopsis: 'Synopsis',
+      tags: 'Tags',
+      title: 'Title',
+      updatedAt: 'UpdatedAt',
+      videos: 'Videos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: CommonAddress,
+      appId: 'string',
+      auditStatus: 'string',
+      author: 'string',
+      createdAt: 'string',
+      description: 'string',
+      extends: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      images: { 'type': 'array', 'itemType': CommonMediaResource },
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      location: TypeLatLng,
+      source: 'string',
+      status: 'string',
+      synopsis: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      title: 'string',
+      updatedAt: 'string',
+      videos: { 'type': 'array', 'itemType': CommonMediaResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonMediaResource extends $tea.Model {
+  format?: string;
+  id?: string;
+  name?: string;
+  sha1?: string;
+  size?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      id: 'Id',
+      name: 'Name',
+      sha1: 'Sha1',
+      size: 'Size',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      id: 'string',
+      name: 'string',
+      sha1: 'string',
+      size: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RpcStatus extends $tea.Model {
+  code?: number;
+  detail?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      detail: 'Detail',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      detail: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TypeLatLng extends $tea.Model {
+  latitude?: number;
+  longitude?: number;
+  static names(): { [key: string]: string } {
+    return {
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latitude: 'number',
+      longitude: 'number',
     };
   }
 
@@ -354,72 +516,6 @@ export class BanCommentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BanCommentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelApplyLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelApplyLinkMicResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelApplyLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelApplyLinkMicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelApplyLinkMicResponseBody,
     };
   }
 
@@ -644,178 +740,6 @@ export class CancelUserAdminResponse extends $tea.Model {
   }
 }
 
-export class CreateAppRequest extends $tea.Model {
-  appName?: string;
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      appTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CreateAppResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: CreateAppResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateRequest extends $tea.Model {
-  appTemplateName?: string;
-  componentList?: string[];
-  integrationMode?: string;
-  scene?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateName: 'AppTemplateName',
-      componentList: 'ComponentList',
-      integrationMode: 'IntegrationMode',
-      scene: 'Scene',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateName: 'string',
-      componentList: { 'type': 'array', 'itemType': 'string' },
-      integrationMode: 'string',
-      scene: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateShrinkRequest extends $tea.Model {
-  appTemplateName?: string;
-  componentListShrink?: string;
-  integrationMode?: string;
-  scene?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateName: 'AppTemplateName',
-      componentListShrink: 'ComponentList',
-      integrationMode: 'IntegrationMode',
-      scene: 'Scene',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateName: 'string',
-      componentListShrink: 'string',
-      integrationMode: 'string',
-      scene: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CreateAppTemplateResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: CreateAppTemplateResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateClassRequest extends $tea.Model {
   appId?: string;
   createNickname?: string;
@@ -883,81 +807,6 @@ export class CreateClassResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateClassResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConferenceRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  title?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      title: 'Title',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      title: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConferenceResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CreateConferenceResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: CreateConferenceResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConferenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConferenceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateConferenceResponseBody,
     };
   }
 
@@ -1058,6 +907,7 @@ export class CreateLiveRoomRequest extends $tea.Model {
   anchorNick?: string;
   appId?: string;
   coverUrl?: string;
+  enableLinkMic?: boolean;
   extension?: { [key: string]: string };
   notice?: string;
   title?: string;
@@ -1068,6 +918,7 @@ export class CreateLiveRoomRequest extends $tea.Model {
       anchorNick: 'AnchorNick',
       appId: 'AppId',
       coverUrl: 'CoverUrl',
+      enableLinkMic: 'EnableLinkMic',
       extension: 'Extension',
       notice: 'Notice',
       title: 'Title',
@@ -1081,6 +932,7 @@ export class CreateLiveRoomRequest extends $tea.Model {
       anchorNick: 'string',
       appId: 'string',
       coverUrl: 'string',
+      enableLinkMic: 'boolean',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
       title: 'string',
@@ -1098,6 +950,7 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
   anchorNick?: string;
   appId?: string;
   coverUrl?: string;
+  enableLinkMic?: boolean;
   extensionShrink?: string;
   notice?: string;
   title?: string;
@@ -1108,6 +961,7 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
       anchorNick: 'AnchorNick',
       appId: 'AppId',
       coverUrl: 'CoverUrl',
+      enableLinkMic: 'EnableLinkMic',
       extensionShrink: 'Extension',
       notice: 'Notice',
       title: 'Title',
@@ -1121,6 +975,7 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
       anchorNick: 'string',
       appId: 'string',
       coverUrl: 'string',
+      enableLinkMic: 'boolean',
       extensionShrink: 'string',
       notice: 'string',
       title: 'string',
@@ -1384,132 +1239,6 @@ export class CreateSensitiveWordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSensitiveWordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppRequest extends $tea.Model {
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppTemplateRequest extends $tea.Model {
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppTemplateResponseBody,
     };
   }
 
@@ -2167,138 +1896,6 @@ export class DescribeMeterImpWatchLiveTimeByLiveIdResponse extends $tea.Model {
   }
 }
 
-export class GetAppRequest extends $tea.Model {
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetAppResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetAppResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateRequest extends $tea.Model {
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetAppTemplateResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetAppTemplateResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAppTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAuthTokenRequest extends $tea.Model {
   appId?: string;
   appKey?: string;
@@ -2584,72 +2181,6 @@ export class GetConferenceResponse extends $tea.Model {
   }
 }
 
-export class GetDomainOwnerVerifyContentRequest extends $tea.Model {
-  liveDomainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      liveDomainName: 'LiveDomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveDomainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDomainOwnerVerifyContentResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetDomainOwnerVerifyContentResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetDomainOwnerVerifyContentResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDomainOwnerVerifyContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDomainOwnerVerifyContentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDomainOwnerVerifyContentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetLiveRequest extends $tea.Model {
   liveId?: string;
   static names(): { [key: string]: string } {
@@ -2708,103 +2239,6 @@ export class GetLiveResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetLiveResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusRequest extends $tea.Model {
-  appId?: string;
-  liveDomainList?: string[];
-  liveDomainType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      liveDomainList: 'LiveDomainList',
-      liveDomainType: 'LiveDomainType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      liveDomainList: { 'type': 'array', 'itemType': 'string' },
-      liveDomainType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
-  appId?: string;
-  liveDomainListShrink?: string;
-  liveDomainType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      liveDomainListShrink: 'LiveDomainList',
-      liveDomainType: 'LiveDomainType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      liveDomainListShrink: 'string',
-      liveDomainType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetLiveDomainStatusResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetLiveDomainStatusResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLiveDomainStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLiveDomainStatusResponseBody,
     };
   }
 
@@ -3167,72 +2601,6 @@ export class GetRoomResponse extends $tea.Model {
   }
 }
 
-export class GetStandardRoomHttpsCertificateRequest extends $tea.Model {
-  certificateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateId: 'CertificateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStandardRoomHttpsCertificateResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetStandardRoomHttpsCertificateResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetStandardRoomHttpsCertificateResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStandardRoomHttpsCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetStandardRoomHttpsCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetStandardRoomHttpsCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetStandardRoomJumpUrlRequest extends $tea.Model {
   appId?: string;
   appKey?: string;
@@ -3392,225 +2760,6 @@ export class KickRoomUserResponse extends $tea.Model {
   }
 }
 
-export class ListAppTemplatesRequest extends $tea.Model {
-  pageNumber?: string;
-  pageSize?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'string',
-      pageSize: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListAppTemplatesResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListAppTemplatesResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAppTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplyLinkMicUsersRequest extends $tea.Model {
-  conferenceId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplyLinkMicUsersResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListApplyLinkMicUsersResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListApplyLinkMicUsersResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplyLinkMicUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplyLinkMicUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListApplyLinkMicUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsRequest extends $tea.Model {
-  appIds?: string;
-  integrationMode?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appIds: 'AppIds',
-      integrationMode: 'IntegrationMode',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appIds: 'string',
-      integrationMode: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListAppsResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListAppsResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListClassesRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
@@ -3759,75 +2908,6 @@ export class ListCommentsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCommentsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsRequest extends $tea.Model {
-  appId?: string;
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListComponentsResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListComponentsResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListComponentsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListComponentsResponseBody,
     };
   }
 
@@ -4223,15 +3303,21 @@ export class ListRoomsResponse extends $tea.Model {
 
 export class ListSensitiveWordRequest extends $tea.Model {
   appId?: string;
+  pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -4420,75 +3506,6 @@ export class PublishLiveRoomResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PublishLiveRoomResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  fromUserId?: string;
-  toUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      fromUserId: 'FromUserId',
-      toUserId: 'ToUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      fromUserId: 'string',
-      toUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectLinkMicResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RejectLinkMicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RejectLinkMicResponseBody,
     };
   }
 
@@ -5107,260 +4124,6 @@ export class StopLiveRoomResponse extends $tea.Model {
   }
 }
 
-export class UpdateAppRequest extends $tea.Model {
-  appId?: string;
-  appName?: string;
-  appStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appName: 'AppName',
-      appStatus: 'AppStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appName: 'string',
-      appStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateRequest extends $tea.Model {
-  appTemplateId?: string;
-  appTemplateName?: string;
-  componentList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-      appTemplateName: 'AppTemplateName',
-      componentList: 'ComponentList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-      appTemplateName: 'string',
-      componentList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateShrinkRequest extends $tea.Model {
-  appTemplateId?: string;
-  appTemplateName?: string;
-  componentListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-      appTemplateName: 'AppTemplateName',
-      componentListShrink: 'ComponentList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-      appTemplateName: 'string',
-      componentListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAppTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateConfigRequest extends $tea.Model {
-  appTemplateId?: string;
-  configList?: UpdateAppTemplateConfigRequestConfigList[];
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-      configList: 'ConfigList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-      configList: { 'type': 'array', 'itemType': UpdateAppTemplateConfigRequestConfigList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
-  appTemplateId?: string;
-  configListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-      configListShrink: 'ConfigList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-      configListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: UpdateAppTemplateConfigResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: UpdateAppTemplateConfigResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppTemplateConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAppTemplateConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateClassRequest extends $tea.Model {
   appId?: string;
   classId?: string;
@@ -5428,72 +4191,6 @@ export class UpdateClassResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateClassResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConferenceRequest extends $tea.Model {
-  conferenceId?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConferenceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConferenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateConferenceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateConferenceResponseBody,
     };
   }
 
@@ -5813,17 +4510,35 @@ export class UpdateRoomResponse extends $tea.Model {
   }
 }
 
-export class VerifyDomainOwnerRequest extends $tea.Model {
-  liveDomainName?: string;
+export class UpdateShareScreenLayoutRequest extends $tea.Model {
+  appId?: string;
+  classId?: string;
+  enableOverlay?: boolean;
+  overlayHeight?: number;
+  overlayWidth?: number;
+  overlayX?: number;
+  overlayY?: number;
   static names(): { [key: string]: string } {
     return {
-      liveDomainName: 'LiveDomainName',
+      appId: 'AppId',
+      classId: 'ClassId',
+      enableOverlay: 'EnableOverlay',
+      overlayHeight: 'OverlayHeight',
+      overlayWidth: 'OverlayWidth',
+      overlayX: 'OverlayX',
+      overlayY: 'OverlayY',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      liveDomainName: 'string',
+      appId: 'string',
+      classId: 'string',
+      enableOverlay: 'boolean',
+      overlayHeight: 'number',
+      overlayWidth: 'number',
+      overlayX: 'number',
+      overlayY: 'number',
     };
   }
 
@@ -5832,20 +4547,17 @@ export class VerifyDomainOwnerRequest extends $tea.Model {
   }
 }
 
-export class VerifyDomainOwnerResponseBody extends $tea.Model {
+export class UpdateShareScreenLayoutResponseBody extends $tea.Model {
   requestId?: string;
-  result?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'boolean',
     };
   }
 
@@ -5854,10 +4566,10 @@ export class VerifyDomainOwnerResponseBody extends $tea.Model {
   }
 }
 
-export class VerifyDomainOwnerResponse extends $tea.Model {
+export class UpdateShareScreenLayoutResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: VerifyDomainOwnerResponseBody;
+  body: UpdateShareScreenLayoutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5870,45 +4582,7 @@ export class VerifyDomainOwnerResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: VerifyDomainOwnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppResponseBodyResult extends $tea.Model {
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateResponseBodyResult extends $tea.Model {
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
+      body: UpdateShareScreenLayoutResponseBody,
     };
   }
 
@@ -5955,25 +4629,6 @@ export class CreateClassResponseBodyResult extends $tea.Model {
       title: 'string',
       whiteboardId: 'string',
       whiteboardRecordId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConferenceResponseBodyResult extends $tea.Model {
-  conferenceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
     };
   }
 
@@ -6232,151 +4887,6 @@ export class DescribeMeterImpWatchLiveTimeByLiveIdResponseBodyData extends $tea.
   }
 }
 
-export class GetAppResponseBodyResult extends $tea.Model {
-  appConfigStatus?: string;
-  appKey?: string;
-  appName?: string;
-  appStatus?: string;
-  appTemplateId?: string;
-  appTemplateName?: string;
-  componentList?: string[];
-  createTime?: string;
-  integrationMode?: string;
-  standardRoomInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appConfigStatus: 'AppConfigStatus',
-      appKey: 'AppKey',
-      appName: 'AppName',
-      appStatus: 'AppStatus',
-      appTemplateId: 'AppTemplateId',
-      appTemplateName: 'AppTemplateName',
-      componentList: 'ComponentList',
-      createTime: 'CreateTime',
-      integrationMode: 'IntegrationMode',
-      standardRoomInfo: 'StandardRoomInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appConfigStatus: 'string',
-      appKey: 'string',
-      appName: 'string',
-      appStatus: 'string',
-      appTemplateId: 'string',
-      appTemplateName: 'string',
-      componentList: { 'type': 'array', 'itemType': 'string' },
-      createTime: 'string',
-      integrationMode: 'string',
-      standardRoomInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponseBodyResultApps extends $tea.Model {
-  appId?: string;
-  appKey?: string;
-  appName?: string;
-  appStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appKey: 'AppKey',
-      appName: 'AppName',
-      appStatus: 'AppStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appKey: 'string',
-      appName: 'string',
-      appStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponseBodyResultConfigList extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponseBodyResult extends $tea.Model {
-  appTemplateCreator?: string;
-  appTemplateName?: string;
-  apps?: GetAppTemplateResponseBodyResultApps[];
-  componentList?: string[];
-  configList?: GetAppTemplateResponseBodyResultConfigList[];
-  createTime?: string;
-  integrationMode?: string;
-  scene?: string;
-  sdkInfo?: string;
-  standardRoomInfo?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateCreator: 'AppTemplateCreator',
-      appTemplateName: 'AppTemplateName',
-      apps: 'Apps',
-      componentList: 'ComponentList',
-      configList: 'ConfigList',
-      createTime: 'CreateTime',
-      integrationMode: 'IntegrationMode',
-      scene: 'Scene',
-      sdkInfo: 'SdkInfo',
-      standardRoomInfo: 'StandardRoomInfo',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateCreator: 'string',
-      appTemplateName: 'string',
-      apps: { 'type': 'array', 'itemType': GetAppTemplateResponseBodyResultApps },
-      componentList: { 'type': 'array', 'itemType': 'string' },
-      configList: { 'type': 'array', 'itemType': GetAppTemplateResponseBodyResultConfigList },
-      createTime: 'string',
-      integrationMode: 'string',
-      scene: 'string',
-      sdkInfo: 'string',
-      standardRoomInfo: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAuthTokenResponseBodyResult extends $tea.Model {
   accessToken?: string;
   accessTokenExpiredTime?: number;
@@ -6513,25 +5023,6 @@ export class GetConferenceResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetDomainOwnerVerifyContentResponseBodyResult extends $tea.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetLiveResponseBodyResultArtcInfo extends $tea.Model {
   artcH5Url?: string;
   artcUrl?: string;
@@ -6658,50 +5149,6 @@ export class GetLiveResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetLiveDomainStatusResponseBodyResultLiveDomainInfoList extends $tea.Model {
-  cname?: string;
-  domain?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cname: 'Cname',
-      domain: 'Domain',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cname: 'string',
-      domain: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusResponseBodyResult extends $tea.Model {
-  liveDomainInfoList?: GetLiveDomainStatusResponseBodyResultLiveDomainInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      liveDomainInfoList: 'LiveDomainInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveDomainInfoList: { 'type': 'array', 'itemType': GetLiveDomainStatusResponseBodyResultLiveDomainInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetLiveRecordResponseBodyResult extends $tea.Model {
   playbackUrlMap?: { [key: string]: string[] };
   static names(): { [key: string]: string } {
@@ -6777,8 +5224,10 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
   appId?: string;
   artcInfo?: GetLiveRoomResponseBodyResultArtcInfo;
   chatId?: string;
+  confId?: string;
   coverUrl?: string;
   createTime?: number;
+  enableLinkMic?: boolean;
   endTime?: number;
   extension?: { [key: string]: string };
   hlsUrl?: string;
@@ -6806,8 +5255,10 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
       appId: 'AppId',
       artcInfo: 'ArtcInfo',
       chatId: 'ChatId',
+      confId: 'ConfId',
       coverUrl: 'CoverUrl',
       createTime: 'CreateTime',
+      enableLinkMic: 'EnableLinkMic',
       endTime: 'EndTime',
       extension: 'Extension',
       hlsUrl: 'HlsUrl',
@@ -6838,8 +5289,10 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
       appId: 'string',
       artcInfo: GetLiveRoomResponseBodyResultArtcInfo,
       chatId: 'string',
+      confId: 'string',
       coverUrl: 'string',
       createTime: 'number',
+      enableLinkMic: 'boolean',
       endTime: 'number',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       hlsUrl: 'string',
@@ -7075,34 +5528,6 @@ export class GetRoomResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetStandardRoomHttpsCertificateResponseBodyResult extends $tea.Model {
-  certificateName?: string;
-  createTime?: string;
-  domainName?: string;
-  expireTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateName: 'CertificateName',
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      expireTime: 'ExpireTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateName: 'string',
-      createTime: 'string',
-      domainName: 'string',
-      expireTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetStandardRoomJumpUrlResponseBodyResult extends $tea.Model {
   standardRoomJumpUrl?: string;
   static names(): { [key: string]: string } {
@@ -7114,204 +5539,6 @@ export class GetStandardRoomJumpUrlResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       standardRoomJumpUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponseBodyResultAppTemplateInfoList extends $tea.Model {
-  appTemplateCreator?: string;
-  appTemplateId?: string;
-  appTemplateName?: string;
-  componentList?: string[];
-  configList?: ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList[];
-  createTime?: string;
-  integrationMode?: string;
-  scene?: string;
-  sdkInfo?: string;
-  standardRoomInfo?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateCreator: 'AppTemplateCreator',
-      appTemplateId: 'AppTemplateId',
-      appTemplateName: 'AppTemplateName',
-      componentList: 'ComponentList',
-      configList: 'ConfigList',
-      createTime: 'CreateTime',
-      integrationMode: 'IntegrationMode',
-      scene: 'Scene',
-      sdkInfo: 'SdkInfo',
-      standardRoomInfo: 'StandardRoomInfo',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateCreator: 'string',
-      appTemplateId: 'string',
-      appTemplateName: 'string',
-      componentList: { 'type': 'array', 'itemType': 'string' },
-      configList: { 'type': 'array', 'itemType': ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList },
-      createTime: 'string',
-      integrationMode: 'string',
-      scene: 'string',
-      sdkInfo: 'string',
-      standardRoomInfo: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponseBodyResult extends $tea.Model {
-  appTemplateInfoList?: ListAppTemplatesResponseBodyResultAppTemplateInfoList[];
-  pageTotal?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateInfoList: 'AppTemplateInfoList',
-      pageTotal: 'PageTotal',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateInfoList: { 'type': 'array', 'itemType': ListAppTemplatesResponseBodyResultAppTemplateInfoList },
-      pageTotal: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplyLinkMicUsersResponseBodyResult extends $tea.Model {
-  applyLinkMicUserList?: string[];
-  hasMore?: boolean;
-  pageTotal?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      applyLinkMicUserList: 'ApplyLinkMicUserList',
-      hasMore: 'HasMore',
-      pageTotal: 'PageTotal',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      applyLinkMicUserList: { 'type': 'array', 'itemType': 'string' },
-      hasMore: 'boolean',
-      pageTotal: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponseBodyResultAppInfoList extends $tea.Model {
-  appConfigStatus?: string;
-  appId?: string;
-  appKey?: string;
-  appName?: string;
-  appStatus?: string;
-  appTemplateId?: string;
-  appTemplateName?: string;
-  componentList?: string[];
-  createTime?: string;
-  integrationMode?: string;
-  standardRoomInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appConfigStatus: 'AppConfigStatus',
-      appId: 'AppId',
-      appKey: 'AppKey',
-      appName: 'AppName',
-      appStatus: 'AppStatus',
-      appTemplateId: 'AppTemplateId',
-      appTemplateName: 'AppTemplateName',
-      componentList: 'ComponentList',
-      createTime: 'CreateTime',
-      integrationMode: 'IntegrationMode',
-      standardRoomInfo: 'StandardRoomInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appConfigStatus: 'string',
-      appId: 'string',
-      appKey: 'string',
-      appName: 'string',
-      appStatus: 'string',
-      appTemplateId: 'string',
-      appTemplateName: 'string',
-      componentList: { 'type': 'array', 'itemType': 'string' },
-      createTime: 'string',
-      integrationMode: 'string',
-      standardRoomInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponseBodyResult extends $tea.Model {
-  appInfoList?: ListAppsResponseBodyResultAppInfoList[];
-  pageTotal?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appInfoList: 'AppInfoList',
-      pageTotal: 'PageTotal',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInfoList: { 'type': 'array', 'itemType': ListAppsResponseBodyResultAppInfoList },
-      pageTotal: 'number',
-      totalCount: 'number',
     };
   }
 
@@ -7460,172 +5687,6 @@ export class ListCommentsResponseBodyResult extends $tea.Model {
       hasMore: 'boolean',
       pageTotal: 'number',
       totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResultComponentCategoryList extends $tea.Model {
-  componentName?: string;
-  componentType?: string;
-  inUse?: string;
-  static names(): { [key: string]: string } {
-    return {
-      componentName: 'ComponentName',
-      componentType: 'ComponentType',
-      inUse: 'InUse',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      componentName: 'string',
-      componentType: 'string',
-      inUse: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResultComponentCategory extends $tea.Model {
-  list?: ListComponentsResponseBodyResultComponentCategoryList[];
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultComponentCategoryList },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResultConfigGroup extends $tea.Model {
-  category?: string;
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResultSceneListComponentCategoryList extends $tea.Model {
-  componentName?: string;
-  componentType?: string;
-  inUse?: string;
-  static names(): { [key: string]: string } {
-    return {
-      componentName: 'ComponentName',
-      componentType: 'ComponentType',
-      inUse: 'InUse',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      componentName: 'string',
-      componentType: 'string',
-      inUse: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResultSceneListComponentCategory extends $tea.Model {
-  list?: ListComponentsResponseBodyResultSceneListComponentCategoryList[];
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultSceneListComponentCategoryList },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResultSceneList extends $tea.Model {
-  componentCategory?: ListComponentsResponseBodyResultSceneListComponentCategory[];
-  scene?: string;
-  static names(): { [key: string]: string } {
-    return {
-      componentCategory: 'ComponentCategory',
-      scene: 'Scene',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      componentCategory: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultSceneListComponentCategory },
-      scene: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBodyResult extends $tea.Model {
-  componentCategory?: ListComponentsResponseBodyResultComponentCategory[];
-  configGroup?: ListComponentsResponseBodyResultConfigGroup[];
-  sceneList?: ListComponentsResponseBodyResultSceneList[];
-  static names(): { [key: string]: string } {
-    return {
-      componentCategory: 'ComponentCategory',
-      configGroup: 'ConfigGroup',
-      sceneList: 'SceneList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      componentCategory: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultComponentCategory },
-      configGroup: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultConfigGroup },
-      sceneList: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultSceneList },
     };
   }
 
@@ -8006,15 +6067,18 @@ export class ListRoomsResponseBodyResult extends $tea.Model {
 }
 
 export class ListSensitiveWordResponseBodyResult extends $tea.Model {
+  totalCount?: number;
   wordList?: string[];
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
       wordList: 'WordList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
       wordList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -8171,69 +6235,6 @@ export class SendCustomMessageToUsersResponseBodyResult extends $tea.Model {
   }
 }
 
-export class UpdateAppTemplateConfigRequestConfigList extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateConfigResponseBodyResultConfigLogs extends $tea.Model {
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppTemplateConfigResponseBodyResult extends $tea.Model {
-  configLogs?: UpdateAppTemplateConfigResponseBodyResultConfigLogs[];
-  static names(): { [key: string]: string } {
-    return {
-      configLogs: 'ConfigLogs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configLogs: { 'type': 'array', 'itemType': UpdateAppTemplateConfigResponseBodyResultConfigLogs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 
 export default class Client extends OpenApi {
 
@@ -8255,113 +6256,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async addMemberWithOptions(request: AddMemberRequest, runtime: $Util.RuntimeOptions): Promise<AddMemberResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.fromUserId)) {
-      body["FromUserId"] = request.fromUserId;
-    }
-
-    if (!Util.isUnset(request.toUserId)) {
-      body["ToUserId"] = request.toUserId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddMember",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddMemberResponse>(await this.callApi(params, req, runtime), new AddMemberResponse({}));
-  }
-
-  async addMember(request: AddMemberRequest): Promise<AddMemberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addMemberWithOptions(request, runtime);
-  }
-
-  async agreeLinkMicWithOptions(request: AgreeLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<AgreeLinkMicResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.fromUserId)) {
-      body["FromUserId"] = request.fromUserId;
-    }
-
-    if (!Util.isUnset(request.toUserId)) {
-      body["ToUserId"] = request.toUserId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "AgreeLinkMic",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AgreeLinkMicResponse>(await this.callApi(params, req, runtime), new AgreeLinkMicResponse({}));
-  }
-
-  async agreeLinkMic(request: AgreeLinkMicRequest): Promise<AgreeLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.agreeLinkMicWithOptions(request, runtime);
-  }
-
-  async applyLinkMicWithOptions(request: ApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<ApplyLinkMicResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ApplyLinkMic",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ApplyLinkMicResponse>(await this.callApi(params, req, runtime), new ApplyLinkMicResponse({}));
-  }
-
-  async applyLinkMic(request: ApplyLinkMicRequest): Promise<ApplyLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.applyLinkMicWithOptions(request, runtime);
   }
 
   async banAllCommentWithOptions(request: BanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanAllCommentResponse> {
@@ -8444,39 +6338,6 @@ export default class Client extends OpenApi {
   async banComment(request: BanCommentRequest): Promise<BanCommentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.banCommentWithOptions(request, runtime);
-  }
-
-  async cancelApplyLinkMicWithOptions(request: CancelApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<CancelApplyLinkMicResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CancelApplyLinkMic",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelApplyLinkMicResponse>(await this.callApi(params, req, runtime), new CancelApplyLinkMicResponse({}));
-  }
-
-  async cancelApplyLinkMic(request: CancelApplyLinkMicRequest): Promise<CancelApplyLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelApplyLinkMicWithOptions(request, runtime);
   }
 
   async cancelBanAllCommentWithOptions(request: CancelBanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanAllCommentResponse> {
@@ -8594,86 +6455,6 @@ export default class Client extends OpenApi {
     return await this.cancelUserAdminWithOptions(request, runtime);
   }
 
-  async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appName)) {
-      body["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.appTemplateId)) {
-      body["AppTemplateId"] = request.appTemplateId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateApp",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
-  }
-
-  async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAppWithOptions(request, runtime);
-  }
-
-  async createAppTemplateWithOptions(tmpReq: CreateAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppTemplateResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateAppTemplateShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.componentList)) {
-      request.componentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentList, "ComponentList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appTemplateName)) {
-      body["AppTemplateName"] = request.appTemplateName;
-    }
-
-    if (!Util.isUnset(request.componentListShrink)) {
-      body["ComponentList"] = request.componentListShrink;
-    }
-
-    if (!Util.isUnset(request.integrationMode)) {
-      body["IntegrationMode"] = request.integrationMode;
-    }
-
-    if (!Util.isUnset(request.scene)) {
-      body["Scene"] = request.scene;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateAppTemplate",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateAppTemplateResponse>(await this.callApi(params, req, runtime), new CreateAppTemplateResponse({}));
-  }
-
-  async createAppTemplate(request: CreateAppTemplateRequest): Promise<CreateAppTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAppTemplateWithOptions(request, runtime);
-  }
-
   async createClassWithOptions(request: CreateClassRequest, runtime: $Util.RuntimeOptions): Promise<CreateClassResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8713,47 +6494,6 @@ export default class Client extends OpenApi {
   async createClass(request: CreateClassRequest): Promise<CreateClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClassWithOptions(request, runtime);
-  }
-
-  async createConferenceWithOptions(request: CreateConferenceRequest, runtime: $Util.RuntimeOptions): Promise<CreateConferenceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.roomId)) {
-      body["RoomId"] = request.roomId;
-    }
-
-    if (!Util.isUnset(request.title)) {
-      body["Title"] = request.title;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["UserId"] = request.userId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateConference",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateConferenceResponse>(await this.callApi(params, req, runtime), new CreateConferenceResponse({}));
-  }
-
-  async createConference(request: CreateConferenceRequest): Promise<CreateConferenceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createConferenceWithOptions(request, runtime);
   }
 
   async createLiveWithOptions(request: CreateLiveRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveResponse> {
@@ -8836,6 +6576,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.coverUrl)) {
       body["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!Util.isUnset(request.enableLinkMic)) {
+      body["EnableLinkMic"] = request.enableLinkMic;
     }
 
     if (!Util.isUnset(request.extensionShrink)) {
@@ -8972,64 +6716,6 @@ export default class Client extends OpenApi {
   async createSensitiveWord(request: CreateSensitiveWordRequest): Promise<CreateSensitiveWordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSensitiveWordWithOptions(request, runtime);
-  }
-
-  async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteApp",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
-  }
-
-  async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteAppWithOptions(request, runtime);
-  }
-
-  async deleteAppTemplateWithOptions(request: DeleteAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppTemplateResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appTemplateId)) {
-      body["AppTemplateId"] = request.appTemplateId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteAppTemplate",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteAppTemplateResponse>(await this.callApi(params, req, runtime), new DeleteAppTemplateResponse({}));
-  }
-
-  async deleteAppTemplate(request: DeleteAppTemplateRequest): Promise<DeleteAppTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteAppTemplateWithOptions(request, runtime);
   }
 
   async deleteClassWithOptions(request: DeleteClassRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClassResponse> {
@@ -9368,64 +7054,6 @@ export default class Client extends OpenApi {
     return await this.describeMeterImpWatchLiveTimeByLiveIdWithOptions(request, runtime);
   }
 
-  async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetApp",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAppResponse>(await this.callApi(params, req, runtime), new GetAppResponse({}));
-  }
-
-  async getApp(request: GetAppRequest): Promise<GetAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAppWithOptions(request, runtime);
-  }
-
-  async getAppTemplateWithOptions(request: GetAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetAppTemplateResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appTemplateId)) {
-      body["AppTemplateId"] = request.appTemplateId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetAppTemplate",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAppTemplateResponse>(await this.callApi(params, req, runtime), new GetAppTemplateResponse({}));
-  }
-
-  async getAppTemplate(request: GetAppTemplateRequest): Promise<GetAppTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAppTemplateWithOptions(request, runtime);
-  }
-
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9570,35 +7198,6 @@ export default class Client extends OpenApi {
     return await this.getConferenceWithOptions(request, runtime);
   }
 
-  async getDomainOwnerVerifyContentWithOptions(request: GetDomainOwnerVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<GetDomainOwnerVerifyContentResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.liveDomainName)) {
-      body["LiveDomainName"] = request.liveDomainName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetDomainOwnerVerifyContent",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetDomainOwnerVerifyContentResponse>(await this.callApi(params, req, runtime), new GetDomainOwnerVerifyContentResponse({}));
-  }
-
-  async getDomainOwnerVerifyContent(request: GetDomainOwnerVerifyContentRequest): Promise<GetDomainOwnerVerifyContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDomainOwnerVerifyContentWithOptions(request, runtime);
-  }
-
   async getLiveWithOptions(request: GetLiveRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9626,49 +7225,6 @@ export default class Client extends OpenApi {
   async getLive(request: GetLiveRequest): Promise<GetLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLiveWithOptions(request, runtime);
-  }
-
-  async getLiveDomainStatusWithOptions(tmpReq: GetLiveDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveDomainStatusResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetLiveDomainStatusShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.liveDomainList)) {
-      request.liveDomainListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.liveDomainList, "LiveDomainList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.liveDomainListShrink)) {
-      body["LiveDomainList"] = request.liveDomainListShrink;
-    }
-
-    if (!Util.isUnset(request.liveDomainType)) {
-      body["LiveDomainType"] = request.liveDomainType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetLiveDomainStatus",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetLiveDomainStatusResponse>(await this.callApi(params, req, runtime), new GetLiveDomainStatusResponse({}));
-  }
-
-  async getLiveDomainStatus(request: GetLiveDomainStatusRequest): Promise<GetLiveDomainStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getLiveDomainStatusWithOptions(request, runtime);
   }
 
   async getLiveRecordWithOptions(request: GetLiveRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRecordResponse> {
@@ -9848,35 +7404,6 @@ export default class Client extends OpenApi {
     return await this.getRoomWithOptions(request, runtime);
   }
 
-  async getStandardRoomHttpsCertificateWithOptions(request: GetStandardRoomHttpsCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardRoomHttpsCertificateResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.certificateId)) {
-      body["CertificateId"] = request.certificateId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetStandardRoomHttpsCertificate",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetStandardRoomHttpsCertificateResponse>(await this.callApi(params, req, runtime), new GetStandardRoomHttpsCertificateResponse({}));
-  }
-
-  async getStandardRoomHttpsCertificate(request: GetStandardRoomHttpsCertificateRequest): Promise<GetStandardRoomHttpsCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getStandardRoomHttpsCertificateWithOptions(request, runtime);
-  }
-
   async getStandardRoomJumpUrlWithOptions(request: GetStandardRoomJumpUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardRoomJumpUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9975,121 +7502,6 @@ export default class Client extends OpenApi {
     return await this.kickRoomUserWithOptions(request, runtime);
   }
 
-  async listAppTemplatesWithOptions(request: ListAppTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppTemplatesResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListAppTemplates",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAppTemplatesResponse>(await this.callApi(params, req, runtime), new ListAppTemplatesResponse({}));
-  }
-
-  async listAppTemplates(request: ListAppTemplatesRequest): Promise<ListAppTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAppTemplatesWithOptions(request, runtime);
-  }
-
-  async listApplyLinkMicUsersWithOptions(request: ListApplyLinkMicUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListApplyLinkMicUsersResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListApplyLinkMicUsers",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListApplyLinkMicUsersResponse>(await this.callApi(params, req, runtime), new ListApplyLinkMicUsersResponse({}));
-  }
-
-  async listApplyLinkMicUsers(request: ListApplyLinkMicUsersRequest): Promise<ListApplyLinkMicUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listApplyLinkMicUsersWithOptions(request, runtime);
-  }
-
-  async listAppsWithOptions(request: ListAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appIds)) {
-      body["AppIds"] = request.appIds;
-    }
-
-    if (!Util.isUnset(request.integrationMode)) {
-      body["IntegrationMode"] = request.integrationMode;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      body["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListApps",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAppsResponse>(await this.callApi(params, req, runtime), new ListAppsResponse({}));
-  }
-
-  async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAppsWithOptions(request, runtime);
-  }
-
   async listClassesWithOptions(request: ListClassesRequest, runtime: $Util.RuntimeOptions): Promise<ListClassesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10178,39 +7590,6 @@ export default class Client extends OpenApi {
   async listComments(request: ListCommentsRequest): Promise<ListCommentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCommentsWithOptions(request, runtime);
-  }
-
-  async listComponentsWithOptions(request: ListComponentsRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.appTemplateId)) {
-      body["AppTemplateId"] = request.appTemplateId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListComponents",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListComponentsResponse>(await this.callApi(params, req, runtime), new ListComponentsResponse({}));
-  }
-
-  async listComponents(request: ListComponentsRequest): Promise<ListComponentsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listComponentsWithOptions(request, runtime);
   }
 
   async listConferenceUsersWithOptions(request: ListConferenceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListConferenceUsersResponse> {
@@ -10415,6 +7794,14 @@ export default class Client extends OpenApi {
       body["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -10505,43 +7892,6 @@ export default class Client extends OpenApi {
   async publishLiveRoom(request: PublishLiveRoomRequest): Promise<PublishLiveRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishLiveRoomWithOptions(request, runtime);
-  }
-
-  async rejectLinkMicWithOptions(request: RejectLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<RejectLinkMicResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.fromUserId)) {
-      body["FromUserId"] = request.fromUserId;
-    }
-
-    if (!Util.isUnset(request.toUserId)) {
-      body["ToUserId"] = request.toUserId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "RejectLinkMic",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RejectLinkMicResponse>(await this.callApi(params, req, runtime), new RejectLinkMicResponse({}));
-  }
-
-  async rejectLinkMic(request: RejectLinkMicRequest): Promise<RejectLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.rejectLinkMicWithOptions(request, runtime);
   }
 
   async removeMemberWithOptions(request: RemoveMemberRequest, runtime: $Util.RuntimeOptions): Promise<RemoveMemberResponse> {
@@ -10871,125 +8221,6 @@ export default class Client extends OpenApi {
     return await this.stopLiveRoomWithOptions(request, runtime);
   }
 
-  async updateAppWithOptions(request: UpdateAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.appName)) {
-      body["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.appStatus)) {
-      body["AppStatus"] = request.appStatus;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateApp",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAppResponse>(await this.callApi(params, req, runtime), new UpdateAppResponse({}));
-  }
-
-  async updateApp(request: UpdateAppRequest): Promise<UpdateAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateAppWithOptions(request, runtime);
-  }
-
-  async updateAppTemplateWithOptions(tmpReq: UpdateAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppTemplateResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateAppTemplateShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.componentList)) {
-      request.componentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentList, "ComponentList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appTemplateId)) {
-      body["AppTemplateId"] = request.appTemplateId;
-    }
-
-    if (!Util.isUnset(request.appTemplateName)) {
-      body["AppTemplateName"] = request.appTemplateName;
-    }
-
-    if (!Util.isUnset(request.componentListShrink)) {
-      body["ComponentList"] = request.componentListShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateAppTemplate",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAppTemplateResponse>(await this.callApi(params, req, runtime), new UpdateAppTemplateResponse({}));
-  }
-
-  async updateAppTemplate(request: UpdateAppTemplateRequest): Promise<UpdateAppTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateAppTemplateWithOptions(request, runtime);
-  }
-
-  async updateAppTemplateConfigWithOptions(tmpReq: UpdateAppTemplateConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppTemplateConfigResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateAppTemplateConfigShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.configList)) {
-      request.configListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configList, "ConfigList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appTemplateId)) {
-      body["AppTemplateId"] = request.appTemplateId;
-    }
-
-    if (!Util.isUnset(request.configListShrink)) {
-      body["ConfigList"] = request.configListShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateAppTemplateConfig",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAppTemplateConfigResponse>(await this.callApi(params, req, runtime), new UpdateAppTemplateConfigResponse({}));
-  }
-
-  async updateAppTemplateConfig(request: UpdateAppTemplateConfigRequest): Promise<UpdateAppTemplateConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateAppTemplateConfigWithOptions(request, runtime);
-  }
-
   async updateClassWithOptions(request: UpdateClassRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClassResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -11033,39 +8264,6 @@ export default class Client extends OpenApi {
   async updateClass(request: UpdateClassRequest): Promise<UpdateClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClassWithOptions(request, runtime);
-  }
-
-  async updateConferenceWithOptions(request: UpdateConferenceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConferenceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.conferenceId)) {
-      body["ConferenceId"] = request.conferenceId;
-    }
-
-    if (!Util.isUnset(request.title)) {
-      body["Title"] = request.title;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateConference",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateConferenceResponse>(await this.callApi(params, req, runtime), new UpdateConferenceResponse({}));
-  }
-
-  async updateConference(request: UpdateConferenceRequest): Promise<UpdateConferenceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateConferenceWithOptions(request, runtime);
   }
 
   async updateLiveWithOptions(request: UpdateLiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveResponse> {
@@ -11227,18 +8425,42 @@ export default class Client extends OpenApi {
     return await this.updateRoomWithOptions(request, runtime);
   }
 
-  async verifyDomainOwnerWithOptions(request: VerifyDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDomainOwnerResponse> {
+  async updateShareScreenLayoutWithOptions(request: UpdateShareScreenLayoutRequest, runtime: $Util.RuntimeOptions): Promise<UpdateShareScreenLayoutResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.liveDomainName)) {
-      body["LiveDomainName"] = request.liveDomainName;
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.classId)) {
+      body["ClassId"] = request.classId;
+    }
+
+    if (!Util.isUnset(request.enableOverlay)) {
+      body["EnableOverlay"] = request.enableOverlay;
+    }
+
+    if (!Util.isUnset(request.overlayHeight)) {
+      body["OverlayHeight"] = request.overlayHeight;
+    }
+
+    if (!Util.isUnset(request.overlayWidth)) {
+      body["OverlayWidth"] = request.overlayWidth;
+    }
+
+    if (!Util.isUnset(request.overlayX)) {
+      body["OverlayX"] = request.overlayX;
+    }
+
+    if (!Util.isUnset(request.overlayY)) {
+      body["OverlayY"] = request.overlayY;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "VerifyDomainOwner",
+      action: "UpdateShareScreenLayout",
       version: "2021-06-30",
       protocol: "HTTPS",
       pathname: "/",
@@ -11248,12 +8470,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyDomainOwnerResponse({}));
+    return $tea.cast<UpdateShareScreenLayoutResponse>(await this.callApi(params, req, runtime), new UpdateShareScreenLayoutResponse({}));
   }
 
-  async verifyDomainOwner(request: VerifyDomainOwnerRequest): Promise<VerifyDomainOwnerResponse> {
+  async updateShareScreenLayout(request: UpdateShareScreenLayoutRequest): Promise<UpdateShareScreenLayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyDomainOwnerWithOptions(request, runtime);
+    return await this.updateShareScreenLayoutWithOptions(request, runtime);
   }
 
 }
