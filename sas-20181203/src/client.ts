@@ -402,6 +402,150 @@ export class CreateBackupPolicyResponse extends $tea.Model {
   }
 }
 
+export class CreateFileDetectRequest extends $tea.Model {
+  hashKey?: string;
+  ossKey?: string;
+  sourceIp?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hashKey: 'HashKey',
+      ossKey: 'OssKey',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hashKey: 'string',
+      ossKey: 'string',
+      sourceIp: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileDetectResponseBody extends $tea.Model {
+  hashKey?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hashKey: 'HashKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hashKey: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileDetectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileDetectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileDetectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileDetectUploadUrlRequest extends $tea.Model {
+  hashKeyList?: string[];
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hashKeyList: 'HashKeyList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hashKeyList: { 'type': 'array', 'itemType': 'string' },
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileDetectUploadUrlResponseBody extends $tea.Model {
+  requestId?: string;
+  uploadUrlList?: CreateFileDetectUploadUrlResponseBodyUploadUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      uploadUrlList: 'UploadUrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      uploadUrlList: { 'type': 'array', 'itemType': CreateFileDetectUploadUrlResponseBodyUploadUrlList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileDetectUploadUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileDetectUploadUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileDetectUploadUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateAssetGroupRequest extends $tea.Model {
   groupId?: number;
   groupName?: string;
@@ -1632,6 +1776,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
   sourceIp?: string;
   tacticId?: string;
   uniqueInfo?: string;
+  uuids?: string;
   static names(): { [key: string]: string } {
     return {
       alarmEventName: 'AlarmEventName',
@@ -1649,6 +1794,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       sourceIp: 'SourceIp',
       tacticId: 'TacticId',
       uniqueInfo: 'UniqueInfo',
+      uuids: 'Uuids',
     };
   }
 
@@ -1669,6 +1815,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       sourceIp: 'string',
       tacticId: 'string',
       uniqueInfo: 'string',
+      uuids: 'string',
     };
   }
 
@@ -9289,6 +9436,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   levels?: string;
   name?: string;
   operateErrorCodeList?: string[];
+  operateTimeEnd?: number;
+  operateTimeStart?: number;
   pageSize?: string;
   parentEventTypes?: string;
   remark?: string;
@@ -9315,6 +9464,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       levels: 'Levels',
       name: 'Name',
       operateErrorCodeList: 'OperateErrorCodeList',
+      operateTimeEnd: 'OperateTimeEnd',
+      operateTimeStart: 'OperateTimeStart',
       pageSize: 'PageSize',
       parentEventTypes: 'ParentEventTypes',
       remark: 'Remark',
@@ -9344,6 +9495,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       levels: 'string',
       name: 'string',
       operateErrorCodeList: { 'type': 'array', 'itemType': 'string' },
+      operateTimeEnd: 'number',
+      operateTimeStart: 'number',
       pageSize: 'string',
       parentEventTypes: 'string',
       remark: 'string',
@@ -9820,11 +9973,13 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
   honeypotCapacity?: number;
   imageScanCapacity?: number;
   instanceId?: string;
+  isNewContainerVersion?: boolean;
   isOverBalance?: boolean;
   isTrialVersion?: number;
   lastTrailEndTime?: number;
   MVAuthCount?: number;
   MVUnusedAuthCount?: number;
+  openTime?: number;
   releaseTime?: number;
   requestId?: string;
   sasLog?: number;
@@ -9845,11 +10000,13 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       honeypotCapacity: 'HoneypotCapacity',
       imageScanCapacity: 'ImageScanCapacity',
       instanceId: 'InstanceId',
+      isNewContainerVersion: 'IsNewContainerVersion',
       isOverBalance: 'IsOverBalance',
       isTrialVersion: 'IsTrialVersion',
       lastTrailEndTime: 'LastTrailEndTime',
       MVAuthCount: 'MVAuthCount',
       MVUnusedAuthCount: 'MVUnusedAuthCount',
+      openTime: 'OpenTime',
       releaseTime: 'ReleaseTime',
       requestId: 'RequestId',
       sasLog: 'SasLog',
@@ -9873,11 +10030,13 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       honeypotCapacity: 'number',
       imageScanCapacity: 'number',
       instanceId: 'string',
+      isNewContainerVersion: 'boolean',
       isOverBalance: 'boolean',
       isTrialVersion: 'number',
       lastTrailEndTime: 'number',
       MVAuthCount: 'number',
       MVUnusedAuthCount: 'number',
+      openTime: 'number',
       releaseTime: 'number',
       requestId: 'string',
       sasLog: 'number',
@@ -11116,6 +11275,78 @@ export class GetBackupStorageCountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetBackupStorageCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectResultRequest extends $tea.Model {
+  hashKeyList?: string[];
+  sourceIp?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hashKeyList: 'HashKeyList',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hashKeyList: { 'type': 'array', 'itemType': 'string' },
+      sourceIp: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectResultResponseBody extends $tea.Model {
+  requestId?: string;
+  resultList?: GetFileDetectResultResponseBodyResultList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resultList: 'ResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resultList: { 'type': 'array', 'itemType': GetFileDetectResultResponseBodyResultList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFileDetectResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileDetectResultResponseBody,
     };
   }
 
@@ -15368,6 +15599,68 @@ export class CreateAntiBruteForceRuleResponseBodyCreateAntiBruteForceRule extend
   }
 }
 
+export class CreateFileDetectUploadUrlResponseBodyUploadUrlListContext extends $tea.Model {
+  accessId?: string;
+  ossKey?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      ossKey: 'OssKey',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      ossKey: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileDetectUploadUrlResponseBodyUploadUrlList extends $tea.Model {
+  context?: CreateFileDetectUploadUrlResponseBodyUploadUrlListContext;
+  expire?: string;
+  fileExist?: boolean;
+  hashKey?: string;
+  internalUrl?: string;
+  publicUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'Context',
+      expire: 'Expire',
+      fileExist: 'FileExist',
+      hashKey: 'HashKey',
+      internalUrl: 'InternalUrl',
+      publicUrl: 'PublicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: CreateFileDetectUploadUrlResponseBodyUploadUrlListContext,
+      expire: 'string',
+      fileExist: 'boolean',
+      hashKey: 'string',
+      internalUrl: 'string',
+      publicUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecurityEventsQueryTaskResponse extends $tea.Model {
   status?: string;
   taskId?: number;
@@ -16160,15 +16453,21 @@ export class DescribeAssetDetailByUuidsResponseBodyAssetList extends $tea.Model 
 }
 
 export class DescribeAssetSummaryResponseBodyAssetsSummary extends $tea.Model {
+  totalAssetAllRegion?: number;
+  totalCoreAllRegion?: number;
   totalCoreNum?: number;
   static names(): { [key: string]: string } {
     return {
+      totalAssetAllRegion: 'TotalAssetAllRegion',
+      totalCoreAllRegion: 'TotalCoreAllRegion',
       totalCoreNum: 'TotalCoreNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalAssetAllRegion: 'number',
+      totalCoreAllRegion: 'number',
       totalCoreNum: 'number',
     };
   }
@@ -21915,6 +22214,50 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $tea.Mo
   }
 }
 
+export class GetFileDetectResultResponseBodyResultListExt extends $tea.Model {
+  virusName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      virusName: 'VirusName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      virusName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
+  ext?: GetFileDetectResultResponseBodyResultListExt;
+  hashKey?: string;
+  result?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      hashKey: 'HashKey',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: GetFileDetectResultResponseBodyResultListExt,
+      hashKey: 'string',
+      result: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HandleSecurityEventsResponseBodyHandleSecurityEventsResponse extends $tea.Model {
   taskId?: number;
   static names(): { [key: string]: string } {
@@ -22570,6 +22913,80 @@ export default class Client extends OpenApi {
   async createBackupPolicy(request: CreateBackupPolicyRequest): Promise<CreateBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupPolicyWithOptions(request, runtime);
+  }
+
+  async createFileDetectWithOptions(request: CreateFileDetectRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hashKey)) {
+      query["HashKey"] = request.hashKey;
+    }
+
+    if (!Util.isUnset(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileDetect",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileDetectResponse>(await this.callApi(params, req, runtime), new CreateFileDetectResponse({}));
+  }
+
+  async createFileDetect(request: CreateFileDetectRequest): Promise<CreateFileDetectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFileDetectWithOptions(request, runtime);
+  }
+
+  async createFileDetectUploadUrlWithOptions(request: CreateFileDetectUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectUploadUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hashKeyList)) {
+      query["HashKeyList"] = request.hashKeyList;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileDetectUploadUrl",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileDetectUploadUrlResponse>(await this.callApi(params, req, runtime), new CreateFileDetectUploadUrlResponse({}));
+  }
+
+  async createFileDetectUploadUrl(request: CreateFileDetectUploadUrlRequest): Promise<CreateFileDetectUploadUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFileDetectUploadUrlWithOptions(request, runtime);
   }
 
   async createOrUpdateAssetGroupWithOptions(request: CreateOrUpdateAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateAssetGroupResponse> {
@@ -23237,6 +23654,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.uniqueInfo)) {
       query["UniqueInfo"] = request.uniqueInfo;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -27352,6 +27773,14 @@ export default class Client extends OpenApi {
       query["OperateErrorCodeList"] = request.operateErrorCodeList;
     }
 
+    if (!Util.isUnset(request.operateTimeEnd)) {
+      query["OperateTimeEnd"] = request.operateTimeEnd;
+    }
+
+    if (!Util.isUnset(request.operateTimeStart)) {
+      query["OperateTimeStart"] = request.operateTimeStart;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -28323,6 +28752,43 @@ export default class Client extends OpenApi {
   async getBackupStorageCount(): Promise<GetBackupStorageCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBackupStorageCountWithOptions(runtime);
+  }
+
+  async getFileDetectResultWithOptions(request: GetFileDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<GetFileDetectResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hashKeyList)) {
+      query["HashKeyList"] = request.hashKeyList;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileDetectResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileDetectResultResponse>(await this.callApi(params, req, runtime), new GetFileDetectResultResponse({}));
+  }
+
+  async getFileDetectResult(request: GetFileDetectResultRequest): Promise<GetFileDetectResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileDetectResultWithOptions(request, runtime);
   }
 
   async getSuspiciousStatisticsWithOptions(request: GetSuspiciousStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetSuspiciousStatisticsResponse> {
