@@ -1876,15 +1876,18 @@ export class GetAccountForAppRequestDeviceInfo extends $tea.Model {
 
 export class GetAccountForAppRequestPayload extends $tea.Model {
   phone?: string;
+  originUuid?: string;
   static names(): { [key: string]: string } {
     return {
       phone: 'Phone',
+      originUuid: 'originUuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       phone: 'string',
+      originUuid: 'string',
     };
   }
 
