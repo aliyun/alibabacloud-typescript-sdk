@@ -2867,6 +2867,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
   startPage?: number;
   tags?: { [key: string]: any };
   targetType?: string;
+  targetURI?: string;
   targetURIPrefix?: string;
   trimPolicy?: TrimPolicy;
   userData?: string;
@@ -2900,6 +2901,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       startPage: 'StartPage',
       tags: 'Tags',
       targetType: 'TargetType',
+      targetURI: 'TargetURI',
       targetURIPrefix: 'TargetURIPrefix',
       trimPolicy: 'TrimPolicy',
       userData: 'UserData',
@@ -2936,6 +2938,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       startPage: 'number',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       targetType: 'string',
+      targetURI: 'string',
       targetURIPrefix: 'string',
       trimPolicy: TrimPolicy,
       userData: 'string',
@@ -2976,6 +2979,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
   startPage?: number;
   tagsShrink?: string;
   targetType?: string;
+  targetURI?: string;
   targetURIPrefix?: string;
   trimPolicyShrink?: string;
   userData?: string;
@@ -3009,6 +3013,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
       startPage: 'StartPage',
       tagsShrink: 'Tags',
       targetType: 'TargetType',
+      targetURI: 'TargetURI',
       targetURIPrefix: 'TargetURIPrefix',
       trimPolicyShrink: 'TrimPolicy',
       userData: 'UserData',
@@ -3045,6 +3050,7 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
       startPage: 'number',
       tagsShrink: 'string',
       targetType: 'string',
+      targetURI: 'string',
       targetURIPrefix: 'string',
       trimPolicyShrink: 'string',
       userData: 'string',
@@ -9007,6 +9013,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.targetType)) {
       query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
     }
 
     if (!Util.isUnset(request.targetURIPrefix)) {
