@@ -80,6 +80,75 @@ export class AbolishApiResponse extends $tea.Model {
   }
 }
 
+export class AddAccessControlListEntryRequest extends $tea.Model {
+  aclEntrys?: string;
+  aclId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclEntrys: 'AclEntrys',
+      aclId: 'AclId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntrys: 'string',
+      aclId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAccessControlListEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAccessControlListEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddAccessControlListEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddAccessControlListEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddIpControlPolicyItemRequest extends $tea.Model {
   appId?: string;
   cidrIp?: string;
@@ -444,6 +513,72 @@ export class BatchDeployApisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchDeployApisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessControlListRequest extends $tea.Model {
+  aclName?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclName: 'AclName',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclName: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessControlListResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessControlListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAccessControlListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccessControlListResponseBody,
     };
   }
 
@@ -1740,6 +1875,72 @@ export class CreateTrafficControlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateTrafficControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessControlListRequest extends $tea.Model {
+  aclId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessControlListResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessControlListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteAccessControlListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccessControlListResponseBody,
     };
   }
 
@@ -3117,6 +3318,168 @@ export class DescribeAbolishApiTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAbolishApiTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeRequest extends $tea.Model {
+  aclId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
+  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
+  aclId?: string;
+  aclName?: string;
+  isUsed?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclEntrys: 'AclEntrys',
+      aclId: 'AclId',
+      aclName: 'AclName',
+      isUsed: 'IsUsed',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
+      aclId: 'string',
+      aclName: 'string',
+      isUsed: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAccessControlListAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAccessControlListAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsRequest extends $tea.Model {
+  aclName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclName: 'AclName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsResponseBody extends $tea.Model {
+  acls?: DescribeAccessControlListsResponseBodyAcls;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acls: 'Acls',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acls: DescribeAccessControlListsResponseBodyAcls,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAccessControlListsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAccessControlListsResponseBody,
     };
   }
 
@@ -8294,6 +8657,75 @@ export class DetachPluginResponse extends $tea.Model {
   }
 }
 
+export class DisableInstanceAccessControlRequest extends $tea.Model {
+  aclId?: string;
+  instanceId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      instanceId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableInstanceAccessControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableInstanceAccessControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DisableInstanceAccessControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableInstanceAccessControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DryRunSwaggerRequest extends $tea.Model {
   data?: string;
   dataFormat?: string;
@@ -8413,6 +8845,78 @@ export class DryRunSwaggerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DryRunSwaggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableInstanceAccessControlRequest extends $tea.Model {
+  aclId?: string;
+  aclType?: string;
+  instanceId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      aclType: 'AclType',
+      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      aclType: 'string',
+      instanceId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableInstanceAccessControlResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableInstanceAccessControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EnableInstanceAccessControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableInstanceAccessControlResponseBody,
     };
   }
 
@@ -10075,6 +10579,75 @@ export class ReactivateDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReactivateDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAccessControlListEntryRequest extends $tea.Model {
+  aclEntrys?: string;
+  aclId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclEntrys: 'AclEntrys',
+      aclId: 'AclId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntrys: 'string',
+      aclId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAccessControlListEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAccessControlListEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveAccessControlListEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveAccessControlListEntryResponseBody,
     };
   }
 
@@ -12325,6 +12898,88 @@ export class DescribeAbolishApiTaskResponseBodyApiAbolishResults extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       apiAbolishResult: { 'type': 'array', 'itemType': DescribeAbolishApiTaskResponseBodyApiAbolishResultsApiAbolishResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry extends $tea.Model {
+  aclEntryComment?: string;
+  aclEntryIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclEntryComment: 'AclEntryComment',
+      aclEntryIp: 'AclEntryIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntryComment: 'string',
+      aclEntryIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $tea.Model {
+  aclEntry?: DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      aclEntry: 'AclEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntry: { 'type': 'array', 'itemType': DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
+  aclId?: string;
+  aclName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      aclName: 'AclName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      aclName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
+  acl?: DescribeAccessControlListsResponseBodyAclsAcl[];
+  static names(): { [key: string]: string } {
+    return {
+      acl: 'Acl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acl: { 'type': 'array', 'itemType': DescribeAccessControlListsResponseBodyAclsAcl },
     };
   }
 
@@ -16716,6 +17371,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpec
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $tea.Model {
+  aclId?: string;
+  aclName?: string;
+  aclStatus?: string;
+  aclType?: string;
   classicEgressAddress?: string;
   createdTime?: string;
   egressIpv6Enable?: boolean;
@@ -16743,6 +17402,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   zoneLocalName?: string;
   static names(): { [key: string]: string } {
     return {
+      aclId: 'AclId',
+      aclName: 'AclName',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
       classicEgressAddress: 'ClassicEgressAddress',
       createdTime: 'CreatedTime',
       egressIpv6Enable: 'EgressIpv6Enable',
@@ -16773,6 +17436,10 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
 
   static types(): { [key: string]: any } {
     return {
+      aclId: 'string',
+      aclName: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
       classicEgressAddress: 'string',
       createdTime: 'string',
       egressIpv6Enable: 'boolean',
@@ -18756,6 +19423,43 @@ export default class Client extends OpenApi {
     return await this.abolishApiWithOptions(request, runtime);
   }
 
+  async addAccessControlListEntryWithOptions(request: AddAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddAccessControlListEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclEntrys)) {
+      query["AclEntrys"] = request.aclEntrys;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddAccessControlListEntry",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new AddAccessControlListEntryResponse({}));
+  }
+
+  async addAccessControlListEntry(request: AddAccessControlListEntryRequest): Promise<AddAccessControlListEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addAccessControlListEntryWithOptions(request, runtime);
+  }
+
   async addIpControlPolicyItemWithOptions(request: AddIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<AddIpControlPolicyItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18963,6 +19667,39 @@ export default class Client extends OpenApi {
   async batchDeployApis(request: BatchDeployApisRequest): Promise<BatchDeployApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeployApisWithOptions(request, runtime);
+  }
+
+  async createAccessControlListWithOptions(request: CreateAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessControlListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAccessControlList",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessControlListResponse>(await this.callApi(params, req, runtime), new CreateAccessControlListResponse({}));
+  }
+
+  async createAccessControlList(request: CreateAccessControlListRequest): Promise<CreateAccessControlListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAccessControlListWithOptions(request, runtime);
   }
 
   async createApiWithOptions(request: CreateApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiResponse> {
@@ -19744,6 +20481,39 @@ export default class Client extends OpenApi {
     return await this.createTrafficControlWithOptions(request, runtime);
   }
 
+  async deleteAccessControlListWithOptions(request: DeleteAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessControlListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessControlList",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessControlListResponse>(await this.callApi(params, req, runtime), new DeleteAccessControlListResponse({}));
+  }
+
+  async deleteAccessControlList(request: DeleteAccessControlListRequest): Promise<DeleteAccessControlListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccessControlListWithOptions(request, runtime);
+  }
+
   async deleteAllTrafficSpecialControlWithOptions(request: DeleteAllTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAllTrafficSpecialControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20470,6 +21240,80 @@ export default class Client extends OpenApi {
   async describeAbolishApiTask(request: DescribeAbolishApiTaskRequest): Promise<DescribeAbolishApiTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAbolishApiTaskWithOptions(request, runtime);
+  }
+
+  async describeAccessControlListAttributeWithOptions(request: DescribeAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessControlListAttribute",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListAttributeResponse({}));
+  }
+
+  async describeAccessControlListAttribute(request: DescribeAccessControlListAttributeRequest): Promise<DescribeAccessControlListAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAccessControlListAttributeWithOptions(request, runtime);
+  }
+
+  async describeAccessControlListsWithOptions(request: DescribeAccessControlListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessControlLists",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessControlListsResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListsResponse({}));
+  }
+
+  async describeAccessControlLists(request: DescribeAccessControlListsRequest): Promise<DescribeAccessControlListsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAccessControlListsWithOptions(request, runtime);
   }
 
   async describeApiWithOptions(request: DescribeApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiResponse> {
@@ -22977,6 +23821,43 @@ export default class Client extends OpenApi {
     return await this.detachPluginWithOptions(request, runtime);
   }
 
+  async disableInstanceAccessControlWithOptions(request: DisableInstanceAccessControlRequest, runtime: $Util.RuntimeOptions): Promise<DisableInstanceAccessControlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableInstanceAccessControl",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableInstanceAccessControlResponse>(await this.callApi(params, req, runtime), new DisableInstanceAccessControlResponse({}));
+  }
+
+  async disableInstanceAccessControl(request: DisableInstanceAccessControlRequest): Promise<DisableInstanceAccessControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableInstanceAccessControlWithOptions(request, runtime);
+  }
+
   async dryRunSwaggerWithOptions(tmpReq: DryRunSwaggerRequest, runtime: $Util.RuntimeOptions): Promise<DryRunSwaggerResponse> {
     Util.validateModel(tmpReq);
     let request = new DryRunSwaggerShrinkRequest({ });
@@ -23032,6 +23913,47 @@ export default class Client extends OpenApi {
   async dryRunSwagger(request: DryRunSwaggerRequest): Promise<DryRunSwaggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dryRunSwaggerWithOptions(request, runtime);
+  }
+
+  async enableInstanceAccessControlWithOptions(request: EnableInstanceAccessControlRequest, runtime: $Util.RuntimeOptions): Promise<EnableInstanceAccessControlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableInstanceAccessControl",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableInstanceAccessControlResponse>(await this.callApi(params, req, runtime), new EnableInstanceAccessControlResponse({}));
+  }
+
+  async enableInstanceAccessControl(request: EnableInstanceAccessControlRequest): Promise<EnableInstanceAccessControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableInstanceAccessControlWithOptions(request, runtime);
   }
 
   async importSwaggerWithOptions(tmpReq: ImportSwaggerRequest, runtime: $Util.RuntimeOptions): Promise<ImportSwaggerResponse> {
@@ -24119,6 +25041,43 @@ export default class Client extends OpenApi {
   async reactivateDomain(request: ReactivateDomainRequest): Promise<ReactivateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reactivateDomainWithOptions(request, runtime);
+  }
+
+  async removeAccessControlListEntryWithOptions(request: RemoveAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAccessControlListEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclEntrys)) {
+      query["AclEntrys"] = request.aclEntrys;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveAccessControlListEntry",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new RemoveAccessControlListEntryResponse({}));
+  }
+
+  async removeAccessControlListEntry(request: RemoveAccessControlListEntryRequest): Promise<RemoveAccessControlListEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeAccessControlListEntryWithOptions(request, runtime);
   }
 
   async removeApisAuthoritiesWithOptions(request: RemoveApisAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApisAuthoritiesResponse> {
