@@ -3076,14 +3076,18 @@ export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $t
 
 export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
   detections?: ScreenChestCTResponseBodyDataDetectRibFractureDetections[];
+  fractureMaskURL?: string;
   origin?: number[];
   resultURL?: string;
+  ribSegmentMaskURL?: string;
   spacing?: number[];
   static names(): { [key: string]: string } {
     return {
       detections: 'Detections',
+      fractureMaskURL: 'FractureMaskURL',
       origin: 'Origin',
       resultURL: 'ResultURL',
+      ribSegmentMaskURL: 'RibSegmentMaskURL',
       spacing: 'Spacing',
     };
   }
@@ -3091,8 +3095,10 @@ export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataDetectRibFractureDetections },
+      fractureMaskURL: 'string',
       origin: { 'type': 'array', 'itemType': 'number' },
       resultURL: 'string',
+      ribSegmentMaskURL: 'string',
       spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
