@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudgameapi20200728",
-  "version": "2.5.2",
+  "version": "2.5.4",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

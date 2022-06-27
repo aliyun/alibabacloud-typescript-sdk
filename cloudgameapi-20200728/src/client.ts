@@ -2333,6 +2333,84 @@ export class ListDeployableInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListGameServerIpRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGameServerIpResponseBody extends $tea.Model {
+  items?: string[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGameServerIpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGameServerIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGameServerIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGameVersionsRequest extends $tea.Model {
   gameId?: string;
   maxResults?: number;
@@ -6537,6 +6615,39 @@ export default class Client extends OpenApi {
   async listDeployableInstances(request: ListDeployableInstancesRequest): Promise<ListDeployableInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDeployableInstancesWithOptions(request, runtime);
+  }
+
+  async listGameServerIpWithOptions(request: ListGameServerIpRequest, runtime: $Util.RuntimeOptions): Promise<ListGameServerIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGameServerIp",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGameServerIpResponse>(await this.callApi(params, req, runtime), new ListGameServerIpResponse({}));
+  }
+
+  async listGameServerIp(request: ListGameServerIpRequest): Promise<ListGameServerIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGameServerIpWithOptions(request, runtime);
   }
 
   async listGameVersionsWithOptions(request: ListGameVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListGameVersionsResponse> {
