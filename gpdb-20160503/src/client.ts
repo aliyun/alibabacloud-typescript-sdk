@@ -1259,6 +1259,354 @@ export class DescribeDBInstanceAttributeResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBInstanceDataBloatRequest extends $tea.Model {
+  DBInstanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataBloatResponseBody extends $tea.Model {
+  items?: DescribeDBInstanceDataBloatResponseBodyItems[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeDBInstanceDataBloatResponseBodyItems },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataBloatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceDataBloatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceDataBloatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataSkewRequest extends $tea.Model {
+  DBInstanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataSkewResponseBody extends $tea.Model {
+  items?: DescribeDBInstanceDataSkewResponseBodyItems[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeDBInstanceDataSkewResponseBodyItems },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataSkewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceDataSkewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceDataSkewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDiagnosisSummaryRequest extends $tea.Model {
+  DBInstanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  rolePreferd?: string;
+  startStatus?: string;
+  syncMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      rolePreferd: 'RolePreferd',
+      startStatus: 'StartStatus',
+      syncMode: 'SyncMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      rolePreferd: 'string',
+      startStatus: 'string',
+      syncMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDiagnosisSummaryResponseBody extends $tea.Model {
+  items?: DescribeDBInstanceDiagnosisSummaryResponseBodyItems[];
+  masterStatusInfo?: DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo;
+  pageNumber?: string;
+  requestId?: string;
+  segmentStatusInfo?: DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      masterStatusInfo: 'MasterStatusInfo',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      segmentStatusInfo: 'SegmentStatusInfo',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeDBInstanceDiagnosisSummaryResponseBodyItems },
+      masterStatusInfo: DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo,
+      pageNumber: 'string',
+      requestId: 'string',
+      segmentStatusInfo: DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo,
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDiagnosisSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceDiagnosisSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceDiagnosisSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceErrorLogRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  host?: string;
+  keywords?: string;
+  logLevel?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      host: 'Host',
+      keywords: 'Keywords',
+      logLevel: 'LogLevel',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      host: 'string',
+      keywords: 'string',
+      logLevel: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceErrorLogResponseBody extends $tea.Model {
+  items?: DescribeDBInstanceErrorLogResponseBodyItems[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeDBInstanceErrorLogResponseBodyItems },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceErrorLogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceErrorLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceErrorLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceIPArrayListRequest extends $tea.Model {
   DBInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -1317,6 +1665,84 @@ export class DescribeDBInstanceIPArrayListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDBInstanceIPArrayListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceIndexUsageRequest extends $tea.Model {
+  DBInstanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceIndexUsageResponseBody extends $tea.Model {
+  items?: DescribeDBInstanceIndexUsageResponseBodyItems[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeDBInstanceIndexUsageResponseBodyItems },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceIndexUsageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDBInstanceIndexUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceIndexUsageResponseBody,
     };
   }
 
@@ -2143,6 +2569,432 @@ export class DescribeDataSharePerformanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDataSharePerformanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisDimensionsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisDimensionsResponseBody extends $tea.Model {
+  databases?: string[];
+  requestId?: string;
+  userNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      databases: 'Databases',
+      requestId: 'RequestId',
+      userNames: 'UserNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databases: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      userNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisDimensionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisDimensionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisDimensionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisMonitorPerformanceRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  queryCondition?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      queryCondition: 'QueryCondition',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      queryCondition: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisMonitorPerformanceResponseBody extends $tea.Model {
+  performances?: DescribeDiagnosisMonitorPerformanceResponseBodyPerformances[];
+  performancesThreshold?: number;
+  performancesTruncated?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      performances: 'Performances',
+      performancesThreshold: 'PerformancesThreshold',
+      performancesTruncated: 'PerformancesTruncated',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      performances: { 'type': 'array', 'itemType': DescribeDiagnosisMonitorPerformanceResponseBodyPerformances },
+      performancesThreshold: 'number',
+      performancesTruncated: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisMonitorPerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisMonitorPerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisMonitorPerformanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisRecordsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  keyword?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  queryCondition?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryCondition: 'QueryCondition',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      keyword: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryCondition: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisRecordsResponseBody extends $tea.Model {
+  items?: DescribeDiagnosisRecordsResponseBodyItems[];
+  pageNumber?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeDiagnosisRecordsResponseBodyItems },
+      pageNumber: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisSQLInfoRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  queryID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      queryID: 'QueryID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      queryID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisSQLInfoResponseBody extends $tea.Model {
+  database?: string;
+  duration?: number;
+  maxOutputRows?: string;
+  queryID?: string;
+  queryPlan?: string;
+  requestId?: string;
+  SQLStmt?: string;
+  sessionID?: string;
+  sortedMetrics?: string;
+  startTime?: number;
+  status?: string;
+  textPlan?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      duration: 'Duration',
+      maxOutputRows: 'MaxOutputRows',
+      queryID: 'QueryID',
+      queryPlan: 'QueryPlan',
+      requestId: 'RequestId',
+      SQLStmt: 'SQLStmt',
+      sessionID: 'SessionID',
+      sortedMetrics: 'SortedMetrics',
+      startTime: 'StartTime',
+      status: 'Status',
+      textPlan: 'TextPlan',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      duration: 'number',
+      maxOutputRows: 'string',
+      queryID: 'string',
+      queryPlan: 'string',
+      requestId: 'string',
+      SQLStmt: 'string',
+      sessionID: 'string',
+      sortedMetrics: 'string',
+      startTime: 'number',
+      status: 'string',
+      textPlan: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisSQLInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDiagnosisSQLInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosisSQLInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadRecordsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadRecordsResponseBody extends $tea.Model {
+  records?: DescribeDownloadRecordsResponseBodyRecords[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      records: 'Records',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': DescribeDownloadRecordsResponseBodyRecords },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDownloadRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDownloadRecordsResponseBody,
     };
   }
 
@@ -3841,6 +4693,90 @@ export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeUserEncryptionKeyListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadDiagnosisRecordsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  database?: string;
+  endTime?: string;
+  lang?: string;
+  queryCondition?: string;
+  startTime?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      queryCondition: 'QueryCondition',
+      startTime: 'StartTime',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      endTime: 'string',
+      lang: 'string',
+      queryCondition: 'string',
+      startTime: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadDiagnosisRecordsResponseBody extends $tea.Model {
+  downloadId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadId: 'DownloadId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadDiagnosisRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DownloadDiagnosisRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DownloadDiagnosisRecordsResponseBody,
     };
   }
 
@@ -5867,9 +6803,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   port?: string;
   readDelayTime?: string;
   regionId?: string;
+  runningTime?: string;
   securityIPList?: string;
   segNodeNum?: number;
   segmentCounts?: number;
+  startTime?: string;
   storagePerNode?: number;
   storageSize?: number;
   storageType?: string;
@@ -5922,9 +6860,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       port: 'Port',
       readDelayTime: 'ReadDelayTime',
       regionId: 'RegionId',
+      runningTime: 'RunningTime',
       securityIPList: 'SecurityIPList',
       segNodeNum: 'SegNodeNum',
       segmentCounts: 'SegmentCounts',
+      startTime: 'StartTime',
       storagePerNode: 'StoragePerNode',
       storageSize: 'StorageSize',
       storageType: 'StorageType',
@@ -5980,9 +6920,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       port: 'string',
       readDelayTime: 'string',
       regionId: 'string',
+      runningTime: 'string',
       securityIPList: 'string',
       segNodeNum: 'number',
       segmentCounts: 'number',
+      startTime: 'string',
       storagePerNode: 'number',
       storageSize: 'number',
       storageType: 'string',
@@ -6011,6 +6953,252 @@ export class DescribeDBInstanceAttributeResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceAttribute: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataBloatResponseBodyItems extends $tea.Model {
+  bloatCeoff?: string;
+  bloatSize?: string;
+  databaseName?: string;
+  expectTableSize?: string;
+  realTableSize?: string;
+  schemaName?: string;
+  sequence?: number;
+  storageType?: string;
+  suggestedAction?: string;
+  tableName?: string;
+  timeLastUpdated?: string;
+  timeLastVacuumed?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bloatCeoff: 'BloatCeoff',
+      bloatSize: 'BloatSize',
+      databaseName: 'DatabaseName',
+      expectTableSize: 'ExpectTableSize',
+      realTableSize: 'RealTableSize',
+      schemaName: 'SchemaName',
+      sequence: 'Sequence',
+      storageType: 'StorageType',
+      suggestedAction: 'SuggestedAction',
+      tableName: 'TableName',
+      timeLastUpdated: 'TimeLastUpdated',
+      timeLastVacuumed: 'TimeLastVacuumed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bloatCeoff: 'string',
+      bloatSize: 'string',
+      databaseName: 'string',
+      expectTableSize: 'string',
+      realTableSize: 'string',
+      schemaName: 'string',
+      sequence: 'number',
+      storageType: 'string',
+      suggestedAction: 'string',
+      tableName: 'string',
+      timeLastUpdated: 'string',
+      timeLastVacuumed: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDataSkewResponseBodyItems extends $tea.Model {
+  databaseName?: string;
+  distributeKey?: string;
+  owner?: string;
+  schemaName?: string;
+  sequence?: number;
+  tableName?: string;
+  tableSize?: string;
+  tableSkew?: string;
+  timeLastUpdated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      distributeKey: 'DistributeKey',
+      owner: 'Owner',
+      schemaName: 'SchemaName',
+      sequence: 'Sequence',
+      tableName: 'TableName',
+      tableSize: 'TableSize',
+      tableSkew: 'TableSkew',
+      timeLastUpdated: 'TimeLastUpdated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      distributeKey: 'string',
+      owner: 'string',
+      schemaName: 'string',
+      sequence: 'number',
+      tableName: 'string',
+      tableSize: 'string',
+      tableSkew: 'string',
+      timeLastUpdated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDiagnosisSummaryResponseBodyItems extends $tea.Model {
+  hostname?: string;
+  nodeAddress?: string;
+  nodeCID?: string;
+  nodeID?: string;
+  nodeName?: string;
+  nodePort?: string;
+  nodePreferredRole?: string;
+  nodeReplicationMode?: string;
+  nodeRole?: string;
+  nodeStatus?: string;
+  nodeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostname: 'Hostname',
+      nodeAddress: 'NodeAddress',
+      nodeCID: 'NodeCID',
+      nodeID: 'NodeID',
+      nodeName: 'NodeName',
+      nodePort: 'NodePort',
+      nodePreferredRole: 'NodePreferredRole',
+      nodeReplicationMode: 'NodeReplicationMode',
+      nodeRole: 'NodeRole',
+      nodeStatus: 'NodeStatus',
+      nodeType: 'NodeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostname: 'string',
+      nodeAddress: 'string',
+      nodeCID: 'string',
+      nodeID: 'string',
+      nodeName: 'string',
+      nodePort: 'string',
+      nodePreferredRole: 'string',
+      nodeReplicationMode: 'string',
+      nodeRole: 'string',
+      nodeStatus: 'string',
+      nodeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDiagnosisSummaryResponseBodyMasterStatusInfo extends $tea.Model {
+  exceptionNodeNum?: number;
+  normalNodeNum?: number;
+  notPreferredNodeNum?: number;
+  notSyncingNodeNum?: number;
+  preferredNodeNum?: number;
+  syncedNodeNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exceptionNodeNum: 'ExceptionNodeNum',
+      normalNodeNum: 'NormalNodeNum',
+      notPreferredNodeNum: 'NotPreferredNodeNum',
+      notSyncingNodeNum: 'NotSyncingNodeNum',
+      preferredNodeNum: 'PreferredNodeNum',
+      syncedNodeNum: 'SyncedNodeNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exceptionNodeNum: 'number',
+      normalNodeNum: 'number',
+      notPreferredNodeNum: 'number',
+      notSyncingNodeNum: 'number',
+      preferredNodeNum: 'number',
+      syncedNodeNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceDiagnosisSummaryResponseBodySegmentStatusInfo extends $tea.Model {
+  exceptionNodeNum?: number;
+  normalNodeNum?: number;
+  notPreferredNodeNum?: number;
+  notSyncingNodeNum?: number;
+  preferredNodeNum?: number;
+  syncedNodeNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exceptionNodeNum: 'ExceptionNodeNum',
+      normalNodeNum: 'NormalNodeNum',
+      notPreferredNodeNum: 'NotPreferredNodeNum',
+      notSyncingNodeNum: 'NotSyncingNodeNum',
+      preferredNodeNum: 'PreferredNodeNum',
+      syncedNodeNum: 'SyncedNodeNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exceptionNodeNum: 'number',
+      normalNodeNum: 'number',
+      notPreferredNodeNum: 'number',
+      notSyncingNodeNum: 'number',
+      preferredNodeNum: 'number',
+      syncedNodeNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceErrorLogResponseBodyItems extends $tea.Model {
+  database?: string;
+  host?: string;
+  logContext?: string;
+  logLevel?: string;
+  time?: number;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      host: 'Host',
+      logContext: 'LogContext',
+      logLevel: 'LogLevel',
+      time: 'Time',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      host: 'string',
+      logContext: 'string',
+      logLevel: 'string',
+      time: 'number',
+      user: 'string',
     };
   }
 
@@ -6055,6 +7243,52 @@ export class DescribeDBInstanceIPArrayListResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceIPArray: { 'type': 'array', 'itemType': DescribeDBInstanceIPArrayListResponseBodyItemsDBInstanceIPArray },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceIndexUsageResponseBodyItems extends $tea.Model {
+  databaseName?: string;
+  indexDef?: string;
+  indexName?: string;
+  indexScanTimes?: number;
+  indexSize?: string;
+  isPartitionTable?: boolean;
+  parentTableName?: string;
+  schemaName?: string;
+  tableName?: string;
+  timeLastUpdated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      indexDef: 'IndexDef',
+      indexName: 'IndexName',
+      indexScanTimes: 'IndexScanTimes',
+      indexSize: 'IndexSize',
+      isPartitionTable: 'IsPartitionTable',
+      parentTableName: 'ParentTableName',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      timeLastUpdated: 'TimeLastUpdated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      indexDef: 'string',
+      indexName: 'string',
+      indexScanTimes: 'number',
+      indexSize: 'string',
+      isPartitionTable: 'boolean',
+      parentTableName: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+      timeLastUpdated: 'string',
     };
   }
 
@@ -6679,6 +7913,117 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $te
   }
 }
 
+export class DescribeDiagnosisMonitorPerformanceResponseBodyPerformances extends $tea.Model {
+  cost?: number;
+  database?: string;
+  queryID?: string;
+  startTime?: number;
+  status?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'Cost',
+      database: 'Database',
+      queryID: 'QueryID',
+      startTime: 'StartTime',
+      status: 'Status',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      database: 'string',
+      queryID: 'string',
+      startTime: 'number',
+      status: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosisRecordsResponseBodyItems extends $tea.Model {
+  database?: string;
+  duration?: number;
+  queryID?: string;
+  SQLStmt?: string;
+  SQLTruncated?: boolean;
+  SQLTruncatedThreshold?: number;
+  sessionID?: string;
+  startTime?: number;
+  status?: string;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      duration: 'Duration',
+      queryID: 'QueryID',
+      SQLStmt: 'SQLStmt',
+      SQLTruncated: 'SQLTruncated',
+      SQLTruncatedThreshold: 'SQLTruncatedThreshold',
+      sessionID: 'SessionID',
+      startTime: 'StartTime',
+      status: 'Status',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: 'string',
+      duration: 'number',
+      queryID: 'string',
+      SQLStmt: 'string',
+      SQLTruncated: 'boolean',
+      SQLTruncatedThreshold: 'number',
+      sessionID: 'string',
+      startTime: 'number',
+      status: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDownloadRecordsResponseBodyRecords extends $tea.Model {
+  downloadId?: number;
+  downloadUrl?: string;
+  exceptionMsg?: string;
+  fileName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadId: 'DownloadId',
+      downloadUrl: 'DownloadUrl',
+      exceptionMsg: 'ExceptionMsg',
+      fileName: 'FileName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadId: 'number',
+      downloadUrl: 'string',
+      exceptionMsg: 'string',
+      fileName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHealthStatusResponseBodyStatusAdbgpSegmentDiskUsagePercentMax extends $tea.Model {
   status?: string;
   value?: number;
@@ -6768,6 +8113,50 @@ export class DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent extends
 }
 
 export class DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax extends $tea.Model {
+  status?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus extends $tea.Model {
+  status?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus extends $tea.Model {
   status?: string;
   value?: number;
   static names(): { [key: string]: string } {
@@ -6905,6 +8294,8 @@ export class DescribeHealthStatusResponseBodyStatus extends $tea.Model {
   adbpgDiskStatus?: DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus;
   adbpgDiskUsagePercent?: DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent;
   adbpgMasterDiskUsagePercentMax?: DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax;
+  adbpgMasterStatus?: DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus;
+  adbpgSegmentStatus?: DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus;
   adbpgStatus?: DescribeHealthStatusResponseBodyStatusAdbpgStatus;
   nodeMasterConnectionStatus?: DescribeHealthStatusResponseBodyStatusNodeMasterConnectionStatus;
   nodeMasterStatus?: DescribeHealthStatusResponseBodyStatusNodeMasterStatus;
@@ -6917,6 +8308,8 @@ export class DescribeHealthStatusResponseBodyStatus extends $tea.Model {
       adbpgDiskStatus: 'adbpg_disk_status',
       adbpgDiskUsagePercent: 'adbpg_disk_usage_percent',
       adbpgMasterDiskUsagePercentMax: 'adbpg_master_disk_usage_percent_max',
+      adbpgMasterStatus: 'adbpg_master_status',
+      adbpgSegmentStatus: 'adbpg_segment_status',
       adbpgStatus: 'adbpg_status',
       nodeMasterConnectionStatus: 'node_master_connection_status',
       nodeMasterStatus: 'node_master_status',
@@ -6932,6 +8325,8 @@ export class DescribeHealthStatusResponseBodyStatus extends $tea.Model {
       adbpgDiskStatus: DescribeHealthStatusResponseBodyStatusAdbpgDiskStatus,
       adbpgDiskUsagePercent: DescribeHealthStatusResponseBodyStatusAdbpgDiskUsagePercent,
       adbpgMasterDiskUsagePercentMax: DescribeHealthStatusResponseBodyStatusAdbpgMasterDiskUsagePercentMax,
+      adbpgMasterStatus: DescribeHealthStatusResponseBodyStatusAdbpgMasterStatus,
+      adbpgSegmentStatus: DescribeHealthStatusResponseBodyStatusAdbpgSegmentStatus,
       adbpgStatus: DescribeHealthStatusResponseBodyStatusAdbpgStatus,
       nodeMasterConnectionStatus: DescribeHealthStatusResponseBodyStatusNodeMasterConnectionStatus,
       nodeMasterStatus: DescribeHealthStatusResponseBodyStatusNodeMasterStatus,
@@ -8730,6 +10125,194 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceAttributeWithOptions(request, runtime);
   }
 
+  async describeDBInstanceDataBloatWithOptions(request: DescribeDBInstanceDataBloatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDataBloatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceDataBloat",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceDataBloatResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDataBloatResponse({}));
+  }
+
+  async describeDBInstanceDataBloat(request: DescribeDBInstanceDataBloatRequest): Promise<DescribeDBInstanceDataBloatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceDataBloatWithOptions(request, runtime);
+  }
+
+  async describeDBInstanceDataSkewWithOptions(request: DescribeDBInstanceDataSkewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDataSkewResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceDataSkew",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceDataSkewResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDataSkewResponse({}));
+  }
+
+  async describeDBInstanceDataSkew(request: DescribeDBInstanceDataSkewRequest): Promise<DescribeDBInstanceDataSkewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceDataSkewWithOptions(request, runtime);
+  }
+
+  async describeDBInstanceDiagnosisSummaryWithOptions(request: DescribeDBInstanceDiagnosisSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDiagnosisSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.rolePreferd)) {
+      query["RolePreferd"] = request.rolePreferd;
+    }
+
+    if (!Util.isUnset(request.startStatus)) {
+      query["StartStatus"] = request.startStatus;
+    }
+
+    if (!Util.isUnset(request.syncMode)) {
+      query["SyncMode"] = request.syncMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceDiagnosisSummary",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceDiagnosisSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDiagnosisSummaryResponse({}));
+  }
+
+  async describeDBInstanceDiagnosisSummary(request: DescribeDBInstanceDiagnosisSummaryRequest): Promise<DescribeDBInstanceDiagnosisSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceDiagnosisSummaryWithOptions(request, runtime);
+  }
+
+  async describeDBInstanceErrorLogWithOptions(request: DescribeDBInstanceErrorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceErrorLogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!Util.isUnset(request.keywords)) {
+      query["Keywords"] = request.keywords;
+    }
+
+    if (!Util.isUnset(request.logLevel)) {
+      query["LogLevel"] = request.logLevel;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceErrorLog",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceErrorLogResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceErrorLogResponse({}));
+  }
+
+  async describeDBInstanceErrorLog(request: DescribeDBInstanceErrorLogRequest): Promise<DescribeDBInstanceErrorLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceErrorLogWithOptions(request, runtime);
+  }
+
   async describeDBInstanceIPArrayListWithOptions(request: DescribeDBInstanceIPArrayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIPArrayListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8757,6 +10340,43 @@ export default class Client extends OpenApi {
   async describeDBInstanceIPArrayList(request: DescribeDBInstanceIPArrayListRequest): Promise<DescribeDBInstanceIPArrayListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceIPArrayListWithOptions(request, runtime);
+  }
+
+  async describeDBInstanceIndexUsageWithOptions(request: DescribeDBInstanceIndexUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIndexUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceIndexUsage",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceIndexUsageResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceIndexUsageResponse({}));
+  }
+
+  async describeDBInstanceIndexUsage(request: DescribeDBInstanceIndexUsageRequest): Promise<DescribeDBInstanceIndexUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceIndexUsageWithOptions(request, runtime);
   }
 
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
@@ -9180,6 +10800,215 @@ export default class Client extends OpenApi {
   async describeDataSharePerformance(request: DescribeDataSharePerformanceRequest): Promise<DescribeDataSharePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataSharePerformanceWithOptions(request, runtime);
+  }
+
+  async describeDiagnosisDimensionsWithOptions(request: DescribeDiagnosisDimensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisDimensionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisDimensions",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisDimensionsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisDimensionsResponse({}));
+  }
+
+  async describeDiagnosisDimensions(request: DescribeDiagnosisDimensionsRequest): Promise<DescribeDiagnosisDimensionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisDimensionsWithOptions(request, runtime);
+  }
+
+  async describeDiagnosisMonitorPerformanceWithOptions(request: DescribeDiagnosisMonitorPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.queryCondition)) {
+      query["QueryCondition"] = request.queryCondition;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisMonitorPerformance",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisMonitorPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisMonitorPerformanceResponse({}));
+  }
+
+  async describeDiagnosisMonitorPerformance(request: DescribeDiagnosisMonitorPerformanceRequest): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisMonitorPerformanceWithOptions(request, runtime);
+  }
+
+  async describeDiagnosisRecordsWithOptions(request: DescribeDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryCondition)) {
+      query["QueryCondition"] = request.queryCondition;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisRecordsResponse({}));
+  }
+
+  async describeDiagnosisRecords(request: DescribeDiagnosisRecordsRequest): Promise<DescribeDiagnosisRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisRecordsWithOptions(request, runtime);
+  }
+
+  async describeDiagnosisSQLInfoWithOptions(request: DescribeDiagnosisSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSQLInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.queryID)) {
+      query["QueryID"] = request.queryID;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosisSQLInfo",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
+  }
+
+  async describeDiagnosisSQLInfo(request: DescribeDiagnosisSQLInfoRequest): Promise<DescribeDiagnosisSQLInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiagnosisSQLInfoWithOptions(request, runtime);
+  }
+
+  async describeDownloadRecordsWithOptions(request: DescribeDownloadRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDownloadRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDownloadRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDownloadRecordsResponse({}));
+  }
+
+  async describeDownloadRecords(request: DescribeDownloadRecordsRequest): Promise<DescribeDownloadRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDownloadRecordsWithOptions(request, runtime);
   }
 
   async describeHealthStatusWithOptions(request: DescribeHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthStatusResponse> {
@@ -10140,6 +11969,59 @@ export default class Client extends OpenApi {
   async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
+  }
+
+  async downloadDiagnosisRecordsWithOptions(request: DownloadDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDiagnosisRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.queryCondition)) {
+      query["QueryCondition"] = request.queryCondition;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DownloadDiagnosisRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DownloadDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DownloadDiagnosisRecordsResponse({}));
+  }
+
+  async downloadDiagnosisRecords(request: DownloadDiagnosisRecordsRequest): Promise<DownloadDiagnosisRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.downloadDiagnosisRecordsWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
