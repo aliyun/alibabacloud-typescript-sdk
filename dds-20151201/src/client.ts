@@ -612,6 +612,8 @@ export class CreateDBInstanceResponse extends $tea.Model {
 }
 
 export class CreateNodeRequest extends $tea.Model {
+  accountName?: string;
+  accountPassword?: string;
   autoPay?: boolean;
   businessInfo?: string;
   clientToken?: string;
@@ -626,8 +628,11 @@ export class CreateNodeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  shardDirect?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
       autoPay: 'AutoPay',
       businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
@@ -642,11 +647,14 @@ export class CreateNodeRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      shardDirect: 'ShardDirect',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountName: 'string',
+      accountPassword: 'string',
       autoPay: 'boolean',
       businessInfo: 'string',
       clientToken: 'string',
@@ -661,6 +669,7 @@ export class CreateNodeRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      shardDirect: 'boolean',
     };
   }
 
@@ -720,6 +729,8 @@ export class CreateNodeResponse extends $tea.Model {
 }
 
 export class CreateNodeBatchRequest extends $tea.Model {
+  accountName?: string;
+  accountPassword?: string;
   autoPay?: boolean;
   businessInfo?: string;
   clientToken?: string;
@@ -732,8 +743,11 @@ export class CreateNodeBatchRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  shardDirect?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
       autoPay: 'AutoPay',
       businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
@@ -746,11 +760,14 @@ export class CreateNodeBatchRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      shardDirect: 'ShardDirect',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountName: 'string',
+      accountPassword: 'string',
       autoPay: 'boolean',
       businessInfo: 'string',
       clientToken: 'string',
@@ -763,6 +780,7 @@ export class CreateNodeBatchRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      shardDirect: 'boolean',
     };
   }
 
@@ -962,6 +980,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
   DBInstanceDescription?: string;
   engine?: string;
   engineVersion?: string;
+  hiddenZoneId?: string;
   mongos?: CreateShardingDBInstanceRequestMongos[];
   networkType?: string;
   ownerAccount?: string;
@@ -974,6 +993,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   restoreTime?: string;
+  secondaryZoneId?: string;
   securityIPList?: string;
   securityToken?: string;
   srcDBInstanceId?: string;
@@ -991,6 +1011,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      hiddenZoneId: 'HiddenZoneId',
       mongos: 'Mongos',
       networkType: 'NetworkType',
       ownerAccount: 'OwnerAccount',
@@ -1003,6 +1024,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
+      secondaryZoneId: 'SecondaryZoneId',
       securityIPList: 'SecurityIPList',
       securityToken: 'SecurityToken',
       srcDBInstanceId: 'SrcDBInstanceId',
@@ -1023,6 +1045,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'string',
       engine: 'string',
       engineVersion: 'string',
+      hiddenZoneId: 'string',
       mongos: { 'type': 'array', 'itemType': CreateShardingDBInstanceRequestMongos },
       networkType: 'string',
       ownerAccount: 'string',
@@ -1035,6 +1058,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreTime: 'string',
+      secondaryZoneId: 'string',
       securityIPList: 'string',
       securityToken: 'string',
       srcDBInstanceId: 'string',
@@ -6370,6 +6394,7 @@ export class ModifyDBInstanceNetworkTypeResponse extends $tea.Model {
 
 export class ModifyDBInstanceSSLRequest extends $tea.Model {
   DBInstanceId?: string;
+  disableTlsProtocol?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -6379,6 +6404,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      disableTlsProtocol: 'DisableTlsProtocol',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -6391,6 +6417,7 @@ export class ModifyDBInstanceSSLRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      disableTlsProtocol: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -9330,6 +9357,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   engine?: string;
   engineVersion?: string;
   expireTime?: string;
+  hiddenZoneId?: string;
   kindCode?: string;
   lastDowngradeTime?: string;
   lockMode?: string;
@@ -9347,6 +9375,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   replicaSets?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplicaSets;
   replicationFactor?: string;
   resourceGroupId?: string;
+  secondaryZoneId?: string;
   shardList?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList;
   storageEngine?: string;
   tags?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags;
@@ -9372,6 +9401,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      hiddenZoneId: 'HiddenZoneId',
       kindCode: 'KindCode',
       lastDowngradeTime: 'LastDowngradeTime',
       lockMode: 'LockMode',
@@ -9389,6 +9419,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       replicaSets: 'ReplicaSets',
       replicationFactor: 'ReplicationFactor',
       resourceGroupId: 'ResourceGroupId',
+      secondaryZoneId: 'SecondaryZoneId',
       shardList: 'ShardList',
       storageEngine: 'StorageEngine',
       tags: 'Tags',
@@ -9417,6 +9448,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      hiddenZoneId: 'string',
       kindCode: 'string',
       lastDowngradeTime: 'string',
       lockMode: 'string',
@@ -9434,6 +9466,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       replicaSets: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplicaSets,
       replicationFactor: 'string',
       resourceGroupId: 'string',
+      secondaryZoneId: 'string',
       shardList: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList,
       storageEngine: 'string',
       tags: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags,
@@ -9728,6 +9761,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesDBInstance extends $tea.M
   engine?: string;
   engineVersion?: string;
   expireTime?: string;
+  hiddenZoneId?: string;
   kindCode?: string;
   lastDowngradeTime?: string;
   lockMode?: string;
@@ -9736,6 +9770,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesDBInstance extends $tea.M
   regionId?: string;
   replicationFactor?: string;
   resourceGroupId?: string;
+  secondaryZoneId?: string;
   shardList?: DescribeDBInstancesResponseBodyDBInstancesDBInstanceShardList;
   storageType?: string;
   tags?: DescribeDBInstancesResponseBodyDBInstancesDBInstanceTags;
@@ -9756,6 +9791,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesDBInstance extends $tea.M
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      hiddenZoneId: 'HiddenZoneId',
       kindCode: 'KindCode',
       lastDowngradeTime: 'LastDowngradeTime',
       lockMode: 'LockMode',
@@ -9764,6 +9800,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesDBInstance extends $tea.M
       regionId: 'RegionId',
       replicationFactor: 'ReplicationFactor',
       resourceGroupId: 'ResourceGroupId',
+      secondaryZoneId: 'SecondaryZoneId',
       shardList: 'ShardList',
       storageType: 'StorageType',
       tags: 'Tags',
@@ -9787,6 +9824,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesDBInstance extends $tea.M
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      hiddenZoneId: 'string',
       kindCode: 'string',
       lastDowngradeTime: 'string',
       lockMode: 'string',
@@ -9795,6 +9833,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesDBInstance extends $tea.M
       regionId: 'string',
       replicationFactor: 'string',
       resourceGroupId: 'string',
+      secondaryZoneId: 'string',
       shardList: DescribeDBInstancesResponseBodyDBInstancesDBInstanceShardList,
       storageType: 'string',
       tags: DescribeDBInstancesResponseBodyDBInstancesDBInstanceTags,
@@ -12042,6 +12081,14 @@ export default class Client extends OpenApi {
   async createNodeWithOptions(request: CreateNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateNodeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -12098,6 +12145,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.shardDirect)) {
+      query["ShardDirect"] = request.shardDirect;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -12123,6 +12174,14 @@ export default class Client extends OpenApi {
   async createNodeBatchWithOptions(request: CreateNodeBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateNodeBatchResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -12169,6 +12228,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.shardDirect)) {
+      query["ShardDirect"] = request.shardDirect;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12341,6 +12404,10 @@ export default class Client extends OpenApi {
       query["EngineVersion"] = request.engineVersion;
     }
 
+    if (!Util.isUnset(request.hiddenZoneId)) {
+      query["HiddenZoneId"] = request.hiddenZoneId;
+    }
+
     if (!Util.isUnset(request.mongos)) {
       query["Mongos"] = request.mongos;
     }
@@ -12387,6 +12454,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.restoreTime)) {
       query["RestoreTime"] = request.restoreTime;
+    }
+
+    if (!Util.isUnset(request.secondaryZoneId)) {
+      query["SecondaryZoneId"] = request.secondaryZoneId;
     }
 
     if (!Util.isUnset(request.securityIPList)) {
@@ -15908,6 +15979,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.disableTlsProtocol)) {
+      query["DisableTlsProtocol"] = request.disableTlsProtocol;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
