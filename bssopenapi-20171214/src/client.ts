@@ -13819,6 +13819,7 @@ export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model 
   discountRate?: string;
   endTime?: string;
   instanceId?: string;
+  ownerId?: number;
   savingsType?: string;
   startTime?: string;
   userId?: number;
@@ -13832,6 +13833,7 @@ export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model 
       discountRate: 'DiscountRate',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
       savingsType: 'SavingsType',
       startTime: 'StartTime',
       userId: 'UserId',
@@ -13848,6 +13850,7 @@ export class QuerySavingsPlansDeductLogResponseBodyDataItems extends $tea.Model 
       discountRate: 'string',
       endTime: 'string',
       instanceId: 'string',
+      ownerId: 'number',
       savingsType: 'string',
       startTime: 'string',
       userId: 'number',
@@ -14803,10 +14806,13 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'cn-hangzhou': "business.aliyuncs.com",
+      'cn-shanghai': "business.aliyuncs.com",
+      'ap-southeast-1': "business.ap-southeast-1.aliyuncs.com",
       'ap-northeast-1': "business.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "business.ap-southeast-1.aliyuncs.com",
       'ap-northeast-2-pop': "business.ap-southeast-1.aliyuncs.com",
       'ap-south-1': "business.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-1': "business.ap-southeast-1.aliyuncs.com",
       'ap-southeast-2': "business.ap-southeast-1.aliyuncs.com",
       'ap-southeast-3': "business.ap-southeast-1.aliyuncs.com",
       'ap-southeast-5': "business.ap-southeast-1.aliyuncs.com",
@@ -14819,7 +14825,6 @@ export default class Client extends OpenApi {
       'cn-edge-1': "business.aliyuncs.com",
       'cn-fujian': "business.aliyuncs.com",
       'cn-haidian-cm12-c01': "business.aliyuncs.com",
-      'cn-hangzhou': "business.aliyuncs.com",
       'cn-hangzhou-bj-b01': "business.aliyuncs.com",
       'cn-hangzhou-finance': "business.aliyuncs.com",
       'cn-hangzhou-internal-prod-1': "business.aliyuncs.com",
@@ -14830,10 +14835,10 @@ export default class Client extends OpenApi {
       'cn-hongkong': "business.aliyuncs.com",
       'cn-hongkong-finance-pop': "business.aliyuncs.com",
       'cn-huhehaote': "business.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "business.aliyuncs.com",
       'cn-north-2-gov-1': "business.aliyuncs.com",
       'cn-qingdao': "business.aliyuncs.com",
       'cn-qingdao-nebula': "business.aliyuncs.com",
-      'cn-shanghai': "business.aliyuncs.com",
       'cn-shanghai-et15-b01': "business.aliyuncs.com",
       'cn-shanghai-et2-b01': "business.aliyuncs.com",
       'cn-shanghai-finance-1': "business.aliyuncs.com",
@@ -14845,7 +14850,9 @@ export default class Client extends OpenApi {
       'cn-shenzhen-st4-d01': "business.aliyuncs.com",
       'cn-shenzhen-su18-b01': "business.aliyuncs.com",
       'cn-wuhan': "business.aliyuncs.com",
+      'cn-wulanchabu': "business.aliyuncs.com",
       'cn-yushanfang': "business.aliyuncs.com",
+      'cn-zhangbei': "business.aliyuncs.com",
       'cn-zhangbei-na61-b01': "business.aliyuncs.com",
       'cn-zhangjiakou': "business.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "business.aliyuncs.com",
