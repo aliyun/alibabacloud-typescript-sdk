@@ -1157,6 +1157,78 @@ export class DeleteFlowProjectUserResponse extends $tea.Model {
   }
 }
 
+export class DeleteLibrariesRequest extends $tea.Model {
+  libraryBizIdList?: string[];
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      libraryBizIdList: 'LibraryBizIdList',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libraryBizIdList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLibrariesResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLibrariesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLibrariesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLibrariesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterV2Request extends $tea.Model {
   id?: string;
   regionId?: string;
@@ -2060,6 +2132,81 @@ export class DescribeLibraryInstallTaskDetailResponse extends $tea.Model {
   }
 }
 
+export class InstallLibrariesRequest extends $tea.Model {
+  clusterBizIdList?: string[];
+  libraryBizId?: string;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizIdList: 'ClusterBizIdList',
+      libraryBizId: 'LibraryBizId',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizIdList: { 'type': 'array', 'itemType': 'string' },
+      libraryBizId: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallLibrariesResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallLibrariesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InstallLibrariesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InstallLibrariesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class KillFlowJobRequest extends $tea.Model {
   jobInstanceId?: string;
   projectId?: string;
@@ -2718,6 +2865,111 @@ export class ListFlowProjectsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListFlowProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibrariesRequest extends $tea.Model {
+  clusterBizId?: string;
+  currentSize?: number;
+  limit?: number;
+  orderField?: string;
+  orderMode?: string;
+  pageCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizId: 'ClusterBizId',
+      currentSize: 'CurrentSize',
+      limit: 'Limit',
+      orderField: 'OrderField',
+      orderMode: 'OrderMode',
+      pageCount: 'PageCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizId: 'string',
+      currentSize: 'number',
+      limit: 'number',
+      orderField: 'string',
+      orderMode: 'string',
+      pageCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibrariesResponseBody extends $tea.Model {
+  items?: ListLibrariesResponseBodyItems;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: ListLibrariesResponseBodyItems,
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibrariesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLibrariesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLibrariesResponseBody,
     };
   }
 
@@ -3819,6 +4071,81 @@ export class TagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UninstallLibrariesRequest extends $tea.Model {
+  clusterBizIdList?: string[];
+  libraryBizId?: string;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizIdList: 'ClusterBizIdList',
+      libraryBizId: 'LibraryBizId',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizIdList: { 'type': 'array', 'itemType': 'string' },
+      libraryBizId: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UninstallLibrariesResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UninstallLibrariesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UninstallLibrariesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UninstallLibrariesResponseBody,
     };
   }
 
@@ -5769,6 +6096,71 @@ export class ListFlowProjectsResponseBodyProjects extends $tea.Model {
   }
 }
 
+export class ListLibrariesResponseBodyItemsItem extends $tea.Model {
+  bizId?: string;
+  createTime?: number;
+  libraryVersion?: string;
+  name?: string;
+  properties?: string;
+  scope?: string;
+  sourceLocation?: string;
+  sourceType?: string;
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      createTime: 'CreateTime',
+      libraryVersion: 'LibraryVersion',
+      name: 'Name',
+      properties: 'Properties',
+      scope: 'Scope',
+      sourceLocation: 'SourceLocation',
+      sourceType: 'SourceType',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      createTime: 'number',
+      libraryVersion: 'string',
+      name: 'string',
+      properties: 'string',
+      scope: 'string',
+      sourceLocation: 'string',
+      sourceType: 'string',
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibrariesResponseBodyItems extends $tea.Model {
+  item?: ListLibrariesResponseBodyItemsItem[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': ListLibrariesResponseBodyItemsItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLibraryInstallTasksResponseBodyItemsItem extends $tea.Model {
   clusterBizId?: string;
   detail?: string;
@@ -6827,6 +7219,43 @@ export default class Client extends OpenApi {
     return await this.deleteFlowProjectUserWithOptions(request, runtime);
   }
 
+  async deleteLibrariesWithOptions(request: DeleteLibrariesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLibrariesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.libraryBizIdList)) {
+      query["LibraryBizIdList"] = request.libraryBizIdList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLibraries",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLibrariesResponse>(await this.callApi(params, req, runtime), new DeleteLibrariesResponse({}));
+  }
+
+  async deleteLibraries(request: DeleteLibrariesRequest): Promise<DeleteLibrariesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLibrariesWithOptions(request, runtime);
+  }
+
   async describeClusterV2WithOptions(request: DescribeClusterV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -7129,6 +7558,47 @@ export default class Client extends OpenApi {
   async describeLibraryInstallTaskDetail(request: DescribeLibraryInstallTaskDetailRequest): Promise<DescribeLibraryInstallTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLibraryInstallTaskDetailWithOptions(request, runtime);
+  }
+
+  async installLibrariesWithOptions(request: InstallLibrariesRequest, runtime: $Util.RuntimeOptions): Promise<InstallLibrariesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterBizIdList)) {
+      query["ClusterBizIdList"] = request.clusterBizIdList;
+    }
+
+    if (!Util.isUnset(request.libraryBizId)) {
+      query["LibraryBizId"] = request.libraryBizId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InstallLibraries",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InstallLibrariesResponse>(await this.callApi(params, req, runtime), new InstallLibrariesResponse({}));
+  }
+
+  async installLibraries(request: InstallLibrariesRequest): Promise<InstallLibrariesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.installLibrariesWithOptions(request, runtime);
   }
 
   async killFlowJobWithOptions(request: KillFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<KillFlowJobResponse> {
@@ -7532,6 +8002,71 @@ export default class Client extends OpenApi {
   async listFlowProjects(request: ListFlowProjectsRequest): Promise<ListFlowProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFlowProjectsWithOptions(request, runtime);
+  }
+
+  async listLibrariesWithOptions(request: ListLibrariesRequest, runtime: $Util.RuntimeOptions): Promise<ListLibrariesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterBizId)) {
+      query["ClusterBizId"] = request.clusterBizId;
+    }
+
+    if (!Util.isUnset(request.currentSize)) {
+      query["CurrentSize"] = request.currentSize;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      query["OrderField"] = request.orderField;
+    }
+
+    if (!Util.isUnset(request.orderMode)) {
+      query["OrderMode"] = request.orderMode;
+    }
+
+    if (!Util.isUnset(request.pageCount)) {
+      query["PageCount"] = request.pageCount;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLibraries",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLibrariesResponse>(await this.callApi(params, req, runtime), new ListLibrariesResponse({}));
+  }
+
+  async listLibraries(request: ListLibrariesRequest): Promise<ListLibrariesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLibrariesWithOptions(request, runtime);
   }
 
   async listLibraryInstallTasksWithOptions(request: ListLibraryInstallTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListLibraryInstallTasksResponse> {
@@ -8200,6 +8735,47 @@ export default class Client extends OpenApi {
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async uninstallLibrariesWithOptions(request: UninstallLibrariesRequest, runtime: $Util.RuntimeOptions): Promise<UninstallLibrariesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterBizIdList)) {
+      query["ClusterBizIdList"] = request.clusterBizIdList;
+    }
+
+    if (!Util.isUnset(request.libraryBizId)) {
+      query["LibraryBizId"] = request.libraryBizId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UninstallLibraries",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UninstallLibrariesResponse>(await this.callApi(params, req, runtime), new UninstallLibrariesResponse({}));
+  }
+
+  async uninstallLibraries(request: UninstallLibrariesRequest): Promise<UninstallLibrariesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uninstallLibrariesWithOptions(request, runtime);
   }
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
