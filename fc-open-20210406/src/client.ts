@@ -368,6 +368,81 @@ export class ErrorInfo extends $tea.Model {
   }
 }
 
+export class EventBridgeTriggerConfig extends $tea.Model {
+  asyncInvocationType?: boolean;
+  eventRuleFilterPattern?: string;
+  eventSourceConfig?: EventSourceConfig;
+  triggerEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      asyncInvocationType: 'asyncInvocationType',
+      eventRuleFilterPattern: 'eventRuleFilterPattern',
+      eventSourceConfig: 'eventSourceConfig',
+      triggerEnable: 'triggerEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncInvocationType: 'boolean',
+      eventRuleFilterPattern: 'string',
+      eventSourceConfig: EventSourceConfig,
+      triggerEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventSourceConfig extends $tea.Model {
+  eventSourceParameters?: EventSourceParameters;
+  eventSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventSourceParameters: 'eventSourceParameters',
+      eventSourceType: 'eventSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventSourceParameters: EventSourceParameters,
+      eventSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventSourceParameters extends $tea.Model {
+  sourceMNSParameters?: SourceMNSParameters;
+  sourceRabbitMQParameters?: SourceRabbitMQParameters;
+  sourceRocketMQParameters?: SourceRocketMQParameters;
+  static names(): { [key: string]: string } {
+    return {
+      sourceMNSParameters: 'sourceMNSParameters',
+      sourceRabbitMQParameters: 'sourceRabbitMQParameters',
+      sourceRocketMQParameters: 'sourceRocketMQParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceMNSParameters: SourceMNSParameters,
+      sourceRabbitMQParameters: SourceRabbitMQParameters,
+      sourceRocketMQParameters: SourceRocketMQParameters,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HTTPTriggerConfig extends $tea.Model {
   authType?: string;
   methods?: string[];
@@ -1029,6 +1104,96 @@ export class SourceConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       logstore: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceMNSParameters extends $tea.Model {
+  isBase64Decode?: boolean;
+  queueName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isBase64Decode: 'IsBase64Decode',
+      queueName: 'QueueName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isBase64Decode: 'boolean',
+      queueName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceRabbitMQParameters extends $tea.Model {
+  instanceId?: string;
+  queueName?: string;
+  regionId?: string;
+  virtualHostName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      queueName: 'QueueName',
+      regionId: 'RegionId',
+      virtualHostName: 'VirtualHostName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      queueName: 'string',
+      regionId: 'string',
+      virtualHostName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceRocketMQParameters extends $tea.Model {
+  groupID?: string;
+  instanceId?: string;
+  offset?: string;
+  regionId?: string;
+  tag?: string;
+  timestamp?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupID: 'GroupID',
+      instanceId: 'InstanceId',
+      offset: 'Offset',
+      regionId: 'RegionId',
+      tag: 'Tag',
+      timestamp: 'Timestamp',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupID: 'string',
+      instanceId: 'string',
+      offset: 'string',
+      regionId: 'string',
+      tag: 'string',
+      timestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -2028,7 +2193,7 @@ export class CreateTriggerRequest extends $tea.Model {
   invocationRole?: string;
   qualifier?: string;
   sourceArn?: string;
-  triggerConfig?: string;
+  triggerConfig?: any;
   triggerName?: string;
   triggerType?: string;
   static names(): { [key: string]: string } {
@@ -2049,7 +2214,7 @@ export class CreateTriggerRequest extends $tea.Model {
       invocationRole: 'string',
       qualifier: 'string',
       sourceArn: 'string',
-      triggerConfig: 'string',
+      triggerConfig: 'any',
       triggerName: 'string',
       triggerType: 'string',
     };
@@ -4150,7 +4315,7 @@ export class InvokeFunctionHeaders extends $tea.Model {
 }
 
 export class InvokeFunctionRequest extends $tea.Model {
-  body?: Buffer;
+  body?: any;
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4161,7 +4326,7 @@ export class InvokeFunctionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'Buffer',
+      body: 'any',
       qualifier: 'string',
     };
   }
@@ -4708,10 +4873,14 @@ export class ListFunctionsResponse extends $tea.Model {
 export class ListInstancesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
+  xFcDate?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
+      xFcDate: 'X-Fc-Date',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4719,6 +4888,8 @@ export class ListInstancesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
+      xFcDate: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -10001,6 +10172,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(headers.xFcAccountId)) {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
 
     let req = new $OpenApi.OpenApiRequest({
