@@ -1739,24 +1739,33 @@ export class QuerySmsSignListRequest extends $tea.Model {
 
 export class QuerySmsSignListResponseBody extends $tea.Model {
   code?: string;
+  currentPage?: number;
   message?: string;
+  pageSize?: number;
   requestId?: string;
   smsSignList?: QuerySmsSignListResponseBodySmsSignList[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      currentPage: 'CurrentPage',
       message: 'Message',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       smsSignList: 'SmsSignList',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      currentPage: 'number',
       message: 'string',
+      pageSize: 'number',
       requestId: 'string',
       smsSignList: { 'type': 'array', 'itemType': QuerySmsSignListResponseBodySmsSignList },
+      totalCount: 'number',
     };
   }
 
@@ -1922,24 +1931,33 @@ export class QuerySmsTemplateListRequest extends $tea.Model {
 
 export class QuerySmsTemplateListResponseBody extends $tea.Model {
   code?: string;
+  currentPage?: number;
   message?: string;
+  pageSize?: number;
   requestId?: string;
   smsTemplateList?: QuerySmsTemplateListResponseBodySmsTemplateList[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      currentPage: 'CurrentPage',
       message: 'Message',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       smsTemplateList: 'SmsTemplateList',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      currentPage: 'number',
       message: 'string',
+      pageSize: 'number',
       requestId: 'string',
       smsTemplateList: { 'type': 'array', 'itemType': QuerySmsTemplateListResponseBodySmsTemplateList },
+      totalCount: 'number',
     };
   }
 
