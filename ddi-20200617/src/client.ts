@@ -773,6 +773,99 @@ export class CreateFlowProjectUserResponse extends $tea.Model {
   }
 }
 
+export class CreateLibraryRequest extends $tea.Model {
+  clientToken?: string;
+  libraryVersion?: string;
+  name?: string;
+  properties?: string;
+  regionId?: string;
+  resourceOwnerId?: number;
+  scope?: string;
+  sourceLocation?: string;
+  sourceType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      libraryVersion: 'LibraryVersion',
+      name: 'Name',
+      properties: 'Properties',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      scope: 'Scope',
+      sourceLocation: 'SourceLocation',
+      sourceType: 'SourceType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      libraryVersion: 'string',
+      name: 'string',
+      properties: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      scope: 'string',
+      sourceLocation: 'string',
+      sourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLibraryResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLibraryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateLibraryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLibraryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFlowRequest extends $tea.Model {
   id?: string;
   projectId?: string;
@@ -1763,6 +1856,210 @@ export class DescribeFlowProjectResponse extends $tea.Model {
   }
 }
 
+export class DescribeLibraryDetailRequest extends $tea.Model {
+  libraryBizId?: string;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      libraryBizId: 'LibraryBizId',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libraryBizId: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLibraryDetailResponseBody extends $tea.Model {
+  bizId?: string;
+  createTime?: number;
+  libraryVersion?: string;
+  name?: string;
+  properties?: string;
+  requestId?: string;
+  scope?: string;
+  sourceLocation?: string;
+  sourceType?: string;
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      createTime: 'CreateTime',
+      libraryVersion: 'LibraryVersion',
+      name: 'Name',
+      properties: 'Properties',
+      requestId: 'RequestId',
+      scope: 'Scope',
+      sourceLocation: 'SourceLocation',
+      sourceType: 'SourceType',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      createTime: 'number',
+      libraryVersion: 'string',
+      name: 'string',
+      properties: 'string',
+      requestId: 'string',
+      scope: 'string',
+      sourceLocation: 'string',
+      sourceType: 'string',
+      type: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLibraryDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeLibraryDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLibraryDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLibraryInstallTaskDetailRequest extends $tea.Model {
+  regionId?: string;
+  resourceOwnerId?: number;
+  taskBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskBizId: 'TaskBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      taskBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLibraryInstallTaskDetailResponseBody extends $tea.Model {
+  clusterBizId?: string;
+  detail?: string;
+  endTime?: number;
+  executeTime?: number;
+  hostname?: string;
+  libraryBizId?: string;
+  requestId?: string;
+  startTime?: number;
+  taskGroupId?: string;
+  taskId?: string;
+  taskProcess?: number;
+  taskStatus?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizId: 'ClusterBizId',
+      detail: 'Detail',
+      endTime: 'EndTime',
+      executeTime: 'ExecuteTime',
+      hostname: 'Hostname',
+      libraryBizId: 'LibraryBizId',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      taskGroupId: 'TaskGroupId',
+      taskId: 'TaskId',
+      taskProcess: 'TaskProcess',
+      taskStatus: 'TaskStatus',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizId: 'string',
+      detail: 'string',
+      endTime: 'number',
+      executeTime: 'number',
+      hostname: 'string',
+      libraryBizId: 'string',
+      requestId: 'string',
+      startTime: 'number',
+      taskGroupId: 'string',
+      taskId: 'string',
+      taskProcess: 'number',
+      taskStatus: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLibraryInstallTaskDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeLibraryInstallTaskDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLibraryInstallTaskDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class KillFlowJobRequest extends $tea.Model {
   jobInstanceId?: string;
   projectId?: string;
@@ -2421,6 +2718,222 @@ export class ListFlowProjectsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListFlowProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryInstallTasksRequest extends $tea.Model {
+  clusterBizId?: string;
+  currentSize?: number;
+  libraryBizId?: string;
+  limit?: number;
+  orderField?: string;
+  orderMode?: string;
+  pageCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizId: 'ClusterBizId',
+      currentSize: 'CurrentSize',
+      libraryBizId: 'LibraryBizId',
+      limit: 'Limit',
+      orderField: 'OrderField',
+      orderMode: 'OrderMode',
+      pageCount: 'PageCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizId: 'string',
+      currentSize: 'number',
+      libraryBizId: 'string',
+      limit: 'number',
+      orderField: 'string',
+      orderMode: 'string',
+      pageCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryInstallTasksResponseBody extends $tea.Model {
+  items?: ListLibraryInstallTasksResponseBodyItems;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: ListLibraryInstallTasksResponseBodyItems,
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryInstallTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLibraryInstallTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLibraryInstallTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryStatusRequest extends $tea.Model {
+  clusterBizId?: string;
+  currentSize?: number;
+  libraryBizId?: string;
+  limit?: number;
+  orderField?: string;
+  orderMode?: string;
+  pageCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizId: 'ClusterBizId',
+      currentSize: 'CurrentSize',
+      libraryBizId: 'LibraryBizId',
+      limit: 'Limit',
+      orderField: 'OrderField',
+      orderMode: 'OrderMode',
+      pageCount: 'PageCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizId: 'string',
+      currentSize: 'number',
+      libraryBizId: 'string',
+      limit: 'number',
+      orderField: 'string',
+      orderMode: 'string',
+      pageCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryStatusResponseBody extends $tea.Model {
+  items?: ListLibraryStatusResponseBodyItems;
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: ListLibraryStatusResponseBodyItems,
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLibraryStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLibraryStatusResponseBody,
     };
   }
 
@@ -3399,6 +3912,81 @@ export class UntagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLibraryInstallTaskStatusRequest extends $tea.Model {
+  regionId?: string;
+  resourceOwnerId?: number;
+  status?: string;
+  taskBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      status: 'Status',
+      taskBizId: 'TaskBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      status: 'string',
+      taskBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLibraryInstallTaskStatusResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLibraryInstallTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateLibraryInstallTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateLibraryInstallTaskStatusResponseBody,
     };
   }
 
@@ -5181,6 +5769,127 @@ export class ListFlowProjectsResponseBodyProjects extends $tea.Model {
   }
 }
 
+export class ListLibraryInstallTasksResponseBodyItemsItem extends $tea.Model {
+  clusterBizId?: string;
+  detail?: string;
+  endTime?: number;
+  executeTime?: number;
+  hostname?: string;
+  libraryBizId?: string;
+  startTime?: number;
+  taskGroupId?: string;
+  taskId?: string;
+  taskProcess?: number;
+  taskStatus?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizId: 'ClusterBizId',
+      detail: 'Detail',
+      endTime: 'EndTime',
+      executeTime: 'ExecuteTime',
+      hostname: 'Hostname',
+      libraryBizId: 'LibraryBizId',
+      startTime: 'StartTime',
+      taskGroupId: 'TaskGroupId',
+      taskId: 'TaskId',
+      taskProcess: 'TaskProcess',
+      taskStatus: 'TaskStatus',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizId: 'string',
+      detail: 'string',
+      endTime: 'number',
+      executeTime: 'number',
+      hostname: 'string',
+      libraryBizId: 'string',
+      startTime: 'number',
+      taskGroupId: 'string',
+      taskId: 'string',
+      taskProcess: 'number',
+      taskStatus: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryInstallTasksResponseBodyItems extends $tea.Model {
+  item?: ListLibraryInstallTasksResponseBodyItemsItem[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': ListLibraryInstallTasksResponseBodyItemsItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryStatusResponseBodyItemsItem extends $tea.Model {
+  clusterBizId?: string;
+  clusterName?: string;
+  libraryBizId?: string;
+  libraryName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterBizId: 'ClusterBizId',
+      clusterName: 'ClusterName',
+      libraryBizId: 'LibraryBizId',
+      libraryName: 'LibraryName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterBizId: 'string',
+      clusterName: 'string',
+      libraryBizId: 'string',
+      libraryName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLibraryStatusResponseBodyItems extends $tea.Model {
+  item?: ListLibraryStatusResponseBodyItemsItem[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': ListLibraryStatusResponseBodyItemsItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -5909,6 +6618,71 @@ export default class Client extends OpenApi {
     return await this.createFlowProjectUserWithOptions(request, runtime);
   }
 
+  async createLibraryWithOptions(request: CreateLibraryRequest, runtime: $Util.RuntimeOptions): Promise<CreateLibraryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.libraryVersion)) {
+      query["LibraryVersion"] = request.libraryVersion;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.sourceLocation)) {
+      query["SourceLocation"] = request.sourceLocation;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLibrary",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLibraryResponse>(await this.callApi(params, req, runtime), new CreateLibraryResponse({}));
+  }
+
+  async createLibrary(request: CreateLibraryRequest): Promise<CreateLibraryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLibraryWithOptions(request, runtime);
+  }
+
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6281,6 +7055,80 @@ export default class Client extends OpenApi {
   async describeFlowProject(request: DescribeFlowProjectRequest): Promise<DescribeFlowProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowProjectWithOptions(request, runtime);
+  }
+
+  async describeLibraryDetailWithOptions(request: DescribeLibraryDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLibraryDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.libraryBizId)) {
+      query["LibraryBizId"] = request.libraryBizId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLibraryDetail",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLibraryDetailResponse>(await this.callApi(params, req, runtime), new DescribeLibraryDetailResponse({}));
+  }
+
+  async describeLibraryDetail(request: DescribeLibraryDetailRequest): Promise<DescribeLibraryDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLibraryDetailWithOptions(request, runtime);
+  }
+
+  async describeLibraryInstallTaskDetailWithOptions(request: DescribeLibraryInstallTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLibraryInstallTaskDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskBizId)) {
+      query["TaskBizId"] = request.taskBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLibraryInstallTaskDetail",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLibraryInstallTaskDetailResponse>(await this.callApi(params, req, runtime), new DescribeLibraryInstallTaskDetailResponse({}));
+  }
+
+  async describeLibraryInstallTaskDetail(request: DescribeLibraryInstallTaskDetailRequest): Promise<DescribeLibraryInstallTaskDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLibraryInstallTaskDetailWithOptions(request, runtime);
   }
 
   async killFlowJobWithOptions(request: KillFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<KillFlowJobResponse> {
@@ -6684,6 +7532,144 @@ export default class Client extends OpenApi {
   async listFlowProjects(request: ListFlowProjectsRequest): Promise<ListFlowProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFlowProjectsWithOptions(request, runtime);
+  }
+
+  async listLibraryInstallTasksWithOptions(request: ListLibraryInstallTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListLibraryInstallTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterBizId)) {
+      query["ClusterBizId"] = request.clusterBizId;
+    }
+
+    if (!Util.isUnset(request.currentSize)) {
+      query["CurrentSize"] = request.currentSize;
+    }
+
+    if (!Util.isUnset(request.libraryBizId)) {
+      query["LibraryBizId"] = request.libraryBizId;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      query["OrderField"] = request.orderField;
+    }
+
+    if (!Util.isUnset(request.orderMode)) {
+      query["OrderMode"] = request.orderMode;
+    }
+
+    if (!Util.isUnset(request.pageCount)) {
+      query["PageCount"] = request.pageCount;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLibraryInstallTasks",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLibraryInstallTasksResponse>(await this.callApi(params, req, runtime), new ListLibraryInstallTasksResponse({}));
+  }
+
+  async listLibraryInstallTasks(request: ListLibraryInstallTasksRequest): Promise<ListLibraryInstallTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLibraryInstallTasksWithOptions(request, runtime);
+  }
+
+  async listLibraryStatusWithOptions(request: ListLibraryStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListLibraryStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterBizId)) {
+      query["ClusterBizId"] = request.clusterBizId;
+    }
+
+    if (!Util.isUnset(request.currentSize)) {
+      query["CurrentSize"] = request.currentSize;
+    }
+
+    if (!Util.isUnset(request.libraryBizId)) {
+      query["LibraryBizId"] = request.libraryBizId;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      query["OrderField"] = request.orderField;
+    }
+
+    if (!Util.isUnset(request.orderMode)) {
+      query["OrderMode"] = request.orderMode;
+    }
+
+    if (!Util.isUnset(request.pageCount)) {
+      query["PageCount"] = request.pageCount;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLibraryStatus",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLibraryStatusResponse>(await this.callApi(params, req, runtime), new ListLibraryStatusResponse({}));
+  }
+
+  async listLibraryStatus(request: ListLibraryStatusRequest): Promise<ListLibraryStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLibraryStatusWithOptions(request, runtime);
   }
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
@@ -7267,6 +8253,47 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async updateLibraryInstallTaskStatusWithOptions(request: UpdateLibraryInstallTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLibraryInstallTaskStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskBizId)) {
+      query["TaskBizId"] = request.taskBizId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLibraryInstallTaskStatus",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLibraryInstallTaskStatusResponse>(await this.callApi(params, req, runtime), new UpdateLibraryInstallTaskStatusResponse({}));
+  }
+
+  async updateLibraryInstallTaskStatus(request: UpdateLibraryInstallTaskStatusRequest): Promise<UpdateLibraryInstallTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLibraryInstallTaskStatusWithOptions(request, runtime);
   }
 
 }
