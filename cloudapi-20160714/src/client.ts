@@ -11775,6 +11775,7 @@ export class SetDomainRequest extends $tea.Model {
   domainName?: string;
   groupId?: string;
   isForce?: boolean;
+  isHttpRedirectToHttps?: boolean;
   static names(): { [key: string]: string } {
     return {
       bindStageName: 'BindStageName',
@@ -11782,6 +11783,7 @@ export class SetDomainRequest extends $tea.Model {
       domainName: 'DomainName',
       groupId: 'GroupId',
       isForce: 'IsForce',
+      isHttpRedirectToHttps: 'IsHttpRedirectToHttps',
     };
   }
 
@@ -11792,6 +11794,7 @@ export class SetDomainRequest extends $tea.Model {
       domainName: 'string',
       groupId: 'string',
       isForce: 'boolean',
+      isHttpRedirectToHttps: 'boolean',
     };
   }
 
@@ -25740,6 +25743,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.isForce)) {
       query["IsForce"] = request.isForce;
+    }
+
+    if (!Util.isUnset(request.isHttpRedirectToHttps)) {
+      query["IsHttpRedirectToHttps"] = request.isHttpRedirectToHttps;
     }
 
     let req = new $OpenApi.OpenApiRequest({
