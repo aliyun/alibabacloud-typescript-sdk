@@ -2427,6 +2427,7 @@ export class GetServiceProvisionsResponse extends $tea.Model {
 
 export class GetStackRequest extends $tea.Model {
   clientToken?: string;
+  logOption?: string;
   outputOption?: string;
   regionId?: string;
   showResourceProgress?: string;
@@ -2434,6 +2435,7 @@ export class GetStackRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      logOption: 'LogOption',
       outputOption: 'OutputOption',
       regionId: 'RegionId',
       showResourceProgress: 'ShowResourceProgress',
@@ -2444,6 +2446,7 @@ export class GetStackRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      logOption: 'string',
       outputOption: 'string',
       regionId: 'string',
       showResourceProgress: 'string',
@@ -2972,6 +2975,7 @@ export class GetStackResourceRequest extends $tea.Model {
   clientToken?: string;
   logicalResourceId?: string;
   regionId?: string;
+  resourceAttributes?: string[];
   showResourceAttributes?: boolean;
   stackId?: string;
   static names(): { [key: string]: string } {
@@ -2979,6 +2983,7 @@ export class GetStackResourceRequest extends $tea.Model {
       clientToken: 'ClientToken',
       logicalResourceId: 'LogicalResourceId',
       regionId: 'RegionId',
+      resourceAttributes: 'ResourceAttributes',
       showResourceAttributes: 'ShowResourceAttributes',
       stackId: 'StackId',
     };
@@ -2989,6 +2994,7 @@ export class GetStackResourceRequest extends $tea.Model {
       clientToken: 'string',
       logicalResourceId: 'string',
       regionId: 'string',
+      resourceAttributes: { 'type': 'array', 'itemType': 'string' },
       showResourceAttributes: 'boolean',
       stackId: 'string',
     };
@@ -6521,12 +6527,14 @@ export class ValidateTemplateResponseBody extends $tea.Model {
   outputs?: ValidateTemplateResponseBodyOutputs[];
   parameters?: { [key: string]: any }[];
   requestId?: string;
+  resourceTypes?: ValidateTemplateResponseBodyResourceTypes;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       outputs: 'Outputs',
       parameters: 'Parameters',
       requestId: 'RequestId',
+      resourceTypes: 'ResourceTypes',
     };
   }
 
@@ -6536,6 +6544,7 @@ export class ValidateTemplateResponseBody extends $tea.Model {
       outputs: { 'type': 'array', 'itemType': ValidateTemplateResponseBodyOutputs },
       parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       requestId: 'string',
+      resourceTypes: ValidateTemplateResponseBodyResourceTypes,
     };
   }
 
@@ -7428,6 +7437,50 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Mode
   }
 }
 
+export class GetStackResponseBodyLogResourceLogsLogs extends $tea.Model {
+  content?: string;
+  keys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      keys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogResourceLogs extends $tea.Model {
+  logs?: GetStackResponseBodyLogResourceLogsLogs[];
+  resourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+      resourceName: 'ResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogsLogs },
+      resourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStackResponseBodyLogTerraformLogs extends $tea.Model {
   command?: string;
   content?: string;
@@ -7454,15 +7507,18 @@ export class GetStackResponseBodyLogTerraformLogs extends $tea.Model {
 }
 
 export class GetStackResponseBodyLog extends $tea.Model {
+  resourceLogs?: GetStackResponseBodyLogResourceLogs[];
   terraformLogs?: GetStackResponseBodyLogTerraformLogs[];
   static names(): { [key: string]: string } {
     return {
+      resourceLogs: 'ResourceLogs',
       terraformLogs: 'TerraformLogs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resourceLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogs },
       terraformLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogTerraformLogs },
     };
   }
@@ -9685,6 +9741,28 @@ export class ValidateTemplateResponseBodyOutputs extends $tea.Model {
   }
 }
 
+export class ValidateTemplateResponseBodyResourceTypes extends $tea.Model {
+  dataSources?: string[];
+  resources?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSources: 'DataSources',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSources: { 'type': 'array', 'itemType': 'string' },
+      resources: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -11067,6 +11145,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.logOption)) {
+      query["LogOption"] = request.logOption;
+    }
+
     if (!Util.isUnset(request.outputOption)) {
       query["OutputOption"] = request.outputOption;
     }
@@ -11295,6 +11377,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceAttributes)) {
+      query["ResourceAttributes"] = request.resourceAttributes;
     }
 
     if (!Util.isUnset(request.showResourceAttributes)) {
