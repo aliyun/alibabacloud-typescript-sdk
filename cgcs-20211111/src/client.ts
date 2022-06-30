@@ -54,30 +54,18 @@ export class CreateAdaptationShrinkRequest extends $tea.Model {
 
 export class CreateAdaptationResponseBody extends $tea.Model {
   adaptApplyId?: number;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       adaptApplyId: 'AdaptApplyId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       adaptApplyId: 'number',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -135,30 +123,18 @@ export class CreateAppRequest extends $tea.Model {
 
 export class CreateAppResponseBody extends $tea.Model {
   appId?: string;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -198,8 +174,11 @@ export class CreateAppSessionRequest extends $tea.Model {
   clientIp?: string;
   customSessionId?: string;
   customUserId?: string;
+  datasetId?: string;
   enablePostpaid?: boolean;
+  resultStore?: CreateAppSessionRequestResultStore;
   startParameters?: CreateAppSessionRequestStartParameters[];
+  startParametersV2?: CreateAppSessionRequestStartParametersV2[];
   systemInfo?: CreateAppSessionRequestSystemInfo[];
   timeout?: number;
   static names(): { [key: string]: string } {
@@ -209,8 +188,11 @@ export class CreateAppSessionRequest extends $tea.Model {
       clientIp: 'ClientIp',
       customSessionId: 'CustomSessionId',
       customUserId: 'CustomUserId',
+      datasetId: 'DatasetId',
       enablePostpaid: 'EnablePostpaid',
+      resultStore: 'ResultStore',
       startParameters: 'StartParameters',
+      startParametersV2: 'StartParametersV2',
       systemInfo: 'SystemInfo',
       timeout: 'Timeout',
     };
@@ -223,9 +205,64 @@ export class CreateAppSessionRequest extends $tea.Model {
       clientIp: 'string',
       customSessionId: 'string',
       customUserId: 'string',
+      datasetId: 'string',
       enablePostpaid: 'boolean',
+      resultStore: CreateAppSessionRequestResultStore,
       startParameters: { 'type': 'array', 'itemType': CreateAppSessionRequestStartParameters },
+      startParametersV2: { 'type': 'array', 'itemType': CreateAppSessionRequestStartParametersV2 },
       systemInfo: { 'type': 'array', 'itemType': CreateAppSessionRequestSystemInfo },
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionShrinkRequest extends $tea.Model {
+  appId?: string;
+  appVersion?: string;
+  clientIp?: string;
+  customSessionId?: string;
+  customUserId?: string;
+  datasetId?: string;
+  enablePostpaid?: boolean;
+  resultStoreShrink?: string;
+  startParameters?: CreateAppSessionShrinkRequestStartParameters[];
+  startParametersV2Shrink?: string;
+  systemInfo?: CreateAppSessionShrinkRequestSystemInfo[];
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appVersion: 'AppVersion',
+      clientIp: 'ClientIp',
+      customSessionId: 'CustomSessionId',
+      customUserId: 'CustomUserId',
+      datasetId: 'DatasetId',
+      enablePostpaid: 'EnablePostpaid',
+      resultStoreShrink: 'ResultStore',
+      startParameters: 'StartParameters',
+      startParametersV2Shrink: 'StartParametersV2',
+      systemInfo: 'SystemInfo',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appVersion: 'string',
+      clientIp: 'string',
+      customSessionId: 'string',
+      customUserId: 'string',
+      datasetId: 'string',
+      enablePostpaid: 'boolean',
+      resultStoreShrink: 'string',
+      startParameters: { 'type': 'array', 'itemType': CreateAppSessionShrinkRequestStartParameters },
+      startParametersV2Shrink: 'string',
+      systemInfo: { 'type': 'array', 'itemType': CreateAppSessionShrinkRequestSystemInfo },
       timeout: 'number',
     };
   }
@@ -315,30 +352,18 @@ export class CreateAppVersionRequest extends $tea.Model {
 
 export class CreateAppVersionResponseBody extends $tea.Model {
   appVersionId?: string;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appVersionId: 'AppVersionId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appVersionId: 'string',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -372,6 +397,90 @@ export class CreateAppVersionResponse extends $tea.Model {
   }
 }
 
+export class CreateDatasetDeployTaskRequest extends $tea.Model {
+  clientToken?: string;
+  customParam?: string;
+  needUnzip?: boolean;
+  ossBucket?: string;
+  ossFilePath?: string;
+  ossRegionId?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      customParam: 'CustomParam',
+      needUnzip: 'NeedUnzip',
+      ossBucket: 'OssBucket',
+      ossFilePath: 'OssFilePath',
+      ossRegionId: 'OssRegionId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      customParam: 'string',
+      needUnzip: 'boolean',
+      ossBucket: 'string',
+      ossFilePath: 'string',
+      ossRegionId: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetDeployTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetDeployTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDatasetDeployTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDatasetDeployTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAppRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -393,30 +502,18 @@ export class DeleteAppRequest extends $tea.Model {
 
 export class DeleteAppResponseBody extends $tea.Model {
   appId?: string;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -471,30 +568,18 @@ export class DeleteAppVersionRequest extends $tea.Model {
 
 export class DeleteAppVersionResponseBody extends $tea.Model {
   appVersionId?: string;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appVersionId: 'AppVersionId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appVersionId: 'string',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -555,26 +640,18 @@ export class GetAdaptationResponseBody extends $tea.Model {
   adaptTarget?: GetAdaptationResponseBodyAdaptTarget;
   appId?: string;
   appVersionId?: string;
-  code?: string;
   gmtCreate?: string;
   gmtModified?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       adaptApplyId: 'AdaptApplyId',
       adaptTarget: 'AdaptTarget',
       appId: 'AppId',
       appVersionId: 'AppVersionId',
-      code: 'Code',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
@@ -584,13 +661,9 @@ export class GetAdaptationResponseBody extends $tea.Model {
       adaptTarget: GetAdaptationResponseBodyAdaptTarget,
       appId: 'string',
       appVersionId: 'string',
-      code: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -647,13 +720,9 @@ export class GetAppResponseBody extends $tea.Model {
   appId?: string;
   appName?: string;
   appType?: string;
-  code?: string;
   gmtCreate?: string;
   gmtModified?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   versionAdaptNum?: number;
   versionTotalNum?: number;
   static names(): { [key: string]: string } {
@@ -661,13 +730,9 @@ export class GetAppResponseBody extends $tea.Model {
       appId: 'AppId',
       appName: 'AppName',
       appType: 'AppType',
-      code: 'Code',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
       versionAdaptNum: 'VersionAdaptNum',
       versionTotalNum: 'VersionTotalNum',
     };
@@ -678,13 +743,9 @@ export class GetAppResponseBody extends $tea.Model {
       appId: 'string',
       appName: 'string',
       appType: 'string',
-      code: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
       versionAdaptNum: 'number',
       versionTotalNum: 'number',
     };
@@ -826,7 +887,6 @@ export class GetAppVersionResponseBody extends $tea.Model {
   appVersionName?: string;
   appVersionStatus?: string;
   appVersionStatusMemo?: string;
-  code?: string;
   consumeCu?: number;
   fileAddress?: string;
   fileSize?: number;
@@ -834,10 +894,7 @@ export class GetAppVersionResponseBody extends $tea.Model {
   fileUploadType?: string;
   gmtCreate?: string;
   gmtModified?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -845,7 +902,6 @@ export class GetAppVersionResponseBody extends $tea.Model {
       appVersionName: 'AppVersionName',
       appVersionStatus: 'AppVersionStatus',
       appVersionStatusMemo: 'AppVersionStatusMemo',
-      code: 'Code',
       consumeCu: 'ConsumeCu',
       fileAddress: 'FileAddress',
       fileSize: 'FileSize',
@@ -853,10 +909,7 @@ export class GetAppVersionResponseBody extends $tea.Model {
       fileUploadType: 'FileUploadType',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
@@ -867,7 +920,6 @@ export class GetAppVersionResponseBody extends $tea.Model {
       appVersionName: 'string',
       appVersionStatus: 'string',
       appVersionStatusMemo: 'string',
-      code: 'string',
       consumeCu: 'number',
       fileAddress: 'string',
       fileSize: 'number',
@@ -875,10 +927,7 @@ export class GetAppVersionResponseBody extends $tea.Model {
       fileUploadType: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -904,6 +953,78 @@ export class GetAppVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetRequest extends $tea.Model {
+  datasetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBody extends $tea.Model {
+  customParam?: string;
+  datasetId?: string;
+  datasetSize?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customParam: 'CustomParam',
+      datasetId: 'DatasetId',
+      datasetSize: 'DatasetSize',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customParam: 'string',
+      datasetId: 'string',
+      datasetSize: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatasetResponseBody,
     };
   }
 
@@ -939,20 +1060,12 @@ export class ListAppRequest extends $tea.Model {
 
 export class ListAppResponseBody extends $tea.Model {
   apps?: ListAppResponseBodyApps[];
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   total?: number;
   static names(): { [key: string]: string } {
     return {
       apps: 'Apps',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
       total: 'Total',
     };
   }
@@ -960,11 +1073,7 @@ export class ListAppResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       apps: { 'type': 'array', 'itemType': ListAppResponseBodyApps },
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
       total: 'number',
     };
   }
@@ -1112,20 +1221,12 @@ export class ListAppVersionRequest extends $tea.Model {
 }
 
 export class ListAppVersionResponseBody extends $tea.Model {
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   total?: number;
   versions?: ListAppVersionResponseBodyVersions[];
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
       total: 'Total',
       versions: 'Versions',
     };
@@ -1133,11 +1234,7 @@ export class ListAppVersionResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
       total: 'number',
       versions: { 'type': 'array', 'itemType': ListAppVersionResponseBodyVersions },
     };
@@ -1197,30 +1294,18 @@ export class ModifyAppRequest extends $tea.Model {
 
 export class ModifyAppResponseBody extends $tea.Model {
   appId?: string;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1278,30 +1363,18 @@ export class ModifyAppVersionRequest extends $tea.Model {
 
 export class ModifyAppVersionResponseBody extends $tea.Model {
   appVersionId?: string;
-  code?: string;
-  httpCode?: number;
-  message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       appVersionId: 'AppVersionId',
-      code: 'Code',
-      httpCode: 'HttpCode',
-      message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appVersionId: 'string',
-      code: 'string',
-      httpCode: 'number',
-      message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1441,6 +1514,53 @@ export class CreateAdaptationRequestAdaptTarget extends $tea.Model {
   }
 }
 
+export class CreateAppSessionRequestResultStoreStoreInfo extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionRequestResultStore extends $tea.Model {
+  need?: boolean;
+  storeInfo?: CreateAppSessionRequestResultStoreStoreInfo[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      need: 'Need',
+      storeInfo: 'StoreInfo',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      need: 'boolean',
+      storeInfo: { 'type': 'array', 'itemType': CreateAppSessionRequestResultStoreStoreInfo },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppSessionRequestStartParameters extends $tea.Model {
   key?: string;
   value?: string;
@@ -1463,7 +1583,73 @@ export class CreateAppSessionRequestStartParameters extends $tea.Model {
   }
 }
 
+export class CreateAppSessionRequestStartParametersV2 extends $tea.Model {
+  key?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppSessionRequestSystemInfo extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionShrinkRequestStartParameters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionShrinkRequestSystemInfo extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -1594,7 +1780,6 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
   fileUploadType?: string;
   gmtCreate?: string;
   gmtModified?: string;
-  tenantId?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -1609,7 +1794,6 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
       fileUploadType: 'FileUploadType',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      tenantId: 'TenantId',
     };
   }
 
@@ -1627,7 +1811,6 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
       fileUploadType: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
-      tenantId: 'number',
     };
   }
 
@@ -1731,8 +1914,18 @@ export default class Client extends OpenApi {
     return await this.createAppWithOptions(request, runtime);
   }
 
-  async createAppSessionWithOptions(request: CreateAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionResponse> {
-    Util.validateModel(request);
+  async createAppSessionWithOptions(tmpReq: CreateAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAppSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.resultStore))) {
+      request.resultStoreShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resultStore), "ResultStore", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.startParametersV2)) {
+      request.startParametersV2Shrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startParametersV2, "StartParametersV2", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
@@ -1754,12 +1947,24 @@ export default class Client extends OpenApi {
       query["CustomUserId"] = request.customUserId;
     }
 
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
     if (!Util.isUnset(request.enablePostpaid)) {
       query["EnablePostpaid"] = request.enablePostpaid;
     }
 
+    if (!Util.isUnset(request.resultStoreShrink)) {
+      query["ResultStore"] = request.resultStoreShrink;
+    }
+
     if (!Util.isUnset(request.startParameters)) {
       query["StartParameters"] = request.startParameters;
+    }
+
+    if (!Util.isUnset(request.startParametersV2Shrink)) {
+      query["StartParametersV2"] = request.startParametersV2Shrink;
     }
 
     if (!Util.isUnset(request.systemInfo)) {
@@ -1823,6 +2028,59 @@ export default class Client extends OpenApi {
   async createAppVersion(request: CreateAppVersionRequest): Promise<CreateAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppVersionWithOptions(request, runtime);
+  }
+
+  async createDatasetDeployTaskWithOptions(request: CreateDatasetDeployTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetDeployTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.customParam)) {
+      query["CustomParam"] = request.customParam;
+    }
+
+    if (!Util.isUnset(request.needUnzip)) {
+      query["NeedUnzip"] = request.needUnzip;
+    }
+
+    if (!Util.isUnset(request.ossBucket)) {
+      query["OssBucket"] = request.ossBucket;
+    }
+
+    if (!Util.isUnset(request.ossFilePath)) {
+      query["OssFilePath"] = request.ossFilePath;
+    }
+
+    if (!Util.isUnset(request.ossRegionId)) {
+      query["OssRegionId"] = request.ossRegionId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDatasetDeployTask",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetDeployTaskResponse>(await this.callApi(params, req, runtime), new CreateDatasetDeployTaskResponse({}));
+  }
+
+  async createDatasetDeployTask(request: CreateDatasetDeployTaskRequest): Promise<CreateDatasetDeployTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDatasetDeployTaskWithOptions(request, runtime);
   }
 
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
@@ -2005,6 +2263,35 @@ export default class Client extends OpenApi {
   async getAppVersion(request: GetAppVersionRequest): Promise<GetAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppVersionWithOptions(request, runtime);
+  }
+
+  async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataset",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDatasetResponse>(await this.callApi(params, req, runtime), new GetDatasetResponse({}));
+  }
+
+  async getDataset(request: GetDatasetRequest): Promise<GetDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDatasetWithOptions(request, runtime);
   }
 
   async listAppWithOptions(request: ListAppRequest, runtime: $Util.RuntimeOptions): Promise<ListAppResponse> {
