@@ -3235,6 +3235,75 @@ export class QueryEmbeddedInfoResponse extends $tea.Model {
   }
 }
 
+export class QueryEmbeddedStatusRequest extends $tea.Model {
+  worksId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      worksId: 'WorksId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      worksId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEmbeddedStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEmbeddedStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryEmbeddedStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryEmbeddedStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrganizationWorkspaceListRequest extends $tea.Model {
   keyword?: string;
   pageNum?: number;
@@ -9455,6 +9524,35 @@ export default class Client extends OpenApi {
   async queryEmbeddedInfo(): Promise<QueryEmbeddedInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEmbeddedInfoWithOptions(runtime);
+  }
+
+  async queryEmbeddedStatusWithOptions(request: QueryEmbeddedStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryEmbeddedStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.worksId)) {
+      query["WorksId"] = request.worksId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryEmbeddedStatus",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEmbeddedStatusResponse>(await this.callApi(params, req, runtime), new QueryEmbeddedStatusResponse({}));
+  }
+
+  async queryEmbeddedStatus(request: QueryEmbeddedStatusRequest): Promise<QueryEmbeddedStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryEmbeddedStatusWithOptions(request, runtime);
   }
 
   async queryOrganizationWorkspaceListWithOptions(request: QueryOrganizationWorkspaceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrganizationWorkspaceListResponse> {
