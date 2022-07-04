@@ -10612,6 +10612,93 @@ export class DescribeVulWhitelistResponse extends $tea.Model {
   }
 }
 
+export class DescribeWarningExportInfoRequest extends $tea.Model {
+  exportId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exportId: 'ExportId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exportId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWarningExportInfoResponseBody extends $tea.Model {
+  currentCount?: number;
+  exportStatus?: string;
+  fileName?: string;
+  id?: number;
+  link?: string;
+  message?: string;
+  progress?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentCount: 'CurrentCount',
+      exportStatus: 'ExportStatus',
+      fileName: 'FileName',
+      id: 'Id',
+      link: 'Link',
+      message: 'Message',
+      progress: 'Progress',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentCount: 'number',
+      exportStatus: 'string',
+      fileName: 'string',
+      id: 'number',
+      link: 'string',
+      message: 'string',
+      progress: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWarningExportInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeWarningExportInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeWarningExportInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeWarningMachinesRequest extends $tea.Model {
   currentPage?: number;
   lang?: string;
@@ -19870,7 +19957,7 @@ export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends 
 }
 
 export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $tea.Model {
-  contentResource?: { [key: string]: string };
+  contentResource?: { [key: string]: any };
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19881,7 +19968,7 @@ export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $t
 
   static types(): { [key: string]: any } {
     return {
-      contentResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      contentResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       resourceName: 'string',
     };
   }
@@ -28356,6 +28443,35 @@ export default class Client extends OpenApi {
   async describeVulWhitelist(request: DescribeVulWhitelistRequest): Promise<DescribeVulWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulWhitelistWithOptions(request, runtime);
+  }
+
+  async describeWarningExportInfoWithOptions(request: DescribeWarningExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWarningExportInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeWarningExportInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWarningExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeWarningExportInfoResponse({}));
+  }
+
+  async describeWarningExportInfo(request: DescribeWarningExportInfoRequest): Promise<DescribeWarningExportInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWarningExportInfoWithOptions(request, runtime);
   }
 
   async describeWarningMachinesWithOptions(request: DescribeWarningMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWarningMachinesResponse> {
