@@ -351,11 +351,13 @@ export class CheckMobilesCardSupportResponse extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateRequest extends $tea.Model {
+  factorys?: string;
   memo?: string;
   template?: { [key: string]: any };
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      factorys: 'Factorys',
       memo: 'Memo',
       template: 'Template',
       templateName: 'TemplateName',
@@ -364,6 +366,7 @@ export class CreateCardSmsTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      factorys: 'string',
       memo: 'string',
       template: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       templateName: 'string',
@@ -376,11 +379,13 @@ export class CreateCardSmsTemplateRequest extends $tea.Model {
 }
 
 export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
+  factorys?: string;
   memo?: string;
   templateShrink?: string;
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      factorys: 'Factorys',
       memo: 'Memo',
       templateShrink: 'Template',
       templateName: 'TemplateName',
@@ -389,6 +394,7 @@ export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      factorys: 'string',
       memo: 'string',
       templateShrink: 'string',
       templateName: 'string',
@@ -694,15 +700,23 @@ export class DeleteSmsTemplateResponse extends $tea.Model {
 }
 
 export class GetCardSmsLinkRequest extends $tea.Model {
+  cardCodeType?: number;
+  cardLinkType?: number;
   cardTemplateCode?: string;
   cardTemplateParamJson?: string;
+  customShortCodeJson?: string;
+  domain?: string;
   outId?: string;
   phoneNumberJson?: string;
   signNameJson?: string;
   static names(): { [key: string]: string } {
     return {
+      cardCodeType: 'CardCodeType',
+      cardLinkType: 'CardLinkType',
       cardTemplateCode: 'CardTemplateCode',
       cardTemplateParamJson: 'CardTemplateParamJson',
+      customShortCodeJson: 'CustomShortCodeJson',
+      domain: 'Domain',
       outId: 'OutId',
       phoneNumberJson: 'PhoneNumberJson',
       signNameJson: 'SignNameJson',
@@ -711,8 +725,12 @@ export class GetCardSmsLinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cardCodeType: 'number',
+      cardLinkType: 'number',
       cardTemplateCode: 'string',
       cardTemplateParamJson: 'string',
+      customShortCodeJson: 'string',
+      domain: 'string',
       outId: 'string',
       phoneNumberJson: 'string',
       signNameJson: 'string',
@@ -3451,6 +3469,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.factorys)) {
+      query["Factorys"] = request.factorys;
+    }
+
     if (!Util.isUnset(request.memo)) {
       query["Memo"] = request.memo;
     }
@@ -3613,12 +3635,28 @@ export default class Client extends OpenApi {
   async getCardSmsLinkWithOptions(request: GetCardSmsLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsLinkResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.cardCodeType)) {
+      query["CardCodeType"] = request.cardCodeType;
+    }
+
+    if (!Util.isUnset(request.cardLinkType)) {
+      query["CardLinkType"] = request.cardLinkType;
+    }
+
     if (!Util.isUnset(request.cardTemplateCode)) {
       query["CardTemplateCode"] = request.cardTemplateCode;
     }
 
     if (!Util.isUnset(request.cardTemplateParamJson)) {
       query["CardTemplateParamJson"] = request.cardTemplateParamJson;
+    }
+
+    if (!Util.isUnset(request.customShortCodeJson)) {
+      query["CustomShortCodeJson"] = request.customShortCodeJson;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
     }
 
     if (!Util.isUnset(request.outId)) {
