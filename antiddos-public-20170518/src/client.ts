@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -53,10 +54,12 @@ export class DescribeBgpPackByIpResponseBody extends $tea.Model {
 
 export class DescribeBgpPackByIpResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBgpPackByIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -64,6 +67,7 @@ export class DescribeBgpPackByIpResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBgpPackByIpResponseBody,
     };
   }
@@ -78,12 +82,14 @@ export class DescribeCapRequest extends $tea.Model {
   ddosRegionId?: string;
   instanceId?: string;
   instanceType?: string;
+  internetIp?: string;
   static names(): { [key: string]: string } {
     return {
       begTime: 'BegTime',
       ddosRegionId: 'DdosRegionId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
     };
   }
 
@@ -93,6 +99,7 @@ export class DescribeCapRequest extends $tea.Model {
       ddosRegionId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      internetIp: 'string',
     };
   }
 
@@ -125,10 +132,12 @@ export class DescribeCapResponseBody extends $tea.Model {
 
 export class DescribeCapResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -136,6 +145,7 @@ export class DescribeCapResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCapResponseBody,
     };
   }
@@ -191,10 +201,12 @@ export class DescribeDdosCountResponseBody extends $tea.Model {
 
 export class DescribeDdosCountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDdosCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -202,6 +214,7 @@ export class DescribeDdosCountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDdosCountResponseBody,
     };
   }
@@ -257,10 +270,12 @@ export class DescribeDdosCreditResponseBody extends $tea.Model {
 
 export class DescribeDdosCreditResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDdosCreditResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -268,6 +283,7 @@ export class DescribeDdosCreditResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDdosCreditResponseBody,
     };
   }
@@ -282,6 +298,7 @@ export class DescribeDdosEventListRequest extends $tea.Model {
   ddosRegionId?: string;
   instanceId?: string;
   instanceType?: string;
+  internetIp?: string;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -289,6 +306,7 @@ export class DescribeDdosEventListRequest extends $tea.Model {
       ddosRegionId: 'DdosRegionId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
       pageSize: 'PageSize',
     };
   }
@@ -299,6 +317,7 @@ export class DescribeDdosEventListRequest extends $tea.Model {
       ddosRegionId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      internetIp: 'string',
       pageSize: 'number',
     };
   }
@@ -335,10 +354,12 @@ export class DescribeDdosEventListResponseBody extends $tea.Model {
 
 export class DescribeDdosEventListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDdosEventListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -346,6 +367,7 @@ export class DescribeDdosEventListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDdosEventListResponseBody,
     };
   }
@@ -407,10 +429,12 @@ export class DescribeDdosThresholdResponseBody extends $tea.Model {
 
 export class DescribeDdosThresholdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDdosThresholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -418,6 +442,7 @@ export class DescribeDdosThresholdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDdosThresholdResponseBody,
     };
   }
@@ -494,10 +519,12 @@ export class DescribeInstanceResponseBody extends $tea.Model {
 
 export class DescribeInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -505,7 +532,242 @@ export class DescribeInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceIpAddressRequest extends $tea.Model {
+  currentPage?: number;
+  ddosRegionId?: string;
+  ddosStatus?: string;
+  instanceId?: string;
+  instanceIp?: string;
+  instanceName?: string;
+  instanceType?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      ddosRegionId: 'DdosRegionId',
+      ddosStatus: 'DdosStatus',
+      instanceId: 'InstanceId',
+      instanceIp: 'InstanceIp',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      ddosRegionId: 'string',
+      ddosStatus: 'string',
+      instanceId: 'string',
+      instanceIp: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceIpAddressResponseBody extends $tea.Model {
+  instanceList?: DescribeInstanceIpAddressResponseBodyInstanceList[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceList: 'InstanceList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceList: { 'type': 'array', 'itemType': DescribeInstanceIpAddressResponseBodyInstanceList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceIpAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceIpAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpDdosThresholdRequest extends $tea.Model {
+  ddosRegionId?: string;
+  ddosType?: string;
+  instanceId?: string;
+  instanceType?: string;
+  internetIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ddosRegionId: 'DdosRegionId',
+      ddosType: 'DdosType',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddosRegionId: 'string',
+      ddosType: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      internetIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpDdosThresholdResponseBody extends $tea.Model {
+  requestId?: string;
+  threshold?: DescribeIpDdosThresholdResponseBodyThreshold;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      threshold: DescribeIpDdosThresholdResponseBodyThreshold,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpDdosThresholdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeIpDdosThresholdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIpDdosThresholdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpLocationServiceRequest extends $tea.Model {
+  internetIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internetIp: 'InternetIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpLocationServiceResponseBody extends $tea.Model {
+  instance?: DescribeIpLocationServiceResponseBodyInstance;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instance: 'Instance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instance: DescribeIpLocationServiceResponseBodyInstance,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpLocationServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeIpLocationServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIpLocationServiceResponseBody,
     };
   }
 
@@ -538,10 +800,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -549,6 +813,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -604,10 +869,12 @@ export class ModifyDdosStatusResponseBody extends $tea.Model {
 
 export class ModifyDdosStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDdosStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -615,6 +882,7 @@ export class ModifyDdosStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDdosStatusResponseBody,
     };
   }
@@ -629,6 +897,7 @@ export class ModifyDefenseThresholdRequest extends $tea.Model {
   ddosRegionId?: string;
   instanceId?: string;
   instanceType?: string;
+  internetIp?: string;
   isAuto?: boolean;
   pps?: number;
   static names(): { [key: string]: string } {
@@ -637,6 +906,7 @@ export class ModifyDefenseThresholdRequest extends $tea.Model {
       ddosRegionId: 'DdosRegionId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
       isAuto: 'IsAuto',
       pps: 'Pps',
     };
@@ -648,6 +918,7 @@ export class ModifyDefenseThresholdRequest extends $tea.Model {
       ddosRegionId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      internetIp: 'string',
       isAuto: 'boolean',
       pps: 'number',
     };
@@ -679,10 +950,12 @@ export class ModifyDefenseThresholdResponseBody extends $tea.Model {
 
 export class ModifyDefenseThresholdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyDefenseThresholdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -690,6 +963,7 @@ export class ModifyDefenseThresholdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyDefenseThresholdResponseBody,
     };
   }
@@ -857,6 +1131,7 @@ export class DescribeDdosThresholdResponseBodyThresholdsThreshold extends $tea.M
   ddosType?: string;
   elasticBps?: number;
   instanceId?: string;
+  internetIp?: string;
   isAuto?: boolean;
   maxBps?: number;
   maxPps?: number;
@@ -867,6 +1142,7 @@ export class DescribeDdosThresholdResponseBodyThresholdsThreshold extends $tea.M
       ddosType: 'DdosType',
       elasticBps: 'ElasticBps',
       instanceId: 'InstanceId',
+      internetIp: 'InternetIp',
       isAuto: 'IsAuto',
       maxBps: 'MaxBps',
       maxPps: 'MaxPps',
@@ -880,6 +1156,7 @@ export class DescribeDdosThresholdResponseBodyThresholdsThreshold extends $tea.M
       ddosType: 'string',
       elasticBps: 'number',
       instanceId: 'string',
+      internetIp: 'string',
       isAuto: 'boolean',
       maxBps: 'number',
       maxPps: 'number',
@@ -979,6 +1256,154 @@ export class DescribeInstanceResponseBodyInstanceList extends $tea.Model {
   }
 }
 
+export class DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig extends $tea.Model {
+  blackholeThreshold?: number;
+  defenseBpsThreshold?: number;
+  defensePpsThreshold?: number;
+  elasticThreshold?: number;
+  instanceIp?: string;
+  ipStatus?: string;
+  ipVersion?: string;
+  isBgppack?: boolean;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blackholeThreshold: 'BlackholeThreshold',
+      defenseBpsThreshold: 'DefenseBpsThreshold',
+      defensePpsThreshold: 'DefensePpsThreshold',
+      elasticThreshold: 'ElasticThreshold',
+      instanceIp: 'InstanceIp',
+      ipStatus: 'IpStatus',
+      ipVersion: 'IpVersion',
+      isBgppack: 'IsBgppack',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackholeThreshold: 'number',
+      defenseBpsThreshold: 'number',
+      defensePpsThreshold: 'number',
+      elasticThreshold: 'number',
+      instanceIp: 'string',
+      ipStatus: 'string',
+      ipVersion: 'string',
+      isBgppack: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceIpAddressResponseBodyInstanceList extends $tea.Model {
+  instanceId?: string;
+  instanceName?: string;
+  instanceStatus?: string;
+  instanceType?: string;
+  ipAddressConfig?: DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      ipAddressConfig: 'IpAddressConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      ipAddressConfig: { 'type': 'array', 'itemType': DescribeInstanceIpAddressResponseBodyInstanceListIpAddressConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpDdosThresholdResponseBodyThreshold extends $tea.Model {
+  bps?: number;
+  ddosType?: string;
+  elasticBps?: number;
+  instanceId?: string;
+  internetIp?: string;
+  isAuto?: boolean;
+  maxBps?: number;
+  maxPps?: number;
+  pps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      ddosType: 'DdosType',
+      elasticBps: 'ElasticBps',
+      instanceId: 'InstanceId',
+      internetIp: 'InternetIp',
+      isAuto: 'IsAuto',
+      maxBps: 'MaxBps',
+      maxPps: 'MaxPps',
+      pps: 'Pps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      ddosType: 'string',
+      elasticBps: 'number',
+      instanceId: 'string',
+      internetIp: 'string',
+      isAuto: 'boolean',
+      maxBps: 'number',
+      maxPps: 'number',
+      pps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIpLocationServiceResponseBodyInstance extends $tea.Model {
+  instanceId?: string;
+  instanceName?: string;
+  instanceType?: string;
+  internetIp?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      internetIp: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
   regionEnName?: string;
   regionName?: string;
@@ -1051,10 +1476,30 @@ export default class Client extends OpenApi {
 
   async describeBgpPackByIpWithOptions(request: DescribeBgpPackByIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpPackByIpResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBgpPackByIpResponse>(await this.doRPCRequest("DescribeBgpPackByIp", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBgpPackByIpResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBgpPackByIp",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBgpPackByIpResponse>(await this.callApi(params, req, runtime), new DescribeBgpPackByIpResponse({}));
   }
 
   async describeBgpPackByIp(request: DescribeBgpPackByIpRequest): Promise<DescribeBgpPackByIpResponse> {
@@ -1064,10 +1509,42 @@ export default class Client extends OpenApi {
 
   async describeCapWithOptions(request: DescribeCapRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCapResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.begTime)) {
+      query["BegTime"] = request.begTime;
+    }
+
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCapResponse>(await this.doRPCRequest("DescribeCap", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCapResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCap",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCapResponse>(await this.callApi(params, req, runtime), new DescribeCapResponse({}));
   }
 
   async describeCap(request: DescribeCapRequest): Promise<DescribeCapResponse> {
@@ -1077,10 +1554,30 @@ export default class Client extends OpenApi {
 
   async describeDdosCountWithOptions(request: DescribeDdosCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosCountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDdosCountResponse>(await this.doRPCRequest("DescribeDdosCount", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDdosCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosCount",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosCountResponse>(await this.callApi(params, req, runtime), new DescribeDdosCountResponse({}));
   }
 
   async describeDdosCount(request: DescribeDdosCountRequest): Promise<DescribeDdosCountResponse> {
@@ -1090,10 +1587,26 @@ export default class Client extends OpenApi {
 
   async describeDdosCreditWithOptions(request: DescribeDdosCreditRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosCreditResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDdosCreditResponse>(await this.doRPCRequest("DescribeDdosCredit", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDdosCreditResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosCredit",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosCreditResponse>(await this.callApi(params, req, runtime), new DescribeDdosCreditResponse({}));
   }
 
   async describeDdosCredit(request: DescribeDdosCreditRequest): Promise<DescribeDdosCreditResponse> {
@@ -1103,10 +1616,46 @@ export default class Client extends OpenApi {
 
   async describeDdosEventListWithOptions(request: DescribeDdosEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosEventListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDdosEventListResponse>(await this.doRPCRequest("DescribeDdosEventList", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDdosEventListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosEventList",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosEventListResponse>(await this.callApi(params, req, runtime), new DescribeDdosEventListResponse({}));
   }
 
   async describeDdosEventList(request: DescribeDdosEventListRequest): Promise<DescribeDdosEventListResponse> {
@@ -1116,10 +1665,38 @@ export default class Client extends OpenApi {
 
   async describeDdosThresholdWithOptions(request: DescribeDdosThresholdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosThresholdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.ddosType)) {
+      query["DdosType"] = request.ddosType;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDdosThresholdResponse>(await this.doRPCRequest("DescribeDdosThreshold", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDdosThresholdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosThreshold",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosThresholdResponse>(await this.callApi(params, req, runtime), new DescribeDdosThresholdResponse({}));
   }
 
   async describeDdosThreshold(request: DescribeDdosThresholdRequest): Promise<DescribeDdosThresholdResponse> {
@@ -1129,10 +1706,54 @@ export default class Client extends OpenApi {
 
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.ddosStatus)) {
+      query["DdosStatus"] = request.ddosStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceIp)) {
+      query["InstanceIp"] = request.instanceIp;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstanceResponse>(await this.doRPCRequest("DescribeInstance", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstance",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
@@ -1140,9 +1761,151 @@ export default class Client extends OpenApi {
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  async describeInstanceIpAddressWithOptions(request: DescribeInstanceIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceIpAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.ddosStatus)) {
+      query["DdosStatus"] = request.ddosStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceIp)) {
+      query["InstanceIp"] = request.instanceIp;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceIpAddress",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceIpAddressResponse>(await this.callApi(params, req, runtime), new DescribeInstanceIpAddressResponse({}));
+  }
+
+  async describeInstanceIpAddress(request: DescribeInstanceIpAddressRequest): Promise<DescribeInstanceIpAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceIpAddressWithOptions(request, runtime);
+  }
+
+  async describeIpDdosThresholdWithOptions(request: DescribeIpDdosThresholdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpDdosThresholdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.ddosType)) {
+      query["DdosType"] = request.ddosType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIpDdosThreshold",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIpDdosThresholdResponse>(await this.callApi(params, req, runtime), new DescribeIpDdosThresholdResponse({}));
+  }
+
+  async describeIpDdosThreshold(request: DescribeIpDdosThresholdRequest): Promise<DescribeIpDdosThresholdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIpDdosThresholdWithOptions(request, runtime);
+  }
+
+  async describeIpLocationServiceWithOptions(request: DescribeIpLocationServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpLocationServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIpLocationService",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIpLocationServiceResponse>(await this.callApi(params, req, runtime), new DescribeIpLocationServiceResponse({}));
+  }
+
+  async describeIpLocationService(request: DescribeIpLocationServiceRequest): Promise<DescribeIpLocationServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIpLocationServiceWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(): Promise<DescribeRegionsResponse> {
@@ -1152,10 +1915,34 @@ export default class Client extends OpenApi {
 
   async modifyDdosStatusWithOptions(request: ModifyDdosStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDdosStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyDdosStatusResponse>(await this.doRPCRequest("ModifyDdosStatus", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDdosStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDdosStatus",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDdosStatusResponse>(await this.callApi(params, req, runtime), new ModifyDdosStatusResponse({}));
   }
 
   async modifyDdosStatus(request: ModifyDdosStatusRequest): Promise<ModifyDdosStatusResponse> {
@@ -1165,10 +1952,50 @@ export default class Client extends OpenApi {
 
   async modifyDefenseThresholdWithOptions(request: ModifyDefenseThresholdRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseThresholdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bps)) {
+      query["Bps"] = request.bps;
+    }
+
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!Util.isUnset(request.isAuto)) {
+      query["IsAuto"] = request.isAuto;
+    }
+
+    if (!Util.isUnset(request.pps)) {
+      query["Pps"] = request.pps;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyDefenseThresholdResponse>(await this.doRPCRequest("ModifyDefenseThreshold", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDefenseThresholdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDefenseThreshold",
+      version: "2017-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDefenseThresholdResponse>(await this.callApi(params, req, runtime), new ModifyDefenseThresholdResponse({}));
   }
 
   async modifyDefenseThreshold(request: ModifyDefenseThresholdRequest): Promise<ModifyDefenseThresholdResponse> {
