@@ -895,6 +895,225 @@ export class DeleteProjectResponse extends $tea.Model {
   }
 }
 
+export class GetContextLogsRequest extends $tea.Model {
+  backLines?: number;
+  forwardLines?: number;
+  packId?: string;
+  packMeta?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backLines: 'back_lines',
+      forwardLines: 'forward_lines',
+      packId: 'pack_id',
+      packMeta: 'pack_meta',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backLines: 'number',
+      forwardLines: 'number',
+      packId: 'string',
+      packMeta: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContextLogsResponseBody extends $tea.Model {
+  backLines?: number;
+  forwardLines?: number;
+  logs?: { [key: string]: any }[];
+  progress?: string;
+  totalLines?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backLines: 'back_lines',
+      forwardLines: 'forward_lines',
+      logs: 'logs',
+      progress: 'progress',
+      totalLines: 'total_lines',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backLines: 'number',
+      forwardLines: 'number',
+      logs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      progress: 'string',
+      totalLines: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetContextLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetContextLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetContextLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCursorRequest extends $tea.Model {
+  from?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'from',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCursorResponseBody extends $tea.Model {
+  cursor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cursor: 'cursor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursor: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCursorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCursorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCursorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCursorTimeRequest extends $tea.Model {
+  cursor?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cursor: 'cursor',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursor: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCursorTimeResponseBody extends $tea.Model {
+  cursorTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cursorTime: 'cursor_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursorTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCursorTimeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCursorTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCursorTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistogramsRequest extends $tea.Model {
   from?: number;
   query?: string;
@@ -1039,6 +1258,74 @@ export class GetLogStoreResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Logstore,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogsRequest extends $tea.Model {
+  from?: number;
+  line?: number;
+  offset?: number;
+  powerSql?: boolean;
+  query?: string;
+  reverse?: boolean;
+  to?: number;
+  topic?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'from',
+      line: 'line',
+      offset: 'offset',
+      powerSql: 'powerSql',
+      query: 'query',
+      reverse: 'reverse',
+      to: 'to',
+      topic: 'topic',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      line: 'number',
+      offset: 'number',
+      powerSql: 'boolean',
+      query: 'string',
+      reverse: 'boolean',
+      to: 'number',
+      topic: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -1383,6 +1670,125 @@ export class ListSavedSearchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSavedSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Shard[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': Shard },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeShardsRequest extends $tea.Model {
+  action?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeShardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Shard[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': Shard },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SplitShardRequest extends $tea.Model {
+  action?: string;
+  key?: string;
+  shardCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      key: 'key',
+      shardCount: 'shardCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      key: 'string',
+      shardCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SplitShardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Shard[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': Shard },
     };
   }
 
@@ -2620,6 +3026,137 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  async getContextLogs(project: string, logstore: string, request: GetContextLogsRequest): Promise<GetContextLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getContextLogsWithOptions(project, logstore, request, headers, runtime);
+  }
+
+  async getContextLogsWithOptions(project: string, logstore: string, request: GetContextLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetContextLogsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backLines)) {
+      query["back_lines"] = request.backLines;
+    }
+
+    if (!Util.isUnset(request.forwardLines)) {
+      query["forward_lines"] = request.forwardLines;
+    }
+
+    if (!Util.isUnset(request.packId)) {
+      query["pack_id"] = request.packId;
+    }
+
+    if (!Util.isUnset(request.packMeta)) {
+      query["pack_meta"] = request.packMeta;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetContextLogs",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetContextLogsResponse>(await this.execute(params, req, runtime), new GetContextLogsResponse({}));
+  }
+
+  async getCursor(project: string, logstore: string, shardId: string, request: GetCursorRequest): Promise<GetCursorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCursorWithOptions(project, logstore, shardId, request, headers, runtime);
+  }
+
+  async getCursorWithOptions(project: string, logstore: string, shardId: string, request: GetCursorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCursorResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shardId = OpenApiUtil.getEncodeParam(shardId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.from)) {
+      query["from"] = request.from;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCursor",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shards/${shardId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCursorResponse>(await this.execute(params, req, runtime), new GetCursorResponse({}));
+  }
+
+  async getCursorTime(project: string, logstore: string, shardId: string, request: GetCursorTimeRequest): Promise<GetCursorTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
+  }
+
+  async getCursorTimeWithOptions(project: string, logstore: string, shardId: string, request: GetCursorTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCursorTimeResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shardId = OpenApiUtil.getEncodeParam(shardId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cursor)) {
+      query["cursor"] = request.cursor;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCursorTime",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shards/${shardId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCursorTimeResponse>(await this.execute(params, req, runtime), new GetCursorTimeResponse({}));
+  }
+
   async getHistograms(project: string, logstore: string, request: GetHistogramsRequest): Promise<GetHistogramsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -2725,6 +3262,73 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetLogStoreResponse>(await this.execute(params, req, runtime), new GetLogStoreResponse({}));
+  }
+
+  async getLogs(project: string, logstore: string, request: GetLogsRequest): Promise<GetLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLogsWithOptions(project, logstore, request, headers, runtime);
+  }
+
+  async getLogsWithOptions(project: string, logstore: string, request: GetLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.from)) {
+      query["from"] = request.from;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.powerSql)) {
+      query["powerSql"] = request.powerSql;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.reverse)) {
+      query["reverse"] = request.reverse;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["to"] = request.to;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLogs",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/index`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<GetLogsResponse>(await this.execute(params, req, runtime), new GetLogsResponse({}));
   }
 
   async getProject(project: string): Promise<GetProjectResponse> {
@@ -2969,6 +3573,114 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListSavedSearchResponse>(await this.execute(params, req, runtime), new ListSavedSearchResponse({}));
+  }
+
+  async listShards(project: string, logstore: string): Promise<ListShardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listShardsWithOptions(project, logstore, headers, runtime);
+  }
+
+  async listShardsWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShardsResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListShards",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shards`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<ListShardsResponse>(await this.execute(params, req, runtime), new ListShardsResponse({}));
+  }
+
+  async mergeShards(project: string, logstore: string, shardID: string, request: MergeShardsRequest): Promise<MergeShardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.mergeShardsWithOptions(project, logstore, shardID, request, headers, runtime);
+  }
+
+  async mergeShardsWithOptions(project: string, logstore: string, shardID: string, request: MergeShardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MergeShardsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shardID = OpenApiUtil.getEncodeParam(shardID);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.action)) {
+      query["action"] = request.action;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MergeShards",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shards/${shardID}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<MergeShardsResponse>(await this.execute(params, req, runtime), new MergeShardsResponse({}));
+  }
+
+  async splitShard(project: string, logstore: string, shardID: string, request: SplitShardRequest): Promise<SplitShardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.splitShardWithOptions(project, logstore, shardID, request, headers, runtime);
+  }
+
+  async splitShardWithOptions(project: string, logstore: string, shardID: string, request: SplitShardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitShardResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shardID = OpenApiUtil.getEncodeParam(shardID);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.action)) {
+      query["action"] = request.action;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.shardCount)) {
+      query["shardCount"] = request.shardCount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SplitShard",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shards/${shardID}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<SplitShardResponse>(await this.execute(params, req, runtime), new SplitShardResponse({}));
   }
 
   async updateConsumerGroup(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
