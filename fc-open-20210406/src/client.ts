@@ -2193,7 +2193,7 @@ export class CreateTriggerRequest extends $tea.Model {
   invocationRole?: string;
   qualifier?: string;
   sourceArn?: string;
-  triggerConfig?: any;
+  triggerConfig?: string;
   triggerName?: string;
   triggerType?: string;
   static names(): { [key: string]: string } {
@@ -2214,7 +2214,7 @@ export class CreateTriggerRequest extends $tea.Model {
       invocationRole: 'string',
       qualifier: 'string',
       sourceArn: 'string',
-      triggerConfig: 'any',
+      triggerConfig: 'string',
       triggerName: 'string',
       triggerType: 'string',
     };
@@ -4315,7 +4315,7 @@ export class InvokeFunctionHeaders extends $tea.Model {
 }
 
 export class InvokeFunctionRequest extends $tea.Model {
-  body?: any;
+  body?: Buffer;
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4326,7 +4326,7 @@ export class InvokeFunctionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      body: 'any',
+      body: 'Buffer',
       qualifier: 'string',
     };
   }
@@ -4873,14 +4873,10 @@ export class ListFunctionsResponse extends $tea.Model {
 export class ListInstancesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcDate?: string;
-  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcDate: 'X-Fc-Date',
-      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4888,8 +4884,6 @@ export class ListInstancesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcDate: 'string',
-      xFcTraceId: 'string',
     };
   }
 
@@ -9824,7 +9818,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
-      body: request.body,
+      body: Util.toString(request.body),
     });
     let params = new $OpenApi.Params({
       action: "InvokeFunction",
@@ -10172,14 +10166,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(headers.xFcAccountId)) {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
-    }
-
-    if (!Util.isUnset(headers.xFcDate)) {
-      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcTraceId)) {
-      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
 
     let req = new $OpenApi.OpenApiRequest({
