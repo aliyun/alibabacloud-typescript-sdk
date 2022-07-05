@@ -1585,10 +1585,12 @@ export class CreateRoutineResponse extends $tea.Model {
 }
 
 export class CreateSlrAndSlsProjectRequest extends $tea.Model {
+  businessType?: string;
   ownerId?: number;
   region?: string;
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       ownerId: 'OwnerId',
       region: 'Region',
     };
@@ -1596,6 +1598,7 @@ export class CreateSlrAndSlsProjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'string',
       ownerId: 'number',
       region: 'string',
     };
@@ -2008,12 +2011,10 @@ export class DeleteDcdnIpaSpecificConfigResponse extends $tea.Model {
 }
 
 export class DeleteDcdnRealTimeLogProjectRequest extends $tea.Model {
-  businessType?: string;
   ownerId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
-      businessType: 'BusinessType',
       ownerId: 'OwnerId',
       projectName: 'ProjectName',
     };
@@ -2021,7 +2022,6 @@ export class DeleteDcdnRealTimeLogProjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      businessType: 'string',
       ownerId: 'number',
       projectName: 'string',
     };
@@ -8482,13 +8482,77 @@ export class DescribeDcdnReportListResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSLSRealTimeLogTypeRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSLSRealTimeLogTypeResponseBody extends $tea.Model {
+  content?: DescribeDcdnSLSRealTimeLogTypeResponseBodyContent;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: DescribeDcdnSLSRealTimeLogTypeResponseBodyContent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSLSRealTimeLogTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDcdnSLSRealTimeLogTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDcdnSLSRealTimeLogTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnSLSRealtimeLogDeliveryRequest extends $tea.Model {
-  businessType?: string;
   ownerId?: number;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
-      businessType: 'BusinessType',
       ownerId: 'OwnerId',
       projectName: 'ProjectName',
     };
@@ -8496,7 +8560,6 @@ export class DescribeDcdnSLSRealtimeLogDeliveryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      businessType: 'string',
       ownerId: 'number',
       projectName: 'string',
     };
@@ -18568,6 +18631,47 @@ export class DescribeDcdnRegionAndIspResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSLSRealTimeLogTypeResponseBodyContentBusiness extends $tea.Model {
+  businessType?: string;
+  desc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      desc: 'Desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      desc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSLSRealTimeLogTypeResponseBodyContent extends $tea.Model {
+  business?: DescribeDcdnSLSRealTimeLogTypeResponseBodyContentBusiness[];
+  static names(): { [key: string]: string } {
+    return {
+      business: 'Business',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      business: { 'type': 'array', 'itemType': DescribeDcdnSLSRealTimeLogTypeResponseBodyContentBusiness },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnSLSRealtimeLogDeliveryResponseBodyContent extends $tea.Model {
   businessType?: string;
   dataCenter?: string;
@@ -18578,6 +18682,7 @@ export class DescribeDcdnSLSRealtimeLogDeliveryResponseBodyContent extends $tea.
   SLSProject?: string;
   SLSRegion?: string;
   samplingRate?: string;
+  status?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18590,6 +18695,7 @@ export class DescribeDcdnSLSRealtimeLogDeliveryResponseBodyContent extends $tea.
       SLSProject: 'SLSProject',
       SLSRegion: 'SLSRegion',
       samplingRate: 'SamplingRate',
+      status: 'Status',
       type: 'Type',
     };
   }
@@ -18605,6 +18711,7 @@ export class DescribeDcdnSLSRealtimeLogDeliveryResponseBodyContent extends $tea.
       SLSProject: 'string',
       SLSRegion: 'string',
       samplingRate: 'string',
+      status: 'string',
       type: 'string',
     };
   }
@@ -21177,6 +21284,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessType)) {
+      body["BusinessType"] = request.businessType;
+    }
+
     if (!Util.isUnset(request.region)) {
       body["Region"] = request.region;
     }
@@ -21402,10 +21513,6 @@ export default class Client extends OpenApi {
   async deleteDcdnRealTimeLogProjectWithOptions(request: DeleteDcdnRealTimeLogProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnRealTimeLogProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.businessType)) {
-      query["BusinessType"] = request.businessType;
-    }
-
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -24675,13 +24782,34 @@ export default class Client extends OpenApi {
     return await this.describeDcdnReportListWithOptions(request, runtime);
   }
 
+  async describeDcdnSLSRealTimeLogTypeWithOptions(request: DescribeDcdnSLSRealTimeLogTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSLSRealTimeLogTypeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnSLSRealTimeLogType",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnSLSRealTimeLogTypeResponse>(await this.callApi(params, req, runtime), new DescribeDcdnSLSRealTimeLogTypeResponse({}));
+  }
+
+  async describeDcdnSLSRealTimeLogType(request: DescribeDcdnSLSRealTimeLogTypeRequest): Promise<DescribeDcdnSLSRealTimeLogTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnSLSRealTimeLogTypeWithOptions(request, runtime);
+  }
+
   async describeDcdnSLSRealtimeLogDeliveryWithOptions(request: DescribeDcdnSLSRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSLSRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.businessType)) {
-      query["BusinessType"] = request.businessType;
-    }
-
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
