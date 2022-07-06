@@ -100,20 +100,20 @@ export class AddSmsSignRequest extends $tea.Model {
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  sceneType?: number;
   signFileList?: AddSmsSignRequestSignFileList[];
   signName?: string;
   signSource?: number;
+  signType?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      sceneType: 'SceneType',
       signFileList: 'SignFileList',
       signName: 'SignName',
       signSource: 'SignSource',
+      signType: 'SignType',
     };
   }
 
@@ -123,10 +123,10 @@ export class AddSmsSignRequest extends $tea.Model {
       remark: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      sceneType: 'number',
       signFileList: { 'type': 'array', 'itemType': AddSmsSignRequestSignFileList },
       signName: 'string',
       signSource: 'number',
+      signType: 'number',
     };
   }
 
@@ -1039,20 +1039,20 @@ export class ModifySmsSignRequest extends $tea.Model {
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  sceneType?: number;
   signFileList?: ModifySmsSignRequestSignFileList[];
   signName?: string;
   signSource?: number;
+  signType?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      sceneType: 'SceneType',
       signFileList: 'SignFileList',
       signName: 'SignName',
       signSource: 'SignSource',
+      signType: 'SignType',
     };
   }
 
@@ -1062,10 +1062,10 @@ export class ModifySmsSignRequest extends $tea.Model {
       remark: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      sceneType: 'number',
       signFileList: { 'type': 'array', 'itemType': ModifySmsSignRequestSignFileList },
       signName: 'string',
       signSource: 'number',
+      signType: 'number',
     };
   }
 
@@ -3344,16 +3344,16 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sceneType)) {
-      query["SceneType"] = request.sceneType;
-    }
-
     if (!Util.isUnset(request.signName)) {
       query["SignName"] = request.signName;
     }
 
     if (!Util.isUnset(request.signSource)) {
       query["SignSource"] = request.signSource;
+    }
+
+    if (!Util.isUnset(request.signType)) {
+      query["SignType"] = request.signType;
     }
 
     let body : {[key: string ]: any} = { };
@@ -3853,16 +3853,16 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sceneType)) {
-      query["SceneType"] = request.sceneType;
-    }
-
     if (!Util.isUnset(request.signName)) {
       query["SignName"] = request.signName;
     }
 
     if (!Util.isUnset(request.signSource)) {
       query["SignSource"] = request.signSource;
+    }
+
+    if (!Util.isUnset(request.signType)) {
+      query["SignType"] = request.signType;
     }
 
     let body : {[key: string ]: any} = { };
