@@ -84,6 +84,46 @@ export class EncryptUserCmkConf extends $tea.Model {
   }
 }
 
+export class LogtailConfig extends $tea.Model {
+  configName?: string;
+  createTime?: number;
+  inputDetail?: LogtailConfigInputDetail;
+  inputType?: string;
+  lastModifyTime?: number;
+  logSample?: string;
+  outputDetail?: LogtailConfigOutputDetail;
+  outputType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configName: 'configName',
+      createTime: 'createTime',
+      inputDetail: 'inputDetail',
+      inputType: 'inputType',
+      lastModifyTime: 'lastModifyTime',
+      logSample: 'logSample',
+      outputDetail: 'outputDetail',
+      outputType: 'outputType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configName: 'string',
+      createTime: 'number',
+      inputDetail: LogtailConfigInputDetail,
+      inputType: 'string',
+      lastModifyTime: 'number',
+      logSample: 'string',
+      outputDetail: LogtailConfigOutputDetail,
+      outputType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SavedSearch extends $tea.Model {
   displayName?: string;
   logstore?: string;
@@ -138,46 +178,6 @@ export class Chart extends $tea.Model {
       search: ChartSearch,
       title: 'string',
       type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Config extends $tea.Model {
-  configName?: string;
-  createTime?: number;
-  inputDetail?: ConfigInputDetail;
-  inputType?: string;
-  lastModifyTime?: number;
-  logSample?: string;
-  outputDetail?: ConfigOutputDetail;
-  outputType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configName: 'configName',
-      createTime: 'createTime',
-      inputDetail: 'inputDetail',
-      inputType: 'inputType',
-      lastModifyTime: 'lastModifyTime',
-      logSample: 'logSample',
-      outputDetail: 'outputDetail',
-      outputType: 'outputType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configName: 'string',
-      createTime: 'number',
-      inputDetail: ConfigInputDetail,
-      inputType: 'string',
-      lastModifyTime: 'number',
-      logSample: 'string',
-      outputDetail: ConfigOutputDetail,
-      outputType: 'string',
     };
   }
 
@@ -2096,6 +2096,132 @@ export class KeysValue extends $tea.Model {
   }
 }
 
+export class LogtailConfigInputDetailSensitiveKeys extends $tea.Model {
+  all?: boolean;
+  key?: string;
+  regexBegin?: string;
+  regexContent?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'all',
+      key: 'key',
+      regexBegin: 'regex_begin',
+      regexContent: 'regex_content',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      key: 'string',
+      regexBegin: 'string',
+      regexContent: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogtailConfigInputDetail extends $tea.Model {
+  adjustTimezone?: boolean;
+  delayAlarmBytes?: number;
+  enableTag?: boolean;
+  filePattern?: string;
+  filterKey?: string[];
+  filterRegex?: string[];
+  localStorage?: boolean;
+  logBeginRegex?: string;
+  logPath?: string;
+  logTimezone?: string;
+  logType?: string;
+  maxSendRate?: number;
+  mergeType?: string;
+  priority?: number;
+  sendRateExpire?: number;
+  sensitiveKeys?: LogtailConfigInputDetailSensitiveKeys[];
+  shardHashKey?: string[];
+  timeFormat?: string;
+  topicFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adjustTimezone: 'adjustTimezone',
+      delayAlarmBytes: 'delayAlarmBytes',
+      enableTag: 'enableTag',
+      filePattern: 'filePattern',
+      filterKey: 'filterKey',
+      filterRegex: 'filterRegex',
+      localStorage: 'localStorage',
+      logBeginRegex: 'logBeginRegex',
+      logPath: 'logPath',
+      logTimezone: 'logTimezone',
+      logType: 'logType',
+      maxSendRate: 'maxSendRate',
+      mergeType: 'mergeType',
+      priority: 'priority',
+      sendRateExpire: 'sendRateExpire',
+      sensitiveKeys: 'sensitive_keys',
+      shardHashKey: 'shardHashKey',
+      timeFormat: 'timeFormat',
+      topicFormat: 'topicFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adjustTimezone: 'boolean',
+      delayAlarmBytes: 'number',
+      enableTag: 'boolean',
+      filePattern: 'string',
+      filterKey: { 'type': 'array', 'itemType': 'string' },
+      filterRegex: { 'type': 'array', 'itemType': 'string' },
+      localStorage: 'boolean',
+      logBeginRegex: 'string',
+      logPath: 'string',
+      logTimezone: 'string',
+      logType: 'string',
+      maxSendRate: 'number',
+      mergeType: 'string',
+      priority: 'number',
+      sendRateExpire: 'number',
+      sensitiveKeys: { 'type': 'array', 'itemType': LogtailConfigInputDetailSensitiveKeys },
+      shardHashKey: { 'type': 'array', 'itemType': 'string' },
+      timeFormat: 'string',
+      topicFormat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogtailConfigOutputDetail extends $tea.Model {
+  endpoint?: string;
+  logstore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      logstore: 'logstore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      logstore: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChartDisplay extends $tea.Model {
   height?: number;
   width?: number;
@@ -2153,132 +2279,6 @@ export class ChartSearch extends $tea.Model {
       query: 'string',
       start: 'string',
       topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigInputDetailSensitiveKeys extends $tea.Model {
-  all?: boolean;
-  key?: string;
-  regexBegin?: string;
-  regexContent?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      all: 'all',
-      key: 'key',
-      regexBegin: 'regex_begin',
-      regexContent: 'regex_content',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      key: 'string',
-      regexBegin: 'string',
-      regexContent: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigInputDetail extends $tea.Model {
-  adjustTimezone?: boolean;
-  delayAlarmBytes?: number;
-  enableTag?: boolean;
-  filePattern?: string;
-  filterKey?: string[];
-  filterRegex?: string[];
-  localStorage?: boolean;
-  logBeginRegex?: string;
-  logPath?: string;
-  logTimezone?: string;
-  logType?: string;
-  maxSendRate?: number;
-  mergeType?: string;
-  priority?: number;
-  sendRateExpire?: number;
-  sensitiveKeys?: ConfigInputDetailSensitiveKeys[];
-  shardHashKey?: string[];
-  timeFormat?: string;
-  topicFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adjustTimezone: 'adjustTimezone',
-      delayAlarmBytes: 'delayAlarmBytes',
-      enableTag: 'enableTag',
-      filePattern: 'filePattern',
-      filterKey: 'filterKey',
-      filterRegex: 'filterRegex',
-      localStorage: 'localStorage',
-      logBeginRegex: 'logBeginRegex',
-      logPath: 'logPath',
-      logTimezone: 'logTimezone',
-      logType: 'logType',
-      maxSendRate: 'maxSendRate',
-      mergeType: 'mergeType',
-      priority: 'priority',
-      sendRateExpire: 'sendRateExpire',
-      sensitiveKeys: 'sensitive_keys',
-      shardHashKey: 'shardHashKey',
-      timeFormat: 'timeFormat',
-      topicFormat: 'topicFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adjustTimezone: 'boolean',
-      delayAlarmBytes: 'number',
-      enableTag: 'boolean',
-      filePattern: 'string',
-      filterKey: { 'type': 'array', 'itemType': 'string' },
-      filterRegex: { 'type': 'array', 'itemType': 'string' },
-      localStorage: 'boolean',
-      logBeginRegex: 'string',
-      logPath: 'string',
-      logTimezone: 'string',
-      logType: 'string',
-      maxSendRate: 'number',
-      mergeType: 'string',
-      priority: 'number',
-      sendRateExpire: 'number',
-      sensitiveKeys: { 'type': 'array', 'itemType': ConfigInputDetailSensitiveKeys },
-      shardHashKey: { 'type': 'array', 'itemType': 'string' },
-      timeFormat: 'string',
-      topicFormat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigOutputDetail extends $tea.Model {
-  endpoint?: string;
-  logstore?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'endpoint',
-      logstore: 'logstore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      logstore: 'string',
     };
   }
 
