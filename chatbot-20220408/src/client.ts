@@ -2198,7 +2198,7 @@ export class DeleteInstanceResponseBody extends $tea.Model {
   createUserName?: string;
   error?: string;
   id?: number;
-  requestId?: Buffer;
+  requestId?: string;
   response?: number;
   status?: string;
   static names(): { [key: string]: string } {
@@ -2223,7 +2223,7 @@ export class DeleteInstanceResponseBody extends $tea.Model {
       createUserName: 'string',
       error: 'string',
       id: 'number',
-      requestId: 'Buffer',
+      requestId: 'string',
       response: 'number',
       status: 'string',
     };
