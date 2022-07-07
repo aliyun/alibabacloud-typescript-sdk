@@ -568,6 +568,7 @@ export class CreateApplicationRequest extends $tea.Model {
   vpcId?: string;
   warStartOptions?: string;
   webContainer?: string;
+  mseFeatureConfig?: string;
   static names(): { [key: string]: string } {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
@@ -622,6 +623,7 @@ export class CreateApplicationRequest extends $tea.Model {
       vpcId: 'VpcId',
       warStartOptions: 'WarStartOptions',
       webContainer: 'WebContainer',
+      mseFeatureConfig: 'mseFeatureConfig',
     };
   }
 
@@ -679,6 +681,7 @@ export class CreateApplicationRequest extends $tea.Model {
       vpcId: 'string',
       warStartOptions: 'string',
       webContainer: 'string',
+      mseFeatureConfig: 'string',
     };
   }
 
@@ -1714,6 +1717,7 @@ export class DeployApplicationRequest extends $tea.Model {
   minReadyInstances?: number;
   mountDesc?: string;
   mountHost?: string;
+  mseFeatureConfig?: string;
   nasId?: string;
   openCollectToKafka?: boolean;
   ossAkId?: string;
@@ -1764,6 +1768,7 @@ export class DeployApplicationRequest extends $tea.Model {
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
+      mseFeatureConfig: 'MseFeatureConfig',
       nasId: 'NasId',
       openCollectToKafka: 'OpenCollectToKafka',
       ossAkId: 'OssAkId',
@@ -1817,6 +1822,7 @@ export class DeployApplicationRequest extends $tea.Model {
       minReadyInstances: 'number',
       mountDesc: 'string',
       mountHost: 'string',
+      mseFeatureConfig: 'string',
       nasId: 'string',
       openCollectToKafka: 'boolean',
       ossAkId: 'string',
@@ -3995,7 +4001,7 @@ export class ExecJobRequest extends $tea.Model {
 
 export class ExecJobResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: ExecJobResponseBodyData;
   errorCode?: string;
   message?: string;
   requestId?: string;
@@ -4016,7 +4022,7 @@ export class ExecJobResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: ExecJobResponseBodyData,
       errorCode: 'string',
       message: 'string',
       requestId: 'string',
@@ -7783,6 +7789,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
   mountDesc?: DescribeApplicationConfigResponseBodyDataMountDesc[];
   mountHost?: string;
   mseApplicationId?: string;
+  mseFeatureConfig?: string;
   namespaceId?: string;
   nasId?: string;
   ossAkId?: string;
@@ -7841,6 +7848,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       mseApplicationId: 'MseApplicationId',
+      mseFeatureConfig: 'MseFeatureConfig',
       namespaceId: 'NamespaceId',
       nasId: 'NasId',
       ossAkId: 'OssAkId',
@@ -7902,6 +7910,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       mountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataMountDesc },
       mountHost: 'string',
       mseApplicationId: 'string',
+      mseFeatureConfig: 'string',
       namespaceId: 'string',
       nasId: 'string',
       ossAkId: 'string',
@@ -9887,6 +9896,34 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class ExecJobResponseBodyData extends $tea.Model {
+  code?: string;
+  data?: string;
+  msg?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      msg: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppEventsResponseBodyDataAppEventEntity extends $tea.Model {
   eventType?: string;
   firstTimestamp?: string;
@@ -11743,6 +11780,10 @@ export default class Client extends OpenApi {
       query["WebContainer"] = request.webContainer;
     }
 
+    if (!Util.isUnset(request.mseFeatureConfig)) {
+      query["mseFeatureConfig"] = request.mseFeatureConfig;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.acrInstanceId)) {
       body["AcrInstanceId"] = request.acrInstanceId;
@@ -12343,6 +12384,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mountHost)) {
       query["MountHost"] = request.mountHost;
+    }
+
+    if (!Util.isUnset(request.mseFeatureConfig)) {
+      query["MseFeatureConfig"] = request.mseFeatureConfig;
     }
 
     if (!Util.isUnset(request.nasId)) {
