@@ -2900,10 +2900,12 @@ export class DescribeConfigMapResponse extends $tea.Model {
 export class DescribeConfigurationPriceRequest extends $tea.Model {
   cpu?: number;
   memory?: number;
+  workload?: string;
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
       memory: 'Memory',
+      workload: 'Workload',
     };
   }
 
@@ -2911,6 +2913,7 @@ export class DescribeConfigurationPriceRequest extends $tea.Model {
     return {
       cpu: 'number',
       memory: 'number',
+      workload: 'string',
     };
   }
 
@@ -3942,6 +3945,108 @@ export class EnableApplicationScalingRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableApplicationScalingRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecJobRequest extends $tea.Model {
+  appId?: string;
+  command?: string;
+  commandArgs?: string;
+  envs?: string;
+  eventId?: string;
+  jarStartArgs?: string;
+  jarStartOptions?: string;
+  warStartOptions?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      envs: 'Envs',
+      eventId: 'EventId',
+      jarStartArgs: 'JarStartArgs',
+      jarStartOptions: 'JarStartOptions',
+      warStartOptions: 'WarStartOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      command: 'string',
+      commandArgs: 'string',
+      envs: 'string',
+      eventId: 'string',
+      jarStartArgs: 'string',
+      jarStartOptions: 'string',
+      warStartOptions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExecJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecJobResponseBody,
     };
   }
 
@@ -7927,6 +8032,7 @@ export class DescribeApplicationImageResponseBodyData extends $tea.Model {
 
 export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.Model {
   createTimeStamp?: number;
+  debugStatus?: boolean;
   eip?: string;
   finishTimeStamp?: number;
   groupId?: string;
@@ -7941,6 +8047,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
   static names(): { [key: string]: string } {
     return {
       createTimeStamp: 'CreateTimeStamp',
+      debugStatus: 'DebugStatus',
       eip: 'Eip',
       finishTimeStamp: 'FinishTimeStamp',
       groupId: 'GroupId',
@@ -7958,6 +8065,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
   static types(): { [key: string]: any } {
     return {
       createTimeStamp: 'number',
+      debugStatus: 'boolean',
       eip: 'string',
       finishTimeStamp: 'number',
       groupId: 'string',
@@ -9245,11 +9353,13 @@ export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
 export class DescribeIngressResponseBodyDataDefaultRule extends $tea.Model {
   appId?: string;
   appName?: string;
+  backendProtocol?: string;
   containerPort?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      backendProtocol: 'BackendProtocol',
       containerPort: 'ContainerPort',
     };
   }
@@ -9258,6 +9368,7 @@ export class DescribeIngressResponseBodyDataDefaultRule extends $tea.Model {
     return {
       appId: 'string',
       appName: 'string',
+      backendProtocol: 'string',
       containerPort: 'number',
     };
   }
@@ -9270,6 +9381,7 @@ export class DescribeIngressResponseBodyDataDefaultRule extends $tea.Model {
 export class DescribeIngressResponseBodyDataRules extends $tea.Model {
   appId?: string;
   appName?: string;
+  backendProtocol?: string;
   containerPort?: number;
   domain?: string;
   path?: string;
@@ -9277,6 +9389,7 @@ export class DescribeIngressResponseBodyDataRules extends $tea.Model {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      backendProtocol: 'BackendProtocol',
       containerPort: 'ContainerPort',
       domain: 'Domain',
       path: 'Path',
@@ -9287,6 +9400,7 @@ export class DescribeIngressResponseBodyDataRules extends $tea.Model {
     return {
       appId: 'string',
       appName: 'string',
+      backendProtocol: 'string',
       containerPort: 'number',
       domain: 'string',
       path: 'string',
@@ -12788,6 +12902,10 @@ export default class Client extends OpenApi {
       query["Memory"] = request.memory;
     }
 
+    if (!Util.isUnset(request.workload)) {
+      query["Workload"] = request.workload;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -13202,6 +13320,65 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<EnableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new EnableApplicationScalingRuleResponse({}));
+  }
+
+  async execJob(request: ExecJobRequest): Promise<ExecJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.execJobWithOptions(request, headers, runtime);
+  }
+
+  async execJobWithOptions(request: ExecJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecJobResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.command)) {
+      query["Command"] = request.command;
+    }
+
+    if (!Util.isUnset(request.commandArgs)) {
+      query["CommandArgs"] = request.commandArgs;
+    }
+
+    if (!Util.isUnset(request.envs)) {
+      query["Envs"] = request.envs;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.jarStartArgs)) {
+      query["JarStartArgs"] = request.jarStartArgs;
+    }
+
+    if (!Util.isUnset(request.jarStartOptions)) {
+      query["JarStartOptions"] = request.jarStartOptions;
+    }
+
+    if (!Util.isUnset(request.warStartOptions)) {
+      query["WarStartOptions"] = request.warStartOptions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecJob",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/job/execJob`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecJobResponse>(await this.callApi(params, req, runtime), new ExecJobResponse({}));
   }
 
   async listAppEvents(request: ListAppEventsRequest): Promise<ListAppEventsResponse> {
