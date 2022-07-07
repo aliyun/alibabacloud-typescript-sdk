@@ -75,10 +75,12 @@ export class AddAddressBookResponseBody extends $tea.Model {
 
 export class AddAddressBookResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -86,6 +88,7 @@ export class AddAddressBookResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddAddressBookResponseBody,
     };
   }
@@ -189,10 +192,12 @@ export class AddControlPolicyResponseBody extends $tea.Model {
 
 export class AddControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -200,6 +205,7 @@ export class AddControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddControlPolicyResponseBody,
     };
   }
@@ -249,10 +255,12 @@ export class AddInstanceMembersResponseBody extends $tea.Model {
 
 export class AddInstanceMembersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddInstanceMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -260,6 +268,7 @@ export class AddInstanceMembersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddInstanceMembersResponseBody,
     };
   }
@@ -318,10 +327,12 @@ export class BatchCopyVpcFirewallControlPolicyResponseBody extends $tea.Model {
 
 export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BatchCopyVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -329,6 +340,7 @@ export class BatchCopyVpcFirewallControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchCopyVpcFirewallControlPolicyResponseBody,
     };
   }
@@ -399,10 +411,12 @@ export class CreateVpcFirewallCenConfigureResponseBody extends $tea.Model {
 
 export class CreateVpcFirewallCenConfigureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVpcFirewallCenConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -410,6 +424,7 @@ export class CreateVpcFirewallCenConfigureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVpcFirewallCenConfigureResponseBody,
     };
   }
@@ -489,10 +504,12 @@ export class CreateVpcFirewallConfigureResponseBody extends $tea.Model {
 
 export class CreateVpcFirewallConfigureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVpcFirewallConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -500,6 +517,7 @@ export class CreateVpcFirewallConfigureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVpcFirewallConfigureResponseBody,
     };
   }
@@ -597,10 +615,12 @@ export class CreateVpcFirewallControlPolicyResponseBody extends $tea.Model {
 
 export class CreateVpcFirewallControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -608,6 +628,7 @@ export class CreateVpcFirewallControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVpcFirewallControlPolicyResponseBody,
     };
   }
@@ -663,10 +684,12 @@ export class DeleteAddressBookResponseBody extends $tea.Model {
 
 export class DeleteAddressBookResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -674,6 +697,7 @@ export class DeleteAddressBookResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAddressBookResponseBody,
     };
   }
@@ -732,10 +756,12 @@ export class DeleteControlPolicyResponseBody extends $tea.Model {
 
 export class DeleteControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -743,6 +769,7 @@ export class DeleteControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteControlPolicyResponseBody,
     };
   }
@@ -792,10 +819,12 @@ export class DeleteInstanceMembersResponseBody extends $tea.Model {
 
 export class DeleteInstanceMembersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteInstanceMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -803,6 +832,7 @@ export class DeleteInstanceMembersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteInstanceMembersResponseBody,
     };
   }
@@ -858,10 +888,12 @@ export class DeleteVpcFirewallCenConfigureResponseBody extends $tea.Model {
 
 export class DeleteVpcFirewallCenConfigureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVpcFirewallCenConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -869,6 +901,7 @@ export class DeleteVpcFirewallCenConfigureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVpcFirewallCenConfigureResponseBody,
     };
   }
@@ -924,10 +957,12 @@ export class DeleteVpcFirewallConfigureResponseBody extends $tea.Model {
 
 export class DeleteVpcFirewallConfigureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVpcFirewallConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -935,6 +970,7 @@ export class DeleteVpcFirewallConfigureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVpcFirewallConfigureResponseBody,
     };
   }
@@ -990,10 +1026,12 @@ export class DeleteVpcFirewallControlPolicyResponseBody extends $tea.Model {
 
 export class DeleteVpcFirewallControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1001,6 +1039,7 @@ export class DeleteVpcFirewallControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVpcFirewallControlPolicyResponseBody,
     };
   }
@@ -1080,10 +1119,12 @@ export class DescribeAddressBookResponseBody extends $tea.Model {
 
 export class DescribeAddressBookResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1091,6 +1132,7 @@ export class DescribeAddressBookResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAddressBookResponseBody,
     };
   }
@@ -1182,10 +1224,12 @@ export class DescribeAssetListResponseBody extends $tea.Model {
 
 export class DescribeAssetListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAssetListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1193,6 +1237,7 @@ export class DescribeAssetListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAssetListResponseBody,
     };
   }
@@ -1290,10 +1335,12 @@ export class DescribeControlPolicyResponseBody extends $tea.Model {
 
 export class DescribeControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1301,6 +1348,7 @@ export class DescribeControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeControlPolicyResponseBody,
     };
   }
@@ -1362,10 +1410,12 @@ export class DescribeDomainResolveResponseBody extends $tea.Model {
 
 export class DescribeDomainResolveResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainResolveResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1373,6 +1423,7 @@ export class DescribeDomainResolveResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainResolveResponseBody,
     };
   }
@@ -1440,10 +1491,12 @@ export class DescribeInstanceMembersResponseBody extends $tea.Model {
 
 export class DescribeInstanceMembersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeInstanceMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1451,7 +1504,353 @@ export class DescribeInstanceMembersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvadeEventListRequest extends $tea.Model {
+  assetsIP?: string;
+  assetsInstanceId?: string;
+  assetsInstanceName?: string;
+  currentPage?: string;
+  endTime?: string;
+  eventKey?: string;
+  eventName?: string;
+  eventUuid?: string;
+  isIgnore?: string;
+  lang?: string;
+  memberUid?: number;
+  pageSize?: string;
+  processStatus?: string;
+  processStatusList?: number[];
+  riskLevel?: number[];
+  sourceIp?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetsIP: 'AssetsIP',
+      assetsInstanceId: 'AssetsInstanceId',
+      assetsInstanceName: 'AssetsInstanceName',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventUuid: 'EventUuid',
+      isIgnore: 'IsIgnore',
+      lang: 'Lang',
+      memberUid: 'MemberUid',
+      pageSize: 'PageSize',
+      processStatus: 'ProcessStatus',
+      processStatusList: 'ProcessStatusList',
+      riskLevel: 'RiskLevel',
+      sourceIp: 'SourceIp',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetsIP: 'string',
+      assetsInstanceId: 'string',
+      assetsInstanceName: 'string',
+      currentPage: 'string',
+      endTime: 'string',
+      eventKey: 'string',
+      eventName: 'string',
+      eventUuid: 'string',
+      isIgnore: 'string',
+      lang: 'string',
+      memberUid: 'number',
+      pageSize: 'string',
+      processStatus: 'string',
+      processStatusList: { 'type': 'array', 'itemType': 'number' },
+      riskLevel: { 'type': 'array', 'itemType': 'number' },
+      sourceIp: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvadeEventListResponseBody extends $tea.Model {
+  eventList?: DescribeInvadeEventListResponseBodyEventList[];
+  highLevelPercent?: number;
+  lowLevelPercent?: number;
+  middleLevelPercent?: number;
+  pageInfo?: DescribeInvadeEventListResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventList: 'EventList',
+      highLevelPercent: 'HighLevelPercent',
+      lowLevelPercent: 'LowLevelPercent',
+      middleLevelPercent: 'MiddleLevelPercent',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventList: { 'type': 'array', 'itemType': DescribeInvadeEventListResponseBodyEventList },
+      highLevelPercent: 'number',
+      lowLevelPercent: 'number',
+      middleLevelPercent: 'number',
+      pageInfo: DescribeInvadeEventListResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvadeEventListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInvadeEventListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInvadeEventListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
+  aclCoverage?: string;
+  applicationName?: string;
+  categoryId?: string;
+  currentPage?: string;
+  dstIP?: string;
+  endTime?: string;
+  lang?: string;
+  order?: string;
+  pageSize?: string;
+  port?: string;
+  privateIP?: string;
+  publicIP?: string;
+  securitySuggest?: string;
+  sort?: string;
+  sourceIp?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclCoverage: 'AclCoverage',
+      applicationName: 'ApplicationName',
+      categoryId: 'CategoryId',
+      currentPage: 'CurrentPage',
+      dstIP: 'DstIP',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      order: 'Order',
+      pageSize: 'PageSize',
+      port: 'Port',
+      privateIP: 'PrivateIP',
+      publicIP: 'PublicIP',
+      securitySuggest: 'SecuritySuggest',
+      sort: 'Sort',
+      sourceIp: 'SourceIp',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclCoverage: 'string',
+      applicationName: 'string',
+      categoryId: 'string',
+      currentPage: 'string',
+      dstIP: 'string',
+      endTime: 'string',
+      lang: 'string',
+      order: 'string',
+      pageSize: 'string',
+      port: 'string',
+      privateIP: 'string',
+      publicIP: 'string',
+      securitySuggest: 'string',
+      sort: 'string',
+      sourceIp: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDestinationIPResponseBody extends $tea.Model {
+  dstIPList?: DescribeOutgoingDestinationIPResponseBodyDstIPList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dstIPList: 'DstIPList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstIPList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDestinationIPResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOutgoingDestinationIPResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOutgoingDestinationIPResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDomainRequest extends $tea.Model {
+  aclCoverage?: string;
+  categoryId?: string;
+  currentPage?: string;
+  domain?: string;
+  endTime?: string;
+  lang?: string;
+  order?: string;
+  pageSize?: string;
+  publicIP?: string;
+  securitySuggest?: string;
+  sort?: string;
+  sourceIp?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclCoverage: 'AclCoverage',
+      categoryId: 'CategoryId',
+      currentPage: 'CurrentPage',
+      domain: 'Domain',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      order: 'Order',
+      pageSize: 'PageSize',
+      publicIP: 'PublicIP',
+      securitySuggest: 'SecuritySuggest',
+      sort: 'Sort',
+      sourceIp: 'SourceIp',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclCoverage: 'string',
+      categoryId: 'string',
+      currentPage: 'string',
+      domain: 'string',
+      endTime: 'string',
+      lang: 'string',
+      order: 'string',
+      pageSize: 'string',
+      publicIP: 'string',
+      securitySuggest: 'string',
+      sort: 'string',
+      sourceIp: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDomainResponseBody extends $tea.Model {
+  domainList?: DescribeOutgoingDomainResponseBodyDomainList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainList: 'DomainList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainList: { 'type': 'array', 'itemType': DescribeOutgoingDomainResponseBodyDomainList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeOutgoingDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOutgoingDomainResponseBody,
     };
   }
 
@@ -1506,10 +1905,12 @@ export class DescribePolicyAdvancedConfigResponseBody extends $tea.Model {
 
 export class DescribePolicyAdvancedConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePolicyAdvancedConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1517,6 +1918,7 @@ export class DescribePolicyAdvancedConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePolicyAdvancedConfigResponseBody,
     };
   }
@@ -1581,10 +1983,12 @@ export class DescribePolicyPriorUsedResponseBody extends $tea.Model {
 
 export class DescribePolicyPriorUsedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePolicyPriorUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1592,6 +1996,7 @@ export class DescribePolicyPriorUsedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePolicyPriorUsedResponseBody,
     };
   }
@@ -1701,10 +2106,12 @@ export class DescribeRiskEventGroupResponseBody extends $tea.Model {
 
 export class DescribeRiskEventGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRiskEventGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1712,7 +2119,89 @@ export class DescribeRiskEventGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRiskEventGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetIPTrafficInfoRequest extends $tea.Model {
+  assetIP?: string;
+  lang?: string;
+  trafficTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetIP: 'AssetIP',
+      lang: 'Lang',
+      trafficTime: 'TrafficTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetIP: 'string',
+      lang: 'string',
+      trafficTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetIPTrafficInfoResponseBody extends $tea.Model {
+  endTime?: number;
+  inTrafficInfo?: DescribeUserAssetIPTrafficInfoResponseBodyInTrafficInfo;
+  outTrafficInfo?: DescribeUserAssetIPTrafficInfoResponseBodyOutTrafficInfo;
+  requestId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      inTrafficInfo: 'InTrafficInfo',
+      outTrafficInfo: 'OutTrafficInfo',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      inTrafficInfo: DescribeUserAssetIPTrafficInfoResponseBodyInTrafficInfo,
+      outTrafficInfo: DescribeUserAssetIPTrafficInfoResponseBodyOutTrafficInfo,
+      requestId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetIPTrafficInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeUserAssetIPTrafficInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserAssetIPTrafficInfoResponseBody,
     };
   }
 
@@ -1776,10 +2265,12 @@ export class DescribeVpcFirewallAclGroupListResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallAclGroupListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallAclGroupListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1787,6 +2278,7 @@ export class DescribeVpcFirewallAclGroupListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallAclGroupListResponseBody,
     };
   }
@@ -1857,10 +2349,12 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallCenDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallCenDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1868,6 +2362,7 @@ export class DescribeVpcFirewallCenDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallCenDetailResponseBody,
     };
   }
@@ -1956,10 +2451,12 @@ export class DescribeVpcFirewallCenListResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallCenListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallCenListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1967,6 +2464,7 @@ export class DescribeVpcFirewallCenListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallCenListResponseBody,
     };
   }
@@ -2055,10 +2553,12 @@ export class DescribeVpcFirewallControlPolicyResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2066,6 +2566,7 @@ export class DescribeVpcFirewallControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallControlPolicyResponseBody,
     };
   }
@@ -2127,10 +2628,12 @@ export class DescribeVpcFirewallDefaultIPSConfigResponseBody extends $tea.Model 
 
 export class DescribeVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallDefaultIPSConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2138,6 +2641,7 @@ export class DescribeVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallDefaultIPSConfigResponseBody,
     };
   }
@@ -2217,10 +2721,12 @@ export class DescribeVpcFirewallDetailResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2228,6 +2734,7 @@ export class DescribeVpcFirewallDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallDetailResponseBody,
     };
   }
@@ -2307,10 +2814,12 @@ export class DescribeVpcFirewallListResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2318,6 +2827,7 @@ export class DescribeVpcFirewallListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallListResponseBody,
     };
   }
@@ -2376,10 +2886,12 @@ export class DescribeVpcFirewallPolicyPriorUsedResponseBody extends $tea.Model {
 
 export class DescribeVpcFirewallPolicyPriorUsedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeVpcFirewallPolicyPriorUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2387,6 +2899,7 @@ export class DescribeVpcFirewallPolicyPriorUsedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeVpcFirewallPolicyPriorUsedResponseBody,
     };
   }
@@ -2460,10 +2973,12 @@ export class ModifyAddressBookResponseBody extends $tea.Model {
 
 export class ModifyAddressBookResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAddressBookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2471,6 +2986,7 @@ export class ModifyAddressBookResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAddressBookResponseBody,
     };
   }
@@ -2571,10 +3087,12 @@ export class ModifyControlPolicyResponseBody extends $tea.Model {
 
 export class ModifyControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2582,6 +3100,7 @@ export class ModifyControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyControlPolicyResponseBody,
     };
   }
@@ -2643,10 +3162,12 @@ export class ModifyControlPolicyPositionResponseBody extends $tea.Model {
 
 export class ModifyControlPolicyPositionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyControlPolicyPositionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2654,6 +3175,7 @@ export class ModifyControlPolicyPositionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyControlPolicyPositionResponseBody,
     };
   }
@@ -2703,10 +3225,12 @@ export class ModifyInstanceMemberAttributesResponseBody extends $tea.Model {
 
 export class ModifyInstanceMemberAttributesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyInstanceMemberAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2714,6 +3238,7 @@ export class ModifyInstanceMemberAttributesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyInstanceMemberAttributesResponseBody,
     };
   }
@@ -2769,10 +3294,12 @@ export class ModifyPolicyAdvancedConfigResponseBody extends $tea.Model {
 
 export class ModifyPolicyAdvancedConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyPolicyAdvancedConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2780,6 +3307,7 @@ export class ModifyPolicyAdvancedConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyPolicyAdvancedConfigResponseBody,
     };
   }
@@ -2838,10 +3366,12 @@ export class ModifyVpcFirewallCenConfigureResponseBody extends $tea.Model {
 
 export class ModifyVpcFirewallCenConfigureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallCenConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2849,6 +3379,7 @@ export class ModifyVpcFirewallCenConfigureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallCenConfigureResponseBody,
     };
   }
@@ -2907,10 +3438,12 @@ export class ModifyVpcFirewallCenSwitchStatusResponseBody extends $tea.Model {
 
 export class ModifyVpcFirewallCenSwitchStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallCenSwitchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2918,6 +3451,7 @@ export class ModifyVpcFirewallCenSwitchStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallCenSwitchStatusResponseBody,
     };
   }
@@ -2982,10 +3516,12 @@ export class ModifyVpcFirewallConfigureResponseBody extends $tea.Model {
 
 export class ModifyVpcFirewallConfigureResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallConfigureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2993,6 +3529,7 @@ export class ModifyVpcFirewallConfigureResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallConfigureResponseBody,
     };
   }
@@ -3084,10 +3621,12 @@ export class ModifyVpcFirewallControlPolicyResponseBody extends $tea.Model {
 
 export class ModifyVpcFirewallControlPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallControlPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3095,6 +3634,7 @@ export class ModifyVpcFirewallControlPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallControlPolicyResponseBody,
     };
   }
@@ -3153,10 +3693,12 @@ export class ModifyVpcFirewallControlPolicyPositionResponseBody extends $tea.Mod
 
 export class ModifyVpcFirewallControlPolicyPositionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallControlPolicyPositionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3164,6 +3706,7 @@ export class ModifyVpcFirewallControlPolicyPositionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallControlPolicyPositionResponseBody,
     };
   }
@@ -3231,10 +3774,12 @@ export class ModifyVpcFirewallDefaultIPSConfigResponseBody extends $tea.Model {
 
 export class ModifyVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallDefaultIPSConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3242,6 +3787,7 @@ export class ModifyVpcFirewallDefaultIPSConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallDefaultIPSConfigResponseBody,
     };
   }
@@ -3300,10 +3846,12 @@ export class ModifyVpcFirewallSwitchStatusResponseBody extends $tea.Model {
 
 export class ModifyVpcFirewallSwitchStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVpcFirewallSwitchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3311,6 +3859,7 @@ export class ModifyVpcFirewallSwitchStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVpcFirewallSwitchStatusResponseBody,
     };
   }
@@ -3366,10 +3915,12 @@ export class PutDisableAllFwSwitchResponseBody extends $tea.Model {
 
 export class PutDisableAllFwSwitchResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PutDisableAllFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3377,6 +3928,7 @@ export class PutDisableAllFwSwitchResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PutDisableAllFwSwitchResponseBody,
     };
   }
@@ -3438,10 +3990,12 @@ export class PutDisableFwSwitchResponseBody extends $tea.Model {
 
 export class PutDisableFwSwitchResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PutDisableFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3449,6 +4003,7 @@ export class PutDisableFwSwitchResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PutDisableFwSwitchResponseBody,
     };
   }
@@ -3504,10 +4059,12 @@ export class PutEnableAllFwSwitchResponseBody extends $tea.Model {
 
 export class PutEnableAllFwSwitchResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PutEnableAllFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3515,6 +4072,7 @@ export class PutEnableAllFwSwitchResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PutEnableAllFwSwitchResponseBody,
     };
   }
@@ -3576,10 +4134,12 @@ export class PutEnableFwSwitchResponseBody extends $tea.Model {
 
 export class PutEnableFwSwitchResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PutEnableFwSwitchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3587,6 +4147,7 @@ export class PutEnableFwSwitchResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PutEnableFwSwitchResponseBody,
     };
   }
@@ -3639,10 +4200,12 @@ export class ResetVpcFirewallRuleHitCountResponseBody extends $tea.Model {
 
 export class ResetVpcFirewallRuleHitCountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResetVpcFirewallRuleHitCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3650,6 +4213,7 @@ export class ResetVpcFirewallRuleHitCountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResetVpcFirewallRuleHitCountResponseBody,
     };
   }
@@ -4022,6 +4586,316 @@ export class DescribeInstanceMembersResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class DescribeInvadeEventListResponseBodyEventList extends $tea.Model {
+  assetsInstanceId?: string;
+  assetsInstanceName?: string;
+  assetsType?: string;
+  eventKey?: string;
+  eventName?: string;
+  eventSrc?: string;
+  eventUuid?: string;
+  firstTime?: number;
+  isIgnore?: boolean;
+  lastTime?: number;
+  memberUid?: string;
+  privateIP?: string;
+  processStatus?: number;
+  publicIP?: string;
+  publicIpType?: string;
+  riskLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetsInstanceId: 'AssetsInstanceId',
+      assetsInstanceName: 'AssetsInstanceName',
+      assetsType: 'AssetsType',
+      eventKey: 'EventKey',
+      eventName: 'EventName',
+      eventSrc: 'EventSrc',
+      eventUuid: 'EventUuid',
+      firstTime: 'FirstTime',
+      isIgnore: 'IsIgnore',
+      lastTime: 'LastTime',
+      memberUid: 'MemberUid',
+      privateIP: 'PrivateIP',
+      processStatus: 'ProcessStatus',
+      publicIP: 'PublicIP',
+      publicIpType: 'PublicIpType',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetsInstanceId: 'string',
+      assetsInstanceName: 'string',
+      assetsType: 'string',
+      eventKey: 'string',
+      eventName: 'string',
+      eventSrc: 'string',
+      eventUuid: 'string',
+      firstTime: 'number',
+      isIgnore: 'boolean',
+      lastTime: 'number',
+      memberUid: 'string',
+      privateIP: 'string',
+      processStatus: 'number',
+      publicIP: 'string',
+      publicIpType: 'string',
+      riskLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInvadeEventListResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList extends $tea.Model {
+  applicationName?: string;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $tea.Model {
+  riskLevel?: number;
+  tagDescribe?: string;
+  tagId?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'RiskLevel',
+      tagDescribe: 'TagDescribe',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'number',
+      tagDescribe: 'string',
+      tagId: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $tea.Model {
+  aclCoverage?: string;
+  aclRecommendDetail?: string;
+  aclStatus?: string;
+  addressGroupName?: string;
+  addressGroupUUID?: string;
+  applicationPortList?: DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList[];
+  categoryId?: string;
+  categoryName?: string;
+  dstIP?: string;
+  groupName?: string;
+  hasAclRecommend?: boolean;
+  inBytes?: number;
+  isMarkNormal?: boolean;
+  outBytes?: number;
+  ruleId?: string;
+  ruleName?: string;
+  securitySuggest?: string;
+  sessionCount?: number;
+  tagList?: DescribeOutgoingDestinationIPResponseBodyDstIPListTagList[];
+  static names(): { [key: string]: string } {
+    return {
+      aclCoverage: 'AclCoverage',
+      aclRecommendDetail: 'AclRecommendDetail',
+      aclStatus: 'AclStatus',
+      addressGroupName: 'AddressGroupName',
+      addressGroupUUID: 'AddressGroupUUID',
+      applicationPortList: 'ApplicationPortList',
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+      dstIP: 'DstIP',
+      groupName: 'GroupName',
+      hasAclRecommend: 'HasAclRecommend',
+      inBytes: 'InBytes',
+      isMarkNormal: 'IsMarkNormal',
+      outBytes: 'OutBytes',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      securitySuggest: 'SecuritySuggest',
+      sessionCount: 'SessionCount',
+      tagList: 'TagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclCoverage: 'string',
+      aclRecommendDetail: 'string',
+      aclStatus: 'string',
+      addressGroupName: 'string',
+      addressGroupUUID: 'string',
+      applicationPortList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList },
+      categoryId: 'string',
+      categoryName: 'string',
+      dstIP: 'string',
+      groupName: 'string',
+      hasAclRecommend: 'boolean',
+      inBytes: 'number',
+      isMarkNormal: 'boolean',
+      outBytes: 'number',
+      ruleId: 'string',
+      ruleName: 'string',
+      securitySuggest: 'string',
+      sessionCount: 'number',
+      tagList: { 'type': 'array', 'itemType': DescribeOutgoingDestinationIPResponseBodyDstIPListTagList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $tea.Model {
+  riskLevel?: number;
+  tagDescribe?: string;
+  tagId?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'RiskLevel',
+      tagDescribe: 'TagDescribe',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'number',
+      tagDescribe: 'string',
+      tagId: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOutgoingDomainResponseBodyDomainList extends $tea.Model {
+  aclCoverage?: string;
+  aclRecommendDetail?: string;
+  aclStatus?: string;
+  addressGroupName?: string;
+  addressGroupUUID?: string;
+  categoryId?: string;
+  categoryName?: string;
+  domain?: string;
+  groupName?: string;
+  hasAclRecommend?: boolean;
+  inBytes?: number;
+  isMarkNormal?: boolean;
+  outBytes?: number;
+  ruleId?: string;
+  ruleName?: string;
+  securitySuggest?: string;
+  sessionCount?: number;
+  tagList?: DescribeOutgoingDomainResponseBodyDomainListTagList[];
+  static names(): { [key: string]: string } {
+    return {
+      aclCoverage: 'AclCoverage',
+      aclRecommendDetail: 'AclRecommendDetail',
+      aclStatus: 'AclStatus',
+      addressGroupName: 'AddressGroupName',
+      addressGroupUUID: 'AddressGroupUUID',
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+      domain: 'Domain',
+      groupName: 'GroupName',
+      hasAclRecommend: 'HasAclRecommend',
+      inBytes: 'InBytes',
+      isMarkNormal: 'IsMarkNormal',
+      outBytes: 'OutBytes',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      securitySuggest: 'SecuritySuggest',
+      sessionCount: 'SessionCount',
+      tagList: 'TagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclCoverage: 'string',
+      aclRecommendDetail: 'string',
+      aclStatus: 'string',
+      addressGroupName: 'string',
+      addressGroupUUID: 'string',
+      categoryId: 'string',
+      categoryName: 'string',
+      domain: 'string',
+      groupName: 'string',
+      hasAclRecommend: 'boolean',
+      inBytes: 'number',
+      isMarkNormal: 'boolean',
+      outBytes: 'number',
+      ruleId: 'string',
+      ruleName: 'string',
+      securitySuggest: 'string',
+      sessionCount: 'number',
+      tagList: { 'type': 'array', 'itemType': DescribeOutgoingDomainResponseBodyDomainListTagList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $tea.Model {
   cityId?: string;
   cityName?: string;
@@ -4214,6 +5088,74 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
       vpcDstInfo: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo,
       vpcSrcInfo: DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo,
       vulLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetIPTrafficInfoResponseBodyInTrafficInfo extends $tea.Model {
+  inBps?: number;
+  inPps?: number;
+  newConn?: number;
+  outBps?: number;
+  outPps?: number;
+  sessionCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inBps: 'InBps',
+      inPps: 'InPps',
+      newConn: 'NewConn',
+      outBps: 'OutBps',
+      outPps: 'OutPps',
+      sessionCount: 'SessionCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inBps: 'number',
+      inPps: 'number',
+      newConn: 'number',
+      outBps: 'number',
+      outPps: 'number',
+      sessionCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetIPTrafficInfoResponseBodyOutTrafficInfo extends $tea.Model {
+  inBps?: number;
+  inPps?: number;
+  newConn?: number;
+  outBps?: number;
+  outPps?: number;
+  sessionCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inBps: 'InBps',
+      inPps: 'InPps',
+      newConn: 'NewConn',
+      outBps: 'OutBps',
+      outPps: 'OutPps',
+      sessionCount: 'SessionCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inBps: 'number',
+      inPps: 'number',
+      newConn: 'number',
+      outBps: 'number',
+      outPps: 'number',
+      sessionCount: 'number',
     };
   }
 
@@ -5767,10 +6709,6 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -6053,6 +6991,265 @@ export default class Client extends OpenApi {
     return await this.describeInstanceMembersWithOptions(request, runtime);
   }
 
+  async describeInvadeEventListWithOptions(request: DescribeInvadeEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvadeEventListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assetsIP)) {
+      query["AssetsIP"] = request.assetsIP;
+    }
+
+    if (!Util.isUnset(request.assetsInstanceId)) {
+      query["AssetsInstanceId"] = request.assetsInstanceId;
+    }
+
+    if (!Util.isUnset(request.assetsInstanceName)) {
+      query["AssetsInstanceName"] = request.assetsInstanceName;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.eventKey)) {
+      query["EventKey"] = request.eventKey;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.eventUuid)) {
+      query["EventUuid"] = request.eventUuid;
+    }
+
+    if (!Util.isUnset(request.isIgnore)) {
+      query["IsIgnore"] = request.isIgnore;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.processStatus)) {
+      query["ProcessStatus"] = request.processStatus;
+    }
+
+    if (!Util.isUnset(request.processStatusList)) {
+      query["ProcessStatusList"] = request.processStatusList;
+    }
+
+    if (!Util.isUnset(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInvadeEventList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInvadeEventListResponse>(await this.callApi(params, req, runtime), new DescribeInvadeEventListResponse({}));
+  }
+
+  async describeInvadeEventList(request: DescribeInvadeEventListRequest): Promise<DescribeInvadeEventListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInvadeEventListWithOptions(request, runtime);
+  }
+
+  async describeOutgoingDestinationIPWithOptions(request: DescribeOutgoingDestinationIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDestinationIPResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclCoverage)) {
+      query["AclCoverage"] = request.aclCoverage;
+    }
+
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dstIP)) {
+      query["DstIP"] = request.dstIP;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.privateIP)) {
+      query["PrivateIP"] = request.privateIP;
+    }
+
+    if (!Util.isUnset(request.publicIP)) {
+      query["PublicIP"] = request.publicIP;
+    }
+
+    if (!Util.isUnset(request.securitySuggest)) {
+      query["SecuritySuggest"] = request.securitySuggest;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOutgoingDestinationIP",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOutgoingDestinationIPResponse>(await this.callApi(params, req, runtime), new DescribeOutgoingDestinationIPResponse({}));
+  }
+
+  async describeOutgoingDestinationIP(request: DescribeOutgoingDestinationIPRequest): Promise<DescribeOutgoingDestinationIPResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOutgoingDestinationIPWithOptions(request, runtime);
+  }
+
+  async describeOutgoingDomainWithOptions(request: DescribeOutgoingDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclCoverage)) {
+      query["AclCoverage"] = request.aclCoverage;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.publicIP)) {
+      query["PublicIP"] = request.publicIP;
+    }
+
+    if (!Util.isUnset(request.securitySuggest)) {
+      query["SecuritySuggest"] = request.securitySuggest;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOutgoingDomain",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOutgoingDomainResponse>(await this.callApi(params, req, runtime), new DescribeOutgoingDomainResponse({}));
+  }
+
+  async describeOutgoingDomain(request: DescribeOutgoingDomainRequest): Promise<DescribeOutgoingDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOutgoingDomainWithOptions(request, runtime);
+  }
+
   async describePolicyAdvancedConfigWithOptions(request: DescribePolicyAdvancedConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyAdvancedConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6234,6 +7431,31 @@ export default class Client extends OpenApi {
   async describeRiskEventGroup(request: DescribeRiskEventGroupRequest): Promise<DescribeRiskEventGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskEventGroupWithOptions(request, runtime);
+  }
+
+  async describeUserAssetIPTrafficInfoWithOptions(request: DescribeUserAssetIPTrafficInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserAssetIPTrafficInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserAssetIPTrafficInfo",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserAssetIPTrafficInfoResponse>(await this.callApi(params, req, runtime), new DescribeUserAssetIPTrafficInfoResponse({}));
+  }
+
+  async describeUserAssetIPTrafficInfo(request: DescribeUserAssetIPTrafficInfoRequest): Promise<DescribeUserAssetIPTrafficInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserAssetIPTrafficInfoWithOptions(request, runtime);
   }
 
   async describeVpcFirewallAclGroupListWithOptions(request: DescribeVpcFirewallAclGroupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallAclGroupListResponse> {
