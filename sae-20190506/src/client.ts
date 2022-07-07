@@ -3357,6 +3357,90 @@ export class DescribeInstanceSpecificationsResponse extends $tea.Model {
   }
 }
 
+export class DescribeJobStatusRequest extends $tea.Model {
+  appId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeJobStatusResponseBodyData;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeJobStatusResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeJobStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNamespaceRequest extends $tea.Model {
   namespaceId?: string;
   static names(): { [key: string]: string } {
@@ -9507,6 +9591,46 @@ export class DescribeInstanceSpecificationsResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeJobStatusResponseBodyData extends $tea.Model {
+  active?: number;
+  completionTime?: number;
+  failed?: number;
+  jobId?: string;
+  message?: string;
+  startTime?: number;
+  state?: string;
+  succeeded?: number;
+  static names(): { [key: string]: string } {
+    return {
+      active: 'Active',
+      completionTime: 'CompletionTime',
+      failed: 'Failed',
+      jobId: 'JobId',
+      message: 'Message',
+      startTime: 'StartTime',
+      state: 'State',
+      succeeded: 'Succeeded',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      active: 'number',
+      completionTime: 'number',
+      failed: 'number',
+      jobId: 'string',
+      message: 'string',
+      startTime: 'number',
+      state: 'string',
+      succeeded: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNamespaceResponseBodyData extends $tea.Model {
   namespaceDescription?: string;
   namespaceId?: string;
@@ -13108,6 +13232,41 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<DescribeInstanceSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecificationsResponse({}));
+  }
+
+  async describeJobStatus(request: DescribeJobStatusRequest): Promise<DescribeJobStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeJobStatusWithOptions(request, headers, runtime);
+  }
+
+  async describeJobStatusWithOptions(request: DescribeJobStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeJobStatusResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeJobStatus",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/job/describeJobStatus`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeJobStatusResponse>(await this.callApi(params, req, runtime), new DescribeJobStatusResponse({}));
   }
 
   async describeNamespace(request: DescribeNamespaceRequest): Promise<DescribeNamespaceResponse> {
