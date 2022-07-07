@@ -87,7 +87,7 @@ export class EncryptUserCmkConf extends $tea.Model {
 export class LogtailConfig extends $tea.Model {
   configName?: string;
   createTime?: number;
-  inputDetail?: LogtailConfigInputDetail;
+  inputDetail?: { [key: string]: any };
   inputType?: string;
   lastModifyTime?: number;
   logSample?: string;
@@ -110,7 +110,7 @@ export class LogtailConfig extends $tea.Model {
     return {
       configName: 'string',
       createTime: 'number',
-      inputDetail: LogtailConfigInputDetail,
+      inputDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       inputType: 'string',
       lastModifyTime: 'number',
       logSample: 'string',
@@ -536,6 +536,28 @@ export class Shard extends $tea.Model {
   }
 }
 
+export class ApplyConfigToMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateConsumerGroupRequest extends $tea.Model {
   consumerGroup?: string;
   order?: boolean;
@@ -562,6 +584,47 @@ export class CreateConsumerGroupRequest extends $tea.Model {
 }
 
 export class CreateConsumerGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainRequest extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'domainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -710,6 +773,103 @@ export class CreateLogStoreResponse extends $tea.Model {
   }
 }
 
+export class CreateLoggingRequest extends $tea.Model {
+  loggingDetails?: CreateLoggingRequestLoggingDetails[];
+  loggingProject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loggingDetails: 'loggingDetails',
+      loggingProject: 'loggingProject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loggingDetails: { 'type': 'array', 'itemType': CreateLoggingRequestLoggingDetails },
+      loggingProject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMachineGroupRequest extends $tea.Model {
+  groupAttribute?: CreateMachineGroupRequestGroupAttribute;
+  groupName?: string;
+  groupType?: string;
+  machineIdentifyType?: string;
+  machineList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupAttribute: 'groupAttribute',
+      groupName: 'groupName',
+      groupType: 'groupType',
+      machineIdentifyType: 'machineIdentifyType',
+      machineList: 'machineList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupAttribute: CreateMachineGroupRequestGroupAttribute,
+      groupName: 'string',
+      groupType: 'string',
+      machineIdentifyType: 'string',
+      machineList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequest extends $tea.Model {
   description?: string;
   projectName?: string;
@@ -829,6 +989,28 @@ export class DeleteConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndexResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -873,6 +1055,50 @@ export class DeleteLogStoreResponse extends $tea.Model {
   }
 }
 
+export class DeleteLoggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteProjectResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -887,6 +1113,97 @@ export class DeleteProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedConfigsResponseBody extends $tea.Model {
+  configs?: string[];
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'configs',
+      count: 'count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': 'string' },
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAppliedConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppliedConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckPointRequest extends $tea.Model {
+  shard?: number;
+  static names(): { [key: string]: string } {
+    return {
+      shard: 'shard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shard: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckPointResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCheckPointResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': GetCheckPointResponseBody },
     };
   }
 
@@ -1266,6 +1583,31 @@ export class GetLogStoreResponse extends $tea.Model {
   }
 }
 
+export class GetLoggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: Logging;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Logging,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLogsRequest extends $tea.Model {
   from?: number;
   line?: number;
@@ -1326,6 +1668,31 @@ export class GetLogsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: MachineGroup;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MachineGroup,
     };
   }
 
@@ -1456,6 +1823,81 @@ export class ListConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class ListDomainsRequest extends $tea.Model {
+  domainName?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'domainName',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponseBody extends $tea.Model {
+  count?: number;
+  domains?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      domains: 'domains',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      domains: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLogStoresRequest extends $tea.Model {
   logstoreName?: string;
   offset?: number;
@@ -1523,6 +1965,153 @@ export class ListLogStoresResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListLogStoresResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineGroupRequest extends $tea.Model {
+  groupName?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineGroupResponseBody extends $tea.Model {
+  count?: number;
+  machinegroups?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      machinegroups: 'machinegroups',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      machinegroups: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMachineGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMachineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachinesRequest extends $tea.Model {
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachinesResponseBody extends $tea.Model {
+  count?: number;
+  machines?: Machine[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      machines: 'machines',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      machines: { 'type': 'array', 'itemType': Machine },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachinesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListMachinesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMachinesResponseBody,
     };
   }
 
@@ -1844,6 +2433,28 @@ export class MergeShardsResponse extends $tea.Model {
   }
 }
 
+export class RemoveConfigFromMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SplitShardRequest extends $tea.Model {
   action?: string;
   key?: string;
@@ -1970,6 +2581,59 @@ export class UnTagResourcesRequest extends $tea.Model {
 }
 
 export class UnTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckPointRequest extends $tea.Model {
+  checkpoint?: string;
+  shard?: number;
+  consumer?: string;
+  forceSuccess?: boolean;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkpoint: 'checkpoint',
+      shard: 'shard',
+      consumer: 'consumer',
+      forceSuccess: 'forceSuccess',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkpoint: 'string',
+      shard: 'number',
+      consumer: 'string',
+      forceSuccess: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCheckPointResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -2162,6 +2826,103 @@ export class UpdateLogStoreResponse extends $tea.Model {
   }
 }
 
+export class UpdateLoggingRequest extends $tea.Model {
+  loggingDetails?: UpdateLoggingRequestLoggingDetails[];
+  loggingProject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loggingDetails: 'loggingDetails',
+      loggingProject: 'loggingProject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loggingDetails: { 'type': 'array', 'itemType': UpdateLoggingRequestLoggingDetails },
+      loggingProject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLoggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMachineGroupRequest extends $tea.Model {
+  groupAttribute?: UpdateMachineGroupRequestGroupAttribute;
+  groupName?: string;
+  groupType?: string;
+  machineIdentifyType?: string;
+  machineList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupAttribute: 'groupAttribute',
+      groupName: 'groupName',
+      groupType: 'groupType',
+      machineIdentifyType: 'machineIdentifyType',
+      machineList: 'machineList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupAttribute: UpdateMachineGroupRequestGroupAttribute,
+      groupName: 'string',
+      groupType: 'string',
+      machineIdentifyType: 'string',
+      machineList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMachineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectRequest extends $tea.Model {
   description?: string;
   static names(): { [key: string]: string } {
@@ -2290,124 +3051,23 @@ export class KeysValue extends $tea.Model {
   }
 }
 
-export class LogtailConfigInputDetailSensitiveKeys extends $tea.Model {
-  all?: boolean;
-  key?: string;
-  regexBegin?: string;
-  regexContent?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      all: 'all',
-      key: 'key',
-      regexBegin: 'regex_begin',
-      regexContent: 'regex_content',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      key: 'string',
-      regexBegin: 'string',
-      regexContent: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogtailConfigInputDetail extends $tea.Model {
-  adjustTimezone?: boolean;
-  delayAlarmBytes?: number;
-  enableTag?: boolean;
-  filePattern?: string;
-  filterKey?: string[];
-  filterRegex?: string[];
-  localStorage?: boolean;
-  logBeginRegex?: string;
-  logPath?: string;
-  logTimezone?: string;
-  logType?: string;
-  maxSendRate?: number;
-  mergeType?: string;
-  priority?: number;
-  sendRateExpire?: number;
-  sensitiveKeys?: LogtailConfigInputDetailSensitiveKeys[];
-  shardHashKey?: string[];
-  timeFormat?: string;
-  topicFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adjustTimezone: 'adjustTimezone',
-      delayAlarmBytes: 'delayAlarmBytes',
-      enableTag: 'enableTag',
-      filePattern: 'filePattern',
-      filterKey: 'filterKey',
-      filterRegex: 'filterRegex',
-      localStorage: 'localStorage',
-      logBeginRegex: 'logBeginRegex',
-      logPath: 'logPath',
-      logTimezone: 'logTimezone',
-      logType: 'logType',
-      maxSendRate: 'maxSendRate',
-      mergeType: 'mergeType',
-      priority: 'priority',
-      sendRateExpire: 'sendRateExpire',
-      sensitiveKeys: 'sensitive_keys',
-      shardHashKey: 'shardHashKey',
-      timeFormat: 'timeFormat',
-      topicFormat: 'topicFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adjustTimezone: 'boolean',
-      delayAlarmBytes: 'number',
-      enableTag: 'boolean',
-      filePattern: 'string',
-      filterKey: { 'type': 'array', 'itemType': 'string' },
-      filterRegex: { 'type': 'array', 'itemType': 'string' },
-      localStorage: 'boolean',
-      logBeginRegex: 'string',
-      logPath: 'string',
-      logTimezone: 'string',
-      logType: 'string',
-      maxSendRate: 'number',
-      mergeType: 'string',
-      priority: 'number',
-      sendRateExpire: 'number',
-      sensitiveKeys: { 'type': 'array', 'itemType': LogtailConfigInputDetailSensitiveKeys },
-      shardHashKey: { 'type': 'array', 'itemType': 'string' },
-      timeFormat: 'string',
-      topicFormat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class LogtailConfigOutputDetail extends $tea.Model {
   endpoint?: string;
-  logstore?: string;
+  logstoreName?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       endpoint: 'endpoint',
-      logstore: 'logstore',
+      logstoreName: 'logstoreName',
+      region: 'region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endpoint: 'string',
-      logstore: 'string',
+      logstoreName: 'string',
+      region: 'string',
     };
   }
 
@@ -2739,6 +3399,78 @@ export class CreateIndexRequestLine extends $tea.Model {
   }
 }
 
+export class CreateLoggingRequestLoggingDetails extends $tea.Model {
+  logstore?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMachineGroupRequestGroupAttribute extends $tea.Model {
+  externalName?: string;
+  groupTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalName: 'externalName',
+      groupTopic: 'groupTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalName: 'string',
+      groupTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckPointResponseBody extends $tea.Model {
+  shard?: number;
+  checkpoint?: string;
+  updateTime?: number;
+  consumer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shard: 'shard',
+      checkpoint: 'checkpoint',
+      updateTime: 'updateTime',
+      consumer: 'consumer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shard: 'number',
+      checkpoint: 'string',
+      updateTime: 'number',
+      consumer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistogramsResponseBody extends $tea.Model {
   from?: number;
   to?: number;
@@ -2901,6 +3633,50 @@ export class UpdateIndexRequestLine extends $tea.Model {
   }
 }
 
+export class UpdateLoggingRequestLoggingDetails extends $tea.Model {
+  logstore?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMachineGroupRequestGroupAttribute extends $tea.Model {
+  externalName?: string;
+  groupTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalName: 'externalName',
+      groupTopic: 'groupTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalName: 'string',
+      groupTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
   _client: SPI;
@@ -2922,6 +3698,35 @@ export default class Client extends OpenApi {
     };
   }
 
+
+  async applyConfigToMachineGroup(project: string, machineGroup: string, configName: string): Promise<ApplyConfigToMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.applyConfigToMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
+  }
+
+  async applyConfigToMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyConfigToMachineGroupResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    configName = OpenApiUtil.getEncodeParam(configName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyConfigToMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}/configs/${configName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ApplyConfigToMachineGroupResponse>(await this.execute(params, req, runtime), new ApplyConfigToMachineGroupResponse({}));
+  }
 
   async createConsumerGroup(project: string, logstore: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2964,6 +3769,40 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<CreateConsumerGroupResponse>(await this.execute(params, req, runtime), new CreateConsumerGroupResponse({}));
+  }
+
+  async createDomain(project: string, request: CreateDomainRequest): Promise<CreateDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDomainWithOptions(project, request, headers, runtime);
+  }
+
+  async createDomainWithOptions(project: string, request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainName)) {
+      body["domainName"] = request.domainName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDomain",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/domains`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateDomainResponse>(await this.execute(params, req, runtime), new CreateDomainResponse({}));
   }
 
   async createIndex(project: string, logstore: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
@@ -3095,6 +3934,94 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogStoreResponse>(await this.execute(params, req, runtime), new CreateLogStoreResponse({}));
   }
 
+  async createLogging(project: string, request: CreateLoggingRequest): Promise<CreateLoggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLoggingWithOptions(project, request, headers, runtime);
+  }
+
+  async createLoggingWithOptions(project: string, request: CreateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLoggingResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.loggingDetails)) {
+      body["loggingDetails"] = request.loggingDetails;
+    }
+
+    if (!Util.isUnset(request.loggingProject)) {
+      body["loggingProject"] = request.loggingProject;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLogging",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logging`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateLoggingResponse>(await this.execute(params, req, runtime), new CreateLoggingResponse({}));
+  }
+
+  async createMachineGroup(project: string, request: CreateMachineGroupRequest): Promise<CreateMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMachineGroupWithOptions(project, request, headers, runtime);
+  }
+
+  async createMachineGroupWithOptions(project: string, request: CreateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateMachineGroupResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.groupAttribute))) {
+      body["groupAttribute"] = request.groupAttribute;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      body["groupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      body["groupType"] = request.groupType;
+    }
+
+    if (!Util.isUnset(request.machineIdentifyType)) {
+      body["machineIdentifyType"] = request.machineIdentifyType;
+    }
+
+    if (!Util.isUnset(request.machineList)) {
+      body["machineList"] = request.machineList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateMachineGroupResponse>(await this.execute(params, req, runtime), new CreateMachineGroupResponse({}));
+  }
+
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3209,6 +4136,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupResponse>(await this.execute(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
 
+  async deleteDomain(project: string, domainName: string): Promise<DeleteDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDomainWithOptions(project, domainName, headers, runtime);
+  }
+
+  async deleteDomainWithOptions(project: string, domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    domainName = OpenApiUtil.getEncodeParam(domainName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDomain",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/domains/${domainName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
+  }
+
   async deleteIndex(project: string, logstore: string): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3265,6 +4220,61 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogStoreResponse>(await this.execute(params, req, runtime), new DeleteLogStoreResponse({}));
   }
 
+  async deleteLogging(project: string): Promise<DeleteLoggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLoggingWithOptions(project, headers, runtime);
+  }
+
+  async deleteLoggingWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLoggingResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLogging",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logging`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteLoggingResponse>(await this.execute(params, req, runtime), new DeleteLoggingResponse({}));
+  }
+
+  async deleteMachineGroup(project: string, machineGroup: string): Promise<DeleteMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
+  }
+
+  async deleteMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMachineGroupResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteMachineGroupResponse>(await this.execute(params, req, runtime), new DeleteMachineGroupResponse({}));
+  }
+
   async deleteProject(project: string): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3290,6 +4300,70 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
+  }
+
+  async getAppliedConfigs(project: string, machineGroup: string): Promise<GetAppliedConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAppliedConfigsWithOptions(project, machineGroup, headers, runtime);
+  }
+
+  async getAppliedConfigsWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedConfigsResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAppliedConfigs",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}/configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppliedConfigsResponse>(await this.execute(params, req, runtime), new GetAppliedConfigsResponse({}));
+  }
+
+  async getCheckPoint(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest): Promise<GetCheckPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
+  async getCheckPointWithOptions(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCheckPointResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    consumerGroup = OpenApiUtil.getEncodeParam(consumerGroup);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.shard)) {
+      query["shard"] = request.shard;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCheckPoint",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/consumergroups/${consumerGroup}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<GetCheckPointResponse>(await this.execute(params, req, runtime), new GetCheckPointResponse({}));
   }
 
   async getContextLogs(project: string, logstore: string, request: GetContextLogsRequest): Promise<GetContextLogsResponse> {
@@ -3530,6 +4604,33 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogStoreResponse>(await this.execute(params, req, runtime), new GetLogStoreResponse({}));
   }
 
+  async getLogging(project: string): Promise<GetLoggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLoggingWithOptions(project, headers, runtime);
+  }
+
+  async getLoggingWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLoggingResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLogging",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logging`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLoggingResponse>(await this.execute(params, req, runtime), new GetLoggingResponse({}));
+  }
+
   async getLogs(project: string, logstore: string, request: GetLogsRequest): Promise<GetLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3595,6 +4696,34 @@ export default class Client extends OpenApi {
       bodyType: "array",
     });
     return $tea.cast<GetLogsResponse>(await this.execute(params, req, runtime), new GetLogsResponse({}));
+  }
+
+  async getMachineGroup(project: string, machineGroup: string): Promise<GetMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
+  }
+
+  async getMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMachineGroupResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMachineGroupResponse>(await this.execute(params, req, runtime), new GetMachineGroupResponse({}));
   }
 
   async getProject(project: string): Promise<GetProjectResponse> {
@@ -3718,6 +4847,48 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConsumerGroupResponse>(await this.execute(params, req, runtime), new ListConsumerGroupResponse({}));
   }
 
+  async listDomains(project: string, request: ListDomainsRequest): Promise<ListDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDomainsWithOptions(project, request, headers, runtime);
+  }
+
+  async listDomainsWithOptions(project: string, request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["domainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDomains",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/domains`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
+  }
+
   async listLogStores(project: string, request: ListLogStoresRequest): Promise<ListLogStoresResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3762,6 +4933,87 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListLogStoresResponse>(await this.execute(params, req, runtime), new ListLogStoresResponse({}));
+  }
+
+  async listMachineGroup(project: string, request: ListMachineGroupRequest): Promise<ListMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMachineGroupWithOptions(project, request, headers, runtime);
+  }
+
+  async listMachineGroupWithOptions(project: string, request: ListMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachineGroupResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["groupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMachineGroupResponse>(await this.execute(params, req, runtime), new ListMachineGroupResponse({}));
+  }
+
+  async listMachines(project: string, machineGroup: string, request: ListMachinesRequest): Promise<ListMachinesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMachinesWithOptions(project, machineGroup, request, headers, runtime);
+  }
+
+  async listMachinesWithOptions(project: string, machineGroup: string, request: ListMachinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMachinesResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMachines",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}/machines`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMachinesResponse>(await this.execute(params, req, runtime), new ListMachinesResponse({}));
   }
 
   async listProject(request: ListProjectRequest): Promise<ListProjectResponse> {
@@ -3954,6 +5206,35 @@ export default class Client extends OpenApi {
     return $tea.cast<MergeShardsResponse>(await this.execute(params, req, runtime), new MergeShardsResponse({}));
   }
 
+  async removeConfigFromMachineGroup(project: string, machineGroup: string, configName: string): Promise<RemoveConfigFromMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeConfigFromMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
+  }
+
+  async removeConfigFromMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveConfigFromMachineGroupResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    configName = OpenApiUtil.getEncodeParam(configName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveConfigFromMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}/configs/${configName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<RemoveConfigFromMachineGroupResponse>(await this.execute(params, req, runtime), new RemoveConfigFromMachineGroupResponse({}));
+  }
+
   async splitShard(project: string, logstore: string, shardID: string, request: SplitShardRequest): Promise<SplitShardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4078,6 +5359,60 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<UnTagResourcesResponse>(await this.execute(params, req, runtime), new UnTagResourcesResponse({}));
+  }
+
+  async updateCheckPoint(project: string, logstore: string, consumerGroup: string, request: UpdateCheckPointRequest): Promise<UpdateCheckPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
+  async updateCheckPointWithOptions(project: string, logstore: string, consumerGroup: string, request: UpdateCheckPointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCheckPointResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    consumerGroup = OpenApiUtil.getEncodeParam(consumerGroup);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.consumer)) {
+      query["consumer"] = request.consumer;
+    }
+
+    if (!Util.isUnset(request.forceSuccess)) {
+      query["forceSuccess"] = request.forceSuccess;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkpoint)) {
+      body["checkpoint"] = request.checkpoint;
+    }
+
+    if (!Util.isUnset(request.shard)) {
+      body["shard"] = request.shard;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCheckPoint",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/consumergroups/${consumerGroup}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateCheckPointResponse>(await this.execute(params, req, runtime), new UpdateCheckPointResponse({}));
   }
 
   async updateConsumerGroup(project: string, logstore: string, consumerGroup: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
@@ -4248,6 +5583,95 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<UpdateLogStoreResponse>(await this.execute(params, req, runtime), new UpdateLogStoreResponse({}));
+  }
+
+  async updateLogging(project: string, request: UpdateLoggingRequest): Promise<UpdateLoggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateLoggingWithOptions(project, request, headers, runtime);
+  }
+
+  async updateLoggingWithOptions(project: string, request: UpdateLoggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLoggingResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.loggingDetails)) {
+      body["loggingDetails"] = request.loggingDetails;
+    }
+
+    if (!Util.isUnset(request.loggingProject)) {
+      body["loggingProject"] = request.loggingProject;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateLogging",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logging`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateLoggingResponse>(await this.execute(params, req, runtime), new UpdateLoggingResponse({}));
+  }
+
+  async updateMachineGroup(project: string, machineGroup: string, request: UpdateMachineGroupRequest): Promise<UpdateMachineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMachineGroupWithOptions(project, machineGroup, request, headers, runtime);
+  }
+
+  async updateMachineGroupWithOptions(project: string, machineGroup: string, request: UpdateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.groupAttribute))) {
+      body["groupAttribute"] = request.groupAttribute;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      body["groupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      body["groupType"] = request.groupType;
+    }
+
+    if (!Util.isUnset(request.machineIdentifyType)) {
+      body["machineIdentifyType"] = request.machineIdentifyType;
+    }
+
+    if (!Util.isUnset(request.machineList)) {
+      body["machineList"] = request.machineList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMachineGroup",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/machinegroups/${machineGroup}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateMachineGroupResponse>(await this.execute(params, req, runtime), new UpdateMachineGroupResponse({}));
   }
 
   async updateProject(project: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
