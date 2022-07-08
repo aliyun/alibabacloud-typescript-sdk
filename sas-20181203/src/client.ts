@@ -1771,10 +1771,14 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
   lang?: string;
   levels?: string;
   operateErrorCodeList?: string[];
+  operateTimeEnd?: string;
+  operateTimeStart?: string;
   pageSize?: string;
   remark?: string;
   sourceIp?: string;
   tacticId?: string;
+  timeEnd?: string;
+  timeStart?: string;
   uniqueInfo?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
@@ -1789,10 +1793,14 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       lang: 'Lang',
       levels: 'Levels',
       operateErrorCodeList: 'OperateErrorCodeList',
+      operateTimeEnd: 'OperateTimeEnd',
+      operateTimeStart: 'OperateTimeStart',
       pageSize: 'PageSize',
       remark: 'Remark',
       sourceIp: 'SourceIp',
       tacticId: 'TacticId',
+      timeEnd: 'TimeEnd',
+      timeStart: 'TimeStart',
       uniqueInfo: 'UniqueInfo',
       uuids: 'Uuids',
     };
@@ -1810,10 +1818,14 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       lang: 'string',
       levels: 'string',
       operateErrorCodeList: { 'type': 'array', 'itemType': 'string' },
+      operateTimeEnd: 'string',
+      operateTimeStart: 'string',
       pageSize: 'string',
       remark: 'string',
       sourceIp: 'string',
       tacticId: 'string',
+      timeEnd: 'string',
+      timeStart: 'string',
       uniqueInfo: 'string',
       uuids: 'string',
     };
@@ -9436,8 +9448,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   levels?: string;
   name?: string;
   operateErrorCodeList?: string[];
-  operateTimeEnd?: number;
-  operateTimeStart?: number;
+  operateTimeEnd?: string;
+  operateTimeStart?: string;
   pageSize?: string;
   parentEventTypes?: string;
   remark?: string;
@@ -9446,6 +9458,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   status?: string;
   tacticId?: string;
   targetType?: string;
+  timeEnd?: string;
+  timeStart?: string;
   uniqueInfo?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
@@ -9474,6 +9488,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       status: 'Status',
       tacticId: 'TacticId',
       targetType: 'TargetType',
+      timeEnd: 'TimeEnd',
+      timeStart: 'TimeStart',
       uniqueInfo: 'UniqueInfo',
       uuids: 'Uuids',
     };
@@ -9495,8 +9511,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       levels: 'string',
       name: 'string',
       operateErrorCodeList: { 'type': 'array', 'itemType': 'string' },
-      operateTimeEnd: 'number',
-      operateTimeStart: 'number',
+      operateTimeEnd: 'string',
+      operateTimeStart: 'string',
       pageSize: 'string',
       parentEventTypes: 'string',
       remark: 'string',
@@ -9505,6 +9521,8 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       status: 'string',
       tacticId: 'string',
       targetType: 'string',
+      timeEnd: 'string',
+      timeStart: 'string',
       uniqueInfo: 'string',
       uuids: 'string',
     };
@@ -23723,6 +23741,14 @@ export default class Client extends OpenApi {
       query["OperateErrorCodeList"] = request.operateErrorCodeList;
     }
 
+    if (!Util.isUnset(request.operateTimeEnd)) {
+      query["OperateTimeEnd"] = request.operateTimeEnd;
+    }
+
+    if (!Util.isUnset(request.operateTimeStart)) {
+      query["OperateTimeStart"] = request.operateTimeStart;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -23737,6 +23763,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tacticId)) {
       query["TacticId"] = request.tacticId;
+    }
+
+    if (!Util.isUnset(request.timeEnd)) {
+      query["TimeEnd"] = request.timeEnd;
+    }
+
+    if (!Util.isUnset(request.timeStart)) {
+      query["TimeStart"] = request.timeStart;
     }
 
     if (!Util.isUnset(request.uniqueInfo)) {
@@ -27894,6 +27928,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.targetType)) {
       query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.timeEnd)) {
+      query["TimeEnd"] = request.timeEnd;
+    }
+
+    if (!Util.isUnset(request.timeStart)) {
+      query["TimeStart"] = request.timeStart;
     }
 
     if (!Util.isUnset(request.uniqueInfo)) {
