@@ -3588,10 +3588,12 @@ export class SkipTrialPolicyResponse extends $tea.Model {
 }
 
 export class StartGameLiveRequest extends $tea.Model {
+  extension?: { [key: string]: string };
   gameSession?: string;
   videoPushAddress?: string;
   static names(): { [key: string]: string } {
     return {
+      extension: 'Extension',
       gameSession: 'GameSession',
       videoPushAddress: 'VideoPushAddress',
     };
@@ -3599,6 +3601,32 @@ export class StartGameLiveRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gameSession: 'string',
+      videoPushAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartGameLiveShrinkRequest extends $tea.Model {
+  extensionShrink?: string;
+  gameSession?: string;
+  videoPushAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extensionShrink: 'Extension',
+      gameSession: 'GameSession',
+      videoPushAddress: 'VideoPushAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensionShrink: 'string',
       gameSession: 'string',
       videoPushAddress: 'string',
     };
@@ -7193,9 +7221,19 @@ export default class Client extends OpenApi {
     return await this.skipTrialPolicyWithOptions(request, runtime);
   }
 
-  async startGameLiveWithOptions(request: StartGameLiveRequest, runtime: $Util.RuntimeOptions): Promise<StartGameLiveResponse> {
-    Util.validateModel(request);
+  async startGameLiveWithOptions(tmpReq: StartGameLiveRequest, runtime: $Util.RuntimeOptions): Promise<StartGameLiveResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartGameLiveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.extensionShrink)) {
+      query["Extension"] = request.extensionShrink;
+    }
+
     if (!Util.isUnset(request.gameSession)) {
       query["GameSession"] = request.gameSession;
     }
