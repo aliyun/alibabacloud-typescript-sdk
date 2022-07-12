@@ -31,19 +31,25 @@ export class DescribeBgpPackByIpRequest extends $tea.Model {
 }
 
 export class DescribeBgpPackByIpResponseBody extends $tea.Model {
+  code?: number;
   ddosbgpInfo?: DescribeBgpPackByIpResponseBodyDdosbgpInfo;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       ddosbgpInfo: 'DdosbgpInfo',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       ddosbgpInfo: DescribeBgpPackByIpResponseBodyDdosbgpInfo,
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -827,11 +833,13 @@ export class ModifyDdosStatusRequest extends $tea.Model {
   ddosRegionId?: string;
   instanceId?: string;
   instanceType?: string;
+  internetIp?: string;
   static names(): { [key: string]: string } {
     return {
       ddosRegionId: 'DdosRegionId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
     };
   }
 
@@ -840,6 +848,7 @@ export class ModifyDdosStatusRequest extends $tea.Model {
       ddosRegionId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      internetIp: 'string',
     };
   }
 
@@ -1926,6 +1935,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
