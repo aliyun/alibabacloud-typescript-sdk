@@ -156,7 +156,7 @@ export class SavedSearch extends $tea.Model {
 }
 
 export class Chart extends $tea.Model {
-  action?: { [key: string]: string };
+  action?: { [key: string]: any };
   display?: ChartDisplay;
   search?: ChartSearch;
   title?: string;
@@ -173,7 +173,7 @@ export class Chart extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      action: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      action: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       display: ChartDisplay,
       search: ChartSearch,
       title: 'string',
@@ -221,7 +221,7 @@ export class EtlJob extends $tea.Model {
   enable?: boolean;
   etlJobName?: string;
   functionConfig?: EtlJobFunctionConfig;
-  functionParameter?: { [key: string]: string };
+  functionParameter?: { [key: string]: any };
   logConfig?: EtlJobLogConfig;
   sourceConfig?: EtlJobSourceConfig;
   triggerConfig?: EtlJobTriggerConfig;
@@ -242,7 +242,7 @@ export class EtlJob extends $tea.Model {
       enable: 'boolean',
       etlJobName: 'string',
       functionConfig: EtlJobFunctionConfig,
-      functionParameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      functionParameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       logConfig: EtlJobLogConfig,
       sourceConfig: EtlJobSourceConfig,
       triggerConfig: EtlJobTriggerConfig,
@@ -259,7 +259,7 @@ export class EtlMeta extends $tea.Model {
   etlMetaKey?: string;
   etlMetaName?: string;
   etlMetaTag?: string;
-  etlMetaValue?: { [key: string]: string };
+  etlMetaValue?: string;
   static names(): { [key: string]: string } {
     return {
       enable: 'enable',
@@ -276,7 +276,7 @@ export class EtlMeta extends $tea.Model {
       etlMetaKey: 'string',
       etlMetaName: 'string',
       etlMetaTag: 'string',
-      etlMetaValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      etlMetaValue: 'string',
     };
   }
 
@@ -287,7 +287,7 @@ export class EtlMeta extends $tea.Model {
 
 export class ExternalStore extends $tea.Model {
   externalStoreName?: string;
-  parameter?: ExternalStoreParameter;
+  parameter?: { [key: string]: any };
   storeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -300,7 +300,7 @@ export class ExternalStore extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       externalStoreName: 'string',
-      parameter: ExternalStoreParameter,
+      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       storeType: 'string',
     };
   }
@@ -443,31 +443,6 @@ export class MachineGroup extends $tea.Model {
   }
 }
 
-export class OssExternalStore extends $tea.Model {
-  externalStoreName?: string;
-  parameter?: OssExternalStoreParameter;
-  storeType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      externalStoreName: 'externalStoreName',
-      parameter: 'parameter',
-      storeType: 'storeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      externalStoreName: 'string',
-      parameter: OssExternalStoreParameter,
-      storeType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class Project extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -558,6 +533,141 @@ export class ApplyConfigToMachineGroupResponse extends $tea.Model {
   }
 }
 
+export class BatchCreateEtlMetaRequest extends $tea.Model {
+  etlMetaList?: BatchCreateEtlMetaRequestEtlMetaList[];
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaList: 'etlMetaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaList: { 'type': 'array', 'itemType': BatchCreateEtlMetaRequestEtlMetaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateEtlMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyEtlMetaStatusRequest extends $tea.Model {
+  etlMetaKeyList?: string[];
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  range?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaKeyList: 'etlMetaKeyList',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+      range: 'range',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaKeyList: { 'type': 'array', 'itemType': 'string' },
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+      range: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyEtlMetaStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateEtlMetaRequest extends $tea.Model {
+  etlMetaList?: BatchUpdateEtlMetaRequestEtlMetaList;
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaList: 'etlMetaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaList: BatchUpdateEtlMetaRequestEtlMetaList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateEtlMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateConsumerGroupRequest extends $tea.Model {
   consumerGroup?: string;
   order?: boolean;
@@ -625,6 +735,59 @@ export class CreateDomainRequest extends $tea.Model {
 }
 
 export class CreateDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlMetaRequest extends $tea.Model {
+  enable?: boolean;
+  etlMetaKey?: string;
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  etlMetaValue?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+      etlMetaValue: 'etlMetaValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      etlMetaKey: 'string',
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+      etlMetaValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlMetaResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1011,6 +1174,53 @@ export class DeleteDomainResponse extends $tea.Model {
   }
 }
 
+export class DeleteEtlMetaRequest extends $tea.Model {
+  etlMetaKey?: string;
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaKey: 'string',
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEtlMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndexResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -1100,6 +1310,28 @@ export class DeleteMachineGroupResponse extends $tea.Model {
 }
 
 export class DeleteProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSavedSearchResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1423,6 +1655,78 @@ export class GetCursorTimeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCursorTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEtlMetaRequest extends $tea.Model {
+  elMetaName?: string;
+  etlMetaKey?: string;
+  etlMetaTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elMetaName: 'elMetaName',
+      etlMetaKey: 'etlMetaKey',
+      etlMetaTag: 'etlMetaTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elMetaName: 'string',
+      etlMetaKey: 'string',
+      etlMetaTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEtlMetaResponseBody extends $tea.Model {
+  etlMetaList?: EtlMeta[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaList: 'etlMetaList',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaList: { 'type': 'array', 'itemType': EtlMeta },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEtlMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetEtlMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEtlMetaResponseBody,
     };
   }
 
@@ -1890,6 +2194,156 @@ export class ListDomainsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlMetaRequest extends $tea.Model {
+  etlMetaKey?: string;
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaKey: 'string',
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlMetaResponseBody extends $tea.Model {
+  etlMetaList?: EtlMeta[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      etlMetaList: 'etlMetaList',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      etlMetaList: { 'type': 'array', 'itemType': EtlMeta },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEtlMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEtlMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlMetaNameRequest extends $tea.Model {
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlMetaNameResponseBody extends $tea.Model {
+  count?: number;
+  etlMetaNameList?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      etlMetaNameList: 'etlMetaNameList',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      etlMetaNameList: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlMetaNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEtlMetaNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEtlMetaNameResponseBody,
     };
   }
 
@@ -2699,6 +3153,59 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdateEtlMetaRequest extends $tea.Model {
+  enable?: boolean;
+  etlMetaKey?: string;
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  etlMetaValue?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+      etlMetaValue: 'etlMetaValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      etlMetaKey: 'string',
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+      etlMetaValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEtlMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIndexRequest extends $tea.Model {
   keys?: { [key: string]: KeysValue };
   line?: UpdateIndexRequestLine;
@@ -3253,49 +3760,6 @@ export class EtlJobTriggerConfig extends $tea.Model {
   }
 }
 
-export class ExternalStoreParameter extends $tea.Model {
-  db?: string;
-  host?: string;
-  instanceId?: string;
-  password?: string;
-  port?: string;
-  region?: string;
-  table?: string;
-  username?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      db: 'db',
-      host: 'host',
-      instanceId: 'instance-id',
-      password: 'password',
-      port: 'port',
-      region: 'region',
-      table: 'table',
-      username: 'username',
-      vpcId: 'vpc-id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      db: 'string',
-      host: 'string',
-      instanceId: 'string',
-      password: 'string',
-      port: 'string',
-      region: 'string',
-      table: 'string',
-      username: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class LoggingLoggingDetails extends $tea.Model {
   logstore?: string;
   type?: string;
@@ -3340,26 +3804,60 @@ export class MachineGroupGroupAttribute extends $tea.Model {
   }
 }
 
-export class OssExternalStoreParameter extends $tea.Model {
-  accessKey?: string;
-  accessid?: string;
-  bucket?: string;
-  endpoint?: string;
+export class BatchCreateEtlMetaRequestEtlMetaList extends $tea.Model {
+  enable?: boolean;
+  etlMetaKey?: string;
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  etlMetaValue?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      accessKey: 'accessKey',
-      accessid: 'accessid',
-      bucket: 'bucket',
-      endpoint: 'endpoint',
+      enable: 'enable',
+      etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+      etlMetaValue: 'etlMetaValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessKey: 'string',
-      accessid: 'string',
-      bucket: 'string',
-      endpoint: 'string',
+      enable: 'boolean',
+      etlMetaKey: 'string',
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+      etlMetaValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateEtlMetaRequestEtlMetaList extends $tea.Model {
+  enable?: boolean;
+  etlMetaKey?: string;
+  etlMetaName?: string;
+  etlMetaTag?: string;
+  etlMetaValue?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
+      etlMetaTag: 'etlMetaTag',
+      etlMetaValue: 'etlMetaValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      etlMetaKey: 'string',
+      etlMetaName: 'string',
+      etlMetaTag: 'string',
+      etlMetaValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -3686,16 +4184,6 @@ export default class Client extends OpenApi {
     this._client = new GatewayClient();
     this._spi = this._client;
     this._endpointRule = "central";
-    this._endpointMap = {
-      'ap-southeast-1': "sls.ap-southeast-1.aliyuncs.com",
-      'cn-hangzhou': "sls.cn-hangzhou.aliyuncs.com",
-      'cn-hongkong': "sls.cn-hongkong.aliyuncs.com",
-      'cn-huhehaote': "sls.cn-huhehaote.aliyuncs.com",
-      'cn-shanghai': "sls.cn-shanghai.aliyuncs.com",
-      'cn-shenzhen': "sls.cn-shenzhen.aliyuncs.com",
-      'cn-zhangjiakou': "sls.cn-zhangjiakou.aliyuncs.com",
-      'eu-central-1': "sls.eu-central-1.aliyuncs.com",
-    };
   }
 
 
@@ -3726,6 +4214,126 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<ApplyConfigToMachineGroupResponse>(await this.execute(params, req, runtime), new ApplyConfigToMachineGroupResponse({}));
+  }
+
+  async batchCreateEtlMeta(project: string, request: BatchCreateEtlMetaRequest): Promise<BatchCreateEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchCreateEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async batchCreateEtlMetaWithOptions(project: string, request: BatchCreateEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchCreateEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.etlMetaList)) {
+      body["etlMetaList"] = request.etlMetaList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchCreateEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<BatchCreateEtlMetaResponse>(await this.execute(params, req, runtime), new BatchCreateEtlMetaResponse({}));
+  }
+
+  async batchModifyEtlMetaStatus(project: string, request: BatchModifyEtlMetaStatusRequest): Promise<BatchModifyEtlMetaStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchModifyEtlMetaStatusWithOptions(project, request, headers, runtime);
+  }
+
+  async batchModifyEtlMetaStatusWithOptions(project: string, request: BatchModifyEtlMetaStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchModifyEtlMetaStatusResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.etlMetaKeyList)) {
+      body["etlMetaKeyList"] = request.etlMetaKeyList;
+    }
+
+    if (!Util.isUnset(request.etlMetaName)) {
+      body["etlMetaName"] = request.etlMetaName;
+    }
+
+    if (!Util.isUnset(request.etlMetaTag)) {
+      body["etlMetaTag"] = request.etlMetaTag;
+    }
+
+    if (!Util.isUnset(request.range)) {
+      body["range"] = request.range;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchModifyEtlMetaStatus",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<BatchModifyEtlMetaStatusResponse>(await this.execute(params, req, runtime), new BatchModifyEtlMetaStatusResponse({}));
+  }
+
+  async batchUpdateEtlMeta(project: string, request: BatchUpdateEtlMetaRequest): Promise<BatchUpdateEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchUpdateEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async batchUpdateEtlMetaWithOptions(project: string, request: BatchUpdateEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchUpdateEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.etlMetaList))) {
+      body["etlMetaList"] = request.etlMetaList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchUpdateEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<BatchUpdateEtlMetaResponse>(await this.execute(params, req, runtime), new BatchUpdateEtlMetaResponse({}));
   }
 
   async createConsumerGroup(project: string, logstore: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
@@ -3803,6 +4411,56 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<CreateDomainResponse>(await this.execute(params, req, runtime), new CreateDomainResponse({}));
+  }
+
+  async createEtlMeta(project: string, request: CreateEtlMetaRequest): Promise<CreateEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async createEtlMetaWithOptions(project: string, request: CreateEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.etlMetaKey)) {
+      body["etlMetaKey"] = request.etlMetaKey;
+    }
+
+    if (!Util.isUnset(request.etlMetaName)) {
+      body["etlMetaName"] = request.etlMetaName;
+    }
+
+    if (!Util.isUnset(request.etlMetaTag)) {
+      body["etlMetaTag"] = request.etlMetaTag;
+    }
+
+    if (!Util.isUnset(request.etlMetaValue)) {
+      body["etlMetaValue"] = request.etlMetaValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateEtlMetaResponse>(await this.execute(params, req, runtime), new CreateEtlMetaResponse({}));
   }
 
   async createIndex(project: string, logstore: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
@@ -4164,6 +4822,48 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  async deleteEtlMeta(project: string, request: DeleteEtlMetaRequest): Promise<DeleteEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async deleteEtlMetaWithOptions(project: string, request: DeleteEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.etlMetaKey)) {
+      query["etlMetaKey"] = request.etlMetaKey;
+    }
+
+    if (!Util.isUnset(request.etlMetaName)) {
+      query["etlMetaName"] = request.etlMetaName;
+    }
+
+    if (!Util.isUnset(request.etlMetaTag)) {
+      query["etlMetaTag"] = request.etlMetaTag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteEtlMetaResponse>(await this.execute(params, req, runtime), new DeleteEtlMetaResponse({}));
+  }
+
   async deleteIndex(project: string, logstore: string): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4300,6 +5000,34 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
+  }
+
+  async deleteSavedSearch(project: string, savedsearchName: string): Promise<DeleteSavedSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSavedSearchWithOptions(project, savedsearchName, headers, runtime);
+  }
+
+  async deleteSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSavedSearchResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    savedsearchName = OpenApiUtil.getEncodeParam(savedsearchName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSavedSearch",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/savedsearches/${savedsearchName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteSavedSearchResponse>(await this.execute(params, req, runtime), new DeleteSavedSearchResponse({}));
   }
 
   async getAppliedConfigs(project: string, machineGroup: string): Promise<GetAppliedConfigsResponse> {
@@ -4495,6 +5223,48 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetCursorTimeResponse>(await this.execute(params, req, runtime), new GetCursorTimeResponse({}));
+  }
+
+  async getEtlMeta(project: string, request: GetEtlMetaRequest): Promise<GetEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async getEtlMetaWithOptions(project: string, request: GetEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.elMetaName)) {
+      query["elMetaName"] = request.elMetaName;
+    }
+
+    if (!Util.isUnset(request.etlMetaKey)) {
+      query["etlMetaKey"] = request.etlMetaKey;
+    }
+
+    if (!Util.isUnset(request.etlMetaTag)) {
+      query["etlMetaTag"] = request.etlMetaTag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEtlMetaResponse>(await this.execute(params, req, runtime), new GetEtlMetaResponse({}));
   }
 
   async getHistograms(project: string, logstore: string, request: GetHistogramsRequest): Promise<GetHistogramsResponse> {
@@ -4887,6 +5657,94 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
+  }
+
+  async listEtlMeta(project: string, request: ListEtlMetaRequest): Promise<ListEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async listEtlMetaWithOptions(project: string, request: ListEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.etlMetaKey)) {
+      query["etlMetaKey"] = request.etlMetaKey;
+    }
+
+    if (!Util.isUnset(request.etlMetaName)) {
+      query["etlMetaName"] = request.etlMetaName;
+    }
+
+    if (!Util.isUnset(request.etlMetaTag)) {
+      query["etlMetaTag"] = request.etlMetaTag;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEtlMetaResponse>(await this.execute(params, req, runtime), new ListEtlMetaResponse({}));
+  }
+
+  async listEtlMetaName(project: string, request: ListEtlMetaNameRequest): Promise<ListEtlMetaNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEtlMetaNameWithOptions(project, request, headers, runtime);
+  }
+
+  async listEtlMetaNameWithOptions(project: string, request: ListEtlMetaNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEtlMetaNameResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEtlMetaName",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetanames`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEtlMetaNameResponse>(await this.execute(params, req, runtime), new ListEtlMetaNameResponse({}));
   }
 
   async listLogStores(project: string, request: ListLogStoresRequest): Promise<ListLogStoresResponse> {
@@ -5455,6 +6313,56 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConsumerGroupResponse>(await this.execute(params, req, runtime), new UpdateConsumerGroupResponse({}));
   }
 
+  async updateEtlMeta(project: string, request: UpdateEtlMetaRequest): Promise<UpdateEtlMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateEtlMetaWithOptions(project, request, headers, runtime);
+  }
+
+  async updateEtlMetaWithOptions(project: string, request: UpdateEtlMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateEtlMetaResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.etlMetaKey)) {
+      body["etlMetaKey"] = request.etlMetaKey;
+    }
+
+    if (!Util.isUnset(request.etlMetaName)) {
+      body["etlMetaName"] = request.etlMetaName;
+    }
+
+    if (!Util.isUnset(request.etlMetaTag)) {
+      body["etlMetaTag"] = request.etlMetaTag;
+    }
+
+    if (!Util.isUnset(request.etlMetaValue)) {
+      body["etlMetaValue"] = request.etlMetaValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEtlMeta",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etlmetas`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateEtlMetaResponse>(await this.execute(params, req, runtime), new UpdateEtlMetaResponse({}));
+  }
+
   async updateIndex(project: string, logstore: string, request: UpdateIndexRequest): Promise<UpdateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5623,17 +6531,17 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLoggingResponse>(await this.execute(params, req, runtime), new UpdateLoggingResponse({}));
   }
 
-  async updateMachineGroup(project: string, machineGroup: string, request: UpdateMachineGroupRequest): Promise<UpdateMachineGroupResponse> {
+  async updateMachineGroup(project: string, groupName: string, request: UpdateMachineGroupRequest): Promise<UpdateMachineGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateMachineGroupWithOptions(project, machineGroup, request, headers, runtime);
+    return await this.updateMachineGroupWithOptions(project, groupName, request, headers, runtime);
   }
 
-  async updateMachineGroupWithOptions(project: string, machineGroup: string, request: UpdateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupResponse> {
+  async updateMachineGroupWithOptions(project: string, groupName: string, request: UpdateMachineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMachineGroupResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
+    groupName = OpenApiUtil.getEncodeParam(groupName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.groupAttribute))) {
       body["groupAttribute"] = request.groupAttribute;
@@ -5664,7 +6572,7 @@ export default class Client extends OpenApi {
       action: "UpdateMachineGroup",
       version: "2020-12-30",
       protocol: "HTTPS",
-      pathname: `/machinegroups/${machineGroup}`,
+      pathname: `/machinegroups/${groupName}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
