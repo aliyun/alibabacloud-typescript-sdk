@@ -5132,6 +5132,7 @@ export class PreviewStackRequest extends $tea.Model {
   parallelism?: number;
   parameters?: PreviewStackRequestParameters[];
   regionId?: string;
+  stackId?: string;
   stackName?: string;
   stackPolicyBody?: string;
   stackPolicyURL?: string;
@@ -5149,6 +5150,7 @@ export class PreviewStackRequest extends $tea.Model {
       parallelism: 'Parallelism',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      stackId: 'StackId',
       stackName: 'StackName',
       stackPolicyBody: 'StackPolicyBody',
       stackPolicyURL: 'StackPolicyURL',
@@ -5169,6 +5171,7 @@ export class PreviewStackRequest extends $tea.Model {
       parallelism: 'number',
       parameters: { 'type': 'array', 'itemType': PreviewStackRequestParameters },
       regionId: 'string',
+      stackId: 'string',
       stackName: 'string',
       stackPolicyBody: 'string',
       stackPolicyURL: 'string',
@@ -9332,17 +9335,21 @@ export class PreviewStackResponseBodyStackParameters extends $tea.Model {
 }
 
 export class PreviewStackResponseBodyStackResources extends $tea.Model {
+  action?: string;
   description?: string;
   logicalResourceId?: string;
   properties?: { [key: string]: any };
+  replacement?: string;
   requiredBy?: string[];
   resourceType?: string;
   stack?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      action: 'Action',
       description: 'Description',
       logicalResourceId: 'LogicalResourceId',
       properties: 'Properties',
+      replacement: 'Replacement',
       requiredBy: 'RequiredBy',
       resourceType: 'ResourceType',
       stack: 'Stack',
@@ -9351,9 +9358,11 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      action: 'string',
       description: 'string',
       logicalResourceId: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      replacement: 'string',
       requiredBy: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       stack: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -12531,6 +12540,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
     }
 
     if (!Util.isUnset(request.stackName)) {
