@@ -3324,6 +3324,99 @@ export class FeedbackResponse extends $tea.Model {
   }
 }
 
+export class GenerateUserAccessTokenRequest extends $tea.Model {
+  agentKey?: string;
+  email?: string;
+  expireTime?: number;
+  extraInfo?: string;
+  foreignId?: string;
+  nick?: string;
+  telephone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      email: 'Email',
+      expireTime: 'ExpireTime',
+      extraInfo: 'ExtraInfo',
+      foreignId: 'ForeignId',
+      nick: 'Nick',
+      telephone: 'Telephone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      email: 'string',
+      expireTime: 'number',
+      extraInfo: 'string',
+      foreignId: 'string',
+      nick: 'string',
+      telephone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateUserAccessTokenResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateUserAccessTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GenerateUserAccessTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateUserAccessTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAsyncResultRequest extends $tea.Model {
   agentKey?: string;
   taskId?: string;
@@ -8911,6 +9004,59 @@ export default class Client extends OpenApi {
   async feedback(request: FeedbackRequest): Promise<FeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.feedbackWithOptions(request, runtime);
+  }
+
+  async generateUserAccessTokenWithOptions(request: GenerateUserAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUserAccessTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!Util.isUnset(request.foreignId)) {
+      query["ForeignId"] = request.foreignId;
+    }
+
+    if (!Util.isUnset(request.nick)) {
+      query["Nick"] = request.nick;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateUserAccessToken",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateUserAccessTokenResponse>(await this.callApi(params, req, runtime), new GenerateUserAccessTokenResponse({}));
+  }
+
+  async generateUserAccessToken(request: GenerateUserAccessTokenRequest): Promise<GenerateUserAccessTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateUserAccessTokenWithOptions(request, runtime);
   }
 
   async getAsyncResultWithOptions(request: GetAsyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncResultResponse> {
