@@ -977,6 +977,108 @@ export class AuthorizeSecurityGroupEgressResponse extends $tea.Model {
   }
 }
 
+export class CreateARMServerInstancesRequest extends $tea.Model {
+  amount?: number;
+  autoRenew?: boolean;
+  ensRegionId?: string;
+  frequency?: number;
+  imageId?: string;
+  instanceType?: string;
+  keyPairName?: string;
+  payType?: string;
+  period?: number;
+  periodUnit?: string;
+  resolution?: string;
+  serverType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoRenew: 'AutoRenew',
+      ensRegionId: 'EnsRegionId',
+      frequency: 'Frequency',
+      imageId: 'ImageId',
+      instanceType: 'InstanceType',
+      keyPairName: 'KeyPairName',
+      payType: 'PayType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      resolution: 'Resolution',
+      serverType: 'ServerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoRenew: 'boolean',
+      ensRegionId: 'string',
+      frequency: 'number',
+      imageId: 'string',
+      instanceType: 'string',
+      keyPairName: 'string',
+      payType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      resolution: 'string',
+      serverType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateARMServerInstancesResponseBody extends $tea.Model {
+  instanceIds?: string[];
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateARMServerInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateARMServerInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateARMServerInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequest extends $tea.Model {
   template?: string;
   timeout?: number;
@@ -5354,18 +5456,15 @@ export class DescribeEnsRegionIdResourceResponse extends $tea.Model {
 
 export class DescribeEnsRegionsRequest extends $tea.Model {
   ensRegionId?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
-      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ensRegionId: 'string',
-      version: 'string',
     };
   }
 
@@ -11185,6 +11284,69 @@ export class RebootInstanceResponse extends $tea.Model {
   }
 }
 
+export class ReleaseARMServerInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseARMServerInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseARMServerInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseARMServerInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseARMServerInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseInstanceRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -11592,6 +11754,75 @@ export class RemoveVSwitchesFromEpnInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveVSwitchesFromEpnInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewARMServerInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  period?: number;
+  periodUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      period: 'number',
+      periodUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewARMServerInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewARMServerInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RenewARMServerInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewARMServerInstanceResponseBody,
     };
   }
 
@@ -18815,6 +19046,79 @@ export default class Client extends OpenApi {
     return await this.authorizeSecurityGroupEgressWithOptions(request, runtime);
   }
 
+  async createARMServerInstancesWithOptions(request: CreateARMServerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateARMServerInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!Util.isUnset(request.serverType)) {
+      query["ServerType"] = request.serverType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateARMServerInstances",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateARMServerInstancesResponse>(await this.callApi(params, req, runtime), new CreateARMServerInstancesResponse({}));
+  }
+
+  async createARMServerInstances(request: CreateARMServerInstancesRequest): Promise<CreateARMServerInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createARMServerInstancesWithOptions(request, runtime);
+  }
+
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21220,10 +21524,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.ensRegionId)) {
       query["EnsRegionId"] = request.ensRegionId;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23975,6 +24275,35 @@ export default class Client extends OpenApi {
     return await this.rebootInstanceWithOptions(request, runtime);
   }
 
+  async releaseARMServerInstanceWithOptions(request: ReleaseARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseARMServerInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseARMServerInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseARMServerInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseARMServerInstanceResponse({}));
+  }
+
+  async releaseARMServerInstance(request: ReleaseARMServerInstanceRequest): Promise<ReleaseARMServerInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseARMServerInstanceWithOptions(request, runtime);
+  }
+
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24169,6 +24498,43 @@ export default class Client extends OpenApi {
   async removeVSwitchesFromEpnInstance(request: RemoveVSwitchesFromEpnInstanceRequest): Promise<RemoveVSwitchesFromEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVSwitchesFromEpnInstanceWithOptions(request, runtime);
+  }
+
+  async renewARMServerInstanceWithOptions(request: RenewARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewARMServerInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewARMServerInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewARMServerInstanceResponse>(await this.callApi(params, req, runtime), new RenewARMServerInstanceResponse({}));
+  }
+
+  async renewARMServerInstance(request: RenewARMServerInstanceRequest): Promise<RenewARMServerInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewARMServerInstanceWithOptions(request, runtime);
   }
 
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
