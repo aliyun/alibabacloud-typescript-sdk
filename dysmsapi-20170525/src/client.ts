@@ -3094,6 +3094,7 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model 
   auditStatus?: string;
   createDate?: string;
   orderId?: string;
+  outerTemplateType?: number;
   reason?: QuerySmsTemplateListResponseBodySmsTemplateListReason;
   templateCode?: string;
   templateContent?: string;
@@ -3104,6 +3105,7 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model 
       auditStatus: 'AuditStatus',
       createDate: 'CreateDate',
       orderId: 'OrderId',
+      outerTemplateType: 'OuterTemplateType',
       reason: 'Reason',
       templateCode: 'TemplateCode',
       templateContent: 'TemplateContent',
@@ -3117,6 +3119,7 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model 
       auditStatus: 'string',
       createDate: 'string',
       orderId: 'string',
+      outerTemplateType: 'number',
       reason: QuerySmsTemplateListResponseBodySmsTemplateListReason,
       templateCode: 'string',
       templateContent: 'string',
