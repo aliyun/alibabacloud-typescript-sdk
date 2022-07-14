@@ -5962,6 +5962,75 @@ export class DescribeInstanceAntiBruteForceRulesResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceRebootStatusRequest extends $tea.Model {
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uuids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRebootStatusResponseBody extends $tea.Model {
+  rebootStatuses?: DescribeInstanceRebootStatusResponseBodyRebootStatuses[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      rebootStatuses: 'RebootStatuses',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rebootStatuses: { 'type': 'array', 'itemType': DescribeInstanceRebootStatusResponseBodyRebootStatuses },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRebootStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceRebootStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceRebootStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceStatisticsRequest extends $tea.Model {
   from?: string;
   lang?: string;
@@ -15082,6 +15151,69 @@ export class QueryGroupedSecurityEventMarkMissListResponse extends $tea.Model {
   }
 }
 
+export class RebootMachineRequest extends $tea.Model {
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootMachineResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootMachineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RebootMachineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootMachineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshAssetsRequest extends $tea.Model {
   assetType?: string;
   static names(): { [key: string]: string } {
@@ -17133,11 +17265,13 @@ export class DescribeContainerStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeCriteriaResponseBodyCriteriaList extends $tea.Model {
+  multiValues?: string;
   name?: string;
   type?: string;
   values?: string;
   static names(): { [key: string]: string } {
     return {
+      multiValues: 'MultiValues',
       name: 'Name',
       type: 'Type',
       values: 'Values',
@@ -17146,6 +17280,7 @@ export class DescribeCriteriaResponseBodyCriteriaList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      multiValues: 'string',
       name: 'string',
       type: 'string',
       values: 'string',
@@ -18697,6 +18832,34 @@ export class DescribeInstanceAntiBruteForceRulesResponseBodyRules extends $tea.M
   }
 }
 
+export class DescribeInstanceRebootStatusResponseBodyRebootStatuses extends $tea.Model {
+  code?: string;
+  msg?: string;
+  rebootStatus?: number;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      msg: 'Msg',
+      rebootStatus: 'RebootStatus',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      msg: 'string',
+      rebootStatus: 'number',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceStatisticsResponseBodyData extends $tea.Model {
   account?: number;
   appNum?: number;
@@ -19941,7 +20104,7 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
 }
 
 export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends $tea.Model {
-  contentResource?: string;
+  contentResource?: { [key: string]: any };
   count?: number;
   currentPage?: number;
   pageCount?: number;
@@ -19960,7 +20123,7 @@ export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends 
 
   static types(): { [key: string]: any } {
     return {
-      contentResource: 'string',
+      contentResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       count: 'number',
       currentPage: 'number',
       pageCount: 'number',
@@ -22743,62 +22906,62 @@ export default class Client extends OpenApi {
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "tds.aliyuncs.com",
-      'ap-southeast-3': "tds.ap-southeast-3.aliyuncs.com",
-      'ap-northeast-1': "tds.aliyuncs.com",
-      'ap-northeast-2-pop': "tds.aliyuncs.com",
-      'ap-south-1': "tds.aliyuncs.com",
       'ap-southeast-1': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "tds.aliyuncs.com",
-      'ap-southeast-5': "tds.aliyuncs.com",
-      'cn-beijing': "tds.aliyuncs.com",
-      'cn-beijing-finance-1': "tds.aliyuncs.com",
-      'cn-beijing-finance-pop': "tds.aliyuncs.com",
-      'cn-beijing-gov-1': "tds.aliyuncs.com",
-      'cn-beijing-nu16-b01': "tds.aliyuncs.com",
-      'cn-chengdu': "tds.aliyuncs.com",
-      'cn-edge-1': "tds.aliyuncs.com",
-      'cn-fujian': "tds.aliyuncs.com",
-      'cn-haidian-cm12-c01': "tds.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "tds.aliyuncs.com",
-      'cn-hangzhou-finance': "tds.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "tds.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "tds.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "tds.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "tds.aliyuncs.com",
-      'cn-hangzhou-test-306': "tds.aliyuncs.com",
-      'cn-hongkong': "tds.aliyuncs.com",
-      'cn-hongkong-finance-pop': "tds.aliyuncs.com",
-      'cn-huhehaote': "tds.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "tds.aliyuncs.com",
-      'cn-north-2-gov-1': "tds.aliyuncs.com",
-      'cn-qingdao': "tds.aliyuncs.com",
-      'cn-qingdao-nebula': "tds.aliyuncs.com",
-      'cn-shanghai': "tds.aliyuncs.com",
-      'cn-shanghai-et15-b01': "tds.aliyuncs.com",
-      'cn-shanghai-et2-b01': "tds.aliyuncs.com",
-      'cn-shanghai-finance-1': "tds.aliyuncs.com",
-      'cn-shanghai-inner': "tds.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "tds.aliyuncs.com",
-      'cn-shenzhen': "tds.aliyuncs.com",
-      'cn-shenzhen-finance-1': "tds.aliyuncs.com",
-      'cn-shenzhen-inner': "tds.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "tds.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "tds.aliyuncs.com",
-      'cn-wuhan': "tds.aliyuncs.com",
-      'cn-wulanchabu': "tds.aliyuncs.com",
-      'cn-yushanfang': "tds.aliyuncs.com",
-      'cn-zhangbei': "tds.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "tds.aliyuncs.com",
-      'cn-zhangjiakou': "tds.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "tds.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "tds.aliyuncs.com",
-      'eu-central-1': "tds.aliyuncs.com",
-      'eu-west-1': "tds.aliyuncs.com",
-      'eu-west-1-oxs': "tds.aliyuncs.com",
-      'me-east-1': "tds.aliyuncs.com",
-      'rus-west-1-pop': "tds.aliyuncs.com",
-      'us-east-1': "tds.aliyuncs.com",
-      'us-west-1': "tds.aliyuncs.com",
+      'ap-southeast-3': "tds.ap-southeast-3.aliyuncs.com",
+      'ap-northeast-1': "sas.aliyuncs.com",
+      'ap-northeast-2-pop': "sas.aliyuncs.com",
+      'ap-south-1': "sas.aliyuncs.com",
+      'ap-southeast-2': "sas.aliyuncs.com",
+      'ap-southeast-5': "sas.aliyuncs.com",
+      'cn-beijing': "sas.aliyuncs.com",
+      'cn-beijing-finance-1': "sas.aliyuncs.com",
+      'cn-beijing-finance-pop': "sas.aliyuncs.com",
+      'cn-beijing-gov-1': "sas.aliyuncs.com",
+      'cn-beijing-nu16-b01': "sas.aliyuncs.com",
+      'cn-chengdu': "sas.aliyuncs.com",
+      'cn-edge-1': "sas.aliyuncs.com",
+      'cn-fujian': "sas.aliyuncs.com",
+      'cn-haidian-cm12-c01': "sas.aliyuncs.com",
+      'cn-hangzhou-bj-b01': "sas.aliyuncs.com",
+      'cn-hangzhou-finance': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-prod-1': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "sas.aliyuncs.com",
+      'cn-hangzhou-test-306': "sas.aliyuncs.com",
+      'cn-hongkong': "sas.aliyuncs.com",
+      'cn-hongkong-finance-pop': "sas.aliyuncs.com",
+      'cn-huhehaote': "sas.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "sas.aliyuncs.com",
+      'cn-north-2-gov-1': "sas.aliyuncs.com",
+      'cn-qingdao': "sas.aliyuncs.com",
+      'cn-qingdao-nebula': "sas.aliyuncs.com",
+      'cn-shanghai': "sas.aliyuncs.com",
+      'cn-shanghai-et15-b01': "sas.aliyuncs.com",
+      'cn-shanghai-et2-b01': "sas.aliyuncs.com",
+      'cn-shanghai-finance-1': "sas.aliyuncs.com",
+      'cn-shanghai-inner': "sas.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "sas.aliyuncs.com",
+      'cn-shenzhen': "sas.aliyuncs.com",
+      'cn-shenzhen-finance-1': "sas.aliyuncs.com",
+      'cn-shenzhen-inner': "sas.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "sas.aliyuncs.com",
+      'cn-shenzhen-su18-b01': "sas.aliyuncs.com",
+      'cn-wuhan': "sas.aliyuncs.com",
+      'cn-wulanchabu': "sas.aliyuncs.com",
+      'cn-yushanfang': "sas.aliyuncs.com",
+      'cn-zhangbei': "sas.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "sas.aliyuncs.com",
+      'cn-zhangjiakou': "sas.aliyuncs.com",
+      'cn-zhangjiakou-na62-a01': "sas.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "sas.aliyuncs.com",
+      'eu-central-1': "sas.aliyuncs.com",
+      'eu-west-1': "sas.aliyuncs.com",
+      'eu-west-1-oxs': "sas.aliyuncs.com",
+      'me-east-1': "sas.aliyuncs.com",
+      'rus-west-1-pop': "sas.aliyuncs.com",
+      'us-east-1': "sas.aliyuncs.com",
+      'us-west-1': "sas.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("sas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -25990,6 +26153,35 @@ export default class Client extends OpenApi {
   async describeInstanceAntiBruteForceRules(request: DescribeInstanceAntiBruteForceRulesRequest): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAntiBruteForceRulesWithOptions(request, runtime);
+  }
+
+  async describeInstanceRebootStatusWithOptions(request: DescribeInstanceRebootStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceRebootStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceRebootStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceRebootStatusResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRebootStatusResponse({}));
+  }
+
+  async describeInstanceRebootStatus(request: DescribeInstanceRebootStatusRequest): Promise<DescribeInstanceRebootStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceRebootStatusWithOptions(request, runtime);
   }
 
   async describeInstanceStatisticsWithOptions(request: DescribeInstanceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatisticsResponse> {
@@ -30994,6 +31186,35 @@ export default class Client extends OpenApi {
   async queryGroupedSecurityEventMarkMissList(request: QueryGroupedSecurityEventMarkMissListRequest): Promise<QueryGroupedSecurityEventMarkMissListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGroupedSecurityEventMarkMissListWithOptions(request, runtime);
+  }
+
+  async rebootMachineWithOptions(request: RebootMachineRequest, runtime: $Util.RuntimeOptions): Promise<RebootMachineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebootMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebootMachineResponse>(await this.callApi(params, req, runtime), new RebootMachineResponse({}));
+  }
+
+  async rebootMachine(request: RebootMachineRequest): Promise<RebootMachineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebootMachineWithOptions(request, runtime);
   }
 
   async refreshAssetsWithOptions(request: RefreshAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAssetsResponse> {
