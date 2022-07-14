@@ -1527,7 +1527,6 @@ export class DescribeInvadeEventListRequest extends $tea.Model {
   lang?: string;
   memberUid?: number;
   pageSize?: string;
-  processStatus?: string;
   processStatusList?: number[];
   riskLevel?: number[];
   sourceIp?: string;
@@ -1546,7 +1545,6 @@ export class DescribeInvadeEventListRequest extends $tea.Model {
       lang: 'Lang',
       memberUid: 'MemberUid',
       pageSize: 'PageSize',
-      processStatus: 'ProcessStatus',
       processStatusList: 'ProcessStatusList',
       riskLevel: 'RiskLevel',
       sourceIp: 'SourceIp',
@@ -1568,7 +1566,6 @@ export class DescribeInvadeEventListRequest extends $tea.Model {
       lang: 'string',
       memberUid: 'number',
       pageSize: 'string',
-      processStatus: 'string',
       processStatusList: { 'type': 'array', 'itemType': 'number' },
       riskLevel: { 'type': 'array', 'itemType': 'number' },
       sourceIp: 'string',
@@ -1641,9 +1638,6 @@ export class DescribeInvadeEventListResponse extends $tea.Model {
 }
 
 export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
-  aclCoverage?: string;
-  applicationName?: string;
-  categoryId?: string;
   currentPage?: string;
   dstIP?: string;
   endTime?: string;
@@ -1653,15 +1647,10 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
   port?: string;
   privateIP?: string;
   publicIP?: string;
-  securitySuggest?: string;
   sort?: string;
-  sourceIp?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      aclCoverage: 'AclCoverage',
-      applicationName: 'ApplicationName',
-      categoryId: 'CategoryId',
       currentPage: 'CurrentPage',
       dstIP: 'DstIP',
       endTime: 'EndTime',
@@ -1671,18 +1660,13 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
       port: 'Port',
       privateIP: 'PrivateIP',
       publicIP: 'PublicIP',
-      securitySuggest: 'SecuritySuggest',
       sort: 'Sort',
-      sourceIp: 'SourceIp',
       startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclCoverage: 'string',
-      applicationName: 'string',
-      categoryId: 'string',
       currentPage: 'string',
       dstIP: 'string',
       endTime: 'string',
@@ -1692,9 +1676,7 @@ export class DescribeOutgoingDestinationIPRequest extends $tea.Model {
       port: 'string',
       privateIP: 'string',
       publicIP: 'string',
-      securitySuggest: 'string',
       sort: 'string',
-      sourceIp: 'string',
       startTime: 'string',
     };
   }
@@ -1755,7 +1737,6 @@ export class DescribeOutgoingDestinationIPResponse extends $tea.Model {
 }
 
 export class DescribeOutgoingDomainRequest extends $tea.Model {
-  aclCoverage?: string;
   categoryId?: string;
   currentPage?: string;
   domain?: string;
@@ -1764,13 +1745,10 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
   order?: string;
   pageSize?: string;
   publicIP?: string;
-  securitySuggest?: string;
   sort?: string;
-  sourceIp?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      aclCoverage: 'AclCoverage',
       categoryId: 'CategoryId',
       currentPage: 'CurrentPage',
       domain: 'Domain',
@@ -1779,16 +1757,13 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
       order: 'Order',
       pageSize: 'PageSize',
       publicIP: 'PublicIP',
-      securitySuggest: 'SecuritySuggest',
       sort: 'Sort',
-      sourceIp: 'SourceIp',
       startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclCoverage: 'string',
       categoryId: 'string',
       currentPage: 'string',
       domain: 'string',
@@ -1797,9 +1772,7 @@ export class DescribeOutgoingDomainRequest extends $tea.Model {
       order: 'string',
       pageSize: 'string',
       publicIP: 'string',
-      securitySuggest: 'string',
       sort: 'string',
-      sourceIp: 'string',
       startTime: 'string',
     };
   }
@@ -2156,16 +2129,24 @@ export class DescribeUserAssetIPTrafficInfoRequest extends $tea.Model {
 
 export class DescribeUserAssetIPTrafficInfoResponseBody extends $tea.Model {
   endTime?: number;
-  inTrafficInfo?: DescribeUserAssetIPTrafficInfoResponseBodyInTrafficInfo;
-  outTrafficInfo?: DescribeUserAssetIPTrafficInfoResponseBodyOutTrafficInfo;
+  inBps?: number;
+  inPps?: number;
+  newConn?: number;
+  outBps?: number;
+  outPps?: number;
   requestId?: string;
+  sessionCount?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      inTrafficInfo: 'InTrafficInfo',
-      outTrafficInfo: 'OutTrafficInfo',
+      inBps: 'InBps',
+      inPps: 'InPps',
+      newConn: 'NewConn',
+      outBps: 'OutBps',
+      outPps: 'OutPps',
       requestId: 'RequestId',
+      sessionCount: 'SessionCount',
       startTime: 'StartTime',
     };
   }
@@ -2173,9 +2154,13 @@ export class DescribeUserAssetIPTrafficInfoResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
-      inTrafficInfo: DescribeUserAssetIPTrafficInfoResponseBodyInTrafficInfo,
-      outTrafficInfo: DescribeUserAssetIPTrafficInfoResponseBodyOutTrafficInfo,
+      inBps: 'number',
+      inPps: 'number',
+      newConn: 'number',
+      outBps: 'number',
+      outPps: 'number',
       requestId: 'string',
+      sessionCount: 'number',
       startTime: 'number',
     };
   }
@@ -5096,74 +5081,6 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $tea.Model {
   }
 }
 
-export class DescribeUserAssetIPTrafficInfoResponseBodyInTrafficInfo extends $tea.Model {
-  inBps?: number;
-  inPps?: number;
-  newConn?: number;
-  outBps?: number;
-  outPps?: number;
-  sessionCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inBps: 'InBps',
-      inPps: 'InPps',
-      newConn: 'NewConn',
-      outBps: 'OutBps',
-      outPps: 'OutPps',
-      sessionCount: 'SessionCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inBps: 'number',
-      inPps: 'number',
-      newConn: 'number',
-      outBps: 'number',
-      outPps: 'number',
-      sessionCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserAssetIPTrafficInfoResponseBodyOutTrafficInfo extends $tea.Model {
-  inBps?: number;
-  inPps?: number;
-  newConn?: number;
-  outBps?: number;
-  outPps?: number;
-  sessionCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inBps: 'InBps',
-      inPps: 'InPps',
-      newConn: 'NewConn',
-      outBps: 'OutBps',
-      outPps: 'OutPps',
-      sessionCount: 'SessionCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inBps: 'number',
-      inPps: 'number',
-      newConn: 'number',
-      outBps: 'number',
-      outPps: 'number',
-      sessionCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $tea.Model {
   aclGroupId?: string;
   aclGroupName?: string;
@@ -7042,10 +6959,6 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.processStatus)) {
-      query["ProcessStatus"] = request.processStatus;
-    }
-
     if (!Util.isUnset(request.processStatusList)) {
       query["ProcessStatusList"] = request.processStatusList;
     }
@@ -7087,18 +7000,6 @@ export default class Client extends OpenApi {
   async describeOutgoingDestinationIPWithOptions(request: DescribeOutgoingDestinationIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDestinationIPResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.aclCoverage)) {
-      query["AclCoverage"] = request.aclCoverage;
-    }
-
-    if (!Util.isUnset(request.applicationName)) {
-      query["ApplicationName"] = request.applicationName;
-    }
-
-    if (!Util.isUnset(request.categoryId)) {
-      query["CategoryId"] = request.categoryId;
-    }
-
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -7135,16 +7036,8 @@ export default class Client extends OpenApi {
       query["PublicIP"] = request.publicIP;
     }
 
-    if (!Util.isUnset(request.securitySuggest)) {
-      query["SecuritySuggest"] = request.securitySuggest;
-    }
-
     if (!Util.isUnset(request.sort)) {
       query["Sort"] = request.sort;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -7176,10 +7069,6 @@ export default class Client extends OpenApi {
   async describeOutgoingDomainWithOptions(request: DescribeOutgoingDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOutgoingDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.aclCoverage)) {
-      query["AclCoverage"] = request.aclCoverage;
-    }
-
     if (!Util.isUnset(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
     }
@@ -7212,16 +7101,8 @@ export default class Client extends OpenApi {
       query["PublicIP"] = request.publicIP;
     }
 
-    if (!Util.isUnset(request.securitySuggest)) {
-      query["SecuritySuggest"] = request.securitySuggest;
-    }
-
     if (!Util.isUnset(request.sort)) {
       query["Sort"] = request.sort;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
     }
 
     if (!Util.isUnset(request.startTime)) {
