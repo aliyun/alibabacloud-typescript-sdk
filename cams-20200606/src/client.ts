@@ -513,6 +513,8 @@ export class SendChatappMessageRequest extends $tea.Model {
   channelType?: string;
   content?: string;
   custWabaId?: string;
+  fallBackContent?: string;
+  fallBackId?: string;
   from?: string;
   language?: string;
   messageType?: string;
@@ -526,6 +528,8 @@ export class SendChatappMessageRequest extends $tea.Model {
       channelType: 'ChannelType',
       content: 'Content',
       custWabaId: 'CustWabaId',
+      fallBackContent: 'FallBackContent',
+      fallBackId: 'FallBackId',
       from: 'From',
       language: 'Language',
       messageType: 'MessageType',
@@ -542,6 +546,8 @@ export class SendChatappMessageRequest extends $tea.Model {
       channelType: 'string',
       content: 'string',
       custWabaId: 'string',
+      fallBackContent: 'string',
+      fallBackId: 'string',
       from: 'string',
       language: 'string',
       messageType: 'string',
@@ -562,6 +568,8 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   channelType?: string;
   content?: string;
   custWabaId?: string;
+  fallBackContent?: string;
+  fallBackId?: string;
   from?: string;
   language?: string;
   messageType?: string;
@@ -575,6 +583,8 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       channelType: 'ChannelType',
       content: 'Content',
       custWabaId: 'CustWabaId',
+      fallBackContent: 'FallBackContent',
+      fallBackId: 'FallBackId',
       from: 'From',
       language: 'Language',
       messageType: 'MessageType',
@@ -591,6 +601,8 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       channelType: 'string',
       content: 'string',
       custWabaId: 'string',
+      fallBackContent: 'string',
+      fallBackId: 'string',
       from: 'string',
       language: 'string',
       messageType: 'string',
@@ -1212,6 +1224,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.custWabaId)) {
       body["CustWabaId"] = request.custWabaId;
+    }
+
+    if (!Util.isUnset(request.fallBackContent)) {
+      body["FallBackContent"] = request.fallBackContent;
+    }
+
+    if (!Util.isUnset(request.fallBackId)) {
+      body["FallBackId"] = request.fallBackId;
     }
 
     if (!Util.isUnset(request.from)) {
