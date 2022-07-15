@@ -12081,6 +12081,111 @@ export class InstallCloudMonitorResponse extends $tea.Model {
   }
 }
 
+export class ListCheckResultRequest extends $tea.Model {
+  checkKey?: string;
+  currentPage?: number;
+  instanceIds?: string[];
+  instanceSubTypes?: string[];
+  instanceTypes?: string[];
+  lang?: string;
+  pageSize?: number;
+  requirementIds?: number[];
+  riskLevels?: string[];
+  sortTypes?: string[];
+  standardIds?: number[];
+  statuses?: string[];
+  vendors?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkKey: 'CheckKey',
+      currentPage: 'CurrentPage',
+      instanceIds: 'InstanceIds',
+      instanceSubTypes: 'InstanceSubTypes',
+      instanceTypes: 'InstanceTypes',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      requirementIds: 'RequirementIds',
+      riskLevels: 'RiskLevels',
+      sortTypes: 'SortTypes',
+      standardIds: 'StandardIds',
+      statuses: 'Statuses',
+      vendors: 'Vendors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkKey: 'string',
+      currentPage: 'number',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceSubTypes: { 'type': 'array', 'itemType': 'string' },
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      pageSize: 'number',
+      requirementIds: { 'type': 'array', 'itemType': 'number' },
+      riskLevels: { 'type': 'array', 'itemType': 'string' },
+      sortTypes: { 'type': 'array', 'itemType': 'string' },
+      standardIds: { 'type': 'array', 'itemType': 'number' },
+      statuses: { 'type': 'array', 'itemType': 'string' },
+      vendors: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckResultResponseBody extends $tea.Model {
+  checks?: ListCheckResultResponseBodyChecks[];
+  pageInfo?: ListCheckResultResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checks: 'Checks',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checks: { 'type': 'array', 'itemType': ListCheckResultResponseBodyChecks },
+      pageInfo: ListCheckResultResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCheckResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCheckResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVulAutoRepairConfigRequest extends $tea.Model {
   aliasName?: string;
   currentPage?: number;
@@ -22566,6 +22671,117 @@ export class HandleSecurityEventsResponseBodyHandleSecurityEventsResponse extend
   }
 }
 
+export class ListCheckResultResponseBodyChecksCheckPolicies extends $tea.Model {
+  requirementId?: number;
+  requirementShowName?: string;
+  sectionId?: number;
+  sectionShowName?: string;
+  standardId?: number;
+  standardShowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requirementId: 'RequirementId',
+      requirementShowName: 'RequirementShowName',
+      sectionId: 'SectionId',
+      sectionShowName: 'SectionShowName',
+      standardId: 'StandardId',
+      standardShowName: 'StandardShowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requirementId: 'number',
+      requirementShowName: 'string',
+      sectionId: 'number',
+      sectionShowName: 'string',
+      standardId: 'number',
+      standardShowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckResultResponseBodyChecks extends $tea.Model {
+  checkId?: number;
+  checkPolicies?: ListCheckResultResponseBodyChecksCheckPolicies[];
+  checkShowName?: string;
+  instanceSubType?: string;
+  instanceType?: string;
+  lastCheckTime?: number;
+  riskLevel?: string;
+  status?: string;
+  taskId?: string;
+  vendor?: string;
+  vendorShowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      checkPolicies: 'CheckPolicies',
+      checkShowName: 'CheckShowName',
+      instanceSubType: 'InstanceSubType',
+      instanceType: 'InstanceType',
+      lastCheckTime: 'LastCheckTime',
+      riskLevel: 'RiskLevel',
+      status: 'Status',
+      taskId: 'TaskId',
+      vendor: 'Vendor',
+      vendorShowName: 'VendorShowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      checkPolicies: { 'type': 'array', 'itemType': ListCheckResultResponseBodyChecksCheckPolicies },
+      checkShowName: 'string',
+      instanceSubType: 'string',
+      instanceType: 'string',
+      lastCheckTime: 'number',
+      riskLevel: 'string',
+      status: 'string',
+      taskId: 'string',
+      vendor: 'string',
+      vendorShowName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckResultResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVulAutoRepairConfigResponseBodyPageInfo extends $tea.Model {
   count?: number;
   currentPage?: number;
@@ -29463,6 +29679,83 @@ export default class Client extends OpenApi {
   async installCloudMonitor(request: InstallCloudMonitorRequest): Promise<InstallCloudMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installCloudMonitorWithOptions(request, runtime);
+  }
+
+  async listCheckResultWithOptions(request: ListCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkKey)) {
+      query["CheckKey"] = request.checkKey;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.instanceSubTypes)) {
+      query["InstanceSubTypes"] = request.instanceSubTypes;
+    }
+
+    if (!Util.isUnset(request.instanceTypes)) {
+      query["InstanceTypes"] = request.instanceTypes;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.requirementIds)) {
+      query["RequirementIds"] = request.requirementIds;
+    }
+
+    if (!Util.isUnset(request.riskLevels)) {
+      query["RiskLevels"] = request.riskLevels;
+    }
+
+    if (!Util.isUnset(request.sortTypes)) {
+      query["SortTypes"] = request.sortTypes;
+    }
+
+    if (!Util.isUnset(request.standardIds)) {
+      query["StandardIds"] = request.standardIds;
+    }
+
+    if (!Util.isUnset(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    if (!Util.isUnset(request.vendors)) {
+      query["Vendors"] = request.vendors;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCheckResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCheckResultResponse>(await this.callApi(params, req, runtime), new ListCheckResultResponse({}));
+  }
+
+  async listCheckResult(request: ListCheckResultRequest): Promise<ListCheckResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCheckResultWithOptions(request, runtime);
   }
 
   async listVulAutoRepairConfigWithOptions(request: ListVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListVulAutoRepairConfigResponse> {
