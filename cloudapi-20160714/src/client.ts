@@ -915,14 +915,20 @@ export class CreateApiStageVariableResponse extends $tea.Model {
 }
 
 export class CreateAppRequest extends $tea.Model {
+  appCode?: string;
+  appKey?: string;
   appName?: string;
+  appSecret?: string;
   description?: string;
   securityToken?: string;
   source?: string;
   tag?: CreateAppRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      appCode: 'AppCode',
+      appKey: 'AppKey',
       appName: 'AppName',
+      appSecret: 'AppSecret',
       description: 'Description',
       securityToken: 'SecurityToken',
       source: 'Source',
@@ -932,7 +938,10 @@ export class CreateAppRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appCode: 'string',
+      appKey: 'string',
       appName: 'string',
+      appSecret: 'string',
       description: 'string',
       securityToken: 'string',
       source: 'string',
@@ -9866,12 +9875,14 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   autoPay?: boolean;
   instanceId?: string;
   instanceSpec?: string;
+  modifyAction?: string;
   token?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
       instanceId: 'InstanceId',
       instanceSpec: 'InstanceSpec',
+      modifyAction: 'ModifyAction',
       token: 'Token',
     };
   }
@@ -9881,6 +9892,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       autoPay: 'boolean',
       instanceId: 'string',
       instanceSpec: 'string',
+      modifyAction: 'string',
       token: 'string',
     };
   }
@@ -11261,10 +11273,12 @@ export class RemoveVpcAccessAndAbolishApisResponse extends $tea.Model {
 
 export class ResetAppCodeRequest extends $tea.Model {
   appCode?: string;
+  newAppCode?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       appCode: 'AppCode',
+      newAppCode: 'NewAppCode',
       securityToken: 'SecurityToken',
     };
   }
@@ -11272,6 +11286,7 @@ export class ResetAppCodeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appCode: 'string',
+      newAppCode: 'string',
       securityToken: 'string',
     };
   }
@@ -11327,10 +11342,12 @@ export class ResetAppCodeResponse extends $tea.Model {
 
 export class ResetAppSecretRequest extends $tea.Model {
   appKey?: string;
+  newAppSecret?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
+      newAppSecret: 'NewAppSecret',
       securityToken: 'SecurityToken',
     };
   }
@@ -11338,6 +11355,7 @@ export class ResetAppSecretRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appKey: 'string',
+      newAppSecret: 'string',
       securityToken: 'string',
     };
   }
@@ -11599,6 +11617,75 @@ export class SdkGenerateByGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SdkGenerateByGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAccessControlListAttributeRequest extends $tea.Model {
+  aclId?: string;
+  aclName?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      aclName: 'AclName',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      aclName: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAccessControlListAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAccessControlListAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetAccessControlListAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetAccessControlListAttributeResponseBody,
     };
   }
 
@@ -14052,6 +14139,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
   domainName?: string;
   domainRemark?: string;
   domainWebSocketStatus?: string;
+  isHttpRedirectToHttps?: boolean;
   wildcardDomainPatterns?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14065,6 +14153,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
       domainName: 'DomainName',
       domainRemark: 'DomainRemark',
       domainWebSocketStatus: 'DomainWebSocketStatus',
+      isHttpRedirectToHttps: 'IsHttpRedirectToHttps',
       wildcardDomainPatterns: 'WildcardDomainPatterns',
     };
   }
@@ -14081,6 +14170,7 @@ export class DescribeApiGroupResponseBodyCustomDomainsDomainItem extends $tea.Mo
       domainName: 'string',
       domainRemark: 'string',
       domainWebSocketStatus: 'string',
+      isHttpRedirectToHttps: 'boolean',
       wildcardDomainPatterns: 'string',
     };
   }
@@ -19943,8 +20033,20 @@ export default class Client extends OpenApi {
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appCode)) {
+      query["AppCode"] = request.appCode;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
     if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appSecret)) {
+      query["AppSecret"] = request.appSecret;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -24639,6 +24741,10 @@ export default class Client extends OpenApi {
       query["InstanceSpec"] = request.instanceSpec;
     }
 
+    if (!Util.isUnset(request.modifyAction)) {
+      query["ModifyAction"] = request.modifyAction;
+    }
+
     if (!Util.isUnset(request.token)) {
       query["Token"] = request.token;
     }
@@ -25446,6 +25552,10 @@ export default class Client extends OpenApi {
       query["AppCode"] = request.appCode;
     }
 
+    if (!Util.isUnset(request.newAppCode)) {
+      query["NewAppCode"] = request.newAppCode;
+    }
+
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -25477,6 +25587,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.appKey)) {
       query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.newAppSecret)) {
+      query["NewAppSecret"] = request.newAppSecret;
     }
 
     if (!Util.isUnset(request.securityToken)) {
@@ -25614,6 +25728,43 @@ export default class Client extends OpenApi {
   async sdkGenerateByGroup(request: SdkGenerateByGroupRequest): Promise<SdkGenerateByGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sdkGenerateByGroupWithOptions(request, runtime);
+  }
+
+  async setAccessControlListAttributeWithOptions(request: SetAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetAccessControlListAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetAccessControlListAttribute",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new SetAccessControlListAttributeResponse({}));
+  }
+
+  async setAccessControlListAttribute(request: SetAccessControlListAttributeRequest): Promise<SetAccessControlListAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setAccessControlListAttributeWithOptions(request, runtime);
   }
 
   async setApisAuthoritiesWithOptions(request: SetApisAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetApisAuthoritiesResponse> {
