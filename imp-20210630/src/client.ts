@@ -8,147 +8,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AppsDomain extends $tea.Model {
-  domain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppsInteractiveVideoSettings extends $tea.Model {
-  domain?: AppsDomain;
-  severity?: AppsSecurity;
-  transcoding?: AppsTranscoding;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      severity: 'Severity',
-      transcoding: 'Transcoding',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: AppsDomain,
-      severity: AppsSecurity,
-      transcoding: AppsTranscoding,
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppsSecurity extends $tea.Model {
-  playUrlTtl?: number;
-  static names(): { [key: string]: string } {
-    return {
-      playUrlTtl: 'PlayUrlTtl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      playUrlTtl: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppsSettings extends $tea.Model {
-  appId?: string;
-  cloudUid?: string;
-  customer?: CommonCustomer;
-  interactiveVideoSettings?: AppsInteractiveVideoSettings;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      cloudUid: 'CloudUid',
-      customer: 'Customer',
-      interactiveVideoSettings: 'InteractiveVideoSettings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      cloudUid: 'string',
-      customer: CommonCustomer,
-      interactiveVideoSettings: AppsInteractiveVideoSettings,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppsTranscoding extends $tea.Model {
-  flowId?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowId: 'FlowId',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowId: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssetsAuditAssetRequest extends $tea.Model {
-  appId?: string;
-  auditStatus?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      auditStatus: 'AuditStatus',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      auditStatus: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AssetsAuditAssetResponse extends $tea.Model {
   requestId?: string;
   status?: RpcStatus;
@@ -163,25 +22,6 @@ export class AssetsAuditAssetResponse extends $tea.Model {
     return {
       requestId: 'string',
       status: RpcStatus,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssetsCreateAssetRequest extends $tea.Model {
-  asset?: CommonSimpleAsset;
-  static names(): { [key: string]: string } {
-    return {
-      asset: 'Asset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asset: CommonSimpleAsset,
     };
   }
 
@@ -215,25 +55,6 @@ export class AssetsCreateAssetResponse extends $tea.Model {
   }
 }
 
-export class AssetsDeleteAssetRequest extends $tea.Model {
-  asset?: CommonAsset;
-  static names(): { [key: string]: string } {
-    return {
-      asset: 'Asset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asset: CommonAsset,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AssetsDeleteAssetResponse extends $tea.Model {
   asset?: CommonAsset;
   requestId?: string;
@@ -251,25 +72,6 @@ export class AssetsDeleteAssetResponse extends $tea.Model {
       asset: CommonAsset,
       requestId: 'string',
       status: RpcStatus,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssetsGetAssetRequest extends $tea.Model {
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
     };
   }
 
@@ -357,25 +159,6 @@ export class AssetsListAssetsResponse extends $tea.Model {
       nextToken: 'string',
       requestId: 'string',
       status: RpcStatus,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssetsUpdateAssetRequest extends $tea.Model {
-  asset?: CommonAsset;
-  static names(): { [key: string]: string } {
-    return {
-      asset: 'Asset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asset: CommonAsset,
     };
   }
 
@@ -510,25 +293,6 @@ export class CommonAsset extends $tea.Model {
   }
 }
 
-export class CommonCustomer extends $tea.Model {
-  cloudUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cloudUid: 'CloudUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cloudUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CommonMediaResource extends $tea.Model {
   format?: string;
   id?: string;
@@ -555,31 +319,6 @@ export class CommonMediaResource extends $tea.Model {
       sha1: 'string',
       size: 'number',
       url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CommonSTS extends $tea.Model {
-  accessKeyId?: string;
-  accessKeySecret?: string;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      accessKeySecret: 'AccessKeySecret',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      accessKeySecret: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -652,37 +391,6 @@ export class CommonSimpleAsset extends $tea.Model {
   }
 }
 
-export class CommonStorage extends $tea.Model {
-  bucket?: string;
-  object?: string;
-  region?: string;
-  signUrl?: string;
-  sts?: CommonSTS;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      object: 'Object',
-      region: 'Region',
-      signUrl: 'SignUrl',
-      sts: 'Sts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      object: 'string',
-      region: 'string',
-      signUrl: 'string',
-      sts: CommonSTS,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RpcStatus extends $tea.Model {
   code?: number;
   detail?: string;
@@ -722,80 +430,6 @@ export class TypeLatLng extends $tea.Model {
     return {
       latitude: 'number',
       longitude: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class V1MediaSecurityStorageRequest extends $tea.Model {
-  appId?: string;
-  appSettings?: AppsSettings;
-  assetId?: string;
-  customer?: CommonCustomer;
-  image?: CommonMediaResource;
-  imageStorage?: CommonStorage;
-  video?: CommonMediaResource;
-  videoStorage?: CommonStorage;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appSettings: 'AppSettings',
-      assetId: 'AssetId',
-      customer: 'Customer',
-      image: 'Image',
-      imageStorage: 'ImageStorage',
-      video: 'Video',
-      videoStorage: 'VideoStorage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appSettings: AppsSettings,
-      assetId: 'string',
-      customer: CommonCustomer,
-      image: CommonMediaResource,
-      imageStorage: CommonStorage,
-      video: CommonMediaResource,
-      videoStorage: CommonStorage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class V1MediaSecurityStorageResponse extends $tea.Model {
-  assetId?: string;
-  image?: CommonMediaResource;
-  imageStorage?: CommonStorage;
-  mediaId?: string;
-  video?: CommonMediaResource;
-  videoStorage?: CommonStorage;
-  static names(): { [key: string]: string } {
-    return {
-      assetId: 'AssetId',
-      image: 'Image',
-      imageStorage: 'ImageStorage',
-      mediaId: 'MediaId',
-      video: 'Video',
-      videoStorage: 'VideoStorage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      assetId: 'string',
-      image: CommonMediaResource,
-      imageStorage: CommonStorage,
-      mediaId: 'string',
-      video: CommonMediaResource,
-      videoStorage: CommonStorage,
     };
   }
 
@@ -1827,14 +1461,12 @@ export class DeleteClassResponse extends $tea.Model {
 export class DeleteCommentRequest extends $tea.Model {
   appId?: string;
   commentIdList?: string[];
-  creatorId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       commentIdList: 'CommentIdList',
-      creatorId: 'CreatorId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -1844,7 +1476,6 @@ export class DeleteCommentRequest extends $tea.Model {
     return {
       appId: 'string',
       commentIdList: { 'type': 'array', 'itemType': 'string' },
-      creatorId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -2176,84 +1807,6 @@ export class DeleteLiveRoomResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteLiveRoomResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRecordFileInfoRequest extends $tea.Model {
-  appId?: string;
-  maxResults?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRecordFileInfoResponseBody extends $tea.Model {
-  maxResults?: number;
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRecordFileInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRecordFileInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteRecordFileInfoResponseBody,
     };
   }
 
@@ -3199,87 +2752,6 @@ export class GetLiveRoomUserStatisticsResponse extends $tea.Model {
   }
 }
 
-export class GetRecordFileInfoRequest extends $tea.Model {
-  appId?: string;
-  maxResults?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecordFileInfoResponseBody extends $tea.Model {
-  downloadUrl?: string;
-  maxResults?: number;
-  nextToken?: string;
-  requestId?: string;
-  result?: GetRecordFileInfoResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      downloadUrl: 'DownloadUrl',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      downloadUrl: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      result: GetRecordFileInfoResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecordFileInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRecordFileInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRecordFileInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRoomRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -3731,96 +3203,6 @@ export class ListConferenceUsersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListConferenceUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLiveFilesRequest extends $tea.Model {
-  appId?: string;
-  liveId?: string;
-  maxResults?: number;
-  nextToken?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      liveId: 'LiveId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      liveId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLiveFilesResponseBody extends $tea.Model {
-  fileName?: string;
-  maxResults?: number;
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLiveFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLiveFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListLiveFilesResponseBody,
     };
   }
 
@@ -6305,31 +5687,6 @@ export class GetLiveRoomUserStatisticsResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetRecordFileInfoResponseBodyResult extends $tea.Model {
-  ETag?: string;
-  expireTime?: string;
-  fileName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ETag: 'ETag',
-      expireTime: 'ExpireTime',
-      fileName: 'FileName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ETag: 'string',
-      expireTime: 'string',
-      fileName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList extends $tea.Model {
   createTime?: number;
   extension?: { [key: string]: string };
@@ -6750,12 +6107,15 @@ export class ListLiveRoomsByIdResponseBodyResultLiveList extends $tea.Model {
   appId?: string;
   chatId?: string;
   coverUrl?: string;
+  createTime?: number;
+  endTime?: number;
   extension?: { [key: string]: string };
   liveId?: string;
   notice?: string;
   onlineCount?: number;
   pv?: number;
   roomId?: string;
+  startTime?: number;
   status?: number;
   title?: string;
   uv?: number;
@@ -6766,12 +6126,15 @@ export class ListLiveRoomsByIdResponseBodyResultLiveList extends $tea.Model {
       appId: 'AppId',
       chatId: 'ChatId',
       coverUrl: 'CoverUrl',
+      createTime: 'CreateTime',
+      endTime: 'EndTime',
       extension: 'Extension',
       liveId: 'LiveId',
       notice: 'Notice',
       onlineCount: 'OnlineCount',
       pv: 'Pv',
       roomId: 'RoomId',
+      startTime: 'StartTime',
       status: 'Status',
       title: 'Title',
       uv: 'Uv',
@@ -6785,12 +6148,15 @@ export class ListLiveRoomsByIdResponseBodyResultLiveList extends $tea.Model {
       appId: 'string',
       chatId: 'string',
       coverUrl: 'string',
+      createTime: 'number',
+      endTime: 'number',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveId: 'string',
       notice: 'string',
       onlineCount: 'number',
       pv: 'number',
       roomId: 'string',
+      startTime: 'number',
       status: 'number',
       title: 'string',
       uv: 'number',
@@ -7725,10 +7091,6 @@ export default class Client extends OpenApi {
       bodyFlat["CommentIdList"] = request.commentIdList;
     }
 
-    if (!Util.isUnset(request.creatorId)) {
-      body["CreatorId"] = request.creatorId;
-    }
-
     if (!Util.isUnset(request.roomId)) {
       body["RoomId"] = request.roomId;
     }
@@ -7918,43 +7280,6 @@ export default class Client extends OpenApi {
   async deleteLiveRoom(request: DeleteLiveRoomRequest): Promise<DeleteLiveRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLiveRoomWithOptions(request, runtime);
-  }
-
-  async deleteRecordFileInfoWithOptions(request: DeleteRecordFileInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRecordFileInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appId)) {
-      query["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteRecordFileInfo",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteRecordFileInfoResponse>(await this.callApi(params, req, runtime), new DeleteRecordFileInfoResponse({}));
-  }
-
-  async deleteRecordFileInfo(request: DeleteRecordFileInfoRequest): Promise<DeleteRecordFileInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteRecordFileInfoWithOptions(request, runtime);
   }
 
   async deleteRoomWithOptions(request: DeleteRoomRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoomResponse> {
@@ -8420,43 +7745,6 @@ export default class Client extends OpenApi {
     return await this.getLiveRoomUserStatisticsWithOptions(request, runtime);
   }
 
-  async getRecordFileInfoWithOptions(request: GetRecordFileInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordFileInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appId)) {
-      query["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetRecordFileInfo",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetRecordFileInfoResponse>(await this.callApi(params, req, runtime), new GetRecordFileInfoResponse({}));
-  }
-
-  async getRecordFileInfo(request: GetRecordFileInfoRequest): Promise<GetRecordFileInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRecordFileInfoWithOptions(request, runtime);
-  }
-
   async getRoomWithOptions(request: GetRoomRequest, runtime: $Util.RuntimeOptions): Promise<GetRoomResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8717,55 +8005,6 @@ export default class Client extends OpenApi {
   async listConferenceUsers(request: ListConferenceUsersRequest): Promise<ListConferenceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConferenceUsersWithOptions(request, runtime);
-  }
-
-  async listLiveFilesWithOptions(request: ListLiveFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveFilesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appId)) {
-      query["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.liveId)) {
-      query["LiveId"] = request.liveId;
-    }
-
-    if (!Util.isUnset(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListLiveFiles",
-      version: "2021-06-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLiveFilesResponse>(await this.callApi(params, req, runtime), new ListLiveFilesResponse({}));
-  }
-
-  async listLiveFiles(request: ListLiveFilesRequest): Promise<ListLiveFilesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listLiveFilesWithOptions(request, runtime);
   }
 
   async listLiveRoomsWithOptions(request: ListLiveRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRoomsResponse> {
