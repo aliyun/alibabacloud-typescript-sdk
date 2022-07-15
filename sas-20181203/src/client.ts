@@ -3105,6 +3105,7 @@ export class DescribeCheckWarningSummaryResponse extends $tea.Model {
 
 export class DescribeCheckWarningsRequest extends $tea.Model {
   checkId?: number;
+  checkType?: string;
   currentPage?: number;
   lang?: string;
   pageSize?: number;
@@ -3114,6 +3115,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       checkId: 'CheckId',
+      checkType: 'CheckType',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -3126,6 +3128,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       checkId: 'number',
+      checkType: 'string',
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',
@@ -16936,6 +16939,8 @@ export class DescribeBruteForceSummaryResponseBodyBruteForceSummary extends $tea
 
 export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $tea.Model {
   checkCount?: number;
+  checkExploit?: boolean;
+  databaseRisk?: boolean;
   highWarningCount?: number;
   lastFoundTime?: string;
   level?: string;
@@ -16949,6 +16954,8 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $tea
   static names(): { [key: string]: string } {
     return {
       checkCount: 'CheckCount',
+      checkExploit: 'CheckExploit',
+      databaseRisk: 'DatabaseRisk',
       highWarningCount: 'HighWarningCount',
       lastFoundTime: 'LastFoundTime',
       level: 'Level',
@@ -16965,6 +16972,8 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $tea
   static types(): { [key: string]: any } {
     return {
       checkCount: 'number',
+      checkExploit: 'boolean',
+      databaseRisk: 'boolean',
       highWarningCount: 'number',
       lastFoundTime: 'string',
       level: 'string',
@@ -16986,8 +16995,10 @@ export class DescribeCheckWarningSummaryResponseBodyWarningSummarys extends $tea
 export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
   checkId?: number;
   checkWarningId?: number;
+  fixStatus?: number;
   item?: string;
   level?: string;
+  reason?: string;
   status?: number;
   type?: string;
   uuid?: string;
@@ -16995,8 +17006,10 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
     return {
       checkId: 'CheckId',
       checkWarningId: 'CheckWarningId',
+      fixStatus: 'FixStatus',
       item: 'Item',
       level: 'Level',
+      reason: 'Reason',
       status: 'Status',
       type: 'Type',
       uuid: 'Uuid',
@@ -17007,8 +17020,10 @@ export class DescribeCheckWarningsResponseBodyCheckWarnings extends $tea.Model {
     return {
       checkId: 'number',
       checkWarningId: 'number',
+      fixStatus: 'number',
       item: 'string',
       level: 'string',
+      reason: 'string',
       status: 'number',
       type: 'string',
       uuid: 'string',
@@ -22296,6 +22311,8 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
 }
 
 export class DescribeWarningMachinesResponseBodyWarningMachines extends $tea.Model {
+  authVersion?: number;
+  bind?: boolean;
   highWarningCount?: number;
   instanceId?: string;
   instanceName?: string;
@@ -22310,6 +22327,8 @@ export class DescribeWarningMachinesResponseBodyWarningMachines extends $tea.Mod
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      authVersion: 'AuthVersion',
+      bind: 'Bind',
       highWarningCount: 'HighWarningCount',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -22327,6 +22346,8 @@ export class DescribeWarningMachinesResponseBodyWarningMachines extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      authVersion: 'number',
+      bind: 'boolean',
       highWarningCount: 'number',
       instanceId: 'string',
       instanceName: 'string',
@@ -24584,6 +24605,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.checkId)) {
       query["CheckId"] = request.checkId;
+    }
+
+    if (!Util.isUnset(request.checkType)) {
+      query["CheckType"] = request.checkType;
     }
 
     if (!Util.isUnset(request.currentPage)) {
