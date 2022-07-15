@@ -1023,15 +1023,11 @@ export class ReprotectDiskReplicaGroupRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
   replicaGroupId?: string;
-  sourceRegionId?: string;
-  sourceZoneId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       regionId: 'RegionId',
       replicaGroupId: 'ReplicaGroupId',
-      sourceRegionId: 'SourceRegionId',
-      sourceZoneId: 'SourceZoneId',
     };
   }
 
@@ -1040,8 +1036,6 @@ export class ReprotectDiskReplicaGroupRequest extends $tea.Model {
       clientToken: 'string',
       regionId: 'string',
       replicaGroupId: 'string',
-      sourceRegionId: 'string',
-      sourceZoneId: 'string',
     };
   }
 
@@ -1453,11 +1447,15 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   lastRecoverPoint?: number;
   pairIds?: Buffer[];
   pairNumber?: number;
+  primaryRegion?: string;
+  primaryZone?: string;
   RPO?: number;
   replicaGroupId?: string;
   site?: string;
   sourceRegionId?: string;
   sourceZoneId?: string;
+  standbyRegion?: string;
+  standbyZone?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1468,11 +1466,15 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
       lastRecoverPoint: 'LastRecoverPoint',
       pairIds: 'PairIds',
       pairNumber: 'PairNumber',
+      primaryRegion: 'PrimaryRegion',
+      primaryZone: 'PrimaryZone',
       RPO: 'RPO',
       replicaGroupId: 'ReplicaGroupId',
       site: 'Site',
       sourceRegionId: 'SourceRegionId',
       sourceZoneId: 'SourceZoneId',
+      standbyRegion: 'StandbyRegion',
+      standbyZone: 'StandbyZone',
       status: 'Status',
     };
   }
@@ -1486,11 +1488,15 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
       lastRecoverPoint: 'number',
       pairIds: { 'type': 'array', 'itemType': 'Buffer' },
       pairNumber: 'number',
+      primaryRegion: 'string',
+      primaryZone: 'string',
       RPO: 'number',
       replicaGroupId: 'string',
       site: 'string',
       sourceRegionId: 'string',
       sourceZoneId: 'string',
+      standbyRegion: 'string',
+      standbyZone: 'string',
       status: 'string',
     };
   }
@@ -2275,14 +2281,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
-    }
-
-    if (!Util.isUnset(request.sourceRegionId)) {
-      query["SourceRegionId"] = request.sourceRegionId;
-    }
-
-    if (!Util.isUnset(request.sourceZoneId)) {
-      query["SourceZoneId"] = request.sourceZoneId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
