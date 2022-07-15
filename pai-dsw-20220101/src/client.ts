@@ -523,6 +523,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   requestId?: string;
   requestedResource?: GetInstanceResponseBodyRequestedResource;
   resourceId?: string;
+  resourceName?: string;
   status?: string;
   success?: boolean;
   terminalUrl?: string;
@@ -561,6 +562,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       requestId: 'RequestId',
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
       status: 'Status',
       success: 'Success',
       terminalUrl: 'TerminalUrl',
@@ -602,6 +604,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       requestId: 'string',
       requestedResource: GetInstanceResponseBodyRequestedResource,
       resourceId: 'string',
+      resourceName: 'string',
       status: 'string',
       success: 'boolean',
       terminalUrl: 'string',
@@ -1254,6 +1257,7 @@ export class ListInstancesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   paymentType?: string;
+  resourceId?: string;
   sortBy?: string;
   status?: string;
   workspaceId?: string;
@@ -1266,6 +1270,7 @@ export class ListInstancesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       paymentType: 'PaymentType',
+      resourceId: 'ResourceId',
       sortBy: 'SortBy',
       status: 'Status',
       workspaceId: 'WorkspaceId',
@@ -1281,6 +1286,7 @@ export class ListInstancesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       paymentType: 'string',
+      resourceId: 'string',
       sortBy: 'string',
       status: 'string',
       workspaceId: 'string',
@@ -2083,6 +2089,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
   reasonMessage?: string;
   requestedResource?: ListInstancesResponseBodyInstancesRequestedResource;
   resourceId?: string;
+  resourceName?: string;
   status?: string;
   terminalUrl?: string;
   userId?: string;
@@ -2116,6 +2123,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       reasonMessage: 'ReasonMessage',
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
       status: 'Status',
       terminalUrl: 'TerminalUrl',
       userId: 'UserId',
@@ -2152,6 +2160,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       reasonMessage: 'string',
       requestedResource: ListInstancesResponseBodyInstancesRequestedResource,
       resourceId: 'string',
+      resourceName: 'string',
       status: 'string',
       terminalUrl: 'string',
       userId: 'string',
@@ -2742,6 +2751,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.paymentType)) {
       query["PaymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
     }
 
     if (!Util.isUnset(request.sortBy)) {
