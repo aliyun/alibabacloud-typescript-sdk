@@ -89,6 +89,165 @@ export class AddDataForApiSourceResponse extends $tea.Model {
   }
 }
 
+export class AttachDestinationRequest extends $tea.Model {
+  destinationId?: number;
+  iotInstanceId?: string;
+  isFailover?: boolean;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinationId: 'DestinationId',
+      iotInstanceId: 'IotInstanceId',
+      isFailover: 'IsFailover',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationId: 'number',
+      iotInstanceId: 'string',
+      isFailover: 'boolean',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachDestinationResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AttachDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachDestinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachParserDataSourceRequest extends $tea.Model {
+  dataSourceId?: number;
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AttachParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachParserDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchAddDataForApiSourceRequest extends $tea.Model {
   apiId?: string;
   contentList?: { [key: string]: any };
@@ -4424,12 +4583,18 @@ export class CreateDataAPIServiceResponse extends $tea.Model {
 
 export class CreateDataSourceItemRequest extends $tea.Model {
   dataSourceId?: number;
+  deviceName?: string;
   iotInstanceId?: string;
+  productKey?: string;
+  scopeType?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceId: 'DataSourceId',
+      deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      scopeType: 'ScopeType',
       topic: 'Topic',
     };
   }
@@ -4437,7 +4602,10 @@ export class CreateDataSourceItemRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataSourceId: 'number',
+      deviceName: 'string',
       iotInstanceId: 'string',
+      productKey: 'string',
+      scopeType: 'string',
       topic: 'string',
     };
   }
@@ -4492,6 +4660,93 @@ export class CreateDataSourceItemResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDataSourceItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDestinationRequest extends $tea.Model {
+  configuration?: string;
+  description?: string;
+  iotInstanceId?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: 'string',
+      description: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDestinationResponseBody extends $tea.Model {
+  code?: string;
+  destination?: CreateDestinationResponseBodyDestination;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      destination: 'Destination',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      destination: CreateDestinationResponseBodyDestination,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDestinationResponseBody,
     };
   }
 
@@ -6263,6 +6518,168 @@ export class CreateOTAVerifyJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateOTAVerifyJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  parserId?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      parserId: 'ParserId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      parserId: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateParserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserDataSourceRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  dataSource?: CreateParserDataSourceResponseBodyDataSource;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataSource: 'DataSource',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataSource: CreateParserDataSourceResponseBodyDataSource,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateParserDataSourceResponseBody,
     };
   }
 
@@ -8102,6 +8519,159 @@ export class DeleteConsumerGroupSubscribeRelationResponse extends $tea.Model {
   }
 }
 
+export class DeleteDataSourceItemRequest extends $tea.Model {
+  dataSourceId?: number;
+  dataSourceItemId?: number;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      dataSourceItemId: 'DataSourceItemId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      dataSourceItemId: 'number',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceItemResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDataSourceItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataSourceItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDestinationRequest extends $tea.Model {
+  destinationId?: number;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationId: 'DestinationId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationId: 'number',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDestinationResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDestinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDeviceRequest extends $tea.Model {
   deviceName?: string;
   iotId?: string;
@@ -9252,6 +9822,156 @@ export class DeleteOTAModuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteOTAModuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParserRequest extends $tea.Model {
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParserResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteParserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParserDataSourceRequest extends $tea.Model {
+  dataSourceId?: number;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteParserDataSourceResponseBody,
     };
   }
 
@@ -10424,6 +11144,162 @@ export class DeleteTopicRouteTableResponse extends $tea.Model {
   }
 }
 
+export class DetachDestinationRequest extends $tea.Model {
+  destinationId?: number;
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destinationId: 'DestinationId',
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationId: 'number',
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachDestinationResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetachDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachDestinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachParserDataSourceRequest extends $tea.Model {
+  dataSourceId?: number;
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetachParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachParserDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableDeviceTunnelRequest extends $tea.Model {
   deviceName?: string;
   iotInstanceId?: string;
@@ -11363,6 +12239,84 @@ export class GetDataAPIServiceDetailResponse extends $tea.Model {
   }
 }
 
+export class GetDestinationRequest extends $tea.Model {
+  destinationId?: number;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationId: 'DestinationId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationId: 'number',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationResponseBody extends $tea.Model {
+  code?: string;
+  destination?: GetDestinationResponseBodyDestination;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      destination: 'Destination',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      destination: GetDestinationResponseBodyDestination,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDestinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeviceShadowRequest extends $tea.Model {
   deviceName?: string;
   iotInstanceId?: string;
@@ -12177,6 +13131,162 @@ export class GetLoraNodesTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetLoraNodesTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserRequest extends $tea.Model {
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetParserResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetParserResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetParserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserDataSourceRequest extends $tea.Model {
+  dataSourceId?: number;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  dataSource?: GetParserDataSourceResponseBodyDataSource;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataSource: 'DataSource',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataSource: GetParserDataSourceResponseBodyDataSource,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetParserDataSourceResponseBody,
     };
   }
 
@@ -14005,6 +15115,102 @@ export class ListDataSourceItemResponse extends $tea.Model {
   }
 }
 
+export class ListDestinationRequest extends $tea.Model {
+  iotInstanceId?: string;
+  page?: number;
+  pageSize?: number;
+  searchName?: string;
+  types?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      page: 'Page',
+      pageSize: 'PageSize',
+      searchName: 'SearchName',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      searchName: 'string',
+      types: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDestinationResponseBody extends $tea.Model {
+  code?: string;
+  destinations?: ListDestinationResponseBodyDestinations;
+  errorMessage?: string;
+  page?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      destinations: 'Destinations',
+      errorMessage: 'ErrorMessage',
+      page: 'Page',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      destinations: ListDestinationResponseBodyDestinations,
+      errorMessage: 'string',
+      page: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDestinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDeviceDistributeJobRequest extends $tea.Model {
   currentPage?: number;
   jobId?: string;
@@ -15032,6 +16238,267 @@ export class ListOTAUnfinishedTaskByDeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListOTAUnfinishedTaskByDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserRequest extends $tea.Model {
+  currentPage?: number;
+  iotInstanceId?: string;
+  pageSize?: number;
+  searchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      iotInstanceId: 'IotInstanceId',
+      pageSize: 'PageSize',
+      searchName: 'SearchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      iotInstanceId: 'string',
+      pageSize: 'number',
+      searchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListParserResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListParserResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListParserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDataSourceRequest extends $tea.Model {
+  iotInstanceId?: string;
+  page?: number;
+  pageSize?: number;
+  searchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      page: 'Page',
+      pageSize: 'PageSize',
+      searchName: 'SearchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      page: 'number',
+      pageSize: 'number',
+      searchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListParserDataSourceResponseBodyData;
+  errorMessage?: string;
+  page?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      page: 'Page',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListParserDataSourceResponseBodyData,
+      errorMessage: 'string',
+      page: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListParserDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDestinationRequest extends $tea.Model {
+  iotInstanceId?: string;
+  isFailover?: boolean;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      isFailover: 'IsFailover',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      isFailover: 'boolean',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDestinationResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListParserDestinationResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListParserDestinationResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListParserDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListParserDestinationResponseBody,
     };
   }
 
@@ -16152,6 +17619,84 @@ export class PubBroadcastResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PubBroadcastResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishScriptRequest extends $tea.Model {
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishScriptResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  syntaxErrorMsg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      syntaxErrorMsg: 'SyntaxErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      syntaxErrorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishScriptResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PublishScriptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishScriptResponseBody,
     };
   }
 
@@ -25682,6 +27227,84 @@ export class SaveDevicePropResponse extends $tea.Model {
   }
 }
 
+export class SaveScriptRequest extends $tea.Model {
+  iotInstanceId?: string;
+  parserId?: number;
+  scriptDraft?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+      scriptDraft: 'ScriptDraft',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      parserId: 'number',
+      scriptDraft: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveScriptResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveScriptResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveScriptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveScriptResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDeviceDesiredPropertyRequest extends $tea.Model {
   deviceName?: string;
   iotId?: string;
@@ -26612,6 +28235,81 @@ export class StartCpuResponse extends $tea.Model {
   }
 }
 
+export class StartParserRequest extends $tea.Model {
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartParserResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StartParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartParserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartRuleRequest extends $tea.Model {
   iotInstanceId?: string;
   ruleId?: number;
@@ -26679,6 +28377,81 @@ export class StartRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopParserRequest extends $tea.Model {
+  iotInstanceId?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopParserResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopParserResponseBody,
     };
   }
 
@@ -27708,6 +29481,93 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdateDestinationRequest extends $tea.Model {
+  configuration?: string;
+  description?: string;
+  destinationId?: number;
+  iotInstanceId?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      description: 'Description',
+      destinationId: 'DestinationId',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: 'string',
+      description: 'string',
+      destinationId: 'number',
+      iotInstanceId: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDestinationResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDestinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDestinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDestinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDeviceGroupRequest extends $tea.Model {
   groupDesc?: string;
   groupId?: string;
@@ -28436,6 +30296,168 @@ export class UpdateOTAModuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateOTAModuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateParserRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  name?: string;
+  parserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+      parserId: 'ParserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+      parserId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateParserResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateParserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateParserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateParserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateParserDataSourceRequest extends $tea.Model {
+  dataSourceId?: number;
+  description?: string;
+  iotInstanceId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      description: 'string',
+      iotInstanceId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateParserDataSourceResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateParserDataSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateParserDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateParserDataSourceResponseBody,
     };
   }
 
@@ -30848,6 +32870,40 @@ export class CreateDataAPIServiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateDestinationResponseBodyDestination extends $tea.Model {
+  configuration?: string;
+  destinationId?: number;
+  isFailover?: boolean;
+  name?: string;
+  type?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      destinationId: 'DestinationId',
+      isFailover: 'IsFailover',
+      name: 'Name',
+      type: 'Type',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: 'string',
+      destinationId: 'number',
+      isFailover: 'boolean',
+      name: 'string',
+      type: 'string',
+      utcCreated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeviceDistributeJobRequestTargetInstanceConfig extends $tea.Model {
   targetInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -31197,6 +33253,34 @@ export class CreateOTAVerifyJobResponseBodyData extends $tea.Model {
     return {
       jobId: 'string',
       utcCreate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateParserDataSourceResponseBodyDataSource extends $tea.Model {
+  dataSourceId?: number;
+  description?: string;
+  name?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      name: 'Name',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      description: 'string',
+      name: 'string',
+      utcCreated: 'string',
     };
   }
 
@@ -31702,6 +33786,40 @@ export class GetDataAPIServiceDetailResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetDestinationResponseBodyDestination extends $tea.Model {
+  configuration?: string;
+  destinationId?: string;
+  isFailover?: boolean;
+  name?: string;
+  type?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      destinationId: 'DestinationId',
+      isFailover: 'IsFailover',
+      name: 'Name',
+      type: 'Type',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: 'string',
+      destinationId: 'string',
+      isFailover: 'boolean',
+      name: 'string',
+      type: 'string',
+      utcCreated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeviceStatusResponseBodyData extends $tea.Model {
   status?: string;
   timestamp?: number;
@@ -32185,6 +34303,80 @@ export class GetLoraNodesTaskResponseBodySuccessDevEuis extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       successDevEui: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserResponseBodyData extends $tea.Model {
+  dataSourceId?: number;
+  description?: string;
+  name?: string;
+  parserId?: number;
+  script?: string;
+  scriptDraft?: string;
+  status?: string;
+  utcCreated?: string;
+  utcModified?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      name: 'Name',
+      parserId: 'ParserId',
+      script: 'Script',
+      scriptDraft: 'ScriptDraft',
+      status: 'Status',
+      utcCreated: 'UtcCreated',
+      utcModified: 'UtcModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      description: 'string',
+      name: 'string',
+      parserId: 'number',
+      script: 'string',
+      scriptDraft: 'string',
+      status: 'string',
+      utcCreated: 'string',
+      utcModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetParserDataSourceResponseBodyDataSource extends $tea.Model {
+  createUserId?: number;
+  dataSourceId?: number;
+  description?: string;
+  name?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createUserId: 'CreateUserId',
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      name: 'Name',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createUserId: 'number',
+      dataSourceId: 'number',
+      description: 'string',
+      name: 'string',
+      utcCreated: 'string',
     };
   }
 
@@ -33019,10 +35211,16 @@ export class ListAnalyticsDataResponseBodyData extends $tea.Model {
 
 export class ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem extends $tea.Model {
   dataSourceItemId?: number;
+  deviceName?: string;
+  productKey?: string;
+  scopeType?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
       dataSourceItemId: 'DataSourceItemId',
+      deviceName: 'DeviceName',
+      productKey: 'ProductKey',
+      scopeType: 'ScopeType',
       topic: 'Topic',
     };
   }
@@ -33030,6 +35228,9 @@ export class ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem extends
   static types(): { [key: string]: any } {
     return {
       dataSourceItemId: 'number',
+      deviceName: 'string',
+      productKey: 'string',
+      scopeType: 'string',
       topic: 'string',
     };
   }
@@ -33050,6 +35251,62 @@ export class ListDataSourceItemResponseBodyDataSourceItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataSourceItem: { 'type': 'array', 'itemType': ListDataSourceItemResponseBodyDataSourceItemsDataSourceItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDestinationResponseBodyDestinationsDestinations extends $tea.Model {
+  configuration?: string;
+  description?: string;
+  destinationId?: number;
+  isFailover?: boolean;
+  name?: string;
+  type?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      description: 'Description',
+      destinationId: 'DestinationId',
+      isFailover: 'IsFailover',
+      name: 'Name',
+      type: 'Type',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: 'string',
+      description: 'string',
+      destinationId: 'number',
+      isFailover: 'boolean',
+      name: 'string',
+      type: 'string',
+      utcCreated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDestinationResponseBodyDestinations extends $tea.Model {
+  destinations?: ListDestinationResponseBodyDestinationsDestinations[];
+  static names(): { [key: string]: string } {
+    return {
+      destinations: 'destinations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinations: { 'type': 'array', 'itemType': ListDestinationResponseBodyDestinationsDestinations },
     };
   }
 
@@ -33977,6 +36234,162 @@ export class ListOTAUnfinishedTaskByDeviceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       simpleOTATaskInfo: { 'type': 'array', 'itemType': ListOTAUnfinishedTaskByDeviceResponseBodyDataSimpleOTATaskInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserResponseBodyDataParserList extends $tea.Model {
+  description?: string;
+  name?: string;
+  parserId?: number;
+  status?: string;
+  utcCreated?: string;
+  utcModified?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      parserId: 'ParserId',
+      status: 'Status',
+      utcCreated: 'UtcCreated',
+      utcModified: 'UtcModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      parserId: 'number',
+      status: 'string',
+      utcCreated: 'string',
+      utcModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserResponseBodyData extends $tea.Model {
+  parserList?: ListParserResponseBodyDataParserList[];
+  static names(): { [key: string]: string } {
+    return {
+      parserList: 'ParserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parserList: { 'type': 'array', 'itemType': ListParserResponseBodyDataParserList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDataSourceResponseBodyDataDataSource extends $tea.Model {
+  dataSourceId?: number;
+  description?: string;
+  name?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      name: 'Name',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+      description: 'string',
+      name: 'string',
+      utcCreated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDataSourceResponseBodyData extends $tea.Model {
+  dataSource?: ListParserDataSourceResponseBodyDataDataSource[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSource: 'DataSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSource: { 'type': 'array', 'itemType': ListParserDataSourceResponseBodyDataDataSource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDestinationResponseBodyDataDestinations extends $tea.Model {
+  configuration?: string;
+  destinationId?: number;
+  isFailover?: boolean;
+  name?: string;
+  type?: string;
+  utcCreated?: string;
+  utcModified?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      destinationId: 'DestinationId',
+      isFailover: 'IsFailover',
+      name: 'Name',
+      type: 'Type',
+      utcCreated: 'UtcCreated',
+      utcModified: 'UtcModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: 'string',
+      destinationId: 'number',
+      isFailover: 'boolean',
+      name: 'string',
+      type: 'string',
+      utcCreated: 'string',
+      utcModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParserDestinationResponseBodyData extends $tea.Model {
+  destinations?: ListParserDestinationResponseBodyDataDestinations[];
+  static names(): { [key: string]: string } {
+    return {
+      destinations: 'destinations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinations: { 'type': 'array', 'itemType': ListParserDestinationResponseBodyDataDestinations },
     };
   }
 
@@ -40704,6 +43117,84 @@ export default class Client extends OpenApi {
     return await this.addDataForApiSourceWithOptions(request, runtime);
   }
 
+  async attachDestinationWithOptions(request: AttachDestinationRequest, runtime: $Util.RuntimeOptions): Promise<AttachDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.isFailover)) {
+      query["IsFailover"] = request.isFailover;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachDestinationResponse>(await this.callApi(params, req, runtime), new AttachDestinationResponse({}));
+  }
+
+  async attachDestination(request: AttachDestinationRequest): Promise<AttachDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachDestinationWithOptions(request, runtime);
+  }
+
+  async attachParserDataSourceWithOptions(request: AttachParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<AttachParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachParserDataSourceResponse>(await this.callApi(params, req, runtime), new AttachParserDataSourceResponse({}));
+  }
+
+  async attachParserDataSource(request: AttachParserDataSourceRequest): Promise<AttachParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachParserDataSourceWithOptions(request, runtime);
+  }
+
   async batchAddDataForApiSourceWithOptions(tmpReq: BatchAddDataForApiSourceRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDataForApiSourceResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchAddDataForApiSourceShrinkRequest({ });
@@ -42778,8 +45269,20 @@ export default class Client extends OpenApi {
       query["DataSourceId"] = request.dataSourceId;
     }
 
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
     }
 
     if (!Util.isUnset(request.topic)) {
@@ -42806,6 +45309,51 @@ export default class Client extends OpenApi {
   async createDataSourceItem(request: CreateDataSourceItemRequest): Promise<CreateDataSourceItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataSourceItemWithOptions(request, runtime);
+  }
+
+  async createDestinationWithOptions(request: CreateDestinationRequest, runtime: $Util.RuntimeOptions): Promise<CreateDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configuration)) {
+      query["Configuration"] = request.configuration;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDestinationResponse>(await this.callApi(params, req, runtime), new CreateDestinationResponse({}));
+  }
+
+  async createDestination(request: CreateDestinationRequest): Promise<CreateDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDestinationWithOptions(request, runtime);
   }
 
   async createDeviceDistributeJobWithOptions(request: CreateDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceDistributeJobResponse> {
@@ -43856,6 +46404,80 @@ export default class Client extends OpenApi {
     return await this.createOTAVerifyJobWithOptions(request, runtime);
   }
 
+  async createParserWithOptions(request: CreateParserRequest, runtime: $Util.RuntimeOptions): Promise<CreateParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateParserResponse>(await this.callApi(params, req, runtime), new CreateParserResponse({}));
+  }
+
+  async createParser(request: CreateParserRequest): Promise<CreateParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createParserWithOptions(request, runtime);
+  }
+
+  async createParserDataSourceWithOptions(request: CreateParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateParserDataSourceResponse>(await this.callApi(params, req, runtime), new CreateParserDataSourceResponse({}));
+  }
+
+  async createParserDataSource(request: CreateParserDataSourceRequest): Promise<CreateParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createParserDataSourceWithOptions(request, runtime);
+  }
+
   async createProductWithOptions(request: CreateProductRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44834,6 +47456,76 @@ export default class Client extends OpenApi {
     return await this.deleteConsumerGroupSubscribeRelationWithOptions(request, runtime);
   }
 
+  async deleteDataSourceItemWithOptions(request: DeleteDataSourceItemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceItemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.dataSourceItemId)) {
+      query["DataSourceItemId"] = request.dataSourceItemId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataSourceItem",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataSourceItemResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceItemResponse({}));
+  }
+
+  async deleteDataSourceItem(request: DeleteDataSourceItemRequest): Promise<DeleteDataSourceItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataSourceItemWithOptions(request, runtime);
+  }
+
+  async deleteDestinationWithOptions(request: DeleteDestinationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDestinationResponse>(await this.callApi(params, req, runtime), new DeleteDestinationResponse({}));
+  }
+
+  async deleteDestination(request: DeleteDestinationRequest): Promise<DeleteDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDestinationWithOptions(request, runtime);
+  }
+
   async deleteDeviceWithOptions(request: DeleteDeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45373,6 +48065,72 @@ export default class Client extends OpenApi {
     return await this.deleteOTAModuleWithOptions(request, runtime);
   }
 
+  async deleteParserWithOptions(request: DeleteParserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteParserResponse>(await this.callApi(params, req, runtime), new DeleteParserResponse({}));
+  }
+
+  async deleteParser(request: DeleteParserRequest): Promise<DeleteParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteParserWithOptions(request, runtime);
+  }
+
+  async deleteParserDataSourceWithOptions(request: DeleteParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteParserDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteParserDataSourceResponse({}));
+  }
+
+  async deleteParserDataSource(request: DeleteParserDataSourceRequest): Promise<DeleteParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteParserDataSourceWithOptions(request, runtime);
+  }
+
   async deleteProductWithOptions(request: DeleteProductRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45908,6 +48666,80 @@ export default class Client extends OpenApi {
     return await this.deleteTopicRouteTableWithOptions(request, runtime);
   }
 
+  async detachDestinationWithOptions(request: DetachDestinationRequest, runtime: $Util.RuntimeOptions): Promise<DetachDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachDestinationResponse>(await this.callApi(params, req, runtime), new DetachDestinationResponse({}));
+  }
+
+  async detachDestination(request: DetachDestinationRequest): Promise<DetachDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachDestinationWithOptions(request, runtime);
+  }
+
+  async detachParserDataSourceWithOptions(request: DetachParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DetachParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachParserDataSourceResponse>(await this.callApi(params, req, runtime), new DetachParserDataSourceResponse({}));
+  }
+
+  async detachParserDataSource(request: DetachParserDataSourceRequest): Promise<DetachParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachParserDataSourceWithOptions(request, runtime);
+  }
+
   async disableDeviceTunnelWithOptions(request: DisableDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<DisableDeviceTunnelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46340,6 +49172,39 @@ export default class Client extends OpenApi {
     return await this.getDataAPIServiceDetailWithOptions(request, runtime);
   }
 
+  async getDestinationWithOptions(request: GetDestinationRequest, runtime: $Util.RuntimeOptions): Promise<GetDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDestinationResponse>(await this.callApi(params, req, runtime), new GetDestinationResponse({}));
+  }
+
+  async getDestination(request: GetDestinationRequest): Promise<GetDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDestinationWithOptions(request, runtime);
+  }
+
   async getDeviceShadowWithOptions(request: GetDeviceShadowRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceShadowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46708,6 +49573,72 @@ export default class Client extends OpenApi {
   async getLoraNodesTask(request: GetLoraNodesTaskRequest): Promise<GetLoraNodesTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoraNodesTaskWithOptions(request, runtime);
+  }
+
+  async getParserWithOptions(request: GetParserRequest, runtime: $Util.RuntimeOptions): Promise<GetParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetParserResponse>(await this.callApi(params, req, runtime), new GetParserResponse({}));
+  }
+
+  async getParser(request: GetParserRequest): Promise<GetParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getParserWithOptions(request, runtime);
+  }
+
+  async getParserDataSourceWithOptions(request: GetParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<GetParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetParserDataSourceResponse>(await this.callApi(params, req, runtime), new GetParserDataSourceResponse({}));
+  }
+
+  async getParserDataSource(request: GetParserDataSourceRequest): Promise<GetParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getParserDataSourceWithOptions(request, runtime);
   }
 
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
@@ -47588,6 +50519,51 @@ export default class Client extends OpenApi {
     return await this.listDataSourceItemWithOptions(request, runtime);
   }
 
+  async listDestinationWithOptions(request: ListDestinationRequest, runtime: $Util.RuntimeOptions): Promise<ListDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchName)) {
+      query["SearchName"] = request.searchName;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["Types"] = request.types;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDestinationResponse>(await this.callApi(params, req, runtime), new ListDestinationResponse({}));
+  }
+
+  async listDestination(request: ListDestinationRequest): Promise<ListDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDestinationWithOptions(request, runtime);
+  }
+
   async listDeviceDistributeJobWithOptions(request: ListDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceDistributeJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48087,6 +51063,125 @@ export default class Client extends OpenApi {
   async listOTAUnfinishedTaskByDevice(request: ListOTAUnfinishedTaskByDeviceRequest): Promise<ListOTAUnfinishedTaskByDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOTAUnfinishedTaskByDeviceWithOptions(request, runtime);
+  }
+
+  async listParserWithOptions(request: ListParserRequest, runtime: $Util.RuntimeOptions): Promise<ListParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchName)) {
+      query["SearchName"] = request.searchName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListParserResponse>(await this.callApi(params, req, runtime), new ListParserResponse({}));
+  }
+
+  async listParser(request: ListParserRequest): Promise<ListParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listParserWithOptions(request, runtime);
+  }
+
+  async listParserDataSourceWithOptions(request: ListParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchName)) {
+      query["SearchName"] = request.searchName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListParserDataSourceResponse>(await this.callApi(params, req, runtime), new ListParserDataSourceResponse({}));
+  }
+
+  async listParserDataSource(request: ListParserDataSourceRequest): Promise<ListParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listParserDataSourceWithOptions(request, runtime);
+  }
+
+  async listParserDestinationWithOptions(request: ListParserDestinationRequest, runtime: $Util.RuntimeOptions): Promise<ListParserDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.isFailover)) {
+      query["IsFailover"] = request.isFailover;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListParserDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListParserDestinationResponse>(await this.callApi(params, req, runtime), new ListParserDestinationResponse({}));
+  }
+
+  async listParserDestination(request: ListParserDestinationRequest): Promise<ListParserDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listParserDestinationWithOptions(request, runtime);
   }
 
   async listProductByTagsWithOptions(request: ListProductByTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductByTagsResponse> {
@@ -48616,6 +51711,39 @@ export default class Client extends OpenApi {
   async pubBroadcast(request: PubBroadcastRequest): Promise<PubBroadcastResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pubBroadcastWithOptions(request, runtime);
+  }
+
+  async publishScriptWithOptions(request: PublishScriptRequest, runtime: $Util.RuntimeOptions): Promise<PublishScriptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishScript",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishScriptResponse>(await this.callApi(params, req, runtime), new PublishScriptResponse({}));
+  }
+
+  async publishScript(request: PublishScriptRequest): Promise<PublishScriptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishScriptWithOptions(request, runtime);
   }
 
   async publishStudioAppWithOptions(request: PublishStudioAppRequest, runtime: $Util.RuntimeOptions): Promise<PublishStudioAppResponse> {
@@ -53248,6 +56376,43 @@ export default class Client extends OpenApi {
     return await this.saveDevicePropWithOptions(request, runtime);
   }
 
+  async saveScriptWithOptions(request: SaveScriptRequest, runtime: $Util.RuntimeOptions): Promise<SaveScriptResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    if (!Util.isUnset(request.scriptDraft)) {
+      query["ScriptDraft"] = request.scriptDraft;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveScript",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveScriptResponse>(await this.callApi(params, req, runtime), new SaveScriptResponse({}));
+  }
+
+  async saveScript(request: SaveScriptRequest): Promise<SaveScriptResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveScriptWithOptions(request, runtime);
+  }
+
   async setDeviceDesiredPropertyWithOptions(request: SetDeviceDesiredPropertyRequest, runtime: $Util.RuntimeOptions): Promise<SetDeviceDesiredPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53731,6 +56896,39 @@ export default class Client extends OpenApi {
     return await this.startCpuWithOptions(request, runtime);
   }
 
+  async startParserWithOptions(request: StartParserRequest, runtime: $Util.RuntimeOptions): Promise<StartParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartParserResponse>(await this.callApi(params, req, runtime), new StartParserResponse({}));
+  }
+
+  async startParser(request: StartParserRequest): Promise<StartParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startParserWithOptions(request, runtime);
+  }
+
   async startRuleWithOptions(request: StartRuleRequest, runtime: $Util.RuntimeOptions): Promise<StartRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53762,6 +56960,39 @@ export default class Client extends OpenApi {
   async startRule(request: StartRuleRequest): Promise<StartRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRuleWithOptions(request, runtime);
+  }
+
+  async stopParserWithOptions(request: StopParserRequest, runtime: $Util.RuntimeOptions): Promise<StopParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopParserResponse>(await this.callApi(params, req, runtime), new StopParserResponse({}));
+  }
+
+  async stopParser(request: StopParserRequest): Promise<StopParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopParserWithOptions(request, runtime);
   }
 
   async stopRuleWithOptions(request: StopRuleRequest, runtime: $Util.RuntimeOptions): Promise<StopRuleResponse> {
@@ -54254,6 +57485,55 @@ export default class Client extends OpenApi {
     return await this.updateConsumerGroupWithOptions(request, runtime);
   }
 
+  async updateDestinationWithOptions(request: UpdateDestinationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDestinationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configuration)) {
+      query["Configuration"] = request.configuration;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDestination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDestinationResponse>(await this.callApi(params, req, runtime), new UpdateDestinationResponse({}));
+  }
+
+  async updateDestination(request: UpdateDestinationRequest): Promise<UpdateDestinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDestinationWithOptions(request, runtime);
+  }
+
   async updateDeviceGroupWithOptions(request: UpdateDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeviceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54666,6 +57946,88 @@ export default class Client extends OpenApi {
   async updateOTAModule(request: UpdateOTAModuleRequest): Promise<UpdateOTAModuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOTAModuleWithOptions(request, runtime);
+  }
+
+  async updateParserWithOptions(request: UpdateParserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateParserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parserId)) {
+      query["ParserId"] = request.parserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateParser",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateParserResponse>(await this.callApi(params, req, runtime), new UpdateParserResponse({}));
+  }
+
+  async updateParser(request: UpdateParserRequest): Promise<UpdateParserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateParserWithOptions(request, runtime);
+  }
+
+  async updateParserDataSourceWithOptions(request: UpdateParserDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateParserDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateParserDataSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateParserDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateParserDataSourceResponse({}));
+  }
+
+  async updateParserDataSource(request: UpdateParserDataSourceRequest): Promise<UpdateParserDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateParserDataSourceWithOptions(request, runtime);
   }
 
   async updateProductWithOptions(request: UpdateProductRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProductResponse> {
