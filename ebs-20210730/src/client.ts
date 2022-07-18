@@ -497,6 +497,8 @@ export class DescribeDiskReplicaGroupsResponse extends $tea.Model {
 export class DescribeDiskReplicaPairsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   pairIds?: string;
   regionId?: string;
   replicaGroupId?: string;
@@ -505,6 +507,8 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       pairIds: 'PairIds',
       regionId: 'RegionId',
       replicaGroupId: 'ReplicaGroupId',
@@ -516,6 +520,8 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       pairIds: 'string',
       regionId: 'string',
       replicaGroupId: 'string',
@@ -530,21 +536,30 @@ export class DescribeDiskReplicaPairsRequest extends $tea.Model {
 
 export class DescribeDiskReplicaPairsResponseBody extends $tea.Model {
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   replicaPairs?: DescribeDiskReplicaPairsResponseBodyReplicaPairs[];
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       replicaPairs: 'ReplicaPairs',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       replicaPairs: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsResponseBodyReplicaPairs },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1974,6 +1989,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.pairIds)) {
