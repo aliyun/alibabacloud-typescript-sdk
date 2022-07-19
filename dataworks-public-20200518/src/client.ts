@@ -2822,6 +2822,7 @@ export class CreateTableRequest extends $tea.Model {
   ownerId?: string;
   physicsLevelId?: number;
   projectId?: number;
+  schema?: string;
   tableName?: string;
   themes?: CreateTableRequestThemes[];
   visibility?: number;
@@ -2843,6 +2844,7 @@ export class CreateTableRequest extends $tea.Model {
       ownerId: 'OwnerId',
       physicsLevelId: 'PhysicsLevelId',
       projectId: 'ProjectId',
+      schema: 'Schema',
       tableName: 'TableName',
       themes: 'Themes',
       visibility: 'Visibility',
@@ -2867,6 +2869,7 @@ export class CreateTableRequest extends $tea.Model {
       ownerId: 'string',
       physicsLevelId: 'number',
       projectId: 'number',
+      schema: 'string',
       tableName: 'string',
       themes: { 'type': 'array', 'itemType': CreateTableRequestThemes },
       visibility: 'number',
@@ -4486,12 +4489,14 @@ export class DeleteTableRequest extends $tea.Model {
   appGuid?: string;
   envType?: number;
   projectId?: number;
+  schema?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
       appGuid: 'AppGuid',
       envType: 'EnvType',
       projectId: 'ProjectId',
+      schema: 'Schema',
       tableName: 'TableName',
     };
   }
@@ -4501,6 +4506,7 @@ export class DeleteTableRequest extends $tea.Model {
       appGuid: 'string',
       envType: 'number',
       projectId: 'number',
+      schema: 'string',
       tableName: 'string',
     };
   }
@@ -6601,84 +6607,6 @@ export class GetDeploymentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDeploymentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDutyRosterRequest extends $tea.Model {
-  beginTime?: number;
-  dutyRosterIdentifier?: string;
-  endTime?: number;
-  userType?: string;
-  watchkeeper?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      dutyRosterIdentifier: 'DutyRosterIdentifier',
-      endTime: 'EndTime',
-      userType: 'UserType',
-      watchkeeper: 'Watchkeeper',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      dutyRosterIdentifier: 'string',
-      endTime: 'number',
-      userType: 'string',
-      watchkeeper: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDutyRosterResponseBody extends $tea.Model {
-  paging?: GetDutyRosterResponseBodyPaging;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paging: 'Paging',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paging: GetDutyRosterResponseBodyPaging,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDutyRosterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDutyRosterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDutyRosterResponseBody,
     };
   }
 
@@ -12531,81 +12459,6 @@ export class ListDeploymentsResponse extends $tea.Model {
   }
 }
 
-export class ListDutyRostersRequest extends $tea.Model {
-  dutyRosterName?: string;
-  dutyRosterOwner?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dutyRosterName: 'DutyRosterName',
-      dutyRosterOwner: 'DutyRosterOwner',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dutyRosterName: 'string',
-      dutyRosterOwner: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDutyRostersResponseBody extends $tea.Model {
-  paging?: ListDutyRostersResponseBodyPaging;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paging: 'Paging',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paging: ListDutyRostersResponseBodyPaging,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDutyRostersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDutyRostersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDutyRostersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListExtensionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -14946,6 +14799,159 @@ export class ListResourceGroupsResponse extends $tea.Model {
   }
 }
 
+export class ListShiftPersonnelsRequest extends $tea.Model {
+  beginTime?: number;
+  endTime?: number;
+  shiftPersonUID?: string;
+  shiftScheduleIdentifier?: string;
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      shiftPersonUID: 'ShiftPersonUID',
+      shiftScheduleIdentifier: 'ShiftScheduleIdentifier',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      shiftPersonUID: 'string',
+      shiftScheduleIdentifier: 'string',
+      userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftPersonnelsResponseBody extends $tea.Model {
+  paging?: ListShiftPersonnelsResponseBodyPaging;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paging: 'Paging',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paging: ListShiftPersonnelsResponseBodyPaging,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftPersonnelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListShiftPersonnelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListShiftPersonnelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftSchedulesRequest extends $tea.Model {
+  owner?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  shiftScheduleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      shiftScheduleName: 'ShiftScheduleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      shiftScheduleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftSchedulesResponseBody extends $tea.Model {
+  paging?: ListShiftSchedulesResponseBodyPaging;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paging: 'Paging',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paging: ListShiftSchedulesResponseBodyPaging,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftSchedulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListShiftSchedulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListShiftSchedulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSuccessInstanceAmountRequest extends $tea.Model {
   projectId?: number;
   static names(): { [key: string]: string } {
@@ -16433,6 +16439,7 @@ export class SearchMetaTablesRequest extends $tea.Model {
   keyword?: string;
   pageNumber?: number;
   pageSize?: number;
+  schema?: string;
   static names(): { [key: string]: string } {
     return {
       appGuid: 'AppGuid',
@@ -16442,6 +16449,7 @@ export class SearchMetaTablesRequest extends $tea.Model {
       keyword: 'Keyword',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      schema: 'Schema',
     };
   }
 
@@ -16454,6 +16462,7 @@ export class SearchMetaTablesRequest extends $tea.Model {
       keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      schema: 'string',
     };
   }
 
@@ -18551,6 +18560,7 @@ export class UpdateMetaTableRequest extends $tea.Model {
   newOwnerId?: string;
   projectId?: number;
   removedLabels?: string;
+  schema?: string;
   tableGuid?: string;
   tableName?: string;
   visibility?: number;
@@ -18563,6 +18573,7 @@ export class UpdateMetaTableRequest extends $tea.Model {
       newOwnerId: 'NewOwnerId',
       projectId: 'ProjectId',
       removedLabels: 'RemovedLabels',
+      schema: 'Schema',
       tableGuid: 'TableGuid',
       tableName: 'TableName',
       visibility: 'Visibility',
@@ -18578,6 +18589,7 @@ export class UpdateMetaTableRequest extends $tea.Model {
       newOwnerId: 'string',
       projectId: 'number',
       removedLabels: 'string',
+      schema: 'string',
       tableGuid: 'string',
       tableName: 'string',
       visibility: 'number',
@@ -19214,6 +19226,7 @@ export class UpdateTableRequest extends $tea.Model {
   ownerId?: string;
   physicsLevelId?: number;
   projectId?: number;
+  schema?: string;
   tableName?: string;
   themes?: UpdateTableRequestThemes[];
   visibility?: number;
@@ -19235,6 +19248,7 @@ export class UpdateTableRequest extends $tea.Model {
       ownerId: 'OwnerId',
       physicsLevelId: 'PhysicsLevelId',
       projectId: 'ProjectId',
+      schema: 'Schema',
       tableName: 'TableName',
       themes: 'Themes',
       visibility: 'Visibility',
@@ -19259,6 +19273,7 @@ export class UpdateTableRequest extends $tea.Model {
       ownerId: 'string',
       physicsLevelId: 'number',
       projectId: 'number',
+      schema: 'string',
       tableName: 'string',
       themes: { 'type': 'array', 'itemType': UpdateTableRequestThemes },
       visibility: 'number',
@@ -22056,62 +22071,6 @@ export class GetDeploymentResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetDutyRosterResponseBodyPagingDutyRoster extends $tea.Model {
-  endLong?: number;
-  startLong?: number;
-  watchkeeper?: string;
-  watchkeeperName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endLong: 'EndLong',
-      startLong: 'StartLong',
-      watchkeeper: 'Watchkeeper',
-      watchkeeperName: 'WatchkeeperName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endLong: 'number',
-      startLong: 'number',
-      watchkeeper: 'string',
-      watchkeeperName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDutyRosterResponseBodyPaging extends $tea.Model {
-  dutyRoster?: GetDutyRosterResponseBodyPagingDutyRoster[];
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dutyRoster: 'DutyRoster',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dutyRoster: { 'type': 'array', 'itemType': GetDutyRosterResponseBodyPagingDutyRoster },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetExtensionResponseBodyExtensionBindEventList extends $tea.Model {
   eventCode?: string;
   eventName?: string;
@@ -23569,6 +23528,7 @@ export class GetMetaTableBasicInfoResponseBodyData extends $tea.Model {
   projectId?: number;
   projectName?: string;
   readCount?: number;
+  schema?: string;
   tableGuid?: string;
   tableName?: string;
   tenantId?: number;
@@ -23597,6 +23557,7 @@ export class GetMetaTableBasicInfoResponseBodyData extends $tea.Model {
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       readCount: 'ReadCount',
+      schema: 'Schema',
       tableGuid: 'TableGuid',
       tableName: 'TableName',
       tenantId: 'TenantId',
@@ -23628,6 +23589,7 @@ export class GetMetaTableBasicInfoResponseBodyData extends $tea.Model {
       projectId: 'number',
       projectName: 'string',
       readCount: 'number',
+      schema: 'string',
       tableGuid: 'string',
       tableName: 'string',
       tenantId: 'number',
@@ -23837,6 +23799,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   partitionKeys?: string;
   projectId?: number;
   projectName?: string;
+  schema?: string;
   tableGuid?: string;
   tableName?: string;
   tenantId?: number;
@@ -23860,6 +23823,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
       partitionKeys: 'PartitionKeys',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
+      schema: 'Schema',
       tableGuid: 'TableGuid',
       tableName: 'TableName',
       tenantId: 'TenantId',
@@ -23886,6 +23850,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
       partitionKeys: 'string',
       projectId: 'number',
       projectName: 'string',
+      schema: 'string',
       tableGuid: 'string',
       tableName: 'string',
       tenantId: 'number',
@@ -27944,56 +27909,6 @@ export class ListDeploymentsResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListDutyRostersResponseBodyPagingDutyRosters extends $tea.Model {
-  dutyRosterIdentifier?: string;
-  dutyRosterName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dutyRosterIdentifier: 'DutyRosterIdentifier',
-      dutyRosterName: 'DutyRosterName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dutyRosterIdentifier: 'string',
-      dutyRosterName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDutyRostersResponseBodyPaging extends $tea.Model {
-  dutyRosters?: ListDutyRostersResponseBodyPagingDutyRosters[];
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dutyRosters: 'DutyRosters',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dutyRosters: { 'type': 'array', 'itemType': ListDutyRostersResponseBodyPagingDutyRosters },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListExtensionsResponseBodyPagingInfoExtensionsBindEventList extends $tea.Model {
   eventCode?: string;
   eventName?: string;
@@ -30173,6 +30088,112 @@ export class ListResourceGroupsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $tea.Model {
+  beginTime?: number;
+  endTime?: number;
+  shiftPersonName?: string;
+  shiftPersonUID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      shiftPersonName: 'ShiftPersonName',
+      shiftPersonUID: 'ShiftPersonUID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      shiftPersonName: 'string',
+      shiftPersonUID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftPersonnelsResponseBodyPaging extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  shiftPersons?: ListShiftPersonnelsResponseBodyPagingShiftPersons[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      shiftPersons: 'ShiftPersons',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      shiftPersons: { 'type': 'array', 'itemType': ListShiftPersonnelsResponseBodyPagingShiftPersons },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftSchedulesResponseBodyPagingShiftSchedules extends $tea.Model {
+  shiftScheduleIdentifier?: string;
+  shiftScheduleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shiftScheduleIdentifier: 'ShiftScheduleIdentifier',
+      shiftScheduleName: 'ShiftScheduleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shiftScheduleIdentifier: 'string',
+      shiftScheduleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShiftSchedulesResponseBodyPaging extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  shiftSchedules?: ListShiftSchedulesResponseBodyPagingShiftSchedules[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      shiftSchedules: 'ShiftSchedules',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      shiftSchedules: { 'type': 'array', 'itemType': ListShiftSchedulesResponseBodyPagingShiftSchedules },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSuccessInstanceAmountResponseBodyInstanceStatusTrendAvgTrend extends $tea.Model {
   count?: number;
   timePoint?: string;
@@ -30511,6 +30532,7 @@ export class SearchMetaTablesResponseBodyDataDataEntityList extends $tea.Model {
   ownerId?: string;
   projectId?: number;
   projectName?: string;
+  schema?: string;
   tableGuid?: string;
   tableName?: string;
   tenantId?: number;
@@ -30523,6 +30545,7 @@ export class SearchMetaTablesResponseBodyDataDataEntityList extends $tea.Model {
       ownerId: 'OwnerId',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
+      schema: 'Schema',
       tableGuid: 'TableGuid',
       tableName: 'TableName',
       tenantId: 'TenantId',
@@ -30538,6 +30561,7 @@ export class SearchMetaTablesResponseBodyDataDataEntityList extends $tea.Model {
       ownerId: 'string',
       projectId: 'number',
       projectName: 'string',
+      schema: 'string',
       tableGuid: 'string',
       tableName: 'string',
       tenantId: 'number',
@@ -32897,6 +32921,10 @@ export default class Client extends OpenApi {
       query["ProjectId"] = request.projectId;
     }
 
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
     if (!Util.isUnset(request.tableName)) {
       query["TableName"] = request.tableName;
     }
@@ -33677,6 +33705,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectId)) {
       query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
     }
 
     if (!Util.isUnset(request.tableName)) {
@@ -34621,51 +34653,6 @@ export default class Client extends OpenApi {
   async getDeployment(request: GetDeploymentRequest): Promise<GetDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeploymentWithOptions(request, runtime);
-  }
-
-  async getDutyRosterWithOptions(request: GetDutyRosterRequest, runtime: $Util.RuntimeOptions): Promise<GetDutyRosterResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.beginTime)) {
-      body["BeginTime"] = request.beginTime;
-    }
-
-    if (!Util.isUnset(request.dutyRosterIdentifier)) {
-      body["DutyRosterIdentifier"] = request.dutyRosterIdentifier;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      body["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.userType)) {
-      body["UserType"] = request.userType;
-    }
-
-    if (!Util.isUnset(request.watchkeeper)) {
-      body["Watchkeeper"] = request.watchkeeper;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetDutyRoster",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetDutyRosterResponse>(await this.callApi(params, req, runtime), new GetDutyRosterResponse({}));
-  }
-
-  async getDutyRoster(request: GetDutyRosterRequest): Promise<GetDutyRosterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDutyRosterWithOptions(request, runtime);
   }
 
   async getExtensionWithOptions(request: GetExtensionRequest, runtime: $Util.RuntimeOptions): Promise<GetExtensionResponse> {
@@ -37331,47 +37318,6 @@ export default class Client extends OpenApi {
     return await this.listDeploymentsWithOptions(request, runtime);
   }
 
-  async listDutyRostersWithOptions(request: ListDutyRostersRequest, runtime: $Util.RuntimeOptions): Promise<ListDutyRostersResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dutyRosterName)) {
-      body["DutyRosterName"] = request.dutyRosterName;
-    }
-
-    if (!Util.isUnset(request.dutyRosterOwner)) {
-      body["DutyRosterOwner"] = request.dutyRosterOwner;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDutyRosters",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDutyRostersResponse>(await this.callApi(params, req, runtime), new ListDutyRostersResponse({}));
-  }
-
-  async listDutyRosters(request: ListDutyRostersRequest): Promise<ListDutyRostersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDutyRostersWithOptions(request, runtime);
-  }
-
   async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -38572,6 +38518,92 @@ export default class Client extends OpenApi {
     return await this.listResourceGroupsWithOptions(request, runtime);
   }
 
+  async listShiftPersonnelsWithOptions(request: ListShiftPersonnelsRequest, runtime: $Util.RuntimeOptions): Promise<ListShiftPersonnelsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginTime)) {
+      body["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.shiftPersonUID)) {
+      body["ShiftPersonUID"] = request.shiftPersonUID;
+    }
+
+    if (!Util.isUnset(request.shiftScheduleIdentifier)) {
+      body["ShiftScheduleIdentifier"] = request.shiftScheduleIdentifier;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      body["UserType"] = request.userType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListShiftPersonnels",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListShiftPersonnelsResponse>(await this.callApi(params, req, runtime), new ListShiftPersonnelsResponse({}));
+  }
+
+  async listShiftPersonnels(request: ListShiftPersonnelsRequest): Promise<ListShiftPersonnelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listShiftPersonnelsWithOptions(request, runtime);
+  }
+
+  async listShiftSchedulesWithOptions(request: ListShiftSchedulesRequest, runtime: $Util.RuntimeOptions): Promise<ListShiftSchedulesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.shiftScheduleName)) {
+      body["ShiftScheduleName"] = request.shiftScheduleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListShiftSchedules",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListShiftSchedulesResponse>(await this.callApi(params, req, runtime), new ListShiftSchedulesResponse({}));
+  }
+
+  async listShiftSchedules(request: ListShiftSchedulesRequest): Promise<ListShiftSchedulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listShiftSchedulesWithOptions(request, runtime);
+  }
+
   async listSuccessInstanceAmountWithOptions(request: ListSuccessInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListSuccessInstanceAmountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39331,6 +39363,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -40456,6 +40492,10 @@ export default class Client extends OpenApi {
       query["ProjectId"] = request.projectId;
     }
 
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
     if (!Util.isUnset(request.tableGuid)) {
       query["TableGuid"] = request.tableGuid;
     }
@@ -40901,6 +40941,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectId)) {
       query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
     }
 
     if (!Util.isUnset(request.tableName)) {
