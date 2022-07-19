@@ -1215,12 +1215,14 @@ export class CreateBasicIpSetRequest extends $tea.Model {
   accelerateRegionId?: string;
   acceleratorId?: string;
   clientToken?: string;
+  ispType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       accelerateRegionId: 'AccelerateRegionId',
       acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
+      ispType: 'IspType',
       regionId: 'RegionId',
     };
   }
@@ -1230,6 +1232,7 @@ export class CreateBasicIpSetRequest extends $tea.Model {
       accelerateRegionId: 'string',
       acceleratorId: 'string',
       clientToken: 'string',
+      ispType: 'string',
       regionId: 'string',
     };
   }
@@ -4528,6 +4531,7 @@ export class GetBasicIpSetResponseBody extends $tea.Model {
   ipAddress?: string;
   ipSetId?: string;
   ipVersion?: string;
+  ispType?: string;
   requestId?: string;
   state?: string;
   static names(): { [key: string]: string } {
@@ -4538,6 +4542,7 @@ export class GetBasicIpSetResponseBody extends $tea.Model {
       ipAddress: 'IpAddress',
       ipSetId: 'IpSetId',
       ipVersion: 'IpVersion',
+      ispType: 'IspType',
       requestId: 'RequestId',
       state: 'State',
     };
@@ -4551,6 +4556,7 @@ export class GetBasicIpSetResponseBody extends $tea.Model {
       ipAddress: 'string',
       ipSetId: 'string',
       ipVersion: 'string',
+      ispType: 'string',
       requestId: 'string',
       state: 'string',
     };
@@ -11165,6 +11171,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ispType)) {
+      query["IspType"] = request.ispType;
     }
 
     if (!Util.isUnset(request.regionId)) {
