@@ -12085,7 +12085,6 @@ export class ListCheckResultRequest extends $tea.Model {
   checkKey?: string;
   currentPage?: number;
   instanceIds?: string[];
-  instanceSubTypes?: string[];
   instanceTypes?: string[];
   lang?: string;
   pageSize?: number;
@@ -12100,7 +12099,6 @@ export class ListCheckResultRequest extends $tea.Model {
       checkKey: 'CheckKey',
       currentPage: 'CurrentPage',
       instanceIds: 'InstanceIds',
-      instanceSubTypes: 'InstanceSubTypes',
       instanceTypes: 'InstanceTypes',
       lang: 'Lang',
       pageSize: 'PageSize',
@@ -12118,7 +12116,6 @@ export class ListCheckResultRequest extends $tea.Model {
       checkKey: 'string',
       currentPage: 'number',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
-      instanceSubTypes: { 'type': 'array', 'itemType': 'string' },
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       pageSize: 'number',
@@ -12605,6 +12602,78 @@ export class ModifyBackupPolicyStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyBackupPolicyStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClearLogstoreStorageRequest extends $tea.Model {
+  from?: string;
+  lang?: string;
+  userLogStore?: string;
+  userProject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      lang: 'Lang',
+      userLogStore: 'UserLogStore',
+      userProject: 'UserProject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      lang: 'string',
+      userLogStore: 'string',
+      userProject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClearLogstoreStorageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClearLogstoreStorageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyClearLogstoreStorageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyClearLogstoreStorageResponseBody,
     };
   }
 
@@ -29696,10 +29765,6 @@ export default class Client extends OpenApi {
       query["InstanceIds"] = request.instanceIds;
     }
 
-    if (!Util.isUnset(request.instanceSubTypes)) {
-      query["InstanceSubTypes"] = request.instanceSubTypes;
-    }
-
     if (!Util.isUnset(request.instanceTypes)) {
       query["InstanceTypes"] = request.instanceTypes;
     }
@@ -29987,6 +30052,47 @@ export default class Client extends OpenApi {
   async modifyBackupPolicyStatus(request: ModifyBackupPolicyStatusRequest): Promise<ModifyBackupPolicyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyStatusWithOptions(request, runtime);
+  }
+
+  async modifyClearLogstoreStorageWithOptions(request: ModifyClearLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClearLogstoreStorageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userLogStore)) {
+      query["UserLogStore"] = request.userLogStore;
+    }
+
+    if (!Util.isUnset(request.userProject)) {
+      query["UserProject"] = request.userProject;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyClearLogstoreStorage",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyClearLogstoreStorageResponse>(await this.callApi(params, req, runtime), new ModifyClearLogstoreStorageResponse({}));
+  }
+
+  async modifyClearLogstoreStorage(request: ModifyClearLogstoreStorageRequest): Promise<ModifyClearLogstoreStorageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyClearLogstoreStorageWithOptions(request, runtime);
   }
 
   async modifyCreateVulWhitelistWithOptions(request: ModifyCreateVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCreateVulWhitelistResponse> {
