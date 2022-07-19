@@ -199,6 +199,28 @@ export class Binding extends $tea.Model {
   }
 }
 
+export class Body extends $tea.Model {
+  boundary?: Boundary;
+  confidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      boundary: 'Boundary',
+      confidence: 'Confidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boundary: Boundary,
+      confidence: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Boundary extends $tea.Model {
   height?: number;
   left?: number;
@@ -2855,6 +2877,178 @@ export class CreateImageModerationTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateImageSplicingTaskRequest extends $tea.Model {
+  align?: number;
+  backgroundColor?: string;
+  credentialConfig?: CredentialConfig;
+  direction?: string;
+  imageFormat?: string;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  padding?: number;
+  projectName?: string;
+  quality?: number;
+  scaleType?: string;
+  sources?: CreateImageSplicingTaskRequestSources[];
+  tags?: { [key: string]: any };
+  targetURI?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      align: 'Align',
+      backgroundColor: 'BackgroundColor',
+      credentialConfig: 'CredentialConfig',
+      direction: 'Direction',
+      imageFormat: 'ImageFormat',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      padding: 'Padding',
+      projectName: 'ProjectName',
+      quality: 'Quality',
+      scaleType: 'ScaleType',
+      sources: 'Sources',
+      tags: 'Tags',
+      targetURI: 'TargetURI',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      align: 'number',
+      backgroundColor: 'string',
+      credentialConfig: CredentialConfig,
+      direction: 'string',
+      imageFormat: 'string',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      padding: 'number',
+      projectName: 'string',
+      quality: 'number',
+      scaleType: 'string',
+      sources: { 'type': 'array', 'itemType': CreateImageSplicingTaskRequestSources },
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targetURI: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
+  align?: number;
+  backgroundColor?: string;
+  credentialConfigShrink?: string;
+  direction?: string;
+  imageFormat?: string;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  padding?: number;
+  projectName?: string;
+  quality?: number;
+  scaleType?: string;
+  sourcesShrink?: string;
+  tagsShrink?: string;
+  targetURI?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      align: 'Align',
+      backgroundColor: 'BackgroundColor',
+      credentialConfigShrink: 'CredentialConfig',
+      direction: 'Direction',
+      imageFormat: 'ImageFormat',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      padding: 'Padding',
+      projectName: 'ProjectName',
+      quality: 'Quality',
+      scaleType: 'ScaleType',
+      sourcesShrink: 'Sources',
+      tagsShrink: 'Tags',
+      targetURI: 'TargetURI',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      align: 'number',
+      backgroundColor: 'string',
+      credentialConfigShrink: 'string',
+      direction: 'string',
+      imageFormat: 'string',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      padding: 'number',
+      projectName: 'string',
+      quality: 'number',
+      scaleType: 'string',
+      sourcesShrink: 'string',
+      tagsShrink: 'string',
+      targetURI: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageSplicingTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageSplicingTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateImageSplicingTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageSplicingTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notifyEndpoint?: string;
@@ -4078,6 +4272,109 @@ export class DetachOSSBucketResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachOSSBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageBodiesRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  projectName?: string;
+  sensitivity?: number;
+  sourceURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      projectName: 'ProjectName',
+      sensitivity: 'Sensitivity',
+      sourceURI: 'SourceURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      projectName: 'string',
+      sensitivity: 'number',
+      sourceURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageBodiesShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  projectName?: string;
+  sensitivity?: number;
+  sourceURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      projectName: 'ProjectName',
+      sensitivity: 'Sensitivity',
+      sourceURI: 'SourceURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      projectName: 'string',
+      sensitivity: 'number',
+      sourceURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageBodiesResponseBody extends $tea.Model {
+  bodies?: Body[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bodies: 'Bodies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodies: { 'type': 'array', 'itemType': Body },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageBodiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DetectImageBodiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetectImageBodiesResponseBody,
     };
   }
 
@@ -7954,6 +8251,28 @@ export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
   }
 }
 
+export class CreateImageSplicingTaskRequestSources extends $tea.Model {
+  rotate?: number;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rotate: 'Rotate',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rotate: 'number',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
   language?: string;
   timeOffset?: number;
@@ -9356,6 +9675,105 @@ export default class Client extends OpenApi {
     return await this.createImageModerationTaskWithOptions(request, runtime);
   }
 
+  async createImageSplicingTaskWithOptions(tmpReq: CreateImageSplicingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageSplicingTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateImageSplicingTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.align)) {
+      query["Align"] = request.align;
+    }
+
+    if (!Util.isUnset(request.backgroundColor)) {
+      query["BackgroundColor"] = request.backgroundColor;
+    }
+
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.imageFormat)) {
+      query["ImageFormat"] = request.imageFormat;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.padding)) {
+      query["Padding"] = request.padding;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.quality)) {
+      query["Quality"] = request.quality;
+    }
+
+    if (!Util.isUnset(request.scaleType)) {
+      query["ScaleType"] = request.scaleType;
+    }
+
+    if (!Util.isUnset(request.sourcesShrink)) {
+      query["Sources"] = request.sourcesShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateImageSplicingTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageSplicingTaskResponse>(await this.callApi(params, req, runtime), new CreateImageSplicingTaskResponse({}));
+  }
+
+  async createImageSplicingTask(request: CreateImageSplicingTaskRequest): Promise<CreateImageSplicingTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createImageSplicingTaskWithOptions(request, runtime);
+  }
+
   async createMediaConvertTaskWithOptions(tmpReq: CreateMediaConvertTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMediaConvertTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateMediaConvertTaskShrinkRequest({ });
@@ -10059,6 +10477,53 @@ export default class Client extends OpenApi {
   async detachOSSBucket(request: DetachOSSBucketRequest): Promise<DetachOSSBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachOSSBucketWithOptions(request, runtime);
+  }
+
+  async detectImageBodiesWithOptions(tmpReq: DetectImageBodiesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageBodiesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetectImageBodiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sensitivity)) {
+      query["Sensitivity"] = request.sensitivity;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectImageBodies",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectImageBodiesResponse>(await this.callApi(params, req, runtime), new DetectImageBodiesResponse({}));
+  }
+
+  async detectImageBodies(request: DetectImageBodiesRequest): Promise<DetectImageBodiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectImageBodiesWithOptions(request, runtime);
   }
 
   async detectImageCodesWithOptions(tmpReq: DetectImageCodesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCodesResponse> {
