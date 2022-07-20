@@ -22700,11 +22700,15 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
   ext?: GetFileDetectResultResponseBodyResultListExt;
   hashKey?: string;
   result?: number;
+  score?: number;
+  virusType?: string;
   static names(): { [key: string]: string } {
     return {
       ext: 'Ext',
       hashKey: 'HashKey',
       result: 'Result',
+      score: 'Score',
+      virusType: 'VirusType',
     };
   }
 
@@ -22713,6 +22717,8 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
       ext: GetFileDetectResultResponseBodyResultListExt,
       hashKey: 'string',
       result: 'number',
+      score: 'number',
+      virusType: 'string',
     };
   }
 
