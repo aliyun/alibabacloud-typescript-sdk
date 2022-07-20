@@ -54,10 +54,12 @@ export class CreateDeliveryHistoryJobResponseBody extends $tea.Model {
 
 export class CreateDeliveryHistoryJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDeliveryHistoryJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -65,6 +67,7 @@ export class CreateDeliveryHistoryJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDeliveryHistoryJobResponseBody,
     };
   }
@@ -165,10 +168,12 @@ export class CreateTrailResponseBody extends $tea.Model {
 
 export class CreateTrailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateTrailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -176,6 +181,7 @@ export class CreateTrailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateTrailResponseBody,
     };
   }
@@ -225,10 +231,12 @@ export class DeleteDeliveryHistoryJobResponseBody extends $tea.Model {
 
 export class DeleteDeliveryHistoryJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDeliveryHistoryJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -236,6 +244,7 @@ export class DeleteDeliveryHistoryJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDeliveryHistoryJobResponseBody,
     };
   }
@@ -285,10 +294,12 @@ export class DeleteTrailResponseBody extends $tea.Model {
 
 export class DeleteTrailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTrailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -296,6 +307,7 @@ export class DeleteTrailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTrailResponseBody,
     };
   }
@@ -348,10 +360,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -359,6 +373,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -417,10 +432,12 @@ export class DescribeTrailsResponseBody extends $tea.Model {
 
 export class DescribeTrailsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeTrailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -428,7 +445,404 @@ export class DescribeTrailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTrailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedEventsRequest extends $tea.Model {
+  accessKey?: string;
+  nextToken?: string;
+  pageSize?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      nextToken: 'string',
+      pageSize: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedEventsResponseBody extends $tea.Model {
+  events?: GetAccessKeyLastUsedEventsResponseBodyEvents[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'Events',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': GetAccessKeyLastUsedEventsResponseBodyEvents },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedEventsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessKeyLastUsedEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessKeyLastUsedEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedInfoRequest extends $tea.Model {
+  accessKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedInfoResponseBody extends $tea.Model {
+  accessKeyId?: string;
+  accountId?: string;
+  accountType?: string;
+  detail?: string;
+  ownerId?: string;
+  requestId?: string;
+  serviceName?: string;
+  serviceNameCn?: string;
+  serviceNameEn?: string;
+  source?: string;
+  usedTimestamp?: number;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accountId: 'AccountId',
+      accountType: 'AccountType',
+      detail: 'Detail',
+      ownerId: 'OwnerId',
+      requestId: 'RequestId',
+      serviceName: 'ServiceName',
+      serviceNameCn: 'ServiceNameCn',
+      serviceNameEn: 'ServiceNameEn',
+      source: 'Source',
+      usedTimestamp: 'UsedTimestamp',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accountId: 'string',
+      accountType: 'string',
+      detail: 'string',
+      ownerId: 'string',
+      requestId: 'string',
+      serviceName: 'string',
+      serviceNameCn: 'string',
+      serviceNameEn: 'string',
+      source: 'string',
+      usedTimestamp: 'number',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessKeyLastUsedInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessKeyLastUsedInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedIpsRequest extends $tea.Model {
+  accessKey?: string;
+  nextToken?: string;
+  pageSize?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      nextToken: 'string',
+      pageSize: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedIpsResponseBody extends $tea.Model {
+  ips?: GetAccessKeyLastUsedIpsResponseBodyIps[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ips: 'Ips',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ips: { 'type': 'array', 'itemType': GetAccessKeyLastUsedIpsResponseBodyIps },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedIpsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessKeyLastUsedIpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessKeyLastUsedIpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedProductsRequest extends $tea.Model {
+  accessKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedProductsResponseBody extends $tea.Model {
+  products?: GetAccessKeyLastUsedProductsResponseBodyProducts[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      products: 'Products',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      products: { 'type': 'array', 'itemType': GetAccessKeyLastUsedProductsResponseBodyProducts },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedProductsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessKeyLastUsedProductsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessKeyLastUsedProductsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedResourcesRequest extends $tea.Model {
+  accessKey?: string;
+  nextToken?: string;
+  pageSize?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      nextToken: 'string',
+      pageSize: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  resources?: GetAccessKeyLastUsedResourcesResponseBodyResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': GetAccessKeyLastUsedResourcesResponseBodyResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAccessKeyLastUsedResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessKeyLastUsedResourcesResponseBody,
     };
   }
 
@@ -459,6 +873,7 @@ export class GetDeliveryHistoryJobRequest extends $tea.Model {
 export class GetDeliveryHistoryJobResponseBody extends $tea.Model {
   createdTime?: string;
   endTime?: string;
+  homeRegion?: string;
   jobId?: number;
   jobStatus?: number;
   requestId?: string;
@@ -470,6 +885,7 @@ export class GetDeliveryHistoryJobResponseBody extends $tea.Model {
     return {
       createdTime: 'CreatedTime',
       endTime: 'EndTime',
+      homeRegion: 'HomeRegion',
       jobId: 'JobId',
       jobStatus: 'JobStatus',
       requestId: 'RequestId',
@@ -484,6 +900,7 @@ export class GetDeliveryHistoryJobResponseBody extends $tea.Model {
     return {
       createdTime: 'string',
       endTime: 'string',
+      homeRegion: 'string',
       jobId: 'number',
       jobStatus: 'number',
       requestId: 'string',
@@ -501,10 +918,12 @@ export class GetDeliveryHistoryJobResponseBody extends $tea.Model {
 
 export class GetDeliveryHistoryJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDeliveryHistoryJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -512,6 +931,7 @@ export class GetDeliveryHistoryJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDeliveryHistoryJobResponseBody,
     };
   }
@@ -591,10 +1011,12 @@ export class GetTrailStatusResponseBody extends $tea.Model {
 
 export class GetTrailStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTrailStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -602,6 +1024,7 @@ export class GetTrailStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTrailStatusResponseBody,
     };
   }
@@ -666,10 +1089,12 @@ export class ListDeliveryHistoryJobsResponseBody extends $tea.Model {
 
 export class ListDeliveryHistoryJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDeliveryHistoryJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -677,6 +1102,7 @@ export class ListDeliveryHistoryJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDeliveryHistoryJobsResponseBody,
     };
   }
@@ -753,10 +1179,12 @@ export class LookupEventsResponseBody extends $tea.Model {
 
 export class LookupEventsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: LookupEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -764,6 +1192,7 @@ export class LookupEventsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: LookupEventsResponseBody,
     };
   }
@@ -813,10 +1242,12 @@ export class StartLoggingResponseBody extends $tea.Model {
 
 export class StartLoggingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartLoggingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -824,6 +1255,7 @@ export class StartLoggingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartLoggingResponseBody,
     };
   }
@@ -873,10 +1305,12 @@ export class StopLoggingResponseBody extends $tea.Model {
 
 export class StopLoggingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopLoggingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -884,6 +1318,7 @@ export class StopLoggingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopLoggingResponseBody,
     };
   }
@@ -981,10 +1416,12 @@ export class UpdateTrailResponseBody extends $tea.Model {
 
 export class UpdateTrailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateTrailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -992,6 +1429,7 @@ export class UpdateTrailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateTrailResponseBody,
     };
   }
@@ -1110,6 +1548,127 @@ export class DescribeTrailsResponseBodyTrailList extends $tea.Model {
       trailArn: 'string',
       trailRegion: 'string',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedEventsResponseBodyEvents extends $tea.Model {
+  detail?: string;
+  eventName?: string;
+  source?: string;
+  usedTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      eventName: 'EventName',
+      source: 'Source',
+      usedTimestamp: 'UsedTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      eventName: 'string',
+      source: 'string',
+      usedTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedIpsResponseBodyIps extends $tea.Model {
+  detail?: string;
+  ip?: string;
+  source?: string;
+  usedTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      ip: 'Ip',
+      source: 'Source',
+      usedTimestamp: 'UsedTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      ip: 'string',
+      source: 'string',
+      usedTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedProductsResponseBodyProducts extends $tea.Model {
+  detail?: string;
+  serviceName?: string;
+  serviceNameCn?: string;
+  serviceNameEn?: string;
+  source?: string;
+  usedTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      serviceName: 'ServiceName',
+      serviceNameCn: 'ServiceNameCn',
+      serviceNameEn: 'ServiceNameEn',
+      source: 'Source',
+      usedTimestamp: 'UsedTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      serviceName: 'string',
+      serviceNameCn: 'string',
+      serviceNameEn: 'string',
+      source: 'string',
+      usedTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessKeyLastUsedResourcesResponseBodyResources extends $tea.Model {
+  detail?: string;
+  resourceName?: string;
+  resourceType?: string;
+  source?: string;
+  usedTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+      source: 'Source',
+      usedTimestamp: 'UsedTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+      source: 'string',
+      usedTimestamp: 'number',
     };
   }
 
@@ -1261,10 +1820,30 @@ export default class Client extends OpenApi {
 
   async createDeliveryHistoryJobWithOptions(request: CreateDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeliveryHistoryJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.trailName)) {
+      query["TrailName"] = request.trailName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateDeliveryHistoryJobResponse>(await this.doRPCRequest("CreateDeliveryHistoryJob", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDeliveryHistoryJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDeliveryHistoryJob",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new CreateDeliveryHistoryJobResponse({}));
   }
 
   async createDeliveryHistoryJob(request: CreateDeliveryHistoryJobRequest): Promise<CreateDeliveryHistoryJobResponse> {
@@ -1274,10 +1853,58 @@ export default class Client extends OpenApi {
 
   async createTrailWithOptions(request: CreateTrailRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventRW)) {
+      query["EventRW"] = request.eventRW;
+    }
+
+    if (!Util.isUnset(request.isOrganizationTrail)) {
+      query["IsOrganizationTrail"] = request.isOrganizationTrail;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!Util.isUnset(request.ossKeyPrefix)) {
+      query["OssKeyPrefix"] = request.ossKeyPrefix;
+    }
+
+    if (!Util.isUnset(request.ossWriteRoleArn)) {
+      query["OssWriteRoleArn"] = request.ossWriteRoleArn;
+    }
+
+    if (!Util.isUnset(request.slsProjectArn)) {
+      query["SlsProjectArn"] = request.slsProjectArn;
+    }
+
+    if (!Util.isUnset(request.slsWriteRoleArn)) {
+      query["SlsWriteRoleArn"] = request.slsWriteRoleArn;
+    }
+
+    if (!Util.isUnset(request.trailRegion)) {
+      query["TrailRegion"] = request.trailRegion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateTrailResponse>(await this.doRPCRequest("CreateTrail", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTrailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTrail",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTrailResponse>(await this.callApi(params, req, runtime), new CreateTrailResponse({}));
   }
 
   async createTrail(request: CreateTrailRequest): Promise<CreateTrailResponse> {
@@ -1287,10 +1914,26 @@ export default class Client extends OpenApi {
 
   async deleteDeliveryHistoryJobWithOptions(request: DeleteDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeliveryHistoryJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDeliveryHistoryJobResponse>(await this.doRPCRequest("DeleteDeliveryHistoryJob", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDeliveryHistoryJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDeliveryHistoryJob",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new DeleteDeliveryHistoryJobResponse({}));
   }
 
   async deleteDeliveryHistoryJob(request: DeleteDeliveryHistoryJobRequest): Promise<DeleteDeliveryHistoryJobResponse> {
@@ -1300,10 +1943,26 @@ export default class Client extends OpenApi {
 
   async deleteTrailWithOptions(request: DeleteTrailRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTrailResponse>(await this.doRPCRequest("DeleteTrail", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTrailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTrail",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTrailResponse>(await this.callApi(params, req, runtime), new DeleteTrailResponse({}));
   }
 
   async deleteTrail(request: DeleteTrailRequest): Promise<DeleteTrailResponse> {
@@ -1313,10 +1972,26 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -1326,10 +2001,34 @@ export default class Client extends OpenApi {
 
   async describeTrailsWithOptions(request: DescribeTrailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrailsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.includeOrganizationTrail)) {
+      query["IncludeOrganizationTrail"] = request.includeOrganizationTrail;
+    }
+
+    if (!Util.isUnset(request.includeShadowTrails)) {
+      query["IncludeShadowTrails"] = request.includeShadowTrails;
+    }
+
+    if (!Util.isUnset(request.nameList)) {
+      query["NameList"] = request.nameList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTrailsResponse>(await this.doRPCRequest("DescribeTrails", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTrailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTrails",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTrailsResponse>(await this.callApi(params, req, runtime), new DescribeTrailsResponse({}));
   }
 
   async describeTrails(request: DescribeTrailsRequest): Promise<DescribeTrailsResponse> {
@@ -1337,12 +2036,209 @@ export default class Client extends OpenApi {
     return await this.describeTrailsWithOptions(request, runtime);
   }
 
+  async getAccessKeyLastUsedEventsWithOptions(request: GetAccessKeyLastUsedEventsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsedEvents",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedEventsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedEventsResponse({}));
+  }
+
+  async getAccessKeyLastUsedEvents(request: GetAccessKeyLastUsedEventsRequest): Promise<GetAccessKeyLastUsedEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessKeyLastUsedEventsWithOptions(request, runtime);
+  }
+
+  async getAccessKeyLastUsedInfoWithOptions(request: GetAccessKeyLastUsedInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsedInfo",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedInfoResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedInfoResponse({}));
+  }
+
+  async getAccessKeyLastUsedInfo(request: GetAccessKeyLastUsedInfoRequest): Promise<GetAccessKeyLastUsedInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessKeyLastUsedInfoWithOptions(request, runtime);
+  }
+
+  async getAccessKeyLastUsedIpsWithOptions(request: GetAccessKeyLastUsedIpsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedIpsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsedIps",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedIpsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedIpsResponse({}));
+  }
+
+  async getAccessKeyLastUsedIps(request: GetAccessKeyLastUsedIpsRequest): Promise<GetAccessKeyLastUsedIpsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessKeyLastUsedIpsWithOptions(request, runtime);
+  }
+
+  async getAccessKeyLastUsedProductsWithOptions(request: GetAccessKeyLastUsedProductsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedProductsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsedProducts",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedProductsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedProductsResponse({}));
+  }
+
+  async getAccessKeyLastUsedProducts(request: GetAccessKeyLastUsedProductsRequest): Promise<GetAccessKeyLastUsedProductsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessKeyLastUsedProductsWithOptions(request, runtime);
+  }
+
+  async getAccessKeyLastUsedResourcesWithOptions(request: GetAccessKeyLastUsedResourcesRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessKey)) {
+      query["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsedResources",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedResourcesResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResourcesResponse({}));
+  }
+
+  async getAccessKeyLastUsedResources(request: GetAccessKeyLastUsedResourcesRequest): Promise<GetAccessKeyLastUsedResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccessKeyLastUsedResourcesWithOptions(request, runtime);
+  }
+
   async getDeliveryHistoryJobWithOptions(request: GetDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDeliveryHistoryJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetDeliveryHistoryJobResponse>(await this.doRPCRequest("GetDeliveryHistoryJob", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new GetDeliveryHistoryJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDeliveryHistoryJob",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new GetDeliveryHistoryJobResponse({}));
   }
 
   async getDeliveryHistoryJob(request: GetDeliveryHistoryJobRequest): Promise<GetDeliveryHistoryJobResponse> {
@@ -1352,10 +2248,30 @@ export default class Client extends OpenApi {
 
   async getTrailStatusWithOptions(request: GetTrailStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTrailStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.isOrganizationTrail)) {
+      query["IsOrganizationTrail"] = request.isOrganizationTrail;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTrailStatusResponse>(await this.doRPCRequest("GetTrailStatus", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new GetTrailStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTrailStatus",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTrailStatusResponse>(await this.callApi(params, req, runtime), new GetTrailStatusResponse({}));
   }
 
   async getTrailStatus(request: GetTrailStatusRequest): Promise<GetTrailStatusResponse> {
@@ -1365,10 +2281,30 @@ export default class Client extends OpenApi {
 
   async listDeliveryHistoryJobsWithOptions(request: ListDeliveryHistoryJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeliveryHistoryJobsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListDeliveryHistoryJobsResponse>(await this.doRPCRequest("ListDeliveryHistoryJobs", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeliveryHistoryJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDeliveryHistoryJobs",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDeliveryHistoryJobsResponse>(await this.callApi(params, req, runtime), new ListDeliveryHistoryJobsResponse({}));
   }
 
   async listDeliveryHistoryJobs(request: ListDeliveryHistoryJobsRequest): Promise<ListDeliveryHistoryJobsResponse> {
@@ -1378,10 +2314,46 @@ export default class Client extends OpenApi {
 
   async lookupEventsWithOptions(request: LookupEventsRequest, runtime: $Util.RuntimeOptions): Promise<LookupEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lookupAttribute)) {
+      query["LookupAttribute"] = request.lookupAttribute;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<LookupEventsResponse>(await this.doRPCRequest("LookupEvents", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new LookupEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LookupEvents",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LookupEventsResponse>(await this.callApi(params, req, runtime), new LookupEventsResponse({}));
   }
 
   async lookupEvents(request: LookupEventsRequest): Promise<LookupEventsResponse> {
@@ -1391,10 +2363,26 @@ export default class Client extends OpenApi {
 
   async startLoggingWithOptions(request: StartLoggingRequest, runtime: $Util.RuntimeOptions): Promise<StartLoggingResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartLoggingResponse>(await this.doRPCRequest("StartLogging", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new StartLoggingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartLogging",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartLoggingResponse>(await this.callApi(params, req, runtime), new StartLoggingResponse({}));
   }
 
   async startLogging(request: StartLoggingRequest): Promise<StartLoggingResponse> {
@@ -1406,9 +2394,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopLoggingResponse>(await this.doRPCRequest("StopLogging", "2020-07-06", "HTTPS", "GET", "AK", "json", req, runtime), new StopLoggingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopLogging",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopLoggingResponse>(await this.callApi(params, req, runtime), new StopLoggingResponse({}));
   }
 
   async stopLogging(request: StopLoggingRequest): Promise<StopLoggingResponse> {
@@ -1418,10 +2417,54 @@ export default class Client extends OpenApi {
 
   async updateTrailWithOptions(request: UpdateTrailRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventRW)) {
+      query["EventRW"] = request.eventRW;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!Util.isUnset(request.ossKeyPrefix)) {
+      query["OssKeyPrefix"] = request.ossKeyPrefix;
+    }
+
+    if (!Util.isUnset(request.ossWriteRoleArn)) {
+      query["OssWriteRoleArn"] = request.ossWriteRoleArn;
+    }
+
+    if (!Util.isUnset(request.slsProjectArn)) {
+      query["SlsProjectArn"] = request.slsProjectArn;
+    }
+
+    if (!Util.isUnset(request.slsWriteRoleArn)) {
+      query["SlsWriteRoleArn"] = request.slsWriteRoleArn;
+    }
+
+    if (!Util.isUnset(request.trailRegion)) {
+      query["TrailRegion"] = request.trailRegion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateTrailResponse>(await this.doRPCRequest("UpdateTrail", "2020-07-06", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTrailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTrail",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTrailResponse>(await this.callApi(params, req, runtime), new UpdateTrailResponse({}));
   }
 
   async updateTrail(request: UpdateTrailRequest): Promise<UpdateTrailResponse> {
