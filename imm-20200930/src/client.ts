@@ -2883,6 +2883,7 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   direction?: string;
   imageFormat?: string;
+  margin?: number;
   notifyEndpoint?: string;
   notifyTopicName?: string;
   padding?: number;
@@ -2900,6 +2901,7 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
       credentialConfig: 'CredentialConfig',
       direction: 'Direction',
       imageFormat: 'ImageFormat',
+      margin: 'Margin',
       notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       padding: 'Padding',
@@ -2920,6 +2922,7 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
       credentialConfig: CredentialConfig,
       direction: 'string',
       imageFormat: 'string',
+      margin: 'number',
       notifyEndpoint: 'string',
       notifyTopicName: 'string',
       padding: 'number',
@@ -2944,6 +2947,7 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   direction?: string;
   imageFormat?: string;
+  margin?: number;
   notifyEndpoint?: string;
   notifyTopicName?: string;
   padding?: number;
@@ -2961,6 +2965,7 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'CredentialConfig',
       direction: 'Direction',
       imageFormat: 'ImageFormat',
+      margin: 'Margin',
       notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       padding: 'Padding',
@@ -2981,6 +2986,7 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
       credentialConfigShrink: 'string',
       direction: 'string',
       imageFormat: 'string',
+      margin: 'number',
       notifyEndpoint: 'string',
       notifyTopicName: 'string',
       padding: 'number',
@@ -9710,6 +9716,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageFormat)) {
       query["ImageFormat"] = request.imageFormat;
+    }
+
+    if (!Util.isUnset(request.margin)) {
+      query["Margin"] = request.margin;
     }
 
     if (!Util.isUnset(request.notifyEndpoint)) {
