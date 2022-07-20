@@ -17093,12 +17093,14 @@ export class SubmitFileRequest extends $tea.Model {
   fileId?: number;
   projectId?: number;
   projectIdentifier?: string;
+  skipAllDeployFileExtensions?: boolean;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
       fileId: 'FileId',
       projectId: 'ProjectId',
       projectIdentifier: 'ProjectIdentifier',
+      skipAllDeployFileExtensions: 'SkipAllDeployFileExtensions',
     };
   }
 
@@ -17108,6 +17110,7 @@ export class SubmitFileRequest extends $tea.Model {
       fileId: 'number',
       projectId: 'number',
       projectIdentifier: 'string',
+      skipAllDeployFileExtensions: 'boolean',
     };
   }
 
@@ -39663,6 +39666,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.projectIdentifier)) {
       body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.skipAllDeployFileExtensions)) {
+      body["SkipAllDeployFileExtensions"] = request.skipAllDeployFileExtensions;
     }
 
     let req = new $OpenApi.OpenApiRequest({
