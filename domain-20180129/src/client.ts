@@ -4,26 +4,27 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AcknowledgeTaskResultRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   taskDetailNo?: string[];
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       taskDetailNo: 'TaskDetailNo',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       taskDetailNo: { 'type': 'array', 'itemType': 'string' },
+      userClientIp: 'string',
     };
   }
 
@@ -56,10 +57,12 @@ export class AcknowledgeTaskResultResponseBody extends $tea.Model {
 
 export class AcknowledgeTaskResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AcknowledgeTaskResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -67,6 +70,7 @@ export class AcknowledgeTaskResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AcknowledgeTaskResultResponseBody,
     };
   }
@@ -125,10 +129,12 @@ export class BatchFuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
 
 export class BatchFuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BatchFuzzyMatchDomainSensitiveWordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -136,6 +142,7 @@ export class BatchFuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchFuzzyMatchDomainSensitiveWordResponseBody,
     };
   }
@@ -146,25 +153,25 @@ export class BatchFuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
 }
 
 export class CancelDomainVerificationRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  instanceId?: string;
   actionType?: string;
+  instanceId?: string;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      instanceId: 'InstanceId',
       actionType: 'ActionType',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      instanceId: 'string',
       actionType: 'string',
+      instanceId: 'string',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -194,10 +201,12 @@ export class CancelDomainVerificationResponseBody extends $tea.Model {
 
 export class CancelDomainVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelDomainVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -205,6 +214,7 @@ export class CancelDomainVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelDomainVerificationResponseBody,
     };
   }
@@ -215,19 +225,19 @@ export class CancelDomainVerificationResponse extends $tea.Model {
 }
 
 export class CancelOperationAuditRequest extends $tea.Model {
-  lang?: string;
   auditRecordId?: number;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       auditRecordId: 'AuditRecordId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       auditRecordId: 'number',
+      lang: 'string',
     };
   }
 
@@ -257,10 +267,12 @@ export class CancelOperationAuditResponseBody extends $tea.Model {
 
 export class CancelOperationAuditResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelOperationAuditResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -268,6 +280,7 @@ export class CancelOperationAuditResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelOperationAuditResponseBody,
     };
   }
@@ -278,25 +291,25 @@ export class CancelOperationAuditResponse extends $tea.Model {
 }
 
 export class CancelQualificationVerificationRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   qualificationType?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       qualificationType: 'QualificationType',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
       qualificationType: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -326,10 +339,12 @@ export class CancelQualificationVerificationResponseBody extends $tea.Model {
 
 export class CancelQualificationVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelQualificationVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -337,6 +352,7 @@ export class CancelQualificationVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelQualificationVerificationResponseBody,
     };
   }
@@ -347,22 +363,22 @@ export class CancelQualificationVerificationResponse extends $tea.Model {
 }
 
 export class CancelTaskRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   taskNo?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       taskNo: 'TaskNo',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       taskNo: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -392,10 +408,12 @@ export class CancelTaskResponseBody extends $tea.Model {
 
 export class CancelTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -403,6 +421,7 @@ export class CancelTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelTaskResponseBody,
     };
   }
@@ -444,34 +463,34 @@ export class CheckDomainRequest extends $tea.Model {
 }
 
 export class CheckDomainResponseBody extends $tea.Model {
-  requestId?: string;
   avail?: string;
-  price?: number;
   domainName?: string;
-  premium?: string;
   dynamicCheck?: boolean;
+  premium?: string;
+  price?: number;
   reason?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       avail: 'Avail',
-      price: 'Price',
       domainName: 'DomainName',
-      premium: 'Premium',
       dynamicCheck: 'DynamicCheck',
+      premium: 'Premium',
+      price: 'Price',
       reason: 'Reason',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       avail: 'string',
-      price: 'number',
       domainName: 'string',
-      premium: 'string',
       dynamicCheck: 'boolean',
+      premium: 'string',
+      price: 'number',
       reason: 'string',
+      requestId: 'string',
     };
   }
 
@@ -482,10 +501,12 @@ export class CheckDomainResponseBody extends $tea.Model {
 
 export class CheckDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -493,6 +514,7 @@ export class CheckDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckDomainResponseBody,
     };
   }
@@ -554,10 +576,12 @@ export class CheckDomainSunriseClaimResponseBody extends $tea.Model {
 
 export class CheckDomainSunriseClaimResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckDomainSunriseClaimResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -565,6 +589,7 @@ export class CheckDomainSunriseClaimResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckDomainSunriseClaimResponseBody,
     };
   }
@@ -575,25 +600,25 @@ export class CheckDomainSunriseClaimResponse extends $tea.Model {
 }
 
 export class CheckMaxYearOfServerLockRequest extends $tea.Model {
+  checkAction?: string;
   domainName?: string;
   lang?: string;
   userClientIp?: string;
-  checkAction?: string;
   static names(): { [key: string]: string } {
     return {
+      checkAction: 'CheckAction',
       domainName: 'DomainName',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      checkAction: 'CheckAction',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      checkAction: 'string',
       domainName: 'string',
       lang: 'string',
       userClientIp: 'string',
-      checkAction: 'string',
     };
   }
 
@@ -603,19 +628,19 @@ export class CheckMaxYearOfServerLockRequest extends $tea.Model {
 }
 
 export class CheckMaxYearOfServerLockResponseBody extends $tea.Model {
-  requestId?: string;
   maxYear?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       maxYear: 'MaxYear',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       maxYear: 'number',
+      requestId: 'string',
     };
   }
 
@@ -626,10 +651,12 @@ export class CheckMaxYearOfServerLockResponseBody extends $tea.Model {
 
 export class CheckMaxYearOfServerLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckMaxYearOfServerLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -637,6 +664,7 @@ export class CheckMaxYearOfServerLockResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckMaxYearOfServerLockResponseBody,
     };
   }
@@ -647,14 +675,14 @@ export class CheckMaxYearOfServerLockResponse extends $tea.Model {
 }
 
 export class CheckProcessingServerLockApplyRequest extends $tea.Model {
-  feePeriod?: number;
   domainName?: string;
+  feePeriod?: number;
   lang?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      feePeriod: 'FeePeriod',
       domainName: 'DomainName',
+      feePeriod: 'FeePeriod',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
     };
@@ -662,8 +690,8 @@ export class CheckProcessingServerLockApplyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      feePeriod: 'number',
       domainName: 'string',
+      feePeriod: 'number',
       lang: 'string',
       userClientIp: 'string',
     };
@@ -675,19 +703,19 @@ export class CheckProcessingServerLockApplyRequest extends $tea.Model {
 }
 
 export class CheckProcessingServerLockApplyResponseBody extends $tea.Model {
-  requestId?: string;
   exists?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       exists: 'Exists',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       exists: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -698,10 +726,12 @@ export class CheckProcessingServerLockApplyResponseBody extends $tea.Model {
 
 export class CheckProcessingServerLockApplyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckProcessingServerLockApplyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -709,6 +739,7 @@ export class CheckProcessingServerLockApplyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckProcessingServerLockApplyResponseBody,
     };
   }
@@ -719,25 +750,25 @@ export class CheckProcessingServerLockApplyResponse extends $tea.Model {
 }
 
 export class CheckTransferInFeasibilityRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   transferAuthorizationCode?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
       transferAuthorizationCode: 'TransferAuthorizationCode',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
       transferAuthorizationCode: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -748,27 +779,27 @@ export class CheckTransferInFeasibilityRequest extends $tea.Model {
 
 export class CheckTransferInFeasibilityResponseBody extends $tea.Model {
   canTransfer?: boolean;
-  message?: string;
-  requestId?: string;
-  productId?: string;
   code?: string;
+  message?: string;
+  productId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       canTransfer: 'CanTransfer',
-      message: 'Message',
-      requestId: 'RequestId',
-      productId: 'ProductId',
       code: 'Code',
+      message: 'Message',
+      productId: 'ProductId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       canTransfer: 'boolean',
-      message: 'string',
-      requestId: 'string',
-      productId: 'string',
       code: 'string',
+      message: 'string',
+      productId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -779,10 +810,12 @@ export class CheckTransferInFeasibilityResponseBody extends $tea.Model {
 
 export class CheckTransferInFeasibilityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CheckTransferInFeasibilityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -790,6 +823,7 @@ export class CheckTransferInFeasibilityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CheckTransferInFeasibilityResponseBody,
     };
   }
@@ -800,25 +834,25 @@ export class CheckTransferInFeasibilityResponse extends $tea.Model {
 }
 
 export class ConfirmTransferInEmailRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  email?: string;
   domainName?: string[];
+  email?: string;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      email: 'Email',
       domainName: 'DomainName',
+      email: 'Email',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      email: 'string',
       domainName: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -828,22 +862,22 @@ export class ConfirmTransferInEmailRequest extends $tea.Model {
 }
 
 export class ConfirmTransferInEmailResponseBody extends $tea.Model {
+  failList?: ConfirmTransferInEmailResponseBodyFailList;
   requestId?: string;
   successList?: ConfirmTransferInEmailResponseBodySuccessList;
-  failList?: ConfirmTransferInEmailResponseBodyFailList;
   static names(): { [key: string]: string } {
     return {
+      failList: 'FailList',
       requestId: 'RequestId',
       successList: 'SuccessList',
-      failList: 'FailList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      failList: ConfirmTransferInEmailResponseBodyFailList,
       requestId: 'string',
       successList: ConfirmTransferInEmailResponseBodySuccessList,
-      failList: ConfirmTransferInEmailResponseBodyFailList,
     };
   }
 
@@ -854,10 +888,12 @@ export class ConfirmTransferInEmailResponseBody extends $tea.Model {
 
 export class ConfirmTransferInEmailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ConfirmTransferInEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -865,6 +901,7 @@ export class ConfirmTransferInEmailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ConfirmTransferInEmailResponseBody,
     };
   }
@@ -875,19 +912,19 @@ export class ConfirmTransferInEmailResponse extends $tea.Model {
 }
 
 export class DeleteContactTemplatesRequest extends $tea.Model {
-  userClientIp?: string;
   registrantProfileIds?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       registrantProfileIds: 'RegistrantProfileIds',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       registrantProfileIds: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -917,10 +954,12 @@ export class DeleteContactTemplatesResponseBody extends $tea.Model {
 
 export class DeleteContactTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteContactTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -928,6 +967,7 @@ export class DeleteContactTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteContactTemplatesResponseBody,
     };
   }
@@ -938,22 +978,22 @@ export class DeleteContactTemplatesResponse extends $tea.Model {
 }
 
 export class DeleteDomainGroupRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainGroupId?: number;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainGroupId: 'DomainGroupId',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainGroupId: 'number',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -983,10 +1023,12 @@ export class DeleteDomainGroupResponseBody extends $tea.Model {
 
 export class DeleteDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -994,6 +1036,7 @@ export class DeleteDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainGroupResponseBody,
     };
   }
@@ -1004,21 +1047,21 @@ export class DeleteDomainGroupResponse extends $tea.Model {
 }
 
 export class DeleteEmailVerificationRequest extends $tea.Model {
-  lang?: string;
   email?: string;
+  lang?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       email: 'Email',
+      lang: 'Lang',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       email: 'string',
+      lang: 'string',
       userClientIp: 'string',
     };
   }
@@ -1029,22 +1072,22 @@ export class DeleteEmailVerificationRequest extends $tea.Model {
 }
 
 export class DeleteEmailVerificationResponseBody extends $tea.Model {
+  failList?: DeleteEmailVerificationResponseBodyFailList[];
   requestId?: string;
   successList?: DeleteEmailVerificationResponseBodySuccessList[];
-  failList?: DeleteEmailVerificationResponseBodyFailList[];
   static names(): { [key: string]: string } {
     return {
+      failList: 'FailList',
       requestId: 'RequestId',
       successList: 'SuccessList',
-      failList: 'FailList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      failList: { 'type': 'array', 'itemType': DeleteEmailVerificationResponseBodyFailList },
       requestId: 'string',
       successList: { 'type': 'array', 'itemType': DeleteEmailVerificationResponseBodySuccessList },
-      failList: { 'type': 'array', 'itemType': DeleteEmailVerificationResponseBodyFailList },
     };
   }
 
@@ -1055,10 +1098,12 @@ export class DeleteEmailVerificationResponseBody extends $tea.Model {
 
 export class DeleteEmailVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1066,6 +1111,7 @@ export class DeleteEmailVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteEmailVerificationResponseBody,
     };
   }
@@ -1076,22 +1122,22 @@ export class DeleteEmailVerificationResponse extends $tea.Model {
 }
 
 export class DeleteRegistrantProfileRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   registrantProfileId?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       registrantProfileId: 'RegistrantProfileId',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       registrantProfileId: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -1121,10 +1167,12 @@ export class DeleteRegistrantProfileResponseBody extends $tea.Model {
 
 export class DeleteRegistrantProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteRegistrantProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1132,6 +1180,7 @@ export class DeleteRegistrantProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRegistrantProfileResponseBody,
     };
   }
@@ -1142,22 +1191,22 @@ export class DeleteRegistrantProfileResponse extends $tea.Model {
 }
 
 export class EmailVerifiedRequest extends $tea.Model {
+  email?: string;
   lang?: string;
   userClientIp?: string;
-  email?: string;
   static names(): { [key: string]: string } {
     return {
+      email: 'Email',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      email: 'Email',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      email: 'string',
       lang: 'string',
       userClientIp: 'string',
-      email: 'string',
     };
   }
 
@@ -1187,10 +1236,12 @@ export class EmailVerifiedResponseBody extends $tea.Model {
 
 export class EmailVerifiedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EmailVerifiedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1198,6 +1249,7 @@ export class EmailVerifiedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EmailVerifiedResponseBody,
     };
   }
@@ -1234,24 +1286,24 @@ export class FuzzyMatchDomainSensitiveWordRequest extends $tea.Model {
 
 export class FuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
   exist?: boolean;
-  requestId?: string;
   keyword?: string;
   matchedSentiveWords?: FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       exist: 'Exist',
-      requestId: 'RequestId',
       keyword: 'Keyword',
       matchedSentiveWords: 'MatchedSentiveWords',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       exist: 'boolean',
-      requestId: 'string',
       keyword: 'string',
       matchedSentiveWords: FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords,
+      requestId: 'string',
     };
   }
 
@@ -1262,10 +1314,12 @@ export class FuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
 
 export class FuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: FuzzyMatchDomainSensitiveWordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1273,6 +1327,7 @@ export class FuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: FuzzyMatchDomainSensitiveWordResponseBody,
     };
   }
@@ -1283,19 +1338,19 @@ export class FuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
 }
 
 export class GetOperationOssUploadPolicyRequest extends $tea.Model {
-  lang?: string;
   auditType?: number;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       auditType: 'AuditType',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       auditType: 'number',
+      lang: 'string',
     };
   }
 
@@ -1305,34 +1360,34 @@ export class GetOperationOssUploadPolicyRequest extends $tea.Model {
 }
 
 export class GetOperationOssUploadPolicyResponseBody extends $tea.Model {
-  fileDir?: string;
-  encodedPolicy?: string;
-  requestId?: string;
   accessid?: string;
-  signature?: string;
-  host?: string;
+  encodedPolicy?: string;
   expireTime?: string;
+  fileDir?: string;
+  host?: string;
+  requestId?: string;
+  signature?: string;
   static names(): { [key: string]: string } {
     return {
-      fileDir: 'FileDir',
-      encodedPolicy: 'EncodedPolicy',
-      requestId: 'RequestId',
       accessid: 'Accessid',
-      signature: 'Signature',
-      host: 'Host',
+      encodedPolicy: 'EncodedPolicy',
       expireTime: 'ExpireTime',
+      fileDir: 'FileDir',
+      host: 'Host',
+      requestId: 'RequestId',
+      signature: 'Signature',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileDir: 'string',
-      encodedPolicy: 'string',
-      requestId: 'string',
       accessid: 'string',
-      signature: 'string',
-      host: 'string',
+      encodedPolicy: 'string',
       expireTime: 'string',
+      fileDir: 'string',
+      host: 'string',
+      requestId: 'string',
+      signature: 'string',
     };
   }
 
@@ -1343,10 +1398,12 @@ export class GetOperationOssUploadPolicyResponseBody extends $tea.Model {
 
 export class GetOperationOssUploadPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetOperationOssUploadPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1354,6 +1411,7 @@ export class GetOperationOssUploadPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetOperationOssUploadPolicyResponseBody,
     };
   }
@@ -1386,37 +1444,37 @@ export class GetQualificationUploadPolicyRequest extends $tea.Model {
 }
 
 export class GetQualificationUploadPolicyResponseBody extends $tea.Model {
-  policy?: string;
-  expire?: string;
-  requestId?: string;
   accessid?: string;
-  signature?: string;
-  host?: string;
-  prefix?: string;
   dir?: string;
+  expire?: string;
+  host?: string;
+  policy?: string;
+  prefix?: string;
+  requestId?: string;
+  signature?: string;
   static names(): { [key: string]: string } {
     return {
-      policy: 'Policy',
-      expire: 'Expire',
-      requestId: 'RequestId',
       accessid: 'Accessid',
-      signature: 'Signature',
-      host: 'Host',
-      prefix: 'Prefix',
       dir: 'Dir',
+      expire: 'Expire',
+      host: 'Host',
+      policy: 'Policy',
+      prefix: 'Prefix',
+      requestId: 'RequestId',
+      signature: 'Signature',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policy: 'string',
-      expire: 'string',
-      requestId: 'string',
       accessid: 'string',
-      signature: 'string',
-      host: 'string',
-      prefix: 'string',
       dir: 'string',
+      expire: 'string',
+      host: 'string',
+      policy: 'string',
+      prefix: 'string',
+      requestId: 'string',
+      signature: 'string',
     };
   }
 
@@ -1427,10 +1485,12 @@ export class GetQualificationUploadPolicyResponseBody extends $tea.Model {
 
 export class GetQualificationUploadPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetQualificationUploadPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1438,6 +1498,7 @@ export class GetQualificationUploadPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetQualificationUploadPolicyResponseBody,
     };
   }
@@ -1448,37 +1509,37 @@ export class GetQualificationUploadPolicyResponse extends $tea.Model {
 }
 
 export class ListEmailVerificationRequest extends $tea.Model {
-  lang?: string;
   beginCreateTime?: number;
-  endCreateTime?: number;
   email?: string;
-  verificationStatus?: number;
+  endCreateTime?: number;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
   userClientIp?: string;
+  verificationStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       beginCreateTime: 'BeginCreateTime',
-      endCreateTime: 'EndCreateTime',
       email: 'Email',
-      verificationStatus: 'VerificationStatus',
+      endCreateTime: 'EndCreateTime',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       userClientIp: 'UserClientIp',
+      verificationStatus: 'VerificationStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       beginCreateTime: 'number',
-      endCreateTime: 'number',
       email: 'string',
-      verificationStatus: 'number',
+      endCreateTime: 'number',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
       userClientIp: 'string',
+      verificationStatus: 'number',
     };
   }
 
@@ -1488,37 +1549,37 @@ export class ListEmailVerificationRequest extends $tea.Model {
 }
 
 export class ListEmailVerificationResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: ListEmailVerificationResponseBodyData[];
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: { 'type': 'array', 'itemType': ListEmailVerificationResponseBodyData },
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -1529,10 +1590,12 @@ export class ListEmailVerificationResponseBody extends $tea.Model {
 
 export class ListEmailVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1540,6 +1603,7 @@ export class ListEmailVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEmailVerificationResponseBody,
     };
   }
@@ -1550,45 +1614,45 @@ export class ListEmailVerificationResponse extends $tea.Model {
 }
 
 export class ListServerLockRequest extends $tea.Model {
-  domainName?: string;
-  endStartDate?: number;
   beginStartDate?: number;
-  pageNum?: number;
-  pageSize?: number;
+  domainName?: string;
+  endExpireDate?: number;
+  endStartDate?: number;
   lang?: string;
   lockProductId?: string;
+  pageNum?: number;
+  pageSize?: number;
   serverLockStatus?: number;
   startExpireDate?: number;
-  endExpireDate?: number;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      domainName: 'DomainName',
-      endStartDate: 'EndStartDate',
       beginStartDate: 'BeginStartDate',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
+      domainName: 'DomainName',
+      endExpireDate: 'EndExpireDate',
+      endStartDate: 'EndStartDate',
       lang: 'Lang',
       lockProductId: 'LockProductId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       serverLockStatus: 'ServerLockStatus',
       startExpireDate: 'StartExpireDate',
-      endExpireDate: 'EndExpireDate',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainName: 'string',
-      endStartDate: 'number',
       beginStartDate: 'number',
-      pageNum: 'number',
-      pageSize: 'number',
+      domainName: 'string',
+      endExpireDate: 'number',
+      endStartDate: 'number',
       lang: 'string',
       lockProductId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       serverLockStatus: 'number',
       startExpireDate: 'number',
-      endExpireDate: 'number',
       userClientIp: 'string',
     };
   }
@@ -1599,37 +1663,37 @@ export class ListServerLockRequest extends $tea.Model {
 }
 
 export class ListServerLockResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: ListServerLockResponseBodyData[];
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: { 'type': 'array', 'itemType': ListServerLockResponseBodyData },
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -1640,10 +1704,12 @@ export class ListServerLockResponseBody extends $tea.Model {
 
 export class ListServerLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListServerLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1651,6 +1717,7 @@ export class ListServerLockResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListServerLockResponseBody,
     };
   }
@@ -1687,30 +1754,30 @@ export class LookupTmchNoticeRequest extends $tea.Model {
 
 export class LookupTmchNoticeResponseBody extends $tea.Model {
   claims?: LookupTmchNoticeResponseBodyClaims;
-  requestId?: string;
-  label?: string;
   id?: number;
-  notBefore?: string;
+  label?: string;
   notAfter?: string;
+  notBefore?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       claims: 'Claims',
-      requestId: 'RequestId',
-      label: 'Label',
       id: 'Id',
-      notBefore: 'NotBefore',
+      label: 'Label',
       notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       claims: LookupTmchNoticeResponseBodyClaims,
-      requestId: 'string',
-      label: 'string',
       id: 'number',
-      notBefore: 'string',
+      label: 'string',
       notAfter: 'string',
+      notBefore: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1721,10 +1788,12 @@ export class LookupTmchNoticeResponseBody extends $tea.Model {
 
 export class LookupTmchNoticeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: LookupTmchNoticeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1732,6 +1801,7 @@ export class LookupTmchNoticeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: LookupTmchNoticeResponseBody,
     };
   }
@@ -1742,37 +1812,37 @@ export class LookupTmchNoticeResponse extends $tea.Model {
 }
 
 export class PollTaskResultRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  taskNo?: string;
   domainName?: string;
   instanceId?: string;
-  taskResultStatus?: number;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
+  taskNo?: string;
+  taskResultStatus?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      taskNo: 'TaskNo',
       domainName: 'DomainName',
       instanceId: 'InstanceId',
-      taskResultStatus: 'TaskResultStatus',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      taskNo: 'TaskNo',
+      taskResultStatus: 'TaskResultStatus',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      taskNo: 'string',
       domainName: 'string',
       instanceId: 'string',
-      taskResultStatus: 'number',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      taskNo: 'string',
+      taskResultStatus: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -1782,37 +1852,37 @@ export class PollTaskResultRequest extends $tea.Model {
 }
 
 export class PollTaskResultResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: PollTaskResultResponseBodyData;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: PollTaskResultResponseBodyData,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -1823,10 +1893,12 @@ export class PollTaskResultResponseBody extends $tea.Model {
 
 export class PollTaskResultResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PollTaskResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1834,6 +1906,7 @@ export class PollTaskResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PollTaskResultResponseBody,
     };
   }
@@ -1844,17 +1917,12 @@ export class PollTaskResultResponse extends $tea.Model {
 }
 
 export class QueryAdvancedDomainListRequest extends $tea.Model {
-  endExpirationDate?: number;
-  userClientIp?: string;
-  lang?: string;
-  startExpirationDate?: number;
-  productDomainType?: string;
-  pageNum?: number;
-  pageSize?: number;
   domainGroupId?: number;
   domainNameSort?: boolean;
   domainStatus?: number;
+  endExpirationDate?: number;
   endLength?: number;
+  endRegistrationDate?: number;
   excluded?: string;
   excludedPrefix?: boolean;
   excludedSuffix?: boolean;
@@ -1863,26 +1931,26 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
   keyWord?: string;
   keyWordPrefix?: boolean;
   keyWordSuffix?: boolean;
+  lang?: string;
+  pageNum?: number;
+  pageSize?: number;
+  productDomainType?: string;
   productDomainTypeSort?: boolean;
   registrationDateSort?: boolean;
+  startExpirationDate?: number;
   startLength?: number;
-  tradeType?: number;
-  suffixs?: string;
   startRegistrationDate?: number;
-  endRegistrationDate?: number;
+  suffixs?: string;
+  tradeType?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      endExpirationDate: 'EndExpirationDate',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      startExpirationDate: 'StartExpirationDate',
-      productDomainType: 'ProductDomainType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
       domainGroupId: 'DomainGroupId',
       domainNameSort: 'DomainNameSort',
       domainStatus: 'DomainStatus',
+      endExpirationDate: 'EndExpirationDate',
       endLength: 'EndLength',
+      endRegistrationDate: 'EndRegistrationDate',
       excluded: 'Excluded',
       excludedPrefix: 'ExcludedPrefix',
       excludedSuffix: 'ExcludedSuffix',
@@ -1891,29 +1959,29 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
       keyWord: 'KeyWord',
       keyWordPrefix: 'KeyWordPrefix',
       keyWordSuffix: 'KeyWordSuffix',
+      lang: 'Lang',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      productDomainType: 'ProductDomainType',
       productDomainTypeSort: 'ProductDomainTypeSort',
       registrationDateSort: 'RegistrationDateSort',
+      startExpirationDate: 'StartExpirationDate',
       startLength: 'StartLength',
-      tradeType: 'TradeType',
-      suffixs: 'Suffixs',
       startRegistrationDate: 'StartRegistrationDate',
-      endRegistrationDate: 'EndRegistrationDate',
+      suffixs: 'Suffixs',
+      tradeType: 'TradeType',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endExpirationDate: 'number',
-      userClientIp: 'string',
-      lang: 'string',
-      startExpirationDate: 'number',
-      productDomainType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
       domainGroupId: 'number',
       domainNameSort: 'boolean',
       domainStatus: 'number',
+      endExpirationDate: 'number',
       endLength: 'number',
+      endRegistrationDate: 'number',
       excluded: 'string',
       excludedPrefix: 'boolean',
       excludedSuffix: 'boolean',
@@ -1922,13 +1990,18 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
       keyWord: 'string',
       keyWordPrefix: 'boolean',
       keyWordSuffix: 'boolean',
+      lang: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      productDomainType: 'string',
       productDomainTypeSort: 'boolean',
       registrationDateSort: 'boolean',
+      startExpirationDate: 'number',
       startLength: 'number',
-      tradeType: 'number',
-      suffixs: 'string',
       startRegistrationDate: 'number',
-      endRegistrationDate: 'number',
+      suffixs: 'string',
+      tradeType: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -1938,37 +2011,37 @@ export class QueryAdvancedDomainListRequest extends $tea.Model {
 }
 
 export class QueryAdvancedDomainListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryAdvancedDomainListResponseBodyData;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: QueryAdvancedDomainListResponseBodyData,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -1979,10 +2052,12 @@ export class QueryAdvancedDomainListResponseBody extends $tea.Model {
 
 export class QueryAdvancedDomainListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryAdvancedDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1990,6 +2065,7 @@ export class QueryAdvancedDomainListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryAdvancedDomainListResponseBody,
     };
   }
@@ -2025,46 +2101,46 @@ export class QueryArtExtensionRequest extends $tea.Model {
 }
 
 export class QueryArtExtensionResponseBody extends $tea.Model {
-  objectType?: string;
-  materialsAndTechniques?: string;
-  inscriptionsAndMarkings?: string;
-  requestId?: string;
-  reference?: string;
   dateOrPeriod?: string;
   dimensions?: string;
-  title?: string;
   features?: string;
-  subject?: string;
+  inscriptionsAndMarkings?: string;
   maker?: string;
+  materialsAndTechniques?: string;
+  objectType?: string;
+  reference?: string;
+  requestId?: string;
+  subject?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      objectType: 'ObjectType',
-      materialsAndTechniques: 'MaterialsAndTechniques',
-      inscriptionsAndMarkings: 'InscriptionsAndMarkings',
-      requestId: 'RequestId',
-      reference: 'Reference',
       dateOrPeriod: 'DateOrPeriod',
       dimensions: 'Dimensions',
-      title: 'Title',
       features: 'Features',
-      subject: 'Subject',
+      inscriptionsAndMarkings: 'InscriptionsAndMarkings',
       maker: 'Maker',
+      materialsAndTechniques: 'MaterialsAndTechniques',
+      objectType: 'ObjectType',
+      reference: 'Reference',
+      requestId: 'RequestId',
+      subject: 'Subject',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      objectType: 'string',
-      materialsAndTechniques: 'string',
-      inscriptionsAndMarkings: 'string',
-      requestId: 'string',
-      reference: 'string',
       dateOrPeriod: 'string',
       dimensions: 'string',
-      title: 'string',
       features: 'string',
-      subject: 'string',
+      inscriptionsAndMarkings: 'string',
       maker: 'string',
+      materialsAndTechniques: 'string',
+      objectType: 'string',
+      reference: 'string',
+      requestId: 'string',
+      subject: 'string',
+      title: 'string',
     };
   }
 
@@ -2075,10 +2151,12 @@ export class QueryArtExtensionResponseBody extends $tea.Model {
 
 export class QueryArtExtensionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryArtExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2086,6 +2164,7 @@ export class QueryArtExtensionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryArtExtensionResponseBody,
     };
   }
@@ -2096,34 +2175,34 @@ export class QueryArtExtensionResponse extends $tea.Model {
 }
 
 export class QueryChangeLogListRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
+  endDate?: number;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
   startDate?: number;
-  endDate?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
+      endDate: 'EndDate',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       startDate: 'StartDate',
-      endDate: 'EndDate',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
+      endDate: 'number',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
       startDate: 'number',
-      endDate: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -2133,40 +2212,40 @@ export class QueryChangeLogListRequest extends $tea.Model {
 }
 
 export class QueryChangeLogListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryChangeLogListResponseBodyData;
+  nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
   resultLimit?: boolean;
   totalItemNum?: number;
-  nextPage?: boolean;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
+      nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
       resultLimit: 'ResultLimit',
       totalItemNum: 'TotalItemNum',
-      nextPage: 'NextPage',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: QueryChangeLogListResponseBodyData,
+      nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
       resultLimit: 'boolean',
       totalItemNum: 'number',
-      nextPage: 'boolean',
+      totalPageNum: 'number',
     };
   }
 
@@ -2177,10 +2256,12 @@ export class QueryChangeLogListResponseBody extends $tea.Model {
 
 export class QueryChangeLogListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryChangeLogListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2188,6 +2269,7 @@ export class QueryChangeLogListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryChangeLogListResponseBody,
     };
   }
@@ -2198,25 +2280,25 @@ export class QueryChangeLogListResponse extends $tea.Model {
 }
 
 export class QueryContactInfoRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  domainName?: string;
   contactType?: string;
+  domainName?: string;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      domainName: 'DomainName',
       contactType: 'ContactType',
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      domainName: 'string',
       contactType: 'string',
+      domainName: 'string',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -2226,67 +2308,67 @@ export class QueryContactInfoRequest extends $tea.Model {
 }
 
 export class QueryContactInfoResponseBody extends $tea.Model {
-  zhProvince?: string;
-  email?: string;
-  telephone?: string;
-  requestId?: string;
   address?: string;
-  postalCode?: string;
-  zhRegistrantName?: string;
   city?: string;
-  createDate?: string;
-  province?: string;
-  zhCity?: string;
-  registrantName?: string;
-  zhRegistrantOrganization?: string;
   country?: string;
+  createDate?: string;
+  email?: string;
+  postalCode?: string;
+  province?: string;
+  registrantName?: string;
   registrantOrganization?: string;
-  telExt?: string;
+  requestId?: string;
   telArea?: string;
+  telExt?: string;
+  telephone?: string;
   zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      zhProvince: 'ZhProvince',
-      email: 'Email',
-      telephone: 'Telephone',
-      requestId: 'RequestId',
       address: 'Address',
-      postalCode: 'PostalCode',
-      zhRegistrantName: 'ZhRegistrantName',
       city: 'City',
-      createDate: 'CreateDate',
-      province: 'Province',
-      zhCity: 'ZhCity',
-      registrantName: 'RegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
       country: 'Country',
+      createDate: 'CreateDate',
+      email: 'Email',
+      postalCode: 'PostalCode',
+      province: 'Province',
+      registrantName: 'RegistrantName',
       registrantOrganization: 'RegistrantOrganization',
-      telExt: 'TelExt',
+      requestId: 'RequestId',
       telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
       zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zhProvince: 'string',
-      email: 'string',
-      telephone: 'string',
-      requestId: 'string',
       address: 'string',
-      postalCode: 'string',
-      zhRegistrantName: 'string',
       city: 'string',
-      createDate: 'string',
-      province: 'string',
-      zhCity: 'string',
-      registrantName: 'string',
-      zhRegistrantOrganization: 'string',
       country: 'string',
+      createDate: 'string',
+      email: 'string',
+      postalCode: 'string',
+      province: 'string',
+      registrantName: 'string',
       registrantOrganization: 'string',
-      telExt: 'string',
+      requestId: 'string',
       telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
       zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -2297,10 +2379,12 @@ export class QueryContactInfoResponseBody extends $tea.Model {
 
 export class QueryContactInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryContactInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2308,7 +2392,80 @@ export class QueryContactInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryContactInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDSRecordRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDSRecordResponseBody extends $tea.Model {
+  DSRecordList?: QueryDSRecordResponseBodyDSRecordList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DSRecordList: 'DSRecordList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DSRecordList: { 'type': 'array', 'itemType': QueryDSRecordResponseBodyDSRecordList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDSRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDSRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDSRecordResponseBody,
     };
   }
 
@@ -2343,19 +2500,19 @@ export class QueryDnsHostRequest extends $tea.Model {
 }
 
 export class QueryDnsHostResponseBody extends $tea.Model {
-  requestId?: string;
   dnsHostList?: QueryDnsHostResponseBodyDnsHostList[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       dnsHostList: 'DnsHostList',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       dnsHostList: { 'type': 'array', 'itemType': QueryDnsHostResponseBodyDnsHostList },
+      requestId: 'string',
     };
   }
 
@@ -2366,10 +2523,12 @@ export class QueryDnsHostResponseBody extends $tea.Model {
 
 export class QueryDnsHostResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2377,6 +2536,7 @@ export class QueryDnsHostResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDnsHostResponseBody,
     };
   }
@@ -2409,19 +2569,19 @@ export class QueryDomainAdminDivisionRequest extends $tea.Model {
 }
 
 export class QueryDomainAdminDivisionResponseBody extends $tea.Model {
-  requestId?: string;
   adminDivisions?: QueryDomainAdminDivisionResponseBodyAdminDivisions;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       adminDivisions: 'AdminDivisions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       adminDivisions: QueryDomainAdminDivisionResponseBodyAdminDivisions,
+      requestId: 'string',
     };
   }
 
@@ -2432,10 +2592,12 @@ export class QueryDomainAdminDivisionResponseBody extends $tea.Model {
 
 export class QueryDomainAdminDivisionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainAdminDivisionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2443,6 +2605,7 @@ export class QueryDomainAdminDivisionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainAdminDivisionResponseBody,
     };
   }
@@ -2453,22 +2616,22 @@ export class QueryDomainAdminDivisionResponse extends $tea.Model {
 }
 
 export class QueryDomainByDomainNameRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -2478,88 +2641,109 @@ export class QueryDomainByDomainNameRequest extends $tea.Model {
 }
 
 export class QueryDomainByDomainNameResponseBody extends $tea.Model {
-  email?: string;
-  registrationDate?: string;
-  registrationDateLong?: number;
-  realNameStatus?: string;
-  premium?: boolean;
-  domainNameVerificationStatus?: string;
-  expirationDateLong?: number;
   dnsList?: QueryDomainByDomainNameResponseBodyDnsList;
-  transferOutStatus?: string;
-  zhRegistrantOrganization?: string;
+  domainGroupId?: number;
+  domainGroupName?: string;
+  domainName?: string;
+  domainNameProxyService?: boolean;
+  domainNameVerificationStatus?: string;
+  domainType?: string;
+  email?: string;
   emailVerificationClientHold?: boolean;
   emailVerificationStatus?: number;
+  expirationCurrDateDiff?: number;
+  expirationDate?: string;
+  expirationDateLong?: number;
+  expirationDateStatus?: string;
+  instanceId?: string;
+  premium?: boolean;
+  realNameStatus?: string;
+  registrantName?: string;
   registrantOrganization?: string;
-  transferProhibitionLock?: string;
-  domainNameProxyService?: boolean;
   registrantType?: string;
   registrantUpdatingStatus?: string;
+  registrationDate?: string;
+  registrationDateLong?: number;
+  remark?: string;
   requestId?: string;
-  domainName?: string;
-  instanceId?: string;
-  zhRegistrantName?: string;
-  expirationDate?: string;
-  registrantName?: string;
-  userId?: string;
+  transferOutStatus?: string;
+  transferProhibitionLock?: string;
   updateProhibitionLock?: string;
+  userId?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
+  domainStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      realNameStatus: 'RealNameStatus',
-      premium: 'Premium',
-      domainNameVerificationStatus: 'DomainNameVerificationStatus',
-      expirationDateLong: 'ExpirationDateLong',
       dnsList: 'DnsList',
-      transferOutStatus: 'TransferOutStatus',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
+      domainGroupId: 'DomainGroupId',
+      domainGroupName: 'DomainGroupName',
+      domainName: 'DomainName',
+      domainNameProxyService: 'DomainNameProxyService',
+      domainNameVerificationStatus: 'DomainNameVerificationStatus',
+      domainType: 'DomainType',
+      email: 'Email',
       emailVerificationClientHold: 'EmailVerificationClientHold',
       emailVerificationStatus: 'EmailVerificationStatus',
+      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
+      expirationDate: 'ExpirationDate',
+      expirationDateLong: 'ExpirationDateLong',
+      expirationDateStatus: 'ExpirationDateStatus',
+      instanceId: 'InstanceId',
+      premium: 'Premium',
+      realNameStatus: 'RealNameStatus',
+      registrantName: 'RegistrantName',
       registrantOrganization: 'RegistrantOrganization',
-      transferProhibitionLock: 'TransferProhibitionLock',
-      domainNameProxyService: 'DomainNameProxyService',
       registrantType: 'RegistrantType',
       registrantUpdatingStatus: 'RegistrantUpdatingStatus',
+      registrationDate: 'RegistrationDate',
+      registrationDateLong: 'RegistrationDateLong',
+      remark: 'Remark',
       requestId: 'RequestId',
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      zhRegistrantName: 'ZhRegistrantName',
-      expirationDate: 'ExpirationDate',
-      registrantName: 'RegistrantName',
-      userId: 'UserId',
+      transferOutStatus: 'TransferOutStatus',
+      transferProhibitionLock: 'TransferProhibitionLock',
       updateProhibitionLock: 'UpdateProhibitionLock',
+      userId: 'UserId',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
+      domainStatus: 'domainStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      realNameStatus: 'string',
-      premium: 'boolean',
-      domainNameVerificationStatus: 'string',
-      expirationDateLong: 'number',
       dnsList: QueryDomainByDomainNameResponseBodyDnsList,
-      transferOutStatus: 'string',
-      zhRegistrantOrganization: 'string',
+      domainGroupId: 'number',
+      domainGroupName: 'string',
+      domainName: 'string',
+      domainNameProxyService: 'boolean',
+      domainNameVerificationStatus: 'string',
+      domainType: 'string',
+      email: 'string',
       emailVerificationClientHold: 'boolean',
       emailVerificationStatus: 'number',
+      expirationCurrDateDiff: 'number',
+      expirationDate: 'string',
+      expirationDateLong: 'number',
+      expirationDateStatus: 'string',
+      instanceId: 'string',
+      premium: 'boolean',
+      realNameStatus: 'string',
+      registrantName: 'string',
       registrantOrganization: 'string',
-      transferProhibitionLock: 'string',
-      domainNameProxyService: 'boolean',
       registrantType: 'string',
       registrantUpdatingStatus: 'string',
+      registrationDate: 'string',
+      registrationDateLong: 'number',
+      remark: 'string',
       requestId: 'string',
-      domainName: 'string',
-      instanceId: 'string',
-      zhRegistrantName: 'string',
-      expirationDate: 'string',
-      registrantName: 'string',
-      userId: 'string',
+      transferOutStatus: 'string',
+      transferProhibitionLock: 'string',
       updateProhibitionLock: 'string',
+      userId: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
+      domainStatus: 'string',
     };
   }
 
@@ -2570,10 +2754,12 @@ export class QueryDomainByDomainNameResponseBody extends $tea.Model {
 
 export class QueryDomainByDomainNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainByDomainNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2581,6 +2767,7 @@ export class QueryDomainByDomainNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainByDomainNameResponseBody,
     };
   }
@@ -2591,22 +2778,22 @@ export class QueryDomainByDomainNameResponse extends $tea.Model {
 }
 
 export class QueryDomainByInstanceIdRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   instanceId?: string;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       instanceId: 'string',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -2616,88 +2803,109 @@ export class QueryDomainByInstanceIdRequest extends $tea.Model {
 }
 
 export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
-  email?: string;
-  registrationDate?: string;
-  registrationDateLong?: number;
-  realNameStatus?: string;
-  premium?: boolean;
-  domainNameVerificationStatus?: string;
-  expirationDateLong?: number;
   dnsList?: QueryDomainByInstanceIdResponseBodyDnsList;
-  transferOutStatus?: string;
-  zhRegistrantOrganization?: string;
+  domainGroupId?: number;
+  domainGroupName?: string;
+  domainName?: string;
+  domainNameProxyService?: boolean;
+  domainNameVerificationStatus?: string;
+  domainStatus?: string;
+  domainType?: string;
+  email?: string;
   emailVerificationClientHold?: boolean;
   emailVerificationStatus?: number;
+  expirationCurrDateDiff?: number;
+  expirationDate?: string;
+  expirationDateLong?: number;
+  expirationDateStatus?: string;
+  instanceId?: string;
+  premium?: boolean;
+  realNameStatus?: string;
+  registrantName?: string;
   registrantOrganization?: string;
-  transferProhibitionLock?: string;
-  domainNameProxyService?: boolean;
   registrantType?: string;
   registrantUpdatingStatus?: string;
+  registrationDate?: string;
+  registrationDateLong?: number;
+  remark?: string;
   requestId?: string;
-  domainName?: string;
-  instanceId?: string;
-  zhRegistrantName?: string;
-  expirationDate?: string;
-  registrantName?: string;
-  userId?: string;
+  transferOutStatus?: string;
+  transferProhibitionLock?: string;
   updateProhibitionLock?: string;
+  userId?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      realNameStatus: 'RealNameStatus',
-      premium: 'Premium',
-      domainNameVerificationStatus: 'DomainNameVerificationStatus',
-      expirationDateLong: 'ExpirationDateLong',
       dnsList: 'DnsList',
-      transferOutStatus: 'TransferOutStatus',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
+      domainGroupId: 'DomainGroupId',
+      domainGroupName: 'DomainGroupName',
+      domainName: 'DomainName',
+      domainNameProxyService: 'DomainNameProxyService',
+      domainNameVerificationStatus: 'DomainNameVerificationStatus',
+      domainStatus: 'DomainStatus',
+      domainType: 'DomainType',
+      email: 'Email',
       emailVerificationClientHold: 'EmailVerificationClientHold',
       emailVerificationStatus: 'EmailVerificationStatus',
+      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
+      expirationDate: 'ExpirationDate',
+      expirationDateLong: 'ExpirationDateLong',
+      expirationDateStatus: 'ExpirationDateStatus',
+      instanceId: 'InstanceId',
+      premium: 'Premium',
+      realNameStatus: 'RealNameStatus',
+      registrantName: 'RegistrantName',
       registrantOrganization: 'RegistrantOrganization',
-      transferProhibitionLock: 'TransferProhibitionLock',
-      domainNameProxyService: 'DomainNameProxyService',
       registrantType: 'RegistrantType',
       registrantUpdatingStatus: 'RegistrantUpdatingStatus',
+      registrationDate: 'RegistrationDate',
+      registrationDateLong: 'RegistrationDateLong',
+      remark: 'Remark',
       requestId: 'RequestId',
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      zhRegistrantName: 'ZhRegistrantName',
-      expirationDate: 'ExpirationDate',
-      registrantName: 'RegistrantName',
-      userId: 'UserId',
+      transferOutStatus: 'TransferOutStatus',
+      transferProhibitionLock: 'TransferProhibitionLock',
       updateProhibitionLock: 'UpdateProhibitionLock',
+      userId: 'UserId',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      realNameStatus: 'string',
-      premium: 'boolean',
-      domainNameVerificationStatus: 'string',
-      expirationDateLong: 'number',
       dnsList: QueryDomainByInstanceIdResponseBodyDnsList,
-      transferOutStatus: 'string',
-      zhRegistrantOrganization: 'string',
+      domainGroupId: 'number',
+      domainGroupName: 'string',
+      domainName: 'string',
+      domainNameProxyService: 'boolean',
+      domainNameVerificationStatus: 'string',
+      domainStatus: 'string',
+      domainType: 'string',
+      email: 'string',
       emailVerificationClientHold: 'boolean',
       emailVerificationStatus: 'number',
+      expirationCurrDateDiff: 'number',
+      expirationDate: 'string',
+      expirationDateLong: 'number',
+      expirationDateStatus: 'string',
+      instanceId: 'string',
+      premium: 'boolean',
+      realNameStatus: 'string',
+      registrantName: 'string',
       registrantOrganization: 'string',
-      transferProhibitionLock: 'string',
-      domainNameProxyService: 'boolean',
       registrantType: 'string',
       registrantUpdatingStatus: 'string',
+      registrationDate: 'string',
+      registrationDateLong: 'number',
+      remark: 'string',
       requestId: 'string',
-      domainName: 'string',
-      instanceId: 'string',
-      zhRegistrantName: 'string',
-      expirationDate: 'string',
-      registrantName: 'string',
-      userId: 'string',
+      transferOutStatus: 'string',
+      transferProhibitionLock: 'string',
       updateProhibitionLock: 'string',
+      userId: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -2708,10 +2916,12 @@ export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
 
 export class QueryDomainByInstanceIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2719,6 +2929,7 @@ export class QueryDomainByInstanceIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainByInstanceIdResponseBody,
     };
   }
@@ -2729,25 +2940,25 @@ export class QueryDomainByInstanceIdResponse extends $tea.Model {
 }
 
 export class QueryDomainGroupListRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainGroupName?: string;
+  lang?: string;
   showDeletingGroup?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainGroupName: 'DomainGroupName',
+      lang: 'Lang',
       showDeletingGroup: 'ShowDeletingGroup',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainGroupName: 'string',
+      lang: 'string',
       showDeletingGroup: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -2757,19 +2968,19 @@ export class QueryDomainGroupListRequest extends $tea.Model {
 }
 
 export class QueryDomainGroupListResponseBody extends $tea.Model {
-  requestId?: string;
   data?: QueryDomainGroupListResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: QueryDomainGroupListResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2780,10 +2991,12 @@ export class QueryDomainGroupListResponseBody extends $tea.Model {
 
 export class QueryDomainGroupListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainGroupListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2791,6 +3004,7 @@ export class QueryDomainGroupListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainGroupListResponseBody,
     };
   }
@@ -2801,55 +3015,55 @@ export class QueryDomainGroupListResponse extends $tea.Model {
 }
 
 export class QueryDomainListRequest extends $tea.Model {
-  endExpirationDate?: number;
-  startExpirationDate?: number;
-  userClientIp?: string;
-  lang?: string;
-  queryType?: string;
-  startRegistrationDate?: number;
-  endRegistrationDate?: number;
+  domainGroupId?: string;
   domainName?: string;
+  endExpirationDate?: number;
+  endRegistrationDate?: number;
+  lang?: string;
   orderByType?: string;
   orderKeyType?: string;
-  productDomainType?: string;
   pageNum?: number;
   pageSize?: number;
-  domainGroupId?: string;
+  productDomainType?: string;
+  queryType?: string;
+  startExpirationDate?: number;
+  startRegistrationDate?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      endExpirationDate: 'EndExpirationDate',
-      startExpirationDate: 'StartExpirationDate',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      queryType: 'QueryType',
-      startRegistrationDate: 'StartRegistrationDate',
-      endRegistrationDate: 'EndRegistrationDate',
+      domainGroupId: 'DomainGroupId',
       domainName: 'DomainName',
+      endExpirationDate: 'EndExpirationDate',
+      endRegistrationDate: 'EndRegistrationDate',
+      lang: 'Lang',
       orderByType: 'OrderByType',
       orderKeyType: 'OrderKeyType',
-      productDomainType: 'ProductDomainType',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      domainGroupId: 'DomainGroupId',
+      productDomainType: 'ProductDomainType',
+      queryType: 'QueryType',
+      startExpirationDate: 'StartExpirationDate',
+      startRegistrationDate: 'StartRegistrationDate',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endExpirationDate: 'number',
-      startExpirationDate: 'number',
-      userClientIp: 'string',
-      lang: 'string',
-      queryType: 'string',
-      startRegistrationDate: 'number',
-      endRegistrationDate: 'number',
+      domainGroupId: 'string',
       domainName: 'string',
+      endExpirationDate: 'number',
+      endRegistrationDate: 'number',
+      lang: 'string',
       orderByType: 'string',
       orderKeyType: 'string',
-      productDomainType: 'string',
       pageNum: 'number',
       pageSize: 'number',
-      domainGroupId: 'string',
+      productDomainType: 'string',
+      queryType: 'string',
+      startExpirationDate: 'number',
+      startRegistrationDate: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -2859,37 +3073,37 @@ export class QueryDomainListRequest extends $tea.Model {
 }
 
 export class QueryDomainListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryDomainListResponseBodyData;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: QueryDomainListResponseBodyData,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -2900,10 +3114,12 @@ export class QueryDomainListResponseBody extends $tea.Model {
 
 export class QueryDomainListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2911,6 +3127,7 @@ export class QueryDomainListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainListResponseBody,
     };
   }
@@ -2921,25 +3138,25 @@ export class QueryDomainListResponse extends $tea.Model {
 }
 
 export class QueryDomainRealNameVerificationInfoRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
   fetchImage?: boolean;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
       fetchImage: 'FetchImage',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
       fetchImage: 'boolean',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -2949,37 +3166,37 @@ export class QueryDomainRealNameVerificationInfoRequest extends $tea.Model {
 }
 
 export class QueryDomainRealNameVerificationInfoResponseBody extends $tea.Model {
-  identityCredentialType?: string;
-  requestId?: string;
-  instanceId?: string;
   domainName?: string;
   identityCredential?: string;
-  submissionDate?: string;
   identityCredentialNo?: string;
+  identityCredentialType?: string;
   identityCredentialUrl?: string;
+  instanceId?: string;
+  requestId?: string;
+  submissionDate?: string;
   static names(): { [key: string]: string } {
     return {
-      identityCredentialType: 'IdentityCredentialType',
-      requestId: 'RequestId',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
       identityCredential: 'IdentityCredential',
-      submissionDate: 'SubmissionDate',
       identityCredentialNo: 'IdentityCredentialNo',
+      identityCredentialType: 'IdentityCredentialType',
       identityCredentialUrl: 'IdentityCredentialUrl',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      submissionDate: 'SubmissionDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identityCredentialType: 'string',
-      requestId: 'string',
-      instanceId: 'string',
       domainName: 'string',
       identityCredential: 'string',
-      submissionDate: 'string',
       identityCredentialNo: 'string',
+      identityCredentialType: 'string',
       identityCredentialUrl: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+      submissionDate: 'string',
     };
   }
 
@@ -2990,10 +3207,12 @@ export class QueryDomainRealNameVerificationInfoResponseBody extends $tea.Model 
 
 export class QueryDomainRealNameVerificationInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainRealNameVerificationInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3001,6 +3220,7 @@ export class QueryDomainRealNameVerificationInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainRealNameVerificationInfoResponseBody,
     };
   }
@@ -3056,10 +3276,12 @@ export class QueryDomainSuffixResponseBody extends $tea.Model {
 
 export class QueryDomainSuffixResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryDomainSuffixResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3067,6 +3289,7 @@ export class QueryDomainSuffixResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryDomainSuffixResponseBody,
     };
   }
@@ -3076,91 +3299,22 @@ export class QueryDomainSuffixResponse extends $tea.Model {
   }
 }
 
-export class QueryDSRecordRequest extends $tea.Model {
-  domainName?: string;
-  lang?: string;
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDSRecordResponseBody extends $tea.Model {
-  requestId?: string;
-  DSRecordList?: QueryDSRecordResponseBodyDSRecordList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      DSRecordList: 'DSRecordList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      DSRecordList: { 'type': 'array', 'itemType': QueryDSRecordResponseBodyDSRecordList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDSRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDSRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDSRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryEmailVerificationRequest extends $tea.Model {
-  lang?: string;
   email?: string;
+  lang?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       email: 'Email',
+      lang: 'Lang',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       email: 'string',
+      lang: 'string',
       userClientIp: 'string',
     };
   }
@@ -3171,46 +3325,46 @@ export class QueryEmailVerificationRequest extends $tea.Model {
 }
 
 export class QueryEmailVerificationResponseBody extends $tea.Model {
-  verificationStatus?: number;
-  gmtCreate?: string;
+  confirmIp?: string;
   email?: string;
   emailVerificationNo?: string;
-  confirmIp?: string;
-  requestId?: string;
-  userId?: string;
+  gmtCreate?: string;
   gmtModified?: string;
+  requestId?: string;
   sendIp?: string;
-  verificationTime?: string;
   tokenSendTime?: string;
+  userId?: string;
+  verificationStatus?: number;
+  verificationTime?: string;
   static names(): { [key: string]: string } {
     return {
-      verificationStatus: 'VerificationStatus',
-      gmtCreate: 'GmtCreate',
+      confirmIp: 'ConfirmIp',
       email: 'Email',
       emailVerificationNo: 'EmailVerificationNo',
-      confirmIp: 'ConfirmIp',
-      requestId: 'RequestId',
-      userId: 'UserId',
+      gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      requestId: 'RequestId',
       sendIp: 'SendIp',
-      verificationTime: 'VerificationTime',
       tokenSendTime: 'TokenSendTime',
+      userId: 'UserId',
+      verificationStatus: 'VerificationStatus',
+      verificationTime: 'VerificationTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      verificationStatus: 'number',
-      gmtCreate: 'string',
+      confirmIp: 'string',
       email: 'string',
       emailVerificationNo: 'string',
-      confirmIp: 'string',
-      requestId: 'string',
-      userId: 'string',
+      gmtCreate: 'string',
       gmtModified: 'string',
+      requestId: 'string',
       sendIp: 'string',
-      verificationTime: 'string',
       tokenSendTime: 'string',
+      userId: 'string',
+      verificationStatus: 'number',
+      verificationTime: 'string',
     };
   }
 
@@ -3221,10 +3375,12 @@ export class QueryEmailVerificationResponseBody extends $tea.Model {
 
 export class QueryEmailVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3232,6 +3388,7 @@ export class QueryEmailVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryEmailVerificationResponseBody,
     };
   }
@@ -3290,10 +3447,12 @@ export class QueryEnsAssociationResponseBody extends $tea.Model {
 
 export class QueryEnsAssociationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryEnsAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3301,6 +3460,7 @@ export class QueryEnsAssociationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryEnsAssociationResponseBody,
     };
   }
@@ -3310,101 +3470,26 @@ export class QueryEnsAssociationResponse extends $tea.Model {
   }
 }
 
-export class QueryFailingReasonListForQualificationRequest extends $tea.Model {
-  qualificationType?: string;
-  userClientIp?: string;
-  lang?: string;
-  instanceId?: string;
-  limit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      qualificationType: 'QualificationType',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      instanceId: 'InstanceId',
-      limit: 'Limit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      qualificationType: 'string',
-      userClientIp: 'string',
-      lang: 'string',
-      instanceId: 'string',
-      limit: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: QueryFailingReasonListForQualificationResponseBodyData[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': QueryFailingReasonListForQualificationResponseBodyData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryFailingReasonListForQualificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryFailingReasonListForQualificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryFailReasonForDomainRealNameVerificationRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
+  lang?: string;
   realNameVerificationAction?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
       realNameVerificationAction: 'RealNameVerificationAction',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
       realNameVerificationAction: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -3414,19 +3499,19 @@ export class QueryFailReasonForDomainRealNameVerificationRequest extends $tea.Mo
 }
 
 export class QueryFailReasonForDomainRealNameVerificationResponseBody extends $tea.Model {
-  requestId?: string;
   data?: QueryFailReasonForDomainRealNameVerificationResponseBodyData[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: { 'type': 'array', 'itemType': QueryFailReasonForDomainRealNameVerificationResponseBodyData },
+      requestId: 'string',
     };
   }
 
@@ -3437,10 +3522,12 @@ export class QueryFailReasonForDomainRealNameVerificationResponseBody extends $t
 
 export class QueryFailReasonForDomainRealNameVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryFailReasonForDomainRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3448,6 +3535,7 @@ export class QueryFailReasonForDomainRealNameVerificationResponse extends $tea.M
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryFailReasonForDomainRealNameVerificationResponseBody,
     };
   }
@@ -3458,22 +3546,22 @@ export class QueryFailReasonForDomainRealNameVerificationResponse extends $tea.M
 }
 
 export class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   registrantProfileID?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       registrantProfileID: 'RegistrantProfileID',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       registrantProfileID: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -3483,19 +3571,19 @@ export class QueryFailReasonForRegistrantProfileRealNameVerificationRequest exte
 }
 
 export class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody extends $tea.Model {
-  requestId?: string;
   data?: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBodyData[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: { 'type': 'array', 'itemType': QueryFailReasonForRegistrantProfileRealNameVerificationResponseBodyData },
+      requestId: 'string',
     };
   }
 
@@ -3506,10 +3594,12 @@ export class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody
 
 export class QueryFailReasonForRegistrantProfileRealNameVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3517,6 +3607,7 @@ export class QueryFailReasonForRegistrantProfileRealNameVerificationResponse ext
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody,
     };
   }
@@ -3526,23 +3617,101 @@ export class QueryFailReasonForRegistrantProfileRealNameVerificationResponse ext
   }
 }
 
-export class QueryLocalEnsAssociationRequest extends $tea.Model {
-  userClientIp?: string;
-  domainName?: string;
+export class QueryFailingReasonListForQualificationRequest extends $tea.Model {
+  instanceId?: string;
   lang?: string;
+  limit?: number;
+  qualificationType?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
+      instanceId: 'InstanceId',
       lang: 'Lang',
+      limit: 'Limit',
+      qualificationType: 'QualificationType',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
+      lang: 'string',
+      limit: 'number',
+      qualificationType: 'string',
       userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFailingReasonListForQualificationResponseBody extends $tea.Model {
+  data?: QueryFailingReasonListForQualificationResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryFailingReasonListForQualificationResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFailingReasonListForQualificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryFailingReasonListForQualificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryFailingReasonListForQualificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLocalEnsAssociationRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       domainName: 'string',
       lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -3575,10 +3744,12 @@ export class QueryLocalEnsAssociationResponseBody extends $tea.Model {
 
 export class QueryLocalEnsAssociationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryLocalEnsAssociationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3586,6 +3757,7 @@ export class QueryLocalEnsAssociationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryLocalEnsAssociationResponseBody,
     };
   }
@@ -3596,19 +3768,19 @@ export class QueryLocalEnsAssociationResponse extends $tea.Model {
 }
 
 export class QueryOperationAuditInfoDetailRequest extends $tea.Model {
-  lang?: string;
   auditRecordId?: number;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       auditRecordId: 'AuditRecordId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       auditRecordId: 'number',
+      lang: 'string',
     };
   }
 
@@ -3620,26 +3792,26 @@ export class QueryOperationAuditInfoDetailRequest extends $tea.Model {
 export class QueryOperationAuditInfoDetailResponseBody extends $tea.Model {
   auditInfo?: string;
   auditStatus?: number;
-  requestId?: string;
-  businessName?: string;
   auditType?: number;
-  domainName?: string;
+  businessName?: string;
   createTime?: number;
-  updateTime?: number;
+  domainName?: string;
   id?: string;
   remark?: string;
+  requestId?: string;
+  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
       auditInfo: 'AuditInfo',
       auditStatus: 'AuditStatus',
-      requestId: 'RequestId',
-      businessName: 'BusinessName',
       auditType: 'AuditType',
-      domainName: 'DomainName',
+      businessName: 'BusinessName',
       createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
+      domainName: 'DomainName',
       id: 'Id',
       remark: 'Remark',
+      requestId: 'RequestId',
+      updateTime: 'UpdateTime',
     };
   }
 
@@ -3647,14 +3819,14 @@ export class QueryOperationAuditInfoDetailResponseBody extends $tea.Model {
     return {
       auditInfo: 'string',
       auditStatus: 'number',
-      requestId: 'string',
-      businessName: 'string',
       auditType: 'number',
-      domainName: 'string',
+      businessName: 'string',
       createTime: 'number',
-      updateTime: 'number',
+      domainName: 'string',
       id: 'string',
       remark: 'string',
+      requestId: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -3665,10 +3837,12 @@ export class QueryOperationAuditInfoDetailResponseBody extends $tea.Model {
 
 export class QueryOperationAuditInfoDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryOperationAuditInfoDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3676,6 +3850,7 @@ export class QueryOperationAuditInfoDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryOperationAuditInfoDetailResponseBody,
     };
   }
@@ -3686,31 +3861,31 @@ export class QueryOperationAuditInfoDetailResponse extends $tea.Model {
 }
 
 export class QueryOperationAuditInfoListRequest extends $tea.Model {
-  lang?: string;
-  domainName?: string;
-  auditType?: number;
   auditStatus?: number;
-  pageSize?: number;
+  auditType?: number;
+  domainName?: string;
+  lang?: string;
   pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      domainName: 'DomainName',
-      auditType: 'AuditType',
       auditStatus: 'AuditStatus',
-      pageSize: 'PageSize',
+      auditType: 'AuditType',
+      domainName: 'DomainName',
+      lang: 'Lang',
       pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      domainName: 'string',
-      auditType: 'number',
       auditStatus: 'number',
-      pageSize: 'number',
+      auditType: 'number',
+      domainName: 'string',
+      lang: 'string',
       pageNum: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -3720,37 +3895,37 @@ export class QueryOperationAuditInfoListRequest extends $tea.Model {
 }
 
 export class QueryOperationAuditInfoListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryOperationAuditInfoListResponseBodyData[];
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: { 'type': 'array', 'itemType': QueryOperationAuditInfoListResponseBodyData },
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -3761,10 +3936,12 @@ export class QueryOperationAuditInfoListResponseBody extends $tea.Model {
 
 export class QueryOperationAuditInfoListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryOperationAuditInfoListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3772,6 +3949,7 @@ export class QueryOperationAuditInfoListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryOperationAuditInfoListResponseBody,
     };
   }
@@ -3783,24 +3961,24 @@ export class QueryOperationAuditInfoListResponse extends $tea.Model {
 
 export class QueryQualificationDetailRequest extends $tea.Model {
   instanceId?: string;
-  userClientIp?: string;
   lang?: string;
   qualificationType?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       qualificationType: 'QualificationType',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      userClientIp: 'string',
       lang: 'string',
       qualificationType: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -3811,14 +3989,14 @@ export class QueryQualificationDetailRequest extends $tea.Model {
 
 export class QueryQualificationDetailResponseBody extends $tea.Model {
   auditStatus?: number;
-  requestId?: string;
   credentials?: QueryQualificationDetailResponseBodyCredentials;
+  requestId?: string;
   trackId?: string;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
-      requestId: 'RequestId',
       credentials: 'Credentials',
+      requestId: 'RequestId',
       trackId: 'TrackId',
     };
   }
@@ -3826,8 +4004,8 @@ export class QueryQualificationDetailResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'number',
-      requestId: 'string',
       credentials: QueryQualificationDetailResponseBodyCredentials,
+      requestId: 'string',
       trackId: 'string',
     };
   }
@@ -3839,10 +4017,12 @@ export class QueryQualificationDetailResponseBody extends $tea.Model {
 
 export class QueryQualificationDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryQualificationDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3850,6 +4030,7 @@ export class QueryQualificationDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryQualificationDetailResponseBody,
     };
   }
@@ -3860,25 +4041,25 @@ export class QueryQualificationDetailResponse extends $tea.Model {
 }
 
 export class QueryRegistrantProfileRealNameVerificationInfoRequest extends $tea.Model {
-  userClientIp?: string;
+  fetchImage?: boolean;
   lang?: string;
   registrantProfileId?: number;
-  fetchImage?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      fetchImage: 'FetchImage',
       lang: 'Lang',
       registrantProfileId: 'RegistrantProfileId',
-      fetchImage: 'FetchImage',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      fetchImage: 'boolean',
       lang: 'string',
       registrantProfileId: 'number',
-      fetchImage: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -3888,37 +4069,37 @@ export class QueryRegistrantProfileRealNameVerificationInfoRequest extends $tea.
 }
 
 export class QueryRegistrantProfileRealNameVerificationInfoResponseBody extends $tea.Model {
-  identityCredentialType?: string;
-  requestId?: string;
-  modificationDate?: string;
   identityCredential?: string;
-  submissionDate?: string;
   identityCredentialNo?: string;
-  registrantProfileId?: number;
+  identityCredentialType?: string;
   identityCredentialUrl?: string;
+  modificationDate?: string;
+  registrantProfileId?: number;
+  requestId?: string;
+  submissionDate?: string;
   static names(): { [key: string]: string } {
     return {
-      identityCredentialType: 'IdentityCredentialType',
-      requestId: 'RequestId',
-      modificationDate: 'ModificationDate',
       identityCredential: 'IdentityCredential',
-      submissionDate: 'SubmissionDate',
       identityCredentialNo: 'IdentityCredentialNo',
-      registrantProfileId: 'RegistrantProfileId',
+      identityCredentialType: 'IdentityCredentialType',
       identityCredentialUrl: 'IdentityCredentialUrl',
+      modificationDate: 'ModificationDate',
+      registrantProfileId: 'RegistrantProfileId',
+      requestId: 'RequestId',
+      submissionDate: 'SubmissionDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identityCredentialType: 'string',
-      requestId: 'string',
-      modificationDate: 'string',
       identityCredential: 'string',
-      submissionDate: 'string',
       identityCredentialNo: 'string',
-      registrantProfileId: 'number',
+      identityCredentialType: 'string',
       identityCredentialUrl: 'string',
+      modificationDate: 'string',
+      registrantProfileId: 'number',
+      requestId: 'string',
+      submissionDate: 'string',
     };
   }
 
@@ -3929,10 +4110,12 @@ export class QueryRegistrantProfileRealNameVerificationInfoResponseBody extends 
 
 export class QueryRegistrantProfileRealNameVerificationInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryRegistrantProfileRealNameVerificationInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3940,6 +4123,7 @@ export class QueryRegistrantProfileRealNameVerificationInfoResponse extends $tea
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRegistrantProfileRealNameVerificationInfoResponseBody,
     };
   }
@@ -3950,49 +4134,49 @@ export class QueryRegistrantProfileRealNameVerificationInfoResponse extends $tea
 }
 
 export class QueryRegistrantProfilesRequest extends $tea.Model {
-  lang?: string;
-  registrantOrganization?: string;
-  userClientIp?: string;
-  registrantProfileId?: number;
   defaultRegistrantProfile?: boolean;
+  email?: string;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
-  zhRegistrantOrganization?: string;
-  registrantType?: string;
   realNameStatus?: string;
-  email?: string;
+  registrantOrganization?: string;
+  registrantProfileId?: number;
   registrantProfileType?: string;
+  registrantType?: string;
+  userClientIp?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      registrantOrganization: 'RegistrantOrganization',
-      userClientIp: 'UserClientIp',
-      registrantProfileId: 'RegistrantProfileId',
       defaultRegistrantProfile: 'DefaultRegistrantProfile',
+      email: 'Email',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      registrantType: 'RegistrantType',
       realNameStatus: 'RealNameStatus',
-      email: 'Email',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantProfileId: 'RegistrantProfileId',
       registrantProfileType: 'RegistrantProfileType',
+      registrantType: 'RegistrantType',
+      userClientIp: 'UserClientIp',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      registrantOrganization: 'string',
-      userClientIp: 'string',
-      registrantProfileId: 'number',
       defaultRegistrantProfile: 'boolean',
+      email: 'string',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
-      zhRegistrantOrganization: 'string',
-      registrantType: 'string',
       realNameStatus: 'string',
-      email: 'string',
+      registrantOrganization: 'string',
+      registrantProfileId: 'number',
       registrantProfileType: 'string',
+      registrantType: 'string',
+      userClientIp: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -4002,37 +4186,37 @@ export class QueryRegistrantProfilesRequest extends $tea.Model {
 }
 
 export class QueryRegistrantProfilesResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
-  registrantProfiles?: QueryRegistrantProfilesResponseBodyRegistrantProfiles;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  registrantProfiles?: QueryRegistrantProfilesResponseBodyRegistrantProfiles;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
-      registrantProfiles: 'RegistrantProfiles',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      registrantProfiles: 'RegistrantProfiles',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
-      registrantProfiles: QueryRegistrantProfilesResponseBodyRegistrantProfiles,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      registrantProfiles: QueryRegistrantProfilesResponseBodyRegistrantProfiles,
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -4043,10 +4227,12 @@ export class QueryRegistrantProfilesResponseBody extends $tea.Model {
 
 export class QueryRegistrantProfilesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryRegistrantProfilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4054,6 +4240,7 @@ export class QueryRegistrantProfilesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRegistrantProfilesResponseBody,
     };
   }
@@ -4064,21 +4251,21 @@ export class QueryRegistrantProfilesResponse extends $tea.Model {
 }
 
 export class QueryServerLockRequest extends $tea.Model {
-  lang?: string;
   instanceId?: string;
+  lang?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       instanceId: 'string',
+      lang: 'string',
       userClientIp: 'string',
     };
   }
@@ -4089,46 +4276,46 @@ export class QueryServerLockRequest extends $tea.Model {
 }
 
 export class QueryServerLockResponseBody extends $tea.Model {
-  startDate?: string;
-  gmtCreate?: string;
-  requestId?: string;
-  expireDate?: string;
-  domainName?: string;
-  userId?: string;
-  gmtModified?: string;
   domainInstanceId?: string;
+  domainName?: string;
+  expireDate?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
   lockInstanceId?: string;
-  serverLockStatus?: number;
   lockProductId?: string;
+  requestId?: string;
+  serverLockStatus?: number;
+  startDate?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      startDate: 'StartDate',
-      gmtCreate: 'GmtCreate',
-      requestId: 'RequestId',
-      expireDate: 'ExpireDate',
-      domainName: 'DomainName',
-      userId: 'UserId',
-      gmtModified: 'GmtModified',
       domainInstanceId: 'DomainInstanceId',
+      domainName: 'DomainName',
+      expireDate: 'ExpireDate',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       lockInstanceId: 'LockInstanceId',
-      serverLockStatus: 'ServerLockStatus',
       lockProductId: 'LockProductId',
+      requestId: 'RequestId',
+      serverLockStatus: 'ServerLockStatus',
+      startDate: 'StartDate',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startDate: 'string',
-      gmtCreate: 'string',
-      requestId: 'string',
-      expireDate: 'string',
-      domainName: 'string',
-      userId: 'string',
-      gmtModified: 'string',
       domainInstanceId: 'string',
+      domainName: 'string',
+      expireDate: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
       lockInstanceId: 'string',
-      serverLockStatus: 'number',
       lockProductId: 'string',
+      requestId: 'string',
+      serverLockStatus: 'number',
+      startDate: 'string',
+      userId: 'string',
     };
   }
 
@@ -4139,10 +4326,12 @@ export class QueryServerLockResponseBody extends $tea.Model {
 
 export class QueryServerLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryServerLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4150,6 +4339,7 @@ export class QueryServerLockResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryServerLockResponseBody,
     };
   }
@@ -4160,37 +4350,37 @@ export class QueryServerLockResponse extends $tea.Model {
 }
 
 export class QueryTaskDetailHistoryRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  taskNo?: string;
   domainName?: string;
   domainNameCursor?: string;
-  taskStatus?: number;
+  lang?: string;
   pageSize?: number;
   taskDetailNoCursor?: string;
+  taskNo?: string;
+  taskStatus?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      taskNo: 'TaskNo',
       domainName: 'DomainName',
       domainNameCursor: 'DomainNameCursor',
-      taskStatus: 'TaskStatus',
+      lang: 'Lang',
       pageSize: 'PageSize',
       taskDetailNoCursor: 'TaskDetailNoCursor',
+      taskNo: 'TaskNo',
+      taskStatus: 'TaskStatus',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      taskNo: 'string',
       domainName: 'string',
       domainNameCursor: 'string',
-      taskStatus: 'number',
+      lang: 'string',
       pageSize: 'number',
       taskDetailNoCursor: 'string',
+      taskNo: 'string',
+      taskStatus: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -4200,31 +4390,31 @@ export class QueryTaskDetailHistoryRequest extends $tea.Model {
 }
 
 export class QueryTaskDetailHistoryResponseBody extends $tea.Model {
-  pageSize?: number;
-  requestId?: string;
   currentPageCursor?: QueryTaskDetailHistoryResponseBodyCurrentPageCursor;
-  objects?: QueryTaskDetailHistoryResponseBodyObjects[];
-  prePageCursor?: QueryTaskDetailHistoryResponseBodyPrePageCursor;
   nextPageCursor?: QueryTaskDetailHistoryResponseBodyNextPageCursor;
+  objects?: QueryTaskDetailHistoryResponseBodyObjects[];
+  pageSize?: number;
+  prePageCursor?: QueryTaskDetailHistoryResponseBodyPrePageCursor;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       currentPageCursor: 'CurrentPageCursor',
-      objects: 'Objects',
-      prePageCursor: 'PrePageCursor',
       nextPageCursor: 'NextPageCursor',
+      objects: 'Objects',
+      pageSize: 'PageSize',
+      prePageCursor: 'PrePageCursor',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
-      requestId: 'string',
       currentPageCursor: QueryTaskDetailHistoryResponseBodyCurrentPageCursor,
-      objects: { 'type': 'array', 'itemType': QueryTaskDetailHistoryResponseBodyObjects },
-      prePageCursor: QueryTaskDetailHistoryResponseBodyPrePageCursor,
       nextPageCursor: QueryTaskDetailHistoryResponseBodyNextPageCursor,
+      objects: { 'type': 'array', 'itemType': QueryTaskDetailHistoryResponseBodyObjects },
+      pageSize: 'number',
+      prePageCursor: QueryTaskDetailHistoryResponseBodyPrePageCursor,
+      requestId: 'string',
     };
   }
 
@@ -4235,10 +4425,12 @@ export class QueryTaskDetailHistoryResponseBody extends $tea.Model {
 
 export class QueryTaskDetailHistoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTaskDetailHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4246,6 +4438,7 @@ export class QueryTaskDetailHistoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTaskDetailHistoryResponseBody,
     };
   }
@@ -4256,37 +4449,37 @@ export class QueryTaskDetailHistoryResponse extends $tea.Model {
 }
 
 export class QueryTaskDetailListRequest extends $tea.Model {
-  taskStatus?: number;
-  lang?: string;
-  taskNo?: string;
   domainName?: string;
   instanceId?: string;
-  userClientIp?: string;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
+  taskNo?: string;
+  taskStatus?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      taskStatus: 'TaskStatus',
-      lang: 'Lang',
-      taskNo: 'TaskNo',
       domainName: 'DomainName',
       instanceId: 'InstanceId',
-      userClientIp: 'UserClientIp',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      taskNo: 'TaskNo',
+      taskStatus: 'TaskStatus',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskStatus: 'number',
-      lang: 'string',
-      taskNo: 'string',
       domainName: 'string',
       instanceId: 'string',
-      userClientIp: 'string',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      taskNo: 'string',
+      taskStatus: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -4296,37 +4489,37 @@ export class QueryTaskDetailListRequest extends $tea.Model {
 }
 
 export class QueryTaskDetailListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryTaskDetailListResponseBodyData;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: QueryTaskDetailListResponseBodyData,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -4337,10 +4530,12 @@ export class QueryTaskDetailListResponseBody extends $tea.Model {
 
 export class QueryTaskDetailListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTaskDetailListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4348,6 +4543,7 @@ export class QueryTaskDetailListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTaskDetailListResponseBody,
     };
   }
@@ -4358,34 +4554,34 @@ export class QueryTaskDetailListResponse extends $tea.Model {
 }
 
 export class QueryTaskInfoHistoryRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   beginCreateTime?: number;
-  endCreateTime?: number;
-  pageSize?: number;
   createTimeCursor?: number;
+  endCreateTime?: number;
+  lang?: string;
+  pageSize?: number;
   taskNoCursor?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       beginCreateTime: 'BeginCreateTime',
-      endCreateTime: 'EndCreateTime',
-      pageSize: 'PageSize',
       createTimeCursor: 'CreateTimeCursor',
+      endCreateTime: 'EndCreateTime',
+      lang: 'Lang',
+      pageSize: 'PageSize',
       taskNoCursor: 'TaskNoCursor',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       beginCreateTime: 'number',
-      endCreateTime: 'number',
-      pageSize: 'number',
       createTimeCursor: 'number',
+      endCreateTime: 'number',
+      lang: 'string',
+      pageSize: 'number',
       taskNoCursor: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -4395,31 +4591,31 @@ export class QueryTaskInfoHistoryRequest extends $tea.Model {
 }
 
 export class QueryTaskInfoHistoryResponseBody extends $tea.Model {
-  pageSize?: number;
-  requestId?: string;
   currentPageCursor?: QueryTaskInfoHistoryResponseBodyCurrentPageCursor;
-  objects?: QueryTaskInfoHistoryResponseBodyObjects[];
-  prePageCursor?: QueryTaskInfoHistoryResponseBodyPrePageCursor;
   nextPageCursor?: QueryTaskInfoHistoryResponseBodyNextPageCursor;
+  objects?: QueryTaskInfoHistoryResponseBodyObjects[];
+  pageSize?: number;
+  prePageCursor?: QueryTaskInfoHistoryResponseBodyPrePageCursor;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       currentPageCursor: 'CurrentPageCursor',
-      objects: 'Objects',
-      prePageCursor: 'PrePageCursor',
       nextPageCursor: 'NextPageCursor',
+      objects: 'Objects',
+      pageSize: 'PageSize',
+      prePageCursor: 'PrePageCursor',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
-      requestId: 'string',
       currentPageCursor: QueryTaskInfoHistoryResponseBodyCurrentPageCursor,
-      objects: { 'type': 'array', 'itemType': QueryTaskInfoHistoryResponseBodyObjects },
-      prePageCursor: QueryTaskInfoHistoryResponseBodyPrePageCursor,
       nextPageCursor: QueryTaskInfoHistoryResponseBodyNextPageCursor,
+      objects: { 'type': 'array', 'itemType': QueryTaskInfoHistoryResponseBodyObjects },
+      pageSize: 'number',
+      prePageCursor: QueryTaskInfoHistoryResponseBodyPrePageCursor,
+      requestId: 'string',
     };
   }
 
@@ -4430,10 +4626,12 @@ export class QueryTaskInfoHistoryResponseBody extends $tea.Model {
 
 export class QueryTaskInfoHistoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTaskInfoHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4441,6 +4639,7 @@ export class QueryTaskInfoHistoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTaskInfoHistoryResponseBody,
     };
   }
@@ -4451,31 +4650,31 @@ export class QueryTaskInfoHistoryResponse extends $tea.Model {
 }
 
 export class QueryTaskListRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   beginCreateTime?: number;
   endCreateTime?: number;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       beginCreateTime: 'BeginCreateTime',
       endCreateTime: 'EndCreateTime',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       beginCreateTime: 'number',
       endCreateTime: 'number',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -4485,37 +4684,37 @@ export class QueryTaskListRequest extends $tea.Model {
 }
 
 export class QueryTaskListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryTaskListResponseBodyData;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: QueryTaskListResponseBodyData,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -4526,10 +4725,12 @@ export class QueryTaskListResponseBody extends $tea.Model {
 
 export class QueryTaskListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4537,6 +4738,7 @@ export class QueryTaskListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTaskListResponseBody,
     };
   }
@@ -4572,79 +4774,79 @@ export class QueryTransferInByInstanceIdRequest extends $tea.Model {
 }
 
 export class QueryTransferInByInstanceIdResponseBody extends $tea.Model {
-  status?: number;
-  transferAuthorizationCodeSubmissionDate?: string;
+  domainName?: string;
   email?: string;
+  expirationDate?: string;
+  expirationDateLong?: number;
+  instanceId?: string;
+  modificationDate?: string;
+  modificationDateLong?: number;
+  needMailCheck?: boolean;
   progressBarType?: number;
   requestId?: string;
-  instanceId?: string;
-  domainName?: string;
-  submissionDateLong?: number;
-  submissionDate?: string;
-  simpleTransferInStatus?: string;
-  transferAuthorizationCodeSubmissionDateLong?: number;
-  expirationDateLong?: number;
-  expirationDate?: string;
-  needMailCheck?: boolean;
-  userId?: string;
-  modificationDate?: string;
-  resultDateLong?: number;
-  resultMsg?: string;
-  whoisMailStatus?: boolean;
-  modificationDateLong?: number;
   resultCode?: string;
   resultDate?: string;
+  resultDateLong?: number;
+  resultMsg?: string;
+  simpleTransferInStatus?: string;
+  status?: number;
+  submissionDate?: string;
+  submissionDateLong?: number;
+  transferAuthorizationCodeSubmissionDate?: string;
+  transferAuthorizationCodeSubmissionDateLong?: number;
+  userId?: string;
+  whoisMailStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      transferAuthorizationCodeSubmissionDate: 'TransferAuthorizationCodeSubmissionDate',
+      domainName: 'DomainName',
       email: 'Email',
+      expirationDate: 'ExpirationDate',
+      expirationDateLong: 'ExpirationDateLong',
+      instanceId: 'InstanceId',
+      modificationDate: 'ModificationDate',
+      modificationDateLong: 'ModificationDateLong',
+      needMailCheck: 'NeedMailCheck',
       progressBarType: 'ProgressBarType',
       requestId: 'RequestId',
-      instanceId: 'InstanceId',
-      domainName: 'DomainName',
-      submissionDateLong: 'SubmissionDateLong',
-      submissionDate: 'SubmissionDate',
-      simpleTransferInStatus: 'SimpleTransferInStatus',
-      transferAuthorizationCodeSubmissionDateLong: 'TransferAuthorizationCodeSubmissionDateLong',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationDate: 'ExpirationDate',
-      needMailCheck: 'NeedMailCheck',
-      userId: 'UserId',
-      modificationDate: 'ModificationDate',
-      resultDateLong: 'ResultDateLong',
-      resultMsg: 'ResultMsg',
-      whoisMailStatus: 'WhoisMailStatus',
-      modificationDateLong: 'ModificationDateLong',
       resultCode: 'ResultCode',
       resultDate: 'ResultDate',
+      resultDateLong: 'ResultDateLong',
+      resultMsg: 'ResultMsg',
+      simpleTransferInStatus: 'SimpleTransferInStatus',
+      status: 'Status',
+      submissionDate: 'SubmissionDate',
+      submissionDateLong: 'SubmissionDateLong',
+      transferAuthorizationCodeSubmissionDate: 'TransferAuthorizationCodeSubmissionDate',
+      transferAuthorizationCodeSubmissionDateLong: 'TransferAuthorizationCodeSubmissionDateLong',
+      userId: 'UserId',
+      whoisMailStatus: 'WhoisMailStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      transferAuthorizationCodeSubmissionDate: 'string',
+      domainName: 'string',
       email: 'string',
+      expirationDate: 'string',
+      expirationDateLong: 'number',
+      instanceId: 'string',
+      modificationDate: 'string',
+      modificationDateLong: 'number',
+      needMailCheck: 'boolean',
       progressBarType: 'number',
       requestId: 'string',
-      instanceId: 'string',
-      domainName: 'string',
-      submissionDateLong: 'number',
-      submissionDate: 'string',
-      simpleTransferInStatus: 'string',
-      transferAuthorizationCodeSubmissionDateLong: 'number',
-      expirationDateLong: 'number',
-      expirationDate: 'string',
-      needMailCheck: 'boolean',
-      userId: 'string',
-      modificationDate: 'string',
-      resultDateLong: 'number',
-      resultMsg: 'string',
-      whoisMailStatus: 'boolean',
-      modificationDateLong: 'number',
       resultCode: 'string',
       resultDate: 'string',
+      resultDateLong: 'number',
+      resultMsg: 'string',
+      simpleTransferInStatus: 'string',
+      status: 'number',
+      submissionDate: 'string',
+      submissionDateLong: 'number',
+      transferAuthorizationCodeSubmissionDate: 'string',
+      transferAuthorizationCodeSubmissionDateLong: 'number',
+      userId: 'string',
+      whoisMailStatus: 'boolean',
     };
   }
 
@@ -4655,10 +4857,12 @@ export class QueryTransferInByInstanceIdResponseBody extends $tea.Model {
 
 export class QueryTransferInByInstanceIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTransferInByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4666,6 +4870,7 @@ export class QueryTransferInByInstanceIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTransferInByInstanceIdResponseBody,
     };
   }
@@ -4676,37 +4881,37 @@ export class QueryTransferInByInstanceIdResponse extends $tea.Model {
 }
 
 export class QueryTransferInListRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  submissionStartDate?: number;
-  submissionEndDate?: number;
   domainName?: string;
-  simpleTransferInStatus?: string;
+  lang?: string;
   pageNum?: number;
   pageSize?: number;
+  simpleTransferInStatus?: string;
+  submissionEndDate?: number;
+  submissionStartDate?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      submissionStartDate: 'SubmissionStartDate',
-      submissionEndDate: 'SubmissionEndDate',
       domainName: 'DomainName',
-      simpleTransferInStatus: 'SimpleTransferInStatus',
+      lang: 'Lang',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      simpleTransferInStatus: 'SimpleTransferInStatus',
+      submissionEndDate: 'SubmissionEndDate',
+      submissionStartDate: 'SubmissionStartDate',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      submissionStartDate: 'number',
-      submissionEndDate: 'number',
       domainName: 'string',
-      simpleTransferInStatus: 'string',
+      lang: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      simpleTransferInStatus: 'string',
+      submissionEndDate: 'number',
+      submissionStartDate: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -4716,37 +4921,37 @@ export class QueryTransferInListRequest extends $tea.Model {
 }
 
 export class QueryTransferInListResponseBody extends $tea.Model {
-  prePage?: boolean;
   currentPageNum?: number;
-  requestId?: string;
-  pageSize?: number;
-  totalPageNum?: number;
   data?: QueryTransferInListResponseBodyData;
-  totalItemNum?: number;
   nextPage?: boolean;
+  pageSize?: number;
+  prePage?: boolean;
+  requestId?: string;
+  totalItemNum?: number;
+  totalPageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      prePage: 'PrePage',
       currentPageNum: 'CurrentPageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      totalPageNum: 'TotalPageNum',
       data: 'Data',
-      totalItemNum: 'TotalItemNum',
       nextPage: 'NextPage',
+      pageSize: 'PageSize',
+      prePage: 'PrePage',
+      requestId: 'RequestId',
+      totalItemNum: 'TotalItemNum',
+      totalPageNum: 'TotalPageNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      prePage: 'boolean',
       currentPageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      totalPageNum: 'number',
       data: QueryTransferInListResponseBodyData,
-      totalItemNum: 'number',
       nextPage: 'boolean',
+      pageSize: 'number',
+      prePage: 'boolean',
+      requestId: 'string',
+      totalItemNum: 'number',
+      totalPageNum: 'number',
     };
   }
 
@@ -4757,10 +4962,12 @@ export class QueryTransferInListResponseBody extends $tea.Model {
 
 export class QueryTransferInListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTransferInListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4768,6 +4975,7 @@ export class QueryTransferInListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTransferInListResponseBody,
     };
   }
@@ -4803,36 +5011,36 @@ export class QueryTransferOutInfoRequest extends $tea.Model {
 }
 
 export class QueryTransferOutInfoResponseBody extends $tea.Model {
-  status?: number;
   email?: string;
   expirationDate?: string;
-  requestId?: string;
-  resultMsg?: string;
   pendingRequestDate?: string;
+  requestId?: string;
   resultCode?: string;
+  resultMsg?: string;
+  status?: number;
   transferAuthorizationCodeSendDate?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       email: 'Email',
       expirationDate: 'ExpirationDate',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
       pendingRequestDate: 'PendingRequestDate',
+      requestId: 'RequestId',
       resultCode: 'ResultCode',
+      resultMsg: 'ResultMsg',
+      status: 'Status',
       transferAuthorizationCodeSendDate: 'TransferAuthorizationCodeSendDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
       email: 'string',
       expirationDate: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
       pendingRequestDate: 'string',
+      requestId: 'string',
       resultCode: 'string',
+      resultMsg: 'string',
+      status: 'number',
       transferAuthorizationCodeSendDate: 'string',
     };
   }
@@ -4844,10 +5052,12 @@ export class QueryTransferOutInfoResponseBody extends $tea.Model {
 
 export class QueryTransferOutInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryTransferOutInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4855,6 +5065,7 @@ export class QueryTransferOutInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryTransferOutInfoResponseBody,
     };
   }
@@ -4865,31 +5076,31 @@ export class QueryTransferOutInfoResponse extends $tea.Model {
 }
 
 export class RegistrantProfileRealNameVerificationRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  registrantProfileID?: number;
   identityCredential?: string;
   identityCredentialNo?: string;
   identityCredentialType?: string;
+  lang?: string;
+  registrantProfileID?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      registrantProfileID: 'RegistrantProfileID',
       identityCredential: 'IdentityCredential',
       identityCredentialNo: 'IdentityCredentialNo',
       identityCredentialType: 'IdentityCredentialType',
+      lang: 'Lang',
+      registrantProfileID: 'RegistrantProfileID',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      registrantProfileID: 'number',
       identityCredential: 'string',
       identityCredentialNo: 'string',
       identityCredentialType: 'string',
+      lang: 'string',
+      registrantProfileID: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -4919,10 +5130,12 @@ export class RegistrantProfileRealNameVerificationResponseBody extends $tea.Mode
 
 export class RegistrantProfileRealNameVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RegistrantProfileRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4930,6 +5143,7 @@ export class RegistrantProfileRealNameVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RegistrantProfileRealNameVerificationResponseBody,
     };
   }
@@ -4940,21 +5154,21 @@ export class RegistrantProfileRealNameVerificationResponse extends $tea.Model {
 }
 
 export class ResendEmailVerificationRequest extends $tea.Model {
-  lang?: string;
   email?: string;
+  lang?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       email: 'Email',
+      lang: 'Lang',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       email: 'string',
+      lang: 'string',
       userClientIp: 'string',
     };
   }
@@ -4965,22 +5179,22 @@ export class ResendEmailVerificationRequest extends $tea.Model {
 }
 
 export class ResendEmailVerificationResponseBody extends $tea.Model {
+  failList?: ResendEmailVerificationResponseBodyFailList[];
   requestId?: string;
   successList?: ResendEmailVerificationResponseBodySuccessList[];
-  failList?: ResendEmailVerificationResponseBodyFailList[];
   static names(): { [key: string]: string } {
     return {
+      failList: 'FailList',
       requestId: 'RequestId',
       successList: 'SuccessList',
-      failList: 'FailList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      failList: { 'type': 'array', 'itemType': ResendEmailVerificationResponseBodyFailList },
       requestId: 'string',
       successList: { 'type': 'array', 'itemType': ResendEmailVerificationResponseBodySuccessList },
-      failList: { 'type': 'array', 'itemType': ResendEmailVerificationResponseBodyFailList },
     };
   }
 
@@ -4991,10 +5205,12 @@ export class ResendEmailVerificationResponseBody extends $tea.Model {
 
 export class ResendEmailVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResendEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5002,6 +5218,7 @@ export class ResendEmailVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResendEmailVerificationResponseBody,
     };
   }
@@ -5013,21 +5230,21 @@ export class ResendEmailVerificationResponse extends $tea.Model {
 
 export class ResetQualificationVerificationRequest extends $tea.Model {
   instanceId?: string;
-  userClientIp?: string;
   lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      userClientIp: 'string',
       lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -5057,10 +5274,12 @@ export class ResetQualificationVerificationResponseBody extends $tea.Model {
 
 export class ResetQualificationVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResetQualificationVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5068,6 +5287,7 @@ export class ResetQualificationVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResetQualificationVerificationResponseBody,
     };
   }
@@ -5078,24 +5298,24 @@ export class ResetQualificationVerificationResponse extends $tea.Model {
 }
 
 export class SaveBatchDomainRemarkRequest extends $tea.Model {
+  instanceIds?: string;
   lang?: string;
   remark?: string;
-  instanceIds?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceIds: 'InstanceIds',
       lang: 'Lang',
       remark: 'Remark',
-      instanceIds: 'InstanceIds',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceIds: 'string',
       lang: 'string',
       remark: 'string',
-      instanceIds: 'string',
       userClientIp: 'string',
     };
   }
@@ -5126,10 +5346,12 @@ export class SaveBatchDomainRemarkResponseBody extends $tea.Model {
 
 export class SaveBatchDomainRemarkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchDomainRemarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5137,6 +5359,7 @@ export class SaveBatchDomainRemarkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchDomainRemarkResponseBody,
     };
   }
@@ -5147,34 +5370,34 @@ export class SaveBatchDomainRemarkResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForCreatingOrderActivateRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   couponNo?: string;
-  useCoupon?: boolean;
-  promotionNo?: string;
-  usePromotion?: boolean;
+  lang?: string;
   orderActivateParam?: SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam[];
+  promotionNo?: string;
+  useCoupon?: boolean;
+  usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
-      promotionNo: 'PromotionNo',
-      usePromotion: 'UsePromotion',
+      lang: 'Lang',
       orderActivateParam: 'OrderActivateParam',
+      promotionNo: 'PromotionNo',
+      useCoupon: 'UseCoupon',
+      usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       couponNo: 'string',
-      useCoupon: 'boolean',
-      promotionNo: 'string',
-      usePromotion: 'boolean',
+      lang: 'string',
       orderActivateParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam },
+      promotionNo: 'string',
+      useCoupon: 'boolean',
+      usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -5207,10 +5430,12 @@ export class SaveBatchTaskForCreatingOrderActivateResponseBody extends $tea.Mode
 
 export class SaveBatchTaskForCreatingOrderActivateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForCreatingOrderActivateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5218,6 +5443,7 @@ export class SaveBatchTaskForCreatingOrderActivateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForCreatingOrderActivateResponseBody,
     };
   }
@@ -5228,34 +5454,34 @@ export class SaveBatchTaskForCreatingOrderActivateResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForCreatingOrderRedeemRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   couponNo?: string;
-  useCoupon?: boolean;
-  promotionNo?: string;
-  usePromotion?: boolean;
+  lang?: string;
   orderRedeemParam?: SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam[];
+  promotionNo?: string;
+  useCoupon?: boolean;
+  usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
-      promotionNo: 'PromotionNo',
-      usePromotion: 'UsePromotion',
+      lang: 'Lang',
       orderRedeemParam: 'OrderRedeemParam',
+      promotionNo: 'PromotionNo',
+      useCoupon: 'UseCoupon',
+      usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       couponNo: 'string',
-      useCoupon: 'boolean',
-      promotionNo: 'string',
-      usePromotion: 'boolean',
+      lang: 'string',
       orderRedeemParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam },
+      promotionNo: 'string',
+      useCoupon: 'boolean',
+      usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -5288,10 +5514,12 @@ export class SaveBatchTaskForCreatingOrderRedeemResponseBody extends $tea.Model 
 
 export class SaveBatchTaskForCreatingOrderRedeemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForCreatingOrderRedeemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5299,6 +5527,7 @@ export class SaveBatchTaskForCreatingOrderRedeemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForCreatingOrderRedeemResponseBody,
     };
   }
@@ -5309,34 +5538,34 @@ export class SaveBatchTaskForCreatingOrderRedeemResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForCreatingOrderRenewRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   couponNo?: string;
-  useCoupon?: boolean;
-  promotionNo?: string;
-  usePromotion?: boolean;
+  lang?: string;
   orderRenewParam?: SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam[];
+  promotionNo?: string;
+  useCoupon?: boolean;
+  usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
-      promotionNo: 'PromotionNo',
-      usePromotion: 'UsePromotion',
+      lang: 'Lang',
       orderRenewParam: 'OrderRenewParam',
+      promotionNo: 'PromotionNo',
+      useCoupon: 'UseCoupon',
+      usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       couponNo: 'string',
-      useCoupon: 'boolean',
-      promotionNo: 'string',
-      usePromotion: 'boolean',
+      lang: 'string',
       orderRenewParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam },
+      promotionNo: 'string',
+      useCoupon: 'boolean',
+      usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -5369,10 +5598,12 @@ export class SaveBatchTaskForCreatingOrderRenewResponseBody extends $tea.Model {
 
 export class SaveBatchTaskForCreatingOrderRenewResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForCreatingOrderRenewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5380,6 +5611,7 @@ export class SaveBatchTaskForCreatingOrderRenewResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForCreatingOrderRenewResponseBody,
     };
   }
@@ -5390,34 +5622,34 @@ export class SaveBatchTaskForCreatingOrderRenewResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForCreatingOrderTransferRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   couponNo?: string;
-  useCoupon?: boolean;
-  promotionNo?: string;
-  usePromotion?: boolean;
+  lang?: string;
   orderTransferParam?: SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam[];
+  promotionNo?: string;
+  useCoupon?: boolean;
+  usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
-      promotionNo: 'PromotionNo',
-      usePromotion: 'UsePromotion',
+      lang: 'Lang',
       orderTransferParam: 'OrderTransferParam',
+      promotionNo: 'PromotionNo',
+      useCoupon: 'UseCoupon',
+      usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       couponNo: 'string',
-      useCoupon: 'boolean',
-      promotionNo: 'string',
-      usePromotion: 'boolean',
+      lang: 'string',
       orderTransferParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam },
+      promotionNo: 'string',
+      useCoupon: 'boolean',
+      usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -5450,10 +5682,12 @@ export class SaveBatchTaskForCreatingOrderTransferResponseBody extends $tea.Mode
 
 export class SaveBatchTaskForCreatingOrderTransferResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForCreatingOrderTransferResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5461,6 +5695,7 @@ export class SaveBatchTaskForCreatingOrderTransferResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForCreatingOrderTransferResponseBody,
     };
   }
@@ -5471,25 +5706,25 @@ export class SaveBatchTaskForCreatingOrderTransferResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForDomainNameProxyServiceRequest extends $tea.Model {
-  userClientIp?: string;
+  domainName?: string[];
   lang?: string;
   status?: boolean;
-  domainName?: string[];
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
       lang: 'Lang',
       status: 'Status',
-      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      domainName: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       status: 'boolean',
-      domainName: { 'type': 'array', 'itemType': 'string' },
+      userClientIp: 'string',
     };
   }
 
@@ -5522,10 +5757,12 @@ export class SaveBatchTaskForDomainNameProxyServiceResponseBody extends $tea.Mod
 
 export class SaveBatchTaskForDomainNameProxyServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForDomainNameProxyServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5533,6 +5770,7 @@ export class SaveBatchTaskForDomainNameProxyServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForDomainNameProxyServiceResponseBody,
     };
   }
@@ -5543,28 +5781,28 @@ export class SaveBatchTaskForDomainNameProxyServiceResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForModifyingDomainDnsRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   aliyunDns?: boolean;
   domainName?: string[];
   domainNameServer?: string[];
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       aliyunDns: 'AliyunDns',
       domainName: 'DomainName',
       domainNameServer: 'DomainNameServer',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       aliyunDns: 'boolean',
       domainName: { 'type': 'array', 'itemType': 'string' },
       domainNameServer: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -5597,10 +5835,12 @@ export class SaveBatchTaskForModifyingDomainDnsResponseBody extends $tea.Model {
 
 export class SaveBatchTaskForModifyingDomainDnsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForModifyingDomainDnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5608,6 +5848,7 @@ export class SaveBatchTaskForModifyingDomainDnsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForModifyingDomainDnsResponseBody,
     };
   }
@@ -5663,10 +5904,12 @@ export class SaveBatchTaskForReserveDropListDomainResponseBody extends $tea.Mode
 
 export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForReserveDropListDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5674,6 +5917,7 @@ export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForReserveDropListDomainResponseBody,
     };
   }
@@ -5684,25 +5928,25 @@ export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
 }
 
 export class SaveBatchTaskForTransferProhibitionLockRequest extends $tea.Model {
-  userClientIp?: string;
+  domainName?: string[];
   lang?: string;
   status?: boolean;
-  domainName?: string[];
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
       lang: 'Lang',
       status: 'Status',
-      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      domainName: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       status: 'boolean',
-      domainName: { 'type': 'array', 'itemType': 'string' },
+      userClientIp: 'string',
     };
   }
 
@@ -5735,10 +5979,12 @@ export class SaveBatchTaskForTransferProhibitionLockResponseBody extends $tea.Mo
 
 export class SaveBatchTaskForTransferProhibitionLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForTransferProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5746,6 +5992,7 @@ export class SaveBatchTaskForTransferProhibitionLockResponse extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForTransferProhibitionLockResponseBody,
     };
   }
@@ -5756,25 +6003,25 @@ export class SaveBatchTaskForTransferProhibitionLockResponse extends $tea.Model 
 }
 
 export class SaveBatchTaskForUpdateProhibitionLockRequest extends $tea.Model {
-  userClientIp?: string;
+  domainName?: string[];
   lang?: string;
   status?: boolean;
-  domainName?: string[];
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
       lang: 'Lang',
       status: 'Status',
-      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      domainName: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       status: 'boolean',
-      domainName: { 'type': 'array', 'itemType': 'string' },
+      userClientIp: 'string',
     };
   }
 
@@ -5807,10 +6054,12 @@ export class SaveBatchTaskForUpdateProhibitionLockResponseBody extends $tea.Mode
 
 export class SaveBatchTaskForUpdateProhibitionLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForUpdateProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5818,6 +6067,7 @@ export class SaveBatchTaskForUpdateProhibitionLockResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForUpdateProhibitionLockResponseBody,
     };
   }
@@ -5829,78 +6079,78 @@ export class SaveBatchTaskForUpdateProhibitionLockResponse extends $tea.Model {
 
 export class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends $tea.Model {
   address?: string;
-  userClientIp?: string;
-  lang?: string;
   city?: string;
-  registrantOrganization?: string;
-  registrantName?: string;
-  province?: string;
-  country?: string;
-  email?: string;
-  postalCode?: string;
-  telArea?: string;
-  telephone?: string;
-  telExt?: string;
-  zhCity?: string;
-  zhRegistrantOrganization?: string;
-  zhRegistrantName?: string;
-  zhProvince?: string;
-  zhAddress?: string;
   contactType?: string;
-  registrantType?: string;
-  transferOutProhibited?: boolean;
+  country?: string;
   domainName?: string[];
+  email?: string;
+  lang?: string;
+  postalCode?: string;
+  province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantType?: string;
+  telArea?: string;
+  telExt?: string;
+  telephone?: string;
+  transferOutProhibited?: boolean;
+  userClientIp?: string;
+  zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       city: 'City',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantName: 'RegistrantName',
-      province: 'Province',
-      country: 'Country',
-      email: 'Email',
-      postalCode: 'PostalCode',
-      telArea: 'TelArea',
-      telephone: 'Telephone',
-      telExt: 'TelExt',
-      zhCity: 'ZhCity',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhProvince: 'ZhProvince',
-      zhAddress: 'ZhAddress',
       contactType: 'ContactType',
-      registrantType: 'RegistrantType',
-      transferOutProhibited: 'TransferOutProhibited',
+      country: 'Country',
       domainName: 'DomainName',
+      email: 'Email',
+      lang: 'Lang',
+      postalCode: 'PostalCode',
+      province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantType: 'RegistrantType',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
+      transferOutProhibited: 'TransferOutProhibited',
+      userClientIp: 'UserClientIp',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       address: 'string',
-      userClientIp: 'string',
-      lang: 'string',
       city: 'string',
-      registrantOrganization: 'string',
-      registrantName: 'string',
-      province: 'string',
-      country: 'string',
-      email: 'string',
-      postalCode: 'string',
-      telArea: 'string',
-      telephone: 'string',
-      telExt: 'string',
-      zhCity: 'string',
-      zhRegistrantOrganization: 'string',
-      zhRegistrantName: 'string',
-      zhProvince: 'string',
-      zhAddress: 'string',
       contactType: 'string',
-      registrantType: 'string',
-      transferOutProhibited: 'boolean',
+      country: 'string',
       domainName: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      lang: 'string',
+      postalCode: 'string',
+      province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantType: 'string',
+      telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
+      transferOutProhibited: 'boolean',
+      userClientIp: 'string',
+      zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -5933,10 +6183,12 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody extends
 
 export class SaveBatchTaskForUpdatingContactInfoByNewContactResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5944,6 +6196,7 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactResponse extends $te
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody,
     };
   }
@@ -5954,31 +6207,31 @@ export class SaveBatchTaskForUpdatingContactInfoByNewContactResponse extends $te
 }
 
 export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends $tea.Model {
-  userClientIp?: string;
+  contactType?: string;
+  domainName?: string[];
   lang?: string;
   registrantProfileId?: number;
-  contactType?: string;
   transferOutProhibited?: boolean;
-  domainName?: string[];
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      contactType: 'ContactType',
+      domainName: 'DomainName',
       lang: 'Lang',
       registrantProfileId: 'RegistrantProfileId',
-      contactType: 'ContactType',
       transferOutProhibited: 'TransferOutProhibited',
-      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      contactType: 'string',
+      domainName: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       registrantProfileId: 'number',
-      contactType: 'string',
       transferOutProhibited: 'boolean',
-      domainName: { 'type': 'array', 'itemType': 'string' },
+      userClientIp: 'string',
     };
   }
 
@@ -6011,10 +6264,12 @@ export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBod
 
 export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6022,6 +6277,7 @@ export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse ex
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBody,
     };
   }
@@ -6032,25 +6288,25 @@ export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse ex
 }
 
 export class SaveDomainGroupRequest extends $tea.Model {
+  domainGroupId?: number;
+  domainGroupName?: string;
   lang?: string;
   userClientIp?: string;
-  domainGroupName?: string;
-  domainGroupId?: number;
   static names(): { [key: string]: string } {
     return {
+      domainGroupId: 'DomainGroupId',
+      domainGroupName: 'DomainGroupName',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      domainGroupName: 'DomainGroupName',
-      domainGroupId: 'DomainGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainGroupId: 'number',
+      domainGroupName: 'string',
       lang: 'string',
       userClientIp: 'string',
-      domainGroupName: 'string',
-      domainGroupId: 'number',
     };
   }
 
@@ -6062,21 +6318,21 @@ export class SaveDomainGroupRequest extends $tea.Model {
 export class SaveDomainGroupResponseBody extends $tea.Model {
   beingDeleted?: boolean;
   creationDate?: string;
-  requestId?: string;
-  domainGroupName?: string;
-  modificationDate?: string;
-  domainGroupStatus?: string;
   domainGroupId?: number;
+  domainGroupName?: string;
+  domainGroupStatus?: string;
+  modificationDate?: string;
+  requestId?: string;
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
       beingDeleted: 'BeingDeleted',
       creationDate: 'CreationDate',
-      requestId: 'RequestId',
-      domainGroupName: 'DomainGroupName',
-      modificationDate: 'ModificationDate',
-      domainGroupStatus: 'DomainGroupStatus',
       domainGroupId: 'DomainGroupId',
+      domainGroupName: 'DomainGroupName',
+      domainGroupStatus: 'DomainGroupStatus',
+      modificationDate: 'ModificationDate',
+      requestId: 'RequestId',
       totalNumber: 'TotalNumber',
     };
   }
@@ -6085,11 +6341,11 @@ export class SaveDomainGroupResponseBody extends $tea.Model {
     return {
       beingDeleted: 'boolean',
       creationDate: 'string',
-      requestId: 'string',
-      domainGroupName: 'string',
-      modificationDate: 'string',
-      domainGroupStatus: 'string',
       domainGroupId: 'number',
+      domainGroupName: 'string',
+      domainGroupStatus: 'string',
+      modificationDate: 'string',
+      requestId: 'string',
       totalNumber: 'number',
     };
   }
@@ -6101,10 +6357,12 @@ export class SaveDomainGroupResponseBody extends $tea.Model {
 
 export class SaveDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6112,6 +6370,7 @@ export class SaveDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveDomainGroupResponseBody,
     };
   }
@@ -6122,79 +6381,79 @@ export class SaveDomainGroupResponse extends $tea.Model {
 }
 
 export class SaveRegistrantProfileRequest extends $tea.Model {
-  defaultRegistrantProfile?: boolean;
-  country?: string;
-  userClientIp?: string;
-  lang?: string;
-  registrantProfileId?: number;
-  city?: string;
-  registrantOrganization?: string;
-  registrantName?: string;
-  province?: string;
   address?: string;
+  city?: string;
+  country?: string;
+  defaultRegistrantProfile?: boolean;
   email?: string;
+  lang?: string;
   postalCode?: string;
+  province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantProfileId?: number;
+  registrantProfileType?: string;
+  registrantType?: string;
   telArea?: string;
-  telephone?: string;
   telExt?: string;
-  zhRegistrantOrganization?: string;
-  zhRegistrantName?: string;
-  zhProvince?: string;
+  telephone?: string;
+  userClientIp?: string;
   zhAddress?: string;
   zhCity?: string;
-  registrantType?: string;
-  registrantProfileType?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      defaultRegistrantProfile: 'DefaultRegistrantProfile',
-      country: 'Country',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      city: 'City',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantName: 'RegistrantName',
-      province: 'Province',
       address: 'Address',
+      city: 'City',
+      country: 'Country',
+      defaultRegistrantProfile: 'DefaultRegistrantProfile',
       email: 'Email',
+      lang: 'Lang',
       postalCode: 'PostalCode',
+      province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantProfileId: 'RegistrantProfileId',
+      registrantProfileType: 'RegistrantProfileType',
+      registrantType: 'RegistrantType',
       telArea: 'TelArea',
-      telephone: 'Telephone',
       telExt: 'TelExt',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhProvince: 'ZhProvince',
+      telephone: 'Telephone',
+      userClientIp: 'UserClientIp',
       zhAddress: 'ZhAddress',
       zhCity: 'ZhCity',
-      registrantType: 'RegistrantType',
-      registrantProfileType: 'RegistrantProfileType',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      defaultRegistrantProfile: 'boolean',
-      country: 'string',
-      userClientIp: 'string',
-      lang: 'string',
-      registrantProfileId: 'number',
-      city: 'string',
-      registrantOrganization: 'string',
-      registrantName: 'string',
-      province: 'string',
       address: 'string',
+      city: 'string',
+      country: 'string',
+      defaultRegistrantProfile: 'boolean',
       email: 'string',
+      lang: 'string',
       postalCode: 'string',
+      province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantProfileId: 'number',
+      registrantProfileType: 'string',
+      registrantType: 'string',
       telArea: 'string',
-      telephone: 'string',
       telExt: 'string',
-      zhRegistrantOrganization: 'string',
-      zhRegistrantName: 'string',
-      zhProvince: 'string',
+      telephone: 'string',
+      userClientIp: 'string',
       zhAddress: 'string',
       zhCity: 'string',
-      registrantType: 'string',
-      registrantProfileType: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -6204,19 +6463,19 @@ export class SaveRegistrantProfileRequest extends $tea.Model {
 }
 
 export class SaveRegistrantProfileResponseBody extends $tea.Model {
-  requestId?: string;
   registrantProfileId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       registrantProfileId: 'RegistrantProfileId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       registrantProfileId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -6227,10 +6486,12 @@ export class SaveRegistrantProfileResponseBody extends $tea.Model {
 
 export class SaveRegistrantProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveRegistrantProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6238,6 +6499,7 @@ export class SaveRegistrantProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveRegistrantProfileResponseBody,
     };
   }
@@ -6248,85 +6510,85 @@ export class SaveRegistrantProfileResponse extends $tea.Model {
 }
 
 export class SaveRegistrantProfileRealNameVerificationRequest extends $tea.Model {
-  country?: string;
-  userClientIp?: string;
-  lang?: string;
-  registrantProfileId?: number;
-  city?: string;
-  registrantOrganization?: string;
-  registrantName?: string;
-  province?: string;
   address?: string;
+  city?: string;
+  country?: string;
   email?: string;
-  postalCode?: string;
-  telArea?: string;
-  telephone?: string;
-  telExt?: string;
-  zhRegistrantOrganization?: string;
-  zhRegistrantName?: string;
-  zhProvince?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  registrantType?: string;
-  registrantProfileType?: string;
   identityCredential?: string;
   identityCredentialNo?: string;
   identityCredentialType?: string;
+  lang?: string;
+  postalCode?: string;
+  province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantProfileId?: number;
+  registrantProfileType?: string;
+  registrantType?: string;
+  telArea?: string;
+  telExt?: string;
+  telephone?: string;
+  userClientIp?: string;
+  zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      country: 'Country',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      city: 'City',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantName: 'RegistrantName',
-      province: 'Province',
       address: 'Address',
+      city: 'City',
+      country: 'Country',
       email: 'Email',
-      postalCode: 'PostalCode',
-      telArea: 'TelArea',
-      telephone: 'Telephone',
-      telExt: 'TelExt',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhProvince: 'ZhProvince',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      registrantType: 'RegistrantType',
-      registrantProfileType: 'RegistrantProfileType',
       identityCredential: 'IdentityCredential',
       identityCredentialNo: 'IdentityCredentialNo',
       identityCredentialType: 'IdentityCredentialType',
+      lang: 'Lang',
+      postalCode: 'PostalCode',
+      province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantProfileId: 'RegistrantProfileId',
+      registrantProfileType: 'RegistrantProfileType',
+      registrantType: 'RegistrantType',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
+      userClientIp: 'UserClientIp',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      country: 'string',
-      userClientIp: 'string',
-      lang: 'string',
-      registrantProfileId: 'number',
-      city: 'string',
-      registrantOrganization: 'string',
-      registrantName: 'string',
-      province: 'string',
       address: 'string',
+      city: 'string',
+      country: 'string',
       email: 'string',
-      postalCode: 'string',
-      telArea: 'string',
-      telephone: 'string',
-      telExt: 'string',
-      zhRegistrantOrganization: 'string',
-      zhRegistrantName: 'string',
-      zhProvince: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      registrantType: 'string',
-      registrantProfileType: 'string',
       identityCredential: 'string',
       identityCredentialNo: 'string',
       identityCredentialType: 'string',
+      lang: 'string',
+      postalCode: 'string',
+      province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantProfileId: 'number',
+      registrantProfileType: 'string',
+      registrantType: 'string',
+      telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
+      userClientIp: 'string',
+      zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -6336,19 +6598,19 @@ export class SaveRegistrantProfileRealNameVerificationRequest extends $tea.Model
 }
 
 export class SaveRegistrantProfileRealNameVerificationResponseBody extends $tea.Model {
-  requestId?: string;
   registrantProfileId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       registrantProfileId: 'RegistrantProfileId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       registrantProfileId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -6359,10 +6621,12 @@ export class SaveRegistrantProfileRealNameVerificationResponseBody extends $tea.
 
 export class SaveRegistrantProfileRealNameVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveRegistrantProfileRealNameVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6370,6 +6634,7 @@ export class SaveRegistrantProfileRealNameVerificationResponse extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveRegistrantProfileRealNameVerificationResponseBody,
     };
   }
@@ -6380,34 +6645,34 @@ export class SaveRegistrantProfileRealNameVerificationResponse extends $tea.Mode
 }
 
 export class SaveSingleTaskForAddingDSRecordRequest extends $tea.Model {
-  domainName?: string;
-  lang?: string;
-  keyTag?: number;
-  userClientIp?: string;
   algorithm?: number;
-  digestType?: number;
   digest?: string;
+  digestType?: number;
+  domainName?: string;
+  keyTag?: number;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      keyTag: 'KeyTag',
-      userClientIp: 'UserClientIp',
       algorithm: 'Algorithm',
-      digestType: 'DigestType',
       digest: 'Digest',
+      digestType: 'DigestType',
+      domainName: 'DomainName',
+      keyTag: 'KeyTag',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainName: 'string',
-      lang: 'string',
-      keyTag: 'number',
-      userClientIp: 'string',
       algorithm: 'number',
-      digestType: 'number',
       digest: 'string',
+      digestType: 'number',
+      domainName: 'string',
+      keyTag: 'number',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -6440,10 +6705,12 @@ export class SaveSingleTaskForAddingDSRecordResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForAddingDSRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForAddingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6451,6 +6718,7 @@ export class SaveSingleTaskForAddingDSRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForAddingDSRecordResponseBody,
     };
   }
@@ -6509,10 +6777,12 @@ export class SaveSingleTaskForApprovingTransferOutResponseBody extends $tea.Mode
 
 export class SaveSingleTaskForApprovingTransferOutResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForApprovingTransferOutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6520,6 +6790,7 @@ export class SaveSingleTaskForApprovingTransferOutResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForApprovingTransferOutResponseBody,
     };
   }
@@ -6530,25 +6801,25 @@ export class SaveSingleTaskForApprovingTransferOutResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForAssociatingEnsRequest extends $tea.Model {
-  userClientIp?: string;
+  address?: string;
   domainName?: string;
   lang?: string;
-  address?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      address: 'Address',
       domainName: 'DomainName',
       lang: 'Lang',
-      address: 'Address',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      address: 'string',
       domainName: 'string',
       lang: 'string',
-      address: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -6581,10 +6852,12 @@ export class SaveSingleTaskForAssociatingEnsResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForAssociatingEnsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForAssociatingEnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6592,6 +6865,7 @@ export class SaveSingleTaskForAssociatingEnsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForAssociatingEnsResponseBody,
     };
   }
@@ -6650,10 +6924,12 @@ export class SaveSingleTaskForCancelingTransferInResponseBody extends $tea.Model
 
 export class SaveSingleTaskForCancelingTransferInResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCancelingTransferInResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6661,6 +6937,7 @@ export class SaveSingleTaskForCancelingTransferInResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCancelingTransferInResponseBody,
     };
   }
@@ -6719,10 +6996,12 @@ export class SaveSingleTaskForCancelingTransferOutResponseBody extends $tea.Mode
 
 export class SaveSingleTaskForCancelingTransferOutResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCancelingTransferOutResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6730,6 +7009,7 @@ export class SaveSingleTaskForCancelingTransferOutResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCancelingTransferOutResponseBody,
     };
   }
@@ -6740,28 +7020,28 @@ export class SaveSingleTaskForCancelingTransferOutResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForCreatingDnsHostRequest extends $tea.Model {
-  instanceId?: string;
-  lang?: string;
   dnsName?: string;
-  userClientIp?: string;
+  instanceId?: string;
   ip?: string[];
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
       dnsName: 'DnsName',
-      userClientIp: 'UserClientIp',
+      instanceId: 'InstanceId',
       ip: 'Ip',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      lang: 'string',
       dnsName: 'string',
-      userClientIp: 'string',
+      instanceId: 'string',
       ip: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -6794,10 +7074,12 @@ export class SaveSingleTaskForCreatingDnsHostResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForCreatingDnsHostResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCreatingDnsHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6805,6 +7087,7 @@ export class SaveSingleTaskForCreatingDnsHostResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCreatingDnsHostResponseBody,
     };
   }
@@ -6815,109 +7098,109 @@ export class SaveSingleTaskForCreatingDnsHostResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForCreatingOrderActivateRequest extends $tea.Model {
-  zhRegistrantName?: string;
-  lang?: string;
-  domainName?: string;
-  subscriptionDuration?: number;
-  registrantProfileId?: number;
-  enableDomainProxy?: boolean;
-  permitPremiumActivation?: boolean;
-  aliyunDns?: boolean;
-  dns1?: string;
-  userClientIp?: string;
-  zhCity?: string;
-  zhRegistrantOrganization?: string;
-  country?: string;
-  dns2?: string;
-  zhProvince?: string;
-  zhAddress?: string;
-  city?: string;
-  registrantOrganization?: string;
-  registrantName?: string;
-  province?: string;
   address?: string;
-  email?: string;
-  postalCode?: string;
-  telArea?: string;
-  telephone?: string;
-  telExt?: string;
-  registrantType?: string;
-  trademarkDomainActivation?: boolean;
+  aliyunDns?: boolean;
+  city?: string;
+  country?: string;
   couponNo?: string;
-  useCoupon?: boolean;
+  dns1?: string;
+  dns2?: string;
+  domainName?: string;
+  email?: string;
+  enableDomainProxy?: boolean;
+  lang?: string;
+  permitPremiumActivation?: boolean;
+  postalCode?: string;
   promotionNo?: string;
+  province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantProfileId?: number;
+  registrantType?: string;
+  subscriptionDuration?: number;
+  telArea?: string;
+  telExt?: string;
+  telephone?: string;
+  trademarkDomainActivation?: boolean;
+  useCoupon?: boolean;
   usePromotion?: boolean;
+  userClientIp?: string;
+  zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      zhRegistrantName: 'ZhRegistrantName',
-      lang: 'Lang',
-      domainName: 'DomainName',
-      subscriptionDuration: 'SubscriptionDuration',
-      registrantProfileId: 'RegistrantProfileId',
-      enableDomainProxy: 'EnableDomainProxy',
-      permitPremiumActivation: 'PermitPremiumActivation',
-      aliyunDns: 'AliyunDns',
-      dns1: 'Dns1',
-      userClientIp: 'UserClientIp',
-      zhCity: 'ZhCity',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      country: 'Country',
-      dns2: 'Dns2',
-      zhProvince: 'ZhProvince',
-      zhAddress: 'ZhAddress',
-      city: 'City',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantName: 'RegistrantName',
-      province: 'Province',
       address: 'Address',
-      email: 'Email',
-      postalCode: 'PostalCode',
-      telArea: 'TelArea',
-      telephone: 'Telephone',
-      telExt: 'TelExt',
-      registrantType: 'RegistrantType',
-      trademarkDomainActivation: 'TrademarkDomainActivation',
+      aliyunDns: 'AliyunDns',
+      city: 'City',
+      country: 'Country',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
+      dns1: 'Dns1',
+      dns2: 'Dns2',
+      domainName: 'DomainName',
+      email: 'Email',
+      enableDomainProxy: 'EnableDomainProxy',
+      lang: 'Lang',
+      permitPremiumActivation: 'PermitPremiumActivation',
+      postalCode: 'PostalCode',
       promotionNo: 'PromotionNo',
+      province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantProfileId: 'RegistrantProfileId',
+      registrantType: 'RegistrantType',
+      subscriptionDuration: 'SubscriptionDuration',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
+      trademarkDomainActivation: 'TrademarkDomainActivation',
+      useCoupon: 'UseCoupon',
       usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zhRegistrantName: 'string',
-      lang: 'string',
-      domainName: 'string',
-      subscriptionDuration: 'number',
-      registrantProfileId: 'number',
-      enableDomainProxy: 'boolean',
-      permitPremiumActivation: 'boolean',
-      aliyunDns: 'boolean',
-      dns1: 'string',
-      userClientIp: 'string',
-      zhCity: 'string',
-      zhRegistrantOrganization: 'string',
-      country: 'string',
-      dns2: 'string',
-      zhProvince: 'string',
-      zhAddress: 'string',
-      city: 'string',
-      registrantOrganization: 'string',
-      registrantName: 'string',
-      province: 'string',
       address: 'string',
-      email: 'string',
-      postalCode: 'string',
-      telArea: 'string',
-      telephone: 'string',
-      telExt: 'string',
-      registrantType: 'string',
-      trademarkDomainActivation: 'boolean',
+      aliyunDns: 'boolean',
+      city: 'string',
+      country: 'string',
       couponNo: 'string',
-      useCoupon: 'boolean',
+      dns1: 'string',
+      dns2: 'string',
+      domainName: 'string',
+      email: 'string',
+      enableDomainProxy: 'boolean',
+      lang: 'string',
+      permitPremiumActivation: 'boolean',
+      postalCode: 'string',
       promotionNo: 'string',
+      province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantProfileId: 'number',
+      registrantType: 'string',
+      subscriptionDuration: 'number',
+      telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
+      trademarkDomainActivation: 'boolean',
+      useCoupon: 'boolean',
       usePromotion: 'boolean',
+      userClientIp: 'string',
+      zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -6950,10 +7233,12 @@ export class SaveSingleTaskForCreatingOrderActivateResponseBody extends $tea.Mod
 
 export class SaveSingleTaskForCreatingOrderActivateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCreatingOrderActivateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6961,6 +7246,7 @@ export class SaveSingleTaskForCreatingOrderActivateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCreatingOrderActivateResponseBody,
     };
   }
@@ -6971,37 +7257,37 @@ export class SaveSingleTaskForCreatingOrderActivateResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForCreatingOrderRedeemRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  domainName?: string;
-  currentExpirationDate?: number;
   couponNo?: string;
-  useCoupon?: boolean;
+  currentExpirationDate?: number;
+  domainName?: string;
+  lang?: string;
   promotionNo?: string;
+  useCoupon?: boolean;
   usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      domainName: 'DomainName',
-      currentExpirationDate: 'CurrentExpirationDate',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
+      currentExpirationDate: 'CurrentExpirationDate',
+      domainName: 'DomainName',
+      lang: 'Lang',
       promotionNo: 'PromotionNo',
+      useCoupon: 'UseCoupon',
       usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      domainName: 'string',
-      currentExpirationDate: 'number',
       couponNo: 'string',
-      useCoupon: 'boolean',
+      currentExpirationDate: 'number',
+      domainName: 'string',
+      lang: 'string',
       promotionNo: 'string',
+      useCoupon: 'boolean',
       usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -7034,10 +7320,12 @@ export class SaveSingleTaskForCreatingOrderRedeemResponseBody extends $tea.Model
 
 export class SaveSingleTaskForCreatingOrderRedeemResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCreatingOrderRedeemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7045,6 +7333,7 @@ export class SaveSingleTaskForCreatingOrderRedeemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCreatingOrderRedeemResponseBody,
     };
   }
@@ -7055,40 +7344,40 @@ export class SaveSingleTaskForCreatingOrderRedeemResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForCreatingOrderRenewRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  domainName?: string;
-  subscriptionDuration?: number;
-  currentExpirationDate?: number;
   couponNo?: string;
-  useCoupon?: boolean;
+  currentExpirationDate?: number;
+  domainName?: string;
+  lang?: string;
   promotionNo?: string;
+  subscriptionDuration?: number;
+  useCoupon?: boolean;
   usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      domainName: 'DomainName',
-      subscriptionDuration: 'SubscriptionDuration',
-      currentExpirationDate: 'CurrentExpirationDate',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
+      currentExpirationDate: 'CurrentExpirationDate',
+      domainName: 'DomainName',
+      lang: 'Lang',
       promotionNo: 'PromotionNo',
+      subscriptionDuration: 'SubscriptionDuration',
+      useCoupon: 'UseCoupon',
       usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      domainName: 'string',
-      subscriptionDuration: 'number',
-      currentExpirationDate: 'number',
       couponNo: 'string',
-      useCoupon: 'boolean',
+      currentExpirationDate: 'number',
+      domainName: 'string',
+      lang: 'string',
       promotionNo: 'string',
+      subscriptionDuration: 'number',
+      useCoupon: 'boolean',
       usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -7121,10 +7410,12 @@ export class SaveSingleTaskForCreatingOrderRenewResponseBody extends $tea.Model 
 
 export class SaveSingleTaskForCreatingOrderRenewResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCreatingOrderRenewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7132,6 +7423,7 @@ export class SaveSingleTaskForCreatingOrderRenewResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCreatingOrderRenewResponseBody,
     };
   }
@@ -7142,43 +7434,43 @@ export class SaveSingleTaskForCreatingOrderRenewResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForCreatingOrderTransferRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  domainName?: string;
   authorizationCode?: string;
-  registrantProfileId?: number;
-  permitPremiumTransfer?: boolean;
   couponNo?: string;
-  useCoupon?: boolean;
+  domainName?: string;
+  lang?: string;
+  permitPremiumTransfer?: boolean;
   promotionNo?: string;
+  registrantProfileId?: number;
+  useCoupon?: boolean;
   usePromotion?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      domainName: 'DomainName',
       authorizationCode: 'AuthorizationCode',
-      registrantProfileId: 'RegistrantProfileId',
-      permitPremiumTransfer: 'PermitPremiumTransfer',
       couponNo: 'CouponNo',
-      useCoupon: 'UseCoupon',
+      domainName: 'DomainName',
+      lang: 'Lang',
+      permitPremiumTransfer: 'PermitPremiumTransfer',
       promotionNo: 'PromotionNo',
+      registrantProfileId: 'RegistrantProfileId',
+      useCoupon: 'UseCoupon',
       usePromotion: 'UsePromotion',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      domainName: 'string',
       authorizationCode: 'string',
-      registrantProfileId: 'number',
-      permitPremiumTransfer: 'boolean',
       couponNo: 'string',
-      useCoupon: 'boolean',
+      domainName: 'string',
+      lang: 'string',
+      permitPremiumTransfer: 'boolean',
       promotionNo: 'string',
+      registrantProfileId: 'number',
+      useCoupon: 'boolean',
       usePromotion: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -7211,10 +7503,12 @@ export class SaveSingleTaskForCreatingOrderTransferResponseBody extends $tea.Mod
 
 export class SaveSingleTaskForCreatingOrderTransferResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForCreatingOrderTransferResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7222,79 +7516,8 @@ export class SaveSingleTaskForCreatingOrderTransferResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForCreatingOrderTransferResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDnsHostRequest extends $tea.Model {
-  instanceId?: string;
-  lang?: string;
-  dnsName?: string;
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      dnsName: 'DnsName',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      dnsName: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDnsHostResponseBody extends $tea.Model {
-  requestId?: string;
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveSingleTaskForDeletingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveSingleTaskForDeletingDnsHostResponseBody,
     };
   }
 
@@ -7305,14 +7528,14 @@ export class SaveSingleTaskForDeletingDnsHostResponse extends $tea.Model {
 
 export class SaveSingleTaskForDeletingDSRecordRequest extends $tea.Model {
   domainName?: string;
-  lang?: string;
   keyTag?: number;
+  lang?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      lang: 'Lang',
       keyTag: 'KeyTag',
+      lang: 'Lang',
       userClientIp: 'UserClientIp',
     };
   }
@@ -7320,8 +7543,8 @@ export class SaveSingleTaskForDeletingDSRecordRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      lang: 'string',
       keyTag: 'number',
+      lang: 'string',
       userClientIp: 'string',
     };
   }
@@ -7355,10 +7578,12 @@ export class SaveSingleTaskForDeletingDSRecordResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForDeletingDSRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForDeletingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7366,6 +7591,7 @@ export class SaveSingleTaskForDeletingDSRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForDeletingDSRecordResponseBody,
     };
   }
@@ -7375,23 +7601,98 @@ export class SaveSingleTaskForDeletingDSRecordResponse extends $tea.Model {
   }
 }
 
-export class SaveSingleTaskForDisassociatingEnsRequest extends $tea.Model {
-  userClientIp?: string;
-  domainName?: string;
+export class SaveSingleTaskForDeletingDnsHostRequest extends $tea.Model {
+  dnsName?: string;
+  instanceId?: string;
   lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
+      dnsName: 'DnsName',
+      instanceId: 'InstanceId',
       lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dnsName: 'string',
+      instanceId: 'string',
+      lang: 'string',
       userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForDeletingDnsHostResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForDeletingDnsHostResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveSingleTaskForDeletingDnsHostResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSingleTaskForDeletingDnsHostResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForDisassociatingEnsRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       domainName: 'string',
       lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -7424,10 +7725,12 @@ export class SaveSingleTaskForDisassociatingEnsResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForDisassociatingEnsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForDisassociatingEnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7435,6 +7738,7 @@ export class SaveSingleTaskForDisassociatingEnsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForDisassociatingEnsResponseBody,
     };
   }
@@ -7445,25 +7749,25 @@ export class SaveSingleTaskForDisassociatingEnsResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForDomainNameProxyServiceRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
+  lang?: string;
   status?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
       status: 'Status',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
       status: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -7496,10 +7800,12 @@ export class SaveSingleTaskForDomainNameProxyServiceResponseBody extends $tea.Mo
 
 export class SaveSingleTaskForDomainNameProxyServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForDomainNameProxyServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7507,6 +7813,7 @@ export class SaveSingleTaskForDomainNameProxyServiceResponse extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForDomainNameProxyServiceResponseBody,
     };
   }
@@ -7516,110 +7823,35 @@ export class SaveSingleTaskForDomainNameProxyServiceResponse extends $tea.Model 
   }
 }
 
-export class SaveSingleTaskForModifyingDnsHostRequest extends $tea.Model {
-  instanceId?: string;
-  lang?: string;
-  dnsName?: string;
-  userClientIp?: string;
-  ip?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      dnsName: 'DnsName',
-      userClientIp: 'UserClientIp',
-      ip: 'Ip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      dnsName: 'string',
-      userClientIp: 'string',
-      ip: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDnsHostResponseBody extends $tea.Model {
-  requestId?: string;
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveSingleTaskForModifyingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveSingleTaskForModifyingDnsHostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SaveSingleTaskForModifyingDSRecordRequest extends $tea.Model {
-  domainName?: string;
-  lang?: string;
-  keyTag?: number;
-  userClientIp?: string;
   algorithm?: number;
-  digestType?: number;
   digest?: string;
+  digestType?: number;
+  domainName?: string;
+  keyTag?: number;
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      keyTag: 'KeyTag',
-      userClientIp: 'UserClientIp',
       algorithm: 'Algorithm',
-      digestType: 'DigestType',
       digest: 'Digest',
+      digestType: 'DigestType',
+      domainName: 'DomainName',
+      keyTag: 'KeyTag',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainName: 'string',
-      lang: 'string',
-      keyTag: 'number',
-      userClientIp: 'string',
       algorithm: 'number',
-      digestType: 'number',
       digest: 'string',
+      digestType: 'number',
+      domainName: 'string',
+      keyTag: 'number',
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -7652,10 +7884,12 @@ export class SaveSingleTaskForModifyingDSRecordResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForModifyingDSRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForModifyingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7663,7 +7897,86 @@ export class SaveSingleTaskForModifyingDSRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForModifyingDSRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForModifyingDnsHostRequest extends $tea.Model {
+  dnsName?: string;
+  instanceId?: string;
+  ip?: string[];
+  lang?: string;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dnsName: 'DnsName',
+      instanceId: 'InstanceId',
+      ip: 'Ip',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsName: 'string',
+      instanceId: 'string',
+      ip: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForModifyingDnsHostResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForModifyingDnsHostResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveSingleTaskForModifyingDnsHostResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSingleTaskForModifyingDnsHostResponseBody,
     };
   }
 
@@ -7721,10 +8034,12 @@ export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody exte
 
 export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7732,6 +8047,7 @@ export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponse extends 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody,
     };
   }
@@ -7742,49 +8058,49 @@ export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponse extends 
 }
 
 export class SaveSingleTaskForSaveArtExtensionRequest extends $tea.Model {
-  domainName?: string;
-  objectType?: string;
-  materialsAndTechniques?: string;
-  dimensions?: string;
-  title?: string;
   dateOrPeriod?: string;
-  maker?: string;
-  inscriptionsAndMarkings?: string;
-  subject?: string;
+  dimensions?: string;
+  domainName?: string;
   features?: string;
-  reference?: string;
+  inscriptionsAndMarkings?: string;
   lang?: string;
+  maker?: string;
+  materialsAndTechniques?: string;
+  objectType?: string;
+  reference?: string;
+  subject?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      domainName: 'DomainName',
-      objectType: 'ObjectType',
-      materialsAndTechniques: 'MaterialsAndTechniques',
-      dimensions: 'Dimensions',
-      title: 'Title',
       dateOrPeriod: 'DateOrPeriod',
-      maker: 'Maker',
-      inscriptionsAndMarkings: 'InscriptionsAndMarkings',
-      subject: 'Subject',
+      dimensions: 'Dimensions',
+      domainName: 'DomainName',
       features: 'Features',
-      reference: 'Reference',
+      inscriptionsAndMarkings: 'InscriptionsAndMarkings',
       lang: 'Lang',
+      maker: 'Maker',
+      materialsAndTechniques: 'MaterialsAndTechniques',
+      objectType: 'ObjectType',
+      reference: 'Reference',
+      subject: 'Subject',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainName: 'string',
-      objectType: 'string',
-      materialsAndTechniques: 'string',
-      dimensions: 'string',
-      title: 'string',
       dateOrPeriod: 'string',
-      maker: 'string',
-      inscriptionsAndMarkings: 'string',
-      subject: 'string',
+      dimensions: 'string',
+      domainName: 'string',
       features: 'string',
-      reference: 'string',
+      inscriptionsAndMarkings: 'string',
       lang: 'string',
+      maker: 'string',
+      materialsAndTechniques: 'string',
+      objectType: 'string',
+      reference: 'string',
+      subject: 'string',
+      title: 'string',
     };
   }
 
@@ -7817,10 +8133,12 @@ export class SaveSingleTaskForSaveArtExtensionResponseBody extends $tea.Model {
 
 export class SaveSingleTaskForSaveArtExtensionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForSaveArtExtensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7828,76 +8146,8 @@ export class SaveSingleTaskForSaveArtExtensionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForSaveArtExtensionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDnsHostRequest extends $tea.Model {
-  instanceId?: string;
-  lang?: string;
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDnsHostResponseBody extends $tea.Model {
-  requestId?: string;
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDnsHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveSingleTaskForSynchronizingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveSingleTaskForSynchronizingDnsHostResponseBody,
     };
   }
 
@@ -7955,10 +8205,12 @@ export class SaveSingleTaskForSynchronizingDSRecordResponseBody extends $tea.Mod
 
 export class SaveSingleTaskForSynchronizingDSRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForSynchronizingDSRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7966,6 +8218,7 @@ export class SaveSingleTaskForSynchronizingDSRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForSynchronizingDSRecordResponseBody,
     };
   }
@@ -7975,26 +8228,98 @@ export class SaveSingleTaskForSynchronizingDSRecordResponse extends $tea.Model {
   }
 }
 
-export class SaveSingleTaskForTransferProhibitionLockRequest extends $tea.Model {
-  userClientIp?: string;
+export class SaveSingleTaskForSynchronizingDnsHostRequest extends $tea.Model {
+  instanceId?: string;
   lang?: string;
-  domainName?: string;
-  status?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      instanceId: 'InstanceId',
       lang: 'Lang',
-      domainName: 'DomainName',
-      status: 'Status',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      instanceId: 'string',
       lang: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForSynchronizingDnsHostResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForSynchronizingDnsHostResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveSingleTaskForSynchronizingDnsHostResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSingleTaskForSynchronizingDnsHostResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSingleTaskForTransferProhibitionLockRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  status?: boolean;
+  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      status: 'Status',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       domainName: 'string',
+      lang: 'string',
       status: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -8027,10 +8352,12 @@ export class SaveSingleTaskForTransferProhibitionLockResponseBody extends $tea.M
 
 export class SaveSingleTaskForTransferProhibitionLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForTransferProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8038,6 +8365,7 @@ export class SaveSingleTaskForTransferProhibitionLockResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForTransferProhibitionLockResponseBody,
     };
   }
@@ -8048,25 +8376,25 @@ export class SaveSingleTaskForTransferProhibitionLockResponse extends $tea.Model
 }
 
 export class SaveSingleTaskForUpdateProhibitionLockRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
+  lang?: string;
   status?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
       status: 'Status',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
       status: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -8099,10 +8427,12 @@ export class SaveSingleTaskForUpdateProhibitionLockResponseBody extends $tea.Mod
 
 export class SaveSingleTaskForUpdateProhibitionLockResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForUpdateProhibitionLockResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8110,6 +8440,7 @@ export class SaveSingleTaskForUpdateProhibitionLockResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForUpdateProhibitionLockResponseBody,
     };
   }
@@ -8120,34 +8451,34 @@ export class SaveSingleTaskForUpdateProhibitionLockResponse extends $tea.Model {
 }
 
 export class SaveSingleTaskForUpdatingContactInfoRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
+  addTransferLock?: boolean;
+  contactType?: string;
   domainName?: string;
   instanceId?: string;
+  lang?: string;
   registrantProfileId?: number;
-  contactType?: string;
-  addTransferLock?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
+      addTransferLock: 'AddTransferLock',
+      contactType: 'ContactType',
       domainName: 'DomainName',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       registrantProfileId: 'RegistrantProfileId',
-      contactType: 'ContactType',
-      addTransferLock: 'AddTransferLock',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
+      addTransferLock: 'boolean',
+      contactType: 'string',
       domainName: 'string',
       instanceId: 'string',
+      lang: 'string',
       registrantProfileId: 'number',
-      contactType: 'string',
-      addTransferLock: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -8180,10 +8511,12 @@ export class SaveSingleTaskForUpdatingContactInfoResponseBody extends $tea.Model
 
 export class SaveSingleTaskForUpdatingContactInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveSingleTaskForUpdatingContactInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8191,6 +8524,7 @@ export class SaveSingleTaskForUpdatingContactInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveSingleTaskForUpdatingContactInfoResponseBody,
     };
   }
@@ -8201,22 +8535,22 @@ export class SaveSingleTaskForUpdatingContactInfoResponse extends $tea.Model {
 }
 
 export class SaveTaskForSubmittingDomainDeleteRequest extends $tea.Model {
+  instanceId?: string;
   lang?: string;
   userClientIp?: string;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       lang: 'string',
       userClientIp: 'string',
-      instanceId: 'string',
     };
   }
 
@@ -8249,10 +8583,12 @@ export class SaveTaskForSubmittingDomainDeleteResponseBody extends $tea.Model {
 
 export class SaveTaskForSubmittingDomainDeleteResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveTaskForSubmittingDomainDeleteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8260,6 +8596,7 @@ export class SaveTaskForSubmittingDomainDeleteResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveTaskForSubmittingDomainDeleteResponseBody,
     };
   }
@@ -8270,31 +8607,31 @@ export class SaveTaskForSubmittingDomainDeleteResponse extends $tea.Model {
 }
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
+  domainName?: string[];
   identityCredential?: string;
   identityCredentialNo?: string;
   identityCredentialType?: string;
-  domainName?: string[];
+  lang?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
+      domainName: 'DomainName',
       identityCredential: 'IdentityCredential',
       identityCredentialNo: 'IdentityCredentialNo',
       identityCredentialType: 'IdentityCredentialType',
-      domainName: 'DomainName',
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
+      domainName: { 'type': 'array', 'itemType': 'string' },
       identityCredential: 'string',
       identityCredentialNo: 'string',
       identityCredentialType: 'string',
-      domainName: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -8327,10 +8664,12 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8338,6 +8677,7 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody,
     };
   }
@@ -8348,28 +8688,28 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential
 }
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
   instanceId?: string;
+  lang?: string;
   registrantProfileId?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       registrantProfileId: 'RegistrantProfileId',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
       instanceId: 'string',
+      lang: 'string',
       registrantProfileId: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -8402,10 +8742,12 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileI
 
 export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8413,6 +8755,7 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileI
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody,
     };
   }
@@ -8423,85 +8766,85 @@ export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileI
 }
 
 export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends $tea.Model {
-  postalCode?: string;
   address?: string;
-  userClientIp?: string;
-  lang?: string;
   city?: string;
-  registrantOrganization?: string;
-  registrantName?: string;
-  province?: string;
-  email?: string;
   country?: string;
-  telArea?: string;
-  telephone?: string;
-  telExt?: string;
-  zhCity?: string;
-  zhRegistrantOrganization?: string;
-  zhRegistrantName?: string;
-  zhProvince?: string;
-  zhAddress?: string;
-  registrantType?: string;
-  identityCredentialType?: string;
-  identityCredentialNo?: string;
-  identityCredential?: string;
-  transferOutProhibited?: boolean;
   domainName?: string[];
+  email?: string;
+  identityCredential?: string;
+  identityCredentialNo?: string;
+  identityCredentialType?: string;
+  lang?: string;
+  postalCode?: string;
+  province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantType?: string;
+  telArea?: string;
+  telExt?: string;
+  telephone?: string;
+  transferOutProhibited?: boolean;
+  userClientIp?: string;
+  zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      postalCode: 'PostalCode',
       address: 'Address',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       city: 'City',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantName: 'RegistrantName',
-      province: 'Province',
-      email: 'Email',
       country: 'Country',
-      telArea: 'TelArea',
-      telephone: 'Telephone',
-      telExt: 'TelExt',
-      zhCity: 'ZhCity',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhProvince: 'ZhProvince',
-      zhAddress: 'ZhAddress',
-      registrantType: 'RegistrantType',
-      identityCredentialType: 'IdentityCredentialType',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredential: 'IdentityCredential',
-      transferOutProhibited: 'TransferOutProhibited',
       domainName: 'DomainName',
+      email: 'Email',
+      identityCredential: 'IdentityCredential',
+      identityCredentialNo: 'IdentityCredentialNo',
+      identityCredentialType: 'IdentityCredentialType',
+      lang: 'Lang',
+      postalCode: 'PostalCode',
+      province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantType: 'RegistrantType',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
+      transferOutProhibited: 'TransferOutProhibited',
+      userClientIp: 'UserClientIp',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postalCode: 'string',
       address: 'string',
-      userClientIp: 'string',
-      lang: 'string',
       city: 'string',
-      registrantOrganization: 'string',
-      registrantName: 'string',
-      province: 'string',
-      email: 'string',
       country: 'string',
-      telArea: 'string',
-      telephone: 'string',
-      telExt: 'string',
-      zhCity: 'string',
-      zhRegistrantOrganization: 'string',
-      zhRegistrantName: 'string',
-      zhProvince: 'string',
-      zhAddress: 'string',
-      registrantType: 'string',
-      identityCredentialType: 'string',
-      identityCredentialNo: 'string',
-      identityCredential: 'string',
-      transferOutProhibited: 'boolean',
       domainName: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      identityCredential: 'string',
+      identityCredentialNo: 'string',
+      identityCredentialType: 'string',
+      lang: 'string',
+      postalCode: 'string',
+      province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantType: 'string',
+      telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
+      transferOutProhibited: 'boolean',
+      userClientIp: 'string',
+      zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -8534,10 +8877,12 @@ export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody e
 
 export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8545,6 +8890,7 @@ export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse exten
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody,
     };
   }
@@ -8555,28 +8901,28 @@ export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse exten
 }
 
 export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends $tea.Model {
-  userClientIp?: string;
+  domainName?: string[];
   lang?: string;
   registrantProfileId?: number;
   transferOutProhibited?: boolean;
-  domainName?: string[];
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
       lang: 'Lang',
       registrantProfileId: 'RegistrantProfileId',
       transferOutProhibited: 'TransferOutProhibited',
-      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      domainName: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       registrantProfileId: 'number',
       transferOutProhibited: 'boolean',
-      domainName: { 'type': 'array', 'itemType': 'string' },
+      userClientIp: 'string',
     };
   }
 
@@ -8609,10 +8955,12 @@ export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody 
 
 export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8620,6 +8968,7 @@ export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse exte
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody,
     };
   }
@@ -8630,15 +8979,11 @@ export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse exte
 }
 
 export class ScrollDomainListRequest extends $tea.Model {
-  endExpirationDate?: number;
-  userClientIp?: string;
-  lang?: string;
-  startExpirationDate?: number;
-  productDomainType?: string;
-  pageSize?: number;
   domainGroupId?: number;
   domainStatus?: number;
+  endExpirationDate?: number;
   endLength?: number;
+  endRegistrationDate?: number;
   excluded?: string;
   excludedPrefix?: boolean;
   excludedSuffix?: boolean;
@@ -8646,23 +8991,23 @@ export class ScrollDomainListRequest extends $tea.Model {
   keyWord?: string;
   keyWordPrefix?: boolean;
   keyWordSuffix?: boolean;
-  startLength?: number;
-  tradeType?: number;
-  suffixs?: string;
-  startRegistrationDate?: number;
-  endRegistrationDate?: number;
+  lang?: string;
+  pageSize?: number;
+  productDomainType?: string;
   scrollId?: string;
+  startExpirationDate?: number;
+  startLength?: number;
+  startRegistrationDate?: number;
+  suffixs?: string;
+  tradeType?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      endExpirationDate: 'EndExpirationDate',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      startExpirationDate: 'StartExpirationDate',
-      productDomainType: 'ProductDomainType',
-      pageSize: 'PageSize',
       domainGroupId: 'DomainGroupId',
       domainStatus: 'DomainStatus',
+      endExpirationDate: 'EndExpirationDate',
       endLength: 'EndLength',
+      endRegistrationDate: 'EndRegistrationDate',
       excluded: 'Excluded',
       excludedPrefix: 'ExcludedPrefix',
       excludedSuffix: 'ExcludedSuffix',
@@ -8670,26 +9015,26 @@ export class ScrollDomainListRequest extends $tea.Model {
       keyWord: 'KeyWord',
       keyWordPrefix: 'KeyWordPrefix',
       keyWordSuffix: 'KeyWordSuffix',
-      startLength: 'StartLength',
-      tradeType: 'TradeType',
-      suffixs: 'Suffixs',
-      startRegistrationDate: 'StartRegistrationDate',
-      endRegistrationDate: 'EndRegistrationDate',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productDomainType: 'ProductDomainType',
       scrollId: 'ScrollId',
+      startExpirationDate: 'StartExpirationDate',
+      startLength: 'StartLength',
+      startRegistrationDate: 'StartRegistrationDate',
+      suffixs: 'Suffixs',
+      tradeType: 'TradeType',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endExpirationDate: 'number',
-      userClientIp: 'string',
-      lang: 'string',
-      startExpirationDate: 'number',
-      productDomainType: 'string',
-      pageSize: 'number',
       domainGroupId: 'number',
       domainStatus: 'number',
+      endExpirationDate: 'number',
       endLength: 'number',
+      endRegistrationDate: 'number',
       excluded: 'string',
       excludedPrefix: 'boolean',
       excludedSuffix: 'boolean',
@@ -8697,12 +9042,16 @@ export class ScrollDomainListRequest extends $tea.Model {
       keyWord: 'string',
       keyWordPrefix: 'boolean',
       keyWordSuffix: 'boolean',
-      startLength: 'number',
-      tradeType: 'number',
-      suffixs: 'string',
-      startRegistrationDate: 'number',
-      endRegistrationDate: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      productDomainType: 'string',
       scrollId: 'string',
+      startExpirationDate: 'number',
+      startLength: 'number',
+      startRegistrationDate: 'number',
+      suffixs: 'string',
+      tradeType: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -8712,27 +9061,27 @@ export class ScrollDomainListRequest extends $tea.Model {
 }
 
 export class ScrollDomainListResponseBody extends $tea.Model {
-  requestId?: string;
-  pageSize?: number;
-  scrollId?: string;
   data?: ScrollDomainListResponseBodyData;
+  pageSize?: number;
+  requestId?: string;
+  scrollId?: string;
   totalItemNum?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      scrollId: 'ScrollId',
       data: 'Data',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      scrollId: 'ScrollId',
       totalItemNum: 'TotalItemNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      pageSize: 'number',
-      scrollId: 'string',
       data: ScrollDomainListResponseBodyData,
+      pageSize: 'number',
+      requestId: 'string',
+      scrollId: 'string',
       totalItemNum: 'number',
     };
   }
@@ -8744,10 +9093,12 @@ export class ScrollDomainListResponseBody extends $tea.Model {
 
 export class ScrollDomainListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ScrollDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8755,6 +9106,7 @@ export class ScrollDomainListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ScrollDomainListResponseBody,
     };
   }
@@ -8765,19 +9117,19 @@ export class ScrollDomainListResponse extends $tea.Model {
 }
 
 export class SetDefaultRegistrantProfileRequest extends $tea.Model {
-  userClientIp?: string;
   registrantProfileId?: number;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       registrantProfileId: 'RegistrantProfileId',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       registrantProfileId: 'number',
+      userClientIp: 'string',
     };
   }
 
@@ -8807,10 +9159,12 @@ export class SetDefaultRegistrantProfileResponseBody extends $tea.Model {
 
 export class SetDefaultRegistrantProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDefaultRegistrantProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8818,6 +9172,7 @@ export class SetDefaultRegistrantProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDefaultRegistrantProfileResponseBody,
     };
   }
@@ -8828,14 +9183,14 @@ export class SetDefaultRegistrantProfileResponse extends $tea.Model {
 }
 
 export class SubmitEmailVerificationRequest extends $tea.Model {
-  lang?: string;
   email?: string;
+  lang?: string;
   sendIfExist?: boolean;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       email: 'Email',
+      lang: 'Lang',
       sendIfExist: 'SendIfExist',
       userClientIp: 'UserClientIp',
     };
@@ -8843,8 +9198,8 @@ export class SubmitEmailVerificationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       email: 'string',
+      lang: 'string',
       sendIfExist: 'boolean',
       userClientIp: 'string',
     };
@@ -8856,25 +9211,25 @@ export class SubmitEmailVerificationRequest extends $tea.Model {
 }
 
 export class SubmitEmailVerificationResponseBody extends $tea.Model {
-  requestId?: string;
   existList?: SubmitEmailVerificationResponseBodyExistList[];
-  successList?: SubmitEmailVerificationResponseBodySuccessList[];
   failList?: SubmitEmailVerificationResponseBodyFailList[];
+  requestId?: string;
+  successList?: SubmitEmailVerificationResponseBodySuccessList[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       existList: 'ExistList',
-      successList: 'SuccessList',
       failList: 'FailList',
+      requestId: 'RequestId',
+      successList: 'SuccessList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       existList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodyExistList },
-      successList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodySuccessList },
       failList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodyFailList },
+      requestId: 'string',
+      successList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodySuccessList },
     };
   }
 
@@ -8885,10 +9240,12 @@ export class SubmitEmailVerificationResponseBody extends $tea.Model {
 
 export class SubmitEmailVerificationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitEmailVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8896,6 +9253,7 @@ export class SubmitEmailVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitEmailVerificationResponseBody,
     };
   }
@@ -8906,28 +9264,28 @@ export class SubmitEmailVerificationResponse extends $tea.Model {
 }
 
 export class SubmitOperationAuditInfoRequest extends $tea.Model {
-  lang?: string;
-  domainName?: string;
-  auditType?: number;
   auditInfo?: string;
+  auditType?: number;
+  domainName?: string;
   id?: number;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      domainName: 'DomainName',
-      auditType: 'AuditType',
       auditInfo: 'AuditInfo',
+      auditType: 'AuditType',
+      domainName: 'DomainName',
       id: 'Id',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      domainName: 'string',
-      auditType: 'number',
       auditInfo: 'string',
+      auditType: 'number',
+      domainName: 'string',
       id: 'number',
+      lang: 'string',
     };
   }
 
@@ -8937,19 +9295,19 @@ export class SubmitOperationAuditInfoRequest extends $tea.Model {
 }
 
 export class SubmitOperationAuditInfoResponseBody extends $tea.Model {
-  requestId?: string;
   id?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'number',
+      requestId: 'string',
     };
   }
 
@@ -8960,10 +9318,12 @@ export class SubmitOperationAuditInfoResponseBody extends $tea.Model {
 
 export class SubmitOperationAuditInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitOperationAuditInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8971,6 +9331,7 @@ export class SubmitOperationAuditInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitOperationAuditInfoResponseBody,
     };
   }
@@ -8981,28 +9342,28 @@ export class SubmitOperationAuditInfoResponse extends $tea.Model {
 }
 
 export class SubmitOperationCredentialsRequest extends $tea.Model {
-  lang?: string;
   auditRecordId?: number;
-  regType?: number;
   auditType?: number;
   credentials?: string;
+  lang?: string;
+  regType?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       auditRecordId: 'AuditRecordId',
-      regType: 'RegType',
       auditType: 'AuditType',
       credentials: 'Credentials',
+      lang: 'Lang',
+      regType: 'RegType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       auditRecordId: 'number',
-      regType: 'number',
       auditType: 'number',
       credentials: 'string',
+      lang: 'string',
+      regType: 'number',
     };
   }
 
@@ -9032,10 +9393,12 @@ export class SubmitOperationCredentialsResponseBody extends $tea.Model {
 
 export class SubmitOperationCredentialsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitOperationCredentialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9043,6 +9406,7 @@ export class SubmitOperationCredentialsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitOperationCredentialsResponseBody,
     };
   }
@@ -9053,21 +9417,21 @@ export class SubmitOperationCredentialsResponse extends $tea.Model {
 }
 
 export class TransferInCheckMailTokenRequest extends $tea.Model {
-  token?: string;
   lang?: string;
+  token?: string;
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      token: 'Token',
       lang: 'Lang',
+      token: 'Token',
       userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      token: 'string',
       lang: 'string',
+      token: 'string',
       userClientIp: 'string',
     };
   }
@@ -9078,22 +9442,22 @@ export class TransferInCheckMailTokenRequest extends $tea.Model {
 }
 
 export class TransferInCheckMailTokenResponseBody extends $tea.Model {
+  failList?: TransferInCheckMailTokenResponseBodyFailList;
   requestId?: string;
   successList?: TransferInCheckMailTokenResponseBodySuccessList;
-  failList?: TransferInCheckMailTokenResponseBodyFailList;
   static names(): { [key: string]: string } {
     return {
+      failList: 'FailList',
       requestId: 'RequestId',
       successList: 'SuccessList',
-      failList: 'FailList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      failList: TransferInCheckMailTokenResponseBodyFailList,
       requestId: 'string',
       successList: TransferInCheckMailTokenResponseBodySuccessList,
-      failList: TransferInCheckMailTokenResponseBodyFailList,
     };
   }
 
@@ -9104,10 +9468,12 @@ export class TransferInCheckMailTokenResponseBody extends $tea.Model {
 
 export class TransferInCheckMailTokenResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TransferInCheckMailTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9115,6 +9481,7 @@ export class TransferInCheckMailTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TransferInCheckMailTokenResponseBody,
     };
   }
@@ -9127,14 +9494,14 @@ export class TransferInCheckMailTokenResponse extends $tea.Model {
 export class TransferInReenterTransferAuthorizationCodeRequest extends $tea.Model {
   domainName?: string;
   lang?: string;
-  userClientIp?: string;
   transferAuthorizationCode?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       transferAuthorizationCode: 'TransferAuthorizationCode',
+      userClientIp: 'UserClientIp',
     };
   }
 
@@ -9142,8 +9509,8 @@ export class TransferInReenterTransferAuthorizationCodeRequest extends $tea.Mode
     return {
       domainName: 'string',
       lang: 'string',
-      userClientIp: 'string',
       transferAuthorizationCode: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -9173,10 +9540,12 @@ export class TransferInReenterTransferAuthorizationCodeResponseBody extends $tea
 
 export class TransferInReenterTransferAuthorizationCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TransferInReenterTransferAuthorizationCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9184,6 +9553,7 @@ export class TransferInReenterTransferAuthorizationCodeResponse extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TransferInReenterTransferAuthorizationCodeResponseBody,
     };
   }
@@ -9239,10 +9609,12 @@ export class TransferInRefetchWhoisEmailResponseBody extends $tea.Model {
 
 export class TransferInRefetchWhoisEmailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TransferInRefetchWhoisEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9250,6 +9622,7 @@ export class TransferInRefetchWhoisEmailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TransferInRefetchWhoisEmailResponseBody,
     };
   }
@@ -9305,10 +9678,12 @@ export class TransferInResendMailTokenResponseBody extends $tea.Model {
 
 export class TransferInResendMailTokenResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TransferInResendMailTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9316,6 +9691,7 @@ export class TransferInResendMailTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TransferInResendMailTokenResponseBody,
     };
   }
@@ -9326,34 +9702,34 @@ export class TransferInResendMailTokenResponse extends $tea.Model {
 }
 
 export class UpdateDomainToDomainGroupRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  fileToUpload?: string;
-  domainGroupId?: number;
-  replace?: boolean;
   dataSource?: number;
+  domainGroupId?: number;
   domainName?: string[];
+  fileToUpload?: string;
+  lang?: string;
+  replace?: boolean;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      fileToUpload: 'FileToUpload',
-      domainGroupId: 'DomainGroupId',
-      replace: 'Replace',
       dataSource: 'DataSource',
+      domainGroupId: 'DomainGroupId',
       domainName: 'DomainName',
+      fileToUpload: 'FileToUpload',
+      lang: 'Lang',
+      replace: 'Replace',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      fileToUpload: 'string',
-      domainGroupId: 'number',
-      replace: 'boolean',
       dataSource: 'number',
+      domainGroupId: 'number',
       domainName: { 'type': 'array', 'itemType': 'string' },
+      fileToUpload: 'string',
+      lang: 'string',
+      replace: 'boolean',
+      userClientIp: 'string',
     };
   }
 
@@ -9383,10 +9759,12 @@ export class UpdateDomainToDomainGroupResponseBody extends $tea.Model {
 
 export class UpdateDomainToDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDomainToDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9394,6 +9772,7 @@ export class UpdateDomainToDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDomainToDomainGroupResponseBody,
     };
   }
@@ -9404,73 +9783,73 @@ export class UpdateDomainToDomainGroupResponse extends $tea.Model {
 }
 
 export class VerifyContactFieldRequest extends $tea.Model {
-  province?: string;
-  userClientIp?: string;
-  lang?: string;
-  city?: string;
-  registrantOrganization?: string;
-  country?: string;
-  registrantName?: string;
   address?: string;
+  city?: string;
+  country?: string;
+  domainName?: string;
   email?: string;
+  lang?: string;
   postalCode?: string;
+  province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantType?: string;
   telArea?: string;
-  telephone?: string;
   telExt?: string;
-  zhRegistrantOrganization?: string;
-  zhRegistrantName?: string;
-  zhProvince?: string;
+  telephone?: string;
+  userClientIp?: string;
   zhAddress?: string;
   zhCity?: string;
-  registrantType?: string;
-  domainName?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      province: 'Province',
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      city: 'City',
-      registrantOrganization: 'RegistrantOrganization',
-      country: 'Country',
-      registrantName: 'RegistrantName',
       address: 'Address',
+      city: 'City',
+      country: 'Country',
+      domainName: 'DomainName',
       email: 'Email',
+      lang: 'Lang',
       postalCode: 'PostalCode',
+      province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantType: 'RegistrantType',
       telArea: 'TelArea',
-      telephone: 'Telephone',
       telExt: 'TelExt',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhProvince: 'ZhProvince',
+      telephone: 'Telephone',
+      userClientIp: 'UserClientIp',
       zhAddress: 'ZhAddress',
       zhCity: 'ZhCity',
-      registrantType: 'RegistrantType',
-      domainName: 'DomainName',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      province: 'string',
-      userClientIp: 'string',
-      lang: 'string',
-      city: 'string',
-      registrantOrganization: 'string',
-      country: 'string',
-      registrantName: 'string',
       address: 'string',
+      city: 'string',
+      country: 'string',
+      domainName: 'string',
       email: 'string',
+      lang: 'string',
       postalCode: 'string',
+      province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantType: 'string',
       telArea: 'string',
-      telephone: 'string',
       telExt: 'string',
-      zhRegistrantOrganization: 'string',
-      zhRegistrantName: 'string',
-      zhProvince: 'string',
+      telephone: 'string',
+      userClientIp: 'string',
       zhAddress: 'string',
       zhCity: 'string',
-      registrantType: 'string',
-      domainName: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -9500,10 +9879,12 @@ export class VerifyContactFieldResponseBody extends $tea.Model {
 
 export class VerifyContactFieldResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: VerifyContactFieldResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9511,6 +9892,7 @@ export class VerifyContactFieldResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: VerifyContactFieldResponseBody,
     };
   }
@@ -9566,10 +9948,12 @@ export class VerifyEmailResponseBody extends $tea.Model {
 
 export class VerifyEmailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: VerifyEmailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9577,6 +9961,7 @@ export class VerifyEmailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: VerifyEmailResponseBody,
     };
   }
@@ -9625,21 +10010,21 @@ export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchRes
 }
 
 export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResult extends $tea.Model {
-  keyword?: string;
   exist?: boolean;
+  keyword?: string;
   matchedSentiveWords?: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWords;
   static names(): { [key: string]: string } {
     return {
-      keyword: 'Keyword',
       exist: 'Exist',
+      keyword: 'Keyword',
       matchedSentiveWords: 'MatchedSentiveWords',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyword: 'string',
       exist: 'boolean',
+      keyword: 'string',
       matchedSentiveWords: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWords,
     };
   }
@@ -9668,25 +10053,6 @@ export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchRes
   }
 }
 
-export class ConfirmTransferInEmailResponseBodySuccessList extends $tea.Model {
-  successDomain?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      successDomain: 'SuccessDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      successDomain: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ConfirmTransferInEmailResponseBodyFailList extends $tea.Model {
   failDomain?: string[];
   static names(): { [key: string]: string } {
@@ -9706,23 +10072,17 @@ export class ConfirmTransferInEmailResponseBodyFailList extends $tea.Model {
   }
 }
 
-export class DeleteEmailVerificationResponseBodySuccessList extends $tea.Model {
-  email?: string;
-  code?: string;
-  message?: string;
+export class ConfirmTransferInEmailResponseBodySuccessList extends $tea.Model {
+  successDomain?: string[];
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
-      code: 'Code',
-      message: 'Message',
+      successDomain: 'SuccessDomain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
-      code: 'string',
-      message: 'string',
+      successDomain: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -9732,21 +10092,46 @@ export class DeleteEmailVerificationResponseBodySuccessList extends $tea.Model {
 }
 
 export class DeleteEmailVerificationResponseBodyFailList extends $tea.Model {
-  email?: string;
   code?: string;
+  email?: string;
   message?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
       code: 'Code',
+      email: 'Email',
       message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
       code: 'string',
+      email: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEmailVerificationResponseBodySuccessList extends $tea.Model {
+  code?: string;
+  email?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      email: 'Email',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      email: 'string',
       message: 'string',
     };
   }
@@ -9795,43 +10180,43 @@ export class FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords extend
 }
 
 export class ListEmailVerificationResponseBodyData extends $tea.Model {
-  verificationTime?: string;
+  confirmIp?: string;
   email?: string;
   emailVerificationNo?: string;
-  userId?: string;
   gmtCreate?: string;
-  verificationStatus?: number;
-  tokenSendTime?: string;
-  sendIp?: string;
   gmtModified?: string;
-  confirmIp?: string;
+  sendIp?: string;
+  tokenSendTime?: string;
+  userId?: string;
+  verificationStatus?: number;
+  verificationTime?: string;
   static names(): { [key: string]: string } {
     return {
-      verificationTime: 'VerificationTime',
+      confirmIp: 'ConfirmIp',
       email: 'Email',
       emailVerificationNo: 'EmailVerificationNo',
-      userId: 'UserId',
       gmtCreate: 'GmtCreate',
-      verificationStatus: 'VerificationStatus',
-      tokenSendTime: 'TokenSendTime',
-      sendIp: 'SendIp',
       gmtModified: 'GmtModified',
-      confirmIp: 'ConfirmIp',
+      sendIp: 'SendIp',
+      tokenSendTime: 'TokenSendTime',
+      userId: 'UserId',
+      verificationStatus: 'VerificationStatus',
+      verificationTime: 'VerificationTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      verificationTime: 'string',
+      confirmIp: 'string',
       email: 'string',
       emailVerificationNo: 'string',
-      userId: 'string',
       gmtCreate: 'string',
-      verificationStatus: 'number',
-      tokenSendTime: 'string',
-      sendIp: 'string',
       gmtModified: 'string',
-      confirmIp: 'string',
+      sendIp: 'string',
+      tokenSendTime: 'string',
+      userId: 'string',
+      verificationStatus: 'number',
+      verificationTime: 'string',
     };
   }
 
@@ -9841,149 +10226,43 @@ export class ListEmailVerificationResponseBodyData extends $tea.Model {
 }
 
 export class ListServerLockResponseBodyData extends $tea.Model {
-  serverLockStatus?: string;
-  lockInstanceId?: string;
-  userId?: string;
-  gmtCreate?: string;
-  expireDate?: string;
-  startDate?: string;
-  lockProductId?: string;
   domainInstanceId?: string;
-  gmtModified?: string;
   domainName?: string;
+  expireDate?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  lockInstanceId?: string;
+  lockProductId?: string;
+  serverLockStatus?: string;
+  startDate?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      serverLockStatus: 'ServerLockStatus',
-      lockInstanceId: 'LockInstanceId',
-      userId: 'UserId',
-      gmtCreate: 'GmtCreate',
-      expireDate: 'ExpireDate',
-      startDate: 'StartDate',
-      lockProductId: 'LockProductId',
       domainInstanceId: 'DomainInstanceId',
-      gmtModified: 'GmtModified',
       domainName: 'DomainName',
+      expireDate: 'ExpireDate',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      lockInstanceId: 'LockInstanceId',
+      lockProductId: 'LockProductId',
+      serverLockStatus: 'ServerLockStatus',
+      startDate: 'StartDate',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serverLockStatus: 'string',
-      lockInstanceId: 'string',
-      userId: 'string',
-      gmtCreate: 'string',
-      expireDate: 'string',
-      startDate: 'string',
-      lockProductId: 'string',
       domainInstanceId: 'string',
-      gmtModified: 'string',
       domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet extends $tea.Model {
-  street?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      street: 'Street',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      street: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr extends $tea.Model {
-  cc?: string;
-  sp?: string;
-  pc?: string;
-  city?: string;
-  street?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet;
-  static names(): { [key: string]: string } {
-    return {
-      cc: 'Cc',
-      sp: 'Sp',
-      pc: 'Pc',
-      city: 'City',
-      street: 'Street',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cc: 'string',
-      sp: 'string',
-      pc: 'string',
-      city: 'string',
-      street: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContactsContact extends $tea.Model {
-  type?: string;
-  voice?: string;
-  email?: string;
-  fax?: string;
-  addr?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr;
-  org?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      voice: 'Voice',
-      email: 'Email',
-      fax: 'Fax',
-      addr: 'Addr',
-      org: 'Org',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      voice: 'string',
-      email: 'string',
-      fax: 'string',
-      addr: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr,
-      org: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContacts extends $tea.Model {
-  contact?: LookupTmchNoticeResponseBodyClaimsClaimContactsContact[];
-  static names(): { [key: string]: string } {
-    return {
-      contact: 'Contact',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contact: { 'type': 'array', 'itemType': LookupTmchNoticeResponseBodyClaimsClaimContactsContact },
+      expireDate: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      lockInstanceId: 'string',
+      lockProductId: 'string',
+      serverLockStatus: 'string',
+      startDate: 'string',
+      userId: 'string',
     };
   }
 
@@ -10033,6 +10312,112 @@ export class LookupTmchNoticeResponseBodyClaimsClaimClassDescs extends $tea.Mode
   }
 }
 
+export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet extends $tea.Model {
+  street?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      street: 'Street',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      street: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr extends $tea.Model {
+  cc?: string;
+  city?: string;
+  pc?: string;
+  sp?: string;
+  street?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet;
+  static names(): { [key: string]: string } {
+    return {
+      cc: 'Cc',
+      city: 'City',
+      pc: 'Pc',
+      sp: 'Sp',
+      street: 'Street',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cc: 'string',
+      city: 'string',
+      pc: 'string',
+      sp: 'string',
+      street: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupTmchNoticeResponseBodyClaimsClaimContactsContact extends $tea.Model {
+  addr?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr;
+  email?: string;
+  fax?: string;
+  name?: string;
+  org?: string;
+  type?: string;
+  voice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+      email: 'Email',
+      fax: 'Fax',
+      name: 'Name',
+      org: 'Org',
+      type: 'Type',
+      voice: 'Voice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr,
+      email: 'string',
+      fax: 'string',
+      name: 'string',
+      org: 'string',
+      type: 'string',
+      voice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LookupTmchNoticeResponseBodyClaimsClaimContacts extends $tea.Model {
+  contact?: LookupTmchNoticeResponseBodyClaimsClaimContactsContact[];
+  static names(): { [key: string]: string } {
+    return {
+      contact: 'Contact',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contact: { 'type': 'array', 'itemType': LookupTmchNoticeResponseBodyClaimsClaimContactsContact },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet extends $tea.Model {
   street?: string[];
   static names(): { [key: string]: string } {
@@ -10054,16 +10439,16 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet exte
 
 export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr extends $tea.Model {
   cc?: string;
-  sp?: string;
-  pc?: string;
   city?: string;
+  pc?: string;
+  sp?: string;
   street?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet;
   static names(): { [key: string]: string } {
     return {
       cc: 'Cc',
-      sp: 'Sp',
-      pc: 'Pc',
       city: 'City',
+      pc: 'Pc',
+      sp: 'Sp',
       street: 'Street',
     };
   }
@@ -10071,9 +10456,9 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr extends $t
   static types(): { [key: string]: any } {
     return {
       cc: 'string',
-      sp: 'string',
-      pc: 'string',
       city: 'string',
+      pc: 'string',
+      sp: 'string',
       street: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet,
     };
   }
@@ -10084,21 +10469,21 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr extends $t
 }
 
 export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolder extends $tea.Model {
-  entitlement?: string;
   addr?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr;
+  entitlement?: string;
   org?: string;
   static names(): { [key: string]: string } {
     return {
-      entitlement: 'Entitlement',
       addr: 'Addr',
+      entitlement: 'Entitlement',
       org: 'Org',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      entitlement: 'string',
       addr: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr,
+      entitlement: 'string',
       org: 'string',
     };
   }
@@ -10128,19 +10513,19 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHolders extends $tea.Model {
 }
 
 export class LookupTmchNoticeResponseBodyClaimsClaimJurDesc extends $tea.Model {
-  jurCC?: string;
   desc?: string;
+  jurCC?: string;
   static names(): { [key: string]: string } {
     return {
-      jurCC: 'JurCC',
       desc: 'Desc',
+      jurCC: 'JurCC',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jurCC: 'string',
       desc: 'string',
+      jurCC: 'string',
     };
   }
 
@@ -10150,31 +10535,31 @@ export class LookupTmchNoticeResponseBodyClaimsClaimJurDesc extends $tea.Model {
 }
 
 export class LookupTmchNoticeResponseBodyClaimsClaim extends $tea.Model {
-  goodsAndServices?: string;
-  contacts?: LookupTmchNoticeResponseBodyClaimsClaimContacts;
-  markName?: string;
   classDescs?: LookupTmchNoticeResponseBodyClaimsClaimClassDescs;
+  contacts?: LookupTmchNoticeResponseBodyClaimsClaimContacts;
+  goodsAndServices?: string;
   holders?: LookupTmchNoticeResponseBodyClaimsClaimHolders;
   jurDesc?: LookupTmchNoticeResponseBodyClaimsClaimJurDesc;
+  markName?: string;
   static names(): { [key: string]: string } {
     return {
-      goodsAndServices: 'GoodsAndServices',
-      contacts: 'Contacts',
-      markName: 'MarkName',
       classDescs: 'ClassDescs',
+      contacts: 'Contacts',
+      goodsAndServices: 'GoodsAndServices',
       holders: 'Holders',
       jurDesc: 'JurDesc',
+      markName: 'MarkName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      goodsAndServices: 'string',
-      contacts: LookupTmchNoticeResponseBodyClaimsClaimContacts,
-      markName: 'string',
       classDescs: LookupTmchNoticeResponseBodyClaimsClaimClassDescs,
+      contacts: LookupTmchNoticeResponseBodyClaimsClaimContacts,
+      goodsAndServices: 'string',
       holders: LookupTmchNoticeResponseBodyClaimsClaimHolders,
       jurDesc: LookupTmchNoticeResponseBodyClaimsClaimJurDesc,
+      markName: 'string',
     };
   }
 
@@ -10203,52 +10588,52 @@ export class LookupTmchNoticeResponseBodyClaims extends $tea.Model {
 }
 
 export class PollTaskResultResponseBodyDataTaskDetail extends $tea.Model {
-  updateTime?: string;
-  taskDetailNo?: string;
   createTime?: string;
-  instanceId?: string;
   domainName?: string;
-  taskType?: string;
+  errorMsg?: string;
+  instanceId?: string;
+  taskDetailNo?: string;
   taskNo?: string;
   taskResult?: string;
-  taskStatusCode?: number;
   taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
   taskTypeDescription?: string;
   tryCount?: number;
-  errorMsg?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      taskDetailNo: 'TaskDetailNo',
       createTime: 'CreateTime',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      taskType: 'TaskType',
+      errorMsg: 'ErrorMsg',
+      instanceId: 'InstanceId',
+      taskDetailNo: 'TaskDetailNo',
       taskNo: 'TaskNo',
       taskResult: 'TaskResult',
-      taskStatusCode: 'TaskStatusCode',
       taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
       taskTypeDescription: 'TaskTypeDescription',
       tryCount: 'TryCount',
-      errorMsg: 'ErrorMsg',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
-      taskDetailNo: 'string',
       createTime: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      taskType: 'string',
+      errorMsg: 'string',
+      instanceId: 'string',
+      taskDetailNo: 'string',
       taskNo: 'string',
       taskResult: 'string',
-      taskStatusCode: 'number',
       taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
       taskTypeDescription: 'string',
       tryCount: 'number',
-      errorMsg: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -10296,76 +10681,76 @@ export class QueryAdvancedDomainListResponseBodyDataDomainDnsList extends $tea.M
 }
 
 export class QueryAdvancedDomainListResponseBodyDataDomain extends $tea.Model {
+  dnsList?: QueryAdvancedDomainListResponseBodyDataDomainDnsList;
   domainAuditStatus?: string;
   domainGroupId?: string;
-  remark?: string;
   domainGroupName?: string;
-  zhRegistrantOrganization?: string;
-  registrantOrganization?: string;
-  registrationDate?: string;
-  instanceId?: string;
   domainName?: string;
-  expirationDateStatus?: string;
-  expirationDate?: string;
-  dnsList?: QueryAdvancedDomainListResponseBodyDataDomainDnsList;
-  email?: string;
-  registrantType?: string;
-  expirationDateLong?: number;
-  expirationCurrDateDiff?: number;
-  premium?: boolean;
-  registrationDateLong?: number;
-  productId?: string;
   domainStatus?: string;
   domainType?: string;
+  email?: string;
+  expirationCurrDateDiff?: number;
+  expirationDate?: string;
+  expirationDateLong?: number;
+  expirationDateStatus?: string;
+  instanceId?: string;
+  premium?: boolean;
+  productId?: string;
+  registrantOrganization?: string;
+  registrantType?: string;
+  registrationDate?: string;
+  registrationDateLong?: number;
+  remark?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
+      dnsList: 'DnsList',
       domainAuditStatus: 'DomainAuditStatus',
       domainGroupId: 'DomainGroupId',
-      remark: 'Remark',
       domainGroupName: 'DomainGroupName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      registrantOrganization: 'RegistrantOrganization',
-      registrationDate: 'RegistrationDate',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      expirationDateStatus: 'ExpirationDateStatus',
-      expirationDate: 'ExpirationDate',
-      dnsList: 'DnsList',
-      email: 'Email',
-      registrantType: 'RegistrantType',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      premium: 'Premium',
-      registrationDateLong: 'RegistrationDateLong',
-      productId: 'ProductId',
       domainStatus: 'DomainStatus',
       domainType: 'DomainType',
+      email: 'Email',
+      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
+      expirationDate: 'ExpirationDate',
+      expirationDateLong: 'ExpirationDateLong',
+      expirationDateStatus: 'ExpirationDateStatus',
+      instanceId: 'InstanceId',
+      premium: 'Premium',
+      productId: 'ProductId',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantType: 'RegistrantType',
+      registrationDate: 'RegistrationDate',
+      registrationDateLong: 'RegistrationDateLong',
+      remark: 'Remark',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dnsList: QueryAdvancedDomainListResponseBodyDataDomainDnsList,
       domainAuditStatus: 'string',
       domainGroupId: 'string',
-      remark: 'string',
       domainGroupName: 'string',
-      zhRegistrantOrganization: 'string',
-      registrantOrganization: 'string',
-      registrationDate: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      expirationDateStatus: 'string',
-      expirationDate: 'string',
-      dnsList: QueryAdvancedDomainListResponseBodyDataDomainDnsList,
-      email: 'string',
-      registrantType: 'string',
-      expirationDateLong: 'number',
-      expirationCurrDateDiff: 'number',
-      premium: 'boolean',
-      registrationDateLong: 'number',
-      productId: 'string',
       domainStatus: 'string',
       domainType: 'string',
+      email: 'string',
+      expirationCurrDateDiff: 'number',
+      expirationDate: 'string',
+      expirationDateLong: 'number',
+      expirationDateStatus: 'string',
+      instanceId: 'string',
+      premium: 'boolean',
+      productId: 'string',
+      registrantOrganization: 'string',
+      registrantType: 'string',
+      registrationDate: 'string',
+      registrationDateLong: 'number',
+      remark: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -10394,31 +10779,31 @@ export class QueryAdvancedDomainListResponseBodyData extends $tea.Model {
 }
 
 export class QueryChangeLogListResponseBodyDataChangeLog extends $tea.Model {
-  operation?: string;
-  time?: string;
-  result?: string;
-  domainName?: string;
-  operationIPAddress?: string;
   details?: string;
+  domainName?: string;
+  operation?: string;
+  operationIPAddress?: string;
+  result?: string;
+  time?: string;
   static names(): { [key: string]: string } {
     return {
-      operation: 'Operation',
-      time: 'Time',
-      result: 'Result',
-      domainName: 'DomainName',
-      operationIPAddress: 'OperationIPAddress',
       details: 'Details',
+      domainName: 'DomainName',
+      operation: 'Operation',
+      operationIPAddress: 'OperationIPAddress',
+      result: 'Result',
+      time: 'Time',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operation: 'string',
-      time: 'string',
-      result: 'string',
-      domainName: 'string',
-      operationIPAddress: 'string',
       details: 'string',
+      domainName: 'string',
+      operation: 'string',
+      operationIPAddress: 'string',
+      result: 'string',
+      time: 'string',
     };
   }
 
@@ -10438,6 +10823,34 @@ export class QueryChangeLogListResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       changeLog: { 'type': 'array', 'itemType': QueryChangeLogListResponseBodyDataChangeLog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDSRecordResponseBodyDSRecordList extends $tea.Model {
+  algorithm?: number;
+  digest?: string;
+  digestType?: number;
+  keyTag?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      digest: 'Digest',
+      digestType: 'DigestType',
+      keyTag: 'KeyTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'number',
+      digest: 'string',
+      digestType: 'number',
+      keyTag: 'number',
     };
   }
 
@@ -10507,19 +10920,19 @@ export class QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChil
 }
 
 export class QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivision extends $tea.Model {
-  divisionName?: string;
   children?: QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildren;
+  divisionName?: string;
   static names(): { [key: string]: string } {
     return {
-      divisionName: 'DivisionName',
       children: 'Children',
+      divisionName: 'DivisionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      divisionName: 'string',
       children: QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildren,
+      divisionName: 'string',
     };
   }
 
@@ -10587,33 +11000,33 @@ export class QueryDomainByInstanceIdResponseBodyDnsList extends $tea.Model {
 
 export class QueryDomainGroupListResponseBodyDataDomainGroup extends $tea.Model {
   beingDeleted?: boolean;
-  domainGroupStatus?: string;
+  creationDate?: string;
   domainGroupId?: string;
   domainGroupName?: string;
+  domainGroupStatus?: string;
   modificationDate?: string;
   totalNumber?: number;
-  creationDate?: string;
   static names(): { [key: string]: string } {
     return {
       beingDeleted: 'BeingDeleted',
-      domainGroupStatus: 'DomainGroupStatus',
+      creationDate: 'CreationDate',
       domainGroupId: 'DomainGroupId',
       domainGroupName: 'DomainGroupName',
+      domainGroupStatus: 'DomainGroupStatus',
       modificationDate: 'ModificationDate',
       totalNumber: 'TotalNumber',
-      creationDate: 'CreationDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       beingDeleted: 'boolean',
-      domainGroupStatus: 'string',
+      creationDate: 'string',
       domainGroupId: 'string',
       domainGroupName: 'string',
+      domainGroupStatus: 'string',
       modificationDate: 'string',
       totalNumber: 'number',
-      creationDate: 'string',
     };
   }
 
@@ -10644,40 +11057,40 @@ export class QueryDomainGroupListResponseBodyData extends $tea.Model {
 export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
   domainAuditStatus?: string;
   domainGroupId?: string;
-  remark?: string;
   domainGroupName?: string;
-  registrationDate?: string;
-  instanceId?: string;
   domainName?: string;
-  expirationDateStatus?: string;
-  expirationDate?: string;
-  registrantType?: string;
-  expirationDateLong?: number;
-  expirationCurrDateDiff?: number;
-  premium?: boolean;
-  registrationDateLong?: number;
-  productId?: string;
   domainStatus?: string;
   domainType?: string;
+  expirationCurrDateDiff?: number;
+  expirationDate?: string;
+  expirationDateLong?: number;
+  expirationDateStatus?: string;
+  instanceId?: string;
+  premium?: boolean;
+  productId?: string;
+  registrantType?: string;
+  registrationDate?: string;
+  registrationDateLong?: number;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       domainAuditStatus: 'DomainAuditStatus',
       domainGroupId: 'DomainGroupId',
-      remark: 'Remark',
       domainGroupName: 'DomainGroupName',
-      registrationDate: 'RegistrationDate',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      expirationDateStatus: 'ExpirationDateStatus',
-      expirationDate: 'ExpirationDate',
-      registrantType: 'RegistrantType',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      premium: 'Premium',
-      registrationDateLong: 'RegistrationDateLong',
-      productId: 'ProductId',
       domainStatus: 'DomainStatus',
       domainType: 'DomainType',
+      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
+      expirationDate: 'ExpirationDate',
+      expirationDateLong: 'ExpirationDateLong',
+      expirationDateStatus: 'ExpirationDateStatus',
+      instanceId: 'InstanceId',
+      premium: 'Premium',
+      productId: 'ProductId',
+      registrantType: 'RegistrantType',
+      registrationDate: 'RegistrationDate',
+      registrationDateLong: 'RegistrationDateLong',
+      remark: 'Remark',
     };
   }
 
@@ -10685,21 +11098,21 @@ export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
     return {
       domainAuditStatus: 'string',
       domainGroupId: 'string',
-      remark: 'string',
       domainGroupName: 'string',
-      registrationDate: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      expirationDateStatus: 'string',
-      expirationDate: 'string',
-      registrantType: 'string',
-      expirationDateLong: 'number',
-      expirationCurrDateDiff: 'number',
-      premium: 'boolean',
-      registrationDateLong: 'number',
-      productId: 'string',
       domainStatus: 'string',
       domainType: 'string',
+      expirationCurrDateDiff: 'number',
+      expirationDate: 'string',
+      expirationDateLong: 'number',
+      expirationDateStatus: 'string',
+      instanceId: 'string',
+      premium: 'boolean',
+      productId: 'string',
+      registrantType: 'string',
+      registrationDate: 'string',
+      registrationDateLong: 'number',
+      remark: 'string',
     };
   }
 
@@ -10746,73 +11159,23 @@ export class QueryDomainSuffixResponseBodySuffixList extends $tea.Model {
   }
 }
 
-export class QueryDSRecordResponseBodyDSRecordList extends $tea.Model {
-  digestType?: number;
-  digest?: string;
-  algorithm?: number;
-  keyTag?: number;
-  static names(): { [key: string]: string } {
-    return {
-      digestType: 'DigestType',
-      digest: 'Digest',
-      algorithm: 'Algorithm',
-      keyTag: 'KeyTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      digestType: 'number',
-      digest: 'string',
-      algorithm: 'number',
-      keyTag: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationResponseBodyData extends $tea.Model {
-  date?: string;
-  failReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      failReason: 'FailReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      failReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryFailReasonForDomainRealNameVerificationResponseBodyData extends $tea.Model {
   date?: string;
-  failReason?: string;
   domainNameVerificationStatus?: string;
+  failReason?: string;
   static names(): { [key: string]: string } {
     return {
       date: 'Date',
-      failReason: 'FailReason',
       domainNameVerificationStatus: 'DomainNameVerificationStatus',
+      failReason: 'FailReason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       date: 'string',
-      failReason: 'string',
       domainNameVerificationStatus: 'string',
+      failReason: 'string',
     };
   }
 
@@ -10843,41 +11206,63 @@ export class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody
   }
 }
 
-export class QueryOperationAuditInfoListResponseBodyData extends $tea.Model {
-  updateTime?: number;
-  remark?: string;
-  createTime?: number;
-  auditType?: number;
-  businessName?: string;
-  auditInfo?: string;
-  domainName?: string;
-  auditStatus?: number;
-  id?: number;
+export class QueryFailingReasonListForQualificationResponseBodyData extends $tea.Model {
+  date?: string;
+  failReason?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      remark: 'Remark',
-      createTime: 'CreateTime',
-      auditType: 'AuditType',
-      businessName: 'BusinessName',
-      auditInfo: 'AuditInfo',
-      domainName: 'DomainName',
-      auditStatus: 'AuditStatus',
-      id: 'Id',
+      date: 'Date',
+      failReason: 'FailReason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'number',
-      remark: 'string',
-      createTime: 'number',
+      date: 'string',
+      failReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOperationAuditInfoListResponseBodyData extends $tea.Model {
+  auditInfo?: string;
+  auditStatus?: number;
+  auditType?: number;
+  businessName?: string;
+  createTime?: number;
+  domainName?: string;
+  id?: number;
+  remark?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      auditInfo: 'AuditInfo',
+      auditStatus: 'AuditStatus',
+      auditType: 'AuditType',
+      businessName: 'BusinessName',
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      id: 'Id',
+      remark: 'Remark',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditInfo: 'string',
+      auditStatus: 'number',
       auditType: 'number',
       businessName: 'string',
-      auditInfo: 'string',
+      createTime: 'number',
       domainName: 'string',
-      auditStatus: 'number',
       id: 'number',
+      remark: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -10887,21 +11272,21 @@ export class QueryOperationAuditInfoListResponseBodyData extends $tea.Model {
 }
 
 export class QueryQualificationDetailResponseBodyCredentialsQualificationCredential extends $tea.Model {
-  credentialType?: string;
   credentialNo?: string;
+  credentialType?: string;
   credentialUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      credentialType: 'CredentialType',
       credentialNo: 'CredentialNo',
+      credentialType: 'CredentialType',
       credentialUrl: 'CredentialUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      credentialType: 'string',
       credentialNo: 'string',
+      credentialType: 'string',
       credentialUrl: 'string',
     };
   }
@@ -10931,85 +11316,85 @@ export class QueryQualificationDetailResponseBodyCredentials extends $tea.Model 
 }
 
 export class QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProfile extends $tea.Model {
-  telExt?: string;
-  updateTime?: string;
-  zhProvince?: string;
-  createTime?: string;
-  telephone?: string;
-  registrantOrganization?: string;
-  city?: string;
-  zhCity?: string;
-  telArea?: string;
   address?: string;
-  realNameStatus?: string;
-  postalCode?: string;
-  registrantProfileType?: string;
-  registrantProfileId?: number;
-  zhRegistrantOrganization?: string;
-  defaultRegistrantProfile?: boolean;
-  zhRegistrantName?: string;
-  email?: string;
-  registrantType?: string;
+  city?: string;
   country?: string;
-  registrantName?: string;
+  createTime?: string;
+  defaultRegistrantProfile?: boolean;
+  email?: string;
   emailVerificationStatus?: number;
-  zhAddress?: string;
+  postalCode?: string;
   province?: string;
+  realNameStatus?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantProfileId?: number;
+  registrantProfileType?: string;
+  registrantType?: string;
+  telArea?: string;
+  telExt?: string;
+  telephone?: string;
+  updateTime?: string;
+  zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      telExt: 'TelExt',
-      updateTime: 'UpdateTime',
-      zhProvince: 'ZhProvince',
-      createTime: 'CreateTime',
-      telephone: 'Telephone',
-      registrantOrganization: 'RegistrantOrganization',
-      city: 'City',
-      zhCity: 'ZhCity',
-      telArea: 'TelArea',
       address: 'Address',
-      realNameStatus: 'RealNameStatus',
-      postalCode: 'PostalCode',
-      registrantProfileType: 'RegistrantProfileType',
-      registrantProfileId: 'RegistrantProfileId',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      defaultRegistrantProfile: 'DefaultRegistrantProfile',
-      zhRegistrantName: 'ZhRegistrantName',
-      email: 'Email',
-      registrantType: 'RegistrantType',
+      city: 'City',
       country: 'Country',
-      registrantName: 'RegistrantName',
+      createTime: 'CreateTime',
+      defaultRegistrantProfile: 'DefaultRegistrantProfile',
+      email: 'Email',
       emailVerificationStatus: 'EmailVerificationStatus',
-      zhAddress: 'ZhAddress',
+      postalCode: 'PostalCode',
       province: 'Province',
+      realNameStatus: 'RealNameStatus',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantProfileId: 'RegistrantProfileId',
+      registrantProfileType: 'RegistrantProfileType',
+      registrantType: 'RegistrantType',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
+      updateTime: 'UpdateTime',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      telExt: 'string',
-      updateTime: 'string',
-      zhProvince: 'string',
-      createTime: 'string',
-      telephone: 'string',
-      registrantOrganization: 'string',
-      city: 'string',
-      zhCity: 'string',
-      telArea: 'string',
       address: 'string',
-      realNameStatus: 'string',
-      postalCode: 'string',
-      registrantProfileType: 'string',
-      registrantProfileId: 'number',
-      zhRegistrantOrganization: 'string',
-      defaultRegistrantProfile: 'boolean',
-      zhRegistrantName: 'string',
-      email: 'string',
-      registrantType: 'string',
+      city: 'string',
       country: 'string',
-      registrantName: 'string',
+      createTime: 'string',
+      defaultRegistrantProfile: 'boolean',
+      email: 'string',
       emailVerificationStatus: 'number',
-      zhAddress: 'string',
+      postalCode: 'string',
       province: 'string',
+      realNameStatus: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantProfileId: 'number',
+      registrantProfileType: 'string',
+      registrantType: 'string',
+      telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
+      updateTime: 'string',
+      zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -11038,153 +11423,49 @@ export class QueryRegistrantProfilesResponseBodyRegistrantProfiles extends $tea.
 }
 
 export class QueryTaskDetailHistoryResponseBodyCurrentPageCursor extends $tea.Model {
-  updateTime?: string;
-  taskDetailNo?: string;
   createTime?: string;
-  instanceId?: string;
   domainName?: string;
-  taskType?: string;
+  errorMsg?: string;
+  instanceId?: string;
+  taskDetailNo?: string;
   taskNo?: string;
-  taskStatusCode?: number;
   taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
   taskTypeDescription?: string;
   tryCount?: number;
-  errorMsg?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      taskDetailNo: 'TaskDetailNo',
       createTime: 'CreateTime',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      taskType: 'TaskType',
+      errorMsg: 'ErrorMsg',
+      instanceId: 'InstanceId',
+      taskDetailNo: 'TaskDetailNo',
       taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
       taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
       taskTypeDescription: 'TaskTypeDescription',
       tryCount: 'TryCount',
-      errorMsg: 'ErrorMsg',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
-      taskDetailNo: 'string',
       createTime: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      taskType: 'string',
+      errorMsg: 'string',
+      instanceId: 'string',
+      taskDetailNo: 'string',
       taskNo: 'string',
-      taskStatusCode: 'number',
       taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
       taskTypeDescription: 'string',
       tryCount: 'number',
-      errorMsg: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBodyObjects extends $tea.Model {
-  updateTime?: string;
-  taskDetailNo?: string;
-  createTime?: string;
-  instanceId?: string;
-  domainName?: string;
-  taskType?: string;
-  taskNo?: string;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  tryCount?: number;
-  errorMsg?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      taskDetailNo: 'TaskDetailNo',
-      createTime: 'CreateTime',
-      instanceId: 'InstanceId',
-      domainName: 'DomainName',
-      taskType: 'TaskType',
-      taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      errorMsg: 'ErrorMsg',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
       updateTime: 'string',
-      taskDetailNo: 'string',
-      createTime: 'string',
-      instanceId: 'string',
-      domainName: 'string',
-      taskType: 'string',
-      taskNo: 'string',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      errorMsg: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBodyPrePageCursor extends $tea.Model {
-  updateTime?: string;
-  taskDetailNo?: string;
-  createTime?: string;
-  instanceId?: string;
-  domainName?: string;
-  taskType?: string;
-  taskNo?: string;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  tryCount?: number;
-  errorMsg?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      taskDetailNo: 'TaskDetailNo',
-      createTime: 'CreateTime',
-      instanceId: 'InstanceId',
-      domainName: 'DomainName',
-      taskType: 'TaskType',
-      taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      errorMsg: 'ErrorMsg',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'string',
-      taskDetailNo: 'string',
-      createTime: 'string',
-      instanceId: 'string',
-      domainName: 'string',
-      taskType: 'string',
-      taskNo: 'string',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      errorMsg: 'string',
     };
   }
 
@@ -11194,49 +11475,153 @@ export class QueryTaskDetailHistoryResponseBodyPrePageCursor extends $tea.Model 
 }
 
 export class QueryTaskDetailHistoryResponseBodyNextPageCursor extends $tea.Model {
-  updateTime?: string;
-  taskDetailNo?: string;
   createTime?: string;
-  instanceId?: string;
   domainName?: string;
-  taskType?: string;
+  errorMsg?: string;
+  instanceId?: string;
+  taskDetailNo?: string;
   taskNo?: string;
-  taskStatusCode?: number;
   taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
   taskTypeDescription?: string;
   tryCount?: number;
-  errorMsg?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      taskDetailNo: 'TaskDetailNo',
       createTime: 'CreateTime',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      taskType: 'TaskType',
+      errorMsg: 'ErrorMsg',
+      instanceId: 'InstanceId',
+      taskDetailNo: 'TaskDetailNo',
       taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
       taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
       taskTypeDescription: 'TaskTypeDescription',
       tryCount: 'TryCount',
-      errorMsg: 'ErrorMsg',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
-      taskDetailNo: 'string',
       createTime: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      taskType: 'string',
+      errorMsg: 'string',
+      instanceId: 'string',
+      taskDetailNo: 'string',
       taskNo: 'string',
-      taskStatusCode: 'number',
       taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
       taskTypeDescription: 'string',
       tryCount: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTaskDetailHistoryResponseBodyObjects extends $tea.Model {
+  createTime?: string;
+  domainName?: string;
+  errorMsg?: string;
+  instanceId?: string;
+  taskDetailNo?: string;
+  taskNo?: string;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
+  tryCount?: number;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      errorMsg: 'ErrorMsg',
+      instanceId: 'InstanceId',
+      taskDetailNo: 'TaskDetailNo',
+      taskNo: 'TaskNo',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
+      tryCount: 'TryCount',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      domainName: 'string',
       errorMsg: 'string',
+      instanceId: 'string',
+      taskDetailNo: 'string',
+      taskNo: 'string',
+      taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
+      taskTypeDescription: 'string',
+      tryCount: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTaskDetailHistoryResponseBodyPrePageCursor extends $tea.Model {
+  createTime?: string;
+  domainName?: string;
+  errorMsg?: string;
+  instanceId?: string;
+  taskDetailNo?: string;
+  taskNo?: string;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
+  tryCount?: number;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      domainName: 'DomainName',
+      errorMsg: 'ErrorMsg',
+      instanceId: 'InstanceId',
+      taskDetailNo: 'TaskDetailNo',
+      taskNo: 'TaskNo',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
+      tryCount: 'TryCount',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      domainName: 'string',
+      errorMsg: 'string',
+      instanceId: 'string',
+      taskDetailNo: 'string',
+      taskNo: 'string',
+      taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
+      taskTypeDescription: 'string',
+      tryCount: 'number',
+      updateTime: 'string',
     };
   }
 
@@ -11246,52 +11631,52 @@ export class QueryTaskDetailHistoryResponseBodyNextPageCursor extends $tea.Model
 }
 
 export class QueryTaskDetailListResponseBodyDataTaskDetail extends $tea.Model {
-  updateTime?: string;
-  taskDetailNo?: string;
   createTime?: string;
-  instanceId?: string;
   domainName?: string;
-  taskType?: string;
+  errorMsg?: string;
+  instanceId?: string;
+  taskDetailNo?: string;
   taskNo?: string;
   taskResult?: string;
-  taskStatusCode?: number;
   taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
   taskTypeDescription?: string;
   tryCount?: number;
-  errorMsg?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      taskDetailNo: 'TaskDetailNo',
       createTime: 'CreateTime',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      taskType: 'TaskType',
+      errorMsg: 'ErrorMsg',
+      instanceId: 'InstanceId',
+      taskDetailNo: 'TaskDetailNo',
       taskNo: 'TaskNo',
       taskResult: 'TaskResult',
-      taskStatusCode: 'TaskStatusCode',
       taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
       taskTypeDescription: 'TaskTypeDescription',
       tryCount: 'TryCount',
-      errorMsg: 'ErrorMsg',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
-      taskDetailNo: 'string',
       createTime: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      taskType: 'string',
+      errorMsg: 'string',
+      instanceId: 'string',
+      taskDetailNo: 'string',
       taskNo: 'string',
       taskResult: 'string',
-      taskStatusCode: 'number',
       taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
       taskTypeDescription: 'string',
       tryCount: 'number',
-      errorMsg: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -11320,126 +11705,40 @@ export class QueryTaskDetailListResponseBodyData extends $tea.Model {
 }
 
 export class QueryTaskInfoHistoryResponseBodyCurrentPageCursor extends $tea.Model {
-  taskType?: string;
-  taskNo?: string;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  taskNum?: number;
+  clientip?: string;
   createTime?: string;
   createTimeLong?: number;
-  clientip?: string;
+  taskNo?: string;
+  taskNum?: number;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      taskType: 'TaskType',
-      taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      taskNum: 'TaskNum',
+      clientip: 'Clientip',
       createTime: 'CreateTime',
       createTimeLong: 'CreateTimeLong',
-      clientip: 'Clientip',
+      taskNo: 'TaskNo',
+      taskNum: 'TaskNum',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskType: 'string',
-      taskNo: 'string',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
-      taskTypeDescription: 'string',
-      taskNum: 'number',
+      clientip: 'string',
       createTime: 'string',
       createTimeLong: 'number',
-      clientip: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBodyObjects extends $tea.Model {
-  taskType?: string;
-  taskNo?: string;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  taskNum?: number;
-  createTime?: string;
-  createTimeLong?: number;
-  clientip?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskType: 'TaskType',
-      taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      taskNum: 'TaskNum',
-      createTime: 'CreateTime',
-      createTimeLong: 'CreateTimeLong',
-      clientip: 'Clientip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskType: 'string',
       taskNo: 'string',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
-      taskTypeDescription: 'string',
       taskNum: 'number',
-      createTime: 'string',
-      createTimeLong: 'number',
-      clientip: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBodyPrePageCursor extends $tea.Model {
-  taskType?: string;
-  taskNo?: string;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  taskNum?: number;
-  createTime?: string;
-  createTimeLong?: number;
-  clientip?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskType: 'TaskType',
-      taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      taskNum: 'TaskNum',
-      createTime: 'CreateTime',
-      createTimeLong: 'CreateTimeLong',
-      clientip: 'Clientip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
+      taskStatus: 'string',
+      taskStatusCode: 'number',
       taskType: 'string',
-      taskNo: 'string',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
       taskTypeDescription: 'string',
-      taskNum: 'number',
-      createTime: 'string',
-      createTimeLong: 'number',
-      clientip: 'string',
     };
   }
 
@@ -11449,40 +11748,126 @@ export class QueryTaskInfoHistoryResponseBodyPrePageCursor extends $tea.Model {
 }
 
 export class QueryTaskInfoHistoryResponseBodyNextPageCursor extends $tea.Model {
-  taskType?: string;
-  taskNo?: string;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  taskNum?: number;
+  clientip?: string;
   createTime?: string;
   createTimeLong?: number;
-  clientip?: string;
+  taskNo?: string;
+  taskNum?: number;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      taskType: 'TaskType',
-      taskNo: 'TaskNo',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      taskNum: 'TaskNum',
+      clientip: 'Clientip',
       createTime: 'CreateTime',
       createTimeLong: 'CreateTimeLong',
-      clientip: 'Clientip',
+      taskNo: 'TaskNo',
+      taskNum: 'TaskNum',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskType: 'string',
-      taskNo: 'string',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
-      taskTypeDescription: 'string',
-      taskNum: 'number',
+      clientip: 'string',
       createTime: 'string',
       createTimeLong: 'number',
+      taskNo: 'string',
+      taskNum: 'number',
+      taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
+      taskTypeDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTaskInfoHistoryResponseBodyObjects extends $tea.Model {
+  clientip?: string;
+  createTime?: string;
+  createTimeLong?: number;
+  taskNo?: string;
+  taskNum?: number;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientip: 'Clientip',
+      createTime: 'CreateTime',
+      createTimeLong: 'CreateTimeLong',
+      taskNo: 'TaskNo',
+      taskNum: 'TaskNum',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       clientip: 'string',
+      createTime: 'string',
+      createTimeLong: 'number',
+      taskNo: 'string',
+      taskNum: 'number',
+      taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
+      taskTypeDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTaskInfoHistoryResponseBodyPrePageCursor extends $tea.Model {
+  clientip?: string;
+  createTime?: string;
+  createTimeLong?: number;
+  taskNo?: string;
+  taskNum?: number;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientip: 'Clientip',
+      createTime: 'CreateTime',
+      createTimeLong: 'CreateTimeLong',
+      taskNo: 'TaskNo',
+      taskNum: 'TaskNum',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientip: 'string',
+      createTime: 'string',
+      createTimeLong: 'number',
+      taskNo: 'string',
+      taskNum: 'number',
+      taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
+      taskTypeDescription: 'string',
     };
   }
 
@@ -11492,43 +11877,43 @@ export class QueryTaskInfoHistoryResponseBodyNextPageCursor extends $tea.Model {
 }
 
 export class QueryTaskListResponseBodyDataTaskInfo extends $tea.Model {
-  taskType?: string;
-  taskCancelStatus?: string;
-  taskNo?: string;
-  taskCancelStatusCode?: number;
-  taskStatusCode?: number;
-  taskStatus?: string;
-  taskTypeDescription?: string;
-  taskNum?: number;
-  createTime?: string;
   clientip?: string;
+  createTime?: string;
+  taskCancelStatus?: string;
+  taskCancelStatusCode?: number;
+  taskNo?: string;
+  taskNum?: number;
+  taskStatus?: string;
+  taskStatusCode?: number;
+  taskType?: string;
+  taskTypeDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      taskType: 'TaskType',
-      taskCancelStatus: 'TaskCancelStatus',
-      taskNo: 'TaskNo',
-      taskCancelStatusCode: 'TaskCancelStatusCode',
-      taskStatusCode: 'TaskStatusCode',
-      taskStatus: 'TaskStatus',
-      taskTypeDescription: 'TaskTypeDescription',
-      taskNum: 'TaskNum',
-      createTime: 'CreateTime',
       clientip: 'Clientip',
+      createTime: 'CreateTime',
+      taskCancelStatus: 'TaskCancelStatus',
+      taskCancelStatusCode: 'TaskCancelStatusCode',
+      taskNo: 'TaskNo',
+      taskNum: 'TaskNum',
+      taskStatus: 'TaskStatus',
+      taskStatusCode: 'TaskStatusCode',
+      taskType: 'TaskType',
+      taskTypeDescription: 'TaskTypeDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskType: 'string',
-      taskCancelStatus: 'string',
-      taskNo: 'string',
-      taskCancelStatusCode: 'number',
-      taskStatusCode: 'number',
-      taskStatus: 'string',
-      taskTypeDescription: 'string',
-      taskNum: 'number',
-      createTime: 'string',
       clientip: 'string',
+      createTime: 'string',
+      taskCancelStatus: 'string',
+      taskCancelStatusCode: 'number',
+      taskNo: 'string',
+      taskNum: 'number',
+      taskStatus: 'string',
+      taskStatusCode: 'number',
+      taskType: 'string',
+      taskTypeDescription: 'string',
     };
   }
 
@@ -11557,76 +11942,76 @@ export class QueryTaskListResponseBodyData extends $tea.Model {
 }
 
 export class QueryTransferInListResponseBodyDataTransferInInfo extends $tea.Model {
-  status?: number;
-  userId?: string;
-  modificationDate?: string;
-  transferAuthorizationCodeSubmissionDateLong?: number;
-  submissionDateLong?: number;
-  resultCode?: string;
-  needMailCheck?: boolean;
-  modificationDateLong?: number;
-  instanceId?: string;
   domainName?: string;
-  progressBarType?: number;
-  resultMsg?: string;
-  resultDateLong?: number;
-  expirationDate?: string;
   email?: string;
-  whoisMailStatus?: boolean;
-  transferAuthorizationCodeSubmissionDate?: string;
-  submissionDate?: string;
+  expirationDate?: string;
   expirationDateLong?: number;
-  simpleTransferInStatus?: string;
+  instanceId?: string;
+  modificationDate?: string;
+  modificationDateLong?: number;
+  needMailCheck?: boolean;
+  progressBarType?: number;
+  resultCode?: string;
   resultDate?: string;
+  resultDateLong?: number;
+  resultMsg?: string;
+  simpleTransferInStatus?: string;
+  status?: number;
+  submissionDate?: string;
+  submissionDateLong?: number;
+  transferAuthorizationCodeSubmissionDate?: string;
+  transferAuthorizationCodeSubmissionDateLong?: number;
+  userId?: string;
+  whoisMailStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      userId: 'UserId',
-      modificationDate: 'ModificationDate',
-      transferAuthorizationCodeSubmissionDateLong: 'TransferAuthorizationCodeSubmissionDateLong',
-      submissionDateLong: 'SubmissionDateLong',
-      resultCode: 'ResultCode',
-      needMailCheck: 'NeedMailCheck',
-      modificationDateLong: 'ModificationDateLong',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      progressBarType: 'ProgressBarType',
-      resultMsg: 'ResultMsg',
-      resultDateLong: 'ResultDateLong',
-      expirationDate: 'ExpirationDate',
       email: 'Email',
-      whoisMailStatus: 'WhoisMailStatus',
-      transferAuthorizationCodeSubmissionDate: 'TransferAuthorizationCodeSubmissionDate',
-      submissionDate: 'SubmissionDate',
+      expirationDate: 'ExpirationDate',
       expirationDateLong: 'ExpirationDateLong',
-      simpleTransferInStatus: 'SimpleTransferInStatus',
+      instanceId: 'InstanceId',
+      modificationDate: 'ModificationDate',
+      modificationDateLong: 'ModificationDateLong',
+      needMailCheck: 'NeedMailCheck',
+      progressBarType: 'ProgressBarType',
+      resultCode: 'ResultCode',
       resultDate: 'ResultDate',
+      resultDateLong: 'ResultDateLong',
+      resultMsg: 'ResultMsg',
+      simpleTransferInStatus: 'SimpleTransferInStatus',
+      status: 'Status',
+      submissionDate: 'SubmissionDate',
+      submissionDateLong: 'SubmissionDateLong',
+      transferAuthorizationCodeSubmissionDate: 'TransferAuthorizationCodeSubmissionDate',
+      transferAuthorizationCodeSubmissionDateLong: 'TransferAuthorizationCodeSubmissionDateLong',
+      userId: 'UserId',
+      whoisMailStatus: 'WhoisMailStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      userId: 'string',
-      modificationDate: 'string',
-      transferAuthorizationCodeSubmissionDateLong: 'number',
-      submissionDateLong: 'number',
-      resultCode: 'string',
-      needMailCheck: 'boolean',
-      modificationDateLong: 'number',
-      instanceId: 'string',
       domainName: 'string',
-      progressBarType: 'number',
-      resultMsg: 'string',
-      resultDateLong: 'number',
-      expirationDate: 'string',
       email: 'string',
-      whoisMailStatus: 'boolean',
-      transferAuthorizationCodeSubmissionDate: 'string',
-      submissionDate: 'string',
+      expirationDate: 'string',
       expirationDateLong: 'number',
-      simpleTransferInStatus: 'string',
+      instanceId: 'string',
+      modificationDate: 'string',
+      modificationDateLong: 'number',
+      needMailCheck: 'boolean',
+      progressBarType: 'number',
+      resultCode: 'string',
       resultDate: 'string',
+      resultDateLong: 'number',
+      resultMsg: 'string',
+      simpleTransferInStatus: 'string',
+      status: 'number',
+      submissionDate: 'string',
+      submissionDateLong: 'number',
+      transferAuthorizationCodeSubmissionDate: 'string',
+      transferAuthorizationCodeSubmissionDateLong: 'number',
+      userId: 'string',
+      whoisMailStatus: 'boolean',
     };
   }
 
@@ -11654,22 +12039,22 @@ export class QueryTransferInListResponseBodyData extends $tea.Model {
   }
 }
 
-export class ResendEmailVerificationResponseBodySuccessList extends $tea.Model {
-  email?: string;
+export class ResendEmailVerificationResponseBodyFailList extends $tea.Model {
   code?: string;
+  email?: string;
   message?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
       code: 'Code',
+      email: 'Email',
       message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
       code: 'string',
+      email: 'string',
       message: 'string',
     };
   }
@@ -11679,22 +12064,22 @@ export class ResendEmailVerificationResponseBodySuccessList extends $tea.Model {
   }
 }
 
-export class ResendEmailVerificationResponseBodyFailList extends $tea.Model {
-  email?: string;
+export class ResendEmailVerificationResponseBodySuccessList extends $tea.Model {
   code?: string;
+  email?: string;
   message?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
       code: 'Code',
+      email: 'Email',
       message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
       code: 'string',
+      email: 'string',
       message: 'string',
     };
   }
@@ -11705,91 +12090,91 @@ export class ResendEmailVerificationResponseBodyFailList extends $tea.Model {
 }
 
 export class SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam extends $tea.Model {
-  telExt?: string;
-  aliyunDns?: boolean;
-  permitPremiumActivation?: boolean;
-  zhProvince?: string;
-  telephone?: string;
-  registrantOrganization?: string;
-  city?: string;
-  domainName?: string;
-  zhCity?: string;
-  dns1?: string;
-  telArea?: string;
   address?: string;
-  enableDomainProxy?: boolean;
-  postalCode?: string;
-  registrantProfileId?: number;
-  zhRegistrantOrganization?: string;
-  trademarkDomainActivation?: boolean;
-  dns2?: string;
-  zhRegistrantName?: string;
-  email?: string;
-  registrantType?: string;
+  aliyunDns?: boolean;
+  city?: string;
   country?: string;
-  registrantName?: string;
-  subscriptionDuration?: number;
-  zhAddress?: string;
+  dns1?: string;
+  dns2?: string;
+  domainName?: string;
+  email?: string;
+  enableDomainProxy?: boolean;
+  permitPremiumActivation?: boolean;
+  postalCode?: string;
   province?: string;
+  registrantName?: string;
+  registrantOrganization?: string;
+  registrantProfileId?: number;
+  registrantType?: string;
+  subscriptionDuration?: number;
+  telArea?: string;
+  telExt?: string;
+  telephone?: string;
+  trademarkDomainActivation?: boolean;
+  zhAddress?: string;
+  zhCity?: string;
+  zhProvince?: string;
+  zhRegistrantName?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
-      telExt: 'TelExt',
-      aliyunDns: 'AliyunDns',
-      permitPremiumActivation: 'PermitPremiumActivation',
-      zhProvince: 'ZhProvince',
-      telephone: 'Telephone',
-      registrantOrganization: 'RegistrantOrganization',
-      city: 'City',
-      domainName: 'DomainName',
-      zhCity: 'ZhCity',
-      dns1: 'Dns1',
-      telArea: 'TelArea',
       address: 'Address',
-      enableDomainProxy: 'EnableDomainProxy',
-      postalCode: 'PostalCode',
-      registrantProfileId: 'RegistrantProfileId',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      trademarkDomainActivation: 'TrademarkDomainActivation',
-      dns2: 'Dns2',
-      zhRegistrantName: 'ZhRegistrantName',
-      email: 'Email',
-      registrantType: 'RegistrantType',
+      aliyunDns: 'AliyunDns',
+      city: 'City',
       country: 'Country',
-      registrantName: 'RegistrantName',
-      subscriptionDuration: 'SubscriptionDuration',
-      zhAddress: 'ZhAddress',
+      dns1: 'Dns1',
+      dns2: 'Dns2',
+      domainName: 'DomainName',
+      email: 'Email',
+      enableDomainProxy: 'EnableDomainProxy',
+      permitPremiumActivation: 'PermitPremiumActivation',
+      postalCode: 'PostalCode',
       province: 'Province',
+      registrantName: 'RegistrantName',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantProfileId: 'RegistrantProfileId',
+      registrantType: 'RegistrantType',
+      subscriptionDuration: 'SubscriptionDuration',
+      telArea: 'TelArea',
+      telExt: 'TelExt',
+      telephone: 'Telephone',
+      trademarkDomainActivation: 'TrademarkDomainActivation',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      zhProvince: 'ZhProvince',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      telExt: 'string',
-      aliyunDns: 'boolean',
-      permitPremiumActivation: 'boolean',
-      zhProvince: 'string',
-      telephone: 'string',
-      registrantOrganization: 'string',
-      city: 'string',
-      domainName: 'string',
-      zhCity: 'string',
-      dns1: 'string',
-      telArea: 'string',
       address: 'string',
-      enableDomainProxy: 'boolean',
-      postalCode: 'string',
-      registrantProfileId: 'number',
-      zhRegistrantOrganization: 'string',
-      trademarkDomainActivation: 'boolean',
-      dns2: 'string',
-      zhRegistrantName: 'string',
-      email: 'string',
-      registrantType: 'string',
+      aliyunDns: 'boolean',
+      city: 'string',
       country: 'string',
-      registrantName: 'string',
-      subscriptionDuration: 'number',
-      zhAddress: 'string',
+      dns1: 'string',
+      dns2: 'string',
+      domainName: 'string',
+      email: 'string',
+      enableDomainProxy: 'boolean',
+      permitPremiumActivation: 'boolean',
+      postalCode: 'string',
       province: 'string',
+      registrantName: 'string',
+      registrantOrganization: 'string',
+      registrantProfileId: 'number',
+      registrantType: 'string',
+      subscriptionDuration: 'number',
+      telArea: 'string',
+      telExt: 'string',
+      telephone: 'string',
+      trademarkDomainActivation: 'boolean',
+      zhAddress: 'string',
+      zhCity: 'string',
+      zhProvince: 'string',
+      zhRegistrantName: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -11799,19 +12184,19 @@ export class SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam exte
 }
 
 export class SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam extends $tea.Model {
-  domainName?: string;
   currentExpirationDate?: number;
+  domainName?: string;
   static names(): { [key: string]: string } {
     return {
-      domainName: 'DomainName',
       currentExpirationDate: 'CurrentExpirationDate',
+      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainName: 'string',
       currentExpirationDate: 'number',
+      domainName: 'string',
     };
   }
 
@@ -11821,22 +12206,22 @@ export class SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam extends 
 }
 
 export class SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam extends $tea.Model {
-  subscriptionDuration?: number;
-  domainName?: string;
   currentExpirationDate?: number;
+  domainName?: string;
+  subscriptionDuration?: number;
   static names(): { [key: string]: string } {
     return {
-      subscriptionDuration: 'SubscriptionDuration',
-      domainName: 'DomainName',
       currentExpirationDate: 'CurrentExpirationDate',
+      domainName: 'DomainName',
+      subscriptionDuration: 'SubscriptionDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subscriptionDuration: 'number',
-      domainName: 'string',
       currentExpirationDate: 'number',
+      domainName: 'string',
+      subscriptionDuration: 'number',
     };
   }
 
@@ -11846,25 +12231,25 @@ export class SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam extends $t
 }
 
 export class SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam extends $tea.Model {
-  permitPremiumTransfer?: boolean;
-  registrantProfileId?: number;
   authorizationCode?: string;
   domainName?: string;
+  permitPremiumTransfer?: boolean;
+  registrantProfileId?: number;
   static names(): { [key: string]: string } {
     return {
-      permitPremiumTransfer: 'PermitPremiumTransfer',
-      registrantProfileId: 'RegistrantProfileId',
       authorizationCode: 'AuthorizationCode',
       domainName: 'DomainName',
+      permitPremiumTransfer: 'PermitPremiumTransfer',
+      registrantProfileId: 'RegistrantProfileId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      permitPremiumTransfer: 'boolean',
-      registrantProfileId: 'number',
       authorizationCode: 'string',
       domainName: 'string',
+      permitPremiumTransfer: 'boolean',
+      registrantProfileId: 'number',
     };
   }
 
@@ -11912,76 +12297,76 @@ export class ScrollDomainListResponseBodyDataDomainDnsList extends $tea.Model {
 }
 
 export class ScrollDomainListResponseBodyDataDomain extends $tea.Model {
+  dnsList?: ScrollDomainListResponseBodyDataDomainDnsList;
   domainAuditStatus?: string;
   domainGroupId?: string;
-  remark?: string;
   domainGroupName?: string;
-  zhRegistrantOrganization?: string;
-  registrantOrganization?: string;
-  registrationDate?: string;
-  instanceId?: string;
   domainName?: string;
-  expirationDateStatus?: string;
-  expirationDate?: string;
-  dnsList?: ScrollDomainListResponseBodyDataDomainDnsList;
-  email?: string;
-  registrantType?: string;
-  expirationDateLong?: number;
-  expirationCurrDateDiff?: number;
-  premium?: boolean;
-  registrationDateLong?: number;
-  productId?: string;
   domainStatus?: string;
   domainType?: string;
+  email?: string;
+  expirationCurrDateDiff?: number;
+  expirationDate?: string;
+  expirationDateLong?: number;
+  expirationDateStatus?: string;
+  instanceId?: string;
+  premium?: boolean;
+  productId?: string;
+  registrantOrganization?: string;
+  registrantType?: string;
+  registrationDate?: string;
+  registrationDateLong?: number;
+  remark?: string;
+  zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
+      dnsList: 'DnsList',
       domainAuditStatus: 'DomainAuditStatus',
       domainGroupId: 'DomainGroupId',
-      remark: 'Remark',
       domainGroupName: 'DomainGroupName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-      registrantOrganization: 'RegistrantOrganization',
-      registrationDate: 'RegistrationDate',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
-      expirationDateStatus: 'ExpirationDateStatus',
-      expirationDate: 'ExpirationDate',
-      dnsList: 'DnsList',
-      email: 'Email',
-      registrantType: 'RegistrantType',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      premium: 'Premium',
-      registrationDateLong: 'RegistrationDateLong',
-      productId: 'ProductId',
       domainStatus: 'DomainStatus',
       domainType: 'DomainType',
+      email: 'Email',
+      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
+      expirationDate: 'ExpirationDate',
+      expirationDateLong: 'ExpirationDateLong',
+      expirationDateStatus: 'ExpirationDateStatus',
+      instanceId: 'InstanceId',
+      premium: 'Premium',
+      productId: 'ProductId',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantType: 'RegistrantType',
+      registrationDate: 'RegistrationDate',
+      registrationDateLong: 'RegistrationDateLong',
+      remark: 'Remark',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dnsList: ScrollDomainListResponseBodyDataDomainDnsList,
       domainAuditStatus: 'string',
       domainGroupId: 'string',
-      remark: 'string',
       domainGroupName: 'string',
-      zhRegistrantOrganization: 'string',
-      registrantOrganization: 'string',
-      registrationDate: 'string',
-      instanceId: 'string',
       domainName: 'string',
-      expirationDateStatus: 'string',
-      expirationDate: 'string',
-      dnsList: ScrollDomainListResponseBodyDataDomainDnsList,
-      email: 'string',
-      registrantType: 'string',
-      expirationDateLong: 'number',
-      expirationCurrDateDiff: 'number',
-      premium: 'boolean',
-      registrationDateLong: 'number',
-      productId: 'string',
       domainStatus: 'string',
       domainType: 'string',
+      email: 'string',
+      expirationCurrDateDiff: 'number',
+      expirationDate: 'string',
+      expirationDateLong: 'number',
+      expirationDateStatus: 'string',
+      instanceId: 'string',
+      premium: 'boolean',
+      productId: 'string',
+      registrantOrganization: 'string',
+      registrantType: 'string',
+      registrationDate: 'string',
+      registrationDateLong: 'number',
+      remark: 'string',
+      zhRegistrantOrganization: 'string',
     };
   }
 
@@ -12010,46 +12395,21 @@ export class ScrollDomainListResponseBodyData extends $tea.Model {
 }
 
 export class SubmitEmailVerificationResponseBodyExistList extends $tea.Model {
-  email?: string;
   code?: string;
+  email?: string;
   message?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
       code: 'Code',
+      email: 'Email',
       message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
       code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationResponseBodySuccessList extends $tea.Model {
-  email?: string;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
       email: 'string',
-      code: 'string',
       message: 'string',
     };
   }
@@ -12060,21 +12420,21 @@ export class SubmitEmailVerificationResponseBodySuccessList extends $tea.Model {
 }
 
 export class SubmitEmailVerificationResponseBodyFailList extends $tea.Model {
-  email?: string;
   code?: string;
+  email?: string;
   message?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
       code: 'Code',
+      email: 'Email',
       message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
       code: 'string',
+      email: 'string',
       message: 'string',
     };
   }
@@ -12084,17 +12444,23 @@ export class SubmitEmailVerificationResponseBodyFailList extends $tea.Model {
   }
 }
 
-export class TransferInCheckMailTokenResponseBodySuccessList extends $tea.Model {
-  successDomain?: string[];
+export class SubmitEmailVerificationResponseBodySuccessList extends $tea.Model {
+  code?: string;
+  email?: string;
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      successDomain: 'SuccessDomain',
+      code: 'Code',
+      email: 'Email',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      successDomain: { 'type': 'array', 'itemType': 'string' },
+      code: 'string',
+      email: 'string',
+      message: 'string',
     };
   }
 
@@ -12114,6 +12480,25 @@ export class TransferInCheckMailTokenResponseBodyFailList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       failDomain: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferInCheckMailTokenResponseBodySuccessList extends $tea.Model {
+  successDomain?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      successDomain: 'SuccessDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      successDomain: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -12147,10 +12532,34 @@ export default class Client extends OpenApi {
 
   async acknowledgeTaskResultWithOptions(request: AcknowledgeTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<AcknowledgeTaskResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskDetailNo)) {
+      query["TaskDetailNo"] = request.taskDetailNo;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AcknowledgeTaskResultResponse>(await this.doRPCRequest("AcknowledgeTaskResult", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new AcknowledgeTaskResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AcknowledgeTaskResult",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AcknowledgeTaskResultResponse>(await this.callApi(params, req, runtime), new AcknowledgeTaskResultResponse({}));
   }
 
   async acknowledgeTaskResult(request: AcknowledgeTaskResultRequest): Promise<AcknowledgeTaskResultResponse> {
@@ -12160,10 +12569,34 @@ export default class Client extends OpenApi {
 
   async batchFuzzyMatchDomainSensitiveWordWithOptions(request: BatchFuzzyMatchDomainSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<BatchFuzzyMatchDomainSensitiveWordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BatchFuzzyMatchDomainSensitiveWordResponse>(await this.doRPCRequest("BatchFuzzyMatchDomainSensitiveWord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new BatchFuzzyMatchDomainSensitiveWordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchFuzzyMatchDomainSensitiveWord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchFuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new BatchFuzzyMatchDomainSensitiveWordResponse({}));
   }
 
   async batchFuzzyMatchDomainSensitiveWord(request: BatchFuzzyMatchDomainSensitiveWordRequest): Promise<BatchFuzzyMatchDomainSensitiveWordResponse> {
@@ -12173,10 +12606,38 @@ export default class Client extends OpenApi {
 
   async cancelDomainVerificationWithOptions(request: CancelDomainVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CancelDomainVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelDomainVerificationResponse>(await this.doRPCRequest("CancelDomainVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CancelDomainVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelDomainVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelDomainVerificationResponse>(await this.callApi(params, req, runtime), new CancelDomainVerificationResponse({}));
   }
 
   async cancelDomainVerification(request: CancelDomainVerificationRequest): Promise<CancelDomainVerificationResponse> {
@@ -12186,10 +12647,30 @@ export default class Client extends OpenApi {
 
   async cancelOperationAuditWithOptions(request: CancelOperationAuditRequest, runtime: $Util.RuntimeOptions): Promise<CancelOperationAuditResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditRecordId)) {
+      query["AuditRecordId"] = request.auditRecordId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelOperationAuditResponse>(await this.doRPCRequest("CancelOperationAudit", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CancelOperationAuditResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelOperationAudit",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelOperationAuditResponse>(await this.callApi(params, req, runtime), new CancelOperationAuditResponse({}));
   }
 
   async cancelOperationAudit(request: CancelOperationAuditRequest): Promise<CancelOperationAuditResponse> {
@@ -12199,10 +12680,38 @@ export default class Client extends OpenApi {
 
   async cancelQualificationVerificationWithOptions(request: CancelQualificationVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CancelQualificationVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.qualificationType)) {
+      query["QualificationType"] = request.qualificationType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelQualificationVerificationResponse>(await this.doRPCRequest("CancelQualificationVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CancelQualificationVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelQualificationVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelQualificationVerificationResponse>(await this.callApi(params, req, runtime), new CancelQualificationVerificationResponse({}));
   }
 
   async cancelQualificationVerification(request: CancelQualificationVerificationRequest): Promise<CancelQualificationVerificationResponse> {
@@ -12212,10 +12721,34 @@ export default class Client extends OpenApi {
 
   async cancelTaskWithOptions(request: CancelTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskNo)) {
+      query["TaskNo"] = request.taskNo;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelTaskResponse>(await this.doRPCRequest("CancelTask", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CancelTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelTask",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
   async cancelTask(request: CancelTaskRequest): Promise<CancelTaskResponse> {
@@ -12225,10 +12758,42 @@ export default class Client extends OpenApi {
 
   async checkDomainWithOptions(request: CheckDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.feeCommand)) {
+      query["FeeCommand"] = request.feeCommand;
+    }
+
+    if (!Util.isUnset(request.feeCurrency)) {
+      query["FeeCurrency"] = request.feeCurrency;
+    }
+
+    if (!Util.isUnset(request.feePeriod)) {
+      query["FeePeriod"] = request.feePeriod;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckDomainResponse>(await this.doRPCRequest("CheckDomain", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CheckDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckDomain",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDomainResponse>(await this.callApi(params, req, runtime), new CheckDomainResponse({}));
   }
 
   async checkDomain(request: CheckDomainRequest): Promise<CheckDomainResponse> {
@@ -12238,10 +12803,34 @@ export default class Client extends OpenApi {
 
   async checkDomainSunriseClaimWithOptions(request: CheckDomainSunriseClaimRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainSunriseClaimResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckDomainSunriseClaimResponse>(await this.doRPCRequest("CheckDomainSunriseClaim", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CheckDomainSunriseClaimResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckDomainSunriseClaim",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDomainSunriseClaimResponse>(await this.callApi(params, req, runtime), new CheckDomainSunriseClaimResponse({}));
   }
 
   async checkDomainSunriseClaim(request: CheckDomainSunriseClaimRequest): Promise<CheckDomainSunriseClaimResponse> {
@@ -12251,10 +12840,38 @@ export default class Client extends OpenApi {
 
   async checkMaxYearOfServerLockWithOptions(request: CheckMaxYearOfServerLockRequest, runtime: $Util.RuntimeOptions): Promise<CheckMaxYearOfServerLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkAction)) {
+      query["CheckAction"] = request.checkAction;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckMaxYearOfServerLockResponse>(await this.doRPCRequest("CheckMaxYearOfServerLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CheckMaxYearOfServerLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckMaxYearOfServerLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckMaxYearOfServerLockResponse>(await this.callApi(params, req, runtime), new CheckMaxYearOfServerLockResponse({}));
   }
 
   async checkMaxYearOfServerLock(request: CheckMaxYearOfServerLockRequest): Promise<CheckMaxYearOfServerLockResponse> {
@@ -12264,10 +12881,38 @@ export default class Client extends OpenApi {
 
   async checkProcessingServerLockApplyWithOptions(request: CheckProcessingServerLockApplyRequest, runtime: $Util.RuntimeOptions): Promise<CheckProcessingServerLockApplyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.feePeriod)) {
+      query["FeePeriod"] = request.feePeriod;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckProcessingServerLockApplyResponse>(await this.doRPCRequest("CheckProcessingServerLockApply", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CheckProcessingServerLockApplyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckProcessingServerLockApply",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckProcessingServerLockApplyResponse>(await this.callApi(params, req, runtime), new CheckProcessingServerLockApplyResponse({}));
   }
 
   async checkProcessingServerLockApply(request: CheckProcessingServerLockApplyRequest): Promise<CheckProcessingServerLockApplyResponse> {
@@ -12277,10 +12922,38 @@ export default class Client extends OpenApi {
 
   async checkTransferInFeasibilityWithOptions(request: CheckTransferInFeasibilityRequest, runtime: $Util.RuntimeOptions): Promise<CheckTransferInFeasibilityResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.transferAuthorizationCode)) {
+      query["TransferAuthorizationCode"] = request.transferAuthorizationCode;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckTransferInFeasibilityResponse>(await this.doRPCRequest("CheckTransferInFeasibility", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new CheckTransferInFeasibilityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckTransferInFeasibility",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckTransferInFeasibilityResponse>(await this.callApi(params, req, runtime), new CheckTransferInFeasibilityResponse({}));
   }
 
   async checkTransferInFeasibility(request: CheckTransferInFeasibilityRequest): Promise<CheckTransferInFeasibilityResponse> {
@@ -12290,10 +12963,38 @@ export default class Client extends OpenApi {
 
   async confirmTransferInEmailWithOptions(request: ConfirmTransferInEmailRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmTransferInEmailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ConfirmTransferInEmailResponse>(await this.doRPCRequest("ConfirmTransferInEmail", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new ConfirmTransferInEmailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConfirmTransferInEmail",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfirmTransferInEmailResponse>(await this.callApi(params, req, runtime), new ConfirmTransferInEmailResponse({}));
   }
 
   async confirmTransferInEmail(request: ConfirmTransferInEmailRequest): Promise<ConfirmTransferInEmailResponse> {
@@ -12303,10 +13004,30 @@ export default class Client extends OpenApi {
 
   async deleteContactTemplatesWithOptions(request: DeleteContactTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContactTemplatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.registrantProfileIds)) {
+      query["RegistrantProfileIds"] = request.registrantProfileIds;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteContactTemplatesResponse>(await this.doRPCRequest("DeleteContactTemplates", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteContactTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteContactTemplates",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteContactTemplatesResponse>(await this.callApi(params, req, runtime), new DeleteContactTemplatesResponse({}));
   }
 
   async deleteContactTemplates(request: DeleteContactTemplatesRequest): Promise<DeleteContactTemplatesResponse> {
@@ -12316,10 +13037,34 @@ export default class Client extends OpenApi {
 
   async deleteDomainGroupWithOptions(request: DeleteDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainGroupId)) {
+      query["DomainGroupId"] = request.domainGroupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDomainGroupResponse>(await this.doRPCRequest("DeleteDomainGroup", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDomainGroup",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainGroupResponse>(await this.callApi(params, req, runtime), new DeleteDomainGroupResponse({}));
   }
 
   async deleteDomainGroup(request: DeleteDomainGroupRequest): Promise<DeleteDomainGroupResponse> {
@@ -12329,10 +13074,34 @@ export default class Client extends OpenApi {
 
   async deleteEmailVerificationWithOptions(request: DeleteEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEmailVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteEmailVerificationResponse>(await this.doRPCRequest("DeleteEmailVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEmailVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEmailVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEmailVerificationResponse>(await this.callApi(params, req, runtime), new DeleteEmailVerificationResponse({}));
   }
 
   async deleteEmailVerification(request: DeleteEmailVerificationRequest): Promise<DeleteEmailVerificationResponse> {
@@ -12342,10 +13111,34 @@ export default class Client extends OpenApi {
 
   async deleteRegistrantProfileWithOptions(request: DeleteRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrantProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteRegistrantProfileResponse>(await this.doRPCRequest("DeleteRegistrantProfile", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRegistrantProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRegistrantProfile",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRegistrantProfileResponse>(await this.callApi(params, req, runtime), new DeleteRegistrantProfileResponse({}));
   }
 
   async deleteRegistrantProfile(request: DeleteRegistrantProfileRequest): Promise<DeleteRegistrantProfileResponse> {
@@ -12355,10 +13148,34 @@ export default class Client extends OpenApi {
 
   async emailVerifiedWithOptions(request: EmailVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<EmailVerifiedResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EmailVerifiedResponse>(await this.doRPCRequest("EmailVerified", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new EmailVerifiedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EmailVerified",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EmailVerifiedResponse>(await this.callApi(params, req, runtime), new EmailVerifiedResponse({}));
   }
 
   async emailVerified(request: EmailVerifiedRequest): Promise<EmailVerifiedResponse> {
@@ -12368,10 +13185,34 @@ export default class Client extends OpenApi {
 
   async fuzzyMatchDomainSensitiveWordWithOptions(request: FuzzyMatchDomainSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyMatchDomainSensitiveWordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<FuzzyMatchDomainSensitiveWordResponse>(await this.doRPCRequest("FuzzyMatchDomainSensitiveWord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new FuzzyMatchDomainSensitiveWordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "FuzzyMatchDomainSensitiveWord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new FuzzyMatchDomainSensitiveWordResponse({}));
   }
 
   async fuzzyMatchDomainSensitiveWord(request: FuzzyMatchDomainSensitiveWordRequest): Promise<FuzzyMatchDomainSensitiveWordResponse> {
@@ -12381,10 +13222,30 @@ export default class Client extends OpenApi {
 
   async getOperationOssUploadPolicyWithOptions(request: GetOperationOssUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetOperationOssUploadPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditType)) {
+      query["AuditType"] = request.auditType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetOperationOssUploadPolicyResponse>(await this.doRPCRequest("GetOperationOssUploadPolicy", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new GetOperationOssUploadPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetOperationOssUploadPolicy",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOperationOssUploadPolicyResponse>(await this.callApi(params, req, runtime), new GetOperationOssUploadPolicyResponse({}));
   }
 
   async getOperationOssUploadPolicy(request: GetOperationOssUploadPolicyRequest): Promise<GetOperationOssUploadPolicyResponse> {
@@ -12394,10 +13255,30 @@ export default class Client extends OpenApi {
 
   async getQualificationUploadPolicyWithOptions(request: GetQualificationUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetQualificationUploadPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetQualificationUploadPolicyResponse>(await this.doRPCRequest("GetQualificationUploadPolicy", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new GetQualificationUploadPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetQualificationUploadPolicy",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQualificationUploadPolicyResponse>(await this.callApi(params, req, runtime), new GetQualificationUploadPolicyResponse({}));
   }
 
   async getQualificationUploadPolicy(request: GetQualificationUploadPolicyRequest): Promise<GetQualificationUploadPolicyResponse> {
@@ -12407,10 +13288,54 @@ export default class Client extends OpenApi {
 
   async listEmailVerificationWithOptions(request: ListEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ListEmailVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginCreateTime)) {
+      query["BeginCreateTime"] = request.beginCreateTime;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.endCreateTime)) {
+      query["EndCreateTime"] = request.endCreateTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.verificationStatus)) {
+      query["VerificationStatus"] = request.verificationStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListEmailVerificationResponse>(await this.doRPCRequest("ListEmailVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new ListEmailVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEmailVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEmailVerificationResponse>(await this.callApi(params, req, runtime), new ListEmailVerificationResponse({}));
   }
 
   async listEmailVerification(request: ListEmailVerificationRequest): Promise<ListEmailVerificationResponse> {
@@ -12420,10 +13345,66 @@ export default class Client extends OpenApi {
 
   async listServerLockWithOptions(request: ListServerLockRequest, runtime: $Util.RuntimeOptions): Promise<ListServerLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginStartDate)) {
+      query["BeginStartDate"] = request.beginStartDate;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endExpireDate)) {
+      query["EndExpireDate"] = request.endExpireDate;
+    }
+
+    if (!Util.isUnset(request.endStartDate)) {
+      query["EndStartDate"] = request.endStartDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lockProductId)) {
+      query["LockProductId"] = request.lockProductId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.serverLockStatus)) {
+      query["ServerLockStatus"] = request.serverLockStatus;
+    }
+
+    if (!Util.isUnset(request.startExpireDate)) {
+      query["StartExpireDate"] = request.startExpireDate;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServerLockResponse>(await this.doRPCRequest("ListServerLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new ListServerLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServerLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServerLockResponse>(await this.callApi(params, req, runtime), new ListServerLockResponse({}));
   }
 
   async listServerLock(request: ListServerLockRequest): Promise<ListServerLockResponse> {
@@ -12433,10 +13414,34 @@ export default class Client extends OpenApi {
 
   async lookupTmchNoticeWithOptions(request: LookupTmchNoticeRequest, runtime: $Util.RuntimeOptions): Promise<LookupTmchNoticeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.claimKey)) {
+      query["ClaimKey"] = request.claimKey;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<LookupTmchNoticeResponse>(await this.doRPCRequest("LookupTmchNotice", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new LookupTmchNoticeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LookupTmchNotice",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LookupTmchNoticeResponse>(await this.callApi(params, req, runtime), new LookupTmchNoticeResponse({}));
   }
 
   async lookupTmchNotice(request: LookupTmchNoticeRequest): Promise<LookupTmchNoticeResponse> {
@@ -12446,10 +13451,54 @@ export default class Client extends OpenApi {
 
   async pollTaskResultWithOptions(request: PollTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<PollTaskResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskNo)) {
+      query["TaskNo"] = request.taskNo;
+    }
+
+    if (!Util.isUnset(request.taskResultStatus)) {
+      query["TaskResultStatus"] = request.taskResultStatus;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PollTaskResultResponse>(await this.doRPCRequest("PollTaskResult", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new PollTaskResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PollTaskResult",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PollTaskResultResponse>(await this.callApi(params, req, runtime), new PollTaskResultResponse({}));
   }
 
   async pollTaskResult(request: PollTaskResultRequest): Promise<PollTaskResultResponse> {
@@ -12459,10 +13508,126 @@ export default class Client extends OpenApi {
 
   async queryAdvancedDomainListWithOptions(request: QueryAdvancedDomainListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAdvancedDomainListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainGroupId)) {
+      query["DomainGroupId"] = request.domainGroupId;
+    }
+
+    if (!Util.isUnset(request.domainNameSort)) {
+      query["DomainNameSort"] = request.domainNameSort;
+    }
+
+    if (!Util.isUnset(request.domainStatus)) {
+      query["DomainStatus"] = request.domainStatus;
+    }
+
+    if (!Util.isUnset(request.endExpirationDate)) {
+      query["EndExpirationDate"] = request.endExpirationDate;
+    }
+
+    if (!Util.isUnset(request.endLength)) {
+      query["EndLength"] = request.endLength;
+    }
+
+    if (!Util.isUnset(request.endRegistrationDate)) {
+      query["EndRegistrationDate"] = request.endRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.excluded)) {
+      query["Excluded"] = request.excluded;
+    }
+
+    if (!Util.isUnset(request.excludedPrefix)) {
+      query["ExcludedPrefix"] = request.excludedPrefix;
+    }
+
+    if (!Util.isUnset(request.excludedSuffix)) {
+      query["ExcludedSuffix"] = request.excludedSuffix;
+    }
+
+    if (!Util.isUnset(request.expirationDateSort)) {
+      query["ExpirationDateSort"] = request.expirationDateSort;
+    }
+
+    if (!Util.isUnset(request.form)) {
+      query["Form"] = request.form;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.keyWordPrefix)) {
+      query["KeyWordPrefix"] = request.keyWordPrefix;
+    }
+
+    if (!Util.isUnset(request.keyWordSuffix)) {
+      query["KeyWordSuffix"] = request.keyWordSuffix;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productDomainType)) {
+      query["ProductDomainType"] = request.productDomainType;
+    }
+
+    if (!Util.isUnset(request.productDomainTypeSort)) {
+      query["ProductDomainTypeSort"] = request.productDomainTypeSort;
+    }
+
+    if (!Util.isUnset(request.registrationDateSort)) {
+      query["RegistrationDateSort"] = request.registrationDateSort;
+    }
+
+    if (!Util.isUnset(request.startExpirationDate)) {
+      query["StartExpirationDate"] = request.startExpirationDate;
+    }
+
+    if (!Util.isUnset(request.startLength)) {
+      query["StartLength"] = request.startLength;
+    }
+
+    if (!Util.isUnset(request.startRegistrationDate)) {
+      query["StartRegistrationDate"] = request.startRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.suffixs)) {
+      query["Suffixs"] = request.suffixs;
+    }
+
+    if (!Util.isUnset(request.tradeType)) {
+      query["TradeType"] = request.tradeType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryAdvancedDomainListResponse>(await this.doRPCRequest("QueryAdvancedDomainList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAdvancedDomainListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryAdvancedDomainList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAdvancedDomainListResponse>(await this.callApi(params, req, runtime), new QueryAdvancedDomainListResponse({}));
   }
 
   async queryAdvancedDomainList(request: QueryAdvancedDomainListRequest): Promise<QueryAdvancedDomainListResponse> {
@@ -12472,10 +13637,34 @@ export default class Client extends OpenApi {
 
   async queryArtExtensionWithOptions(request: QueryArtExtensionRequest, runtime: $Util.RuntimeOptions): Promise<QueryArtExtensionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryArtExtensionResponse>(await this.doRPCRequest("QueryArtExtension", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryArtExtensionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryArtExtension",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryArtExtensionResponse>(await this.callApi(params, req, runtime), new QueryArtExtensionResponse({}));
   }
 
   async queryArtExtension(request: QueryArtExtensionRequest): Promise<QueryArtExtensionResponse> {
@@ -12485,10 +13674,50 @@ export default class Client extends OpenApi {
 
   async queryChangeLogListWithOptions(request: QueryChangeLogListRequest, runtime: $Util.RuntimeOptions): Promise<QueryChangeLogListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryChangeLogListResponse>(await this.doRPCRequest("QueryChangeLogList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryChangeLogListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryChangeLogList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryChangeLogListResponse>(await this.callApi(params, req, runtime), new QueryChangeLogListResponse({}));
   }
 
   async queryChangeLogList(request: QueryChangeLogListRequest): Promise<QueryChangeLogListResponse> {
@@ -12498,10 +13727,38 @@ export default class Client extends OpenApi {
 
   async queryContactInfoWithOptions(request: QueryContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryContactInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactType)) {
+      query["ContactType"] = request.contactType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryContactInfoResponse>(await this.doRPCRequest("QueryContactInfo", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryContactInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryContactInfo",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryContactInfoResponse>(await this.callApi(params, req, runtime), new QueryContactInfoResponse({}));
   }
 
   async queryContactInfo(request: QueryContactInfoRequest): Promise<QueryContactInfoResponse> {
@@ -12509,12 +13766,73 @@ export default class Client extends OpenApi {
     return await this.queryContactInfoWithOptions(request, runtime);
   }
 
+  async queryDSRecordWithOptions(request: QueryDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryDSRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDSRecord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDSRecordResponse>(await this.callApi(params, req, runtime), new QueryDSRecordResponse({}));
+  }
+
+  async queryDSRecord(request: QueryDSRecordRequest): Promise<QueryDSRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDSRecordWithOptions(request, runtime);
+  }
+
   async queryDnsHostWithOptions(request: QueryDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<QueryDnsHostResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDnsHostResponse>(await this.doRPCRequest("QueryDnsHost", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDnsHostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDnsHost",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDnsHostResponse>(await this.callApi(params, req, runtime), new QueryDnsHostResponse({}));
   }
 
   async queryDnsHost(request: QueryDnsHostRequest): Promise<QueryDnsHostResponse> {
@@ -12524,10 +13842,30 @@ export default class Client extends OpenApi {
 
   async queryDomainAdminDivisionWithOptions(request: QueryDomainAdminDivisionRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainAdminDivisionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainAdminDivisionResponse>(await this.doRPCRequest("QueryDomainAdminDivision", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainAdminDivisionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainAdminDivision",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainAdminDivisionResponse>(await this.callApi(params, req, runtime), new QueryDomainAdminDivisionResponse({}));
   }
 
   async queryDomainAdminDivision(request: QueryDomainAdminDivisionRequest): Promise<QueryDomainAdminDivisionResponse> {
@@ -12537,10 +13875,34 @@ export default class Client extends OpenApi {
 
   async queryDomainByDomainNameWithOptions(request: QueryDomainByDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByDomainNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainByDomainNameResponse>(await this.doRPCRequest("QueryDomainByDomainName", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainByDomainNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainByDomainName",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainByDomainNameResponse>(await this.callApi(params, req, runtime), new QueryDomainByDomainNameResponse({}));
   }
 
   async queryDomainByDomainName(request: QueryDomainByDomainNameRequest): Promise<QueryDomainByDomainNameResponse> {
@@ -12550,10 +13912,34 @@ export default class Client extends OpenApi {
 
   async queryDomainByInstanceIdWithOptions(request: QueryDomainByInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByInstanceIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainByInstanceIdResponse>(await this.doRPCRequest("QueryDomainByInstanceId", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainByInstanceIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainByInstanceId",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainByInstanceIdResponse>(await this.callApi(params, req, runtime), new QueryDomainByInstanceIdResponse({}));
   }
 
   async queryDomainByInstanceId(request: QueryDomainByInstanceIdRequest): Promise<QueryDomainByInstanceIdResponse> {
@@ -12563,10 +13949,38 @@ export default class Client extends OpenApi {
 
   async queryDomainGroupListWithOptions(request: QueryDomainGroupListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainGroupListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainGroupName)) {
+      query["DomainGroupName"] = request.domainGroupName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.showDeletingGroup)) {
+      query["ShowDeletingGroup"] = request.showDeletingGroup;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainGroupListResponse>(await this.doRPCRequest("QueryDomainGroupList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainGroupListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainGroupList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainGroupListResponse>(await this.callApi(params, req, runtime), new QueryDomainGroupListResponse({}));
   }
 
   async queryDomainGroupList(request: QueryDomainGroupListRequest): Promise<QueryDomainGroupListResponse> {
@@ -12576,10 +13990,78 @@ export default class Client extends OpenApi {
 
   async queryDomainListWithOptions(request: QueryDomainListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainGroupId)) {
+      query["DomainGroupId"] = request.domainGroupId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endExpirationDate)) {
+      query["EndExpirationDate"] = request.endExpirationDate;
+    }
+
+    if (!Util.isUnset(request.endRegistrationDate)) {
+      query["EndRegistrationDate"] = request.endRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderByType)) {
+      query["OrderByType"] = request.orderByType;
+    }
+
+    if (!Util.isUnset(request.orderKeyType)) {
+      query["OrderKeyType"] = request.orderKeyType;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productDomainType)) {
+      query["ProductDomainType"] = request.productDomainType;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.startExpirationDate)) {
+      query["StartExpirationDate"] = request.startExpirationDate;
+    }
+
+    if (!Util.isUnset(request.startRegistrationDate)) {
+      query["StartRegistrationDate"] = request.startRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainListResponse>(await this.doRPCRequest("QueryDomainList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainListResponse>(await this.callApi(params, req, runtime), new QueryDomainListResponse({}));
   }
 
   async queryDomainList(request: QueryDomainListRequest): Promise<QueryDomainListResponse> {
@@ -12589,10 +14071,38 @@ export default class Client extends OpenApi {
 
   async queryDomainRealNameVerificationInfoWithOptions(request: QueryDomainRealNameVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainRealNameVerificationInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.fetchImage)) {
+      query["FetchImage"] = request.fetchImage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainRealNameVerificationInfoResponse>(await this.doRPCRequest("QueryDomainRealNameVerificationInfo", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainRealNameVerificationInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainRealNameVerificationInfo",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new QueryDomainRealNameVerificationInfoResponse({}));
   }
 
   async queryDomainRealNameVerificationInfo(request: QueryDomainRealNameVerificationInfoRequest): Promise<QueryDomainRealNameVerificationInfoResponse> {
@@ -12602,10 +14112,30 @@ export default class Client extends OpenApi {
 
   async queryDomainSuffixWithOptions(request: QueryDomainSuffixRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSuffixResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDomainSuffixResponse>(await this.doRPCRequest("QueryDomainSuffix", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDomainSuffixResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDomainSuffix",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDomainSuffixResponse>(await this.callApi(params, req, runtime), new QueryDomainSuffixResponse({}));
   }
 
   async queryDomainSuffix(request: QueryDomainSuffixRequest): Promise<QueryDomainSuffixResponse> {
@@ -12613,25 +14143,36 @@ export default class Client extends OpenApi {
     return await this.queryDomainSuffixWithOptions(request, runtime);
   }
 
-  async queryDSRecordWithOptions(request: QueryDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryDSRecordResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDSRecordResponse>(await this.doRPCRequest("QueryDSRecord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDSRecordResponse({}));
-  }
-
-  async queryDSRecord(request: QueryDSRecordRequest): Promise<QueryDSRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDSRecordWithOptions(request, runtime);
-  }
-
   async queryEmailVerificationWithOptions(request: QueryEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryEmailVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryEmailVerificationResponse>(await this.doRPCRequest("QueryEmailVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryEmailVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryEmailVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEmailVerificationResponse>(await this.callApi(params, req, runtime), new QueryEmailVerificationResponse({}));
   }
 
   async queryEmailVerification(request: QueryEmailVerificationRequest): Promise<QueryEmailVerificationResponse> {
@@ -12641,10 +14182,34 @@ export default class Client extends OpenApi {
 
   async queryEnsAssociationWithOptions(request: QueryEnsAssociationRequest, runtime: $Util.RuntimeOptions): Promise<QueryEnsAssociationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryEnsAssociationResponse>(await this.doRPCRequest("QueryEnsAssociation", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryEnsAssociationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryEnsAssociation",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEnsAssociationResponse>(await this.callApi(params, req, runtime), new QueryEnsAssociationResponse({}));
   }
 
   async queryEnsAssociation(request: QueryEnsAssociationRequest): Promise<QueryEnsAssociationResponse> {
@@ -12652,25 +14217,40 @@ export default class Client extends OpenApi {
     return await this.queryEnsAssociationWithOptions(request, runtime);
   }
 
-  async queryFailingReasonListForQualificationWithOptions(request: QueryFailingReasonListForQualificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailingReasonListForQualificationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryFailingReasonListForQualificationResponse>(await this.doRPCRequest("QueryFailingReasonListForQualification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryFailingReasonListForQualificationResponse({}));
-  }
-
-  async queryFailingReasonListForQualification(request: QueryFailingReasonListForQualificationRequest): Promise<QueryFailingReasonListForQualificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryFailingReasonListForQualificationWithOptions(request, runtime);
-  }
-
   async queryFailReasonForDomainRealNameVerificationWithOptions(request: QueryFailReasonForDomainRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailReasonForDomainRealNameVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.realNameVerificationAction)) {
+      query["RealNameVerificationAction"] = request.realNameVerificationAction;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryFailReasonForDomainRealNameVerificationResponse>(await this.doRPCRequest("QueryFailReasonForDomainRealNameVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryFailReasonForDomainRealNameVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryFailReasonForDomainRealNameVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryFailReasonForDomainRealNameVerificationResponse>(await this.callApi(params, req, runtime), new QueryFailReasonForDomainRealNameVerificationResponse({}));
   }
 
   async queryFailReasonForDomainRealNameVerification(request: QueryFailReasonForDomainRealNameVerificationRequest): Promise<QueryFailReasonForDomainRealNameVerificationResponse> {
@@ -12680,10 +14260,34 @@ export default class Client extends OpenApi {
 
   async queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request: QueryFailReasonForRegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileID)) {
+      query["RegistrantProfileID"] = request.registrantProfileID;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryFailReasonForRegistrantProfileRealNameVerificationResponse>(await this.doRPCRequest("QueryFailReasonForRegistrantProfileRealNameVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryFailReasonForRegistrantProfileRealNameVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryFailReasonForRegistrantProfileRealNameVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryFailReasonForRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new QueryFailReasonForRegistrantProfileRealNameVerificationResponse({}));
   }
 
   async queryFailReasonForRegistrantProfileRealNameVerification(request: QueryFailReasonForRegistrantProfileRealNameVerificationRequest): Promise<QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
@@ -12691,12 +14295,81 @@ export default class Client extends OpenApi {
     return await this.queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
+  async queryFailingReasonListForQualificationWithOptions(request: QueryFailingReasonListForQualificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailingReasonListForQualificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.qualificationType)) {
+      query["QualificationType"] = request.qualificationType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryFailingReasonListForQualification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryFailingReasonListForQualificationResponse>(await this.callApi(params, req, runtime), new QueryFailingReasonListForQualificationResponse({}));
+  }
+
+  async queryFailingReasonListForQualification(request: QueryFailingReasonListForQualificationRequest): Promise<QueryFailingReasonListForQualificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryFailingReasonListForQualificationWithOptions(request, runtime);
+  }
+
   async queryLocalEnsAssociationWithOptions(request: QueryLocalEnsAssociationRequest, runtime: $Util.RuntimeOptions): Promise<QueryLocalEnsAssociationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryLocalEnsAssociationResponse>(await this.doRPCRequest("QueryLocalEnsAssociation", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryLocalEnsAssociationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryLocalEnsAssociation",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryLocalEnsAssociationResponse>(await this.callApi(params, req, runtime), new QueryLocalEnsAssociationResponse({}));
   }
 
   async queryLocalEnsAssociation(request: QueryLocalEnsAssociationRequest): Promise<QueryLocalEnsAssociationResponse> {
@@ -12706,10 +14379,30 @@ export default class Client extends OpenApi {
 
   async queryOperationAuditInfoDetailWithOptions(request: QueryOperationAuditInfoDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryOperationAuditInfoDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditRecordId)) {
+      query["AuditRecordId"] = request.auditRecordId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryOperationAuditInfoDetailResponse>(await this.doRPCRequest("QueryOperationAuditInfoDetail", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryOperationAuditInfoDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryOperationAuditInfoDetail",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOperationAuditInfoDetailResponse>(await this.callApi(params, req, runtime), new QueryOperationAuditInfoDetailResponse({}));
   }
 
   async queryOperationAuditInfoDetail(request: QueryOperationAuditInfoDetailRequest): Promise<QueryOperationAuditInfoDetailResponse> {
@@ -12719,10 +14412,46 @@ export default class Client extends OpenApi {
 
   async queryOperationAuditInfoListWithOptions(request: QueryOperationAuditInfoListRequest, runtime: $Util.RuntimeOptions): Promise<QueryOperationAuditInfoListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.auditType)) {
+      query["AuditType"] = request.auditType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryOperationAuditInfoListResponse>(await this.doRPCRequest("QueryOperationAuditInfoList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryOperationAuditInfoListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryOperationAuditInfoList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryOperationAuditInfoListResponse>(await this.callApi(params, req, runtime), new QueryOperationAuditInfoListResponse({}));
   }
 
   async queryOperationAuditInfoList(request: QueryOperationAuditInfoListRequest): Promise<QueryOperationAuditInfoListResponse> {
@@ -12732,10 +14461,38 @@ export default class Client extends OpenApi {
 
   async queryQualificationDetailWithOptions(request: QueryQualificationDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryQualificationDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.qualificationType)) {
+      query["QualificationType"] = request.qualificationType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryQualificationDetailResponse>(await this.doRPCRequest("QueryQualificationDetail", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryQualificationDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryQualificationDetail",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryQualificationDetailResponse>(await this.callApi(params, req, runtime), new QueryQualificationDetailResponse({}));
   }
 
   async queryQualificationDetail(request: QueryQualificationDetailRequest): Promise<QueryQualificationDetailResponse> {
@@ -12745,10 +14502,38 @@ export default class Client extends OpenApi {
 
   async queryRegistrantProfileRealNameVerificationInfoWithOptions(request: QueryRegistrantProfileRealNameVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryRegistrantProfileRealNameVerificationInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fetchImage)) {
+      query["FetchImage"] = request.fetchImage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryRegistrantProfileRealNameVerificationInfoResponse>(await this.doRPCRequest("QueryRegistrantProfileRealNameVerificationInfo", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRegistrantProfileRealNameVerificationInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRegistrantProfileRealNameVerificationInfo",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRegistrantProfileRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new QueryRegistrantProfileRealNameVerificationInfoResponse({}));
   }
 
   async queryRegistrantProfileRealNameVerificationInfo(request: QueryRegistrantProfileRealNameVerificationInfoRequest): Promise<QueryRegistrantProfileRealNameVerificationInfoResponse> {
@@ -12758,10 +14543,70 @@ export default class Client extends OpenApi {
 
   async queryRegistrantProfilesWithOptions(request: QueryRegistrantProfilesRequest, runtime: $Util.RuntimeOptions): Promise<QueryRegistrantProfilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultRegistrantProfile)) {
+      query["DefaultRegistrantProfile"] = request.defaultRegistrantProfile;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.realNameStatus)) {
+      query["RealNameStatus"] = request.realNameStatus;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.registrantProfileType)) {
+      query["RegistrantProfileType"] = request.registrantProfileType;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryRegistrantProfilesResponse>(await this.doRPCRequest("QueryRegistrantProfiles", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRegistrantProfilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRegistrantProfiles",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRegistrantProfilesResponse>(await this.callApi(params, req, runtime), new QueryRegistrantProfilesResponse({}));
   }
 
   async queryRegistrantProfiles(request: QueryRegistrantProfilesRequest): Promise<QueryRegistrantProfilesResponse> {
@@ -12771,10 +14616,34 @@ export default class Client extends OpenApi {
 
   async queryServerLockWithOptions(request: QueryServerLockRequest, runtime: $Util.RuntimeOptions): Promise<QueryServerLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryServerLockResponse>(await this.doRPCRequest("QueryServerLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryServerLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryServerLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryServerLockResponse>(await this.callApi(params, req, runtime), new QueryServerLockResponse({}));
   }
 
   async queryServerLock(request: QueryServerLockRequest): Promise<QueryServerLockResponse> {
@@ -12784,10 +14653,54 @@ export default class Client extends OpenApi {
 
   async queryTaskDetailHistoryWithOptions(request: QueryTaskDetailHistoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailHistoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainNameCursor)) {
+      query["DomainNameCursor"] = request.domainNameCursor;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskDetailNoCursor)) {
+      query["TaskDetailNoCursor"] = request.taskDetailNoCursor;
+    }
+
+    if (!Util.isUnset(request.taskNo)) {
+      query["TaskNo"] = request.taskNo;
+    }
+
+    if (!Util.isUnset(request.taskStatus)) {
+      query["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTaskDetailHistoryResponse>(await this.doRPCRequest("QueryTaskDetailHistory", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTaskDetailHistoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTaskDetailHistory",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTaskDetailHistoryResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailHistoryResponse({}));
   }
 
   async queryTaskDetailHistory(request: QueryTaskDetailHistoryRequest): Promise<QueryTaskDetailHistoryResponse> {
@@ -12797,10 +14710,54 @@ export default class Client extends OpenApi {
 
   async queryTaskDetailListWithOptions(request: QueryTaskDetailListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskNo)) {
+      query["TaskNo"] = request.taskNo;
+    }
+
+    if (!Util.isUnset(request.taskStatus)) {
+      query["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTaskDetailListResponse>(await this.doRPCRequest("QueryTaskDetailList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTaskDetailListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTaskDetailList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTaskDetailListResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailListResponse({}));
   }
 
   async queryTaskDetailList(request: QueryTaskDetailListRequest): Promise<QueryTaskDetailListResponse> {
@@ -12810,10 +14767,50 @@ export default class Client extends OpenApi {
 
   async queryTaskInfoHistoryWithOptions(request: QueryTaskInfoHistoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskInfoHistoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginCreateTime)) {
+      query["BeginCreateTime"] = request.beginCreateTime;
+    }
+
+    if (!Util.isUnset(request.createTimeCursor)) {
+      query["CreateTimeCursor"] = request.createTimeCursor;
+    }
+
+    if (!Util.isUnset(request.endCreateTime)) {
+      query["EndCreateTime"] = request.endCreateTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskNoCursor)) {
+      query["TaskNoCursor"] = request.taskNoCursor;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTaskInfoHistoryResponse>(await this.doRPCRequest("QueryTaskInfoHistory", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTaskInfoHistoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTaskInfoHistory",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTaskInfoHistoryResponse>(await this.callApi(params, req, runtime), new QueryTaskInfoHistoryResponse({}));
   }
 
   async queryTaskInfoHistory(request: QueryTaskInfoHistoryRequest): Promise<QueryTaskInfoHistoryResponse> {
@@ -12823,10 +14820,46 @@ export default class Client extends OpenApi {
 
   async queryTaskListWithOptions(request: QueryTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginCreateTime)) {
+      query["BeginCreateTime"] = request.beginCreateTime;
+    }
+
+    if (!Util.isUnset(request.endCreateTime)) {
+      query["EndCreateTime"] = request.endCreateTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTaskListResponse>(await this.doRPCRequest("QueryTaskList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTaskListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTaskList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTaskListResponse>(await this.callApi(params, req, runtime), new QueryTaskListResponse({}));
   }
 
   async queryTaskList(request: QueryTaskListRequest): Promise<QueryTaskListResponse> {
@@ -12836,10 +14869,34 @@ export default class Client extends OpenApi {
 
   async queryTransferInByInstanceIdWithOptions(request: QueryTransferInByInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferInByInstanceIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTransferInByInstanceIdResponse>(await this.doRPCRequest("QueryTransferInByInstanceId", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTransferInByInstanceIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTransferInByInstanceId",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTransferInByInstanceIdResponse>(await this.callApi(params, req, runtime), new QueryTransferInByInstanceIdResponse({}));
   }
 
   async queryTransferInByInstanceId(request: QueryTransferInByInstanceIdRequest): Promise<QueryTransferInByInstanceIdResponse> {
@@ -12849,10 +14906,54 @@ export default class Client extends OpenApi {
 
   async queryTransferInListWithOptions(request: QueryTransferInListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferInListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.simpleTransferInStatus)) {
+      query["SimpleTransferInStatus"] = request.simpleTransferInStatus;
+    }
+
+    if (!Util.isUnset(request.submissionEndDate)) {
+      query["SubmissionEndDate"] = request.submissionEndDate;
+    }
+
+    if (!Util.isUnset(request.submissionStartDate)) {
+      query["SubmissionStartDate"] = request.submissionStartDate;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTransferInListResponse>(await this.doRPCRequest("QueryTransferInList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTransferInListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTransferInList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTransferInListResponse>(await this.callApi(params, req, runtime), new QueryTransferInListResponse({}));
   }
 
   async queryTransferInList(request: QueryTransferInListRequest): Promise<QueryTransferInListResponse> {
@@ -12862,10 +14963,34 @@ export default class Client extends OpenApi {
 
   async queryTransferOutInfoWithOptions(request: QueryTransferOutInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferOutInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryTransferOutInfoResponse>(await this.doRPCRequest("QueryTransferOutInfo", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new QueryTransferOutInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTransferOutInfo",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTransferOutInfoResponse>(await this.callApi(params, req, runtime), new QueryTransferOutInfoResponse({}));
   }
 
   async queryTransferOutInfo(request: QueryTransferOutInfoRequest): Promise<QueryTransferOutInfoResponse> {
@@ -12875,10 +15000,48 @@ export default class Client extends OpenApi {
 
   async registrantProfileRealNameVerificationWithOptions(request: RegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<RegistrantProfileRealNameVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityCredentialNo)) {
+      query["IdentityCredentialNo"] = request.identityCredentialNo;
+    }
+
+    if (!Util.isUnset(request.identityCredentialType)) {
+      query["IdentityCredentialType"] = request.identityCredentialType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileID)) {
+      query["RegistrantProfileID"] = request.registrantProfileID;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identityCredential)) {
+      body["IdentityCredential"] = request.identityCredential;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RegistrantProfileRealNameVerificationResponse>(await this.doRPCRequest("RegistrantProfileRealNameVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new RegistrantProfileRealNameVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RegistrantProfileRealNameVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new RegistrantProfileRealNameVerificationResponse({}));
   }
 
   async registrantProfileRealNameVerification(request: RegistrantProfileRealNameVerificationRequest): Promise<RegistrantProfileRealNameVerificationResponse> {
@@ -12888,10 +15051,34 @@ export default class Client extends OpenApi {
 
   async resendEmailVerificationWithOptions(request: ResendEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ResendEmailVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ResendEmailVerificationResponse>(await this.doRPCRequest("ResendEmailVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new ResendEmailVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResendEmailVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResendEmailVerificationResponse>(await this.callApi(params, req, runtime), new ResendEmailVerificationResponse({}));
   }
 
   async resendEmailVerification(request: ResendEmailVerificationRequest): Promise<ResendEmailVerificationResponse> {
@@ -12901,10 +15088,34 @@ export default class Client extends OpenApi {
 
   async resetQualificationVerificationWithOptions(request: ResetQualificationVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ResetQualificationVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ResetQualificationVerificationResponse>(await this.doRPCRequest("ResetQualificationVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new ResetQualificationVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetQualificationVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetQualificationVerificationResponse>(await this.callApi(params, req, runtime), new ResetQualificationVerificationResponse({}));
   }
 
   async resetQualificationVerification(request: ResetQualificationVerificationRequest): Promise<ResetQualificationVerificationResponse> {
@@ -12914,10 +15125,38 @@ export default class Client extends OpenApi {
 
   async saveBatchDomainRemarkWithOptions(request: SaveBatchDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchDomainRemarkResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchDomainRemarkResponse>(await this.doRPCRequest("SaveBatchDomainRemark", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchDomainRemarkResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchDomainRemark",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchDomainRemarkResponse>(await this.callApi(params, req, runtime), new SaveBatchDomainRemarkResponse({}));
   }
 
   async saveBatchDomainRemark(request: SaveBatchDomainRemarkRequest): Promise<SaveBatchDomainRemarkResponse> {
@@ -12927,10 +15166,50 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForCreatingOrderActivateWithOptions(request: SaveBatchTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderActivateParam)) {
+      query["OrderActivateParam"] = request.orderActivateParam;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderActivateResponse>(await this.doRPCRequest("SaveBatchTaskForCreatingOrderActivate", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForCreatingOrderActivateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForCreatingOrderActivate",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderActivateResponse({}));
   }
 
   async saveBatchTaskForCreatingOrderActivate(request: SaveBatchTaskForCreatingOrderActivateRequest): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
@@ -12940,10 +15219,50 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForCreatingOrderRedeemWithOptions(request: SaveBatchTaskForCreatingOrderRedeemRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderRedeemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderRedeemParam)) {
+      query["OrderRedeemParam"] = request.orderRedeemParam;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderRedeemResponse>(await this.doRPCRequest("SaveBatchTaskForCreatingOrderRedeem", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForCreatingOrderRedeemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForCreatingOrderRedeem",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderRedeemResponse({}));
   }
 
   async saveBatchTaskForCreatingOrderRedeem(request: SaveBatchTaskForCreatingOrderRedeemRequest): Promise<SaveBatchTaskForCreatingOrderRedeemResponse> {
@@ -12953,10 +15272,50 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForCreatingOrderRenewWithOptions(request: SaveBatchTaskForCreatingOrderRenewRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderRenewResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderRenewParam)) {
+      query["OrderRenewParam"] = request.orderRenewParam;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderRenewResponse>(await this.doRPCRequest("SaveBatchTaskForCreatingOrderRenew", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForCreatingOrderRenewResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForCreatingOrderRenew",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderRenewResponse({}));
   }
 
   async saveBatchTaskForCreatingOrderRenew(request: SaveBatchTaskForCreatingOrderRenewRequest): Promise<SaveBatchTaskForCreatingOrderRenewResponse> {
@@ -12966,10 +15325,50 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForCreatingOrderTransferWithOptions(request: SaveBatchTaskForCreatingOrderTransferRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderTransferResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderTransferParam)) {
+      query["OrderTransferParam"] = request.orderTransferParam;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderTransferResponse>(await this.doRPCRequest("SaveBatchTaskForCreatingOrderTransfer", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForCreatingOrderTransferResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForCreatingOrderTransfer",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderTransferResponse({}));
   }
 
   async saveBatchTaskForCreatingOrderTransfer(request: SaveBatchTaskForCreatingOrderTransferRequest): Promise<SaveBatchTaskForCreatingOrderTransferResponse> {
@@ -12979,10 +15378,38 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForDomainNameProxyServiceWithOptions(request: SaveBatchTaskForDomainNameProxyServiceRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForDomainNameProxyServiceResponse>(await this.doRPCRequest("SaveBatchTaskForDomainNameProxyService", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForDomainNameProxyServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForDomainNameProxyService",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForDomainNameProxyServiceResponse({}));
   }
 
   async saveBatchTaskForDomainNameProxyService(request: SaveBatchTaskForDomainNameProxyServiceRequest): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
@@ -12992,10 +15419,42 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForModifyingDomainDnsWithOptions(request: SaveBatchTaskForModifyingDomainDnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliyunDns)) {
+      query["AliyunDns"] = request.aliyunDns;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainNameServer)) {
+      query["DomainNameServer"] = request.domainNameServer;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForModifyingDomainDnsResponse>(await this.doRPCRequest("SaveBatchTaskForModifyingDomainDns", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForModifyingDomainDnsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForModifyingDomainDns",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForModifyingDomainDnsResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForModifyingDomainDnsResponse({}));
   }
 
   async saveBatchTaskForModifyingDomainDns(request: SaveBatchTaskForModifyingDomainDnsRequest): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
@@ -13005,10 +15464,30 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForReserveDropListDomainWithOptions(request: SaveBatchTaskForReserveDropListDomainRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactTemplateId)) {
+      query["ContactTemplateId"] = request.contactTemplateId;
+    }
+
+    if (!Util.isUnset(request.domains)) {
+      query["Domains"] = request.domains;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForReserveDropListDomainResponse>(await this.doRPCRequest("SaveBatchTaskForReserveDropListDomain", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForReserveDropListDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForReserveDropListDomain",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForReserveDropListDomainResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForReserveDropListDomainResponse({}));
   }
 
   async saveBatchTaskForReserveDropListDomain(request: SaveBatchTaskForReserveDropListDomainRequest): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
@@ -13018,10 +15497,38 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForTransferProhibitionLockWithOptions(request: SaveBatchTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForTransferProhibitionLockResponse>(await this.doRPCRequest("SaveBatchTaskForTransferProhibitionLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForTransferProhibitionLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForTransferProhibitionLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForTransferProhibitionLockResponse({}));
   }
 
   async saveBatchTaskForTransferProhibitionLock(request: SaveBatchTaskForTransferProhibitionLockRequest): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
@@ -13031,10 +15538,38 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForUpdateProhibitionLockWithOptions(request: SaveBatchTaskForUpdateProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdateProhibitionLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForUpdateProhibitionLockResponse>(await this.doRPCRequest("SaveBatchTaskForUpdateProhibitionLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForUpdateProhibitionLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForUpdateProhibitionLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdateProhibitionLockResponse({}));
   }
 
   async saveBatchTaskForUpdateProhibitionLock(request: SaveBatchTaskForUpdateProhibitionLockRequest): Promise<SaveBatchTaskForUpdateProhibitionLockResponse> {
@@ -13044,10 +15579,110 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(request: SaveBatchTaskForUpdatingContactInfoByNewContactRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.contactType)) {
+      query["ContactType"] = request.contactType;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.postalCode)) {
+      query["PostalCode"] = request.postalCode;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.registrantName)) {
+      query["RegistrantName"] = request.registrantName;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.telArea)) {
+      query["TelArea"] = request.telArea;
+    }
+
+    if (!Util.isUnset(request.telExt)) {
+      query["TelExt"] = request.telExt;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    if (!Util.isUnset(request.transferOutProhibited)) {
+      query["TransferOutProhibited"] = request.transferOutProhibited;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhAddress)) {
+      query["ZhAddress"] = request.zhAddress;
+    }
+
+    if (!Util.isUnset(request.zhCity)) {
+      query["ZhCity"] = request.zhCity;
+    }
+
+    if (!Util.isUnset(request.zhProvince)) {
+      query["ZhProvince"] = request.zhProvince;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantName)) {
+      query["ZhRegistrantName"] = request.zhRegistrantName;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForUpdatingContactInfoByNewContactResponse>(await this.doRPCRequest("SaveBatchTaskForUpdatingContactInfoByNewContact", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForUpdatingContactInfoByNewContactResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForUpdatingContactInfoByNewContact",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForUpdatingContactInfoByNewContactResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdatingContactInfoByNewContactResponse({}));
   }
 
   async saveBatchTaskForUpdatingContactInfoByNewContact(request: SaveBatchTaskForUpdatingContactInfoByNewContactRequest): Promise<SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
@@ -13057,10 +15692,46 @@ export default class Client extends OpenApi {
 
   async saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions(request: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactType)) {
+      query["ContactType"] = request.contactType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.transferOutProhibited)) {
+      query["TransferOutProhibited"] = request.transferOutProhibited;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>(await this.doRPCRequest("SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse({}));
   }
 
   async saveBatchTaskForUpdatingContactInfoByRegistrantProfileId(request: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest): Promise<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse> {
@@ -13070,10 +15741,38 @@ export default class Client extends OpenApi {
 
   async saveDomainGroupWithOptions(request: SaveDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<SaveDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainGroupId)) {
+      query["DomainGroupId"] = request.domainGroupId;
+    }
+
+    if (!Util.isUnset(request.domainGroupName)) {
+      query["DomainGroupName"] = request.domainGroupName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveDomainGroupResponse>(await this.doRPCRequest("SaveDomainGroup", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveDomainGroup",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveDomainGroupResponse>(await this.callApi(params, req, runtime), new SaveDomainGroupResponse({}));
   }
 
   async saveDomainGroup(request: SaveDomainGroupRequest): Promise<SaveDomainGroupResponse> {
@@ -13083,10 +15782,110 @@ export default class Client extends OpenApi {
 
   async saveRegistrantProfileWithOptions(request: SaveRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<SaveRegistrantProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.defaultRegistrantProfile)) {
+      query["DefaultRegistrantProfile"] = request.defaultRegistrantProfile;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.postalCode)) {
+      query["PostalCode"] = request.postalCode;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.registrantName)) {
+      query["RegistrantName"] = request.registrantName;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.registrantProfileType)) {
+      query["RegistrantProfileType"] = request.registrantProfileType;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.telArea)) {
+      query["TelArea"] = request.telArea;
+    }
+
+    if (!Util.isUnset(request.telExt)) {
+      query["TelExt"] = request.telExt;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhAddress)) {
+      query["ZhAddress"] = request.zhAddress;
+    }
+
+    if (!Util.isUnset(request.zhCity)) {
+      query["ZhCity"] = request.zhCity;
+    }
+
+    if (!Util.isUnset(request.zhProvince)) {
+      query["ZhProvince"] = request.zhProvince;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantName)) {
+      query["ZhRegistrantName"] = request.zhRegistrantName;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveRegistrantProfileResponse>(await this.doRPCRequest("SaveRegistrantProfile", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveRegistrantProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveRegistrantProfile",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveRegistrantProfileResponse>(await this.callApi(params, req, runtime), new SaveRegistrantProfileResponse({}));
   }
 
   async saveRegistrantProfile(request: SaveRegistrantProfileRequest): Promise<SaveRegistrantProfileResponse> {
@@ -13096,10 +15895,118 @@ export default class Client extends OpenApi {
 
   async saveRegistrantProfileRealNameVerificationWithOptions(request: SaveRegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SaveRegistrantProfileRealNameVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.identityCredential)) {
+      query["IdentityCredential"] = request.identityCredential;
+    }
+
+    if (!Util.isUnset(request.identityCredentialNo)) {
+      query["IdentityCredentialNo"] = request.identityCredentialNo;
+    }
+
+    if (!Util.isUnset(request.identityCredentialType)) {
+      query["IdentityCredentialType"] = request.identityCredentialType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.postalCode)) {
+      query["PostalCode"] = request.postalCode;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.registrantName)) {
+      query["RegistrantName"] = request.registrantName;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.registrantProfileType)) {
+      query["RegistrantProfileType"] = request.registrantProfileType;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.telArea)) {
+      query["TelArea"] = request.telArea;
+    }
+
+    if (!Util.isUnset(request.telExt)) {
+      query["TelExt"] = request.telExt;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhAddress)) {
+      query["ZhAddress"] = request.zhAddress;
+    }
+
+    if (!Util.isUnset(request.zhCity)) {
+      query["ZhCity"] = request.zhCity;
+    }
+
+    if (!Util.isUnset(request.zhProvince)) {
+      query["ZhProvince"] = request.zhProvince;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantName)) {
+      query["ZhRegistrantName"] = request.zhRegistrantName;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveRegistrantProfileRealNameVerificationResponse>(await this.doRPCRequest("SaveRegistrantProfileRealNameVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveRegistrantProfileRealNameVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveRegistrantProfileRealNameVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new SaveRegistrantProfileRealNameVerificationResponse({}));
   }
 
   async saveRegistrantProfileRealNameVerification(request: SaveRegistrantProfileRealNameVerificationRequest): Promise<SaveRegistrantProfileRealNameVerificationResponse> {
@@ -13109,10 +16016,50 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForAddingDSRecordWithOptions(request: SaveSingleTaskForAddingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAddingDSRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.digestType)) {
+      query["DigestType"] = request.digestType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.keyTag)) {
+      query["KeyTag"] = request.keyTag;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForAddingDSRecordResponse>(await this.doRPCRequest("SaveSingleTaskForAddingDSRecord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForAddingDSRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForAddingDSRecord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForAddingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForAddingDSRecordResponse({}));
   }
 
   async saveSingleTaskForAddingDSRecord(request: SaveSingleTaskForAddingDSRecordRequest): Promise<SaveSingleTaskForAddingDSRecordResponse> {
@@ -13122,10 +16069,34 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForApprovingTransferOutWithOptions(request: SaveSingleTaskForApprovingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForApprovingTransferOutResponse>(await this.doRPCRequest("SaveSingleTaskForApprovingTransferOut", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForApprovingTransferOutResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForApprovingTransferOut",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForApprovingTransferOutResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForApprovingTransferOutResponse({}));
   }
 
   async saveSingleTaskForApprovingTransferOut(request: SaveSingleTaskForApprovingTransferOutRequest): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
@@ -13135,10 +16106,38 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForAssociatingEnsWithOptions(request: SaveSingleTaskForAssociatingEnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAssociatingEnsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForAssociatingEnsResponse>(await this.doRPCRequest("SaveSingleTaskForAssociatingEns", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForAssociatingEnsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForAssociatingEns",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForAssociatingEnsResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForAssociatingEnsResponse({}));
   }
 
   async saveSingleTaskForAssociatingEns(request: SaveSingleTaskForAssociatingEnsRequest): Promise<SaveSingleTaskForAssociatingEnsResponse> {
@@ -13148,10 +16147,34 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCancelingTransferInWithOptions(request: SaveSingleTaskForCancelingTransferInRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCancelingTransferInResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCancelingTransferInResponse>(await this.doRPCRequest("SaveSingleTaskForCancelingTransferIn", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCancelingTransferInResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCancelingTransferIn",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCancelingTransferInResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCancelingTransferInResponse({}));
   }
 
   async saveSingleTaskForCancelingTransferIn(request: SaveSingleTaskForCancelingTransferInRequest): Promise<SaveSingleTaskForCancelingTransferInResponse> {
@@ -13161,10 +16184,34 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCancelingTransferOutWithOptions(request: SaveSingleTaskForCancelingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCancelingTransferOutResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCancelingTransferOutResponse>(await this.doRPCRequest("SaveSingleTaskForCancelingTransferOut", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCancelingTransferOutResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCancelingTransferOut",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCancelingTransferOutResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCancelingTransferOutResponse({}));
   }
 
   async saveSingleTaskForCancelingTransferOut(request: SaveSingleTaskForCancelingTransferOutRequest): Promise<SaveSingleTaskForCancelingTransferOutResponse> {
@@ -13174,10 +16221,42 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCreatingDnsHostWithOptions(request: SaveSingleTaskForCreatingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingDnsHostResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dnsName)) {
+      query["DnsName"] = request.dnsName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCreatingDnsHostResponse>(await this.doRPCRequest("SaveSingleTaskForCreatingDnsHost", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCreatingDnsHostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCreatingDnsHost",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCreatingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingDnsHostResponse({}));
   }
 
   async saveSingleTaskForCreatingDnsHost(request: SaveSingleTaskForCreatingDnsHostRequest): Promise<SaveSingleTaskForCreatingDnsHostResponse> {
@@ -13187,10 +16266,150 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCreatingOrderActivateWithOptions(request: SaveSingleTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderActivateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.aliyunDns)) {
+      query["AliyunDns"] = request.aliyunDns;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.dns1)) {
+      query["Dns1"] = request.dns1;
+    }
+
+    if (!Util.isUnset(request.dns2)) {
+      query["Dns2"] = request.dns2;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.enableDomainProxy)) {
+      query["EnableDomainProxy"] = request.enableDomainProxy;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.permitPremiumActivation)) {
+      query["PermitPremiumActivation"] = request.permitPremiumActivation;
+    }
+
+    if (!Util.isUnset(request.postalCode)) {
+      query["PostalCode"] = request.postalCode;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.registrantName)) {
+      query["RegistrantName"] = request.registrantName;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.subscriptionDuration)) {
+      query["SubscriptionDuration"] = request.subscriptionDuration;
+    }
+
+    if (!Util.isUnset(request.telArea)) {
+      query["TelArea"] = request.telArea;
+    }
+
+    if (!Util.isUnset(request.telExt)) {
+      query["TelExt"] = request.telExt;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    if (!Util.isUnset(request.trademarkDomainActivation)) {
+      query["TrademarkDomainActivation"] = request.trademarkDomainActivation;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhAddress)) {
+      query["ZhAddress"] = request.zhAddress;
+    }
+
+    if (!Util.isUnset(request.zhCity)) {
+      query["ZhCity"] = request.zhCity;
+    }
+
+    if (!Util.isUnset(request.zhProvince)) {
+      query["ZhProvince"] = request.zhProvince;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantName)) {
+      query["ZhRegistrantName"] = request.zhRegistrantName;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderActivateResponse>(await this.doRPCRequest("SaveSingleTaskForCreatingOrderActivate", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCreatingOrderActivateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCreatingOrderActivate",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderActivateResponse({}));
   }
 
   async saveSingleTaskForCreatingOrderActivate(request: SaveSingleTaskForCreatingOrderActivateRequest): Promise<SaveSingleTaskForCreatingOrderActivateResponse> {
@@ -13200,10 +16419,54 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCreatingOrderRedeemWithOptions(request: SaveSingleTaskForCreatingOrderRedeemRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderRedeemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.currentExpirationDate)) {
+      query["CurrentExpirationDate"] = request.currentExpirationDate;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderRedeemResponse>(await this.doRPCRequest("SaveSingleTaskForCreatingOrderRedeem", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCreatingOrderRedeemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCreatingOrderRedeem",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderRedeemResponse({}));
   }
 
   async saveSingleTaskForCreatingOrderRedeem(request: SaveSingleTaskForCreatingOrderRedeemRequest): Promise<SaveSingleTaskForCreatingOrderRedeemResponse> {
@@ -13213,10 +16476,58 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCreatingOrderRenewWithOptions(request: SaveSingleTaskForCreatingOrderRenewRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderRenewResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.currentExpirationDate)) {
+      query["CurrentExpirationDate"] = request.currentExpirationDate;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.subscriptionDuration)) {
+      query["SubscriptionDuration"] = request.subscriptionDuration;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderRenewResponse>(await this.doRPCRequest("SaveSingleTaskForCreatingOrderRenew", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCreatingOrderRenewResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCreatingOrderRenew",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderRenewResponse({}));
   }
 
   async saveSingleTaskForCreatingOrderRenew(request: SaveSingleTaskForCreatingOrderRenewRequest): Promise<SaveSingleTaskForCreatingOrderRenewResponse> {
@@ -13226,10 +16537,62 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForCreatingOrderTransferWithOptions(request: SaveSingleTaskForCreatingOrderTransferRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderTransferResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationCode)) {
+      query["AuthorizationCode"] = request.authorizationCode;
+    }
+
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.permitPremiumTransfer)) {
+      query["PermitPremiumTransfer"] = request.permitPremiumTransfer;
+    }
+
+    if (!Util.isUnset(request.promotionNo)) {
+      query["PromotionNo"] = request.promotionNo;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.useCoupon)) {
+      query["UseCoupon"] = request.useCoupon;
+    }
+
+    if (!Util.isUnset(request.usePromotion)) {
+      query["UsePromotion"] = request.usePromotion;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderTransferResponse>(await this.doRPCRequest("SaveSingleTaskForCreatingOrderTransfer", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForCreatingOrderTransferResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForCreatingOrderTransfer",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderTransferResponse({}));
   }
 
   async saveSingleTaskForCreatingOrderTransfer(request: SaveSingleTaskForCreatingOrderTransferRequest): Promise<SaveSingleTaskForCreatingOrderTransferResponse> {
@@ -13237,25 +16600,40 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForCreatingOrderTransferWithOptions(request, runtime);
   }
 
-  async saveSingleTaskForDeletingDnsHostWithOptions(request: SaveSingleTaskForDeletingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SaveSingleTaskForDeletingDnsHostResponse>(await this.doRPCRequest("SaveSingleTaskForDeletingDnsHost", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForDeletingDnsHostResponse({}));
-  }
-
-  async saveSingleTaskForDeletingDnsHost(request: SaveSingleTaskForDeletingDnsHostRequest): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveSingleTaskForDeletingDnsHostWithOptions(request, runtime);
-  }
-
   async saveSingleTaskForDeletingDSRecordWithOptions(request: SaveSingleTaskForDeletingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDSRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.keyTag)) {
+      query["KeyTag"] = request.keyTag;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForDeletingDSRecordResponse>(await this.doRPCRequest("SaveSingleTaskForDeletingDSRecord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForDeletingDSRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForDeletingDSRecord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForDeletingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDeletingDSRecordResponse({}));
   }
 
   async saveSingleTaskForDeletingDSRecord(request: SaveSingleTaskForDeletingDSRecordRequest): Promise<SaveSingleTaskForDeletingDSRecordResponse> {
@@ -13263,12 +16641,77 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForDeletingDSRecordWithOptions(request, runtime);
   }
 
+  async saveSingleTaskForDeletingDnsHostWithOptions(request: SaveSingleTaskForDeletingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dnsName)) {
+      query["DnsName"] = request.dnsName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForDeletingDnsHost",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForDeletingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDeletingDnsHostResponse({}));
+  }
+
+  async saveSingleTaskForDeletingDnsHost(request: SaveSingleTaskForDeletingDnsHostRequest): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSingleTaskForDeletingDnsHostWithOptions(request, runtime);
+  }
+
   async saveSingleTaskForDisassociatingEnsWithOptions(request: SaveSingleTaskForDisassociatingEnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDisassociatingEnsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForDisassociatingEnsResponse>(await this.doRPCRequest("SaveSingleTaskForDisassociatingEns", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForDisassociatingEnsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForDisassociatingEns",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForDisassociatingEnsResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDisassociatingEnsResponse({}));
   }
 
   async saveSingleTaskForDisassociatingEns(request: SaveSingleTaskForDisassociatingEnsRequest): Promise<SaveSingleTaskForDisassociatingEnsResponse> {
@@ -13278,10 +16721,38 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForDomainNameProxyServiceWithOptions(request: SaveSingleTaskForDomainNameProxyServiceRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForDomainNameProxyServiceResponse>(await this.doRPCRequest("SaveSingleTaskForDomainNameProxyService", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForDomainNameProxyServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForDomainNameProxyService",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDomainNameProxyServiceResponse({}));
   }
 
   async saveSingleTaskForDomainNameProxyService(request: SaveSingleTaskForDomainNameProxyServiceRequest): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
@@ -13289,25 +16760,52 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForDomainNameProxyServiceWithOptions(request, runtime);
   }
 
-  async saveSingleTaskForModifyingDnsHostWithOptions(request: SaveSingleTaskForModifyingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SaveSingleTaskForModifyingDnsHostResponse>(await this.doRPCRequest("SaveSingleTaskForModifyingDnsHost", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForModifyingDnsHostResponse({}));
-  }
-
-  async saveSingleTaskForModifyingDnsHost(request: SaveSingleTaskForModifyingDnsHostRequest): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveSingleTaskForModifyingDnsHostWithOptions(request, runtime);
-  }
-
   async saveSingleTaskForModifyingDSRecordWithOptions(request: SaveSingleTaskForModifyingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.digestType)) {
+      query["DigestType"] = request.digestType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.keyTag)) {
+      query["KeyTag"] = request.keyTag;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForModifyingDSRecordResponse>(await this.doRPCRequest("SaveSingleTaskForModifyingDSRecord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForModifyingDSRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForModifyingDSRecord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForModifyingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForModifyingDSRecordResponse({}));
   }
 
   async saveSingleTaskForModifyingDSRecord(request: SaveSingleTaskForModifyingDSRecordRequest): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
@@ -13315,12 +16813,81 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForModifyingDSRecordWithOptions(request, runtime);
   }
 
+  async saveSingleTaskForModifyingDnsHostWithOptions(request: SaveSingleTaskForModifyingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dnsName)) {
+      query["DnsName"] = request.dnsName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForModifyingDnsHost",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForModifyingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForModifyingDnsHostResponse({}));
+  }
+
+  async saveSingleTaskForModifyingDnsHost(request: SaveSingleTaskForModifyingDnsHostRequest): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSingleTaskForModifyingDnsHostWithOptions(request, runtime);
+  }
+
   async saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request: SaveSingleTaskForQueryingTransferAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse>(await this.doRPCRequest("SaveSingleTaskForQueryingTransferAuthorizationCode", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForQueryingTransferAuthorizationCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForQueryingTransferAuthorizationCode",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForQueryingTransferAuthorizationCodeResponse({}));
   }
 
   async saveSingleTaskForQueryingTransferAuthorizationCode(request: SaveSingleTaskForQueryingTransferAuthorizationCodeRequest): Promise<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
@@ -13330,10 +16897,70 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForSaveArtExtensionWithOptions(request: SaveSingleTaskForSaveArtExtensionRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSaveArtExtensionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dateOrPeriod)) {
+      query["DateOrPeriod"] = request.dateOrPeriod;
+    }
+
+    if (!Util.isUnset(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.features)) {
+      query["Features"] = request.features;
+    }
+
+    if (!Util.isUnset(request.inscriptionsAndMarkings)) {
+      query["InscriptionsAndMarkings"] = request.inscriptionsAndMarkings;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.maker)) {
+      query["Maker"] = request.maker;
+    }
+
+    if (!Util.isUnset(request.materialsAndTechniques)) {
+      query["MaterialsAndTechniques"] = request.materialsAndTechniques;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.reference)) {
+      query["Reference"] = request.reference;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForSaveArtExtensionResponse>(await this.doRPCRequest("SaveSingleTaskForSaveArtExtension", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForSaveArtExtensionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForSaveArtExtension",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForSaveArtExtensionResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSaveArtExtensionResponse({}));
   }
 
   async saveSingleTaskForSaveArtExtension(request: SaveSingleTaskForSaveArtExtensionRequest): Promise<SaveSingleTaskForSaveArtExtensionResponse> {
@@ -13341,25 +16968,36 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForSaveArtExtensionWithOptions(request, runtime);
   }
 
-  async saveSingleTaskForSynchronizingDnsHostWithOptions(request: SaveSingleTaskForSynchronizingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SaveSingleTaskForSynchronizingDnsHostResponse>(await this.doRPCRequest("SaveSingleTaskForSynchronizingDnsHost", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForSynchronizingDnsHostResponse({}));
-  }
-
-  async saveSingleTaskForSynchronizingDnsHost(request: SaveSingleTaskForSynchronizingDnsHostRequest): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveSingleTaskForSynchronizingDnsHostWithOptions(request, runtime);
-  }
-
   async saveSingleTaskForSynchronizingDSRecordWithOptions(request: SaveSingleTaskForSynchronizingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDSRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForSynchronizingDSRecordResponse>(await this.doRPCRequest("SaveSingleTaskForSynchronizingDSRecord", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForSynchronizingDSRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForSynchronizingDSRecord",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForSynchronizingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSynchronizingDSRecordResponse({}));
   }
 
   async saveSingleTaskForSynchronizingDSRecord(request: SaveSingleTaskForSynchronizingDSRecordRequest): Promise<SaveSingleTaskForSynchronizingDSRecordResponse> {
@@ -13367,12 +17005,77 @@ export default class Client extends OpenApi {
     return await this.saveSingleTaskForSynchronizingDSRecordWithOptions(request, runtime);
   }
 
+  async saveSingleTaskForSynchronizingDnsHostWithOptions(request: SaveSingleTaskForSynchronizingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForSynchronizingDnsHost",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForSynchronizingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSynchronizingDnsHostResponse({}));
+  }
+
+  async saveSingleTaskForSynchronizingDnsHost(request: SaveSingleTaskForSynchronizingDnsHostRequest): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSingleTaskForSynchronizingDnsHostWithOptions(request, runtime);
+  }
+
   async saveSingleTaskForTransferProhibitionLockWithOptions(request: SaveSingleTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForTransferProhibitionLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForTransferProhibitionLockResponse>(await this.doRPCRequest("SaveSingleTaskForTransferProhibitionLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForTransferProhibitionLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForTransferProhibitionLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForTransferProhibitionLockResponse({}));
   }
 
   async saveSingleTaskForTransferProhibitionLock(request: SaveSingleTaskForTransferProhibitionLockRequest): Promise<SaveSingleTaskForTransferProhibitionLockResponse> {
@@ -13382,10 +17085,38 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForUpdateProhibitionLockWithOptions(request: SaveSingleTaskForUpdateProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForUpdateProhibitionLockResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForUpdateProhibitionLockResponse>(await this.doRPCRequest("SaveSingleTaskForUpdateProhibitionLock", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForUpdateProhibitionLockResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForUpdateProhibitionLock",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForUpdateProhibitionLockResponse({}));
   }
 
   async saveSingleTaskForUpdateProhibitionLock(request: SaveSingleTaskForUpdateProhibitionLockRequest): Promise<SaveSingleTaskForUpdateProhibitionLockResponse> {
@@ -13395,10 +17126,50 @@ export default class Client extends OpenApi {
 
   async saveSingleTaskForUpdatingContactInfoWithOptions(request: SaveSingleTaskForUpdatingContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForUpdatingContactInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addTransferLock)) {
+      query["AddTransferLock"] = request.addTransferLock;
+    }
+
+    if (!Util.isUnset(request.contactType)) {
+      query["ContactType"] = request.contactType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveSingleTaskForUpdatingContactInfoResponse>(await this.doRPCRequest("SaveSingleTaskForUpdatingContactInfo", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveSingleTaskForUpdatingContactInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveSingleTaskForUpdatingContactInfo",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSingleTaskForUpdatingContactInfoResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForUpdatingContactInfoResponse({}));
   }
 
   async saveSingleTaskForUpdatingContactInfo(request: SaveSingleTaskForUpdatingContactInfoRequest): Promise<SaveSingleTaskForUpdatingContactInfoResponse> {
@@ -13408,10 +17179,34 @@ export default class Client extends OpenApi {
 
   async saveTaskForSubmittingDomainDeleteWithOptions(request: SaveTaskForSubmittingDomainDeleteRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainDeleteResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveTaskForSubmittingDomainDeleteResponse>(await this.doRPCRequest("SaveTaskForSubmittingDomainDelete", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveTaskForSubmittingDomainDeleteResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveTaskForSubmittingDomainDelete",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveTaskForSubmittingDomainDeleteResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainDeleteResponse({}));
   }
 
   async saveTaskForSubmittingDomainDelete(request: SaveTaskForSubmittingDomainDeleteRequest): Promise<SaveTaskForSubmittingDomainDeleteResponse> {
@@ -13421,10 +17216,48 @@ export default class Client extends OpenApi {
 
   async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(request: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.identityCredentialNo)) {
+      query["IdentityCredentialNo"] = request.identityCredentialNo;
+    }
+
+    if (!Util.isUnset(request.identityCredentialType)) {
+      query["IdentityCredentialType"] = request.identityCredentialType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identityCredential)) {
+      body["IdentityCredential"] = request.identityCredential;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse>(await this.doRPCRequest("SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse({}));
   }
 
   async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential(request: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest): Promise<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
@@ -13434,10 +17267,42 @@ export default class Client extends OpenApi {
 
   async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(request: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse>(await this.doRPCRequest("SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse({}));
   }
 
   async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID(request: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest): Promise<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
@@ -13447,10 +17312,120 @@ export default class Client extends OpenApi {
 
   async saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(request: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.identityCredentialNo)) {
+      query["IdentityCredentialNo"] = request.identityCredentialNo;
+    }
+
+    if (!Util.isUnset(request.identityCredentialType)) {
+      query["IdentityCredentialType"] = request.identityCredentialType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.postalCode)) {
+      query["PostalCode"] = request.postalCode;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.registrantName)) {
+      query["RegistrantName"] = request.registrantName;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.telArea)) {
+      query["TelArea"] = request.telArea;
+    }
+
+    if (!Util.isUnset(request.telExt)) {
+      query["TelExt"] = request.telExt;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    if (!Util.isUnset(request.transferOutProhibited)) {
+      query["TransferOutProhibited"] = request.transferOutProhibited;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhAddress)) {
+      query["ZhAddress"] = request.zhAddress;
+    }
+
+    if (!Util.isUnset(request.zhCity)) {
+      query["ZhCity"] = request.zhCity;
+    }
+
+    if (!Util.isUnset(request.zhProvince)) {
+      query["ZhProvince"] = request.zhProvince;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantName)) {
+      query["ZhRegistrantName"] = request.zhRegistrantName;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identityCredential)) {
+      body["IdentityCredential"] = request.identityCredential;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse>(await this.doRPCRequest("SaveTaskForUpdatingRegistrantInfoByIdentityCredential", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveTaskForUpdatingRegistrantInfoByIdentityCredential",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse({}));
   }
 
   async saveTaskForUpdatingRegistrantInfoByIdentityCredential(request: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest): Promise<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
@@ -13460,10 +17435,42 @@ export default class Client extends OpenApi {
 
   async saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.transferOutProhibited)) {
+      query["TransferOutProhibited"] = request.transferOutProhibited;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>(await this.doRPCRequest("SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse({}));
   }
 
   async saveTaskForUpdatingRegistrantInfoByRegistrantProfileID(request: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest): Promise<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
@@ -13473,10 +17480,110 @@ export default class Client extends OpenApi {
 
   async scrollDomainListWithOptions(request: ScrollDomainListRequest, runtime: $Util.RuntimeOptions): Promise<ScrollDomainListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainGroupId)) {
+      query["DomainGroupId"] = request.domainGroupId;
+    }
+
+    if (!Util.isUnset(request.domainStatus)) {
+      query["DomainStatus"] = request.domainStatus;
+    }
+
+    if (!Util.isUnset(request.endExpirationDate)) {
+      query["EndExpirationDate"] = request.endExpirationDate;
+    }
+
+    if (!Util.isUnset(request.endLength)) {
+      query["EndLength"] = request.endLength;
+    }
+
+    if (!Util.isUnset(request.endRegistrationDate)) {
+      query["EndRegistrationDate"] = request.endRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.excluded)) {
+      query["Excluded"] = request.excluded;
+    }
+
+    if (!Util.isUnset(request.excludedPrefix)) {
+      query["ExcludedPrefix"] = request.excludedPrefix;
+    }
+
+    if (!Util.isUnset(request.excludedSuffix)) {
+      query["ExcludedSuffix"] = request.excludedSuffix;
+    }
+
+    if (!Util.isUnset(request.form)) {
+      query["Form"] = request.form;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.keyWordPrefix)) {
+      query["KeyWordPrefix"] = request.keyWordPrefix;
+    }
+
+    if (!Util.isUnset(request.keyWordSuffix)) {
+      query["KeyWordSuffix"] = request.keyWordSuffix;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productDomainType)) {
+      query["ProductDomainType"] = request.productDomainType;
+    }
+
+    if (!Util.isUnset(request.scrollId)) {
+      query["ScrollId"] = request.scrollId;
+    }
+
+    if (!Util.isUnset(request.startExpirationDate)) {
+      query["StartExpirationDate"] = request.startExpirationDate;
+    }
+
+    if (!Util.isUnset(request.startLength)) {
+      query["StartLength"] = request.startLength;
+    }
+
+    if (!Util.isUnset(request.startRegistrationDate)) {
+      query["StartRegistrationDate"] = request.startRegistrationDate;
+    }
+
+    if (!Util.isUnset(request.suffixs)) {
+      query["Suffixs"] = request.suffixs;
+    }
+
+    if (!Util.isUnset(request.tradeType)) {
+      query["TradeType"] = request.tradeType;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ScrollDomainListResponse>(await this.doRPCRequest("ScrollDomainList", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new ScrollDomainListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ScrollDomainList",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScrollDomainListResponse>(await this.callApi(params, req, runtime), new ScrollDomainListResponse({}));
   }
 
   async scrollDomainList(request: ScrollDomainListRequest): Promise<ScrollDomainListResponse> {
@@ -13486,10 +17593,30 @@ export default class Client extends OpenApi {
 
   async setDefaultRegistrantProfileWithOptions(request: SetDefaultRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultRegistrantProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.registrantProfileId)) {
+      query["RegistrantProfileId"] = request.registrantProfileId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDefaultRegistrantProfileResponse>(await this.doRPCRequest("SetDefaultRegistrantProfile", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultRegistrantProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDefaultRegistrantProfile",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDefaultRegistrantProfileResponse>(await this.callApi(params, req, runtime), new SetDefaultRegistrantProfileResponse({}));
   }
 
   async setDefaultRegistrantProfile(request: SetDefaultRegistrantProfileRequest): Promise<SetDefaultRegistrantProfileResponse> {
@@ -13499,10 +17626,38 @@ export default class Client extends OpenApi {
 
   async submitEmailVerificationWithOptions(request: SubmitEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEmailVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sendIfExist)) {
+      query["SendIfExist"] = request.sendIfExist;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SubmitEmailVerificationResponse>(await this.doRPCRequest("SubmitEmailVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitEmailVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitEmailVerification",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitEmailVerificationResponse>(await this.callApi(params, req, runtime), new SubmitEmailVerificationResponse({}));
   }
 
   async submitEmailVerification(request: SubmitEmailVerificationRequest): Promise<SubmitEmailVerificationResponse> {
@@ -13512,10 +17667,42 @@ export default class Client extends OpenApi {
 
   async submitOperationAuditInfoWithOptions(request: SubmitOperationAuditInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOperationAuditInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditInfo)) {
+      query["AuditInfo"] = request.auditInfo;
+    }
+
+    if (!Util.isUnset(request.auditType)) {
+      query["AuditType"] = request.auditType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SubmitOperationAuditInfoResponse>(await this.doRPCRequest("SubmitOperationAuditInfo", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitOperationAuditInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitOperationAuditInfo",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitOperationAuditInfoResponse>(await this.callApi(params, req, runtime), new SubmitOperationAuditInfoResponse({}));
   }
 
   async submitOperationAuditInfo(request: SubmitOperationAuditInfoRequest): Promise<SubmitOperationAuditInfoResponse> {
@@ -13525,10 +17712,42 @@ export default class Client extends OpenApi {
 
   async submitOperationCredentialsWithOptions(request: SubmitOperationCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOperationCredentialsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditRecordId)) {
+      query["AuditRecordId"] = request.auditRecordId;
+    }
+
+    if (!Util.isUnset(request.auditType)) {
+      query["AuditType"] = request.auditType;
+    }
+
+    if (!Util.isUnset(request.credentials)) {
+      query["Credentials"] = request.credentials;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.regType)) {
+      query["RegType"] = request.regType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SubmitOperationCredentialsResponse>(await this.doRPCRequest("SubmitOperationCredentials", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitOperationCredentialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitOperationCredentials",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitOperationCredentialsResponse>(await this.callApi(params, req, runtime), new SubmitOperationCredentialsResponse({}));
   }
 
   async submitOperationCredentials(request: SubmitOperationCredentialsRequest): Promise<SubmitOperationCredentialsResponse> {
@@ -13538,10 +17757,34 @@ export default class Client extends OpenApi {
 
   async transferInCheckMailTokenWithOptions(request: TransferInCheckMailTokenRequest, runtime: $Util.RuntimeOptions): Promise<TransferInCheckMailTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TransferInCheckMailTokenResponse>(await this.doRPCRequest("TransferInCheckMailToken", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new TransferInCheckMailTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransferInCheckMailToken",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferInCheckMailTokenResponse>(await this.callApi(params, req, runtime), new TransferInCheckMailTokenResponse({}));
   }
 
   async transferInCheckMailToken(request: TransferInCheckMailTokenRequest): Promise<TransferInCheckMailTokenResponse> {
@@ -13551,10 +17794,38 @@ export default class Client extends OpenApi {
 
   async transferInReenterTransferAuthorizationCodeWithOptions(request: TransferInReenterTransferAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<TransferInReenterTransferAuthorizationCodeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.transferAuthorizationCode)) {
+      query["TransferAuthorizationCode"] = request.transferAuthorizationCode;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TransferInReenterTransferAuthorizationCodeResponse>(await this.doRPCRequest("TransferInReenterTransferAuthorizationCode", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new TransferInReenterTransferAuthorizationCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransferInReenterTransferAuthorizationCode",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferInReenterTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new TransferInReenterTransferAuthorizationCodeResponse({}));
   }
 
   async transferInReenterTransferAuthorizationCode(request: TransferInReenterTransferAuthorizationCodeRequest): Promise<TransferInReenterTransferAuthorizationCodeResponse> {
@@ -13564,10 +17835,34 @@ export default class Client extends OpenApi {
 
   async transferInRefetchWhoisEmailWithOptions(request: TransferInRefetchWhoisEmailRequest, runtime: $Util.RuntimeOptions): Promise<TransferInRefetchWhoisEmailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TransferInRefetchWhoisEmailResponse>(await this.doRPCRequest("TransferInRefetchWhoisEmail", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new TransferInRefetchWhoisEmailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransferInRefetchWhoisEmail",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferInRefetchWhoisEmailResponse>(await this.callApi(params, req, runtime), new TransferInRefetchWhoisEmailResponse({}));
   }
 
   async transferInRefetchWhoisEmail(request: TransferInRefetchWhoisEmailRequest): Promise<TransferInRefetchWhoisEmailResponse> {
@@ -13577,10 +17872,34 @@ export default class Client extends OpenApi {
 
   async transferInResendMailTokenWithOptions(request: TransferInResendMailTokenRequest, runtime: $Util.RuntimeOptions): Promise<TransferInResendMailTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TransferInResendMailTokenResponse>(await this.doRPCRequest("TransferInResendMailToken", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new TransferInResendMailTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransferInResendMailToken",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferInResendMailTokenResponse>(await this.callApi(params, req, runtime), new TransferInResendMailTokenResponse({}));
   }
 
   async transferInResendMailToken(request: TransferInResendMailTokenRequest): Promise<TransferInResendMailTokenResponse> {
@@ -13590,10 +17909,52 @@ export default class Client extends OpenApi {
 
   async updateDomainToDomainGroupWithOptions(request: UpdateDomainToDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainToDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSource)) {
+      query["DataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.domainGroupId)) {
+      query["DomainGroupId"] = request.domainGroupId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.replace)) {
+      query["Replace"] = request.replace;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileToUpload)) {
+      body["FileToUpload"] = request.fileToUpload;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateDomainToDomainGroupResponse>(await this.doRPCRequest("UpdateDomainToDomainGroup", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDomainToDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDomainToDomainGroup",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainToDomainGroupResponse>(await this.callApi(params, req, runtime), new UpdateDomainToDomainGroupResponse({}));
   }
 
   async updateDomainToDomainGroup(request: UpdateDomainToDomainGroupRequest): Promise<UpdateDomainToDomainGroupResponse> {
@@ -13603,10 +17964,102 @@ export default class Client extends OpenApi {
 
   async verifyContactFieldWithOptions(request: VerifyContactFieldRequest, runtime: $Util.RuntimeOptions): Promise<VerifyContactFieldResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.postalCode)) {
+      query["PostalCode"] = request.postalCode;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.registrantName)) {
+      query["RegistrantName"] = request.registrantName;
+    }
+
+    if (!Util.isUnset(request.registrantOrganization)) {
+      query["RegistrantOrganization"] = request.registrantOrganization;
+    }
+
+    if (!Util.isUnset(request.registrantType)) {
+      query["RegistrantType"] = request.registrantType;
+    }
+
+    if (!Util.isUnset(request.telArea)) {
+      query["TelArea"] = request.telArea;
+    }
+
+    if (!Util.isUnset(request.telExt)) {
+      query["TelExt"] = request.telExt;
+    }
+
+    if (!Util.isUnset(request.telephone)) {
+      query["Telephone"] = request.telephone;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.zhAddress)) {
+      query["ZhAddress"] = request.zhAddress;
+    }
+
+    if (!Util.isUnset(request.zhCity)) {
+      query["ZhCity"] = request.zhCity;
+    }
+
+    if (!Util.isUnset(request.zhProvince)) {
+      query["ZhProvince"] = request.zhProvince;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantName)) {
+      query["ZhRegistrantName"] = request.zhRegistrantName;
+    }
+
+    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+      query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VerifyContactFieldResponse>(await this.doRPCRequest("VerifyContactField", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyContactFieldResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyContactField",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyContactFieldResponse>(await this.callApi(params, req, runtime), new VerifyContactFieldResponse({}));
   }
 
   async verifyContactField(request: VerifyContactFieldRequest): Promise<VerifyContactFieldResponse> {
@@ -13616,10 +18069,34 @@ export default class Client extends OpenApi {
 
   async verifyEmailWithOptions(request: VerifyEmailRequest, runtime: $Util.RuntimeOptions): Promise<VerifyEmailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VerifyEmailResponse>(await this.doRPCRequest("VerifyEmail", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyEmailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyEmail",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyEmailResponse>(await this.callApi(params, req, runtime), new VerifyEmailResponse({}));
   }
 
   async verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {
