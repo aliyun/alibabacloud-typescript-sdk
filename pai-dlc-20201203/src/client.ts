@@ -91,6 +91,7 @@ export class ContainerSpec extends $tea.Model {
   env?: EnvVar[];
   image?: string;
   name?: string;
+  resources?: ResourceRequirements;
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,6 +100,7 @@ export class ContainerSpec extends $tea.Model {
       env: 'Env',
       image: 'Image',
       name: 'Name',
+      resources: 'Resources',
       workingDir: 'WorkingDir',
     };
   }
@@ -110,6 +112,7 @@ export class ContainerSpec extends $tea.Model {
       env: { 'type': 'array', 'itemType': EnvVar },
       image: 'string',
       name: 'string',
+      resources: ResourceRequirements,
       workingDir: 'string',
     };
   }
@@ -171,28 +174,200 @@ export class DataSourceItem extends $tea.Model {
   }
 }
 
+export class DebuggerConfig extends $tea.Model {
+  content?: string;
+  debuggerConfigId?: string;
+  description?: string;
+  displayName?: string;
+  gmtCreateTime?: string;
+  gmtModifyTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      debuggerConfigId: 'DebuggerConfigId',
+      description: 'Description',
+      displayName: 'DisplayName',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifyTime: 'GmtModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      debuggerConfigId: 'string',
+      description: 'string',
+      displayName: 'string',
+      gmtCreateTime: 'string',
+      gmtModifyTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebuggerJob extends $tea.Model {
+  debuggerJobId?: string;
+  displayName?: string;
+  duration?: string;
+  gmtCreateTime?: string;
+  gmtFailedTime?: string;
+  gmtFinishTime?: string;
+  gmtRunningTime?: string;
+  gmtStoppedTime?: string;
+  gmtSubmittedTime?: string;
+  gmtSucceedTime?: string;
+  status?: string;
+  userId?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      debuggerJobId: 'DebuggerJobId',
+      displayName: 'DisplayName',
+      duration: 'Duration',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFailedTime: 'GmtFailedTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtRunningTime: 'GmtRunningTime',
+      gmtStoppedTime: 'GmtStoppedTime',
+      gmtSubmittedTime: 'GmtSubmittedTime',
+      gmtSucceedTime: 'GmtSucceedTime',
+      status: 'Status',
+      userId: 'UserId',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      debuggerJobId: 'string',
+      displayName: 'string',
+      duration: 'string',
+      gmtCreateTime: 'string',
+      gmtFailedTime: 'string',
+      gmtFinishTime: 'string',
+      gmtRunningTime: 'string',
+      gmtStoppedTime: 'string',
+      gmtSubmittedTime: 'string',
+      gmtSucceedTime: 'string',
+      status: 'string',
+      userId: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebuggerJobIssue extends $tea.Model {
+  debuggerJobIssue?: string;
+  gmtCreateTime?: string;
+  jobDebuggerIssueId?: string;
+  jobId?: string;
+  reasonCode?: string;
+  reasonMessage?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      debuggerJobIssue: 'DebuggerJobIssue',
+      gmtCreateTime: 'GmtCreateTime',
+      jobDebuggerIssueId: 'JobDebuggerIssueId',
+      jobId: 'JobId',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      debuggerJobIssue: 'string',
+      gmtCreateTime: 'string',
+      jobDebuggerIssueId: 'string',
+      jobId: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebuggerResult extends $tea.Model {
+  debuggerConfigContent?: string;
+  debuggerJobIssues?: string;
+  debuggerJobStatus?: string;
+  debuggerReportURL?: string;
+  jobDisplayName?: string;
+  jobId?: string;
+  jobUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      debuggerConfigContent: 'DebuggerConfigContent',
+      debuggerJobIssues: 'DebuggerJobIssues',
+      debuggerJobStatus: 'DebuggerJobStatus',
+      debuggerReportURL: 'DebuggerReportURL',
+      jobDisplayName: 'JobDisplayName',
+      jobId: 'JobId',
+      jobUserId: 'JobUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      debuggerConfigContent: 'string',
+      debuggerJobIssues: 'string',
+      debuggerJobStatus: 'string',
+      debuggerReportURL: 'string',
+      jobDisplayName: 'string',
+      jobId: 'string',
+      jobUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EcsSpec extends $tea.Model {
+  acceleratorType?: string;
   cpu?: number;
   gpu?: number;
   gpuType?: string;
   instanceType?: string;
+  isAvailable?: boolean;
   memory?: number;
   static names(): { [key: string]: string } {
     return {
+      acceleratorType: 'AcceleratorType',
       cpu: 'Cpu',
       gpu: 'Gpu',
       gpuType: 'GpuType',
       instanceType: 'InstanceType',
+      isAvailable: 'IsAvailable',
       memory: 'Memory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorType: 'string',
       cpu: 'number',
       gpu: 'number',
       gpuType: 'string',
       instanceType: 'string',
+      isAvailable: 'boolean',
       memory: 'number',
     };
   }
@@ -282,6 +457,7 @@ export class GPUDetail extends $tea.Model {
 
 export class ImageItem extends $tea.Model {
   acceleratorType?: string;
+  authorId?: string;
   framework?: string;
   imageProviderType?: string;
   imageTag?: string;
@@ -290,6 +466,7 @@ export class ImageItem extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
+      authorId: 'AuthorId',
       framework: 'Framework',
       imageProviderType: 'ImageProviderType',
       imageTag: 'ImageTag',
@@ -301,11 +478,40 @@ export class ImageItem extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorType: 'string',
+      authorId: 'string',
       framework: 'string',
       imageProviderType: 'string',
       imageTag: 'string',
       imageUrl: 'string',
       imageUrlVpc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobDebuggerConfig extends $tea.Model {
+  debuggerConfigContent?: string;
+  debuggerConfigId?: string;
+  gmtCreateTime?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      debuggerConfigContent: 'DebuggerConfigContent',
+      debuggerConfigId: 'DebuggerConfigId',
+      gmtCreateTime: 'GmtCreateTime',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      debuggerConfigContent: 'string',
+      debuggerConfigId: 'string',
+      gmtCreateTime: 'string',
+      jobId: 'string',
     };
   }
 
@@ -347,6 +553,7 @@ export class JobItem extends $tea.Model {
   dataSources?: JobItemDataSources[];
   displayName?: string;
   duration?: number;
+  enabledDebugger?: boolean;
   envs?: { [key: string]: string };
   gmtCreateTime?: string;
   gmtFinishTime?: string;
@@ -356,6 +563,8 @@ export class JobItem extends $tea.Model {
   reasonCode?: string;
   reasonMessage?: string;
   resourceId?: string;
+  resourceLevel?: string;
+  resourceName?: string;
   settings?: JobSettings;
   status?: string;
   thirdpartyLibDir?: string;
@@ -370,6 +579,7 @@ export class JobItem extends $tea.Model {
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       duration: 'Duration',
+      enabledDebugger: 'EnabledDebugger',
       envs: 'Envs',
       gmtCreateTime: 'GmtCreateTime',
       gmtFinishTime: 'GmtFinishTime',
@@ -379,6 +589,8 @@ export class JobItem extends $tea.Model {
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       resourceId: 'ResourceId',
+      resourceLevel: 'ResourceLevel',
+      resourceName: 'ResourceName',
       settings: 'Settings',
       status: 'Status',
       thirdpartyLibDir: 'ThirdpartyLibDir',
@@ -396,6 +608,7 @@ export class JobItem extends $tea.Model {
       dataSources: { 'type': 'array', 'itemType': JobItemDataSources },
       displayName: 'string',
       duration: 'number',
+      enabledDebugger: 'boolean',
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
       gmtFinishTime: 'string',
@@ -405,6 +618,8 @@ export class JobItem extends $tea.Model {
       reasonCode: 'string',
       reasonMessage: 'string',
       resourceId: 'string',
+      resourceLevel: 'string',
+      resourceName: 'string',
       settings: JobSettings,
       status: 'string',
       thirdpartyLibDir: 'string',
@@ -424,12 +639,20 @@ export class JobItem extends $tea.Model {
 export class JobSettings extends $tea.Model {
   businessUserId?: string;
   caller?: string;
+  enableErrorMonitoringInAIMaster?: boolean;
+  enableRDMA?: boolean;
+  enableTideResource?: boolean;
+  errorMonitoringArgs?: string;
   pipelineId?: string;
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
+      enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
+      enableRDMA: 'EnableRDMA',
+      enableTideResource: 'EnableTideResource',
+      errorMonitoringArgs: 'ErrorMonitoringArgs',
       pipelineId: 'PipelineId',
       tags: 'Tags',
     };
@@ -439,6 +662,10 @@ export class JobSettings extends $tea.Model {
     return {
       businessUserId: 'string',
       caller: 'string',
+      enableErrorMonitoringInAIMaster: 'boolean',
+      enableRDMA: 'boolean',
+      enableTideResource: 'boolean',
+      errorMonitoringArgs: 'string',
       pipelineId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
@@ -456,6 +683,7 @@ export class JobSpec extends $tea.Model {
   podCount?: number;
   resourceConfig?: ResourceConfig;
   type?: string;
+  useSpotInstance?: boolean;
   static names(): { [key: string]: string } {
     return {
       ecsSpec: 'EcsSpec',
@@ -464,6 +692,7 @@ export class JobSpec extends $tea.Model {
       podCount: 'PodCount',
       resourceConfig: 'ResourceConfig',
       type: 'Type',
+      useSpotInstance: 'UseSpotInstance',
     };
   }
 
@@ -475,6 +704,7 @@ export class JobSpec extends $tea.Model {
       podCount: 'number',
       resourceConfig: ResourceConfig,
       type: 'string',
+      useSpotInstance: 'boolean',
     };
   }
 
@@ -574,22 +804,30 @@ export class PodMetric extends $tea.Model {
 export class Quota extends $tea.Model {
   clusterId?: string;
   clusterName?: string;
+  enableTideResource?: boolean;
   isExclusiveQuota?: boolean;
   quotaId?: string;
   quotaName?: string;
   quotaType?: string;
+  resourceLevel?: string;
   totalQuota?: QuotaDetail;
+  totalTideQuota?: QuotaDetail;
   usedQuota?: QuotaDetail;
+  usedTideQuota?: QuotaDetail;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
+      enableTideResource: 'EnableTideResource',
       isExclusiveQuota: 'IsExclusiveQuota',
       quotaId: 'QuotaId',
       quotaName: 'QuotaName',
       quotaType: 'QuotaType',
+      resourceLevel: 'ResourceLevel',
       totalQuota: 'TotalQuota',
+      totalTideQuota: 'TotalTideQuota',
       usedQuota: 'UsedQuota',
+      usedTideQuota: 'UsedTideQuota',
     };
   }
 
@@ -597,12 +835,16 @@ export class Quota extends $tea.Model {
     return {
       clusterId: 'string',
       clusterName: 'string',
+      enableTideResource: 'boolean',
       isExclusiveQuota: 'boolean',
       quotaId: 'string',
       quotaName: 'string',
       quotaType: 'string',
+      resourceLevel: 'string',
       totalQuota: QuotaDetail,
+      totalTideQuota: QuotaDetail,
       usedQuota: QuotaDetail,
+      usedTideQuota: QuotaDetail,
     };
   }
 
@@ -676,6 +918,28 @@ export class ResourceConfig extends $tea.Model {
   }
 }
 
+export class ResourceRequirements extends $tea.Model {
+  limits?: { [key: string]: string };
+  requests?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      limits: 'Limits',
+      requests: 'Requests',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limits: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      requests: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Resources extends $tea.Model {
   CPU?: string;
   GPU?: string;
@@ -693,6 +957,70 @@ export class Resources extends $tea.Model {
       CPU: 'string',
       GPU: 'string',
       memory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartCache extends $tea.Model {
+  cacheWorkerNum?: number;
+  cacheWorkerSize?: number;
+  description?: string;
+  displayName?: string;
+  duration?: string;
+  endpoint?: string;
+  fileSystemId?: string;
+  gmtCreateTime?: string;
+  gmtModifyTime?: string;
+  mountPath?: string;
+  options?: string;
+  path?: string;
+  smartCacheId?: string;
+  status?: string;
+  type?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheWorkerNum: 'CacheWorkerNum',
+      cacheWorkerSize: 'CacheWorkerSize',
+      description: 'Description',
+      displayName: 'DisplayName',
+      duration: 'Duration',
+      endpoint: 'Endpoint',
+      fileSystemId: 'FileSystemId',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifyTime: 'GmtModifyTime',
+      mountPath: 'MountPath',
+      options: 'Options',
+      path: 'Path',
+      smartCacheId: 'SmartCacheId',
+      status: 'Status',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheWorkerNum: 'number',
+      cacheWorkerSize: 'number',
+      description: 'string',
+      displayName: 'string',
+      duration: 'string',
+      endpoint: 'string',
+      fileSystemId: 'string',
+      gmtCreateTime: 'string',
+      gmtModifyTime: 'string',
+      mountPath: 'string',
+      options: 'string',
+      path: 'string',
+      smartCacheId: 'string',
+      status: 'string',
+      type: 'string',
+      userId: 'string',
     };
   }
 
@@ -802,69 +1130,6 @@ export class Workspace extends $tea.Model {
   }
 }
 
-export class BatchGetJobsStatisticsRequest extends $tea.Model {
-  workspaceIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workspaceIds: 'WorkspaceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workspaceIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetJobsStatisticsResponseBody extends $tea.Model {
-  requestId?: string;
-  statistics?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      statistics: 'Statistics',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      statistics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetJobsStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchGetJobsStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BatchGetJobsStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateCodeSourceRequest extends $tea.Model {
   codeBranch?: string;
   codeRepo?: string;
@@ -926,10 +1191,12 @@ export class CreateCodeSourceResponseBody extends $tea.Model {
 
 export class CreateCodeSourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCodeSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -937,6 +1204,7 @@ export class CreateCodeSourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCodeSourceResponseBody,
     };
   }
@@ -1010,10 +1278,12 @@ export class CreateDataSourceResponseBody extends $tea.Model {
 
 export class CreateDataSourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1021,6 +1291,7 @@ export class CreateDataSourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDataSourceResponseBody,
     };
   }
@@ -1033,12 +1304,14 @@ export class CreateDataSourceResponse extends $tea.Model {
 export class CreateJobRequest extends $tea.Model {
   codeSource?: CreateJobRequestCodeSource;
   dataSources?: CreateJobRequestDataSources[];
+  debuggerConfigContent?: string;
   displayName?: string;
   elasticSpec?: JobElasticSpec;
   envs?: { [key: string]: string };
   jobMaxRunningTimeMinutes?: number;
   jobSpecs?: JobSpec[];
   jobType?: string;
+  options?: string;
   priority?: number;
   resourceId?: string;
   settings?: JobSettings;
@@ -1051,12 +1324,14 @@ export class CreateJobRequest extends $tea.Model {
     return {
       codeSource: 'CodeSource',
       dataSources: 'DataSources',
+      debuggerConfigContent: 'DebuggerConfigContent',
       displayName: 'DisplayName',
       elasticSpec: 'ElasticSpec',
       envs: 'Envs',
       jobMaxRunningTimeMinutes: 'JobMaxRunningTimeMinutes',
       jobSpecs: 'JobSpecs',
       jobType: 'JobType',
+      options: 'Options',
       priority: 'Priority',
       resourceId: 'ResourceId',
       settings: 'Settings',
@@ -1072,12 +1347,14 @@ export class CreateJobRequest extends $tea.Model {
     return {
       codeSource: CreateJobRequestCodeSource,
       dataSources: { 'type': 'array', 'itemType': CreateJobRequestDataSources },
+      debuggerConfigContent: 'string',
       displayName: 'string',
       elasticSpec: JobElasticSpec,
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       jobMaxRunningTimeMinutes: 'number',
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
+      options: 'string',
       priority: 'number',
       resourceId: 'string',
       settings: JobSettings,
@@ -1118,10 +1395,12 @@ export class CreateJobResponseBody extends $tea.Model {
 
 export class CreateJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1129,6 +1408,7 @@ export class CreateJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateJobResponseBody,
     };
   }
@@ -1138,104 +1418,53 @@ export class CreateJobResponse extends $tea.Model {
   }
 }
 
-export class CreateQuotaRequest extends $tea.Model {
-  quotaDetail?: QuotaDetail;
-  quotaName?: string;
-  quotaType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      quotaDetail: 'QuotaDetail',
-      quotaName: 'QuotaName',
-      quotaType: 'QuotaType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      quotaDetail: QuotaDetail,
-      quotaName: 'string',
-      quotaType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateQuotaResponseBody extends $tea.Model {
-  quotaId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      quotaId: 'QuotaId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      quotaId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateQuotaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateQuotaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateTensorboardRequest extends $tea.Model {
-  workspaceId?: string;
   dataSourceId?: string;
+  dataSourceType?: string;
   dataSources?: DataSourceItem[];
   displayName?: string;
   jobId?: string;
   maxRunningTimeMinutes?: number;
+  options?: string;
+  sourceId?: string;
+  sourceType?: string;
   summaryPath?: string;
+  summaryRelativePath?: string;
+  uri?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      workspaceId: 'WorkspaceId',
       dataSourceId: 'DataSourceId',
+      dataSourceType: 'DataSourceType',
       dataSources: 'DataSources',
       displayName: 'DisplayName',
       jobId: 'JobId',
       maxRunningTimeMinutes: 'MaxRunningTimeMinutes',
+      options: 'Options',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
       summaryPath: 'SummaryPath',
+      summaryRelativePath: 'SummaryRelativePath',
+      uri: 'Uri',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      workspaceId: 'string',
       dataSourceId: 'string',
+      dataSourceType: 'string',
       dataSources: { 'type': 'array', 'itemType': DataSourceItem },
       displayName: 'string',
       jobId: 'string',
       maxRunningTimeMinutes: 'number',
+      options: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
       summaryPath: 'string',
+      summaryRelativePath: 'string',
+      uri: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -1274,10 +1503,12 @@ export class CreateTensorboardResponseBody extends $tea.Model {
 
 export class CreateTensorboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1285,6 +1516,7 @@ export class CreateTensorboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateTensorboardResponseBody,
     };
   }
@@ -1318,10 +1550,12 @@ export class DeleteCodeSourceResponseBody extends $tea.Model {
 
 export class DeleteCodeSourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCodeSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1329,6 +1563,7 @@ export class DeleteCodeSourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCodeSourceResponseBody,
     };
   }
@@ -1362,10 +1597,12 @@ export class DeleteDataSourceResponseBody extends $tea.Model {
 
 export class DeleteDataSourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1373,6 +1610,7 @@ export class DeleteDataSourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDataSourceResponseBody,
     };
   }
@@ -1406,10 +1644,12 @@ export class DeleteJobResponseBody extends $tea.Model {
 
 export class DeleteJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1417,6 +1657,7 @@ export class DeleteJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteJobResponseBody,
     };
   }
@@ -1426,19 +1667,38 @@ export class DeleteJobResponse extends $tea.Model {
   }
 }
 
-export class DeleteQuotaResponseBody extends $tea.Model {
-  quotaId?: string;
+export class DeleteJobsRequest extends $tea.Model {
+  jobIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      jobIds: 'JobIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteJobsResponseBody extends $tea.Model {
+  jobIds?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      quotaId: 'QuotaId',
+      jobIds: 'JobIds',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaId: 'string',
+      jobIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -1448,12 +1708,14 @@ export class DeleteQuotaResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteQuotaResponse extends $tea.Model {
+export class DeleteJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteQuotaResponseBody;
+  statusCode: number;
+  body: DeleteJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1461,7 +1723,8 @@ export class DeleteQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteQuotaResponseBody,
+      statusCode: 'number',
+      body: DeleteJobsResponseBody,
     };
   }
 
@@ -1513,10 +1776,12 @@ export class DeleteTensorboardResponseBody extends $tea.Model {
 
 export class DeleteTensorboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1524,57 +1789,8 @@ export class DeleteTensorboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTensorboardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthorizationResponseBody extends $tea.Model {
-  authorizationFailedCode?: string;
-  authorizationFailedMessage?: string;
-  authorized?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizationFailedCode: 'AuthorizationFailedCode',
-      authorizationFailedMessage: 'AuthorizationFailedMessage',
-      authorized: 'Authorized',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationFailedCode: 'string',
-      authorizationFailedMessage: 'string',
-      authorized: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthorizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAuthorizationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAuthorizationResponseBody,
     };
   }
 
@@ -1640,10 +1856,12 @@ export class GetCodeSourceResponseBody extends $tea.Model {
 
 export class GetCodeSourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCodeSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1651,6 +1869,7 @@ export class GetCodeSourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCodeSourceResponseBody,
     };
   }
@@ -1717,10 +1936,12 @@ export class GetDataSourceResponseBody extends $tea.Model {
 
 export class GetDataSourceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDataSourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1728,6 +1949,7 @@ export class GetDataSourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDataSourceResponseBody,
     };
   }
@@ -1744,6 +1966,7 @@ export class GetJobResponseBody extends $tea.Model {
   displayName?: string;
   duration?: number;
   elasticSpec?: JobElasticSpec;
+  enabledDebugger?: boolean;
   envs?: { [key: string]: string };
   gmtCreateTime?: string;
   gmtFailedTime?: string;
@@ -1760,6 +1983,7 @@ export class GetJobResponseBody extends $tea.Model {
   reasonMessage?: string;
   requestId?: string;
   resourceId?: string;
+  resourceLevel?: string;
   settings?: JobSettings;
   status?: string;
   thirdpartyLibDir?: string;
@@ -1776,6 +2000,7 @@ export class GetJobResponseBody extends $tea.Model {
       displayName: 'DisplayName',
       duration: 'Duration',
       elasticSpec: 'ElasticSpec',
+      enabledDebugger: 'EnabledDebugger',
       envs: 'Envs',
       gmtCreateTime: 'GmtCreateTime',
       gmtFailedTime: 'GmtFailedTime',
@@ -1792,6 +2017,7 @@ export class GetJobResponseBody extends $tea.Model {
       reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
       resourceId: 'ResourceId',
+      resourceLevel: 'ResourceLevel',
       settings: 'Settings',
       status: 'Status',
       thirdpartyLibDir: 'ThirdpartyLibDir',
@@ -1811,6 +2037,7 @@ export class GetJobResponseBody extends $tea.Model {
       displayName: 'string',
       duration: 'number',
       elasticSpec: JobElasticSpec,
+      enabledDebugger: 'boolean',
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
       gmtFailedTime: 'string',
@@ -1827,6 +2054,7 @@ export class GetJobResponseBody extends $tea.Model {
       reasonMessage: 'string',
       requestId: 'string',
       resourceId: 'string',
+      resourceLevel: 'string',
       settings: JobSettings,
       status: 'string',
       thirdpartyLibDir: 'string',
@@ -1845,10 +2073,12 @@ export class GetJobResponseBody extends $tea.Model {
 
 export class GetJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1856,6 +2086,7 @@ export class GetJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJobResponseBody,
     };
   }
@@ -1917,10 +2148,12 @@ export class GetJobEventsResponseBody extends $tea.Model {
 
 export class GetJobEventsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJobEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1928,6 +2161,7 @@ export class GetJobEventsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJobEventsResponseBody,
     };
   }
@@ -1995,10 +2229,12 @@ export class GetJobMetricsResponseBody extends $tea.Model {
 
 export class GetJobMetricsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetJobMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2006,70 +2242,8 @@ export class GetJobMetricsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetJobMetricsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobsStatisticsRequest extends $tea.Model {
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobsStatisticsResponseBody extends $tea.Model {
-  requestId?: string;
-  statistics?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      statistics: 'Statistics',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      statistics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobsStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetJobsStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetJobsStatisticsResponseBody,
     };
   }
 
@@ -2081,11 +2255,13 @@ export class GetJobsStatisticsResponse extends $tea.Model {
 export class GetPodEventsRequest extends $tea.Model {
   endTime?: string;
   maxEventsNum?: number;
+  podUid?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       maxEventsNum: 'MaxEventsNum',
+      podUid: 'PodUid',
       startTime: 'StartTime',
     };
   }
@@ -2094,6 +2270,7 @@ export class GetPodEventsRequest extends $tea.Model {
     return {
       endTime: 'string',
       maxEventsNum: 'number',
+      podUid: 'string',
       startTime: 'string',
     };
   }
@@ -2107,12 +2284,14 @@ export class GetPodEventsResponseBody extends $tea.Model {
   events?: string[];
   jobId?: string;
   podId?: string;
+  podUid?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       events: 'Events',
       jobId: 'JobId',
       podId: 'PodId',
+      podUid: 'PodUid',
       requestId: 'RequestId',
     };
   }
@@ -2122,6 +2301,7 @@ export class GetPodEventsResponseBody extends $tea.Model {
       events: { 'type': 'array', 'itemType': 'string' },
       jobId: 'string',
       podId: 'string',
+      podUid: 'string',
       requestId: 'string',
     };
   }
@@ -2133,10 +2313,12 @@ export class GetPodEventsResponseBody extends $tea.Model {
 
 export class GetPodEventsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPodEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2144,6 +2326,7 @@ export class GetPodEventsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPodEventsResponseBody,
     };
   }
@@ -2157,12 +2340,14 @@ export class GetPodLogsRequest extends $tea.Model {
   downloadToFile?: boolean;
   endTime?: string;
   maxLines?: number;
+  podUid?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       downloadToFile: 'DownloadToFile',
       endTime: 'EndTime',
       maxLines: 'MaxLines',
+      podUid: 'PodUid',
       startTime: 'StartTime',
     };
   }
@@ -2172,6 +2357,7 @@ export class GetPodLogsRequest extends $tea.Model {
       downloadToFile: 'boolean',
       endTime: 'string',
       maxLines: 'number',
+      podUid: 'string',
       startTime: 'string',
     };
   }
@@ -2185,12 +2371,14 @@ export class GetPodLogsResponseBody extends $tea.Model {
   jobId?: string;
   logs?: string[];
   podId?: string;
+  podUid?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
       logs: 'Logs',
       podId: 'PodId',
+      podUid: 'PodUid',
       requestId: 'RequestId',
     };
   }
@@ -2200,6 +2388,7 @@ export class GetPodLogsResponseBody extends $tea.Model {
       jobId: 'string',
       logs: { 'type': 'array', 'itemType': 'string' },
       podId: 'string',
+      podUid: 'string',
       requestId: 'string',
     };
   }
@@ -2211,10 +2400,12 @@ export class GetPodLogsResponseBody extends $tea.Model {
 
 export class GetPodLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPodLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2222,172 +2413,8 @@ export class GetPodLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPodLogsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQuotaResponseBody extends $tea.Model {
-  clusterId?: string;
-  clusterName?: string;
-  quotaId?: string;
-  quotaName?: string;
-  quotaType?: string;
-  requestId?: string;
-  totalQuota?: QuotaDetail;
-  usedQuota?: QuotaDetail;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      clusterName: 'ClusterName',
-      quotaId: 'QuotaId',
-      quotaName: 'QuotaName',
-      quotaType: 'QuotaType',
-      requestId: 'RequestId',
-      totalQuota: 'TotalQuota',
-      usedQuota: 'UsedQuota',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      clusterName: 'string',
-      quotaId: 'string',
-      quotaName: 'string',
-      quotaType: 'string',
-      requestId: 'string',
-      totalQuota: QuotaDetail,
-      usedQuota: QuotaDetail,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetQuotaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetQuotaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecurityGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  securityGroupId?: string;
-  securityGroupName?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      securityGroupId: 'SecurityGroupId',
-      securityGroupName: 'SecurityGroupName',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      securityGroupId: 'string',
-      securityGroupName: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecurityGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetSecurityGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetSecurityGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSwitchResponseBody extends $tea.Model {
-  cidrBlock?: string;
-  requestId?: string;
-  vSwitchId?: string;
-  vSwitchName?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cidrBlock: 'CidrBlock',
-      requestId: 'RequestId',
-      vSwitchId: 'VSwitchId',
-      vSwitchName: 'VSwitchName',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cidrBlock: 'string',
-      requestId: 'string',
-      vSwitchId: 'string',
-      vSwitchName: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSwitchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetSwitchResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetSwitchResponseBody,
     };
   }
 
@@ -2420,10 +2447,12 @@ export class GetTensorboardRequest extends $tea.Model {
 
 export class GetTensorboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Tensorboard;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2431,383 +2460,8 @@ export class GetTensorboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Tensorboard,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTokenRequest extends $tea.Model {
-  expireTime?: number;
-  targetId?: string;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expireTime: 'ExpireTime',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expireTime: 'number',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTokenResponseBody extends $tea.Model {
-  requestId?: string;
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAuthorizationResponseBody extends $tea.Model {
-  isPassed?: boolean;
-  requestId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      isPassed: 'IsPassed',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isPassed: 'boolean',
-      requestId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAuthorizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserAuthorizationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserAuthorizationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpcResponseBody extends $tea.Model {
-  requestId?: string;
-  vpcId?: number;
-  vpcName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      vpcId: 'VpcId',
-      vpcName: 'VpcName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      vpcId: 'number',
-      vpcName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVpcResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetVpcResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetVpcResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkspaceResponseBody extends $tea.Model {
-  isWorkspaceAdmin?: boolean;
-  requestId?: string;
-  workspace?: Workspace;
-  static names(): { [key: string]: string } {
-    return {
-      isWorkspaceAdmin: 'IsWorkspaceAdmin',
-      requestId: 'RequestId',
-      workspace: 'Workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isWorkspaceAdmin: 'boolean',
-      requestId: 'string',
-      workspace: Workspace,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkspaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWorkspaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWorkspaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchQueryRequest extends $tea.Model {
-  algoName?: string;
-  projectName?: string;
-  properties?: { [key: string]: string };
-  settings?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      algoName: 'AlgoName',
-      projectName: 'ProjectName',
-      properties: 'Properties',
-      settings: 'Settings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algoName: 'string',
-      projectName: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      settings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchQueryShrinkRequest extends $tea.Model {
-  algoName?: string;
-  projectName?: string;
-  propertiesShrink?: string;
-  settingsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algoName: 'AlgoName',
-      projectName: 'ProjectName',
-      propertiesShrink: 'Properties',
-      settingsShrink: 'Settings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algoName: 'string',
-      projectName: 'string',
-      propertiesShrink: 'string',
-      settingsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchQueryResponseBody extends $tea.Model {
-  jobId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchQueryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: JobDispatchQueryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: JobDispatchQueryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchSubmitRequest extends $tea.Model {
-  algoName?: string;
-  projectName?: string;
-  properties?: { [key: string]: string };
-  settings?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      algoName: 'AlgoName',
-      projectName: 'ProjectName',
-      properties: 'Properties',
-      settings: 'Settings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algoName: 'string',
-      projectName: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      settings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchSubmitResponseBody extends $tea.Model {
-  jobUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobUrl: 'JobUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDispatchSubmitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: JobDispatchSubmitResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: JobDispatchSubmitResponseBody,
     };
   }
 
@@ -2874,10 +2528,12 @@ export class ListCodeSourcesResponseBody extends $tea.Model {
 
 export class ListCodeSourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCodeSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2885,6 +2541,7 @@ export class ListCodeSourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCodeSourcesResponseBody,
     };
   }
@@ -2955,10 +2612,12 @@ export class ListDataSourcesResponseBody extends $tea.Model {
 
 export class ListDataSourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDataSourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2966,6 +2625,7 @@ export class ListDataSourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDataSourcesResponseBody,
     };
   }
@@ -2976,12 +2636,14 @@ export class ListDataSourcesResponse extends $tea.Model {
 }
 
 export class ListEcsSpecsRequest extends $tea.Model {
+  acceleratorType?: string;
   order?: string;
   pageNumber?: number;
   pageSize?: number;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
+      acceleratorType: 'AcceleratorType',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -2991,6 +2653,7 @@ export class ListEcsSpecsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorType: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -3030,10 +2693,12 @@ export class ListEcsSpecsResponseBody extends $tea.Model {
 
 export class ListEcsSpecsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEcsSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3041,6 +2706,7 @@ export class ListEcsSpecsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEcsSpecsResponseBody,
     };
   }
@@ -3056,6 +2722,7 @@ export class ListImagesRequest extends $tea.Model {
   imageProviderType?: string;
   order?: string;
   sortBy?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
@@ -3063,6 +2730,7 @@ export class ListImagesRequest extends $tea.Model {
       imageProviderType: 'ImageProviderType',
       order: 'Order',
       sortBy: 'SortBy',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -3073,6 +2741,7 @@ export class ListImagesRequest extends $tea.Model {
       imageProviderType: 'string',
       order: 'string',
       sortBy: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -3108,10 +2777,12 @@ export class ListImagesResponseBody extends $tea.Model {
 
 export class ListImagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3119,6 +2790,7 @@ export class ListImagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListImagesResponseBody,
     };
   }
@@ -3133,6 +2805,7 @@ export class ListJobsRequest extends $tea.Model {
   caller?: string;
   displayName?: string;
   endTime?: string;
+  fromAllWorkspaces?: boolean;
   jobType?: string;
   order?: string;
   pageNumber?: number;
@@ -3151,6 +2824,7 @@ export class ListJobsRequest extends $tea.Model {
       caller: 'Caller',
       displayName: 'DisplayName',
       endTime: 'EndTime',
+      fromAllWorkspaces: 'FromAllWorkspaces',
       jobType: 'JobType',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -3172,6 +2846,7 @@ export class ListJobsRequest extends $tea.Model {
       caller: 'string',
       displayName: 'string',
       endTime: 'string',
+      fromAllWorkspaces: 'boolean',
       jobType: 'string',
       order: 'string',
       pageNumber: 'number',
@@ -3197,6 +2872,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
   caller?: string;
   displayName?: string;
   endTime?: string;
+  fromAllWorkspaces?: boolean;
   jobType?: string;
   order?: string;
   pageNumber?: number;
@@ -3215,6 +2891,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       caller: 'Caller',
       displayName: 'DisplayName',
       endTime: 'EndTime',
+      fromAllWorkspaces: 'FromAllWorkspaces',
       jobType: 'JobType',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -3236,6 +2913,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       caller: 'string',
       displayName: 'string',
       endTime: 'string',
+      fromAllWorkspaces: 'boolean',
       jobType: 'string',
       order: 'string',
       pageNumber: 'number',
@@ -3283,10 +2961,12 @@ export class ListJobsResponseBody extends $tea.Model {
 
 export class ListJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3294,223 +2974,8 @@ export class ListJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListJobsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListQuotasRequest extends $tea.Model {
-  order?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  sortBy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      order: 'Order',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      sortBy: 'SortBy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      order: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      sortBy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListQuotasResponseBody extends $tea.Model {
-  quotas?: Quota[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      quotas: 'Quotas',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      quotas: { 'type': 'array', 'itemType': Quota },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListQuotasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListQuotasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListQuotasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecurityGroupsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecurityGroupsResponseBody extends $tea.Model {
-  requestId?: string;
-  securityGroups?: ListSecurityGroupsResponseBodySecurityGroups[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      securityGroups: 'SecurityGroups',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      securityGroups: { 'type': 'array', 'itemType': ListSecurityGroupsResponseBodySecurityGroups },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecurityGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSecurityGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSecurityGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSwitchesRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSwitchesResponseBody extends $tea.Model {
-  requestId?: string;
-  switches?: ListSwitchesResponseBodySwitches[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      switches: 'Switches',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      switches: { 'type': 'array', 'itemType': ListSwitchesResponseBodySwitches },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSwitchesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSwitchesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSwitchesResponseBody,
     };
   }
 
@@ -3527,6 +2992,8 @@ export class ListTensorboardsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   sortBy?: string;
+  sourceId?: string;
+  sourceType?: string;
   startTime?: string;
   status?: string;
   tensorboardId?: string;
@@ -3541,6 +3008,8 @@ export class ListTensorboardsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       sortBy: 'SortBy',
+      sourceId: 'SourceId',
+      sourceType: 'SourceType',
       startTime: 'StartTime',
       status: 'Status',
       tensorboardId: 'TensorboardId',
@@ -3558,6 +3027,8 @@ export class ListTensorboardsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       sortBy: 'string',
+      sourceId: 'string',
+      sourceType: 'string',
       startTime: 'string',
       status: 'string',
       tensorboardId: 'string',
@@ -3598,10 +3069,12 @@ export class ListTensorboardsResponseBody extends $tea.Model {
 
 export class ListTensorboardsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTensorboardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3609,154 +3082,8 @@ export class ListTensorboardsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTensorboardsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpcsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpcsResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  vpcs?: ListVpcsResponseBodyVpcs[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      vpcs: 'Vpcs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      vpcs: { 'type': 'array', 'itemType': ListVpcsResponseBodyVpcs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpcsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListVpcsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListVpcsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWorkspacesRequest extends $tea.Model {
-  needDetail?: boolean;
-  order?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  sortBy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      needDetail: 'NeedDetail',
-      order: 'Order',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      sortBy: 'SortBy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      needDetail: 'boolean',
-      order: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      sortBy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWorkspacesResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  workspaces?: Workspace[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      workspaces: 'Workspaces',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      workspaces: { 'type': 'array', 'itemType': Workspace },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWorkspacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListWorkspacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListWorkspacesResponseBody,
     };
   }
 
@@ -3808,10 +3135,12 @@ export class StartTensorboardResponseBody extends $tea.Model {
 
 export class StartTensorboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3819,6 +3148,7 @@ export class StartTensorboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartTensorboardResponseBody,
     };
   }
@@ -3852,10 +3182,12 @@ export class StopJobResponseBody extends $tea.Model {
 
 export class StopJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3863,7 +3195,74 @@ export class StopJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopJobsRequest extends $tea.Model {
+  jobIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      jobIds: 'JobIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopJobsResponseBody extends $tea.Model {
+  jobIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobIds: 'JobIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopJobsResponseBody,
     };
   }
 
@@ -3915,10 +3314,12 @@ export class StopTensorboardResponseBody extends $tea.Model {
 
 export class StopTensorboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3926,6 +3327,7 @@ export class StopTensorboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopTensorboardResponseBody,
     };
   }
@@ -3935,23 +3337,17 @@ export class StopTensorboardResponse extends $tea.Model {
   }
 }
 
-export class UpdateQuotaRequest extends $tea.Model {
-  quotaDetail?: QuotaDetail;
-  quotaName?: string;
-  quotaType?: string;
+export class UpdateJobRequest extends $tea.Model {
+  priority?: number;
   static names(): { [key: string]: string } {
     return {
-      quotaDetail: 'QuotaDetail',
-      quotaName: 'QuotaName',
-      quotaType: 'QuotaType',
+      priority: 'Priority',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaDetail: QuotaDetail,
-      quotaName: 'string',
-      quotaType: 'string',
+      priority: 'number',
     };
   }
 
@@ -3960,19 +3356,19 @@ export class UpdateQuotaRequest extends $tea.Model {
   }
 }
 
-export class UpdateQuotaResponseBody extends $tea.Model {
-  quotaId?: string;
+export class UpdateJobResponseBody extends $tea.Model {
+  jobId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      quotaId: 'QuotaId',
+      jobId: 'JobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaId: 'string',
+      jobId: 'string',
       requestId: 'string',
     };
   }
@@ -3982,12 +3378,14 @@ export class UpdateQuotaResponseBody extends $tea.Model {
   }
 }
 
-export class UpdateQuotaResponse extends $tea.Model {
+export class UpdateJobResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: UpdateQuotaResponseBody;
+  statusCode: number;
+  body: UpdateJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3995,7 +3393,8 @@ export class UpdateQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateQuotaResponseBody,
+      statusCode: 'number',
+      body: UpdateJobResponseBody,
     };
   }
 
@@ -4050,10 +3449,12 @@ export class UpdateTensorboardResponseBody extends $tea.Model {
 
 export class UpdateTensorboardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateTensorboardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4061,6 +3462,7 @@ export class UpdateTensorboardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateTensorboardResponseBody,
     };
   }
@@ -4248,12 +3650,13 @@ export class GetJobResponseBodyDataSources extends $tea.Model {
   }
 }
 
-export class GetJobResponseBodyPods extends $tea.Model {
+export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
   gmtCreateTime?: string;
   gmtFinishTime?: string;
   gmtStartTime?: string;
   ip?: string;
   podId?: string;
+  podUid?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -4263,6 +3666,7 @@ export class GetJobResponseBodyPods extends $tea.Model {
       gmtStartTime: 'GmtStartTime',
       ip: 'Ip',
       podId: 'PodId',
+      podUid: 'PodUid',
       status: 'Status',
       type: 'Type',
     };
@@ -4275,6 +3679,7 @@ export class GetJobResponseBodyPods extends $tea.Model {
       gmtStartTime: 'string',
       ip: 'string',
       podId: 'string',
+      podUid: 'string',
       status: 'string',
       type: 'string',
     };
@@ -4285,79 +3690,41 @@ export class GetJobResponseBodyPods extends $tea.Model {
   }
 }
 
-export class ListSecurityGroupsResponseBodySecurityGroups extends $tea.Model {
-  description?: string;
-  securityGroupId?: string;
-  securityGroupName?: string;
-  vpcId?: string;
+export class GetJobResponseBodyPods extends $tea.Model {
+  gmtCreateTime?: string;
+  gmtFinishTime?: string;
+  gmtStartTime?: string;
+  historyPods?: GetJobResponseBodyPodsHistoryPods[];
+  ip?: string;
+  podId?: string;
+  podUid?: string;
+  status?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      securityGroupId: 'SecurityGroupId',
-      securityGroupName: 'SecurityGroupName',
-      vpcId: 'VpcId',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtStartTime: 'GmtStartTime',
+      historyPods: 'HistoryPods',
+      ip: 'Ip',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      status: 'Status',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      securityGroupId: 'string',
-      securityGroupName: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSwitchesResponseBodySwitches extends $tea.Model {
-  cidrBlock?: string;
-  description?: string;
-  vSwitchId?: string;
-  vSwitchName?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cidrBlock: 'CidrBlock',
-      description: 'Description',
-      vSwitchId: 'VSwitchId',
-      vSwitchName: 'VSwitchName',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cidrBlock: 'string',
-      description: 'string',
-      vSwitchId: 'string',
-      vSwitchName: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVpcsResponseBodyVpcs extends $tea.Model {
-  vpcId?: string;
-  vpcName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vpcId: 'VpcId',
-      vpcName: 'VpcName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vpcId: 'string',
-      vpcName: 'string',
+      gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
+      gmtStartTime: 'string',
+      historyPods: { 'type': 'array', 'itemType': GetJobResponseBodyPodsHistoryPods },
+      ip: 'string',
+      podId: 'string',
+      podUid: 'string',
+      status: 'string',
+      type: 'string',
     };
   }
 
@@ -4371,6 +3738,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pai-dlc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -4387,26 +3755,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async batchGetJobsStatistics(request: BatchGetJobsStatisticsRequest): Promise<BatchGetJobsStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.batchGetJobsStatisticsWithOptions(request, headers, runtime);
-  }
-
-  async batchGetJobsStatisticsWithOptions(request: BatchGetJobsStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchGetJobsStatisticsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceIds)) {
-      query["WorkspaceIds"] = request.workspaceIds;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<BatchGetJobsStatisticsResponse>(await this.doROARequest("BatchGetJobsStatistics", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/batch/statistics/jobs`, "json", req, runtime), new BatchGetJobsStatisticsResponse({}));
   }
 
   async createCodeSource(request: CreateCodeSourceRequest): Promise<CreateCodeSourceResponse> {
@@ -4450,7 +3798,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateCodeSourceResponse>(await this.doROARequest("CreateCodeSource", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/codesources`, "json", req, runtime), new CreateCodeSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCodeSource",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/codesources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCodeSourceResponse>(await this.callApi(params, req, runtime), new CreateCodeSourceResponse({}));
   }
 
   async createDataSource(request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
@@ -4498,7 +3857,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateDataSourceResponse>(await this.doROARequest("CreateDataSource", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/datasources`, "json", req, runtime), new CreateDataSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDataSource",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
   }
 
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
@@ -4516,6 +3886,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dataSources)) {
       body["DataSources"] = request.dataSources;
+    }
+
+    if (!Util.isUnset(request.debuggerConfigContent)) {
+      body["DebuggerConfigContent"] = request.debuggerConfigContent;
     }
 
     if (!Util.isUnset(request.displayName)) {
@@ -4540,6 +3914,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobType)) {
       body["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.options)) {
+      body["Options"] = request.options;
     }
 
     if (!Util.isUnset(request.priority)) {
@@ -4578,35 +3956,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateJobResponse>(await this.doROARequest("CreateJob", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/jobs`, "json", req, runtime), new CreateJobResponse({}));
-  }
-
-  async createQuota(request: CreateQuotaRequest): Promise<CreateQuotaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createQuotaWithOptions(request, headers, runtime);
-  }
-
-  async createQuotaWithOptions(request: CreateQuotaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateQuotaResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.quotaDetail))) {
-      body["QuotaDetail"] = request.quotaDetail;
-    }
-
-    if (!Util.isUnset(request.quotaName)) {
-      body["QuotaName"] = request.quotaName;
-    }
-
-    if (!Util.isUnset(request.quotaType)) {
-      body["QuotaType"] = request.quotaType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+    let params = new $OpenApi.Params({
+      action: "CreateJob",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<CreateQuotaResponse>(await this.doROARequest("CreateQuota", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/quotas`, "json", req, runtime), new CreateQuotaResponse({}));
+    return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
   }
 
   async createTensorboard(request: CreateTensorboardRequest): Promise<CreateTensorboardResponse> {
@@ -4617,14 +3978,13 @@ export default class Client extends OpenApi {
 
   async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
     Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.dataSourceId)) {
       body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
     }
 
     if (!Util.isUnset(request.dataSources)) {
@@ -4643,16 +4003,50 @@ export default class Client extends OpenApi {
       body["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
     }
 
+    if (!Util.isUnset(request.options)) {
+      body["Options"] = request.options;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
     if (!Util.isUnset(request.summaryPath)) {
       body["SummaryPath"] = request.summaryPath;
     }
 
+    if (!Util.isUnset(request.summaryRelativePath)) {
+      body["SummaryRelativePath"] = request.summaryRelativePath;
+    }
+
+    if (!Util.isUnset(request.uri)) {
+      body["Uri"] = request.uri;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateTensorboardResponse>(await this.doROARequest("CreateTensorboard", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/tensorboards`, "json", req, runtime), new CreateTensorboardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTensorboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
   }
 
   async deleteCodeSource(CodeSourceId: string): Promise<DeleteCodeSourceResponse> {
@@ -4666,7 +4060,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteCodeSourceResponse>(await this.doROARequest("DeleteCodeSource", "2020-12-03", "HTTPS", "DELETE", "AK", `/api/v1/codesources/${CodeSourceId}`, "json", req, runtime), new DeleteCodeSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCodeSource",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/codesources/${CodeSourceId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCodeSourceResponse>(await this.callApi(params, req, runtime), new DeleteCodeSourceResponse({}));
   }
 
   async deleteDataSource(DataSourceId: string): Promise<DeleteDataSourceResponse> {
@@ -4680,7 +4085,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteDataSourceResponse>(await this.doROARequest("DeleteDataSource", "2020-12-03", "HTTPS", "DELETE", "AK", `/api/v1/datasources/${DataSourceId}`, "json", req, runtime), new DeleteDataSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDataSource",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasources/${DataSourceId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
   }
 
   async deleteJob(JobId: string): Promise<DeleteJobResponse> {
@@ -4694,21 +4110,49 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteJobResponse>(await this.doROARequest("DeleteJob", "2020-12-03", "HTTPS", "DELETE", "AK", `/api/v1/jobs/${JobId}`, "json", req, runtime), new DeleteJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteJob",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
   }
 
-  async deleteQuota(QuotaId: string): Promise<DeleteQuotaResponse> {
+  async deleteJobs(request: DeleteJobsRequest): Promise<DeleteJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteQuotaWithOptions(QuotaId, headers, runtime);
+    return await this.deleteJobsWithOptions(request, headers, runtime);
   }
 
-  async deleteQuotaWithOptions(QuotaId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteQuotaResponse> {
-    QuotaId = OpenApiUtil.getEncodeParam(QuotaId);
+  async deleteJobsWithOptions(request: DeleteJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteJobsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobIds)) {
+      body["JobIds"] = request.jobIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteQuotaResponse>(await this.doROARequest("DeleteQuota", "2020-12-03", "HTTPS", "DELETE", "AK", `/api/v1/quotas/${QuotaId}`, "json", req, runtime), new DeleteQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteJobs",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/batch/jobs/delete`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteJobsResponse>(await this.callApi(params, req, runtime), new DeleteJobsResponse({}));
   }
 
   async deleteTensorboard(TensorboardId: string, request: DeleteTensorboardRequest): Promise<DeleteTensorboardResponse> {
@@ -4729,20 +4173,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTensorboardResponse>(await this.doROARequest("DeleteTensorboard", "2020-12-03", "HTTPS", "DELETE", "AK", `/api/v1/tensorboards/${TensorboardId}`, "json", req, runtime), new DeleteTensorboardResponse({}));
-  }
-
-  async getAuthorization(): Promise<GetAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getAuthorizationWithOptions(headers, runtime);
-  }
-
-  async getAuthorizationWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+    let params = new $OpenApi.Params({
+      action: "DeleteTensorboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards/${TensorboardId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetAuthorizationResponse>(await this.doROARequest("GetAuthorization", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/authorization`, "json", req, runtime), new GetAuthorizationResponse({}));
+    return $tea.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
   }
 
   async getCodeSource(CodeSourceId: string): Promise<GetCodeSourceResponse> {
@@ -4756,7 +4198,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetCodeSourceResponse>(await this.doROARequest("GetCodeSource", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/codesources/${CodeSourceId}`, "json", req, runtime), new GetCodeSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCodeSource",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/codesources/${CodeSourceId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCodeSourceResponse>(await this.callApi(params, req, runtime), new GetCodeSourceResponse({}));
   }
 
   async getDataSource(DataSourceId: string): Promise<GetDataSourceResponse> {
@@ -4770,7 +4223,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetDataSourceResponse>(await this.doROARequest("GetDataSource", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/datasources/${DataSourceId}`, "json", req, runtime), new GetDataSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDataSource",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasources/${DataSourceId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataSourceResponse>(await this.callApi(params, req, runtime), new GetDataSourceResponse({}));
   }
 
   async getJob(JobId: string): Promise<GetJobResponse> {
@@ -4784,7 +4248,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetJobResponse>(await this.doROARequest("GetJob", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobs/${JobId}`, "json", req, runtime), new GetJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJob",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
   async getJobEvents(JobId: string, request: GetJobEventsRequest): Promise<GetJobEventsResponse> {
@@ -4813,7 +4288,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetJobEventsResponse>(await this.doROARequest("GetJobEvents", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobs/${JobId}/events`, "json", req, runtime), new GetJobEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJobEvents",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
   }
 
   async getJobMetrics(JobId: string, request: GetJobMetricsRequest): Promise<GetJobMetricsResponse> {
@@ -4850,27 +4336,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetJobMetricsResponse>(await this.doROARequest("GetJobMetrics", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobs/${JobId}/metrics`, "json", req, runtime), new GetJobMetricsResponse({}));
-  }
-
-  async getJobsStatistics(request: GetJobsStatisticsRequest): Promise<GetJobsStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getJobsStatisticsWithOptions(request, headers, runtime);
-  }
-
-  async getJobsStatisticsWithOptions(request: GetJobsStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobsStatisticsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
+    let params = new $OpenApi.Params({
+      action: "GetJobMetrics",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}/metrics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetJobsStatisticsResponse>(await this.doROARequest("GetJobsStatistics", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/statistics/jobs`, "json", req, runtime), new GetJobsStatisticsResponse({}));
+    return $tea.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
   }
 
   async getPodEvents(JobId: string, PodId: string, request: GetPodEventsRequest): Promise<GetPodEventsResponse> {
@@ -4892,6 +4369,10 @@ export default class Client extends OpenApi {
       query["MaxEventsNum"] = request.maxEventsNum;
     }
 
+    if (!Util.isUnset(request.podUid)) {
+      query["PodUid"] = request.podUid;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -4900,7 +4381,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPodEventsResponse>(await this.doROARequest("GetPodEvents", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobs/${JobId}/pods/${PodId}/events`, "json", req, runtime), new GetPodEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPodEvents",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}/pods/${PodId}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
   }
 
   async getPodLogs(JobId: string, PodId: string, request: GetPodLogsRequest): Promise<GetPodLogsResponse> {
@@ -4926,6 +4418,10 @@ export default class Client extends OpenApi {
       query["MaxLines"] = request.maxLines;
     }
 
+    if (!Util.isUnset(request.podUid)) {
+      query["PodUid"] = request.podUid;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -4934,49 +4430,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPodLogsResponse>(await this.doROARequest("GetPodLogs", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobs/${JobId}/pods/${PodId}/logs`, "json", req, runtime), new GetPodLogsResponse({}));
-  }
-
-  async getQuota(QuotaId: string): Promise<GetQuotaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getQuotaWithOptions(QuotaId, headers, runtime);
-  }
-
-  async getQuotaWithOptions(QuotaId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetQuotaResponse> {
-    QuotaId = OpenApiUtil.getEncodeParam(QuotaId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+    let params = new $OpenApi.Params({
+      action: "GetPodLogs",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}/pods/${PodId}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetQuotaResponse>(await this.doROARequest("GetQuota", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/quotas/${QuotaId}`, "json", req, runtime), new GetQuotaResponse({}));
-  }
-
-  async getSecurityGroup(SecurityGroupId: string): Promise<GetSecurityGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getSecurityGroupWithOptions(SecurityGroupId, headers, runtime);
-  }
-
-  async getSecurityGroupWithOptions(SecurityGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSecurityGroupResponse> {
-    SecurityGroupId = OpenApiUtil.getEncodeParam(SecurityGroupId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<GetSecurityGroupResponse>(await this.doROARequest("GetSecurityGroup", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/securitygroups/${SecurityGroupId}`, "json", req, runtime), new GetSecurityGroupResponse({}));
-  }
-
-  async getSwitch(SwitchId: string): Promise<GetSwitchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getSwitchWithOptions(SwitchId, headers, runtime);
-  }
-
-  async getSwitchWithOptions(SwitchId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSwitchResponse> {
-    SwitchId = OpenApiUtil.getEncodeParam(SwitchId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<GetSwitchResponse>(await this.doROARequest("GetSwitch", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/switches/${SwitchId}`, "json", req, runtime), new GetSwitchResponse({}));
+    return $tea.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
   }
 
   async getTensorboard(TensorboardId: string, request: GetTensorboardRequest): Promise<GetTensorboardResponse> {
@@ -5001,151 +4466,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTensorboardResponse>(await this.doROARequest("GetTensorboard", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/tensorboards/${TensorboardId}`, "json", req, runtime), new GetTensorboardResponse({}));
-  }
-
-  async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getTokenWithOptions(request, headers, runtime);
-  }
-
-  async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.expireTime)) {
-      query["ExpireTime"] = request.expireTime;
-    }
-
-    if (!Util.isUnset(request.targetId)) {
-      query["TargetId"] = request.targetId;
-    }
-
-    if (!Util.isUnset(request.targetType)) {
-      query["TargetType"] = request.targetType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
+    let params = new $OpenApi.Params({
+      action: "GetTensorboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards/${TensorboardId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetTokenResponse>(await this.doROARequest("GetToken", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/tokens`, "json", req, runtime), new GetTokenResponse({}));
-  }
-
-  async getUserAuthorization(UserId: string): Promise<GetUserAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getUserAuthorizationWithOptions(UserId, headers, runtime);
-  }
-
-  async getUserAuthorizationWithOptions(UserId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserAuthorizationResponse> {
-    UserId = OpenApiUtil.getEncodeParam(UserId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<GetUserAuthorizationResponse>(await this.doROARequest("GetUserAuthorization", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/users/${UserId}/authorization`, "json", req, runtime), new GetUserAuthorizationResponse({}));
-  }
-
-  async getVpc(VpcId: string): Promise<GetVpcResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getVpcWithOptions(VpcId, headers, runtime);
-  }
-
-  async getVpcWithOptions(VpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVpcResponse> {
-    VpcId = OpenApiUtil.getEncodeParam(VpcId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<GetVpcResponse>(await this.doROARequest("GetVpc", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/vpcs/${VpcId}`, "json", req, runtime), new GetVpcResponse({}));
-  }
-
-  async getWorkspace(WorkspaceId: string): Promise<GetWorkspaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getWorkspaceWithOptions(WorkspaceId, headers, runtime);
-  }
-
-  async getWorkspaceWithOptions(WorkspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
-    WorkspaceId = OpenApiUtil.getEncodeParam(WorkspaceId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<GetWorkspaceResponse>(await this.doROARequest("GetWorkspace", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/workspaces/${WorkspaceId}`, "json", req, runtime), new GetWorkspaceResponse({}));
-  }
-
-  async jobDispatchQuery(request: JobDispatchQueryRequest): Promise<JobDispatchQueryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.jobDispatchQueryWithOptions(request, headers, runtime);
-  }
-
-  async jobDispatchQueryWithOptions(tmpReq: JobDispatchQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<JobDispatchQueryResponse> {
-    Util.validateModel(tmpReq);
-    let request = new JobDispatchQueryShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.properties)) {
-      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.settings)) {
-      request.settingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.settings, "Settings", "json");
-    }
-
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.algoName)) {
-      query["AlgoName"] = request.algoName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      query["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.propertiesShrink)) {
-      query["Properties"] = request.propertiesShrink;
-    }
-
-    if (!Util.isUnset(request.settingsShrink)) {
-      query["Settings"] = request.settingsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<JobDispatchQueryResponse>(await this.doROARequest("JobDispatchQuery", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobdispatch`, "json", req, runtime), new JobDispatchQueryResponse({}));
-  }
-
-  async jobDispatchSubmit(request: JobDispatchSubmitRequest): Promise<JobDispatchSubmitResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.jobDispatchSubmitWithOptions(request, headers, runtime);
-  }
-
-  async jobDispatchSubmitWithOptions(request: JobDispatchSubmitRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<JobDispatchSubmitResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.algoName)) {
-      body["AlgoName"] = request.algoName;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      body["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.properties)) {
-      body["Properties"] = request.properties;
-    }
-
-    if (!Util.isUnset(request.settings)) {
-      body["Settings"] = request.settings;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    return $tea.cast<JobDispatchSubmitResponse>(await this.doROARequest("JobDispatchSubmit", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/jobdispatch`, "json", req, runtime), new JobDispatchSubmitResponse({}));
+    return $tea.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
   }
 
   async listCodeSources(request: ListCodeSourcesRequest): Promise<ListCodeSourcesResponse> {
@@ -5181,7 +4513,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListCodeSourcesResponse>(await this.doROARequest("ListCodeSources", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/codesources`, "json", req, runtime), new ListCodeSourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCodeSources",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/codesources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCodeSourcesResponse>(await this.callApi(params, req, runtime), new ListCodeSourcesResponse({}));
   }
 
   async listDataSources(request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
@@ -5221,7 +4564,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListDataSourcesResponse>(await this.doROARequest("ListDataSources", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/datasources`, "json", req, runtime), new ListDataSourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDataSources",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datasources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
   }
 
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
@@ -5233,6 +4587,10 @@ export default class Client extends OpenApi {
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceleratorType)) {
+      query["AcceleratorType"] = request.acceleratorType;
+    }
+
     if (!Util.isUnset(request.order)) {
       query["Order"] = request.order;
     }
@@ -5253,7 +4611,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListEcsSpecsResponse>(await this.doROARequest("ListEcsSpecs", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/ecsspecs`, "json", req, runtime), new ListEcsSpecsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEcsSpecs",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/ecsspecs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
   }
 
   async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
@@ -5285,11 +4654,26 @@ export default class Client extends OpenApi {
       query["SortBy"] = request.sortBy;
     }
 
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListImagesResponse>(await this.doROARequest("ListImages", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/images`, "json", req, runtime), new ListImagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListImages",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/images`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListImagesResponse>(await this.callApi(params, req, runtime), new ListImagesResponse({}));
   }
 
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
@@ -5321,6 +4705,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.fromAllWorkspaces)) {
+      query["FromAllWorkspaces"] = request.fromAllWorkspaces;
     }
 
     if (!Util.isUnset(request.jobType)) {
@@ -5375,95 +4763,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListJobsResponse>(await this.doROARequest("ListJobs", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/jobs`, "json", req, runtime), new ListJobsResponse({}));
-  }
-
-  async listQuotas(request: ListQuotasRequest): Promise<ListQuotasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listQuotasWithOptions(request, headers, runtime);
-  }
-
-  async listQuotasWithOptions(request: ListQuotasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQuotasResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.order)) {
-      query["Order"] = request.order;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.sortBy)) {
-      query["SortBy"] = request.sortBy;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
+    let params = new $OpenApi.Params({
+      action: "ListJobs",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<ListQuotasResponse>(await this.doROARequest("ListQuotas", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/quotas`, "json", req, runtime), new ListQuotasResponse({}));
-  }
-
-  async listSecurityGroups(request: ListSecurityGroupsRequest): Promise<ListSecurityGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listSecurityGroupsWithOptions(request, headers, runtime);
-  }
-
-  async listSecurityGroupsWithOptions(request: ListSecurityGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSecurityGroupsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.vpcId)) {
-      query["VpcId"] = request.vpcId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<ListSecurityGroupsResponse>(await this.doROARequest("ListSecurityGroups", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/securitygroups`, "json", req, runtime), new ListSecurityGroupsResponse({}));
-  }
-
-  async listSwitches(request: ListSwitchesRequest): Promise<ListSwitchesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listSwitchesWithOptions(request, headers, runtime);
-  }
-
-  async listSwitchesWithOptions(request: ListSwitchesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSwitchesResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.vpcId)) {
-      query["VpcId"] = request.vpcId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<ListSwitchesResponse>(await this.doROARequest("ListSwitches", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/switches`, "json", req, runtime), new ListSwitchesResponse({}));
+    return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
   async listTensorboards(request: ListTensorboardsRequest): Promise<ListTensorboardsResponse> {
@@ -5503,6 +4814,14 @@ export default class Client extends OpenApi {
       query["SortBy"] = request.sortBy;
     }
 
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -5527,67 +4846,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTensorboardsResponse>(await this.doROARequest("ListTensorboards", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/tensorboards`, "json", req, runtime), new ListTensorboardsResponse({}));
-  }
-
-  async listVpcs(request: ListVpcsRequest): Promise<ListVpcsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listVpcsWithOptions(request, headers, runtime);
-  }
-
-  async listVpcsWithOptions(request: ListVpcsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
+    let params = new $OpenApi.Params({
+      action: "ListTensorboards",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<ListVpcsResponse>(await this.doROARequest("ListVpcs", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/vpcs`, "json", req, runtime), new ListVpcsResponse({}));
-  }
-
-  async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listWorkspacesWithOptions(request, headers, runtime);
-  }
-
-  async listWorkspacesWithOptions(request: ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.needDetail)) {
-      query["NeedDetail"] = request.needDetail;
-    }
-
-    if (!Util.isUnset(request.order)) {
-      query["Order"] = request.order;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.sortBy)) {
-      query["SortBy"] = request.sortBy;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    return $tea.cast<ListWorkspacesResponse>(await this.doROARequest("ListWorkspaces", "2020-12-03", "HTTPS", "GET", "AK", `/api/v1/workspaces`, "json", req, runtime), new ListWorkspacesResponse({}));
+    return $tea.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
   }
 
   async startTensorboard(TensorboardId: string, request: StartTensorboardRequest): Promise<StartTensorboardResponse> {
@@ -5608,7 +4878,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartTensorboardResponse>(await this.doROARequest("StartTensorboard", "2020-12-03", "HTTPS", "PUT", "AK", `/api/v1/tensorboards/${TensorboardId}/start`, "json", req, runtime), new StartTensorboardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartTensorboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards/${TensorboardId}/start`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
   }
 
   async stopJob(JobId: string): Promise<StopJobResponse> {
@@ -5622,7 +4903,49 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<StopJobResponse>(await this.doROARequest("StopJob", "2020-12-03", "HTTPS", "POST", "AK", `/api/v1/jobs/${JobId}/stop`, "json", req, runtime), new StopJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopJob",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
+  }
+
+  async stopJobs(request: StopJobsRequest): Promise<StopJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopJobsWithOptions(request, headers, runtime);
+  }
+
+  async stopJobsWithOptions(request: StopJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopJobsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobIds)) {
+      body["JobIds"] = request.jobIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopJobs",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/batch/jobs/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopJobsResponse>(await this.callApi(params, req, runtime), new StopJobsResponse({}));
   }
 
   async stopTensorboard(TensorboardId: string, request: StopTensorboardRequest): Promise<StopTensorboardResponse> {
@@ -5643,36 +4966,50 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopTensorboardResponse>(await this.doROARequest("StopTensorboard", "2020-12-03", "HTTPS", "PUT", "AK", `/api/v1/tensorboards/${TensorboardId}/stop`, "json", req, runtime), new StopTensorboardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopTensorboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards/${TensorboardId}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
   }
 
-  async updateQuota(QuotaId: string, request: UpdateQuotaRequest): Promise<UpdateQuotaResponse> {
+  async updateJob(JobId: string, request: UpdateJobRequest): Promise<UpdateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateQuotaWithOptions(QuotaId, request, headers, runtime);
+    return await this.updateJobWithOptions(JobId, request, headers, runtime);
   }
 
-  async updateQuotaWithOptions(QuotaId: string, request: UpdateQuotaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateQuotaResponse> {
+  async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
-    QuotaId = OpenApiUtil.getEncodeParam(QuotaId);
+    JobId = OpenApiUtil.getEncodeParam(JobId);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.quotaDetail))) {
-      body["QuotaDetail"] = request.quotaDetail;
-    }
-
-    if (!Util.isUnset(request.quotaName)) {
-      body["QuotaName"] = request.quotaName;
-    }
-
-    if (!Util.isUnset(request.quotaType)) {
-      body["QuotaType"] = request.quotaType;
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateQuotaResponse>(await this.doROARequest("UpdateQuota", "2020-12-03", "HTTPS", "PUT", "AK", `/api/v1/quotas/${QuotaId}`, "json", req, runtime), new UpdateQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateJob",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${JobId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
   }
 
   async updateTensorboard(TensorboardId: string, request: UpdateTensorboardRequest): Promise<UpdateTensorboardResponse> {
@@ -5697,7 +5034,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateTensorboardResponse>(await this.doROARequest("UpdateTensorboard", "2020-12-03", "HTTPS", "PUT", "AK", `/api/v1/tensorboards/${TensorboardId}`, "json", req, runtime), new UpdateTensorboardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTensorboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tensorboards/${TensorboardId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
   }
 
 }
