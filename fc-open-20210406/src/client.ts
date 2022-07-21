@@ -1731,6 +1731,7 @@ export class CreateFunctionRequest extends $tea.Model {
   initializer?: string;
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  instanceSoftConcurrency?: number;
   instanceType?: string;
   layers?: string[];
   memorySize?: number;
@@ -1751,6 +1752,7 @@ export class CreateFunctionRequest extends $tea.Model {
       initializer: 'initializer',
       instanceConcurrency: 'instanceConcurrency',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
+      instanceSoftConcurrency: 'instanceSoftConcurrency',
       instanceType: 'instanceType',
       layers: 'layers',
       memorySize: 'memorySize',
@@ -1774,6 +1776,7 @@ export class CreateFunctionRequest extends $tea.Model {
       initializer: 'string',
       instanceConcurrency: 'number',
       instanceLifecycleConfig: InstanceLifecycleConfig,
+      instanceSoftConcurrency: 'number',
       instanceType: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
       memorySize: 'number',
@@ -1804,6 +1807,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
   initializer?: string;
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  instanceSoftConcurrency?: number;
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
@@ -1828,6 +1832,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       initializer: 'initializer',
       instanceConcurrency: 'instanceConcurrency',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
+      instanceSoftConcurrency: 'instanceSoftConcurrency',
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
@@ -1855,6 +1860,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       initializer: 'string',
       instanceConcurrency: 'number',
       instanceLifecycleConfig: InstanceLifecycleConfig,
+      instanceSoftConcurrency: 'number',
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
@@ -2097,6 +2103,7 @@ export class CreateServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
+  vendorConfig?: VendorConfig;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -2110,6 +2117,7 @@ export class CreateServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
+      vendorConfig: 'vendorConfig',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -2126,6 +2134,7 @@ export class CreateServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
+      vendorConfig: VendorConfig,
       vpcConfig: VPCConfig,
     };
   }
@@ -3318,6 +3327,7 @@ export class GetFunctionResponseBody extends $tea.Model {
   initializer?: string;
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  instanceSoftConcurrency?: number;
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
@@ -3342,6 +3352,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       initializer: 'initializer',
       instanceConcurrency: 'instanceConcurrency',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
+      instanceSoftConcurrency: 'instanceSoftConcurrency',
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
@@ -3369,6 +3380,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       initializer: 'string',
       instanceConcurrency: 'number',
       instanceLifecycleConfig: InstanceLifecycleConfig,
+      instanceSoftConcurrency: 'number',
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
@@ -4873,10 +4885,14 @@ export class ListFunctionsResponse extends $tea.Model {
 export class ListInstancesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
+  xFcDate?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
+      xFcDate: 'X-Fc-Date',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4884,6 +4900,8 @@ export class ListInstancesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
+      xFcDate: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -7216,6 +7234,7 @@ export class UpdateFunctionRequest extends $tea.Model {
   initializationTimeout?: number;
   initializer?: string;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  instanceSoftConcurrency?: number;
   instanceType?: string;
   layers?: string[];
   memorySize?: number;
@@ -7235,6 +7254,7 @@ export class UpdateFunctionRequest extends $tea.Model {
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
+      instanceSoftConcurrency: 'instanceSoftConcurrency',
       instanceType: 'instanceType',
       layers: 'layers',
       memorySize: 'memorySize',
@@ -7257,6 +7277,7 @@ export class UpdateFunctionRequest extends $tea.Model {
       initializationTimeout: 'number',
       initializer: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
+      instanceSoftConcurrency: 'number',
       instanceType: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
       memorySize: 'number',
@@ -7286,6 +7307,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
   initializationTimeout?: number;
   initializer?: string;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  instanceSoftConcurrency?: number;
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
@@ -7309,6 +7331,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       initializationTimeout: 'initializationTimeout',
       initializer: 'initializer',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
+      instanceSoftConcurrency: 'instanceSoftConcurrency',
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
@@ -7335,6 +7358,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       initializationTimeout: 'number',
       initializer: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
+      instanceSoftConcurrency: 'number',
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
@@ -7453,6 +7477,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
+  vendorConfig?: VendorConfig;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -7466,6 +7491,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
+      vendorConfig: 'vendorConfig',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -7482,6 +7508,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
+      vendorConfig: VendorConfig,
       vpcConfig: VPCConfig,
     };
   }
@@ -7834,6 +7861,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   initializer?: string;
   instanceConcurrency?: number;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
+  instanceSoftConcurrency?: number;
   instanceType?: string;
   lastModifiedTime?: string;
   layers?: string[];
@@ -7856,6 +7884,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       initializer: 'initializer',
       instanceConcurrency: 'instanceConcurrency',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
+      instanceSoftConcurrency: 'instanceSoftConcurrency',
       instanceType: 'instanceType',
       lastModifiedTime: 'lastModifiedTime',
       layers: 'layers',
@@ -7881,6 +7910,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       initializer: 'string',
       instanceConcurrency: 'number',
       instanceLifecycleConfig: InstanceLifecycleConfig,
+      instanceSoftConcurrency: 'number',
       instanceType: 'string',
       lastModifiedTime: 'string',
       layers: { 'type': 'array', 'itemType': 'string' },
@@ -8317,6 +8347,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.instanceLifecycleConfig))) {
       body["instanceLifecycleConfig"] = request.instanceLifecycleConfig;
+    }
+
+    if (!Util.isUnset(request.instanceSoftConcurrency)) {
+      body["instanceSoftConcurrency"] = request.instanceSoftConcurrency;
     }
 
     if (!Util.isUnset(request.instanceType)) {
@@ -10168,6 +10202,14 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
@@ -11538,6 +11580,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.instanceLifecycleConfig))) {
       body["instanceLifecycleConfig"] = request.instanceLifecycleConfig;
+    }
+
+    if (!Util.isUnset(request.instanceSoftConcurrency)) {
+      body["instanceSoftConcurrency"] = request.instanceSoftConcurrency;
     }
 
     if (!Util.isUnset(request.instanceType)) {
