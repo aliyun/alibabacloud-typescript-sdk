@@ -3523,6 +3523,8 @@ export class GetTemplateScratchResponse extends $tea.Model {
 
 export class GetTemplateSummaryRequest extends $tea.Model {
   changeSetId?: string;
+  clientToken?: string;
+  parameters?: GetTemplateSummaryRequestParameters[];
   regionId?: string;
   stackGroupName?: string;
   stackId?: string;
@@ -3533,6 +3535,8 @@ export class GetTemplateSummaryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       changeSetId: 'ChangeSetId',
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
       stackId: 'StackId',
@@ -3546,6 +3550,8 @@ export class GetTemplateSummaryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       changeSetId: 'string',
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetTemplateSummaryRequestParameters },
       regionId: 'string',
       stackGroupName: 'string',
       stackId: 'string',
@@ -8356,6 +8362,28 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
   }
 }
 
+export class GetTemplateSummaryRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $tea.Model {
   logicalResourceIds?: string[];
   resourceIdentifiers?: string[];
@@ -11649,6 +11677,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.changeSetId)) {
       query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
     }
 
     if (!Util.isUnset(request.regionId)) {
