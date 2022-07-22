@@ -556,10 +556,16 @@ export class JobItem extends $tea.Model {
   enabledDebugger?: boolean;
   envs?: { [key: string]: string };
   gmtCreateTime?: string;
+  gmtFailedTime?: string;
   gmtFinishTime?: string;
+  gmtRunningTime?: string;
+  gmtStoppedTime?: string;
+  gmtSubmittedTime?: string;
+  gmtSuccessedTime?: string;
   jobId?: string;
   jobSpecs?: JobSpec[];
   jobType?: string;
+  priority?: number;
   reasonCode?: string;
   reasonMessage?: string;
   resourceId?: string;
@@ -582,10 +588,16 @@ export class JobItem extends $tea.Model {
       enabledDebugger: 'EnabledDebugger',
       envs: 'Envs',
       gmtCreateTime: 'GmtCreateTime',
+      gmtFailedTime: 'GmtFailedTime',
       gmtFinishTime: 'GmtFinishTime',
+      gmtRunningTime: 'GmtRunningTime',
+      gmtStoppedTime: 'GmtStoppedTime',
+      gmtSubmittedTime: 'GmtSubmittedTime',
+      gmtSuccessedTime: 'GmtSuccessedTime',
       jobId: 'JobId',
       jobSpecs: 'JobSpecs',
       jobType: 'JobType',
+      priority: 'Priority',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       resourceId: 'ResourceId',
@@ -611,10 +623,16 @@ export class JobItem extends $tea.Model {
       enabledDebugger: 'boolean',
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
+      gmtFailedTime: 'string',
       gmtFinishTime: 'string',
+      gmtRunningTime: 'string',
+      gmtStoppedTime: 'string',
+      gmtSubmittedTime: 'string',
+      gmtSuccessedTime: 'string',
       jobId: 'string',
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
+      priority: 'number',
       reasonCode: 'string',
       reasonMessage: 'string',
       resourceId: 'string',
@@ -1979,6 +1997,7 @@ export class GetJobResponseBody extends $tea.Model {
   jobSpecs?: JobSpec[];
   jobType?: string;
   pods?: GetJobResponseBodyPods[];
+  priority?: number;
   reasonCode?: string;
   reasonMessage?: string;
   requestId?: string;
@@ -2013,6 +2032,7 @@ export class GetJobResponseBody extends $tea.Model {
       jobSpecs: 'JobSpecs',
       jobType: 'JobType',
       pods: 'Pods',
+      priority: 'Priority',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
@@ -2050,6 +2070,7 @@ export class GetJobResponseBody extends $tea.Model {
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
       pods: { 'type': 'array', 'itemType': GetJobResponseBodyPods },
+      priority: 'number',
       reasonCode: 'string',
       reasonMessage: 'string',
       requestId: 'string',
