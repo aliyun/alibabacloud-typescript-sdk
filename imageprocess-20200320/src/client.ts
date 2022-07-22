@@ -2882,12 +2882,14 @@ export class ScreenChestCTResponseBodyDataCACS extends $tea.Model {
   detections?: ScreenChestCTResponseBodyDataCACSDetections[];
   resultUrl?: string;
   score?: string;
+  seriesInstanceUID?: string;
   volumeScore?: string;
   static names(): { [key: string]: string } {
     return {
       detections: 'Detections',
       resultUrl: 'ResultUrl',
       score: 'Score',
+      seriesInstanceUID: 'SeriesInstanceUID',
       volumeScore: 'VolumeScore',
     };
   }
@@ -2897,6 +2899,7 @@ export class ScreenChestCTResponseBodyDataCACS extends $tea.Model {
       detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataCACSDetections },
       resultUrl: 'string',
       score: 'string',
+      seriesInstanceUID: 'string',
       volumeScore: 'string',
     };
   }
@@ -2912,6 +2915,7 @@ export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
   newProbability?: string;
   normalProbability?: string;
   otherProbability?: string;
+  seriesInstanceUID?: string;
   static names(): { [key: string]: string } {
     return {
       lesionRatio: 'LesionRatio',
@@ -2919,6 +2923,7 @@ export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
       newProbability: 'NewProbability',
       normalProbability: 'NormalProbability',
       otherProbability: 'OtherProbability',
+      seriesInstanceUID: 'SeriesInstanceUID',
     };
   }
 
@@ -2929,6 +2934,7 @@ export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
       newProbability: 'string',
       normalProbability: 'string',
       otherProbability: 'string',
+      seriesInstanceUID: 'string',
     };
   }
 
@@ -2970,15 +2976,18 @@ export class ScreenChestCTResponseBodyDataDetectLymphLesions extends $tea.Model 
 
 export class ScreenChestCTResponseBodyDataDetectLymph extends $tea.Model {
   lesions?: ScreenChestCTResponseBodyDataDetectLymphLesions[];
+  seriesInstanceUID?: string;
   static names(): { [key: string]: string } {
     return {
       lesions: 'Lesions',
+      seriesInstanceUID: 'SeriesInstanceUID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lesions: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataDetectLymphLesions },
+      seriesInstanceUID: 'string',
     };
   }
 
@@ -3020,15 +3029,18 @@ export class ScreenChestCTResponseBodyDataDetectPdacLesion extends $tea.Model {
 
 export class ScreenChestCTResponseBodyDataDetectPdac extends $tea.Model {
   lesion?: ScreenChestCTResponseBodyDataDetectPdacLesion;
+  seriesInstanceUID?: string;
   static names(): { [key: string]: string } {
     return {
       lesion: 'Lesion',
+      seriesInstanceUID: 'SeriesInstanceUID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lesion: ScreenChestCTResponseBodyDataDetectPdacLesion,
+      seriesInstanceUID: 'string',
     };
   }
 
@@ -3080,6 +3092,7 @@ export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
   origin?: number[];
   resultURL?: string;
   ribSegmentMaskURL?: string;
+  seriesInstanceUID?: string;
   spacing?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -3088,6 +3101,7 @@ export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
       origin: 'Origin',
       resultURL: 'ResultURL',
       ribSegmentMaskURL: 'RibSegmentMaskURL',
+      seriesInstanceUID: 'SeriesInstanceUID',
       spacing: 'Spacing',
     };
   }
@@ -3099,6 +3113,7 @@ export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
       origin: { 'type': 'array', 'itemType': 'number' },
       resultURL: 'string',
       ribSegmentMaskURL: 'string',
+      seriesInstanceUID: 'string',
       spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -3225,6 +3240,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
   detectRibFracture?: ScreenChestCTResponseBodyDataDetectRibFracture;
   errorMessage?: string;
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
+  nestedUrlList?: { [key: string]: any };
   URLList?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -3236,6 +3252,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       detectRibFracture: 'DetectRibFracture',
       errorMessage: 'ErrorMessage',
       lungNodule: 'LungNodule',
+      nestedUrlList: 'NestedUrlList',
       URLList: 'URLList',
     };
   }
@@ -3250,6 +3267,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       detectRibFracture: ScreenChestCTResponseBodyDataDetectRibFracture,
       errorMessage: 'string',
       lungNodule: ScreenChestCTResponseBodyDataLungNodule,
+      nestedUrlList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       URLList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
