@@ -1522,6 +1522,90 @@ export class ScreenChestCTResponse extends $tea.Model {
   }
 }
 
+export class SegmentOARRequest extends $tea.Model {
+  bodyPart?: string;
+  contrast?: boolean;
+  dataFormat?: string;
+  maskList?: number[];
+  orgId?: string;
+  orgName?: string;
+  URLList?: SegmentOARRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      bodyPart: 'BodyPart',
+      contrast: 'Contrast',
+      dataFormat: 'DataFormat',
+      maskList: 'MaskList',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyPart: 'string',
+      contrast: 'boolean',
+      dataFormat: 'string',
+      maskList: { 'type': 'array', 'itemType': 'number' },
+      orgId: 'string',
+      orgName: 'string',
+      URLList: { 'type': 'array', 'itemType': SegmentOARRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentOARResponseBody extends $tea.Model {
+  data?: SegmentOARResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SegmentOARResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentOARResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SegmentOARResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SegmentOARResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateMedRequest extends $tea.Model {
   fromLanguage?: string;
   text?: string;
@@ -3277,6 +3361,44 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
   }
 }
 
+export class SegmentOARRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentOARResponseBodyData extends $tea.Model {
+  resultURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultURL: 'ResultURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateMedResponseBodyData extends $tea.Model {
   text?: string;
   words?: number;
@@ -4448,6 +4570,59 @@ export default class Client extends OpenApi {
   async screenChestCT(request: ScreenChestCTRequest): Promise<ScreenChestCTResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.screenChestCTWithOptions(request, runtime);
+  }
+
+  async segmentOARWithOptions(request: SegmentOARRequest, runtime: $Util.RuntimeOptions): Promise<SegmentOARResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bodyPart)) {
+      body["BodyPart"] = request.bodyPart;
+    }
+
+    if (!Util.isUnset(request.contrast)) {
+      body["Contrast"] = request.contrast;
+    }
+
+    if (!Util.isUnset(request.dataFormat)) {
+      body["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.maskList)) {
+      body["MaskList"] = request.maskList;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SegmentOAR",
+      version: "2020-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SegmentOARResponse>(await this.callApi(params, req, runtime), new SegmentOARResponse({}));
+  }
+
+  async segmentOAR(request: SegmentOARRequest): Promise<SegmentOARResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentOARWithOptions(request, runtime);
   }
 
   async translateMedWithOptions(request: TranslateMedRequest, runtime: $Util.RuntimeOptions): Promise<TranslateMedResponse> {
