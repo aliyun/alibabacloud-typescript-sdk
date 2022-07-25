@@ -12204,11 +12204,10 @@ export class ListCheckInstanceResultRequest extends $tea.Model {
 
 export class ListCheckInstanceResultResponseBody extends $tea.Model {
   basicData?: ListCheckInstanceResultResponseBodyBasicData[];
-  checks?: { [key: string]: any };
+  checks?: { [key: string]: any }[];
   columns?: ListCheckInstanceResultResponseBodyColumns[];
   pageInfo?: ListCheckInstanceResultResponseBodyPageInfo;
   requestId?: string;
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       basicData: 'BasicData',
@@ -12216,18 +12215,16 @@ export class ListCheckInstanceResultResponseBody extends $tea.Model {
       columns: 'Columns',
       pageInfo: 'PageInfo',
       requestId: 'RequestId',
-      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       basicData: { 'type': 'array', 'itemType': ListCheckInstanceResultResponseBodyBasicData },
-      checks: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      checks: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       columns: { 'type': 'array', 'itemType': ListCheckInstanceResultResponseBodyColumns },
       pageInfo: ListCheckInstanceResultResponseBodyPageInfo,
       requestId: 'string',
-      totalCount: 'number',
     };
   }
 
