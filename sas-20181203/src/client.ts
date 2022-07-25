@@ -11460,6 +11460,81 @@ export class GetBackupStorageCountResponse extends $tea.Model {
   }
 }
 
+export class GetCheckDetailRequest extends $tea.Model {
+  checkId?: number;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckDetailResponseBody extends $tea.Model {
+  assistInfo?: GetCheckDetailResponseBodyAssistInfo;
+  description?: GetCheckDetailResponseBodyDescription;
+  requestId?: string;
+  solution?: GetCheckDetailResponseBodySolution;
+  static names(): { [key: string]: string } {
+    return {
+      assistInfo: 'AssistInfo',
+      description: 'Description',
+      requestId: 'RequestId',
+      solution: 'Solution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistInfo: GetCheckDetailResponseBodyAssistInfo,
+      description: GetCheckDetailResponseBodyDescription,
+      requestId: 'string',
+      solution: GetCheckDetailResponseBodySolution,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCheckDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCheckDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileDetectResultRequest extends $tea.Model {
   hashKeyList?: string[];
   sourceIp?: string;
@@ -12073,6 +12148,111 @@ export class InstallCloudMonitorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InstallCloudMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultRequest extends $tea.Model {
+  checkId?: number;
+  currentPage?: number;
+  instanceIdKey?: string;
+  instanceIds?: string[];
+  instanceNameKey?: string;
+  lang?: string;
+  pageSize?: number;
+  regionIdKey?: string;
+  sortTypes?: string[];
+  statuses?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      currentPage: 'CurrentPage',
+      instanceIdKey: 'InstanceIdKey',
+      instanceIds: 'InstanceIds',
+      instanceNameKey: 'InstanceNameKey',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      regionIdKey: 'RegionIdKey',
+      sortTypes: 'SortTypes',
+      statuses: 'Statuses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      currentPage: 'number',
+      instanceIdKey: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceNameKey: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      regionIdKey: 'string',
+      sortTypes: { 'type': 'array', 'itemType': 'string' },
+      statuses: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponseBody extends $tea.Model {
+  basicData?: ListCheckInstanceResultResponseBodyBasicData[];
+  checks?: { [key: string]: any };
+  columns?: ListCheckInstanceResultResponseBodyColumns[];
+  pageInfo?: ListCheckInstanceResultResponseBodyPageInfo;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      basicData: 'BasicData',
+      checks: 'Checks',
+      columns: 'Columns',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicData: { 'type': 'array', 'itemType': ListCheckInstanceResultResponseBodyBasicData },
+      checks: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      columns: { 'type': 'array', 'itemType': ListCheckInstanceResultResponseBodyColumns },
+      pageInfo: ListCheckInstanceResultResponseBodyPageInfo,
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCheckInstanceResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCheckInstanceResultResponseBody,
     };
   }
 
@@ -22677,6 +22857,81 @@ export class GetBackupStorageCountResponseBodyBackupStorageCount extends $tea.Mo
   }
 }
 
+export class GetCheckDetailResponseBodyAssistInfo extends $tea.Model {
+  link?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      link: 'Link',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      link: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckDetailResponseBodyDescription extends $tea.Model {
+  link?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      link: 'Link',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      link: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckDetailResponseBodySolution extends $tea.Model {
+  link?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      link: 'Link',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      link: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileDetectResultResponseBodyResultListExt extends $tea.Model {
   virusName?: string;
   static names(): { [key: string]: string } {
@@ -22738,6 +22993,124 @@ export class HandleSecurityEventsResponseBodyHandleSecurityEventsResponse extend
   static types(): { [key: string]: any } {
     return {
       taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponseBodyBasicData extends $tea.Model {
+  id?: number;
+  instanceId?: string;
+  instanceName?: string;
+  regionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      regionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponseBodyColumnsGrids extends $tea.Model {
+  key?: string;
+  showName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      showName: 'ShowName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      showName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponseBodyColumns extends $tea.Model {
+  grids?: ListCheckInstanceResultResponseBodyColumnsGrids[];
+  key?: string;
+  search?: boolean;
+  searchKey?: string;
+  showName?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grids: 'Grids',
+      key: 'Key',
+      search: 'Search',
+      searchKey: 'SearchKey',
+      showName: 'ShowName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grids: { 'type': 'array', 'itemType': ListCheckInstanceResultResponseBodyColumnsGrids },
+      key: 'string',
+      search: 'boolean',
+      searchKey: 'string',
+      showName: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponseBodyPageInfo extends $tea.Model {
+  count?: string;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -29420,6 +29793,39 @@ export default class Client extends OpenApi {
     return await this.getBackupStorageCountWithOptions(runtime);
   }
 
+  async getCheckDetailWithOptions(request: GetCheckDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkId)) {
+      query["CheckId"] = request.checkId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCheckDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCheckDetailResponse>(await this.callApi(params, req, runtime), new GetCheckDetailResponse({}));
+  }
+
+  async getCheckDetail(request: GetCheckDetailRequest): Promise<GetCheckDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCheckDetailWithOptions(request, runtime);
+  }
+
   async getFileDetectResultWithOptions(request: GetFileDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<GetFileDetectResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29754,6 +30160,71 @@ export default class Client extends OpenApi {
   async installCloudMonitor(request: InstallCloudMonitorRequest): Promise<InstallCloudMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installCloudMonitorWithOptions(request, runtime);
+  }
+
+  async listCheckInstanceResultWithOptions(request: ListCheckInstanceResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckInstanceResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkId)) {
+      query["CheckId"] = request.checkId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceIdKey)) {
+      query["InstanceIdKey"] = request.instanceIdKey;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.instanceNameKey)) {
+      query["InstanceNameKey"] = request.instanceNameKey;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionIdKey)) {
+      query["RegionIdKey"] = request.regionIdKey;
+    }
+
+    if (!Util.isUnset(request.sortTypes)) {
+      query["SortTypes"] = request.sortTypes;
+    }
+
+    if (!Util.isUnset(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCheckInstanceResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCheckInstanceResultResponse>(await this.callApi(params, req, runtime), new ListCheckInstanceResultResponse({}));
+  }
+
+  async listCheckInstanceResult(request: ListCheckInstanceResultRequest): Promise<ListCheckInstanceResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCheckInstanceResultWithOptions(request, runtime);
   }
 
   async listCheckResultWithOptions(request: ListCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckResultResponse> {
