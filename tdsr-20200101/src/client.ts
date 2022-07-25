@@ -555,10 +555,12 @@ export class CheckUserPropertyResponse extends $tea.Model {
 }
 
 export class CopySceneRequest extends $tea.Model {
+  projectId?: string;
   sceneId?: string;
   sceneName?: string;
   static names(): { [key: string]: string } {
     return {
+      projectId: 'ProjectId',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
     };
@@ -566,6 +568,7 @@ export class CopySceneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      projectId: 'string',
       sceneId: 'string',
       sceneName: 'string',
     };
@@ -624,6 +627,84 @@ export class CopySceneResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CopySceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUploadPolicyRequest extends $tea.Model {
+  option?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      option: 'Option',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      option: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUploadPolicyResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateUploadPolicyResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateUploadPolicyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUploadPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateUploadPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateUploadPolicyResponseBody,
     };
   }
 
@@ -745,6 +826,7 @@ export class DetailSceneRequest extends $tea.Model {
 }
 
 export class DetailSceneResponseBody extends $tea.Model {
+  captures?: DetailSceneResponseBodyCaptures[];
   code?: number;
   coverUrl?: string;
   gmtCreate?: number;
@@ -756,11 +838,14 @@ export class DetailSceneResponseBody extends $tea.Model {
   published?: boolean;
   requestId?: string;
   sourceNum?: number;
+  status?: string;
+  statusName?: string;
   subSceneNum?: number;
   success?: boolean;
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      captures: 'Captures',
       code: 'Code',
       coverUrl: 'CoverUrl',
       gmtCreate: 'GmtCreate',
@@ -772,6 +857,8 @@ export class DetailSceneResponseBody extends $tea.Model {
       published: 'Published',
       requestId: 'RequestId',
       sourceNum: 'SourceNum',
+      status: 'Status',
+      statusName: 'StatusName',
       subSceneNum: 'SubSceneNum',
       success: 'Success',
       type: 'Type',
@@ -780,6 +867,7 @@ export class DetailSceneResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      captures: { 'type': 'array', 'itemType': DetailSceneResponseBodyCaptures },
       code: 'number',
       coverUrl: 'string',
       gmtCreate: 'number',
@@ -791,6 +879,8 @@ export class DetailSceneResponseBody extends $tea.Model {
       published: 'boolean',
       requestId: 'string',
       sourceNum: 'number',
+      status: 'string',
+      statusName: 'string',
       subSceneNum: 'number',
       success: 'boolean',
       type: 'string',
@@ -858,6 +948,7 @@ export class DetailSubSceneResponseBody extends $tea.Model {
   message?: string;
   name?: string;
   originUrl?: string;
+  position?: string;
   requestId?: string;
   resourceId?: string;
   status?: number;
@@ -877,6 +968,7 @@ export class DetailSubSceneResponseBody extends $tea.Model {
       message: 'Message',
       name: 'Name',
       originUrl: 'OriginUrl',
+      position: 'Position',
       requestId: 'RequestId',
       resourceId: 'ResourceId',
       status: 'Status',
@@ -899,6 +991,7 @@ export class DetailSubSceneResponseBody extends $tea.Model {
       message: 'string',
       name: 'string',
       originUrl: 'string',
+      position: 'string',
       requestId: 'string',
       resourceId: 'string',
       status: 'number',
@@ -2286,15 +2379,18 @@ export class GetScenePreviewInfoResponse extends $tea.Model {
 }
 
 export class GetScenePreviewResourceRequest extends $tea.Model {
+  draft?: boolean;
   previewToken?: string;
   static names(): { [key: string]: string } {
     return {
+      draft: 'Draft',
       previewToken: 'PreviewToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      draft: 'boolean',
       previewToken: 'string',
     };
   }
@@ -3680,6 +3776,78 @@ export class PublishHotspotResponse extends $tea.Model {
   }
 }
 
+export class PublishHotspotConfigRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishHotspotConfigResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishHotspotConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PublishHotspotConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PublishHotspotConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishSceneRequest extends $tea.Model {
   sceneId?: string;
   static names(): { [key: string]: string } {
@@ -4278,6 +4446,156 @@ export class SaveHotspotTagResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SaveHotspotTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotTagListRequest extends $tea.Model {
+  hotspotListJson?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hotspotListJson: 'HotspotListJson',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hotspotListJson: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotTagListResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotTagListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveHotspotTagListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveHotspotTagListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveModelConfigRequest extends $tea.Model {
+  data?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveModelConfigResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveModelConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveModelConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveModelConfigResponseBody,
     };
   }
 
@@ -5073,6 +5391,65 @@ export class CopySceneResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateUploadPolicyResponseBodyData extends $tea.Model {
+  accessId?: string;
+  callback?: string;
+  dir?: string;
+  expire?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      callback: 'Callback',
+      dir: 'Dir',
+      expire: 'Expire',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      callback: 'string',
+      dir: 'string',
+      expire: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSceneResponseBodyCaptures extends $tea.Model {
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConnDataResponseBodyList extends $tea.Model {
   id?: string;
   mapId?: string;
@@ -5474,11 +5851,13 @@ export class GetScenePreviewInfoResponseBodyData extends $tea.Model {
 }
 
 export class GetScenePreviewResourceResponseBodyDataResourceDirectory extends $tea.Model {
+  hotspotTagConfig?: string;
   modelConfig?: string;
   orthomapConfig?: string;
   rootPath?: string;
   static names(): { [key: string]: string } {
     return {
+      hotspotTagConfig: 'HotspotTagConfig',
       modelConfig: 'ModelConfig',
       orthomapConfig: 'OrthomapConfig',
       rootPath: 'RootPath',
@@ -5487,6 +5866,7 @@ export class GetScenePreviewResourceResponseBodyDataResourceDirectory extends $t
 
   static types(): { [key: string]: any } {
     return {
+      hotspotTagConfig: 'string',
       modelConfig: 'string',
       orthomapConfig: 'string',
       rootPath: 'string',
@@ -5653,6 +6033,8 @@ export class ListSceneResponseBodyList extends $tea.Model {
   previewToken?: string;
   published?: boolean;
   sourceNum?: number;
+  status?: string;
+  statusName?: string;
   subSceneNum?: number;
   type?: string;
   static names(): { [key: string]: string } {
@@ -5665,6 +6047,8 @@ export class ListSceneResponseBodyList extends $tea.Model {
       previewToken: 'PreviewToken',
       published: 'Published',
       sourceNum: 'SourceNum',
+      status: 'Status',
+      statusName: 'StatusName',
       subSceneNum: 'SubSceneNum',
       type: 'Type',
     };
@@ -5680,6 +6064,8 @@ export class ListSceneResponseBodyList extends $tea.Model {
       previewToken: 'string',
       published: 'boolean',
       sourceNum: 'number',
+      status: 'string',
+      statusName: 'string',
       subSceneNum: 'number',
       type: 'string',
     };
@@ -6053,6 +6439,10 @@ export default class Client extends OpenApi {
   async copySceneWithOptions(request: CopySceneRequest, runtime: $Util.RuntimeOptions): Promise<CopySceneResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     if (!Util.isUnset(request.sceneId)) {
       query["SceneId"] = request.sceneId;
     }
@@ -6081,6 +6471,39 @@ export default class Client extends OpenApi {
   async copyScene(request: CopySceneRequest): Promise<CopySceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copySceneWithOptions(request, runtime);
+  }
+
+  async createUploadPolicyWithOptions(request: CreateUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.option)) {
+      query["Option"] = request.option;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateUploadPolicy",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUploadPolicyResponse>(await this.callApi(params, req, runtime), new CreateUploadPolicyResponse({}));
+  }
+
+  async createUploadPolicy(request: CreateUploadPolicyRequest): Promise<CreateUploadPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createUploadPolicyWithOptions(request, runtime);
   }
 
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
@@ -6730,6 +7153,10 @@ export default class Client extends OpenApi {
   async getScenePreviewResourceWithOptions(request: GetScenePreviewResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewResourceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.draft)) {
+      query["Draft"] = request.draft;
+    }
+
     if (!Util.isUnset(request.previewToken)) {
       query["PreviewToken"] = request.previewToken;
     }
@@ -7312,6 +7739,35 @@ export default class Client extends OpenApi {
     return await this.publishHotspotWithOptions(request, runtime);
   }
 
+  async publishHotspotConfigWithOptions(request: PublishHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<PublishHotspotConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PublishHotspotConfig",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishHotspotConfigResponse>(await this.callApi(params, req, runtime), new PublishHotspotConfigResponse({}));
+  }
+
+  async publishHotspotConfig(request: PublishHotspotConfigRequest): Promise<PublishHotspotConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishHotspotConfigWithOptions(request, runtime);
+  }
+
   async publishSceneWithOptions(request: PublishSceneRequest, runtime: $Util.RuntimeOptions): Promise<PublishSceneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7566,6 +8022,72 @@ export default class Client extends OpenApi {
   async saveHotspotTag(request: SaveHotspotTagRequest): Promise<SaveHotspotTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveHotspotTagWithOptions(request, runtime);
+  }
+
+  async saveHotspotTagListWithOptions(request: SaveHotspotTagListRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotTagListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hotspotListJson)) {
+      query["HotspotListJson"] = request.hotspotListJson;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveHotspotTagList",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveHotspotTagListResponse>(await this.callApi(params, req, runtime), new SaveHotspotTagListResponse({}));
+  }
+
+  async saveHotspotTagList(request: SaveHotspotTagListRequest): Promise<SaveHotspotTagListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveHotspotTagListWithOptions(request, runtime);
+  }
+
+  async saveModelConfigWithOptions(request: SaveModelConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveModelConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveModelConfig",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveModelConfigResponse>(await this.callApi(params, req, runtime), new SaveModelConfigResponse({}));
+  }
+
+  async saveModelConfig(request: SaveModelConfigRequest): Promise<SaveModelConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveModelConfigWithOptions(request, runtime);
   }
 
   async scenePublishWithOptions(request: ScenePublishRequest, runtime: $Util.RuntimeOptions): Promise<ScenePublishResponse> {
