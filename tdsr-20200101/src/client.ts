@@ -8,6 +8,87 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddHotspotFileRequest extends $tea.Model {
+  fileName?: string;
+  sceneId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      sceneId: 'SceneId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      sceneId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddHotspotFileResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddHotspotFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddHotspotFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddHotspotFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddMosaicsRequest extends $tea.Model {
   markPosition?: string;
   subSceneId?: string;
@@ -713,6 +794,81 @@ export class CreateUploadPolicyResponse extends $tea.Model {
   }
 }
 
+export class DecryptContentRequest extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptContentResponseBody extends $tea.Model {
+  code?: number;
+  content?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DecryptContentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DecryptContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DecryptContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetailProjectRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -1239,6 +1395,81 @@ export class DropSubSceneResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DropSubSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptContentRequest extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptContentResponseBody extends $tea.Model {
+  code?: number;
+  content?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      content: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptContentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EncryptContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EncryptContentResponseBody,
     };
   }
 
@@ -6201,6 +6432,43 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addHotspotFileWithOptions(request: AddHotspotFileRequest, runtime: $Util.RuntimeOptions): Promise<AddHotspotFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddHotspotFile",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddHotspotFileResponse>(await this.callApi(params, req, runtime), new AddHotspotFileResponse({}));
+  }
+
+  async addHotspotFile(request: AddHotspotFileRequest): Promise<AddHotspotFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addHotspotFileWithOptions(request, runtime);
+  }
+
   async addMosaicsWithOptions(request: AddMosaicsRequest, runtime: $Util.RuntimeOptions): Promise<AddMosaicsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6506,6 +6774,35 @@ export default class Client extends OpenApi {
     return await this.createUploadPolicyWithOptions(request, runtime);
   }
 
+  async decryptContentWithOptions(request: DecryptContentRequest, runtime: $Util.RuntimeOptions): Promise<DecryptContentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DecryptContent",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DecryptContentResponse>(await this.callApi(params, req, runtime), new DecryptContentResponse({}));
+  }
+
+  async decryptContent(request: DecryptContentRequest): Promise<DecryptContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.decryptContentWithOptions(request, runtime);
+  }
+
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6678,6 +6975,35 @@ export default class Client extends OpenApi {
   async dropSubScene(request: DropSubSceneRequest): Promise<DropSubSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dropSubSceneWithOptions(request, runtime);
+  }
+
+  async encryptContentWithOptions(request: EncryptContentRequest, runtime: $Util.RuntimeOptions): Promise<EncryptContentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EncryptContent",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EncryptContentResponse>(await this.callApi(params, req, runtime), new EncryptContentResponse({}));
+  }
+
+  async encryptContent(request: EncryptContentRequest): Promise<EncryptContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.encryptContentWithOptions(request, runtime);
   }
 
   async getConnDataWithOptions(request: GetConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetConnDataResponse> {
