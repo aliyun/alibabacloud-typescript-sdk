@@ -22941,27 +22941,8 @@ export class GetCheckDetailResponseBodySolution extends $tea.Model {
   }
 }
 
-export class GetFileDetectResultResponseBodyResultListExt extends $tea.Model {
-  virusName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      virusName: 'VirusName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      virusName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
-  ext?: GetFileDetectResultResponseBodyResultListExt;
+  ext?: string;
   hashKey?: string;
   result?: number;
   score?: number;
@@ -22978,7 +22959,7 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ext: GetFileDetectResultResponseBodyResultListExt,
+      ext: 'string',
       hashKey: 'string',
       result: 'number',
       score: 'number',
