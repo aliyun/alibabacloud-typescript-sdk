@@ -10790,6 +10790,9 @@ export class DescribeWarningExportInfoResponse extends $tea.Model {
 }
 
 export class DescribeWarningMachinesRequest extends $tea.Model {
+  clusterId?: string;
+  containerFieldName?: string;
+  containerFieldValue?: string;
   currentPage?: number;
   lang?: string;
   machineName?: string;
@@ -10797,9 +10800,13 @@ export class DescribeWarningMachinesRequest extends $tea.Model {
   riskId?: number;
   sourceIp?: string;
   strategyId?: number;
+  targetType?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
+      containerFieldName: 'ContainerFieldName',
+      containerFieldValue: 'ContainerFieldValue',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       machineName: 'MachineName',
@@ -10807,12 +10814,16 @@ export class DescribeWarningMachinesRequest extends $tea.Model {
       riskId: 'RiskId',
       sourceIp: 'SourceIp',
       strategyId: 'StrategyId',
+      targetType: 'TargetType',
       uuids: 'Uuids',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
+      containerFieldName: 'string',
+      containerFieldValue: 'string',
       currentPage: 'number',
       lang: 'string',
       machineName: 'string',
@@ -10820,6 +10831,7 @@ export class DescribeWarningMachinesRequest extends $tea.Model {
       riskId: 'number',
       sourceIp: 'string',
       strategyId: 'number',
+      targetType: 'string',
       uuids: 'string',
     };
   }
@@ -29397,6 +29409,18 @@ export default class Client extends OpenApi {
   async describeWarningMachinesWithOptions(request: DescribeWarningMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWarningMachinesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.containerFieldName)) {
+      query["ContainerFieldName"] = request.containerFieldName;
+    }
+
+    if (!Util.isUnset(request.containerFieldValue)) {
+      query["ContainerFieldValue"] = request.containerFieldValue;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -29423,6 +29447,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.strategyId)) {
       query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
     }
 
     if (!Util.isUnset(request.uuids)) {
