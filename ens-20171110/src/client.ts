@@ -1617,6 +1617,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
   externalIp?: string;
   externalPort?: string;
   forwardEntryName?: string;
+  healthCheckPort?: number;
   internalIp?: string;
   internalPort?: string;
   ipProtocol?: string;
@@ -1626,6 +1627,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
       externalIp: 'ExternalIp',
       externalPort: 'ExternalPort',
       forwardEntryName: 'ForwardEntryName',
+      healthCheckPort: 'HealthCheckPort',
       internalIp: 'InternalIp',
       internalPort: 'InternalPort',
       ipProtocol: 'IpProtocol',
@@ -1638,6 +1640,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
       externalIp: 'string',
       externalPort: 'string',
       forwardEntryName: 'string',
+      healthCheckPort: 'number',
       internalIp: 'string',
       internalPort: 'string',
       ipProtocol: 'string',
@@ -3750,6 +3753,109 @@ export class DeleteVSwitchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteVSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesRequest extends $tea.Model {
+  ensRegionIds?: string[];
+  pageNumber?: number;
+  pageSize?: number;
+  serverIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionIds: 'EnsRegionIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      serverIds: 'ServerIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionIds: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      serverIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesShrinkRequest extends $tea.Model {
+  ensRegionIdsShrink?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  serverIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionIdsShrink: 'EnsRegionIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      serverIdsShrink: 'ServerIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionIdsShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      serverIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesResponseBody extends $tea.Model {
+  requestId?: string;
+  servers?: DescribeARMServerInstancesResponseBodyServers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      servers: 'Servers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      servers: { 'type': 'array', 'itemType': DescribeARMServerInstancesResponseBodyServers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeARMServerInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeARMServerInstancesResponseBody,
     };
   }
 
@@ -10315,6 +10421,75 @@ export class ModifyEpnInstanceResponse extends $tea.Model {
   }
 }
 
+export class ModifyForwardEntryRequest extends $tea.Model {
+  forwardEntryId?: string;
+  forwardEntryName?: string;
+  healthCheckPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      forwardEntryId: 'ForwardEntryId',
+      forwardEntryName: 'ForwardEntryName',
+      healthCheckPort: 'HealthCheckPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardEntryId: 'string',
+      forwardEntryName: 'string',
+      healthCheckPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyForwardEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyForwardEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyForwardEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyForwardEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyImageAttributeRequest extends $tea.Model {
   imageId?: string;
   imageName?: string;
@@ -11212,6 +11387,135 @@ export class ReInitDiskResponse extends $tea.Model {
   }
 }
 
+export class RebootAICInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootAICInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootAICInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RebootAICInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootAICInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootARMServerInstanceRequest extends $tea.Model {
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootARMServerInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootARMServerInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RebootARMServerInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootARMServerInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RebootInstanceRequest extends $tea.Model {
   forceStop?: string;
   instanceId?: string;
@@ -11412,18 +11716,15 @@ export class ReleaseInstanceResponse extends $tea.Model {
 
 export class ReleasePostPaidInstanceRequest extends $tea.Model {
   instanceId?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      version: 'string',
     };
   }
 
@@ -12066,6 +12367,72 @@ export class RescaleDeviceServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RescaleDeviceServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAICInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAICInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAICInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResetAICInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetAICInstanceResponseBody,
     };
   }
 
@@ -13921,6 +14288,100 @@ export class UnassignPrivateIpAddressesResponse extends $tea.Model {
   }
 }
 
+export class UpgradeAICInstanceImageRequest extends $tea.Model {
+  imageId?: string;
+  serverIds?: string[];
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      serverIds: 'ServerIds',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      serverIds: { 'type': 'array', 'itemType': 'string' },
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeAICInstanceImageShrinkRequest extends $tea.Model {
+  imageId?: string;
+  serverIdsShrink?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      serverIdsShrink: 'ServerIds',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      serverIdsShrink: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeAICInstanceImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeAICInstanceImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpgradeAICInstanceImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeAICInstanceImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeApplicationRequest extends $tea.Model {
   appId?: string;
   template?: string;
@@ -14142,6 +14603,111 @@ export class CreateInstanceResponseBodyInstanceIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes extends $tea.Model {
+  ipAddress?: string;
+  networkId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkId: 'NetworkId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      networkId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesResponseBodyServersAICInstances extends $tea.Model {
+  frequency?: number;
+  imageId?: string;
+  instanceId?: string;
+  networkAttributes?: DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes;
+  resolution?: string;
+  spec?: string;
+  state?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      frequency: 'Frequency',
+      imageId: 'ImageId',
+      instanceId: 'InstanceId',
+      networkAttributes: 'NetworkAttributes',
+      resolution: 'Resolution',
+      spec: 'Spec',
+      state: 'State',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frequency: 'number',
+      imageId: 'string',
+      instanceId: 'string',
+      networkAttributes: DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes,
+      resolution: 'string',
+      spec: 'string',
+      state: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeARMServerInstancesResponseBodyServers extends $tea.Model {
+  AICInstances?: DescribeARMServerInstancesResponseBodyServersAICInstances[];
+  creationTime?: string;
+  ensRegionId?: string;
+  expiredTime?: string;
+  serverId?: string;
+  specName?: string;
+  state?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AICInstances: 'AICInstances',
+      creationTime: 'CreationTime',
+      ensRegionId: 'EnsRegionId',
+      expiredTime: 'ExpiredTime',
+      serverId: 'ServerId',
+      specName: 'SpecName',
+      state: 'State',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AICInstances: { 'type': 'array', 'itemType': DescribeARMServerInstancesResponseBodyServersAICInstances },
+      creationTime: 'string',
+      ensRegionId: 'string',
+      expiredTime: 'string',
+      serverId: 'string',
+      specName: 'string',
+      state: 'string',
+      status: 'string',
     };
   }
 
@@ -16125,6 +16691,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   externalPort?: string;
   forwardEntryId?: string;
   forwardEntryName?: string;
+  healthCheckPort?: string;
   internalIp?: string;
   internalPort?: string;
   ipProtocol?: string;
@@ -16136,6 +16703,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
       externalPort: 'ExternalPort',
       forwardEntryId: 'ForwardEntryId',
       forwardEntryName: 'ForwardEntryName',
+      healthCheckPort: 'HealthCheckPort',
       internalIp: 'InternalIp',
       internalPort: 'InternalPort',
       ipProtocol: 'IpProtocol',
@@ -16150,6 +16718,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
       externalPort: 'string',
       forwardEntryId: 'string',
       forwardEntryName: 'string',
+      healthCheckPort: 'string',
       internalIp: 'string',
       internalPort: 'string',
       ipProtocol: 'string',
@@ -19429,6 +19998,10 @@ export default class Client extends OpenApi {
       query["ForwardEntryName"] = request.forwardEntryName;
     }
 
+    if (!Util.isUnset(request.healthCheckPort)) {
+      query["HealthCheckPort"] = request.healthCheckPort;
+    }
+
     if (!Util.isUnset(request.internalIp)) {
       query["InternalIp"] = request.internalIp;
     }
@@ -20695,6 +21268,41 @@ export default class Client extends OpenApi {
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
+  }
+
+  async describeARMServerInstancesWithOptions(tmpReq: DescribeARMServerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeARMServerInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeARMServerInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ensRegionIds)) {
+      request.ensRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ensRegionIds, "EnsRegionIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.serverIds)) {
+      request.serverIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverIds, "ServerIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeARMServerInstances",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeARMServerInstancesResponse>(await this.callApi(params, req, runtime), new DescribeARMServerInstancesResponse({}));
+  }
+
+  async describeARMServerInstances(request: DescribeARMServerInstancesRequest): Promise<DescribeARMServerInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeARMServerInstancesWithOptions(request, runtime);
   }
 
   async describeApplicationWithOptions(request: DescribeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationResponse> {
@@ -23738,6 +24346,43 @@ export default class Client extends OpenApi {
     return await this.modifyEpnInstanceWithOptions(request, runtime);
   }
 
+  async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.forwardEntryId)) {
+      query["ForwardEntryId"] = request.forwardEntryId;
+    }
+
+    if (!Util.isUnset(request.forwardEntryName)) {
+      query["ForwardEntryName"] = request.forwardEntryName;
+    }
+
+    if (!Util.isUnset(request.healthCheckPort)) {
+      query["HealthCheckPort"] = request.healthCheckPort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyForwardEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyForwardEntryResponse>(await this.callApi(params, req, runtime), new ModifyForwardEntryResponse({}));
+  }
+
+  async modifyForwardEntry(request: ModifyForwardEntryRequest): Promise<ModifyForwardEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyForwardEntryWithOptions(request, runtime);
+  }
+
   async modifyImageAttributeWithOptions(request: ModifyImageAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24238,6 +24883,56 @@ export default class Client extends OpenApi {
     return await this.reInitDiskWithOptions(request, runtime);
   }
 
+  async rebootAICInstanceWithOptions(request: RebootAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootAICInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebootAICInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebootAICInstanceResponse>(await this.callApi(params, req, runtime), new RebootAICInstanceResponse({}));
+  }
+
+  async rebootAICInstance(request: RebootAICInstanceRequest): Promise<RebootAICInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebootAICInstanceWithOptions(request, runtime);
+  }
+
+  async rebootARMServerInstanceWithOptions(request: RebootARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootARMServerInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RebootARMServerInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RebootARMServerInstanceResponse>(await this.callApi(params, req, runtime), new RebootARMServerInstanceResponse({}));
+  }
+
+  async rebootARMServerInstance(request: RebootARMServerInstanceRequest): Promise<RebootARMServerInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rebootARMServerInstanceWithOptions(request, runtime);
+  }
+
   async rebootInstanceWithOptions(request: RebootInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24338,10 +25033,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24676,6 +25367,31 @@ export default class Client extends OpenApi {
   async rescaleDeviceService(request: RescaleDeviceServiceRequest): Promise<RescaleDeviceServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rescaleDeviceServiceWithOptions(request, runtime);
+  }
+
+  async resetAICInstanceWithOptions(request: ResetAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetAICInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetAICInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetAICInstanceResponse>(await this.callApi(params, req, runtime), new ResetAICInstanceResponse({}));
+  }
+
+  async resetAICInstance(request: ResetAICInstanceRequest): Promise<ResetAICInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetAICInstanceWithOptions(request, runtime);
   }
 
   async resetDeviceInstanceWithOptions(request: ResetDeviceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetDeviceInstanceResponse> {
@@ -25769,6 +26485,37 @@ export default class Client extends OpenApi {
   async unassignPrivateIpAddresses(request: UnassignPrivateIpAddressesRequest): Promise<UnassignPrivateIpAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassignPrivateIpAddressesWithOptions(request, runtime);
+  }
+
+  async upgradeAICInstanceImageWithOptions(tmpReq: UpgradeAICInstanceImageRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAICInstanceImageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpgradeAICInstanceImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serverIds)) {
+      request.serverIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverIds, "ServerIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeAICInstanceImage",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeAICInstanceImageResponse>(await this.callApi(params, req, runtime), new UpgradeAICInstanceImageResponse({}));
+  }
+
+  async upgradeAICInstanceImage(request: UpgradeAICInstanceImageRequest): Promise<UpgradeAICInstanceImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeAICInstanceImageWithOptions(request, runtime);
   }
 
   async upgradeApplicationWithOptions(request: UpgradeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeApplicationResponse> {
