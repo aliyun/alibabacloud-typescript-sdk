@@ -7787,7 +7787,7 @@ export class GetPipelineRunResponseBodyPipelineRunSources extends $tea.Model {
 
 export class GetPipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions extends $tea.Model {
   disable?: boolean;
-  params?: { [key: string]: any };
+  params?: any;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7800,7 +7800,7 @@ export class GetPipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions ext
   static types(): { [key: string]: any } {
     return {
       disable: 'boolean',
-      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      params: 'any',
       type: 'string',
     };
   }
@@ -8235,7 +8235,7 @@ export class GetSprintInfoResponseBodySprint extends $tea.Model {
 
 export class GetVMDeployOrderResponseBodyDeployOrderActions extends $tea.Model {
   disable?: boolean;
-  params?: { [key: string]: any };
+  params?: any;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8248,7 +8248,7 @@ export class GetVMDeployOrderResponseBodyDeployOrderActions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       disable: 'boolean',
-      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      params: 'any',
       type: 'string',
     };
   }
@@ -8260,7 +8260,7 @@ export class GetVMDeployOrderResponseBodyDeployOrderActions extends $tea.Model {
 
 export class GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachinesActions extends $tea.Model {
   disable?: boolean;
-  params?: { [key: string]: any };
+  params?: any;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8273,7 +8273,7 @@ export class GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachi
   static types(): { [key: string]: any } {
     return {
       disable: 'boolean',
-      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      params: 'any',
       type: 'string',
     };
   }
