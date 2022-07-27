@@ -2286,18 +2286,18 @@ export class EntityDeleteShrinkRequest extends $tea.Model {
 }
 
 export class EntityDeleteResponseBody extends $tea.Model {
-  requestId?: string;
   module?: EntityDeleteResponseBodyModule;
   morePage?: boolean;
+  requestId?: string;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       module: 'module',
       morePage: 'more_page',
+      requestId: 'requestId',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -2307,9 +2307,9 @@ export class EntityDeleteResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       module: EntityDeleteResponseBodyModule,
       morePage: 'boolean',
+      requestId: 'string',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -3761,7 +3761,7 @@ export class IsvUserSaveResponseBody extends $tea.Model {
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
-  traceid?: string;
+  traceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -3769,7 +3769,7 @@ export class IsvUserSaveResponseBody extends $tea.Model {
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
-      traceid: 'traceid',
+      traceId: 'traceId',
     };
   }
 
@@ -3780,7 +3780,7 @@ export class IsvUserSaveResponseBody extends $tea.Model {
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
-      traceid: 'string',
+      traceId: 'string',
     };
   }
 
@@ -4514,6 +4514,99 @@ export class TrainOrderQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TrainOrderQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UserQueryRequest extends $tea.Model {
+  modifiedTimeGreaterOrEqualThan?: string;
+  thirdPartCorpId?: string;
+  thirdPartJobNo?: string;
+  topAppKeyOwnerId?: string;
+  topAuthorizedHavanaId?: string;
+  topAuthorizedUserNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modifiedTimeGreaterOrEqualThan: 'modified_time_greater_or_equal_than',
+      thirdPartCorpId: 'third_part_corp_id',
+      thirdPartJobNo: 'third_part_job_no',
+      topAppKeyOwnerId: 'top_app_key_owner_id',
+      topAuthorizedHavanaId: 'top_authorized_havana_id',
+      topAuthorizedUserNick: 'top_authorized_user_nick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifiedTimeGreaterOrEqualThan: 'string',
+      thirdPartCorpId: 'string',
+      thirdPartJobNo: 'string',
+      topAppKeyOwnerId: 'string',
+      topAuthorizedHavanaId: 'string',
+      topAuthorizedUserNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UserQueryResponseBody extends $tea.Model {
+  requestId?: string;
+  module?: UserQueryResponseBodyModule;
+  resultCode?: number;
+  resultMsg?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      module: 'module',
+      resultCode: 'result_code',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      module: UserQueryResponseBodyModule,
+      resultCode: 'number',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UserQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UserQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UserQueryResponseBody,
     };
   }
 
@@ -9554,6 +9647,59 @@ export class TrainOrderQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class UserQueryResponseBodyModuleItems extends $tea.Model {
+  employeeNick?: string;
+  thirdPartEmployeeId?: string;
+  thirdPartJobNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      employeeNick: 'employee_nick',
+      thirdPartEmployeeId: 'third_part_employee_id',
+      thirdPartJobNo: 'third_part_job_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      employeeNick: 'string',
+      thirdPartEmployeeId: 'string',
+      thirdPartJobNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UserQueryResponseBodyModule extends $tea.Model {
+  hasMore?: boolean;
+  items?: UserQueryResponseBodyModuleItems[];
+  pageToken?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'has_more',
+      items: 'items',
+      pageToken: 'page_token',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      items: { 'type': 'array', 'itemType': UserQueryResponseBodyModuleItems },
+      pageToken: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -10849,8 +10995,8 @@ export default class Client extends OpenApi {
       action: "EntityDelete",
       version: "2022-05-20",
       protocol: "HTTPS",
-      pathname: `/costcenter/v1/delete-entity`,
-      method: "DELETE",
+      pathname: `/costcenter/v1/entity/action/delete`,
+      method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "formData",
@@ -11956,6 +12102,57 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<TrainOrderQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderQueryResponse({}));
+  }
+
+  async userQuery(request: UserQueryRequest): Promise<UserQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.userQueryWithOptions(request, headers, runtime);
+  }
+
+  async userQueryWithOptions(request: UserQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UserQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.modifiedTimeGreaterOrEqualThan)) {
+      query["modified_time_greater_or_equal_than"] = request.modifiedTimeGreaterOrEqualThan;
+    }
+
+    if (!Util.isUnset(request.thirdPartCorpId)) {
+      query["third_part_corp_id"] = request.thirdPartCorpId;
+    }
+
+    if (!Util.isUnset(request.thirdPartJobNo)) {
+      query["third_part_job_no"] = request.thirdPartJobNo;
+    }
+
+    if (!Util.isUnset(request.topAppKeyOwnerId)) {
+      query["top_app_key_owner_id"] = request.topAppKeyOwnerId;
+    }
+
+    if (!Util.isUnset(request.topAuthorizedHavanaId)) {
+      query["top_authorized_havana_id"] = request.topAuthorizedHavanaId;
+    }
+
+    if (!Util.isUnset(request.topAuthorizedUserNick)) {
+      query["top_authorized_user_nick"] = request.topAuthorizedUserNick;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UserQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/user/v1/user`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UserQueryResponse>(await this.callApi(params, req, runtime), new UserQueryResponse({}));
   }
 
 }
