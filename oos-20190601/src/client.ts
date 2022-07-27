@@ -9,19 +9,19 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelExecutionRequest extends $tea.Model {
-  regionId?: string;
   executionId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       executionId: 'ExecutionId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       executionId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -51,10 +51,12 @@ export class CancelExecutionResponseBody extends $tea.Model {
 
 export class CancelExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -62,6 +64,7 @@ export class CancelExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelExecutionResponseBody,
     };
   }
@@ -72,24 +75,24 @@ export class CancelExecutionResponse extends $tea.Model {
 }
 
 export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
   regionId?: string;
   resourceId?: string;
-  newResourceGroupId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      newResourceGroupId: 'NewResourceGroupId',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
-      newResourceGroupId: 'NewResourceGroupId',
       resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      newResourceGroupId: 'string',
       regionId: 'string',
       resourceId: 'string',
-      newResourceGroupId: 'string',
       resourceType: 'string',
     };
   }
@@ -120,10 +123,12 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 
 export class ChangeResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -131,6 +136,7 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ChangeResourceGroupResponseBody,
     };
   }
@@ -140,44 +146,138 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   }
 }
 
-export class CreateApplicationRequest extends $tea.Model {
-  regionId?: string;
+export class ContinueDeployApplicationGroupRequest extends $tea.Model {
+  applicationName?: string;
+  deployParameters?: string;
   name?: string;
-  description?: string;
-  type?: string;
-  resourceGroupId?: string;
-  cloudMonitorContactGroupList?: string;
-  cloudMonitorEnableSubscribeEvent?: boolean;
-  cloudMonitorEnableInstallAgent?: boolean;
-  cloudMonitorTemplateIdList?: string;
-  cloudMonitorRuleEnabled?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      applicationName: 'ApplicationName',
+      deployParameters: 'DeployParameters',
       name: 'Name',
-      description: 'Description',
-      type: 'Type',
-      resourceGroupId: 'ResourceGroupId',
-      cloudMonitorContactGroupList: 'CloudMonitorContactGroupList',
-      cloudMonitorEnableSubscribeEvent: 'CloudMonitorEnableSubscribeEvent',
-      cloudMonitorEnableInstallAgent: 'CloudMonitorEnableInstallAgent',
-      cloudMonitorTemplateIdList: 'CloudMonitorTemplateIdList',
-      cloudMonitorRuleEnabled: 'CloudMonitorRuleEnabled',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      applicationName: 'string',
+      deployParameters: 'string',
       name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueDeployApplicationGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueDeployApplicationGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ContinueDeployApplicationGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ContinueDeployApplicationGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
       description: 'string',
-      type: 'string',
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
-      cloudMonitorContactGroupList: 'string',
-      cloudMonitorEnableSubscribeEvent: 'boolean',
-      cloudMonitorEnableInstallAgent: 'boolean',
-      cloudMonitorTemplateIdList: 'string',
-      cloudMonitorRuleEnabled: 'boolean',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -187,19 +287,19 @@ export class CreateApplicationRequest extends $tea.Model {
 }
 
 export class CreateApplicationResponseBody extends $tea.Model {
-  requestId?: string;
   application?: CreateApplicationResponseBodyApplication;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       application: 'Application',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       application: CreateApplicationResponseBodyApplication,
+      requestId: 'string',
     };
   }
 
@@ -210,10 +310,12 @@ export class CreateApplicationResponseBody extends $tea.Model {
 
 export class CreateApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -221,6 +323,7 @@ export class CreateApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateApplicationResponseBody,
     };
   }
@@ -231,37 +334,40 @@ export class CreateApplicationResponse extends $tea.Model {
 }
 
 export class CreateApplicationGroupRequest extends $tea.Model {
-  regionId?: string;
   applicationName?: string;
-  description?: string;
+  clientToken?: string;
+  cmsGroupId?: string;
   deployRegionId?: string;
-  environment?: string;
-  createType?: string;
-  importClusterId?: string;
+  description?: string;
+  importTagKey?: string;
+  importTagValue?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       applicationName: 'ApplicationName',
-      description: 'Description',
+      clientToken: 'ClientToken',
+      cmsGroupId: 'CmsGroupId',
       deployRegionId: 'DeployRegionId',
-      environment: 'Environment',
-      createType: 'CreateType',
-      importClusterId: 'ImportClusterId',
+      description: 'Description',
+      importTagKey: 'ImportTagKey',
+      importTagValue: 'ImportTagValue',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       applicationName: 'string',
-      description: 'string',
+      clientToken: 'string',
+      cmsGroupId: 'string',
       deployRegionId: 'string',
-      environment: 'string',
-      createType: 'string',
-      importClusterId: 'string',
+      description: 'string',
+      importTagKey: 'string',
+      importTagValue: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -271,19 +377,19 @@ export class CreateApplicationGroupRequest extends $tea.Model {
 }
 
 export class CreateApplicationGroupResponseBody extends $tea.Model {
-  requestId?: string;
   applicationGroup?: CreateApplicationGroupResponseBodyApplicationGroup;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       applicationGroup: 'ApplicationGroup',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       applicationGroup: CreateApplicationGroupResponseBodyApplicationGroup,
+      requestId: 'string',
     };
   }
 
@@ -294,10 +400,12 @@ export class CreateApplicationGroupResponseBody extends $tea.Model {
 
 export class CreateApplicationGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateApplicationGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -305,6 +413,7 @@ export class CreateApplicationGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateApplicationGroupResponseBody,
     };
   }
@@ -315,40 +424,40 @@ export class CreateApplicationGroupResponse extends $tea.Model {
 }
 
 export class CreateParameterRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  type?: string;
-  value?: string;
-  description?: string;
   clientToken?: string;
   constraints?: string;
-  tags?: { [key: string]: any };
+  description?: string;
+  name?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
-      description: 'Description',
       clientToken: 'ClientToken',
       constraints: 'Constraints',
-      tags: 'Tags',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      type: 'string',
-      value: 'string',
-      description: 'string',
       clientToken: 'string',
       constraints: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -358,40 +467,40 @@ export class CreateParameterRequest extends $tea.Model {
 }
 
 export class CreateParameterShrinkRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  type?: string;
-  value?: string;
-  description?: string;
   clientToken?: string;
   constraints?: string;
-  tagsShrink?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tagsShrink?: string;
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
-      description: 'Description',
       clientToken: 'ClientToken',
       constraints: 'Constraints',
-      tagsShrink: 'Tags',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      type: 'string',
-      value: 'string',
-      description: 'string',
       clientToken: 'string',
       constraints: 'string',
-      tagsShrink: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tagsShrink: 'string',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -401,19 +510,19 @@ export class CreateParameterShrinkRequest extends $tea.Model {
 }
 
 export class CreateParameterResponseBody extends $tea.Model {
-  requestId?: string;
   parameter?: CreateParameterResponseBodyParameter;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       parameter: 'Parameter',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       parameter: CreateParameterResponseBodyParameter,
+      requestId: 'string',
     };
   }
 
@@ -424,10 +533,12 @@ export class CreateParameterResponseBody extends $tea.Model {
 
 export class CreateParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -435,6 +546,7 @@ export class CreateParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateParameterResponseBody,
     };
   }
@@ -445,31 +557,31 @@ export class CreateParameterResponse extends $tea.Model {
 }
 
 export class CreatePatchBaselineRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  description?: string;
-  clientToken?: string;
-  operationSystem?: string;
   approvalRules?: string;
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  operationSystem?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      description: 'Description',
-      clientToken: 'ClientToken',
-      operationSystem: 'OperationSystem',
       approvalRules: 'ApprovalRules',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      description: 'string',
-      clientToken: 'string',
-      operationSystem: 'string',
       approvalRules: 'string',
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      operationSystem: 'string',
+      regionId: 'string',
     };
   }
 
@@ -479,19 +591,19 @@ export class CreatePatchBaselineRequest extends $tea.Model {
 }
 
 export class CreatePatchBaselineResponseBody extends $tea.Model {
-  requestId?: string;
   patchBaseline?: CreatePatchBaselineResponseBodyPatchBaseline;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       patchBaseline: 'PatchBaseline',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       patchBaseline: CreatePatchBaselineResponseBodyPatchBaseline,
+      requestId: 'string',
     };
   }
 
@@ -502,10 +614,12 @@ export class CreatePatchBaselineResponseBody extends $tea.Model {
 
 export class CreatePatchBaselineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreatePatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -513,6 +627,7 @@ export class CreatePatchBaselineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreatePatchBaselineResponseBody,
     };
   }
@@ -523,43 +638,43 @@ export class CreatePatchBaselineResponse extends $tea.Model {
 }
 
 export class CreateSecretParameterRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  type?: string;
-  value?: string;
-  description?: string;
-  keyId?: string;
   clientToken?: string;
   constraints?: string;
-  tags?: string;
+  description?: string;
+  keyId?: string;
+  name?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tags?: string;
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
-      description: 'Description',
-      keyId: 'KeyId',
       clientToken: 'ClientToken',
       constraints: 'Constraints',
-      tags: 'Tags',
+      description: 'Description',
+      keyId: 'KeyId',
+      name: 'Name',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      type: 'string',
-      value: 'string',
-      description: 'string',
-      keyId: 'string',
       clientToken: 'string',
       constraints: 'string',
-      tags: 'string',
+      description: 'string',
+      keyId: 'string',
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tags: 'string',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -569,19 +684,19 @@ export class CreateSecretParameterRequest extends $tea.Model {
 }
 
 export class CreateSecretParameterResponseBody extends $tea.Model {
-  requestId?: string;
   parameter?: CreateSecretParameterResponseBodyParameter;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       parameter: 'Parameter',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       parameter: CreateSecretParameterResponseBodyParameter,
+      requestId: 'string',
     };
   }
 
@@ -592,10 +707,12 @@ export class CreateSecretParameterResponseBody extends $tea.Model {
 
 export class CreateSecretParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSecretParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -603,6 +720,7 @@ export class CreateSecretParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSecretParameterResponseBody,
     };
   }
@@ -613,49 +731,49 @@ export class CreateSecretParameterResponse extends $tea.Model {
 }
 
 export class CreateStateConfigurationRequest extends $tea.Model {
-  regionId?: string;
+  clientToken?: string;
+  configureMode?: string;
   description?: string;
+  parameters?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  scheduleExpression?: string;
+  scheduleType?: string;
+  tags?: { [key: string]: any };
+  targets?: string;
   templateName?: string;
   templateVersion?: string;
-  parameters?: string;
-  configureMode?: string;
-  scheduleType?: string;
-  scheduleExpression?: string;
-  targets?: string;
-  clientToken?: string;
-  tags?: { [key: string]: any };
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      clientToken: 'ClientToken',
+      configureMode: 'ConfigureMode',
       description: 'Description',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      scheduleExpression: 'ScheduleExpression',
+      scheduleType: 'ScheduleType',
+      tags: 'Tags',
+      targets: 'Targets',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
-      scheduleExpression: 'ScheduleExpression',
-      targets: 'Targets',
-      clientToken: 'ClientToken',
-      tags: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      clientToken: 'string',
+      configureMode: 'string',
       description: 'string',
+      parameters: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      scheduleExpression: 'string',
+      scheduleType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targets: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      parameters: 'string',
-      configureMode: 'string',
-      scheduleType: 'string',
-      scheduleExpression: 'string',
-      targets: 'string',
-      clientToken: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceGroupId: 'string',
     };
   }
 
@@ -665,49 +783,49 @@ export class CreateStateConfigurationRequest extends $tea.Model {
 }
 
 export class CreateStateConfigurationShrinkRequest extends $tea.Model {
-  regionId?: string;
+  clientToken?: string;
+  configureMode?: string;
   description?: string;
+  parameters?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  scheduleExpression?: string;
+  scheduleType?: string;
+  tagsShrink?: string;
+  targets?: string;
   templateName?: string;
   templateVersion?: string;
-  parameters?: string;
-  configureMode?: string;
-  scheduleType?: string;
-  scheduleExpression?: string;
-  targets?: string;
-  clientToken?: string;
-  tagsShrink?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      clientToken: 'ClientToken',
+      configureMode: 'ConfigureMode',
       description: 'Description',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      scheduleExpression: 'ScheduleExpression',
+      scheduleType: 'ScheduleType',
+      tagsShrink: 'Tags',
+      targets: 'Targets',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
-      scheduleExpression: 'ScheduleExpression',
-      targets: 'Targets',
-      clientToken: 'ClientToken',
-      tagsShrink: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      clientToken: 'string',
+      configureMode: 'string',
       description: 'string',
+      parameters: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      scheduleExpression: 'string',
+      scheduleType: 'string',
+      tagsShrink: 'string',
+      targets: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      parameters: 'string',
-      configureMode: 'string',
-      scheduleType: 'string',
-      scheduleExpression: 'string',
-      targets: 'string',
-      clientToken: 'string',
-      tagsShrink: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -740,10 +858,12 @@ export class CreateStateConfigurationResponseBody extends $tea.Model {
 
 export class CreateStateConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateStateConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -751,6 +871,7 @@ export class CreateStateConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateStateConfigurationResponseBody,
     };
   }
@@ -761,31 +882,31 @@ export class CreateStateConfigurationResponse extends $tea.Model {
 }
 
 export class CreateTemplateRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
   content?: string;
-  tags?: { [key: string]: any };
-  versionName?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  templateName?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
       content: 'Content',
-      tags: 'Tags',
-      versionName: 'VersionName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      templateName: 'TemplateName',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
       content: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      versionName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateName: 'string',
+      versionName: 'string',
     };
   }
 
@@ -795,31 +916,31 @@ export class CreateTemplateRequest extends $tea.Model {
 }
 
 export class CreateTemplateShrinkRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
   content?: string;
-  tagsShrink?: string;
-  versionName?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tagsShrink?: string;
+  templateName?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
       content: 'Content',
-      tagsShrink: 'Tags',
-      versionName: 'VersionName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      templateName: 'TemplateName',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
       content: 'string',
-      tagsShrink: 'string',
-      versionName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tagsShrink: 'string',
+      templateName: 'string',
+      versionName: 'string',
     };
   }
 
@@ -829,22 +950,22 @@ export class CreateTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateTemplateResponseBody extends $tea.Model {
-  templateType?: string;
   requestId?: string;
   template?: CreateTemplateResponseBodyTemplate;
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
-      templateType: 'TemplateType',
       requestId: 'RequestId',
       template: 'Template',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateType: 'string',
       requestId: 'string',
       template: CreateTemplateResponseBodyTemplate,
+      templateType: 'string',
     };
   }
 
@@ -855,10 +976,12 @@ export class CreateTemplateResponseBody extends $tea.Model {
 
 export class CreateTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -866,6 +989,7 @@ export class CreateTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateTemplateResponseBody,
     };
   }
@@ -876,19 +1000,19 @@ export class CreateTemplateResponse extends $tea.Model {
 }
 
 export class DeleteApplicationRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -918,10 +1042,12 @@ export class DeleteApplicationResponseBody extends $tea.Model {
 
 export class DeleteApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -929,6 +1055,7 @@ export class DeleteApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteApplicationResponseBody,
     };
   }
@@ -939,19 +1066,22 @@ export class DeleteApplicationResponse extends $tea.Model {
 }
 
 export class DeleteApplicationGroupRequest extends $tea.Model {
-  regionId?: string;
+  applicationName?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      applicationName: 'ApplicationName',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      applicationName: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -981,10 +1111,12 @@ export class DeleteApplicationGroupResponseBody extends $tea.Model {
 
 export class DeleteApplicationGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteApplicationGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -992,6 +1124,7 @@ export class DeleteApplicationGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteApplicationGroupResponseBody,
     };
   }
@@ -1002,19 +1135,19 @@ export class DeleteApplicationGroupResponse extends $tea.Model {
 }
 
 export class DeleteExecutionsRequest extends $tea.Model {
-  regionId?: string;
   executionIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       executionIds: 'ExecutionIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       executionIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1044,10 +1177,12 @@ export class DeleteExecutionsResponseBody extends $tea.Model {
 
 export class DeleteExecutionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1055,6 +1190,7 @@ export class DeleteExecutionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteExecutionsResponseBody,
     };
   }
@@ -1065,19 +1201,19 @@ export class DeleteExecutionsResponse extends $tea.Model {
 }
 
 export class DeleteParameterRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1107,10 +1243,12 @@ export class DeleteParameterResponseBody extends $tea.Model {
 
 export class DeleteParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1118,6 +1256,7 @@ export class DeleteParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteParameterResponseBody,
     };
   }
@@ -1128,19 +1267,19 @@ export class DeleteParameterResponse extends $tea.Model {
 }
 
 export class DeletePatchBaselineRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1170,10 +1309,12 @@ export class DeletePatchBaselineResponseBody extends $tea.Model {
 
 export class DeletePatchBaselineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1181,6 +1322,7 @@ export class DeletePatchBaselineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePatchBaselineResponseBody,
     };
   }
@@ -1191,19 +1333,19 @@ export class DeletePatchBaselineResponse extends $tea.Model {
 }
 
 export class DeleteSecretParameterRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1233,10 +1375,12 @@ export class DeleteSecretParameterResponseBody extends $tea.Model {
 
 export class DeleteSecretParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSecretParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1244,6 +1388,7 @@ export class DeleteSecretParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSecretParameterResponseBody,
     };
   }
@@ -1254,22 +1399,22 @@ export class DeleteSecretParameterResponse extends $tea.Model {
 }
 
 export class DeleteStateConfigurationsRequest extends $tea.Model {
+  clientToken?: string;
   regionId?: string;
   stateConfigurationIds?: string;
-  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       regionId: 'RegionId',
       stateConfigurationIds: 'StateConfigurationIds',
-      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       regionId: 'string',
       stateConfigurationIds: 'string',
-      clientToken: 'string',
     };
   }
 
@@ -1299,10 +1444,12 @@ export class DeleteStateConfigurationsResponseBody extends $tea.Model {
 
 export class DeleteStateConfigurationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteStateConfigurationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1310,6 +1457,7 @@ export class DeleteStateConfigurationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteStateConfigurationsResponseBody,
     };
   }
@@ -1320,22 +1468,22 @@ export class DeleteStateConfigurationsResponse extends $tea.Model {
 }
 
 export class DeleteTemplateRequest extends $tea.Model {
+  autoDeleteExecutions?: boolean;
   regionId?: string;
   templateName?: string;
-  autoDeleteExecutions?: boolean;
   static names(): { [key: string]: string } {
     return {
+      autoDeleteExecutions: 'AutoDeleteExecutions',
       regionId: 'RegionId',
       templateName: 'TemplateName',
-      autoDeleteExecutions: 'AutoDeleteExecutions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoDeleteExecutions: 'boolean',
       regionId: 'string',
       templateName: 'string',
-      autoDeleteExecutions: 'boolean',
     };
   }
 
@@ -1365,10 +1513,12 @@ export class DeleteTemplateResponseBody extends $tea.Model {
 
 export class DeleteTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1376,6 +1526,7 @@ export class DeleteTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTemplateResponseBody,
     };
   }
@@ -1386,22 +1537,22 @@ export class DeleteTemplateResponse extends $tea.Model {
 }
 
 export class DeleteTemplatesRequest extends $tea.Model {
+  autoDeleteExecutions?: boolean;
   regionId?: string;
   templateNames?: string;
-  autoDeleteExecutions?: boolean;
   static names(): { [key: string]: string } {
     return {
+      autoDeleteExecutions: 'AutoDeleteExecutions',
       regionId: 'RegionId',
       templateNames: 'TemplateNames',
-      autoDeleteExecutions: 'AutoDeleteExecutions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoDeleteExecutions: 'boolean',
       regionId: 'string',
       templateNames: 'string',
-      autoDeleteExecutions: 'boolean',
     };
   }
 
@@ -1431,10 +1582,12 @@ export class DeleteTemplatesResponseBody extends $tea.Model {
 
 export class DeleteTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1442,6 +1595,7 @@ export class DeleteTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteTemplatesResponseBody,
     };
   }
@@ -1451,20 +1605,92 @@ export class DeleteTemplatesResponse extends $tea.Model {
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
+export class DeployApplicationGroupRequest extends $tea.Model {
+  applicationName?: string;
+  deployParameters?: string;
+  name?: string;
   regionId?: string;
-  acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationName: 'ApplicationName',
+      deployParameters: 'DeployParameters',
+      name: 'Name',
       regionId: 'RegionId',
-      acceptLanguage: 'AcceptLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationName: 'string',
+      deployParameters: 'string',
+      name: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployApplicationGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployApplicationGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeployApplicationGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeployApplicationGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       acceptLanguage: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1474,19 +1700,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -1497,10 +1723,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1508,6 +1736,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -1566,10 +1795,12 @@ export class GenerateExecutionPolicyResponseBody extends $tea.Model {
 
 export class GenerateExecutionPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GenerateExecutionPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1577,6 +1808,7 @@ export class GenerateExecutionPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GenerateExecutionPolicyResponseBody,
     };
   }
@@ -1587,19 +1819,19 @@ export class GenerateExecutionPolicyResponse extends $tea.Model {
 }
 
 export class GetApplicationRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1609,19 +1841,19 @@ export class GetApplicationRequest extends $tea.Model {
 }
 
 export class GetApplicationResponseBody extends $tea.Model {
-  requestId?: string;
   application?: GetApplicationResponseBodyApplication;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       application: 'Application',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       application: GetApplicationResponseBodyApplication,
+      requestId: 'string',
     };
   }
 
@@ -1632,10 +1864,12 @@ export class GetApplicationResponseBody extends $tea.Model {
 
 export class GetApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1643,6 +1877,7 @@ export class GetApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetApplicationResponseBody,
     };
   }
@@ -1653,19 +1888,22 @@ export class GetApplicationResponse extends $tea.Model {
 }
 
 export class GetApplicationGroupRequest extends $tea.Model {
-  regionId?: string;
+  applicationName?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      applicationName: 'ApplicationName',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      applicationName: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1675,19 +1913,19 @@ export class GetApplicationGroupRequest extends $tea.Model {
 }
 
 export class GetApplicationGroupResponseBody extends $tea.Model {
-  requestId?: string;
   applicationGroup?: GetApplicationGroupResponseBodyApplicationGroup;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       applicationGroup: 'ApplicationGroup',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       applicationGroup: GetApplicationGroupResponseBodyApplicationGroup,
+      requestId: 'string',
     };
   }
 
@@ -1698,10 +1936,12 @@ export class GetApplicationGroupResponseBody extends $tea.Model {
 
 export class GetApplicationGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetApplicationGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1709,6 +1949,7 @@ export class GetApplicationGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetApplicationGroupResponseBody,
     };
   }
@@ -1719,19 +1960,19 @@ export class GetApplicationGroupResponse extends $tea.Model {
 }
 
 export class GetExecutionTemplateRequest extends $tea.Model {
-  regionId?: string;
   executionId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       executionId: 'ExecutionId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       executionId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1767,10 +2008,12 @@ export class GetExecutionTemplateResponseBody extends $tea.Model {
 
 export class GetExecutionTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetExecutionTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1778,6 +2021,7 @@ export class GetExecutionTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetExecutionTemplateResponseBody,
     };
   }
@@ -1788,28 +2032,28 @@ export class GetExecutionTemplateResponse extends $tea.Model {
 }
 
 export class GetInventorySchemaRequest extends $tea.Model {
-  regionId?: string;
   aggregator?: boolean;
-  typeName?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
+  typeName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       aggregator: 'Aggregator',
-      typeName: 'TypeName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
+      typeName: 'TypeName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       aggregator: 'boolean',
-      typeName: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
+      typeName: 'string',
     };
   }
 
@@ -1819,24 +2063,24 @@ export class GetInventorySchemaRequest extends $tea.Model {
 }
 
 export class GetInventorySchemaResponseBody extends $tea.Model {
+  maxResults?: string;
   nextToken?: string;
   requestId?: string;
-  maxResults?: string;
   schemas?: GetInventorySchemaResponseBodySchemas[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
       schemas: 'Schemas',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'string',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'string',
       schemas: { 'type': 'array', 'itemType': GetInventorySchemaResponseBodySchemas },
     };
   }
@@ -1848,10 +2092,12 @@ export class GetInventorySchemaResponseBody extends $tea.Model {
 
 export class GetInventorySchemaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetInventorySchemaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1859,6 +2105,7 @@ export class GetInventorySchemaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetInventorySchemaResponseBody,
     };
   }
@@ -1869,24 +2116,24 @@ export class GetInventorySchemaResponse extends $tea.Model {
 }
 
 export class GetParameterRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
   parameterVersion?: number;
+  regionId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
       parameterVersion: 'ParameterVersion',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
       parameterVersion: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1897,19 +2144,19 @@ export class GetParameterRequest extends $tea.Model {
 }
 
 export class GetParameterResponseBody extends $tea.Model {
-  requestId?: string;
   parameter?: GetParameterResponseBodyParameter;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       parameter: 'Parameter',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       parameter: GetParameterResponseBodyParameter,
+      requestId: 'string',
     };
   }
 
@@ -1920,10 +2167,12 @@ export class GetParameterResponseBody extends $tea.Model {
 
 export class GetParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1931,6 +2180,7 @@ export class GetParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetParameterResponseBody,
     };
   }
@@ -1941,19 +2191,19 @@ export class GetParameterResponse extends $tea.Model {
 }
 
 export class GetParametersRequest extends $tea.Model {
-  regionId?: string;
   names?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       names: 'Names',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       names: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1963,22 +2213,22 @@ export class GetParametersRequest extends $tea.Model {
 }
 
 export class GetParametersResponseBody extends $tea.Model {
-  requestId?: string;
   invalidParameters?: string[];
   parameters?: GetParametersResponseBodyParameters[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       invalidParameters: 'InvalidParameters',
       parameters: 'Parameters',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       invalidParameters: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'array', 'itemType': GetParametersResponseBodyParameters },
+      requestId: 'string',
     };
   }
 
@@ -1989,10 +2239,12 @@ export class GetParametersResponseBody extends $tea.Model {
 
 export class GetParametersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetParametersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2000,6 +2252,7 @@ export class GetParametersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetParametersResponseBody,
     };
   }
@@ -2010,28 +2263,28 @@ export class GetParametersResponse extends $tea.Model {
 }
 
 export class GetParametersByPathRequest extends $tea.Model {
-  regionId?: string;
+  maxResults?: number;
+  nextToken?: string;
   path?: string;
   recursive?: boolean;
-  nextToken?: string;
-  maxResults?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       path: 'Path',
       recursive: 'Recursive',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       path: 'string',
       recursive: 'boolean',
-      nextToken: 'string',
-      maxResults: 'number',
+      regionId: 'string',
     };
   }
 
@@ -2041,28 +2294,28 @@ export class GetParametersByPathRequest extends $tea.Model {
 }
 
 export class GetParametersByPathResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
+  parameters?: GetParametersByPathResponseBodyParameters[];
   requestId?: string;
   totalCount?: number;
-  maxResults?: number;
-  parameters?: GetParametersByPathResponseBodyParameters[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      parameters: 'Parameters',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      parameters: 'Parameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetParametersByPathResponseBodyParameters },
       requestId: 'string',
       totalCount: 'number',
-      maxResults: 'number',
-      parameters: { 'type': 'array', 'itemType': GetParametersByPathResponseBodyParameters },
     };
   }
 
@@ -2073,10 +2326,12 @@ export class GetParametersByPathResponseBody extends $tea.Model {
 
 export class GetParametersByPathResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetParametersByPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2084,6 +2339,7 @@ export class GetParametersByPathResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetParametersByPathResponseBody,
     };
   }
@@ -2094,19 +2350,19 @@ export class GetParametersByPathResponse extends $tea.Model {
 }
 
 export class GetPatchBaselineRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2116,19 +2372,19 @@ export class GetPatchBaselineRequest extends $tea.Model {
 }
 
 export class GetPatchBaselineResponseBody extends $tea.Model {
-  requestId?: string;
   patchBaseline?: GetPatchBaselineResponseBodyPatchBaseline;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       patchBaseline: 'PatchBaseline',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       patchBaseline: GetPatchBaselineResponseBodyPatchBaseline,
+      requestId: 'string',
     };
   }
 
@@ -2139,10 +2395,12 @@ export class GetPatchBaselineResponseBody extends $tea.Model {
 
 export class GetPatchBaselineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2150,6 +2408,7 @@ export class GetPatchBaselineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPatchBaselineResponseBody,
     };
   }
@@ -2160,24 +2419,24 @@ export class GetPatchBaselineResponse extends $tea.Model {
 }
 
 export class GetSecretParameterRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
   parameterVersion?: number;
+  regionId?: string;
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
       parameterVersion: 'ParameterVersion',
+      regionId: 'RegionId',
       withDecryption: 'WithDecryption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
       parameterVersion: 'number',
+      regionId: 'string',
       withDecryption: 'boolean',
     };
   }
@@ -2188,19 +2447,19 @@ export class GetSecretParameterRequest extends $tea.Model {
 }
 
 export class GetSecretParameterResponseBody extends $tea.Model {
-  requestId?: string;
   parameter?: GetSecretParameterResponseBodyParameter;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       parameter: 'Parameter',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       parameter: GetSecretParameterResponseBodyParameter,
+      requestId: 'string',
     };
   }
 
@@ -2211,10 +2470,12 @@ export class GetSecretParameterResponseBody extends $tea.Model {
 
 export class GetSecretParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSecretParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2222,6 +2483,7 @@ export class GetSecretParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSecretParameterResponseBody,
     };
   }
@@ -2232,21 +2494,21 @@ export class GetSecretParameterResponse extends $tea.Model {
 }
 
 export class GetSecretParametersRequest extends $tea.Model {
-  regionId?: string;
   names?: string;
+  regionId?: string;
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       names: 'Names',
+      regionId: 'RegionId',
       withDecryption: 'WithDecryption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       names: 'string',
+      regionId: 'string',
       withDecryption: 'boolean',
     };
   }
@@ -2257,22 +2519,22 @@ export class GetSecretParametersRequest extends $tea.Model {
 }
 
 export class GetSecretParametersResponseBody extends $tea.Model {
-  requestId?: string;
   invalidParameters?: string[];
   parameters?: GetSecretParametersResponseBodyParameters[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       invalidParameters: 'InvalidParameters',
       parameters: 'Parameters',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       invalidParameters: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'array', 'itemType': GetSecretParametersResponseBodyParameters },
+      requestId: 'string',
     };
   }
 
@@ -2283,10 +2545,12 @@ export class GetSecretParametersResponseBody extends $tea.Model {
 
 export class GetSecretParametersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSecretParametersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2294,6 +2558,7 @@ export class GetSecretParametersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSecretParametersResponseBody,
     };
   }
@@ -2304,30 +2569,30 @@ export class GetSecretParametersResponse extends $tea.Model {
 }
 
 export class GetSecretParametersByPathRequest extends $tea.Model {
-  regionId?: string;
+  maxResults?: number;
+  nextToken?: string;
   path?: string;
   recursive?: boolean;
-  nextToken?: string;
-  maxResults?: number;
+  regionId?: string;
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       path: 'Path',
       recursive: 'Recursive',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
+      regionId: 'RegionId',
       withDecryption: 'WithDecryption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       path: 'string',
       recursive: 'boolean',
-      nextToken: 'string',
-      maxResults: 'number',
+      regionId: 'string',
       withDecryption: 'boolean',
     };
   }
@@ -2338,28 +2603,28 @@ export class GetSecretParametersByPathRequest extends $tea.Model {
 }
 
 export class GetSecretParametersByPathResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
+  parameters?: GetSecretParametersByPathResponseBodyParameters[];
   requestId?: string;
   totalCount?: number;
-  maxResults?: number;
-  parameters?: GetSecretParametersByPathResponseBodyParameters[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      parameters: 'Parameters',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      parameters: 'Parameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetSecretParametersByPathResponseBodyParameters },
       requestId: 'string',
       totalCount: 'number',
-      maxResults: 'number',
-      parameters: { 'type': 'array', 'itemType': GetSecretParametersByPathResponseBodyParameters },
     };
   }
 
@@ -2370,10 +2635,12 @@ export class GetSecretParametersByPathResponseBody extends $tea.Model {
 
 export class GetSecretParametersByPathResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSecretParametersByPathResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2381,6 +2648,7 @@ export class GetSecretParametersByPathResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSecretParametersByPathResponseBody,
     };
   }
@@ -2433,10 +2701,12 @@ export class GetServiceSettingsResponseBody extends $tea.Model {
 
 export class GetServiceSettingsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetServiceSettingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2444,6 +2714,7 @@ export class GetServiceSettingsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetServiceSettingsResponseBody,
     };
   }
@@ -2505,10 +2776,12 @@ export class GetTemplateResponseBody extends $tea.Model {
 
 export class GetTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2516,6 +2789,7 @@ export class GetTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTemplateResponseBody,
     };
   }
@@ -2526,25 +2800,25 @@ export class GetTemplateResponse extends $tea.Model {
 }
 
 export class ListActionsRequest extends $tea.Model {
-  regionId?: string;
-  OOSActionName?: string;
   maxResults?: number;
   nextToken?: string;
+  OOSActionName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      OOSActionName: 'OOSActionName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      OOSActionName: 'OOSActionName',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      OOSActionName: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      OOSActionName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2554,25 +2828,25 @@ export class ListActionsRequest extends $tea.Model {
 }
 
 export class ListActionsResponseBody extends $tea.Model {
+  actions?: ListActionsResponseBodyActions[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  actions?: ListActionsResponseBodyActions[];
   static names(): { [key: string]: string } {
     return {
+      actions: 'Actions',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      actions: 'Actions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      actions: { 'type': 'array', 'itemType': ListActionsResponseBodyActions },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      actions: { 'type': 'array', 'itemType': ListActionsResponseBodyActions },
     };
   }
 
@@ -2583,10 +2857,12 @@ export class ListActionsResponseBody extends $tea.Model {
 
 export class ListActionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListActionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2594,6 +2870,7 @@ export class ListActionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListActionsResponseBody,
     };
   }
@@ -2604,31 +2881,28 @@ export class ListActionsResponse extends $tea.Model {
 }
 
 export class ListApplicationGroupsRequest extends $tea.Model {
-  regionId?: string;
   applicationName?: string;
-  deployRegionId?: boolean;
-  environment?: boolean;
+  deployRegionId?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       applicationName: 'ApplicationName',
       deployRegionId: 'DeployRegionId',
-      environment: 'Environment',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       applicationName: 'string',
-      deployRegionId: 'boolean',
-      environment: 'boolean',
+      deployRegionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2638,25 +2912,25 @@ export class ListApplicationGroupsRequest extends $tea.Model {
 }
 
 export class ListApplicationGroupsResponseBody extends $tea.Model {
+  applicationGroups?: ListApplicationGroupsResponseBodyApplicationGroups[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  applicationGroups?: ListApplicationGroupsResponseBodyApplicationGroups[];
   static names(): { [key: string]: string } {
     return {
+      applicationGroups: 'ApplicationGroups',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      applicationGroups: 'ApplicationGroups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationGroups: { 'type': 'array', 'itemType': ListApplicationGroupsResponseBodyApplicationGroups },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      applicationGroups: { 'type': 'array', 'itemType': ListApplicationGroupsResponseBodyApplicationGroups },
     };
   }
 
@@ -2667,10 +2941,12 @@ export class ListApplicationGroupsResponseBody extends $tea.Model {
 
 export class ListApplicationGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListApplicationGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2678,6 +2954,7 @@ export class ListApplicationGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListApplicationGroupsResponseBody,
     };
   }
@@ -2688,25 +2965,65 @@ export class ListApplicationGroupsResponse extends $tea.Model {
 }
 
 export class ListApplicationsRequest extends $tea.Model {
-  regionId?: string;
-  isSystem?: boolean;
   maxResults?: number;
+  name?: string;
+  names?: string;
   nextToken?: string;
+  regionId?: string;
+  tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      isSystem: 'IsSystem',
       maxResults: 'MaxResults',
+      name: 'Name',
+      names: 'Names',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      isSystem: 'boolean',
       maxResults: 'number',
+      name: 'string',
+      names: 'string',
       nextToken: 'string',
+      regionId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  name?: string;
+  names?: string;
+  nextToken?: string;
+  regionId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      name: 'Name',
+      names: 'Names',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      names: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -2716,25 +3033,25 @@ export class ListApplicationsRequest extends $tea.Model {
 }
 
 export class ListApplicationsResponseBody extends $tea.Model {
+  applications?: ListApplicationsResponseBodyApplications[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  applications?: ListApplicationsResponseBodyApplications[];
   static names(): { [key: string]: string } {
     return {
+      applications: 'Applications',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      applications: 'Applications',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applications: { 'type': 'array', 'itemType': ListApplicationsResponseBodyApplications },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      applications: { 'type': 'array', 'itemType': ListApplicationsResponseBodyApplications },
     };
   }
 
@@ -2745,10 +3062,12 @@ export class ListApplicationsResponseBody extends $tea.Model {
 
 export class ListApplicationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListApplicationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2756,6 +3075,7 @@ export class ListApplicationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListApplicationsResponseBody,
     };
   }
@@ -2766,31 +3086,31 @@ export class ListApplicationsResponse extends $tea.Model {
 }
 
 export class ListExecutionLogsRequest extends $tea.Model {
-  regionId?: string;
   executionId?: string;
-  taskExecutionId?: string;
   logType?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
+  taskExecutionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       executionId: 'ExecutionId',
-      taskExecutionId: 'TaskExecutionId',
       logType: 'LogType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
+      taskExecutionId: 'TaskExecutionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       executionId: 'string',
-      taskExecutionId: 'string',
       logType: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
+      taskExecutionId: 'string',
     };
   }
 
@@ -2800,28 +3120,28 @@ export class ListExecutionLogsRequest extends $tea.Model {
 }
 
 export class ListExecutionLogsResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
+  executionLogs?: ListExecutionLogsResponseBodyExecutionLogs[];
   isTruncated?: boolean;
   maxResults?: number;
-  executionLogs?: ListExecutionLogsResponseBodyExecutionLogs[];
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
+      executionLogs: 'ExecutionLogs',
       isTruncated: 'IsTruncated',
       maxResults: 'MaxResults',
-      executionLogs: 'ExecutionLogs',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      requestId: 'string',
+      executionLogs: { 'type': 'array', 'itemType': ListExecutionLogsResponseBodyExecutionLogs },
       isTruncated: 'boolean',
       maxResults: 'number',
-      executionLogs: { 'type': 'array', 'itemType': ListExecutionLogsResponseBodyExecutionLogs },
+      nextToken: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2832,10 +3152,12 @@ export class ListExecutionLogsResponseBody extends $tea.Model {
 
 export class ListExecutionLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListExecutionLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2843,6 +3165,7 @@ export class ListExecutionLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListExecutionLogsResponseBody,
     };
   }
@@ -2898,10 +3221,12 @@ export class ListExecutionRiskyTasksResponseBody extends $tea.Model {
 
 export class ListExecutionRiskyTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListExecutionRiskyTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2909,6 +3234,7 @@ export class ListExecutionRiskyTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListExecutionRiskyTasksResponseBody,
     };
   }
@@ -2919,79 +3245,79 @@ export class ListExecutionRiskyTasksResponse extends $tea.Model {
 }
 
 export class ListExecutionsRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
-  status?: string;
-  executionId?: string;
-  startDateBefore?: string;
-  startDateAfter?: string;
-  endDateBefore?: string;
+  category?: string;
   endDateAfter?: string;
-  mode?: string;
+  endDateBefore?: string;
   executedBy?: string;
+  executionId?: string;
+  includeChildExecution?: boolean;
+  maxResults?: number;
+  mode?: string;
+  nextToken?: string;
   parentExecutionId?: string;
   ramRole?: string;
-  includeChildExecution?: boolean;
-  category?: string;
-  tags?: { [key: string]: any };
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceTemplateName?: string;
-  resourceGroupId?: string;
+  sortField?: string;
+  sortOrder?: string;
+  startDateAfter?: string;
+  startDateBefore?: string;
+  status?: string;
+  tags?: { [key: string]: any };
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
-      status: 'Status',
-      executionId: 'ExecutionId',
-      startDateBefore: 'StartDateBefore',
-      startDateAfter: 'StartDateAfter',
-      endDateBefore: 'EndDateBefore',
+      category: 'Category',
       endDateAfter: 'EndDateAfter',
-      mode: 'Mode',
+      endDateBefore: 'EndDateBefore',
       executedBy: 'ExecutedBy',
+      executionId: 'ExecutionId',
+      includeChildExecution: 'IncludeChildExecution',
+      maxResults: 'MaxResults',
+      mode: 'Mode',
+      nextToken: 'NextToken',
       parentExecutionId: 'ParentExecutionId',
       ramRole: 'RamRole',
-      includeChildExecution: 'IncludeChildExecution',
-      category: 'Category',
-      tags: 'Tags',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceTemplateName: 'ResourceTemplateName',
-      resourceGroupId: 'ResourceGroupId',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      startDateAfter: 'StartDateAfter',
+      startDateBefore: 'StartDateBefore',
+      status: 'Status',
+      tags: 'Tags',
+      templateName: 'TemplateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
-      status: 'string',
-      executionId: 'string',
-      startDateBefore: 'string',
-      startDateAfter: 'string',
-      endDateBefore: 'string',
+      category: 'string',
       endDateAfter: 'string',
-      mode: 'string',
+      endDateBefore: 'string',
       executedBy: 'string',
+      executionId: 'string',
+      includeChildExecution: 'boolean',
+      maxResults: 'number',
+      mode: 'string',
+      nextToken: 'string',
       parentExecutionId: 'string',
       ramRole: 'string',
-      includeChildExecution: 'boolean',
-      category: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceTemplateName: 'string',
-      resourceGroupId: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      startDateAfter: 'string',
+      startDateBefore: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateName: 'string',
     };
   }
 
@@ -3001,79 +3327,79 @@ export class ListExecutionsRequest extends $tea.Model {
 }
 
 export class ListExecutionsShrinkRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
-  status?: string;
-  executionId?: string;
-  startDateBefore?: string;
-  startDateAfter?: string;
-  endDateBefore?: string;
+  category?: string;
   endDateAfter?: string;
-  mode?: string;
+  endDateBefore?: string;
   executedBy?: string;
+  executionId?: string;
+  includeChildExecution?: boolean;
+  maxResults?: number;
+  mode?: string;
+  nextToken?: string;
   parentExecutionId?: string;
   ramRole?: string;
-  includeChildExecution?: boolean;
-  category?: string;
-  tagsShrink?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceTemplateName?: string;
-  resourceGroupId?: string;
+  sortField?: string;
+  sortOrder?: string;
+  startDateAfter?: string;
+  startDateBefore?: string;
+  status?: string;
+  tagsShrink?: string;
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
-      status: 'Status',
-      executionId: 'ExecutionId',
-      startDateBefore: 'StartDateBefore',
-      startDateAfter: 'StartDateAfter',
-      endDateBefore: 'EndDateBefore',
+      category: 'Category',
       endDateAfter: 'EndDateAfter',
-      mode: 'Mode',
+      endDateBefore: 'EndDateBefore',
       executedBy: 'ExecutedBy',
+      executionId: 'ExecutionId',
+      includeChildExecution: 'IncludeChildExecution',
+      maxResults: 'MaxResults',
+      mode: 'Mode',
+      nextToken: 'NextToken',
       parentExecutionId: 'ParentExecutionId',
       ramRole: 'RamRole',
-      includeChildExecution: 'IncludeChildExecution',
-      category: 'Category',
-      tagsShrink: 'Tags',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceTemplateName: 'ResourceTemplateName',
-      resourceGroupId: 'ResourceGroupId',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      startDateAfter: 'StartDateAfter',
+      startDateBefore: 'StartDateBefore',
+      status: 'Status',
+      tagsShrink: 'Tags',
+      templateName: 'TemplateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
-      status: 'string',
-      executionId: 'string',
-      startDateBefore: 'string',
-      startDateAfter: 'string',
-      endDateBefore: 'string',
+      category: 'string',
       endDateAfter: 'string',
-      mode: 'string',
+      endDateBefore: 'string',
       executedBy: 'string',
+      executionId: 'string',
+      includeChildExecution: 'boolean',
+      maxResults: 'number',
+      mode: 'string',
+      nextToken: 'string',
       parentExecutionId: 'string',
       ramRole: 'string',
-      includeChildExecution: 'boolean',
-      category: 'string',
-      tagsShrink: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceTemplateName: 'string',
-      resourceGroupId: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      startDateAfter: 'string',
+      startDateBefore: 'string',
+      status: 'string',
+      tagsShrink: 'string',
+      templateName: 'string',
     };
   }
 
@@ -3083,25 +3409,25 @@ export class ListExecutionsShrinkRequest extends $tea.Model {
 }
 
 export class ListExecutionsResponseBody extends $tea.Model {
+  executions?: ListExecutionsResponseBodyExecutions[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  executions?: ListExecutionsResponseBodyExecutions[];
   static names(): { [key: string]: string } {
     return {
+      executions: 'Executions',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      executions: 'Executions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      executions: { 'type': 'array', 'itemType': ListExecutionsResponseBodyExecutions },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      executions: { 'type': 'array', 'itemType': ListExecutionsResponseBodyExecutions },
     };
   }
 
@@ -3112,10 +3438,12 @@ export class ListExecutionsResponseBody extends $tea.Model {
 
 export class ListExecutionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3123,6 +3451,7 @@ export class ListExecutionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListExecutionsResponseBody,
     };
   }
@@ -3132,107 +3461,26 @@ export class ListExecutionsResponse extends $tea.Model {
   }
 }
 
-export class ListInstancePatchesRequest extends $tea.Model {
-  regionId?: string;
-  instanceId?: string;
-  maxResults?: number;
-  nextToken?: string;
-  patchStatuses?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      patchStatuses: 'PatchStatuses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      instanceId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      patchStatuses: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancePatchesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  maxResults?: number;
-  patches?: ListInstancePatchesResponseBodyPatches[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      patches: 'Patches',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      maxResults: 'number',
-      patches: { 'type': 'array', 'itemType': ListInstancePatchesResponseBodyPatches },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancePatchesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListInstancePatchesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListInstancePatchesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListInstancePatchStatesRequest extends $tea.Model {
-  regionId?: string;
+  instanceIds?: string;
   maxResults?: number;
   nextToken?: string;
-  instanceIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      instanceIds: 'InstanceIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      instanceIds: 'InstanceIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      instanceIds: 'string',
       maxResults: 'number',
       nextToken: 'string',
-      instanceIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3242,25 +3490,25 @@ export class ListInstancePatchStatesRequest extends $tea.Model {
 }
 
 export class ListInstancePatchStatesResponseBody extends $tea.Model {
+  instancePatchStates?: ListInstancePatchStatesResponseBodyInstancePatchStates[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  instancePatchStates?: ListInstancePatchStatesResponseBodyInstancePatchStates[];
   static names(): { [key: string]: string } {
     return {
+      instancePatchStates: 'InstancePatchStates',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      instancePatchStates: 'InstancePatchStates',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instancePatchStates: { 'type': 'array', 'itemType': ListInstancePatchStatesResponseBodyInstancePatchStates },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      instancePatchStates: { 'type': 'array', 'itemType': ListInstancePatchStatesResponseBodyInstancePatchStates },
     };
   }
 
@@ -3271,10 +3519,12 @@ export class ListInstancePatchStatesResponseBody extends $tea.Model {
 
 export class ListInstancePatchStatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListInstancePatchStatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3282,6 +3532,7 @@ export class ListInstancePatchStatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListInstancePatchStatesResponseBody,
     };
   }
@@ -3291,29 +3542,29 @@ export class ListInstancePatchStatesResponse extends $tea.Model {
   }
 }
 
-export class ListInstanceStateReportsRequest extends $tea.Model {
-  regionId?: string;
+export class ListInstancePatchesRequest extends $tea.Model {
   instanceId?: string;
-  stateConfigurationId?: string;
   maxResults?: number;
   nextToken?: string;
+  patchStatuses?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       instanceId: 'InstanceId',
-      stateConfigurationId: 'StateConfigurationId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      patchStatuses: 'PatchStatuses',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       instanceId: 'string',
-      stateConfigurationId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      patchStatuses: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3322,26 +3573,26 @@ export class ListInstanceStateReportsRequest extends $tea.Model {
   }
 }
 
-export class ListInstanceStateReportsResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
+export class ListInstancePatchesResponseBody extends $tea.Model {
   maxResults?: number;
-  stateReports?: ListInstanceStateReportsResponseBodyStateReports[];
+  nextToken?: string;
+  patches?: ListInstancePatchesResponseBodyPatches[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
       maxResults: 'MaxResults',
-      stateReports: 'StateReports',
+      nextToken: 'NextToken',
+      patches: 'Patches',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      requestId: 'string',
       maxResults: 'number',
-      stateReports: { 'type': 'array', 'itemType': ListInstanceStateReportsResponseBodyStateReports },
+      nextToken: 'string',
+      patches: { 'type': 'array', 'itemType': ListInstancePatchesResponseBodyPatches },
+      requestId: 'string',
     };
   }
 
@@ -3350,12 +3601,14 @@ export class ListInstanceStateReportsResponseBody extends $tea.Model {
   }
 }
 
-export class ListInstanceStateReportsResponse extends $tea.Model {
+export class ListInstancePatchesResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListInstanceStateReportsResponseBody;
+  statusCode: number;
+  body: ListInstancePatchesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3363,7 +3616,8 @@ export class ListInstanceStateReportsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListInstanceStateReportsResponseBody,
+      statusCode: 'number',
+      body: ListInstancePatchesResponseBody,
     };
   }
 
@@ -3373,28 +3627,31 @@ export class ListInstanceStateReportsResponse extends $tea.Model {
 }
 
 export class ListInventoryEntriesRequest extends $tea.Model {
+  filter?: ListInventoryEntriesRequestFilter[];
   instanceId?: string;
-  typeName?: string;
   maxResults?: number;
   nextToken?: string;
-  filter?: ListInventoryEntriesRequestFilter[];
+  regionId?: string;
+  typeName?: string;
   static names(): { [key: string]: string } {
     return {
+      filter: 'Filter',
       instanceId: 'InstanceId',
-      typeName: 'TypeName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      filter: 'Filter',
+      regionId: 'RegionId',
+      typeName: 'TypeName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      filter: { 'type': 'array', 'itemType': ListInventoryEntriesRequestFilter },
       instanceId: 'string',
-      typeName: 'string',
       maxResults: 'number',
       nextToken: 'string',
-      filter: { 'type': 'array', 'itemType': ListInventoryEntriesRequestFilter },
+      regionId: 'string',
+      typeName: 'string',
     };
   }
 
@@ -3404,37 +3661,37 @@ export class ListInventoryEntriesRequest extends $tea.Model {
 }
 
 export class ListInventoryEntriesResponseBody extends $tea.Model {
+  captureTime?: string;
+  entries?: { [key: string]: any }[];
+  instanceId?: string;
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   schemaVersion?: string;
-  maxResults?: number;
-  captureTime?: string;
   typeName?: string;
-  instanceId?: string;
-  entries?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
+      captureTime: 'CaptureTime',
+      entries: 'Entries',
+      instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       schemaVersion: 'SchemaVersion',
-      maxResults: 'MaxResults',
-      captureTime: 'CaptureTime',
       typeName: 'TypeName',
-      instanceId: 'InstanceId',
-      entries: 'Entries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      captureTime: 'string',
+      entries: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      instanceId: 'string',
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       schemaVersion: 'string',
-      maxResults: 'number',
-      captureTime: 'string',
       typeName: 'string',
-      instanceId: 'string',
-      entries: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -3445,10 +3702,12 @@ export class ListInventoryEntriesResponseBody extends $tea.Model {
 
 export class ListInventoryEntriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListInventoryEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3456,6 +3715,7 @@ export class ListInventoryEntriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListInventoryEntriesResponseBody,
     };
   }
@@ -3465,179 +3725,28 @@ export class ListInventoryEntriesResponse extends $tea.Model {
   }
 }
 
-export class ListParametersRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
-  type?: string;
-  path?: string;
-  recursive?: boolean;
-  tags?: { [key: string]: any };
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      name: 'Name',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
-      type: 'Type',
-      path: 'Path',
-      recursive: 'Recursive',
-      tags: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      name: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
-      type: 'string',
-      path: 'string',
-      recursive: 'boolean',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListParametersShrinkRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
-  type?: string;
-  path?: string;
-  recursive?: boolean;
-  tagsShrink?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      name: 'Name',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
-      type: 'Type',
-      path: 'Path',
-      recursive: 'Recursive',
-      tagsShrink: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      name: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
-      type: 'string',
-      path: 'string',
-      recursive: 'boolean',
-      tagsShrink: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListParametersResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: number;
-  maxResults?: number;
-  parameters?: ListParametersResponseBodyParameters[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-      maxResults: 'number',
-      parameters: { 'type': 'array', 'itemType': ListParametersResponseBodyParameters },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListParametersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListParametersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListParametersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListParameterVersionsRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
   maxResults?: number;
+  name?: string;
   nextToken?: string;
+  regionId?: string;
   shareType?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
       maxResults: 'MaxResults',
+      name: 'Name',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       shareType: 'ShareType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
       maxResults: 'number',
+      name: 'string',
       nextToken: 'string',
+      regionId: 'string',
       shareType: 'string',
     };
   }
@@ -3648,46 +3757,46 @@ export class ListParameterVersionsRequest extends $tea.Model {
 }
 
 export class ListParameterVersionsResponseBody extends $tea.Model {
-  type?: string;
-  nextToken?: string;
-  requestId?: string;
-  description?: string;
-  maxResults?: number;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
-  totalCount?: number;
+  description?: string;
   id?: string;
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
   parameterVersions?: ListParameterVersionsResponseBodyParameterVersions[];
+  requestId?: string;
+  totalCount?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      description: 'Description',
-      maxResults: 'MaxResults',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
-      totalCount: 'TotalCount',
+      description: 'Description',
       id: 'Id',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
       parameterVersions: 'ParameterVersions',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-      description: 'string',
-      maxResults: 'number',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
-      totalCount: 'number',
+      description: 'string',
       id: 'string',
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
       parameterVersions: { 'type': 'array', 'itemType': ListParameterVersionsResponseBodyParameterVersions },
+      requestId: 'string',
+      totalCount: 'number',
+      type: 'string',
     };
   }
 
@@ -3698,10 +3807,12 @@ export class ListParameterVersionsResponseBody extends $tea.Model {
 
 export class ListParameterVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListParameterVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3709,6 +3820,7 @@ export class ListParameterVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListParameterVersionsResponseBody,
     };
   }
@@ -3718,32 +3830,186 @@ export class ListParameterVersionsResponse extends $tea.Model {
   }
 }
 
-export class ListPatchBaselinesRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  operationSystem?: string;
-  shareType?: string;
+export class ListParametersRequest extends $tea.Model {
   maxResults?: number;
+  name?: string;
   nextToken?: string;
+  path?: string;
+  recursive?: boolean;
+  regionId?: string;
+  resourceGroupId?: string;
+  sortField?: string;
+  sortOrder?: string;
+  tags?: { [key: string]: any };
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      operationSystem: 'OperationSystem',
-      shareType: 'ShareType',
       maxResults: 'MaxResults',
+      name: 'Name',
       nextToken: 'NextToken',
+      path: 'Path',
+      recursive: 'Recursive',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      tags: 'Tags',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      maxResults: 'number',
       name: 'string',
-      operationSystem: 'string',
-      shareType: 'string',
+      nextToken: 'string',
+      path: 'string',
+      recursive: 'boolean',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParametersShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
+  path?: string;
+  recursive?: boolean;
+  regionId?: string;
+  resourceGroupId?: string;
+  sortField?: string;
+  sortOrder?: string;
+  tagsShrink?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      path: 'Path',
+      recursive: 'Recursive',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      tagsShrink: 'Tags',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      path: 'string',
+      recursive: 'boolean',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      tagsShrink: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParametersResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  parameters?: ListParametersResponseBodyParameters[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      parameters: 'Parameters',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       maxResults: 'number',
       nextToken: 'string',
+      parameters: { 'type': 'array', 'itemType': ListParametersResponseBodyParameters },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParametersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListParametersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPatchBaselinesRequest extends $tea.Model {
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
+  operationSystem?: string;
+  regionId?: string;
+  shareType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      operationSystem: 'OperationSystem',
+      regionId: 'RegionId',
+      shareType: 'ShareType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      operationSystem: 'string',
+      regionId: 'string',
+      shareType: 'string',
     };
   }
 
@@ -3753,25 +4019,25 @@ export class ListPatchBaselinesRequest extends $tea.Model {
 }
 
 export class ListPatchBaselinesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
   maxResults?: number;
+  nextToken?: string;
   patchBaselines?: ListPatchBaselinesResponseBodyPatchBaselines[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       patchBaselines: 'PatchBaselines',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      requestId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
       patchBaselines: { 'type': 'array', 'itemType': ListPatchBaselinesResponseBodyPatchBaselines },
+      requestId: 'string',
     };
   }
 
@@ -3782,10 +4048,12 @@ export class ListPatchBaselinesResponseBody extends $tea.Model {
 
 export class ListPatchBaselinesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPatchBaselinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3793,6 +4061,7 @@ export class ListPatchBaselinesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPatchBaselinesResponseBody,
     };
   }
@@ -3803,25 +4072,25 @@ export class ListPatchBaselinesResponse extends $tea.Model {
 }
 
 export class ListResourceExecutionStatusRequest extends $tea.Model {
-  regionId?: string;
   executionId?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       executionId: 'ExecutionId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       executionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3831,24 +4100,24 @@ export class ListResourceExecutionStatusRequest extends $tea.Model {
 }
 
 export class ListResourceExecutionStatusResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
   resourceExecutionStatus?: ListResourceExecutionStatusResponseBodyResourceExecutionStatus[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
       resourceExecutionStatus: 'ResourceExecutionStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
       resourceExecutionStatus: { 'type': 'array', 'itemType': ListResourceExecutionStatusResponseBodyResourceExecutionStatus },
     };
   }
@@ -3860,10 +4129,12 @@ export class ListResourceExecutionStatusResponseBody extends $tea.Model {
 
 export class ListResourceExecutionStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListResourceExecutionStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3871,6 +4142,7 @@ export class ListResourceExecutionStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListResourceExecutionStatusResponseBody,
     };
   }
@@ -3880,161 +4152,19 @@ export class ListResourceExecutionStatusResponse extends $tea.Model {
   }
 }
 
-export class ListSecretParametersRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
-  path?: string;
-  recursive?: boolean;
-  tags?: { [key: string]: any };
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      name: 'Name',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
-      path: 'Path',
-      recursive: 'Recursive',
-      tags: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      name: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
-      path: 'string',
-      recursive: 'boolean',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretParametersShrinkRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
-  path?: string;
-  recursive?: boolean;
-  tagsShrink?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      name: 'Name',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
-      path: 'Path',
-      recursive: 'Recursive',
-      tagsShrink: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      name: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
-      path: 'string',
-      recursive: 'boolean',
-      tagsShrink: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretParametersResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  maxResults?: number;
-  parameters?: ListSecretParametersResponseBodyParameters[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      maxResults: 'number',
-      parameters: { 'type': 'array', 'itemType': ListSecretParametersResponseBodyParameters },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretParametersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSecretParametersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSecretParametersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListSecretParameterVersionsRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
   maxResults?: number;
+  name?: string;
   nextToken?: string;
+  regionId?: string;
   shareType?: string;
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
       maxResults: 'MaxResults',
+      name: 'Name',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       shareType: 'ShareType',
       withDecryption: 'WithDecryption',
     };
@@ -4042,10 +4172,10 @@ export class ListSecretParameterVersionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
       maxResults: 'number',
+      name: 'string',
       nextToken: 'string',
+      regionId: 'string',
       shareType: 'string',
       withDecryption: 'boolean',
     };
@@ -4057,46 +4187,46 @@ export class ListSecretParameterVersionsRequest extends $tea.Model {
 }
 
 export class ListSecretParameterVersionsResponseBody extends $tea.Model {
-  type?: string;
-  nextToken?: string;
-  requestId?: string;
-  description?: string;
-  maxResults?: number;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
-  totalCount?: number;
+  description?: string;
   id?: string;
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
   parameterVersions?: ListSecretParameterVersionsResponseBodyParameterVersions[];
+  requestId?: string;
+  totalCount?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      description: 'Description',
-      maxResults: 'MaxResults',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
-      totalCount: 'TotalCount',
+      description: 'Description',
       id: 'Id',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
       parameterVersions: 'ParameterVersions',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-      description: 'string',
-      maxResults: 'number',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
-      totalCount: 'number',
+      description: 'string',
       id: 'string',
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
       parameterVersions: { 'type': 'array', 'itemType': ListSecretParameterVersionsResponseBodyParameterVersions },
+      requestId: 'string',
+      totalCount: 'number',
+      type: 'string',
     };
   }
 
@@ -4107,10 +4237,12 @@ export class ListSecretParameterVersionsResponseBody extends $tea.Model {
 
 export class ListSecretParameterVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSecretParameterVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4118,6 +4250,7 @@ export class ListSecretParameterVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSecretParameterVersionsResponseBody,
     };
   }
@@ -4127,38 +4260,183 @@ export class ListSecretParameterVersionsResponse extends $tea.Model {
   }
 }
 
-export class ListStateConfigurationsRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
-  templateVersion?: string;
-  stateConfigurationIds?: string;
-  tags?: { [key: string]: any };
+export class ListSecretParametersRequest extends $tea.Model {
   maxResults?: number;
+  name?: string;
   nextToken?: string;
+  path?: string;
+  recursive?: boolean;
+  regionId?: string;
   resourceGroupId?: string;
+  sortField?: string;
+  sortOrder?: string;
+  tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      stateConfigurationIds: 'StateConfigurationIds',
-      tags: 'Tags',
       maxResults: 'MaxResults',
+      name: 'Name',
       nextToken: 'NextToken',
+      path: 'Path',
+      recursive: 'Recursive',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      path: 'string',
+      recursive: 'boolean',
       regionId: 'string',
-      templateName: 'string',
-      templateVersion: 'string',
-      stateConfigurationIds: 'string',
+      resourceGroupId: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretParametersShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
+  path?: string;
+  recursive?: boolean;
+  regionId?: string;
+  resourceGroupId?: string;
+  sortField?: string;
+  sortOrder?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      path: 'Path',
+      recursive: 'Recursive',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      path: 'string',
+      recursive: 'boolean',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretParametersResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  parameters?: ListSecretParametersResponseBodyParameters[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      parameters: 'Parameters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       maxResults: 'number',
       nextToken: 'string',
+      parameters: { 'type': 'array', 'itemType': ListSecretParametersResponseBodyParameters },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretParametersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListSecretParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSecretParametersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStateConfigurationsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  stateConfigurationIds?: string;
+  tags?: { [key: string]: any };
+  templateName?: string;
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      stateConfigurationIds: 'StateConfigurationIds',
+      tags: 'Tags',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      stateConfigurationIds: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateName: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -4168,37 +4446,37 @@ export class ListStateConfigurationsRequest extends $tea.Model {
 }
 
 export class ListStateConfigurationsShrinkRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
-  templateVersion?: string;
-  stateConfigurationIds?: string;
-  tagsShrink?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  stateConfigurationIds?: string;
+  tagsShrink?: string;
+  templateName?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      stateConfigurationIds: 'StateConfigurationIds',
-      tagsShrink: 'Tags',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      stateConfigurationIds: 'StateConfigurationIds',
+      tagsShrink: 'Tags',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
-      templateVersion: 'string',
-      stateConfigurationIds: 'string',
-      tagsShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      stateConfigurationIds: 'string',
+      tagsShrink: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -4231,10 +4509,12 @@ export class ListStateConfigurationsResponseBody extends $tea.Model {
 
 export class ListStateConfigurationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListStateConfigurationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4242,6 +4522,7 @@ export class ListStateConfigurationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListStateConfigurationsResponseBody,
     };
   }
@@ -4252,24 +4533,24 @@ export class ListStateConfigurationsResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
-  regionId?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       resourceType: 'string',
     };
   }
@@ -4280,25 +4561,25 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
+  keys?: string[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  keys?: string[];
   static names(): { [key: string]: string } {
     return {
+      keys: 'Keys',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      keys: 'Keys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      keys: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      keys: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4309,10 +4590,12 @@ export class ListTagKeysResponseBody extends $tea.Model {
 
 export class ListTagKeysResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4320,6 +4603,7 @@ export class ListTagKeysResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagKeysResponseBody,
     };
   }
@@ -4330,28 +4614,28 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
   regionId?: string;
   resourceIds?: { [key: string]: any };
   resourceType?: string;
   tags?: { [key: string]: any };
-  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       regionId: 'RegionId',
       resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
       tags: 'Tags',
-      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       regionId: 'string',
       resourceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       resourceType: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      nextToken: 'string',
     };
   }
 
@@ -4361,28 +4645,28 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesShrinkRequest extends $tea.Model {
+  nextToken?: string;
   regionId?: string;
   resourceIdsShrink?: string;
   resourceType?: string;
   tagsShrink?: string;
-  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       regionId: 'RegionId',
       resourceIdsShrink: 'ResourceIds',
       resourceType: 'ResourceType',
       tagsShrink: 'Tags',
-      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       regionId: 'string',
       resourceIdsShrink: 'string',
       resourceType: 'string',
       tagsShrink: 'string',
-      nextToken: 'string',
     };
   }
 
@@ -4418,10 +4702,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4429,6 +4715,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -4439,28 +4726,28 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTagValuesRequest extends $tea.Model {
-  regionId?: string;
+  key?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   resourceType?: string;
-  key?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      key: 'Key',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       resourceType: 'ResourceType',
-      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      key: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       resourceType: 'string',
-      key: 'string',
     };
   }
 
@@ -4470,24 +4757,24 @@ export class ListTagValuesRequest extends $tea.Model {
 }
 
 export class ListTagValuesResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
   values?: string[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
       values: 'Values',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
       values: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4499,10 +4786,12 @@ export class ListTagValuesResponseBody extends $tea.Model {
 
 export class ListTagValuesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagValuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4510,6 +4799,7 @@ export class ListTagValuesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagValuesResponseBody,
     };
   }
@@ -4520,61 +4810,61 @@ export class ListTagValuesResponse extends $tea.Model {
 }
 
 export class ListTaskExecutionsRequest extends $tea.Model {
-  regionId?: string;
-  executionId?: string;
-  status?: string;
-  startDateBefore?: string;
-  startDateAfter?: string;
-  endDateBefore?: string;
   endDateAfter?: string;
-  taskExecutionId?: string;
-  taskName?: string;
-  taskAction?: string;
-  parentTaskExecutionId?: string;
+  endDateBefore?: string;
+  executionId?: string;
   includeChildTaskExecution?: boolean;
   maxResults?: number;
   nextToken?: string;
+  parentTaskExecutionId?: string;
+  regionId?: string;
   sortField?: string;
   sortOrder?: string;
+  startDateAfter?: string;
+  startDateBefore?: string;
+  status?: string;
+  taskAction?: string;
+  taskExecutionId?: string;
+  taskName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      executionId: 'ExecutionId',
-      status: 'Status',
-      startDateBefore: 'StartDateBefore',
-      startDateAfter: 'StartDateAfter',
-      endDateBefore: 'EndDateBefore',
       endDateAfter: 'EndDateAfter',
-      taskExecutionId: 'TaskExecutionId',
-      taskName: 'TaskName',
-      taskAction: 'TaskAction',
-      parentTaskExecutionId: 'ParentTaskExecutionId',
+      endDateBefore: 'EndDateBefore',
+      executionId: 'ExecutionId',
       includeChildTaskExecution: 'IncludeChildTaskExecution',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      parentTaskExecutionId: 'ParentTaskExecutionId',
+      regionId: 'RegionId',
       sortField: 'SortField',
       sortOrder: 'SortOrder',
+      startDateAfter: 'StartDateAfter',
+      startDateBefore: 'StartDateBefore',
+      status: 'Status',
+      taskAction: 'TaskAction',
+      taskExecutionId: 'TaskExecutionId',
+      taskName: 'TaskName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      executionId: 'string',
-      status: 'string',
-      startDateBefore: 'string',
-      startDateAfter: 'string',
-      endDateBefore: 'string',
       endDateAfter: 'string',
-      taskExecutionId: 'string',
-      taskName: 'string',
-      taskAction: 'string',
-      parentTaskExecutionId: 'string',
+      endDateBefore: 'string',
+      executionId: 'string',
       includeChildTaskExecution: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
+      parentTaskExecutionId: 'string',
+      regionId: 'string',
       sortField: 'string',
       sortOrder: 'string',
+      startDateAfter: 'string',
+      startDateBefore: 'string',
+      status: 'string',
+      taskAction: 'string',
+      taskExecutionId: 'string',
+      taskName: 'string',
     };
   }
 
@@ -4584,24 +4874,24 @@ export class ListTaskExecutionsRequest extends $tea.Model {
 }
 
 export class ListTaskExecutionsResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
   taskExecutions?: ListTaskExecutionsResponseBodyTaskExecutions[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
       taskExecutions: 'TaskExecutions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
       taskExecutions: { 'type': 'array', 'itemType': ListTaskExecutionsResponseBodyTaskExecutions },
     };
   }
@@ -4613,10 +4903,12 @@ export class ListTaskExecutionsResponseBody extends $tea.Model {
 
 export class ListTaskExecutionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTaskExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4624,6 +4916,7 @@ export class ListTaskExecutionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTaskExecutionsResponseBody,
     };
   }
@@ -4633,207 +4926,29 @@ export class ListTaskExecutionsResponse extends $tea.Model {
   }
 }
 
-export class ListTemplatesRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
-  templateFormat?: string;
-  shareType?: string;
-  createdBy?: string;
-  createdDateBefore?: string;
-  createdDateAfter?: string;
-  tags?: { [key: string]: any };
-  category?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
-  hasTrigger?: boolean;
-  templateType?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
-      templateFormat: 'TemplateFormat',
-      shareType: 'ShareType',
-      createdBy: 'CreatedBy',
-      createdDateBefore: 'CreatedDateBefore',
-      createdDateAfter: 'CreatedDateAfter',
-      tags: 'Tags',
-      category: 'Category',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
-      hasTrigger: 'HasTrigger',
-      templateType: 'TemplateType',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      templateName: 'string',
-      templateFormat: 'string',
-      shareType: 'string',
-      createdBy: 'string',
-      createdDateBefore: 'string',
-      createdDateAfter: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      category: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
-      hasTrigger: 'boolean',
-      templateType: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesShrinkRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
-  templateFormat?: string;
-  shareType?: string;
-  createdBy?: string;
-  createdDateBefore?: string;
-  createdDateAfter?: string;
-  tagsShrink?: string;
-  category?: string;
-  maxResults?: number;
-  nextToken?: string;
-  sortField?: string;
-  sortOrder?: string;
-  hasTrigger?: boolean;
-  templateType?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
-      templateFormat: 'TemplateFormat',
-      shareType: 'ShareType',
-      createdBy: 'CreatedBy',
-      createdDateBefore: 'CreatedDateBefore',
-      createdDateAfter: 'CreatedDateAfter',
-      tagsShrink: 'Tags',
-      category: 'Category',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      sortField: 'SortField',
-      sortOrder: 'SortOrder',
-      hasTrigger: 'HasTrigger',
-      templateType: 'TemplateType',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      templateName: 'string',
-      templateFormat: 'string',
-      shareType: 'string',
-      createdBy: 'string',
-      createdDateBefore: 'string',
-      createdDateAfter: 'string',
-      tagsShrink: 'string',
-      category: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      sortField: 'string',
-      sortOrder: 'string',
-      hasTrigger: 'boolean',
-      templateType: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  maxResults?: number;
-  templates?: ListTemplatesResponseBodyTemplates[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      templates: 'Templates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      maxResults: 'number',
-      templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListTemplateVersionsRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   shareType?: string;
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       shareType: 'ShareType',
+      templateName: 'TemplateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       shareType: 'string',
+      templateName: 'string',
     };
   }
 
@@ -4843,24 +4958,24 @@ export class ListTemplateVersionsRequest extends $tea.Model {
 }
 
 export class ListTemplateVersionsResponseBody extends $tea.Model {
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
   templateVersions?: ListTemplateVersionsResponseBodyTemplateVersions[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
       templateVersions: 'TemplateVersions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
       templateVersions: { 'type': 'array', 'itemType': ListTemplateVersionsResponseBodyTemplateVersions },
     };
   }
@@ -4872,10 +4987,12 @@ export class ListTemplateVersionsResponseBody extends $tea.Model {
 
 export class ListTemplateVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTemplateVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4883,6 +5000,7 @@ export class ListTemplateVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTemplateVersionsResponseBody,
     };
   }
@@ -4892,44 +5010,225 @@ export class ListTemplateVersionsResponse extends $tea.Model {
   }
 }
 
-export class NotifyExecutionRequest extends $tea.Model {
+export class ListTemplatesRequest extends $tea.Model {
+  category?: string;
+  createdBy?: string;
+  createdDateAfter?: string;
+  createdDateBefore?: string;
+  hasTrigger?: boolean;
+  maxResults?: number;
+  nextToken?: string;
   regionId?: string;
-  executionId?: string;
-  notifyType?: string;
-  notifyNote?: string;
-  taskName?: string;
-  taskExecutionId?: string;
-  executionStatus?: string;
-  parameters?: string;
-  loopItem?: string;
-  taskExecutionIds?: string;
+  resourceGroupId?: string;
+  shareType?: string;
+  sortField?: string;
+  sortOrder?: string;
+  tags?: { [key: string]: any };
+  templateFormat?: string;
+  templateName?: string;
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
+      createdBy: 'CreatedBy',
+      createdDateAfter: 'CreatedDateAfter',
+      createdDateBefore: 'CreatedDateBefore',
+      hasTrigger: 'HasTrigger',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       regionId: 'RegionId',
-      executionId: 'ExecutionId',
-      notifyType: 'NotifyType',
-      notifyNote: 'NotifyNote',
-      taskName: 'TaskName',
-      taskExecutionId: 'TaskExecutionId',
-      executionStatus: 'ExecutionStatus',
-      parameters: 'Parameters',
-      loopItem: 'LoopItem',
-      taskExecutionIds: 'TaskExecutionIds',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      tags: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
+      createdBy: 'string',
+      createdDateAfter: 'string',
+      createdDateBefore: 'string',
+      hasTrigger: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateFormat: 'string',
+      templateName: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesShrinkRequest extends $tea.Model {
+  category?: string;
+  createdBy?: string;
+  createdDateAfter?: string;
+  createdDateBefore?: string;
+  hasTrigger?: boolean;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  shareType?: string;
+  sortField?: string;
+  sortOrder?: string;
+  tagsShrink?: string;
+  templateFormat?: string;
+  templateName?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createdBy: 'CreatedBy',
+      createdDateAfter: 'CreatedDateAfter',
+      createdDateBefore: 'CreatedDateBefore',
+      hasTrigger: 'HasTrigger',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
+      tagsShrink: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createdBy: 'string',
+      createdDateAfter: 'string',
+      createdDateBefore: 'string',
+      hasTrigger: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
+      tagsShrink: 'string',
+      templateFormat: 'string',
+      templateName: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  templates?: ListTemplatesResponseBodyTemplates[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      templates: 'Templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyExecutionRequest extends $tea.Model {
+  executionId?: string;
+  executionStatus?: string;
+  loopItem?: string;
+  notifyNote?: string;
+  notifyType?: string;
+  parameters?: string;
+  regionId?: string;
+  taskExecutionId?: string;
+  taskExecutionIds?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executionId: 'ExecutionId',
+      executionStatus: 'ExecutionStatus',
+      loopItem: 'LoopItem',
+      notifyNote: 'NotifyNote',
+      notifyType: 'NotifyType',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      taskExecutionId: 'TaskExecutionId',
+      taskExecutionIds: 'TaskExecutionIds',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       executionId: 'string',
-      notifyType: 'string',
-      notifyNote: 'string',
-      taskName: 'string',
-      taskExecutionId: 'string',
       executionStatus: 'string',
-      parameters: 'string',
       loopItem: 'string',
+      notifyNote: 'string',
+      notifyType: 'string',
+      parameters: 'string',
+      regionId: 'string',
+      taskExecutionId: 'string',
       taskExecutionIds: 'string',
+      taskName: 'string',
     };
   }
 
@@ -4959,10 +5258,12 @@ export class NotifyExecutionResponseBody extends $tea.Model {
 
 export class NotifyExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: NotifyExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4970,6 +5271,7 @@ export class NotifyExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: NotifyExecutionResponseBody,
     };
   }
@@ -4980,19 +5282,19 @@ export class NotifyExecutionResponse extends $tea.Model {
 }
 
 export class RegisterDefaultPatchBaselineRequest extends $tea.Model {
-  regionId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5002,19 +5304,19 @@ export class RegisterDefaultPatchBaselineRequest extends $tea.Model {
 }
 
 export class RegisterDefaultPatchBaselineResponseBody extends $tea.Model {
-  requestId?: string;
   patchBaseline?: RegisterDefaultPatchBaselineResponseBodyPatchBaseline;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       patchBaseline: 'PatchBaseline',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       patchBaseline: RegisterDefaultPatchBaselineResponseBodyPatchBaseline,
+      requestId: 'string',
     };
   }
 
@@ -5025,10 +5327,12 @@ export class RegisterDefaultPatchBaselineResponseBody extends $tea.Model {
 
 export class RegisterDefaultPatchBaselineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RegisterDefaultPatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5036,6 +5340,7 @@ export class RegisterDefaultPatchBaselineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RegisterDefaultPatchBaselineResponseBody,
     };
   }
@@ -5046,28 +5351,28 @@ export class RegisterDefaultPatchBaselineResponse extends $tea.Model {
 }
 
 export class SearchInventoryRequest extends $tea.Model {
-  regionId?: string;
-  nextToken?: string;
-  maxResults?: number;
-  filter?: SearchInventoryRequestFilter[];
   aggregator?: string[];
+  filter?: SearchInventoryRequestFilter[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      filter: 'Filter',
       aggregator: 'Aggregator',
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
-      filter: { 'type': 'array', 'itemType': SearchInventoryRequestFilter },
       aggregator: { 'type': 'array', 'itemType': 'string' },
+      filter: { 'type': 'array', 'itemType': SearchInventoryRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5077,25 +5382,25 @@ export class SearchInventoryRequest extends $tea.Model {
 }
 
 export class SearchInventoryResponseBody extends $tea.Model {
+  entities?: { [key: string]: any }[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  entities?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
+      entities: 'Entities',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      entities: 'Entities',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      entities: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      entities: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -5106,10 +5411,12 @@ export class SearchInventoryResponseBody extends $tea.Model {
 
 export class SearchInventoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchInventoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5117,6 +5424,7 @@ export class SearchInventoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchInventoryResponseBody,
     };
   }
@@ -5127,34 +5435,34 @@ export class SearchInventoryResponse extends $tea.Model {
 }
 
 export class SetServiceSettingsRequest extends $tea.Model {
-  deliveryOssEnabled?: boolean;
   deliveryOssBucketName?: string;
+  deliveryOssEnabled?: boolean;
   deliveryOssKeyPrefix?: string;
-  deliverySlsProjectName?: string;
   deliverySlsEnabled?: boolean;
-  regionId?: string;
+  deliverySlsProjectName?: string;
   rdcEnterpriseId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      deliveryOssEnabled: 'DeliveryOssEnabled',
       deliveryOssBucketName: 'DeliveryOssBucketName',
+      deliveryOssEnabled: 'DeliveryOssEnabled',
       deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
-      deliverySlsProjectName: 'DeliverySlsProjectName',
       deliverySlsEnabled: 'DeliverySlsEnabled',
-      regionId: 'RegionId',
+      deliverySlsProjectName: 'DeliverySlsProjectName',
       rdcEnterpriseId: 'RdcEnterpriseId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deliveryOssEnabled: 'boolean',
       deliveryOssBucketName: 'string',
+      deliveryOssEnabled: 'boolean',
       deliveryOssKeyPrefix: 'string',
-      deliverySlsProjectName: 'string',
       deliverySlsEnabled: 'boolean',
-      regionId: 'string',
+      deliverySlsProjectName: 'string',
       rdcEnterpriseId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5187,10 +5495,12 @@ export class SetServiceSettingsResponseBody extends $tea.Model {
 
 export class SetServiceSettingsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetServiceSettingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5198,6 +5508,7 @@ export class SetServiceSettingsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetServiceSettingsResponseBody,
     };
   }
@@ -5208,52 +5519,52 @@ export class SetServiceSettingsResponse extends $tea.Model {
 }
 
 export class StartExecutionRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  loopMode?: string;
+  mode?: string;
+  parameters?: string;
+  parentExecutionId?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  safetyCheck?: string;
+  tags?: { [key: string]: any };
+  templateContent?: string;
   templateName?: string;
   templateVersion?: string;
-  mode?: string;
-  loopMode?: string;
-  parentExecutionId?: string;
-  safetyCheck?: string;
-  parameters?: string;
-  clientToken?: string;
-  tags?: { [key: string]: any };
-  description?: string;
-  templateContent?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      loopMode: 'LoopMode',
+      mode: 'Mode',
+      parameters: 'Parameters',
+      parentExecutionId: 'ParentExecutionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      safetyCheck: 'SafetyCheck',
+      tags: 'Tags',
+      templateContent: 'TemplateContent',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      mode: 'Mode',
-      loopMode: 'LoopMode',
-      parentExecutionId: 'ParentExecutionId',
-      safetyCheck: 'SafetyCheck',
-      parameters: 'Parameters',
-      clientToken: 'ClientToken',
-      tags: 'Tags',
-      description: 'Description',
-      templateContent: 'TemplateContent',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      description: 'string',
+      loopMode: 'string',
+      mode: 'string',
+      parameters: 'string',
+      parentExecutionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      safetyCheck: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateContent: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      mode: 'string',
-      loopMode: 'string',
-      parentExecutionId: 'string',
-      safetyCheck: 'string',
-      parameters: 'string',
-      clientToken: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      description: 'string',
-      templateContent: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -5263,52 +5574,52 @@ export class StartExecutionRequest extends $tea.Model {
 }
 
 export class StartExecutionShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  loopMode?: string;
+  mode?: string;
+  parameters?: string;
+  parentExecutionId?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  safetyCheck?: string;
+  tagsShrink?: string;
+  templateContent?: string;
   templateName?: string;
   templateVersion?: string;
-  mode?: string;
-  loopMode?: string;
-  parentExecutionId?: string;
-  safetyCheck?: string;
-  parameters?: string;
-  clientToken?: string;
-  tagsShrink?: string;
-  description?: string;
-  templateContent?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      loopMode: 'LoopMode',
+      mode: 'Mode',
+      parameters: 'Parameters',
+      parentExecutionId: 'ParentExecutionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      safetyCheck: 'SafetyCheck',
+      tagsShrink: 'Tags',
+      templateContent: 'TemplateContent',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      mode: 'Mode',
-      loopMode: 'LoopMode',
-      parentExecutionId: 'ParentExecutionId',
-      safetyCheck: 'SafetyCheck',
-      parameters: 'Parameters',
-      clientToken: 'ClientToken',
-      tagsShrink: 'Tags',
-      description: 'Description',
-      templateContent: 'TemplateContent',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      description: 'string',
+      loopMode: 'string',
+      mode: 'string',
+      parameters: 'string',
+      parentExecutionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      safetyCheck: 'string',
+      tagsShrink: 'string',
+      templateContent: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      mode: 'string',
-      loopMode: 'string',
-      parentExecutionId: 'string',
-      safetyCheck: 'string',
-      parameters: 'string',
-      clientToken: 'string',
-      tagsShrink: 'string',
-      description: 'string',
-      templateContent: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -5318,19 +5629,19 @@ export class StartExecutionShrinkRequest extends $tea.Model {
 }
 
 export class StartExecutionResponseBody extends $tea.Model {
-  requestId?: string;
   execution?: StartExecutionResponseBodyExecution;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       execution: 'Execution',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       execution: StartExecutionResponseBodyExecution,
+      requestId: 'string',
     };
   }
 
@@ -5341,10 +5652,12 @@ export class StartExecutionResponseBody extends $tea.Model {
 
 export class StartExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5352,6 +5665,7 @@ export class StartExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartExecutionResponseBody,
     };
   }
@@ -5438,10 +5752,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5449,6 +5765,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -5459,28 +5776,28 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TriggerExecutionRequest extends $tea.Model {
-  regionId?: string;
-  executionId?: string;
-  type?: string;
-  content?: string;
   clientToken?: string;
+  content?: string;
+  executionId?: string;
+  regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      executionId: 'ExecutionId',
-      type: 'Type',
-      content: 'Content',
       clientToken: 'ClientToken',
+      content: 'Content',
+      executionId: 'ExecutionId',
+      regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      executionId: 'string',
-      type: 'string',
-      content: 'string',
       clientToken: 'string',
+      content: 'string',
+      executionId: 'string',
+      regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -5510,10 +5827,12 @@ export class TriggerExecutionResponseBody extends $tea.Model {
 
 export class TriggerExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TriggerExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5521,6 +5840,7 @@ export class TriggerExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TriggerExecutionResponseBody,
     };
   }
@@ -5531,28 +5851,28 @@ export class TriggerExecutionResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
   regionId?: string;
   resourceIds?: { [key: string]: any };
   resourceType?: string;
   tagKeys?: { [key: string]: any };
-  all?: boolean;
   static names(): { [key: string]: string } {
     return {
+      all: 'All',
       regionId: 'RegionId',
       resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
       tagKeys: 'TagKeys',
-      all: 'All',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      all: 'boolean',
       regionId: 'string',
       resourceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       resourceType: 'string',
       tagKeys: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      all: 'boolean',
     };
   }
 
@@ -5562,28 +5882,28 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesShrinkRequest extends $tea.Model {
+  all?: boolean;
   regionId?: string;
   resourceIdsShrink?: string;
   resourceType?: string;
   tagKeysShrink?: string;
-  all?: boolean;
   static names(): { [key: string]: string } {
     return {
+      all: 'All',
       regionId: 'RegionId',
       resourceIdsShrink: 'ResourceIds',
       resourceType: 'ResourceType',
       tagKeysShrink: 'TagKeys',
-      all: 'All',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      all: 'boolean',
       regionId: 'string',
       resourceIdsShrink: 'string',
       resourceType: 'string',
       tagKeysShrink: 'string',
-      all: 'boolean',
     };
   }
 
@@ -5613,10 +5933,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5624,6 +5946,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -5633,23 +5956,129 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
-export class UpdateApplicationGroupRequest extends $tea.Model {
-  regionId?: string;
+export class UpdateApplicationRequest extends $tea.Model {
+  description?: string;
   name?: string;
-  scalingGroupId?: string;
+  regionId?: string;
+  tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      description: 'Description',
       name: 'Name',
-      scalingGroupId: 'ScalingGroupId',
+      regionId: 'RegionId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      description: 'string',
       name: 'string',
-      scalingGroupId: 'string',
+      regionId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationShrinkRequest extends $tea.Model {
+  description?: string;
+  name?: string;
+  regionId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponseBody extends $tea.Model {
+  application?: UpdateApplicationResponseBodyApplication;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: UpdateApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationGroupRequest extends $tea.Model {
+  applicationName?: string;
+  name?: string;
+  newName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      name: 'Name',
+      newName: 'NewName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      name: 'string',
+      newName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5659,19 +6088,19 @@ export class UpdateApplicationGroupRequest extends $tea.Model {
 }
 
 export class UpdateApplicationGroupResponseBody extends $tea.Model {
-  requestId?: string;
   applicationGroup?: UpdateApplicationGroupResponseBodyApplicationGroup;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       applicationGroup: 'ApplicationGroup',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       applicationGroup: UpdateApplicationGroupResponseBodyApplicationGroup,
+      requestId: 'string',
     };
   }
 
@@ -5682,10 +6111,12 @@ export class UpdateApplicationGroupResponseBody extends $tea.Model {
 
 export class UpdateApplicationGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateApplicationGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5693,6 +6124,7 @@ export class UpdateApplicationGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateApplicationGroupResponseBody,
     };
   }
@@ -5703,25 +6135,25 @@ export class UpdateApplicationGroupResponse extends $tea.Model {
 }
 
 export class UpdateExecutionRequest extends $tea.Model {
-  regionId?: string;
+  clientToken?: string;
   executionId?: string;
   parameters?: string;
-  clientToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      clientToken: 'ClientToken',
       executionId: 'ExecutionId',
       parameters: 'Parameters',
-      clientToken: 'ClientToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      clientToken: 'string',
       executionId: 'string',
       parameters: 'string',
-      clientToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5751,10 +6183,12 @@ export class UpdateExecutionResponseBody extends $tea.Model {
 
 export class UpdateExecutionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5762,6 +6196,7 @@ export class UpdateExecutionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateExecutionResponseBody,
     };
   }
@@ -5771,116 +6206,32 @@ export class UpdateExecutionResponse extends $tea.Model {
   }
 }
 
-export class UpdateInstanceInformationRequest extends $tea.Model {
-  regionId?: string;
-  instanceId?: string;
-  agentVersion?: string;
-  platformType?: string;
-  platformName?: string;
-  platformVersion?: string;
-  ipAddress?: string;
-  computerName?: string;
-  agentName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
-      agentVersion: 'AgentVersion',
-      platformType: 'PlatformType',
-      platformName: 'PlatformName',
-      platformVersion: 'PlatformVersion',
-      ipAddress: 'IpAddress',
-      computerName: 'ComputerName',
-      agentName: 'AgentName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      instanceId: 'string',
-      agentVersion: 'string',
-      platformType: 'string',
-      platformName: 'string',
-      platformVersion: 'string',
-      ipAddress: 'string',
-      computerName: 'string',
-      agentName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceInformationResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceInformationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateInstanceInformationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateInstanceInformationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateParameterRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  value?: string;
   description?: string;
-  tags?: string;
+  name?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tags?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      value: 'Value',
       description: 'Description',
-      tags: 'Tags',
+      name: 'Name',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      value: 'string',
       description: 'string',
-      tags: 'string',
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tags: 'string',
+      value: 'string',
     };
   }
 
@@ -5890,19 +6241,19 @@ export class UpdateParameterRequest extends $tea.Model {
 }
 
 export class UpdateParameterResponseBody extends $tea.Model {
-  requestId?: string;
   parameter?: UpdateParameterResponseBodyParameter;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       parameter: 'Parameter',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       parameter: UpdateParameterResponseBodyParameter,
+      requestId: 'string',
     };
   }
 
@@ -5913,10 +6264,12 @@ export class UpdateParameterResponseBody extends $tea.Model {
 
 export class UpdateParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5924,6 +6277,7 @@ export class UpdateParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateParameterResponseBody,
     };
   }
@@ -5934,28 +6288,28 @@ export class UpdateParameterResponse extends $tea.Model {
 }
 
 export class UpdatePatchBaselineRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  description?: string;
-  clientToken?: string;
   approvalRules?: string;
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      description: 'Description',
-      clientToken: 'ClientToken',
       approvalRules: 'ApprovalRules',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      description: 'string',
-      clientToken: 'string',
       approvalRules: 'string',
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5965,19 +6319,19 @@ export class UpdatePatchBaselineRequest extends $tea.Model {
 }
 
 export class UpdatePatchBaselineResponseBody extends $tea.Model {
-  requestId?: string;
   patchBaseline?: UpdatePatchBaselineResponseBodyPatchBaseline;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       patchBaseline: 'PatchBaseline',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       patchBaseline: UpdatePatchBaselineResponseBodyPatchBaseline,
+      requestId: 'string',
     };
   }
 
@@ -5988,10 +6342,12 @@ export class UpdatePatchBaselineResponseBody extends $tea.Model {
 
 export class UpdatePatchBaselineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdatePatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5999,6 +6355,7 @@ export class UpdatePatchBaselineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdatePatchBaselineResponseBody,
     };
   }
@@ -6009,31 +6366,31 @@ export class UpdatePatchBaselineResponse extends $tea.Model {
 }
 
 export class UpdateSecretParameterRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  value?: string;
   description?: string;
-  tags?: { [key: string]: any };
+  name?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      value: 'Value',
       description: 'Description',
-      tags: 'Tags',
+      name: 'Name',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      value: 'string',
       description: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      value: 'string',
     };
   }
 
@@ -6043,31 +6400,31 @@ export class UpdateSecretParameterRequest extends $tea.Model {
 }
 
 export class UpdateSecretParameterShrinkRequest extends $tea.Model {
-  regionId?: string;
-  name?: string;
-  value?: string;
   description?: string;
-  tagsShrink?: string;
+  name?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tagsShrink?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      name: 'Name',
-      value: 'Value',
       description: 'Description',
-      tagsShrink: 'Tags',
+      name: 'Name',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      name: 'string',
-      value: 'string',
       description: 'string',
-      tagsShrink: 'string',
+      name: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tagsShrink: 'string',
+      value: 'string',
     };
   }
 
@@ -6077,19 +6434,19 @@ export class UpdateSecretParameterShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSecretParameterResponseBody extends $tea.Model {
-  requestId?: string;
   parameter?: UpdateSecretParameterResponseBodyParameter;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       parameter: 'Parameter',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       parameter: UpdateSecretParameterResponseBodyParameter,
+      requestId: 'string',
     };
   }
 
@@ -6100,10 +6457,12 @@ export class UpdateSecretParameterResponseBody extends $tea.Model {
 
 export class UpdateSecretParameterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSecretParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6111,6 +6470,7 @@ export class UpdateSecretParameterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSecretParameterResponseBody,
     };
   }
@@ -6121,46 +6481,46 @@ export class UpdateSecretParameterResponse extends $tea.Model {
 }
 
 export class UpdateStateConfigurationRequest extends $tea.Model {
-  regionId?: string;
+  clientToken?: string;
+  configureMode?: string;
   description?: string;
   parameters?: { [key: string]: any };
-  configureMode?: string;
-  scheduleType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   scheduleExpression?: string;
-  targets?: string;
-  clientToken?: string;
+  scheduleType?: string;
   stateConfigurationId?: string;
   tags?: { [key: string]: any };
-  resourceGroupId?: string;
+  targets?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      clientToken: 'ClientToken',
+      configureMode: 'ConfigureMode',
       description: 'Description',
       parameters: 'Parameters',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       scheduleExpression: 'ScheduleExpression',
-      targets: 'Targets',
-      clientToken: 'ClientToken',
+      scheduleType: 'ScheduleType',
       stateConfigurationId: 'StateConfigurationId',
       tags: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
+      targets: 'Targets',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      clientToken: 'string',
+      configureMode: 'string',
       description: 'string',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      configureMode: 'string',
-      scheduleType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       scheduleExpression: 'string',
-      targets: 'string',
-      clientToken: 'string',
+      scheduleType: 'string',
       stateConfigurationId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceGroupId: 'string',
+      targets: 'string',
     };
   }
 
@@ -6170,46 +6530,46 @@ export class UpdateStateConfigurationRequest extends $tea.Model {
 }
 
 export class UpdateStateConfigurationShrinkRequest extends $tea.Model {
-  regionId?: string;
+  clientToken?: string;
+  configureMode?: string;
   description?: string;
   parametersShrink?: string;
-  configureMode?: string;
-  scheduleType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   scheduleExpression?: string;
-  targets?: string;
-  clientToken?: string;
+  scheduleType?: string;
   stateConfigurationId?: string;
   tagsShrink?: string;
-  resourceGroupId?: string;
+  targets?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      clientToken: 'ClientToken',
+      configureMode: 'ConfigureMode',
       description: 'Description',
       parametersShrink: 'Parameters',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       scheduleExpression: 'ScheduleExpression',
-      targets: 'Targets',
-      clientToken: 'ClientToken',
+      scheduleType: 'ScheduleType',
       stateConfigurationId: 'StateConfigurationId',
       tagsShrink: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
+      targets: 'Targets',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      clientToken: 'string',
+      configureMode: 'string',
       description: 'string',
       parametersShrink: 'string',
-      configureMode: 'string',
-      scheduleType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       scheduleExpression: 'string',
-      targets: 'string',
-      clientToken: 'string',
+      scheduleType: 'string',
       stateConfigurationId: 'string',
       tagsShrink: 'string',
-      resourceGroupId: 'string',
+      targets: 'string',
     };
   }
 
@@ -6242,10 +6602,12 @@ export class UpdateStateConfigurationResponseBody extends $tea.Model {
 
 export class UpdateStateConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateStateConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6253,6 +6615,7 @@ export class UpdateStateConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateStateConfigurationResponseBody,
     };
   }
@@ -6263,31 +6626,31 @@ export class UpdateStateConfigurationResponse extends $tea.Model {
 }
 
 export class UpdateTemplateRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
   content?: string;
-  tags?: { [key: string]: any };
-  versionName?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  templateName?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
       content: 'Content',
-      tags: 'Tags',
-      versionName: 'VersionName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      templateName: 'TemplateName',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
       content: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      versionName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateName: 'string',
+      versionName: 'string',
     };
   }
 
@@ -6297,31 +6660,31 @@ export class UpdateTemplateRequest extends $tea.Model {
 }
 
 export class UpdateTemplateShrinkRequest extends $tea.Model {
-  regionId?: string;
-  templateName?: string;
   content?: string;
-  tagsShrink?: string;
-  versionName?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  tagsShrink?: string;
+  templateName?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      templateName: 'TemplateName',
       content: 'Content',
-      tagsShrink: 'Tags',
-      versionName: 'VersionName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      templateName: 'TemplateName',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      templateName: 'string',
       content: 'string',
-      tagsShrink: 'string',
-      versionName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      tagsShrink: 'string',
+      templateName: 'string',
+      versionName: 'string',
     };
   }
 
@@ -6354,10 +6717,12 @@ export class UpdateTemplateResponseBody extends $tea.Model {
 
 export class UpdateTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6365,6 +6730,7 @@ export class UpdateTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateTemplateResponseBody,
     };
   }
@@ -6375,19 +6741,19 @@ export class UpdateTemplateResponse extends $tea.Model {
 }
 
 export class ValidateTemplateContentRequest extends $tea.Model {
-  regionId?: string;
   content?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       content: 'Content',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       content: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6398,16 +6764,16 @@ export class ValidateTemplateContentRequest extends $tea.Model {
 
 export class ValidateTemplateContentResponseBody extends $tea.Model {
   outputs?: string;
-  requestId?: string;
   parameters?: string;
   ramRole?: string;
+  requestId?: string;
   tasks?: ValidateTemplateContentResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
       outputs: 'Outputs',
-      requestId: 'RequestId',
       parameters: 'Parameters',
       ramRole: 'RamRole',
+      requestId: 'RequestId',
       tasks: 'Tasks',
     };
   }
@@ -6415,9 +6781,9 @@ export class ValidateTemplateContentResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       outputs: 'string',
-      requestId: 'string',
       parameters: 'string',
       ramRole: 'string',
+      requestId: 'string',
       tasks: { 'type': 'array', 'itemType': ValidateTemplateContentResponseBodyTasks },
     };
   }
@@ -6429,10 +6795,12 @@ export class ValidateTemplateContentResponseBody extends $tea.Model {
 
 export class ValidateTemplateContentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ValidateTemplateContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6440,6 +6808,7 @@ export class ValidateTemplateContentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ValidateTemplateContentResponseBody,
     };
   }
@@ -6449,66 +6818,29 @@ export class ValidateTemplateContentResponse extends $tea.Model {
   }
 }
 
-export class CreateApplicationResponseBodyApplicationCloudMonitorRule extends $tea.Model {
-  enableSubscribeEvent?: boolean;
-  enableInstallAgent?: boolean;
-  enabled?: boolean;
-  contactGroupList?: string[];
-  templateIdList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      enableSubscribeEvent: 'EnableSubscribeEvent',
-      enableInstallAgent: 'EnableInstallAgent',
-      enabled: 'Enabled',
-      contactGroupList: 'ContactGroupList',
-      templateIdList: 'TemplateIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableSubscribeEvent: 'boolean',
-      enableInstallAgent: 'boolean',
-      enabled: 'boolean',
-      contactGroupList: { 'type': 'array', 'itemType': 'string' },
-      templateIdList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateApplicationResponseBodyApplication extends $tea.Model {
-  type?: string;
-  isSystem?: boolean;
-  description?: string;
-  updateDate?: string;
-  name?: string;
   createDate?: string;
-  cloudMonitorRule?: CreateApplicationResponseBodyApplicationCloudMonitorRule;
+  description?: string;
+  name?: string;
+  tags?: { [key: string]: string };
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      isSystem: 'IsSystem',
-      description: 'Description',
-      updateDate: 'UpdateDate',
-      name: 'Name',
       createDate: 'CreateDate',
-      cloudMonitorRule: 'CloudMonitorRule',
+      description: 'Description',
+      name: 'Name',
+      tags: 'Tags',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      isSystem: 'boolean',
-      description: 'string',
-      updateDate: 'string',
-      name: 'string',
       createDate: 'string',
-      cloudMonitorRule: CreateApplicationResponseBodyApplicationCloudMonitorRule,
+      description: 'string',
+      name: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      updateDate: 'string',
     };
   }
 
@@ -6518,43 +6850,40 @@ export class CreateApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class CreateApplicationGroupResponseBodyApplicationGroup extends $tea.Model {
+  applicationName?: string;
+  cmsGroupId?: string;
+  createDate?: string;
   deployRegionId?: string;
   description?: string;
-  updatedDate?: string;
-  createdDate?: string;
-  applicationName?: string;
+  importTagKey?: string;
+  importTagValue?: string;
   name?: string;
-  environment?: string;
-  createType?: string;
-  scalingGroupId?: string;
-  importClusterId?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationName: 'ApplicationName',
+      cmsGroupId: 'CmsGroupId',
+      createDate: 'CreateDate',
       deployRegionId: 'DeployRegionId',
       description: 'Description',
-      updatedDate: 'UpdatedDate',
-      createdDate: 'CreatedDate',
-      applicationName: 'ApplicationName',
+      importTagKey: 'ImportTagKey',
+      importTagValue: 'ImportTagValue',
       name: 'Name',
-      environment: 'Environment',
-      createType: 'CreateType',
-      scalingGroupId: 'ScalingGroupId',
-      importClusterId: 'ImportClusterId',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationName: 'string',
+      cmsGroupId: 'string',
+      createDate: 'string',
       deployRegionId: 'string',
       description: 'string',
-      updatedDate: 'string',
-      createdDate: 'string',
-      applicationName: 'string',
+      importTagKey: 'string',
+      importTagValue: 'string',
       name: 'string',
-      environment: 'string',
-      createType: 'string',
-      scalingGroupId: 'string',
-      importClusterId: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6564,52 +6893,52 @@ export class CreateApplicationGroupResponseBodyApplicationGroup extends $tea.Mod
 }
 
 export class CreateParameterResponseBodyParameter extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -6619,43 +6948,43 @@ export class CreateParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
-  operationSystem?: string;
-  description?: string;
-  updatedDate?: string;
-  updatedBy?: string;
+  approvalRules?: string;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
-  approvalRules?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  operationSystem?: string;
   shareType?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      operationSystem: 'OperationSystem',
-      description: 'Description',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
+      approvalRules: 'ApprovalRules',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
-      approvalRules: 'ApprovalRules',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
       shareType: 'ShareType',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operationSystem: 'string',
-      description: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
+      approvalRules: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
-      approvalRules: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      operationSystem: 'string',
       shareType: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -6665,55 +6994,55 @@ export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
 }
 
 export class CreateSecretParameterResponseBodyParameter extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  keyId?: string;
-  tags?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  keyId?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: string;
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      keyId: 'KeyId',
-      tags: 'Tags',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      keyId: 'KeyId',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      keyId: 'string',
-      tags: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      keyId: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: 'string',
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -6723,52 +7052,52 @@ export class CreateSecretParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class CreateStateConfigurationResponseBodyStateConfiguration extends $tea.Model {
+  configureMode?: string;
   createTime?: string;
-  targets?: string;
-  tags?: { [key: string]: any };
-  stateConfigurationId?: string;
+  description?: string;
+  parameters?: { [key: string]: any };
+  resourceGroupId?: string;
   scheduleExpression?: string;
+  scheduleType?: string;
+  stateConfigurationId?: string;
+  tags?: { [key: string]: any };
+  targets?: string;
+  templateId?: string;
   templateName?: string;
   templateVersion?: string;
-  configureMode?: string;
-  scheduleType?: string;
-  parameters?: { [key: string]: any };
-  description?: string;
-  resourceGroupId?: string;
-  templateId?: string;
   static names(): { [key: string]: string } {
     return {
+      configureMode: 'ConfigureMode',
       createTime: 'CreateTime',
-      targets: 'Targets',
-      tags: 'Tags',
-      stateConfigurationId: 'StateConfigurationId',
+      description: 'Description',
+      parameters: 'Parameters',
+      resourceGroupId: 'ResourceGroupId',
       scheduleExpression: 'ScheduleExpression',
+      scheduleType: 'ScheduleType',
+      stateConfigurationId: 'StateConfigurationId',
+      tags: 'Tags',
+      targets: 'Targets',
+      templateId: 'TemplateId',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
-      parameters: 'Parameters',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
-      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      configureMode: 'string',
       createTime: 'string',
-      targets: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      stateConfigurationId: 'string',
+      description: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceGroupId: 'string',
       scheduleExpression: 'string',
+      scheduleType: 'string',
+      stateConfigurationId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targets: 'string',
+      templateId: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      configureMode: 'string',
-      scheduleType: 'string',
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      description: 'string',
-      resourceGroupId: 'string',
-      templateId: 'string',
     };
   }
 
@@ -6778,55 +7107,55 @@ export class CreateStateConfigurationResponseBodyStateConfiguration extends $tea
 }
 
 export class CreateTemplateResponseBodyTemplate extends $tea.Model {
-  hash?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  templateName?: string;
-  templateVersion?: string;
-  templateFormat?: string;
-  description?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  templateId?: string;
+  description?: string;
   hasTrigger?: boolean;
+  hash?: string;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  templateFormat?: string;
+  templateId?: string;
+  templateName?: string;
+  templateVersion?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      hash: 'Hash',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      templateFormat: 'TemplateFormat',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      templateId: 'TemplateId',
+      description: 'Description',
       hasTrigger: 'HasTrigger',
+      hash: 'Hash',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hash: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateName: 'string',
-      templateVersion: 'string',
-      templateFormat: 'string',
-      description: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      templateId: 'string',
+      description: 'string',
       hasTrigger: 'boolean',
+      hash: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateFormat: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -6836,21 +7165,21 @@ export class CreateTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  regionEndpoint?: string;
   localName?: string;
+  regionEndpoint?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionEndpoint: 'RegionEndpoint',
       localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionEndpoint: 'string',
       localName: 'string',
+      regionEndpoint: 'string',
       regionId: 'string',
     };
   }
@@ -6860,66 +7189,32 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class GetApplicationResponseBodyApplicationCloudMonitorRule extends $tea.Model {
-  enableSubscribeEvent?: boolean;
-  enableInstallAgent?: boolean;
-  enabled?: boolean;
-  contactGroupList?: string[];
-  templateIdList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      enableSubscribeEvent: 'EnableSubscribeEvent',
-      enableInstallAgent: 'EnableInstallAgent',
-      enabled: 'Enabled',
-      contactGroupList: 'ContactGroupList',
-      templateIdList: 'TemplateIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableSubscribeEvent: 'boolean',
-      enableInstallAgent: 'boolean',
-      enabled: 'boolean',
-      contactGroupList: { 'type': 'array', 'itemType': 'string' },
-      templateIdList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetApplicationResponseBodyApplication extends $tea.Model {
-  isSystem?: string;
+  createDate?: string;
   description?: string;
-  updatedDate?: string;
-  resourceGroupId?: string;
-  createdDate?: string;
   name?: string;
-  cloudMonitorRule?: GetApplicationResponseBodyApplicationCloudMonitorRule;
+  resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      isSystem: 'IsSystem',
+      createDate: 'CreateDate',
       description: 'Description',
-      updatedDate: 'UpdatedDate',
-      resourceGroupId: 'ResourceGroupId',
-      createdDate: 'CreatedDate',
       name: 'Name',
-      cloudMonitorRule: 'CloudMonitorRule',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSystem: 'string',
+      createDate: 'string',
       description: 'string',
-      updatedDate: 'string',
-      resourceGroupId: 'string',
-      createdDate: 'string',
       name: 'string',
-      cloudMonitorRule: GetApplicationResponseBodyApplicationCloudMonitorRule,
+      resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      updateDate: 'string',
     };
   }
 
@@ -6929,43 +7224,52 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model {
+  applicationName?: string;
+  cmsGroupId?: string;
+  createDate?: string;
+  deployOutputs?: string;
+  deployParameters?: string;
   deployRegionId?: string;
   description?: string;
-  updatedDate?: string;
-  createdDate?: string;
-  applicationName?: string;
+  importTagKey?: string;
+  importTagValue?: string;
   name?: string;
-  environment?: string;
-  createType?: string;
-  scalingGroupId?: string;
-  importClusterId?: string;
+  status?: string;
+  statusReason?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationName: 'ApplicationName',
+      cmsGroupId: 'CmsGroupId',
+      createDate: 'CreateDate',
+      deployOutputs: 'DeployOutputs',
+      deployParameters: 'DeployParameters',
       deployRegionId: 'DeployRegionId',
       description: 'Description',
-      updatedDate: 'UpdatedDate',
-      createdDate: 'CreatedDate',
-      applicationName: 'ApplicationName',
+      importTagKey: 'ImportTagKey',
+      importTagValue: 'ImportTagValue',
       name: 'Name',
-      environment: 'Environment',
-      createType: 'CreateType',
-      scalingGroupId: 'ScalingGroupId',
-      importClusterId: 'ImportClusterId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationName: 'string',
+      cmsGroupId: 'string',
+      createDate: 'string',
+      deployOutputs: 'string',
+      deployParameters: 'string',
       deployRegionId: 'string',
       description: 'string',
-      updatedDate: 'string',
-      createdDate: 'string',
-      applicationName: 'string',
+      importTagKey: 'string',
+      importTagValue: 'string',
       name: 'string',
-      environment: 'string',
-      createType: 'string',
-      scalingGroupId: 'string',
-      importClusterId: 'string',
+      status: 'string',
+      statusReason: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6975,49 +7279,49 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
 }
 
 export class GetExecutionTemplateResponseBodyTemplate extends $tea.Model {
-  hash?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  templateName?: string;
-  templateVersion?: string;
-  templateFormat?: string;
-  description?: string;
   createdBy?: string;
   createdDate?: string;
-  templateId?: string;
+  description?: string;
+  hash?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  templateFormat?: string;
+  templateId?: string;
+  templateName?: string;
+  templateVersion?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      hash: 'Hash',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      templateFormat: 'TemplateFormat',
-      description: 'Description',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      templateId: 'TemplateId',
+      description: 'Description',
+      hash: 'Hash',
       shareType: 'ShareType',
+      tags: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hash: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateName: 'string',
-      templateVersion: 'string',
-      templateFormat: 'string',
-      description: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      templateId: 'string',
+      description: 'string',
+      hash: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateFormat: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -7027,19 +7331,19 @@ export class GetExecutionTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class GetInventorySchemaResponseBodySchemasAttributes extends $tea.Model {
-  name?: string;
   dataType?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
       dataType: 'DataType',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
       dataType: 'string',
+      name: 'string',
     };
   }
 
@@ -7049,22 +7353,22 @@ export class GetInventorySchemaResponseBodySchemasAttributes extends $tea.Model 
 }
 
 export class GetInventorySchemaResponseBodySchemas extends $tea.Model {
-  version?: string;
-  typeName?: string;
   attributes?: GetInventorySchemaResponseBodySchemasAttributes[];
+  typeName?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      version: 'Version',
-      typeName: 'TypeName',
       attributes: 'Attributes',
+      typeName: 'TypeName',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      version: 'string',
-      typeName: 'string',
       attributes: { 'type': 'array', 'itemType': GetInventorySchemaResponseBodySchemasAttributes },
+      typeName: 'string',
+      version: 'string',
     };
   }
 
@@ -7074,55 +7378,55 @@ export class GetInventorySchemaResponseBodySchemas extends $tea.Model {
 }
 
 export class GetParameterResponseBodyParameter extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  value?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      value: 'Value',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      value: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
     };
   }
 
@@ -7132,55 +7436,55 @@ export class GetParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class GetParametersResponseBodyParameters extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  value?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      value: 'Value',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      value: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
     };
   }
 
@@ -7190,49 +7494,49 @@ export class GetParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class GetParametersByPathResponseBodyParameters extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  value?: string;
-  description?: string;
   constraints?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  parameterVersion?: number;
   shareType?: string;
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      value: 'Value',
-      description: 'Description',
       constraints: 'Constraints',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
       shareType: 'ShareType',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      value: 'string',
-      description: 'string',
       constraints: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      parameterVersion: 'number',
       shareType: 'string',
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
     };
   }
 
@@ -7242,46 +7546,46 @@ export class GetParametersByPathResponseBodyParameters extends $tea.Model {
 }
 
 export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
-  operationSystem?: string;
-  isDefault?: boolean;
-  description?: string;
-  updatedDate?: string;
-  updatedBy?: string;
+  approvalRules?: string;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
-  approvalRules?: string;
+  description?: string;
   id?: string;
+  isDefault?: boolean;
+  name?: string;
+  operationSystem?: string;
   shareType?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      operationSystem: 'OperationSystem',
-      isDefault: 'IsDefault',
-      description: 'Description',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
+      approvalRules: 'ApprovalRules',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
-      approvalRules: 'ApprovalRules',
+      description: 'Description',
       id: 'Id',
+      isDefault: 'IsDefault',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
       shareType: 'ShareType',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operationSystem: 'string',
-      isDefault: 'boolean',
-      description: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
+      approvalRules: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
-      approvalRules: 'string',
+      description: 'string',
       id: 'string',
+      isDefault: 'boolean',
+      name: 'string',
+      operationSystem: 'string',
       shareType: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -7291,58 +7595,58 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
 }
 
 export class GetSecretParameterResponseBodyParameter extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  keyId?: string;
-  tags?: { [key: string]: any };
-  value?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  keyId?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      keyId: 'KeyId',
-      tags: 'Tags',
-      value: 'Value',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      keyId: 'KeyId',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      keyId: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      value: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      keyId: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
     };
   }
 
@@ -7352,58 +7656,58 @@ export class GetSecretParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class GetSecretParametersResponseBodyParameters extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  keyId?: string;
-  tags?: { [key: string]: any };
-  value?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  keyId?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      keyId: 'KeyId',
-      tags: 'Tags',
-      value: 'Value',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      keyId: 'KeyId',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      keyId: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      value: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      keyId: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
     };
   }
 
@@ -7413,52 +7717,52 @@ export class GetSecretParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class GetSecretParametersByPathResponseBodyParameters extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  keyId?: string;
-  value?: string;
-  description?: string;
   constraints?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  keyId?: string;
+  name?: string;
+  parameterVersion?: number;
   shareType?: string;
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      keyId: 'KeyId',
-      value: 'Value',
-      description: 'Description',
       constraints: 'Constraints',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      keyId: 'KeyId',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
       shareType: 'ShareType',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      keyId: 'string',
-      value: 'string',
-      description: 'string',
       constraints: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      keyId: 'string',
+      name: 'string',
+      parameterVersion: 'number',
       shareType: 'string',
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
     };
   }
 
@@ -7469,16 +7773,16 @@ export class GetSecretParametersByPathResponseBodyParameters extends $tea.Model 
 
 export class GetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
   deliveryOssBucketName?: string;
-  deliveryOssKeyPrefix?: string;
   deliveryOssEnabled?: boolean;
+  deliveryOssKeyPrefix?: string;
   deliverySlsEnabled?: boolean;
   deliverySlsProjectName?: string;
   rdcEnterpriseId?: string;
   static names(): { [key: string]: string } {
     return {
       deliveryOssBucketName: 'DeliveryOssBucketName',
-      deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliveryOssEnabled: 'DeliveryOssEnabled',
+      deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliverySlsEnabled: 'DeliverySlsEnabled',
       deliverySlsProjectName: 'DeliverySlsProjectName',
       rdcEnterpriseId: 'RdcEnterpriseId',
@@ -7488,8 +7792,8 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deliveryOssBucketName: 'string',
-      deliveryOssKeyPrefix: 'string',
       deliveryOssEnabled: 'boolean',
+      deliveryOssKeyPrefix: 'string',
       deliverySlsEnabled: 'boolean',
       deliverySlsProjectName: 'string',
       rdcEnterpriseId: 'string',
@@ -7502,61 +7806,61 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
 }
 
 export class GetTemplateResponseBodyTemplate extends $tea.Model {
-  hash?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  templateType?: string;
-  tags?: { [key: string]: any };
-  templateName?: string;
-  templateVersion?: string;
-  templateFormat?: string;
-  description?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  versionName?: string;
-  templateId?: string;
+  description?: string;
   hasTrigger?: boolean;
+  hash?: string;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  templateFormat?: string;
+  templateId?: string;
+  templateName?: string;
+  templateType?: string;
+  templateVersion?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      hash: 'Hash',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      templateType: 'TemplateType',
-      tags: 'Tags',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      templateFormat: 'TemplateFormat',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      versionName: 'VersionName',
-      templateId: 'TemplateId',
+      description: 'Description',
       hasTrigger: 'HasTrigger',
+      hash: 'Hash',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
+      templateVersion: 'TemplateVersion',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hash: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      templateType: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateName: 'string',
-      templateVersion: 'string',
-      templateFormat: 'string',
-      description: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      versionName: 'string',
-      templateId: 'string',
+      description: 'string',
       hasTrigger: 'boolean',
+      hash: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateFormat: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateType: 'string',
+      templateVersion: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      versionName: 'string',
     };
   }
 
@@ -7566,34 +7870,34 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class ListActionsResponseBodyActions extends $tea.Model {
-  popularity?: number;
   actionType?: string;
-  description?: string;
   createdDate?: string;
-  templateVersion?: string;
+  description?: string;
   OOSActionName?: string;
+  popularity?: number;
   properties?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      popularity: 'Popularity',
       actionType: 'ActionType',
-      description: 'Description',
       createdDate: 'CreatedDate',
-      templateVersion: 'TemplateVersion',
+      description: 'Description',
       OOSActionName: 'OOSActionName',
+      popularity: 'Popularity',
       properties: 'Properties',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      popularity: 'number',
       actionType: 'string',
-      description: 'string',
       createdDate: 'string',
-      templateVersion: 'string',
+      description: 'string',
       OOSActionName: 'string',
+      popularity: 'number',
       properties: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -7603,74 +7907,49 @@ export class ListActionsResponseBodyActions extends $tea.Model {
 }
 
 export class ListApplicationGroupsResponseBodyApplicationGroups extends $tea.Model {
+  applicationName?: string;
+  cmsGroupId?: string;
+  createDate?: string;
+  deployParameters?: string;
   deployRegionId?: string;
   description?: string;
-  updatedDate?: string;
-  createdDate?: string;
-  applicationName?: string;
+  importTagKey?: string;
+  importTagValue?: string;
   name?: string;
-  environment?: string;
-  createType?: string;
-  scalingGroupId?: string;
-  importClusterId?: string;
+  status?: string;
+  statusReason?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationName: 'ApplicationName',
+      cmsGroupId: 'CmsGroupId',
+      createDate: 'CreateDate',
+      deployParameters: 'DeployParameters',
       deployRegionId: 'DeployRegionId',
       description: 'Description',
-      updatedDate: 'UpdatedDate',
-      createdDate: 'CreatedDate',
-      applicationName: 'ApplicationName',
+      importTagKey: 'ImportTagKey',
+      importTagValue: 'ImportTagValue',
       name: 'Name',
-      environment: 'Environment',
-      createType: 'CreateType',
-      scalingGroupId: 'ScalingGroupId',
-      importClusterId: 'ImportClusterId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationName: 'string',
+      cmsGroupId: 'string',
+      createDate: 'string',
+      deployParameters: 'string',
       deployRegionId: 'string',
       description: 'string',
-      updatedDate: 'string',
-      createdDate: 'string',
-      applicationName: 'string',
+      importTagKey: 'string',
+      importTagValue: 'string',
       name: 'string',
-      environment: 'string',
-      createType: 'string',
-      scalingGroupId: 'string',
-      importClusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsResponseBodyApplicationsCloudMonitorRule extends $tea.Model {
-  enableSubscribeEvent?: boolean;
-  enableInstallAgent?: boolean;
-  enabled?: boolean;
-  contactGroupList?: string[];
-  templateIdList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      enableSubscribeEvent: 'EnableSubscribeEvent',
-      enableInstallAgent: 'EnableInstallAgent',
-      enabled: 'Enabled',
-      contactGroupList: 'ContactGroupList',
-      templateIdList: 'TemplateIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableSubscribeEvent: 'boolean',
-      enableInstallAgent: 'boolean',
-      enabled: 'boolean',
-      contactGroupList: { 'type': 'array', 'itemType': 'string' },
-      templateIdList: { 'type': 'array', 'itemType': 'number' },
+      status: 'string',
+      statusReason: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -7680,37 +7959,31 @@ export class ListApplicationsResponseBodyApplicationsCloudMonitorRule extends $t
 }
 
 export class ListApplicationsResponseBodyApplications extends $tea.Model {
-  type?: string;
-  isSystem?: boolean;
+  createDate?: string;
   description?: string;
-  updateDate?: string;
-  resourceGroupId?: string;
-  createdDate?: string;
   name?: string;
-  cloudMonitorRule?: ListApplicationsResponseBodyApplicationsCloudMonitorRule;
+  resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      isSystem: 'IsSystem',
+      createDate: 'CreateDate',
       description: 'Description',
-      updateDate: 'UpdateDate',
-      resourceGroupId: 'ResourceGroupId',
-      createdDate: 'CreatedDate',
       name: 'Name',
-      cloudMonitorRule: 'CloudMonitorRule',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      isSystem: 'boolean',
+      createDate: 'string',
       description: 'string',
-      updateDate: 'string',
-      resourceGroupId: 'string',
-      createdDate: 'string',
       name: 'string',
-      cloudMonitorRule: ListApplicationsResponseBodyApplicationsCloudMonitorRule,
+      resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      updateDate: 'string',
     };
   }
 
@@ -7720,24 +7993,24 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
 }
 
 export class ListExecutionLogsResponseBodyExecutionLogs extends $tea.Model {
-  taskExecutionId?: string;
-  message?: string;
   logType?: string;
+  message?: string;
+  taskExecutionId?: string;
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
-      taskExecutionId: 'TaskExecutionId',
-      message: 'Message',
       logType: 'LogType',
+      message: 'Message',
+      taskExecutionId: 'TaskExecutionId',
       timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskExecutionId: 'string',
-      message: 'string',
       logType: 'string',
+      message: 'string',
+      taskExecutionId: 'string',
       timestamp: 'string',
     };
   }
@@ -7748,14 +8021,14 @@ export class ListExecutionLogsResponseBodyExecutionLogs extends $tea.Model {
 }
 
 export class ListExecutionRiskyTasksResponseBodyRiskyTasks extends $tea.Model {
-  service?: string;
   API?: string;
+  service?: string;
   task?: string[];
   template?: string[];
   static names(): { [key: string]: string } {
     return {
-      service: 'Service',
       API: 'API',
+      service: 'Service',
       task: 'Task',
       template: 'Template',
     };
@@ -7763,8 +8036,8 @@ export class ListExecutionRiskyTasksResponseBodyRiskyTasks extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      service: 'string',
       API: 'string',
+      service: 'string',
       task: { 'type': 'array', 'itemType': 'string' },
       template: { 'type': 'array', 'itemType': 'string' },
     };
@@ -7776,22 +8049,22 @@ export class ListExecutionRiskyTasksResponseBodyRiskyTasks extends $tea.Model {
 }
 
 export class ListExecutionsResponseBodyExecutionsCurrentTasks extends $tea.Model {
+  taskAction?: string;
   taskExecutionId?: string;
   taskName?: string;
-  taskAction?: string;
   static names(): { [key: string]: string } {
     return {
+      taskAction: 'TaskAction',
       taskExecutionId: 'TaskExecutionId',
       taskName: 'TaskName',
-      taskAction: 'TaskAction',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      taskAction: 'string',
       taskExecutionId: 'string',
       taskName: 'string',
-      taskAction: 'string',
     };
   }
 
@@ -7801,140 +8074,106 @@ export class ListExecutionsResponseBodyExecutionsCurrentTasks extends $tea.Model
 }
 
 export class ListExecutionsResponseBodyExecutions extends $tea.Model {
+  category?: string;
+  counters?: { [key: string]: any };
+  createDate?: string;
+  currentTasks?: ListExecutionsResponseBodyExecutionsCurrentTasks[];
+  description?: string;
+  endDate?: string;
+  executedBy?: string;
+  executionId?: string;
+  isParent?: boolean;
+  lastSuccessfulTriggerTime?: string;
+  lastTriggerStatus?: string;
+  lastTriggerTime?: string;
+  mode?: string;
+  outputs?: string;
+  parameters?: { [key: string]: any };
+  parentExecutionId?: string;
+  ramRole?: string;
+  resourceGroupId?: string;
+  resourceStatus?: string;
+  safetyCheck?: string;
+  startDate?: string;
   status?: string;
-  waitingStatus?: string;
-  targets?: string;
+  statusMessage?: string;
   statusReason?: string;
   tags?: { [key: string]: any };
-  lastSuccessfulTriggerTime?: string;
-  mode?: string;
-  safetyCheck?: string;
+  targets?: string;
+  templateId?: string;
   templateName?: string;
   templateVersion?: string;
-  createDate?: string;
   updateDate?: string;
-  description?: string;
-  lastTriggerTime?: string;
-  parentExecutionId?: string;
-  lastTriggerStatus?: string;
-  statusMessage?: string;
-  outputs?: string;
-  executedBy?: string;
-  endDate?: string;
-  isParent?: boolean;
-  startDate?: string;
-  executionId?: string;
-  parameters?: { [key: string]: any };
-  counters?: { [key: string]: any };
-  resourceGroupId?: string;
-  category?: string;
-  templateId?: string;
-  ramRole?: string;
-  resourceStatus?: string;
-  currentTasks?: ListExecutionsResponseBodyExecutionsCurrentTasks[];
+  waitingStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
+      counters: 'Counters',
+      createDate: 'CreateDate',
+      currentTasks: 'CurrentTasks',
+      description: 'Description',
+      endDate: 'EndDate',
+      executedBy: 'ExecutedBy',
+      executionId: 'ExecutionId',
+      isParent: 'IsParent',
+      lastSuccessfulTriggerTime: 'LastSuccessfulTriggerTime',
+      lastTriggerStatus: 'LastTriggerStatus',
+      lastTriggerTime: 'LastTriggerTime',
+      mode: 'Mode',
+      outputs: 'Outputs',
+      parameters: 'Parameters',
+      parentExecutionId: 'ParentExecutionId',
+      ramRole: 'RamRole',
+      resourceGroupId: 'ResourceGroupId',
+      resourceStatus: 'ResourceStatus',
+      safetyCheck: 'SafetyCheck',
+      startDate: 'StartDate',
       status: 'Status',
-      waitingStatus: 'WaitingStatus',
-      targets: 'Targets',
+      statusMessage: 'StatusMessage',
       statusReason: 'StatusReason',
       tags: 'Tags',
-      lastSuccessfulTriggerTime: 'LastSuccessfulTriggerTime',
-      mode: 'Mode',
-      safetyCheck: 'SafetyCheck',
+      targets: 'Targets',
+      templateId: 'TemplateId',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      createDate: 'CreateDate',
       updateDate: 'UpdateDate',
-      description: 'Description',
-      lastTriggerTime: 'LastTriggerTime',
-      parentExecutionId: 'ParentExecutionId',
-      lastTriggerStatus: 'LastTriggerStatus',
-      statusMessage: 'StatusMessage',
-      outputs: 'Outputs',
-      executedBy: 'ExecutedBy',
-      endDate: 'EndDate',
-      isParent: 'IsParent',
-      startDate: 'StartDate',
-      executionId: 'ExecutionId',
-      parameters: 'Parameters',
-      counters: 'Counters',
-      resourceGroupId: 'ResourceGroupId',
-      category: 'Category',
-      templateId: 'TemplateId',
-      ramRole: 'RamRole',
-      resourceStatus: 'ResourceStatus',
-      currentTasks: 'CurrentTasks',
+      waitingStatus: 'WaitingStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
+      counters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      createDate: 'string',
+      currentTasks: { 'type': 'array', 'itemType': ListExecutionsResponseBodyExecutionsCurrentTasks },
+      description: 'string',
+      endDate: 'string',
+      executedBy: 'string',
+      executionId: 'string',
+      isParent: 'boolean',
+      lastSuccessfulTriggerTime: 'string',
+      lastTriggerStatus: 'string',
+      lastTriggerTime: 'string',
+      mode: 'string',
+      outputs: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parentExecutionId: 'string',
+      ramRole: 'string',
+      resourceGroupId: 'string',
+      resourceStatus: 'string',
+      safetyCheck: 'string',
+      startDate: 'string',
       status: 'string',
-      waitingStatus: 'string',
-      targets: 'string',
+      statusMessage: 'string',
       statusReason: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      lastSuccessfulTriggerTime: 'string',
-      mode: 'string',
-      safetyCheck: 'string',
+      targets: 'string',
+      templateId: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      createDate: 'string',
       updateDate: 'string',
-      description: 'string',
-      lastTriggerTime: 'string',
-      parentExecutionId: 'string',
-      lastTriggerStatus: 'string',
-      statusMessage: 'string',
-      outputs: 'string',
-      executedBy: 'string',
-      endDate: 'string',
-      isParent: 'boolean',
-      startDate: 'string',
-      executionId: 'string',
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      counters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceGroupId: 'string',
-      category: 'string',
-      templateId: 'string',
-      ramRole: 'string',
-      resourceStatus: 'string',
-      currentTasks: { 'type': 'array', 'itemType': ListExecutionsResponseBodyExecutionsCurrentTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancePatchesResponseBodyPatches extends $tea.Model {
-  severity?: string;
-  status?: string;
-  installedTime?: string;
-  KBId?: string;
-  title?: string;
-  classification?: string;
-  static names(): { [key: string]: string } {
-    return {
-      severity: 'Severity',
-      status: 'Status',
-      installedTime: 'InstalledTime',
-      KBId: 'KBId',
-      title: 'Title',
-      classification: 'Classification',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      severity: 'string',
-      status: 'string',
-      installedTime: 'string',
-      KBId: 'string',
-      title: 'string',
-      classification: 'string',
+      waitingStatus: 'string',
     };
   }
 
@@ -7944,52 +8183,52 @@ export class ListInstancePatchesResponseBodyPatches extends $tea.Model {
 }
 
 export class ListInstancePatchStatesResponseBodyInstancePatchStates extends $tea.Model {
-  missingCount?: string;
-  operationEndTime?: string;
-  ownerInformation?: string;
-  installedOtherCount?: string;
-  instanceId?: string;
-  operationType?: string;
-  operationStartTime?: string;
-  failedCount?: string;
   baselineId?: string;
+  failedCount?: string;
+  installedCount?: string;
+  installedOtherCount?: string;
   installedPendingRebootCount?: string;
   installedRejectedCount?: string;
+  instanceId?: string;
+  missingCount?: string;
+  operationEndTime?: string;
+  operationStartTime?: string;
+  operationType?: string;
+  ownerInformation?: string;
   patchGroup?: string;
-  installedCount?: string;
   static names(): { [key: string]: string } {
     return {
-      missingCount: 'MissingCount',
-      operationEndTime: 'OperationEndTime',
-      ownerInformation: 'OwnerInformation',
-      installedOtherCount: 'InstalledOtherCount',
-      instanceId: 'InstanceId',
-      operationType: 'OperationType',
-      operationStartTime: 'OperationStartTime',
-      failedCount: 'FailedCount',
       baselineId: 'BaselineId',
+      failedCount: 'FailedCount',
+      installedCount: 'InstalledCount',
+      installedOtherCount: 'InstalledOtherCount',
       installedPendingRebootCount: 'InstalledPendingRebootCount',
       installedRejectedCount: 'InstalledRejectedCount',
+      instanceId: 'InstanceId',
+      missingCount: 'MissingCount',
+      operationEndTime: 'OperationEndTime',
+      operationStartTime: 'OperationStartTime',
+      operationType: 'OperationType',
+      ownerInformation: 'OwnerInformation',
       patchGroup: 'PatchGroup',
-      installedCount: 'InstalledCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      missingCount: 'string',
-      operationEndTime: 'string',
-      ownerInformation: 'string',
-      installedOtherCount: 'string',
-      instanceId: 'string',
-      operationType: 'string',
-      operationStartTime: 'string',
-      failedCount: 'string',
       baselineId: 'string',
+      failedCount: 'string',
+      installedCount: 'string',
+      installedOtherCount: 'string',
       installedPendingRebootCount: 'string',
       installedRejectedCount: 'string',
+      instanceId: 'string',
+      missingCount: 'string',
+      operationEndTime: 'string',
+      operationStartTime: 'string',
+      operationType: 'string',
+      ownerInformation: 'string',
       patchGroup: 'string',
-      installedCount: 'string',
     };
   }
 
@@ -7998,35 +8237,32 @@ export class ListInstancePatchStatesResponseBodyInstancePatchStates extends $tea
   }
 }
 
-export class ListInstanceStateReportsResponseBodyStateReports extends $tea.Model {
-  reportStatus?: string;
-  reportInfo?: string;
-  successApplyTime?: string;
-  stateConfigurationId?: string;
-  instanceId?: string;
-  mode?: string;
-  reportTime?: string;
+export class ListInstancePatchesResponseBodyPatches extends $tea.Model {
+  classification?: string;
+  installedTime?: string;
+  KBId?: string;
+  severity?: string;
+  status?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      reportStatus: 'ReportStatus',
-      reportInfo: 'ReportInfo',
-      successApplyTime: 'SuccessApplyTime',
-      stateConfigurationId: 'StateConfigurationId',
-      instanceId: 'InstanceId',
-      mode: 'Mode',
-      reportTime: 'ReportTime',
+      classification: 'Classification',
+      installedTime: 'InstalledTime',
+      KBId: 'KBId',
+      severity: 'Severity',
+      status: 'Status',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      reportStatus: 'string',
-      reportInfo: 'string',
-      successApplyTime: 'string',
-      stateConfigurationId: 'string',
-      instanceId: 'string',
-      mode: 'string',
-      reportTime: 'string',
+      classification: 'string',
+      installedTime: 'string',
+      KBId: 'string',
+      severity: 'string',
+      status: 'string',
+      title: 'string',
     };
   }
 
@@ -8036,74 +8272,22 @@ export class ListInstanceStateReportsResponseBodyStateReports extends $tea.Model
 }
 
 export class ListInventoryEntriesRequestFilter extends $tea.Model {
-  value?: string[];
+  name?: string;
   operator?: string;
-  name?: string;
+  value?: string[];
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
+      name: 'Name',
       operator: 'Operator',
-      name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
       operator: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListParametersResponseBodyParameters extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  description?: string;
-  createdBy?: string;
-  resourceGroupId?: string;
-  createdDate?: string;
-  parameterVersion?: string;
-  name?: string;
-  id?: string;
-  shareType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      description: 'Description',
-      createdBy: 'CreatedBy',
-      resourceGroupId: 'ResourceGroupId',
-      createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
-      id: 'Id',
-      shareType: 'ShareType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      description: 'string',
-      createdBy: 'string',
-      resourceGroupId: 'string',
-      createdDate: 'string',
-      parameterVersion: 'string',
-      name: 'string',
-      id: 'string',
-      shareType: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8114,24 +8298,76 @@ export class ListParametersResponseBodyParameters extends $tea.Model {
 
 export class ListParameterVersionsResponseBodyParameterVersions extends $tea.Model {
   parameterVersion?: number;
-  value?: string;
-  updatedDate?: string;
   updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       parameterVersion: 'ParameterVersion',
-      value: 'Value',
-      updatedDate: 'UpdatedDate',
       updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       parameterVersion: 'number',
-      value: 'string',
-      updatedDate: 'string',
       updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListParametersResponseBodyParameters extends $tea.Model {
+  createdBy?: string;
+  createdDate?: string;
+  description?: string;
+  id?: string;
+  name?: string;
+  parameterVersion?: string;
+  resourceGroupId?: string;
+  shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdBy: 'CreatedBy',
+      createdDate: 'CreatedDate',
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdBy: 'string',
+      createdDate: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      parameterVersion: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8141,43 +8377,43 @@ export class ListParameterVersionsResponseBodyParameterVersions extends $tea.Mod
 }
 
 export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
-  operationSystem?: string;
-  isDefault?: boolean;
-  description?: string;
-  updatedDate?: string;
-  updatedBy?: string;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
+  description?: string;
   id?: string;
+  isDefault?: boolean;
+  name?: string;
+  operationSystem?: string;
   shareType?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      operationSystem: 'OperationSystem',
-      isDefault: 'IsDefault',
-      description: 'Description',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      isDefault: 'IsDefault',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
       shareType: 'ShareType',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operationSystem: 'string',
-      isDefault: 'boolean',
-      description: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      isDefault: 'boolean',
+      name: 'string',
+      operationSystem: 'string',
       shareType: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8187,83 +8423,28 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
 }
 
 export class ListResourceExecutionStatusResponseBodyResourceExecutionStatus extends $tea.Model {
-  outputs?: string;
-  status?: string;
-  executionTime?: string;
-  resourceId?: string;
   executionId?: string;
+  executionTime?: string;
+  outputs?: string;
+  resourceId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      outputs: 'Outputs',
-      status: 'Status',
-      executionTime: 'ExecutionTime',
-      resourceId: 'ResourceId',
       executionId: 'ExecutionId',
+      executionTime: 'ExecutionTime',
+      outputs: 'Outputs',
+      resourceId: 'ResourceId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outputs: 'string',
-      status: 'string',
-      executionTime: 'string',
-      resourceId: 'string',
       executionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSecretParametersResponseBodyParameters extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  keyId?: string;
-  tags?: { [key: string]: any };
-  description?: string;
-  resourceGroupId?: string;
-  createdBy?: string;
-  createdDate?: string;
-  parameterVersion?: string;
-  name?: string;
-  id?: string;
-  shareType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      keyId: 'KeyId',
-      tags: 'Tags',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
-      createdBy: 'CreatedBy',
-      createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
-      id: 'Id',
-      shareType: 'ShareType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      keyId: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      description: 'string',
-      resourceGroupId: 'string',
-      createdBy: 'string',
-      createdDate: 'string',
-      parameterVersion: 'string',
-      name: 'string',
-      id: 'string',
-      shareType: 'string',
+      executionTime: 'string',
+      outputs: 'string',
+      resourceId: 'string',
+      status: 'string',
     };
   }
 
@@ -8274,24 +8455,79 @@ export class ListSecretParametersResponseBodyParameters extends $tea.Model {
 
 export class ListSecretParameterVersionsResponseBodyParameterVersions extends $tea.Model {
   parameterVersion?: number;
-  value?: string;
-  updatedDate?: string;
   updatedBy?: string;
+  updatedDate?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       parameterVersion: 'ParameterVersion',
-      value: 'Value',
-      updatedDate: 'UpdatedDate',
       updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       parameterVersion: 'number',
-      value: 'string',
-      updatedDate: 'string',
       updatedBy: 'string',
+      updatedDate: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecretParametersResponseBodyParameters extends $tea.Model {
+  createdBy?: string;
+  createdDate?: string;
+  description?: string;
+  id?: string;
+  keyId?: string;
+  name?: string;
+  parameterVersion?: string;
+  resourceGroupId?: string;
+  shareType?: string;
+  tags?: { [key: string]: any };
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdBy: 'CreatedBy',
+      createdDate: 'CreatedDate',
+      description: 'Description',
+      id: 'Id',
+      keyId: 'KeyId',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdBy: 'string',
+      createdDate: 'string',
+      description: 'string',
+      id: 'string',
+      keyId: 'string',
+      name: 'string',
+      parameterVersion: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8301,55 +8537,55 @@ export class ListSecretParameterVersionsResponseBodyParameterVersions extends $t
 }
 
 export class ListStateConfigurationsResponseBodyStateConfigurations extends $tea.Model {
-  updateTime?: string;
+  configureMode?: string;
   createTime?: string;
-  targets?: string;
-  tags?: { [key: string]: any };
-  stateConfigurationId?: string;
+  description?: string;
+  parameters?: string;
+  resourceGroupId?: string;
   scheduleExpression?: string;
+  scheduleType?: string;
+  stateConfigurationId?: string;
+  tags?: { [key: string]: any };
+  targets?: string;
+  templateId?: string;
   templateName?: string;
   templateVersion?: string;
-  configureMode?: string;
-  scheduleType?: string;
-  parameters?: string;
-  description?: string;
-  resourceGroupId?: string;
-  templateId?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
+      configureMode: 'ConfigureMode',
       createTime: 'CreateTime',
-      targets: 'Targets',
-      tags: 'Tags',
-      stateConfigurationId: 'StateConfigurationId',
+      description: 'Description',
+      parameters: 'Parameters',
+      resourceGroupId: 'ResourceGroupId',
       scheduleExpression: 'ScheduleExpression',
+      scheduleType: 'ScheduleType',
+      stateConfigurationId: 'StateConfigurationId',
+      tags: 'Tags',
+      targets: 'Targets',
+      templateId: 'TemplateId',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
-      parameters: 'Parameters',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
-      templateId: 'TemplateId',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
+      configureMode: 'string',
       createTime: 'string',
-      targets: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      stateConfigurationId: 'string',
+      description: 'string',
+      parameters: 'string',
+      resourceGroupId: 'string',
       scheduleExpression: 'string',
+      scheduleType: 'string',
+      stateConfigurationId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targets: 'string',
+      templateId: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      configureMode: 'string',
-      scheduleType: 'string',
-      parameters: 'string',
-      description: 'string',
-      resourceGroupId: 'string',
-      templateId: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -8359,25 +8595,25 @@ export class ListStateConfigurationsResponseBodyStateConfigurations extends $tea
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  resourceType?: string;
-  tagValue?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      tagValue: 'TagValue',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      tagValue: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -8407,139 +8643,69 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 
 export class ListTaskExecutionsResponseBodyTaskExecutions extends $tea.Model {
   childExecutionId?: string;
-  outputs?: string;
-  status?: string;
-  endDate?: string;
-  parentTaskExecutionId?: string;
-  taskName?: string;
-  startDate?: string;
-  loopItem?: string;
   createDate?: string;
+  endDate?: string;
   executionId?: string;
+  extraData?: { [key: string]: any };
+  loop?: { [key: string]: any };
+  loopBatchNumber?: number;
+  loopItem?: string;
+  outputs?: string;
+  parentTaskExecutionId?: string;
+  properties?: string;
+  startDate?: string;
+  status?: string;
+  statusMessage?: string;
   taskAction?: string;
   taskExecutionId?: string;
-  updateDate?: string;
-  loop?: { [key: string]: any };
+  taskName?: string;
   templateId?: string;
-  loopBatchNumber?: number;
-  statusMessage?: string;
-  extraData?: { [key: string]: any };
-  properties?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       childExecutionId: 'ChildExecutionId',
-      outputs: 'Outputs',
-      status: 'Status',
-      endDate: 'EndDate',
-      parentTaskExecutionId: 'ParentTaskExecutionId',
-      taskName: 'TaskName',
-      startDate: 'StartDate',
-      loopItem: 'LoopItem',
       createDate: 'CreateDate',
+      endDate: 'EndDate',
       executionId: 'ExecutionId',
+      extraData: 'ExtraData',
+      loop: 'Loop',
+      loopBatchNumber: 'LoopBatchNumber',
+      loopItem: 'LoopItem',
+      outputs: 'Outputs',
+      parentTaskExecutionId: 'ParentTaskExecutionId',
+      properties: 'Properties',
+      startDate: 'StartDate',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
       taskAction: 'TaskAction',
       taskExecutionId: 'TaskExecutionId',
-      updateDate: 'UpdateDate',
-      loop: 'Loop',
+      taskName: 'TaskName',
       templateId: 'TemplateId',
-      loopBatchNumber: 'LoopBatchNumber',
-      statusMessage: 'StatusMessage',
-      extraData: 'ExtraData',
-      properties: 'Properties',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       childExecutionId: 'string',
-      outputs: 'string',
-      status: 'string',
-      endDate: 'string',
-      parentTaskExecutionId: 'string',
-      taskName: 'string',
-      startDate: 'string',
-      loopItem: 'string',
       createDate: 'string',
+      endDate: 'string',
       executionId: 'string',
+      extraData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      loop: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      loopBatchNumber: 'number',
+      loopItem: 'string',
+      outputs: 'string',
+      parentTaskExecutionId: 'string',
+      properties: 'string',
+      startDate: 'string',
+      status: 'string',
+      statusMessage: 'string',
       taskAction: 'string',
       taskExecutionId: 'string',
+      taskName: 'string',
+      templateId: 'string',
       updateDate: 'string',
-      loop: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateId: 'string',
-      loopBatchNumber: 'number',
-      statusMessage: 'string',
-      extraData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      properties: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBodyTemplates extends $tea.Model {
-  hash?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  templateType?: string;
-  tags?: { [key: string]: any };
-  templateName?: string;
-  templateVersion?: string;
-  templateFormat?: string;
-  popularity?: number;
-  totalExecutionCount?: number;
-  description?: string;
-  resourceGroupId?: string;
-  createdBy?: string;
-  createdDate?: string;
-  category?: string;
-  hasTrigger?: boolean;
-  templateId?: string;
-  shareType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hash: 'Hash',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      templateType: 'TemplateType',
-      tags: 'Tags',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      templateFormat: 'TemplateFormat',
-      popularity: 'Popularity',
-      totalExecutionCount: 'TotalExecutionCount',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
-      createdBy: 'CreatedBy',
-      createdDate: 'CreatedDate',
-      category: 'Category',
-      hasTrigger: 'HasTrigger',
-      templateId: 'TemplateId',
-      shareType: 'ShareType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hash: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      templateType: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateName: 'string',
-      templateVersion: 'string',
-      templateFormat: 'string',
-      popularity: 'number',
-      totalExecutionCount: 'number',
-      description: 'string',
-      resourceGroupId: 'string',
-      createdBy: 'string',
-      createdDate: 'string',
-      category: 'string',
-      hasTrigger: 'boolean',
-      templateId: 'string',
-      shareType: 'string',
     };
   }
 
@@ -8550,30 +8716,100 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
 
 export class ListTemplateVersionsResponseBodyTemplateVersions extends $tea.Model {
   description?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  versionName?: string;
-  templateVersion?: string;
   templateFormat?: string;
+  templateVersion?: string;
+  updatedBy?: string;
+  updatedDate?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      versionName: 'VersionName',
-      templateVersion: 'TemplateVersion',
       templateFormat: 'TemplateFormat',
+      templateVersion: 'TemplateVersion',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      versionName: 'string',
-      templateVersion: 'string',
       templateFormat: 'string',
+      templateVersion: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBodyTemplates extends $tea.Model {
+  category?: string;
+  createdBy?: string;
+  createdDate?: string;
+  description?: string;
+  hasTrigger?: boolean;
+  hash?: string;
+  popularity?: number;
+  resourceGroupId?: string;
+  shareType?: string;
+  tags?: { [key: string]: any };
+  templateFormat?: string;
+  templateId?: string;
+  templateName?: string;
+  templateType?: string;
+  templateVersion?: string;
+  totalExecutionCount?: number;
+  updatedBy?: string;
+  updatedDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createdBy: 'CreatedBy',
+      createdDate: 'CreatedDate',
+      description: 'Description',
+      hasTrigger: 'HasTrigger',
+      hash: 'Hash',
+      popularity: 'Popularity',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      tags: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
+      templateVersion: 'TemplateVersion',
+      totalExecutionCount: 'TotalExecutionCount',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createdBy: 'string',
+      createdDate: 'string',
+      description: 'string',
+      hasTrigger: 'boolean',
+      hash: 'string',
+      popularity: 'number',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateFormat: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateType: 'string',
+      templateVersion: 'string',
+      totalExecutionCount: 'number',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8583,43 +8819,43 @@ export class ListTemplateVersionsResponseBodyTemplateVersions extends $tea.Model
 }
 
 export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
-  operationSystem?: string;
-  description?: string;
-  updatedDate?: string;
-  updatedBy?: string;
+  approvalRules?: string;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
-  approvalRules?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  operationSystem?: string;
   shareType?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      operationSystem: 'OperationSystem',
-      description: 'Description',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
+      approvalRules: 'ApprovalRules',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
-      approvalRules: 'ApprovalRules',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
       shareType: 'ShareType',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operationSystem: 'string',
-      description: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
+      approvalRules: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
-      approvalRules: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      operationSystem: 'string',
       shareType: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8629,22 +8865,22 @@ export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.
 }
 
 export class SearchInventoryRequestFilter extends $tea.Model {
-  value?: string[];
-  operator?: string;
   name?: string;
+  operator?: string;
+  value?: string[];
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      operator: 'Operator',
       name: 'Name',
+      operator: 'Operator',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: { 'type': 'array', 'itemType': 'string' },
-      operator: 'string',
       name: 'string',
+      operator: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8655,16 +8891,16 @@ export class SearchInventoryRequestFilter extends $tea.Model {
 
 export class SetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
   deliveryOssBucketName?: string;
-  deliveryOssKeyPrefix?: string;
   deliveryOssEnabled?: boolean;
+  deliveryOssKeyPrefix?: string;
   deliverySlsEnabled?: boolean;
   deliverySlsProjectName?: string;
   rdcEnterpriseId?: string;
   static names(): { [key: string]: string } {
     return {
       deliveryOssBucketName: 'DeliveryOssBucketName',
-      deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliveryOssEnabled: 'DeliveryOssEnabled',
+      deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliverySlsEnabled: 'DeliverySlsEnabled',
       deliverySlsProjectName: 'DeliverySlsProjectName',
       rdcEnterpriseId: 'RdcEnterpriseId',
@@ -8674,8 +8910,8 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deliveryOssBucketName: 'string',
-      deliveryOssKeyPrefix: 'string',
       deliveryOssEnabled: 'boolean',
+      deliveryOssKeyPrefix: 'string',
       deliverySlsEnabled: 'boolean',
       deliverySlsProjectName: 'string',
       rdcEnterpriseId: 'string',
@@ -8688,22 +8924,22 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
 }
 
 export class StartExecutionResponseBodyExecutionCurrentTasks extends $tea.Model {
+  taskAction?: string;
   taskExecutionId?: string;
   taskName?: string;
-  taskAction?: string;
   static names(): { [key: string]: string } {
     return {
+      taskAction: 'TaskAction',
       taskExecutionId: 'TaskExecutionId',
       taskName: 'TaskName',
-      taskAction: 'TaskAction',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      taskAction: 'string',
       taskExecutionId: 'string',
       taskName: 'string',
-      taskAction: 'string',
     };
   }
 
@@ -8713,85 +8949,119 @@ export class StartExecutionResponseBodyExecutionCurrentTasks extends $tea.Model 
 }
 
 export class StartExecutionResponseBodyExecution extends $tea.Model {
-  outputs?: string;
-  status?: string;
+  counters?: { [key: string]: any };
+  createDate?: string;
+  currentTasks?: StartExecutionResponseBodyExecutionCurrentTasks[];
+  description?: string;
   endDate?: string;
   executedBy?: string;
-  isParent?: boolean;
-  tags?: { [key: string]: any };
-  startDate?: string;
-  safetyCheck?: string;
-  mode?: string;
-  templateName?: string;
-  createDate?: string;
-  templateVersion?: string;
   executionId?: string;
+  isParent?: boolean;
+  loopMode?: string;
+  mode?: string;
+  outputs?: string;
   parameters?: string;
-  description?: string;
-  counters?: { [key: string]: any };
-  updateDate?: string;
-  resourceGroupId?: string;
   parentExecutionId?: string;
   ramRole?: string;
-  templateId?: string;
+  resourceGroupId?: string;
+  safetyCheck?: string;
+  startDate?: string;
+  status?: string;
   statusMessage?: string;
-  loopMode?: string;
-  currentTasks?: StartExecutionResponseBodyExecutionCurrentTasks[];
+  tags?: { [key: string]: any };
+  templateId?: string;
+  templateName?: string;
+  templateVersion?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      outputs: 'Outputs',
-      status: 'Status',
+      counters: 'Counters',
+      createDate: 'CreateDate',
+      currentTasks: 'CurrentTasks',
+      description: 'Description',
       endDate: 'EndDate',
       executedBy: 'ExecutedBy',
-      isParent: 'IsParent',
-      tags: 'Tags',
-      startDate: 'StartDate',
-      safetyCheck: 'SafetyCheck',
-      mode: 'Mode',
-      templateName: 'TemplateName',
-      createDate: 'CreateDate',
-      templateVersion: 'TemplateVersion',
       executionId: 'ExecutionId',
+      isParent: 'IsParent',
+      loopMode: 'LoopMode',
+      mode: 'Mode',
+      outputs: 'Outputs',
       parameters: 'Parameters',
-      description: 'Description',
-      counters: 'Counters',
-      updateDate: 'UpdateDate',
-      resourceGroupId: 'ResourceGroupId',
       parentExecutionId: 'ParentExecutionId',
       ramRole: 'RamRole',
-      templateId: 'TemplateId',
+      resourceGroupId: 'ResourceGroupId',
+      safetyCheck: 'SafetyCheck',
+      startDate: 'StartDate',
+      status: 'Status',
       statusMessage: 'StatusMessage',
-      loopMode: 'LoopMode',
-      currentTasks: 'CurrentTasks',
+      tags: 'Tags',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outputs: 'string',
-      status: 'string',
+      counters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      createDate: 'string',
+      currentTasks: { 'type': 'array', 'itemType': StartExecutionResponseBodyExecutionCurrentTasks },
+      description: 'string',
       endDate: 'string',
       executedBy: 'string',
-      isParent: 'boolean',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      startDate: 'string',
-      safetyCheck: 'string',
-      mode: 'string',
-      templateName: 'string',
-      createDate: 'string',
-      templateVersion: 'string',
       executionId: 'string',
+      isParent: 'boolean',
+      loopMode: 'string',
+      mode: 'string',
+      outputs: 'string',
       parameters: 'string',
-      description: 'string',
-      counters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      updateDate: 'string',
-      resourceGroupId: 'string',
       parentExecutionId: 'string',
       ramRole: 'string',
-      templateId: 'string',
+      resourceGroupId: 'string',
+      safetyCheck: 'string',
+      startDate: 'string',
+      status: 'string',
       statusMessage: 'string',
-      loopMode: 'string',
-      currentTasks: { 'type': 'array', 'itemType': StartExecutionResponseBodyExecutionCurrentTasks },
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponseBodyApplication extends $tea.Model {
+  createdDate?: string;
+  description?: string;
+  name?: string;
+  resourceGroupId?: string;
+  tags?: { [key: string]: any };
+  updatedDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdDate: 'CreatedDate',
+      description: 'Description',
+      name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+      updatedDate: 'UpdatedDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdDate: 'string',
+      description: 'string',
+      name: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      updatedDate: 'string',
     };
   }
 
@@ -8801,43 +9071,37 @@ export class StartExecutionResponseBodyExecution extends $tea.Model {
 }
 
 export class UpdateApplicationGroupResponseBodyApplicationGroup extends $tea.Model {
+  applicationName?: string;
+  createdDate?: string;
   deployRegionId?: string;
   description?: string;
-  updatedDate?: string;
-  createdDate?: string;
-  applicationName?: string;
+  importTagKey?: string;
+  importTagValue?: string;
   name?: string;
-  environment?: string;
-  createType?: string;
-  scalingGroupId?: string;
-  importClusterId?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationName: 'ApplicationName',
+      createdDate: 'CreatedDate',
       deployRegionId: 'DeployRegionId',
       description: 'Description',
-      updatedDate: 'UpdatedDate',
-      createdDate: 'CreatedDate',
-      applicationName: 'ApplicationName',
+      importTagKey: 'ImportTagKey',
+      importTagValue: 'ImportTagValue',
       name: 'Name',
-      environment: 'Environment',
-      createType: 'CreateType',
-      scalingGroupId: 'ScalingGroupId',
-      importClusterId: 'ImportClusterId',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      applicationName: 'string',
+      createdDate: 'string',
       deployRegionId: 'string',
       description: 'string',
-      updatedDate: 'string',
-      createdDate: 'string',
-      applicationName: 'string',
+      importTagKey: 'string',
+      importTagValue: 'string',
       name: 'string',
-      environment: 'string',
-      createType: 'string',
-      scalingGroupId: 'string',
-      importClusterId: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8847,52 +9111,52 @@ export class UpdateApplicationGroupResponseBodyApplicationGroup extends $tea.Mod
 }
 
 export class UpdateParameterResponseBodyParameter extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: string;
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: 'string',
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8902,43 +9166,43 @@ export class UpdateParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
-  operationSystem?: string;
-  description?: string;
-  updatedDate?: string;
-  updatedBy?: string;
+  approvalRules?: string;
   createdBy?: string;
   createdDate?: string;
-  name?: string;
-  approvalRules?: string;
+  description?: string;
   id?: string;
+  name?: string;
+  operationSystem?: string;
   shareType?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      operationSystem: 'OperationSystem',
-      description: 'Description',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
+      approvalRules: 'ApprovalRules',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      name: 'Name',
-      approvalRules: 'ApprovalRules',
+      description: 'Description',
       id: 'Id',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
       shareType: 'ShareType',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operationSystem: 'string',
-      description: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
+      approvalRules: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      name: 'string',
-      approvalRules: 'string',
+      description: 'string',
       id: 'string',
+      name: 'string',
+      operationSystem: 'string',
       shareType: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -8948,55 +9212,55 @@ export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
 }
 
 export class UpdateSecretParameterResponseBodyParameter extends $tea.Model {
-  type?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  keyId?: string;
-  tags?: string;
-  description?: string;
   constraints?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  parameterVersion?: number;
-  name?: string;
+  description?: string;
   id?: string;
+  keyId?: string;
+  name?: string;
+  parameterVersion?: number;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: string;
+  type?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      keyId: 'KeyId',
-      tags: 'Tags',
-      description: 'Description',
       constraints: 'Constraints',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      parameterVersion: 'ParameterVersion',
-      name: 'Name',
+      description: 'Description',
       id: 'Id',
+      keyId: 'KeyId',
+      name: 'Name',
+      parameterVersion: 'ParameterVersion',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      type: 'Type',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      keyId: 'string',
-      tags: 'string',
-      description: 'string',
       constraints: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      parameterVersion: 'number',
-      name: 'string',
+      description: 'string',
       id: 'string',
+      keyId: 'string',
+      name: 'string',
+      parameterVersion: 'number',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: 'string',
+      type: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -9006,55 +9270,55 @@ export class UpdateSecretParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class UpdateStateConfigurationResponseBodyStateConfiguration extends $tea.Model {
-  updateTime?: string;
+  configureMode?: string;
   createTime?: string;
-  targets?: string;
-  tags?: { [key: string]: any };
-  stateConfigurationId?: string;
+  description?: string;
+  parameters?: string;
+  resourceGroupId?: string;
   scheduleExpression?: string;
+  scheduleType?: string;
+  stateConfigurationId?: string;
+  tags?: { [key: string]: any };
+  targets?: string;
+  templateId?: string;
   templateName?: string;
   templateVersion?: string;
-  configureMode?: string;
-  scheduleType?: string;
-  parameters?: string;
-  description?: string;
-  resourceGroupId?: string;
-  templateId?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
+      configureMode: 'ConfigureMode',
       createTime: 'CreateTime',
-      targets: 'Targets',
-      tags: 'Tags',
-      stateConfigurationId: 'StateConfigurationId',
+      description: 'Description',
+      parameters: 'Parameters',
+      resourceGroupId: 'ResourceGroupId',
       scheduleExpression: 'ScheduleExpression',
+      scheduleType: 'ScheduleType',
+      stateConfigurationId: 'StateConfigurationId',
+      tags: 'Tags',
+      targets: 'Targets',
+      templateId: 'TemplateId',
       templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
-      configureMode: 'ConfigureMode',
-      scheduleType: 'ScheduleType',
-      parameters: 'Parameters',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
-      templateId: 'TemplateId',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
+      configureMode: 'string',
       createTime: 'string',
-      targets: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      stateConfigurationId: 'string',
+      description: 'string',
+      parameters: 'string',
+      resourceGroupId: 'string',
       scheduleExpression: 'string',
+      scheduleType: 'string',
+      stateConfigurationId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targets: 'string',
+      templateId: 'string',
       templateName: 'string',
       templateVersion: 'string',
-      configureMode: 'string',
-      scheduleType: 'string',
-      parameters: 'string',
-      description: 'string',
-      resourceGroupId: 'string',
-      templateId: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -9064,55 +9328,55 @@ export class UpdateStateConfigurationResponseBodyStateConfiguration extends $tea
 }
 
 export class UpdateTemplateResponseBodyTemplate extends $tea.Model {
-  hash?: string;
-  updatedDate?: string;
-  updatedBy?: string;
-  tags?: { [key: string]: any };
-  templateName?: string;
-  templateVersion?: string;
-  templateFormat?: string;
-  description?: string;
-  resourceGroupId?: string;
   createdBy?: string;
   createdDate?: string;
-  templateId?: string;
+  description?: string;
   hasTrigger?: boolean;
+  hash?: string;
+  resourceGroupId?: string;
   shareType?: string;
+  tags?: { [key: string]: any };
+  templateFormat?: string;
+  templateId?: string;
+  templateName?: string;
+  templateVersion?: string;
+  updatedBy?: string;
+  updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
-      hash: 'Hash',
-      updatedDate: 'UpdatedDate',
-      updatedBy: 'UpdatedBy',
-      tags: 'Tags',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      templateFormat: 'TemplateFormat',
-      description: 'Description',
-      resourceGroupId: 'ResourceGroupId',
       createdBy: 'CreatedBy',
       createdDate: 'CreatedDate',
-      templateId: 'TemplateId',
+      description: 'Description',
       hasTrigger: 'HasTrigger',
+      hash: 'Hash',
+      resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      tags: 'Tags',
+      templateFormat: 'TemplateFormat',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updatedBy: 'UpdatedBy',
+      updatedDate: 'UpdatedDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hash: 'string',
-      updatedDate: 'string',
-      updatedBy: 'string',
-      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      templateName: 'string',
-      templateVersion: 'string',
-      templateFormat: 'string',
-      description: 'string',
-      resourceGroupId: 'string',
       createdBy: 'string',
       createdDate: 'string',
-      templateId: 'string',
+      description: 'string',
       hasTrigger: 'boolean',
+      hash: 'string',
+      resourceGroupId: 'string',
       shareType: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateFormat: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updatedBy: 'string',
+      updatedDate: 'string',
     };
   }
 
@@ -9122,28 +9386,28 @@ export class UpdateTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class ValidateTemplateContentResponseBodyTasks extends $tea.Model {
-  outputs?: string;
-  type?: string;
   description?: string;
   name?: string;
+  outputs?: string;
   properties?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      outputs: 'Outputs',
-      type: 'Type',
       description: 'Description',
       name: 'Name',
+      outputs: 'Outputs',
       properties: 'Properties',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outputs: 'string',
-      type: 'string',
       description: 'string',
       name: 'string',
+      outputs: 'string',
       properties: 'string',
+      type: 'string',
     };
   }
 
@@ -9177,10 +9441,30 @@ export default class Client extends OpenApi {
 
   async cancelExecutionWithOptions(request: CancelExecutionRequest, runtime: $Util.RuntimeOptions): Promise<CancelExecutionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelExecutionResponse>(await this.doRPCRequest("CancelExecution", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CancelExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelExecution",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelExecutionResponse>(await this.callApi(params, req, runtime), new CancelExecutionResponse({}));
   }
 
   async cancelExecution(request: CancelExecutionRequest): Promise<CancelExecutionResponse> {
@@ -9190,10 +9474,38 @@ export default class Client extends OpenApi {
 
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.doRPCRequest("ChangeResourceGroup", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ChangeResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
@@ -9201,12 +9513,95 @@ export default class Client extends OpenApi {
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
-  async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
+  async continueDeployApplicationGroupWithOptions(request: ContinueDeployApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployApplicationGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.deployParameters)) {
+      query["DeployParameters"] = request.deployParameters;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateApplicationResponse>(await this.doRPCRequest("CreateApplication", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ContinueDeployApplicationGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ContinueDeployApplicationGroupResponse>(await this.callApi(params, req, runtime), new ContinueDeployApplicationGroupResponse({}));
+  }
+
+  async continueDeployApplicationGroup(request: ContinueDeployApplicationGroupRequest): Promise<ContinueDeployApplicationGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.continueDeployApplicationGroupWithOptions(request, runtime);
+  }
+
+  async createApplicationWithOptions(tmpReq: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApplication",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
@@ -9216,10 +9611,58 @@ export default class Client extends OpenApi {
 
   async createApplicationGroupWithOptions(request: CreateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.cmsGroupId)) {
+      query["CmsGroupId"] = request.cmsGroupId;
+    }
+
+    if (!Util.isUnset(request.deployRegionId)) {
+      query["DeployRegionId"] = request.deployRegionId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.importTagKey)) {
+      query["ImportTagKey"] = request.importTagKey;
+    }
+
+    if (!Util.isUnset(request.importTagValue)) {
+      query["ImportTagValue"] = request.importTagValue;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateApplicationGroupResponse>(await this.doRPCRequest("CreateApplicationGroup", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateApplicationGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateApplicationGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApplicationGroupResponse>(await this.callApi(params, req, runtime), new CreateApplicationGroupResponse({}));
   }
 
   async createApplicationGroup(request: CreateApplicationGroupRequest): Promise<CreateApplicationGroupResponse> {
@@ -9235,10 +9678,58 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.constraints)) {
+      query["Constraints"] = request.constraints;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateParameterResponse>(await this.doRPCRequest("CreateParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateParameterResponse>(await this.callApi(params, req, runtime), new CreateParameterResponse({}));
   }
 
   async createParameter(request: CreateParameterRequest): Promise<CreateParameterResponse> {
@@ -9248,10 +9739,46 @@ export default class Client extends OpenApi {
 
   async createPatchBaselineWithOptions(request: CreatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePatchBaselineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.approvalRules)) {
+      query["ApprovalRules"] = request.approvalRules;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.operationSystem)) {
+      query["OperationSystem"] = request.operationSystem;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreatePatchBaselineResponse>(await this.doRPCRequest("CreatePatchBaseline", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePatchBaselineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePatchBaseline",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePatchBaselineResponse>(await this.callApi(params, req, runtime), new CreatePatchBaselineResponse({}));
   }
 
   async createPatchBaseline(request: CreatePatchBaselineRequest): Promise<CreatePatchBaselineResponse> {
@@ -9261,10 +9788,62 @@ export default class Client extends OpenApi {
 
   async createSecretParameterWithOptions(request: CreateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.constraints)) {
+      query["Constraints"] = request.constraints;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateSecretParameterResponse>(await this.doRPCRequest("CreateSecretParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSecretParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSecretParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSecretParameterResponse>(await this.callApi(params, req, runtime), new CreateSecretParameterResponse({}));
   }
 
   async createSecretParameter(request: CreateSecretParameterRequest): Promise<CreateSecretParameterResponse> {
@@ -9280,10 +9859,70 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configureMode)) {
+      query["ConfigureMode"] = request.configureMode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scheduleExpression)) {
+      query["ScheduleExpression"] = request.scheduleExpression;
+    }
+
+    if (!Util.isUnset(request.scheduleType)) {
+      query["ScheduleType"] = request.scheduleType;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.targets)) {
+      query["Targets"] = request.targets;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateStateConfigurationResponse>(await this.doRPCRequest("CreateStateConfiguration", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateStateConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateStateConfiguration",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStateConfigurationResponse>(await this.callApi(params, req, runtime), new CreateStateConfigurationResponse({}));
   }
 
   async createStateConfiguration(request: CreateStateConfigurationRequest): Promise<CreateStateConfigurationResponse> {
@@ -9299,10 +9938,46 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateTemplateResponse>(await this.doRPCRequest("CreateTemplate", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTemplate",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
@@ -9312,10 +9987,30 @@ export default class Client extends OpenApi {
 
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteApplicationResponse>(await this.doRPCRequest("DeleteApplication", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteApplication",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
@@ -9325,10 +10020,34 @@ export default class Client extends OpenApi {
 
   async deleteApplicationGroupWithOptions(request: DeleteApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteApplicationGroupResponse>(await this.doRPCRequest("DeleteApplicationGroup", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteApplicationGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteApplicationGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApplicationGroupResponse>(await this.callApi(params, req, runtime), new DeleteApplicationGroupResponse({}));
   }
 
   async deleteApplicationGroup(request: DeleteApplicationGroupRequest): Promise<DeleteApplicationGroupResponse> {
@@ -9338,10 +10057,30 @@ export default class Client extends OpenApi {
 
   async deleteExecutionsWithOptions(request: DeleteExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExecutionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.executionIds)) {
+      query["ExecutionIds"] = request.executionIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteExecutionsResponse>(await this.doRPCRequest("DeleteExecutions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteExecutionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteExecutions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExecutionsResponse>(await this.callApi(params, req, runtime), new DeleteExecutionsResponse({}));
   }
 
   async deleteExecutions(request: DeleteExecutionsRequest): Promise<DeleteExecutionsResponse> {
@@ -9351,10 +10090,30 @@ export default class Client extends OpenApi {
 
   async deleteParameterWithOptions(request: DeleteParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteParameterResponse>(await this.doRPCRequest("DeleteParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteParameterResponse>(await this.callApi(params, req, runtime), new DeleteParameterResponse({}));
   }
 
   async deleteParameter(request: DeleteParameterRequest): Promise<DeleteParameterResponse> {
@@ -9364,10 +10123,30 @@ export default class Client extends OpenApi {
 
   async deletePatchBaselineWithOptions(request: DeletePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePatchBaselineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeletePatchBaselineResponse>(await this.doRPCRequest("DeletePatchBaseline", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePatchBaselineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePatchBaseline",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePatchBaselineResponse>(await this.callApi(params, req, runtime), new DeletePatchBaselineResponse({}));
   }
 
   async deletePatchBaseline(request: DeletePatchBaselineRequest): Promise<DeletePatchBaselineResponse> {
@@ -9377,10 +10156,30 @@ export default class Client extends OpenApi {
 
   async deleteSecretParameterWithOptions(request: DeleteSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSecretParameterResponse>(await this.doRPCRequest("DeleteSecretParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSecretParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSecretParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSecretParameterResponse>(await this.callApi(params, req, runtime), new DeleteSecretParameterResponse({}));
   }
 
   async deleteSecretParameter(request: DeleteSecretParameterRequest): Promise<DeleteSecretParameterResponse> {
@@ -9390,10 +10189,34 @@ export default class Client extends OpenApi {
 
   async deleteStateConfigurationsWithOptions(request: DeleteStateConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStateConfigurationsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stateConfigurationIds)) {
+      query["StateConfigurationIds"] = request.stateConfigurationIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteStateConfigurationsResponse>(await this.doRPCRequest("DeleteStateConfigurations", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteStateConfigurationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteStateConfigurations",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStateConfigurationsResponse>(await this.callApi(params, req, runtime), new DeleteStateConfigurationsResponse({}));
   }
 
   async deleteStateConfigurations(request: DeleteStateConfigurationsRequest): Promise<DeleteStateConfigurationsResponse> {
@@ -9403,10 +10226,34 @@ export default class Client extends OpenApi {
 
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoDeleteExecutions)) {
+      query["AutoDeleteExecutions"] = request.autoDeleteExecutions;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTemplateResponse>(await this.doRPCRequest("DeleteTemplate", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplate",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
@@ -9416,10 +10263,34 @@ export default class Client extends OpenApi {
 
   async deleteTemplatesWithOptions(request: DeleteTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoDeleteExecutions)) {
+      query["AutoDeleteExecutions"] = request.autoDeleteExecutions;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateNames)) {
+      query["TemplateNames"] = request.templateNames;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTemplatesResponse>(await this.doRPCRequest("DeleteTemplates", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplates",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplatesResponse>(await this.callApi(params, req, runtime), new DeleteTemplatesResponse({}));
   }
 
   async deleteTemplates(request: DeleteTemplatesRequest): Promise<DeleteTemplatesResponse> {
@@ -9427,12 +10298,73 @@ export default class Client extends OpenApi {
     return await this.deleteTemplatesWithOptions(request, runtime);
   }
 
+  async deployApplicationGroupWithOptions(request: DeployApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeployApplicationGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.deployParameters)) {
+      query["DeployParameters"] = request.deployParameters;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeployApplicationGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployApplicationGroupResponse>(await this.callApi(params, req, runtime), new DeployApplicationGroupResponse({}));
+  }
+
+  async deployApplicationGroup(request: DeployApplicationGroupRequest): Promise<DeployApplicationGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deployApplicationGroupWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -9442,10 +10374,34 @@ export default class Client extends OpenApi {
 
   async generateExecutionPolicyWithOptions(request: GenerateExecutionPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateExecutionPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GenerateExecutionPolicyResponse>(await this.doRPCRequest("GenerateExecutionPolicy", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateExecutionPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateExecutionPolicy",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateExecutionPolicyResponse>(await this.callApi(params, req, runtime), new GenerateExecutionPolicyResponse({}));
   }
 
   async generateExecutionPolicy(request: GenerateExecutionPolicyRequest): Promise<GenerateExecutionPolicyResponse> {
@@ -9455,10 +10411,30 @@ export default class Client extends OpenApi {
 
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetApplicationResponse>(await this.doRPCRequest("GetApplication", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetApplication",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
@@ -9468,10 +10444,34 @@ export default class Client extends OpenApi {
 
   async getApplicationGroupWithOptions(request: GetApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetApplicationGroupResponse>(await this.doRPCRequest("GetApplicationGroup", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetApplicationGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetApplicationGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationGroupResponse>(await this.callApi(params, req, runtime), new GetApplicationGroupResponse({}));
   }
 
   async getApplicationGroup(request: GetApplicationGroupRequest): Promise<GetApplicationGroupResponse> {
@@ -9481,10 +10481,30 @@ export default class Client extends OpenApi {
 
   async getExecutionTemplateWithOptions(request: GetExecutionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetExecutionTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetExecutionTemplateResponse>(await this.doRPCRequest("GetExecutionTemplate", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetExecutionTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetExecutionTemplate",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetExecutionTemplateResponse>(await this.callApi(params, req, runtime), new GetExecutionTemplateResponse({}));
   }
 
   async getExecutionTemplate(request: GetExecutionTemplateRequest): Promise<GetExecutionTemplateResponse> {
@@ -9494,10 +10514,42 @@ export default class Client extends OpenApi {
 
   async getInventorySchemaWithOptions(request: GetInventorySchemaRequest, runtime: $Util.RuntimeOptions): Promise<GetInventorySchemaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregator)) {
+      query["Aggregator"] = request.aggregator;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.typeName)) {
+      query["TypeName"] = request.typeName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetInventorySchemaResponse>(await this.doRPCRequest("GetInventorySchema", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetInventorySchemaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInventorySchema",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInventorySchemaResponse>(await this.callApi(params, req, runtime), new GetInventorySchemaResponse({}));
   }
 
   async getInventorySchema(request: GetInventorySchemaRequest): Promise<GetInventorySchemaResponse> {
@@ -9507,10 +10559,38 @@ export default class Client extends OpenApi {
 
   async getParameterWithOptions(request: GetParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parameterVersion)) {
+      query["ParameterVersion"] = request.parameterVersion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetParameterResponse>(await this.doRPCRequest("GetParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetParameterResponse>(await this.callApi(params, req, runtime), new GetParameterResponse({}));
   }
 
   async getParameter(request: GetParameterRequest): Promise<GetParameterResponse> {
@@ -9520,10 +10600,30 @@ export default class Client extends OpenApi {
 
   async getParametersWithOptions(request: GetParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.names)) {
+      query["Names"] = request.names;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetParametersResponse>(await this.doRPCRequest("GetParameters", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetParametersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetParameters",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetParametersResponse>(await this.callApi(params, req, runtime), new GetParametersResponse({}));
   }
 
   async getParameters(request: GetParametersRequest): Promise<GetParametersResponse> {
@@ -9533,10 +10633,42 @@ export default class Client extends OpenApi {
 
   async getParametersByPathWithOptions(request: GetParametersByPathRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersByPathResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.recursive)) {
+      query["Recursive"] = request.recursive;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetParametersByPathResponse>(await this.doRPCRequest("GetParametersByPath", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetParametersByPathResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetParametersByPath",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetParametersByPathResponse>(await this.callApi(params, req, runtime), new GetParametersByPathResponse({}));
   }
 
   async getParametersByPath(request: GetParametersByPathRequest): Promise<GetParametersByPathResponse> {
@@ -9546,10 +10678,30 @@ export default class Client extends OpenApi {
 
   async getPatchBaselineWithOptions(request: GetPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetPatchBaselineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPatchBaselineResponse>(await this.doRPCRequest("GetPatchBaseline", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPatchBaselineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPatchBaseline",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPatchBaselineResponse>(await this.callApi(params, req, runtime), new GetPatchBaselineResponse({}));
   }
 
   async getPatchBaseline(request: GetPatchBaselineRequest): Promise<GetPatchBaselineResponse> {
@@ -9559,10 +10711,38 @@ export default class Client extends OpenApi {
 
   async getSecretParameterWithOptions(request: GetSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parameterVersion)) {
+      query["ParameterVersion"] = request.parameterVersion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.withDecryption)) {
+      query["WithDecryption"] = request.withDecryption;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSecretParameterResponse>(await this.doRPCRequest("GetSecretParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecretParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSecretParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSecretParameterResponse>(await this.callApi(params, req, runtime), new GetSecretParameterResponse({}));
   }
 
   async getSecretParameter(request: GetSecretParameterRequest): Promise<GetSecretParameterResponse> {
@@ -9572,10 +10752,34 @@ export default class Client extends OpenApi {
 
   async getSecretParametersWithOptions(request: GetSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParametersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.names)) {
+      query["Names"] = request.names;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.withDecryption)) {
+      query["WithDecryption"] = request.withDecryption;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSecretParametersResponse>(await this.doRPCRequest("GetSecretParameters", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecretParametersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSecretParameters",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSecretParametersResponse>(await this.callApi(params, req, runtime), new GetSecretParametersResponse({}));
   }
 
   async getSecretParameters(request: GetSecretParametersRequest): Promise<GetSecretParametersResponse> {
@@ -9585,10 +10789,46 @@ export default class Client extends OpenApi {
 
   async getSecretParametersByPathWithOptions(request: GetSecretParametersByPathRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParametersByPathResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.recursive)) {
+      query["Recursive"] = request.recursive;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.withDecryption)) {
+      query["WithDecryption"] = request.withDecryption;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSecretParametersByPathResponse>(await this.doRPCRequest("GetSecretParametersByPath", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecretParametersByPathResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSecretParametersByPath",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSecretParametersByPathResponse>(await this.callApi(params, req, runtime), new GetSecretParametersByPathResponse({}));
   }
 
   async getSecretParametersByPath(request: GetSecretParametersByPathRequest): Promise<GetSecretParametersByPathResponse> {
@@ -9598,10 +10838,26 @@ export default class Client extends OpenApi {
 
   async getServiceSettingsWithOptions(request: GetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceSettingsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetServiceSettingsResponse>(await this.doRPCRequest("GetServiceSettings", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceSettingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetServiceSettings",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceSettingsResponse>(await this.callApi(params, req, runtime), new GetServiceSettingsResponse({}));
   }
 
   async getServiceSettings(request: GetServiceSettingsRequest): Promise<GetServiceSettingsResponse> {
@@ -9611,10 +10867,34 @@ export default class Client extends OpenApi {
 
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplate",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
@@ -9624,10 +10904,38 @@ export default class Client extends OpenApi {
 
   async listActionsWithOptions(request: ListActionsRequest, runtime: $Util.RuntimeOptions): Promise<ListActionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.OOSActionName)) {
+      query["OOSActionName"] = request.OOSActionName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListActionsResponse>(await this.doRPCRequest("ListActions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListActionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListActions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListActionsResponse>(await this.callApi(params, req, runtime), new ListActionsResponse({}));
   }
 
   async listActions(request: ListActionsRequest): Promise<ListActionsResponse> {
@@ -9637,10 +10945,42 @@ export default class Client extends OpenApi {
 
   async listApplicationGroupsWithOptions(request: ListApplicationGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.deployRegionId)) {
+      query["DeployRegionId"] = request.deployRegionId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListApplicationGroupsResponse>(await this.doRPCRequest("ListApplicationGroups", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListApplicationGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListApplicationGroups",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationGroupsResponse>(await this.callApi(params, req, runtime), new ListApplicationGroupsResponse({}));
   }
 
   async listApplicationGroups(request: ListApplicationGroupsRequest): Promise<ListApplicationGroupsResponse> {
@@ -9648,12 +10988,54 @@ export default class Client extends OpenApi {
     return await this.listApplicationGroupsWithOptions(request, runtime);
   }
 
-  async listApplicationsWithOptions(request: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
-    Util.validateModel(request);
+  async listApplicationsWithOptions(tmpReq: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListApplicationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.names)) {
+      query["Names"] = request.names;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListApplicationsResponse>(await this.doRPCRequest("ListApplications", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListApplicationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListApplications",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
@@ -9663,10 +11045,46 @@ export default class Client extends OpenApi {
 
   async listExecutionLogsWithOptions(request: ListExecutionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskExecutionId)) {
+      query["TaskExecutionId"] = request.taskExecutionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListExecutionLogsResponse>(await this.doRPCRequest("ListExecutionLogs", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListExecutionLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListExecutionLogs",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExecutionLogsResponse>(await this.callApi(params, req, runtime), new ListExecutionLogsResponse({}));
   }
 
   async listExecutionLogs(request: ListExecutionLogsRequest): Promise<ListExecutionLogsResponse> {
@@ -9676,10 +11094,30 @@ export default class Client extends OpenApi {
 
   async listExecutionRiskyTasksWithOptions(request: ListExecutionRiskyTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionRiskyTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListExecutionRiskyTasksResponse>(await this.doRPCRequest("ListExecutionRiskyTasks", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListExecutionRiskyTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListExecutionRiskyTasks",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExecutionRiskyTasksResponse>(await this.callApi(params, req, runtime), new ListExecutionRiskyTasksResponse({}));
   }
 
   async listExecutionRiskyTasks(request: ListExecutionRiskyTasksRequest): Promise<ListExecutionRiskyTasksResponse> {
@@ -9695,10 +11133,110 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.endDateAfter)) {
+      query["EndDateAfter"] = request.endDateAfter;
+    }
+
+    if (!Util.isUnset(request.endDateBefore)) {
+      query["EndDateBefore"] = request.endDateBefore;
+    }
+
+    if (!Util.isUnset(request.executedBy)) {
+      query["ExecutedBy"] = request.executedBy;
+    }
+
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.includeChildExecution)) {
+      query["IncludeChildExecution"] = request.includeChildExecution;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.parentExecutionId)) {
+      query["ParentExecutionId"] = request.parentExecutionId;
+    }
+
+    if (!Util.isUnset(request.ramRole)) {
+      query["RamRole"] = request.ramRole;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceTemplateName)) {
+      query["ResourceTemplateName"] = request.resourceTemplateName;
+    }
+
+    if (!Util.isUnset(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.startDateAfter)) {
+      query["StartDateAfter"] = request.startDateAfter;
+    }
+
+    if (!Util.isUnset(request.startDateBefore)) {
+      query["StartDateBefore"] = request.startDateBefore;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListExecutionsResponse>(await this.doRPCRequest("ListExecutions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListExecutionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListExecutions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
   }
 
   async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
@@ -9706,25 +11244,40 @@ export default class Client extends OpenApi {
     return await this.listExecutionsWithOptions(request, runtime);
   }
 
-  async listInstancePatchesWithOptions(request: ListInstancePatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListInstancePatchesResponse>(await this.doRPCRequest("ListInstancePatches", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInstancePatchesResponse({}));
-  }
-
-  async listInstancePatches(request: ListInstancePatchesRequest): Promise<ListInstancePatchesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listInstancePatchesWithOptions(request, runtime);
-  }
-
   async listInstancePatchStatesWithOptions(request: ListInstancePatchStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchStatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInstancePatchStatesResponse>(await this.doRPCRequest("ListInstancePatchStates", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInstancePatchStatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstancePatchStates",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancePatchStatesResponse>(await this.callApi(params, req, runtime), new ListInstancePatchStatesResponse({}));
   }
 
   async listInstancePatchStates(request: ListInstancePatchStatesRequest): Promise<ListInstancePatchStatesResponse> {
@@ -9732,30 +11285,143 @@ export default class Client extends OpenApi {
     return await this.listInstancePatchStatesWithOptions(request, runtime);
   }
 
-  async listInstanceStateReportsWithOptions(request: ListInstanceStateReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceStateReportsResponse> {
+  async listInstancePatchesWithOptions(request: ListInstancePatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.patchStatuses)) {
+      query["PatchStatuses"] = request.patchStatuses;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInstanceStateReportsResponse>(await this.doRPCRequest("ListInstanceStateReports", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInstanceStateReportsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstancePatches",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancePatchesResponse>(await this.callApi(params, req, runtime), new ListInstancePatchesResponse({}));
   }
 
-  async listInstanceStateReports(request: ListInstanceStateReportsRequest): Promise<ListInstanceStateReportsResponse> {
+  async listInstancePatches(request: ListInstancePatchesRequest): Promise<ListInstancePatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listInstanceStateReportsWithOptions(request, runtime);
+    return await this.listInstancePatchesWithOptions(request, runtime);
   }
 
   async listInventoryEntriesWithOptions(request: ListInventoryEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListInventoryEntriesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.typeName)) {
+      query["TypeName"] = request.typeName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInventoryEntriesResponse>(await this.doRPCRequest("ListInventoryEntries", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInventoryEntriesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInventoryEntries",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInventoryEntriesResponse>(await this.callApi(params, req, runtime), new ListInventoryEntriesResponse({}));
   }
 
   async listInventoryEntries(request: ListInventoryEntriesRequest): Promise<ListInventoryEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInventoryEntriesWithOptions(request, runtime);
+  }
+
+  async listParameterVersionsWithOptions(request: ListParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListParameterVersionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListParameterVersions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListParameterVersionsResponse>(await this.callApi(params, req, runtime), new ListParameterVersionsResponse({}));
+  }
+
+  async listParameterVersions(request: ListParameterVersionsRequest): Promise<ListParameterVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listParameterVersionsWithOptions(request, runtime);
   }
 
   async listParametersWithOptions(tmpReq: ListParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListParametersResponse> {
@@ -9766,10 +11432,66 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.recursive)) {
+      query["Recursive"] = request.recursive;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListParametersResponse>(await this.doRPCRequest("ListParameters", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListParametersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListParameters",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListParametersResponse>(await this.callApi(params, req, runtime), new ListParametersResponse({}));
   }
 
   async listParameters(request: ListParametersRequest): Promise<ListParametersResponse> {
@@ -9777,25 +11499,48 @@ export default class Client extends OpenApi {
     return await this.listParametersWithOptions(request, runtime);
   }
 
-  async listParameterVersionsWithOptions(request: ListParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListParameterVersionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListParameterVersionsResponse>(await this.doRPCRequest("ListParameterVersions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListParameterVersionsResponse({}));
-  }
-
-  async listParameterVersions(request: ListParameterVersionsRequest): Promise<ListParameterVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listParameterVersionsWithOptions(request, runtime);
-  }
-
   async listPatchBaselinesWithOptions(request: ListPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPatchBaselinesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.operationSystem)) {
+      query["OperationSystem"] = request.operationSystem;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPatchBaselinesResponse>(await this.doRPCRequest("ListPatchBaselines", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPatchBaselinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPatchBaselines",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPatchBaselinesResponse>(await this.callApi(params, req, runtime), new ListPatchBaselinesResponse({}));
   }
 
   async listPatchBaselines(request: ListPatchBaselinesRequest): Promise<ListPatchBaselinesResponse> {
@@ -9805,15 +11550,92 @@ export default class Client extends OpenApi {
 
   async listResourceExecutionStatusWithOptions(request: ListResourceExecutionStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceExecutionStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListResourceExecutionStatusResponse>(await this.doRPCRequest("ListResourceExecutionStatus", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListResourceExecutionStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListResourceExecutionStatus",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceExecutionStatusResponse>(await this.callApi(params, req, runtime), new ListResourceExecutionStatusResponse({}));
   }
 
   async listResourceExecutionStatus(request: ListResourceExecutionStatusRequest): Promise<ListResourceExecutionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceExecutionStatusWithOptions(request, runtime);
+  }
+
+  async listSecretParameterVersionsWithOptions(request: ListSecretParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParameterVersionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
+    if (!Util.isUnset(request.withDecryption)) {
+      query["WithDecryption"] = request.withDecryption;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSecretParameterVersions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSecretParameterVersionsResponse>(await this.callApi(params, req, runtime), new ListSecretParameterVersionsResponse({}));
+  }
+
+  async listSecretParameterVersions(request: ListSecretParameterVersionsRequest): Promise<ListSecretParameterVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSecretParameterVersionsWithOptions(request, runtime);
   }
 
   async listSecretParametersWithOptions(tmpReq: ListSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParametersResponse> {
@@ -9824,28 +11646,67 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.recursive)) {
+      query["Recursive"] = request.recursive;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSecretParametersResponse>(await this.doRPCRequest("ListSecretParameters", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListSecretParametersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSecretParameters",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSecretParametersResponse>(await this.callApi(params, req, runtime), new ListSecretParametersResponse({}));
   }
 
   async listSecretParameters(request: ListSecretParametersRequest): Promise<ListSecretParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecretParametersWithOptions(request, runtime);
-  }
-
-  async listSecretParameterVersionsWithOptions(request: ListSecretParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParameterVersionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListSecretParameterVersionsResponse>(await this.doRPCRequest("ListSecretParameterVersions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListSecretParameterVersionsResponse({}));
-  }
-
-  async listSecretParameterVersions(request: ListSecretParameterVersionsRequest): Promise<ListSecretParameterVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSecretParameterVersionsWithOptions(request, runtime);
   }
 
   async listStateConfigurationsWithOptions(tmpReq: ListStateConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<ListStateConfigurationsResponse> {
@@ -9856,10 +11717,54 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.stateConfigurationIds)) {
+      query["StateConfigurationIds"] = request.stateConfigurationIds;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListStateConfigurationsResponse>(await this.doRPCRequest("ListStateConfigurations", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListStateConfigurationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStateConfigurations",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStateConfigurationsResponse>(await this.callApi(params, req, runtime), new ListStateConfigurationsResponse({}));
   }
 
   async listStateConfigurations(request: ListStateConfigurationsRequest): Promise<ListStateConfigurationsResponse> {
@@ -9869,10 +11774,38 @@ export default class Client extends OpenApi {
 
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagKeysResponse>(await this.doRPCRequest("ListTagKeys", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagKeysResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagKeys",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
@@ -9892,10 +11825,42 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceIdsShrink)) {
+      query["ResourceIds"] = request.resourceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -9905,10 +11870,42 @@ export default class Client extends OpenApi {
 
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagValuesResponse>(await this.doRPCRequest("ListTagValues", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagValuesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagValues",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
@@ -9918,15 +11915,136 @@ export default class Client extends OpenApi {
 
   async listTaskExecutionsWithOptions(request: ListTaskExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskExecutionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDateAfter)) {
+      query["EndDateAfter"] = request.endDateAfter;
+    }
+
+    if (!Util.isUnset(request.endDateBefore)) {
+      query["EndDateBefore"] = request.endDateBefore;
+    }
+
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.includeChildTaskExecution)) {
+      query["IncludeChildTaskExecution"] = request.includeChildTaskExecution;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.parentTaskExecutionId)) {
+      query["ParentTaskExecutionId"] = request.parentTaskExecutionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.startDateAfter)) {
+      query["StartDateAfter"] = request.startDateAfter;
+    }
+
+    if (!Util.isUnset(request.startDateBefore)) {
+      query["StartDateBefore"] = request.startDateBefore;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskAction)) {
+      query["TaskAction"] = request.taskAction;
+    }
+
+    if (!Util.isUnset(request.taskExecutionId)) {
+      query["TaskExecutionId"] = request.taskExecutionId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTaskExecutionsResponse>(await this.doRPCRequest("ListTaskExecutions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTaskExecutionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTaskExecutions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaskExecutionsResponse>(await this.callApi(params, req, runtime), new ListTaskExecutionsResponse({}));
   }
 
   async listTaskExecutions(request: ListTaskExecutionsRequest): Promise<ListTaskExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskExecutionsWithOptions(request, runtime);
+  }
+
+  async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTemplateVersions",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplateVersionsResponse>(await this.callApi(params, req, runtime), new ListTemplateVersionsResponse({}));
+  }
+
+  async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTemplateVersionsWithOptions(request, runtime);
   }
 
   async listTemplatesWithOptions(tmpReq: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
@@ -9937,10 +12055,86 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.createdBy)) {
+      query["CreatedBy"] = request.createdBy;
+    }
+
+    if (!Util.isUnset(request.createdDateAfter)) {
+      query["CreatedDateAfter"] = request.createdDateAfter;
+    }
+
+    if (!Util.isUnset(request.createdDateBefore)) {
+      query["CreatedDateBefore"] = request.createdDateBefore;
+    }
+
+    if (!Util.isUnset(request.hasTrigger)) {
+      query["HasTrigger"] = request.hasTrigger;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
+    if (!Util.isUnset(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.templateFormat)) {
+      query["TemplateFormat"] = request.templateFormat;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTemplates",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
@@ -9948,25 +12142,64 @@ export default class Client extends OpenApi {
     return await this.listTemplatesWithOptions(request, runtime);
   }
 
-  async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListTemplateVersionsResponse>(await this.doRPCRequest("ListTemplateVersions", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplateVersionsResponse({}));
-  }
-
-  async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTemplateVersionsWithOptions(request, runtime);
-  }
-
   async notifyExecutionWithOptions(request: NotifyExecutionRequest, runtime: $Util.RuntimeOptions): Promise<NotifyExecutionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.executionStatus)) {
+      query["ExecutionStatus"] = request.executionStatus;
+    }
+
+    if (!Util.isUnset(request.loopItem)) {
+      query["LoopItem"] = request.loopItem;
+    }
+
+    if (!Util.isUnset(request.notifyNote)) {
+      query["NotifyNote"] = request.notifyNote;
+    }
+
+    if (!Util.isUnset(request.notifyType)) {
+      query["NotifyType"] = request.notifyType;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskExecutionId)) {
+      query["TaskExecutionId"] = request.taskExecutionId;
+    }
+
+    if (!Util.isUnset(request.taskExecutionIds)) {
+      query["TaskExecutionIds"] = request.taskExecutionIds;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<NotifyExecutionResponse>(await this.doRPCRequest("NotifyExecution", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new NotifyExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "NotifyExecution",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<NotifyExecutionResponse>(await this.callApi(params, req, runtime), new NotifyExecutionResponse({}));
   }
 
   async notifyExecution(request: NotifyExecutionRequest): Promise<NotifyExecutionResponse> {
@@ -9976,10 +12209,30 @@ export default class Client extends OpenApi {
 
   async registerDefaultPatchBaselineWithOptions(request: RegisterDefaultPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDefaultPatchBaselineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RegisterDefaultPatchBaselineResponse>(await this.doRPCRequest("RegisterDefaultPatchBaseline", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterDefaultPatchBaselineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RegisterDefaultPatchBaseline",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterDefaultPatchBaselineResponse>(await this.callApi(params, req, runtime), new RegisterDefaultPatchBaselineResponse({}));
   }
 
   async registerDefaultPatchBaseline(request: RegisterDefaultPatchBaselineRequest): Promise<RegisterDefaultPatchBaselineResponse> {
@@ -9989,10 +12242,42 @@ export default class Client extends OpenApi {
 
   async searchInventoryWithOptions(request: SearchInventoryRequest, runtime: $Util.RuntimeOptions): Promise<SearchInventoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aggregator)) {
+      query["Aggregator"] = request.aggregator;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SearchInventoryResponse>(await this.doRPCRequest("SearchInventory", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new SearchInventoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchInventory",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchInventoryResponse>(await this.callApi(params, req, runtime), new SearchInventoryResponse({}));
   }
 
   async searchInventory(request: SearchInventoryRequest): Promise<SearchInventoryResponse> {
@@ -10002,10 +12287,50 @@ export default class Client extends OpenApi {
 
   async setServiceSettingsWithOptions(request: SetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<SetServiceSettingsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deliveryOssBucketName)) {
+      query["DeliveryOssBucketName"] = request.deliveryOssBucketName;
+    }
+
+    if (!Util.isUnset(request.deliveryOssEnabled)) {
+      query["DeliveryOssEnabled"] = request.deliveryOssEnabled;
+    }
+
+    if (!Util.isUnset(request.deliveryOssKeyPrefix)) {
+      query["DeliveryOssKeyPrefix"] = request.deliveryOssKeyPrefix;
+    }
+
+    if (!Util.isUnset(request.deliverySlsEnabled)) {
+      query["DeliverySlsEnabled"] = request.deliverySlsEnabled;
+    }
+
+    if (!Util.isUnset(request.deliverySlsProjectName)) {
+      query["DeliverySlsProjectName"] = request.deliverySlsProjectName;
+    }
+
+    if (!Util.isUnset(request.rdcEnterpriseId)) {
+      query["RdcEnterpriseId"] = request.rdcEnterpriseId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetServiceSettingsResponse>(await this.doRPCRequest("SetServiceSettings", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new SetServiceSettingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetServiceSettings",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetServiceSettingsResponse>(await this.callApi(params, req, runtime), new SetServiceSettingsResponse({}));
   }
 
   async setServiceSettings(request: SetServiceSettingsRequest): Promise<SetServiceSettingsResponse> {
@@ -10021,10 +12346,74 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.loopMode)) {
+      query["LoopMode"] = request.loopMode;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.parentExecutionId)) {
+      query["ParentExecutionId"] = request.parentExecutionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.safetyCheck)) {
+      query["SafetyCheck"] = request.safetyCheck;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.templateContent)) {
+      query["TemplateContent"] = request.templateContent;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartExecutionResponse>(await this.doRPCRequest("StartExecution", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new StartExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartExecution",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
   }
 
   async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
@@ -10044,10 +12433,38 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceIdsShrink)) {
+      query["ResourceIds"] = request.resourceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -10057,10 +12474,42 @@ export default class Client extends OpenApi {
 
   async triggerExecutionWithOptions(request: TriggerExecutionRequest, runtime: $Util.RuntimeOptions): Promise<TriggerExecutionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TriggerExecutionResponse>(await this.doRPCRequest("TriggerExecution", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new TriggerExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TriggerExecution",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TriggerExecutionResponse>(await this.callApi(params, req, runtime), new TriggerExecutionResponse({}));
   }
 
   async triggerExecution(request: TriggerExecutionRequest): Promise<TriggerExecutionResponse> {
@@ -10080,10 +12529,42 @@ export default class Client extends OpenApi {
       request.tagKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKeys, "TagKeys", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceIdsShrink)) {
+      query["ResourceIds"] = request.resourceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKeysShrink)) {
+      query["TagKeys"] = request.tagKeysShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -10091,12 +12572,87 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  async updateApplicationWithOptions(tmpReq: UpdateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateApplication",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
+  }
+
+  async updateApplication(request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateApplicationWithOptions(request, runtime);
+  }
+
   async updateApplicationGroupWithOptions(request: UpdateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.newName)) {
+      query["NewName"] = request.newName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateApplicationGroupResponse>(await this.doRPCRequest("UpdateApplicationGroup", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateApplicationGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateApplicationGroup",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApplicationGroupResponse>(await this.callApi(params, req, runtime), new UpdateApplicationGroupResponse({}));
   }
 
   async updateApplicationGroup(request: UpdateApplicationGroupRequest): Promise<UpdateApplicationGroupResponse> {
@@ -10106,10 +12662,38 @@ export default class Client extends OpenApi {
 
   async updateExecutionWithOptions(request: UpdateExecutionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExecutionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.executionId)) {
+      query["ExecutionId"] = request.executionId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateExecutionResponse>(await this.doRPCRequest("UpdateExecution", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateExecutionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateExecution",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateExecutionResponse>(await this.callApi(params, req, runtime), new UpdateExecutionResponse({}));
   }
 
   async updateExecution(request: UpdateExecutionRequest): Promise<UpdateExecutionResponse> {
@@ -10117,25 +12701,48 @@ export default class Client extends OpenApi {
     return await this.updateExecutionWithOptions(request, runtime);
   }
 
-  async updateInstanceInformationWithOptions(request: UpdateInstanceInformationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceInformationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateInstanceInformationResponse>(await this.doRPCRequest("UpdateInstanceInformation", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateInstanceInformationResponse({}));
-  }
-
-  async updateInstanceInformation(request: UpdateInstanceInformationRequest): Promise<UpdateInstanceInformationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateInstanceInformationWithOptions(request, runtime);
-  }
-
   async updateParameterWithOptions(request: UpdateParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateParameterResponse>(await this.doRPCRequest("UpdateParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateParameterResponse>(await this.callApi(params, req, runtime), new UpdateParameterResponse({}));
   }
 
   async updateParameter(request: UpdateParameterRequest): Promise<UpdateParameterResponse> {
@@ -10145,10 +12752,42 @@ export default class Client extends OpenApi {
 
   async updatePatchBaselineWithOptions(request: UpdatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePatchBaselineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.approvalRules)) {
+      query["ApprovalRules"] = request.approvalRules;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdatePatchBaselineResponse>(await this.doRPCRequest("UpdatePatchBaseline", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdatePatchBaselineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdatePatchBaseline",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePatchBaselineResponse>(await this.callApi(params, req, runtime), new UpdatePatchBaselineResponse({}));
   }
 
   async updatePatchBaseline(request: UpdatePatchBaselineRequest): Promise<UpdatePatchBaselineResponse> {
@@ -10164,10 +12803,46 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateSecretParameterResponse>(await this.doRPCRequest("UpdateSecretParameter", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSecretParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateSecretParameter",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSecretParameterResponse>(await this.callApi(params, req, runtime), new UpdateSecretParameterResponse({}));
   }
 
   async updateSecretParameter(request: UpdateSecretParameterRequest): Promise<UpdateSecretParameterResponse> {
@@ -10187,10 +12862,66 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.configureMode)) {
+      query["ConfigureMode"] = request.configureMode;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scheduleExpression)) {
+      query["ScheduleExpression"] = request.scheduleExpression;
+    }
+
+    if (!Util.isUnset(request.scheduleType)) {
+      query["ScheduleType"] = request.scheduleType;
+    }
+
+    if (!Util.isUnset(request.stateConfigurationId)) {
+      query["StateConfigurationId"] = request.stateConfigurationId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.targets)) {
+      query["Targets"] = request.targets;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateStateConfigurationResponse>(await this.doRPCRequest("UpdateStateConfiguration", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateStateConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateStateConfiguration",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStateConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateStateConfigurationResponse({}));
   }
 
   async updateStateConfiguration(request: UpdateStateConfigurationRequest): Promise<UpdateStateConfigurationResponse> {
@@ -10206,10 +12937,46 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.versionName)) {
+      query["VersionName"] = request.versionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTemplate",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -10219,10 +12986,30 @@ export default class Client extends OpenApi {
 
   async validateTemplateContentWithOptions(request: ValidateTemplateContentRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateContentResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ValidateTemplateContentResponse>(await this.doRPCRequest("ValidateTemplateContent", "2019-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ValidateTemplateContentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ValidateTemplateContent",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateTemplateContentResponse>(await this.callApi(params, req, runtime), new ValidateTemplateContentResponse({}));
   }
 
   async validateTemplateContent(request: ValidateTemplateContentRequest): Promise<ValidateTemplateContentResponse> {
