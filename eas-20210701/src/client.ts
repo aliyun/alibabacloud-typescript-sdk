@@ -258,7 +258,7 @@ export class Service extends $tea.Model {
   source?: string;
   status?: string;
   totalInstance?: number;
-  updatetime?: string;
+  updateTime?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -288,7 +288,7 @@ export class Service extends $tea.Model {
       source: 'Source',
       status: 'Status',
       totalInstance: 'TotalInstance',
-      updatetime: 'Updatetime',
+      updateTime: 'UpdateTime',
       weight: 'Weight',
     };
   }
@@ -321,7 +321,7 @@ export class Service extends $tea.Model {
       source: 'string',
       status: 'string',
       totalInstance: 'number',
-      updatetime: 'string',
+      updateTime: 'string',
       weight: 'number',
     };
   }
@@ -925,78 +925,6 @@ export class CreateServiceMirrorResponse extends $tea.Model {
   }
 }
 
-export class CreateStressRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStressResponseBody extends $tea.Model {
-  message?: string;
-  name?: string;
-  region?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      name: 'Name',
-      region: 'Region',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      name: 'string',
-      region: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateStressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteBenchmarkTaskResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
@@ -1500,53 +1428,6 @@ export class DeleteServiceMirrorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteServiceMirrorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteStressResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteStressResponseBody,
     };
   }
 
@@ -2160,80 +2041,6 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
   }
 }
 
-export class DescribeStressResponseBody extends $tea.Model {
-  availableAgent?: number;
-  callerUid?: string;
-  desiredAgent?: number;
-  message?: string;
-  parentUid?: string;
-  reason?: string;
-  requestId?: string;
-  serviceName?: string;
-  status?: string;
-  stressName?: string;
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableAgent: 'AvailableAgent',
-      callerUid: 'CallerUid',
-      desiredAgent: 'DesiredAgent',
-      message: 'Message',
-      parentUid: 'ParentUid',
-      reason: 'Reason',
-      requestId: 'RequestId',
-      serviceName: 'ServiceName',
-      status: 'Status',
-      stressName: 'StressName',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableAgent: 'number',
-      callerUid: 'string',
-      desiredAgent: 'number',
-      message: 'string',
-      parentUid: 'string',
-      reason: 'string',
-      requestId: 'string',
-      serviceName: 'string',
-      status: 'string',
-      stressName: 'string',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeStressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListBenchmarkTaskResponseBody extends $tea.Model {
   requestId?: string;
   tasks?: ListBenchmarkTaskResponseBodyTasks[];
@@ -2761,53 +2568,6 @@ export class ListServicesResponse extends $tea.Model {
   }
 }
 
-export class ListStressesResponseBody extends $tea.Model {
-  requestId?: string;
-  stresses?: ListStressesResponseBodyStresses[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      stresses: 'Stresses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      stresses: { 'type': 'array', 'itemType': ListStressesResponseBodyStresses },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStressesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListStressesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListStressesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ReleaseServiceRequest extends $tea.Model {
   weight?: number;
   static names(): { [key: string]: string } {
@@ -2866,53 +2626,6 @@ export class ReleaseServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportStressResponseBody extends $tea.Model {
-  reportUrl?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reportUrl: 'ReportUrl',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reportUrl: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportStressResponseBody,
     };
   }
 
@@ -3015,53 +2728,6 @@ export class StartServiceResponse extends $tea.Model {
   }
 }
 
-export class StartStressResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartStressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StopBenchmarkTaskResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
@@ -3148,56 +2814,6 @@ export class StopServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopStressResponseBody extends $tea.Model {
-  code?: number;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopStressResponseBody,
     };
   }
 
@@ -3758,72 +3374,6 @@ export class UpdateServiceVersionResponse extends $tea.Model {
   }
 }
 
-export class UpdateStressRequest extends $tea.Model {
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStressResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateStressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateStressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateServiceAutoScalerRequestStrategies extends $tea.Model {
   cpu?: number;
   qps?: number;
@@ -3942,46 +3492,6 @@ export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
       status: 'string',
       taskId: 'string',
       taskName: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListStressesResponseBodyStresses extends $tea.Model {
-  availableAgent?: number;
-  createTime?: string;
-  message?: string;
-  region?: string;
-  serviceName?: string;
-  status?: string;
-  stressName?: string;
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableAgent: 'AvailableAgent',
-      createTime: 'CreateTime',
-      message: 'Message',
-      region: 'Region',
-      serviceName: 'ServiceName',
-      status: 'Status',
-      stressName: 'StressName',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableAgent: 'number',
-      createTime: 'string',
-      message: 'string',
-      region: 'string',
-      serviceName: 'string',
-      status: 'string',
-      stressName: 'string',
       updateTime: 'string',
     };
   }
@@ -4374,32 +3884,6 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceMirrorResponse>(await this.callApi(params, req, runtime), new CreateServiceMirrorResponse({}));
   }
 
-  async createStress(request: CreateStressRequest): Promise<CreateStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createStressWithOptions(request, headers, runtime);
-  }
-
-  async createStressWithOptions(request: CreateStressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStressResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: request.body,
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateStressResponse>(await this.callApi(params, req, runtime), new CreateStressResponse({}));
-  }
-
   async deleteBenchmarkTask(ClusterId: string, TaskName: string): Promise<DeleteBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4676,32 +4160,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<DeleteServiceMirrorResponse>(await this.callApi(params, req, runtime), new DeleteServiceMirrorResponse({}));
-  }
-
-  async deleteStress(ClusterId: string, StressName: string): Promise<DeleteStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteStressWithOptions(ClusterId, StressName, headers, runtime);
-  }
-
-  async deleteStressWithOptions(ClusterId: string, StressName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteStressResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    StressName = OpenApiUtil.getEncodeParam(StressName);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress/${ClusterId}/${StressName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteStressResponse>(await this.callApi(params, req, runtime), new DeleteStressResponse({}));
   }
 
   async describeBenchmarkTask(ClusterId: string, TaskName: string): Promise<DescribeBenchmarkTaskResponse> {
@@ -4991,32 +4449,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceMirrorResponse>(await this.callApi(params, req, runtime), new DescribeServiceMirrorResponse({}));
   }
 
-  async describeStress(ClusterId: string, StressName: string): Promise<DescribeStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeStressWithOptions(ClusterId, StressName, headers, runtime);
-  }
-
-  async describeStressWithOptions(ClusterId: string, StressName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeStressResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    StressName = OpenApiUtil.getEncodeParam(StressName);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress/${ClusterId}/${StressName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeStressResponse>(await this.callApi(params, req, runtime), new DescribeStressResponse({}));
-  }
-
   async listBenchmarkTask(): Promise<ListBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5276,30 +4708,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
-  async listStresses(): Promise<ListStressesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listStressesWithOptions(headers, runtime);
-  }
-
-  async listStressesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListStressesResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "ListStresses",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListStressesResponse>(await this.callApi(params, req, runtime), new ListStressesResponse({}));
-  }
-
   async releaseService(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest): Promise<ReleaseServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5331,32 +4739,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ReleaseServiceResponse>(await this.callApi(params, req, runtime), new ReleaseServiceResponse({}));
-  }
-
-  async reportStress(ClusterId: string, StressName: string): Promise<ReportStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.reportStressWithOptions(ClusterId, StressName, headers, runtime);
-  }
-
-  async reportStressWithOptions(ClusterId: string, StressName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReportStressResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    StressName = OpenApiUtil.getEncodeParam(StressName);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "ReportStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress/${ClusterId}/${StressName}/report`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReportStressResponse>(await this.callApi(params, req, runtime), new ReportStressResponse({}));
   }
 
   async startBenchmarkTask(ClusterId: string, TaskName: string): Promise<StartBenchmarkTaskResponse> {
@@ -5411,32 +4793,6 @@ export default class Client extends OpenApi {
     return $tea.cast<StartServiceResponse>(await this.callApi(params, req, runtime), new StartServiceResponse({}));
   }
 
-  async startStress(ClusterId: string, StressName: string): Promise<StartStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.startStressWithOptions(ClusterId, StressName, headers, runtime);
-  }
-
-  async startStressWithOptions(ClusterId: string, StressName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartStressResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    StressName = OpenApiUtil.getEncodeParam(StressName);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "StartStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress/${ClusterId}/${StressName}/start`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StartStressResponse>(await this.callApi(params, req, runtime), new StartStressResponse({}));
-  }
-
   async stopBenchmarkTask(ClusterId: string, TaskName: string): Promise<StopBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5487,32 +4843,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<StopServiceResponse>(await this.callApi(params, req, runtime), new StopServiceResponse({}));
-  }
-
-  async stopStress(ClusterId: string, StressName: string): Promise<StopStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.stopStressWithOptions(ClusterId, StressName, headers, runtime);
-  }
-
-  async stopStressWithOptions(ClusterId: string, StressName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopStressResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    StressName = OpenApiUtil.getEncodeParam(StressName);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "StopStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress/${ClusterId}/${StressName}/stop`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopStressResponse>(await this.callApi(params, req, runtime), new StopStressResponse({}));
   }
 
   async updateBenchmarkTask(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest): Promise<UpdateBenchmarkTaskResponse> {
@@ -5795,34 +5125,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateServiceVersionResponse({}));
-  }
-
-  async updateStress(ClusterId: string, StressName: string, request: UpdateStressRequest): Promise<UpdateStressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateStressWithOptions(ClusterId, StressName, request, headers, runtime);
-  }
-
-  async updateStressWithOptions(ClusterId: string, StressName: string, request: UpdateStressRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateStressResponse> {
-    Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    StressName = OpenApiUtil.getEncodeParam(StressName);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: request.body,
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateStress",
-      version: "2021-07-01",
-      protocol: "HTTPS",
-      pathname: `/api/v2/stress/${ClusterId}/${StressName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateStressResponse>(await this.callApi(params, req, runtime), new UpdateStressResponse({}));
   }
 
 }
