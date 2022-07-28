@@ -13153,12 +13153,14 @@ export class DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfig exten
   configId?: string;
   functionArgs?: DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs;
   functionName?: string;
+  parentId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
       functionArgs: 'FunctionArgs',
       functionName: 'FunctionName',
+      parentId: 'ParentId',
       status: 'Status',
     };
   }
@@ -13168,6 +13170,7 @@ export class DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfig exten
       configId: 'string',
       functionArgs: DescribeCdnDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs,
       functionName: 'string',
+      parentId: 'string',
       status: 'string',
     };
   }
