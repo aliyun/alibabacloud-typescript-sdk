@@ -4,107 +4,111 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ConfigureBackupPlanRequest extends $tea.Model {
-  backupPlanId?: string;
-  sourceEndpointInstanceType?: string;
-  sourceEndpointRegion?: string;
-  sourceEndpointInstanceID?: string;
-  sourceEndpointIP?: string;
-  sourceEndpointPort?: number;
-  sourceEndpointDatabaseName?: string;
-  sourceEndpointUserName?: string;
-  sourceEndpointPassword?: string;
+  autoStartBackup?: boolean;
   backupGatewayId?: number;
-  OSSBucketName?: string;
+  backupLogIntervalSeconds?: number;
   backupObjects?: string;
   backupPeriod?: string;
-  backupStartTime?: string;
-  enableBackupLog?: boolean;
-  backupLogIntervalSeconds?: number;
-  backupRetentionPeriod?: number;
-  duplicationInfrequentAccessPeriod?: number;
-  duplicationArchivePeriod?: number;
+  backupPlanId?: string;
   backupPlanName?: string;
-  sourceEndpointOracleSID?: string;
-  backupStorageType?: string;
-  backupSpeedLimit?: number;
   backupRateLimit?: number;
+  backupRetentionPeriod?: number;
+  backupSpeedLimit?: number;
+  backupStartTime?: string;
+  backupStorageType?: string;
   backupStrategyType?: string;
+  clientToken?: string;
   crossAliyunId?: string;
   crossRoleName?: string;
-  autoStartBackup?: boolean;
+  duplicationArchivePeriod?: number;
+  duplicationInfrequentAccessPeriod?: number;
+  enableBackupLog?: boolean;
+  OSSBucketName?: string;
   ownerId?: string;
-  clientToken?: string;
+  resourceGroupId?: string;
+  sourceEndpointDatabaseName?: string;
+  sourceEndpointIP?: string;
+  sourceEndpointInstanceID?: string;
+  sourceEndpointInstanceType?: string;
+  sourceEndpointOracleSID?: string;
+  sourceEndpointPassword?: string;
+  sourceEndpointPort?: number;
+  sourceEndpointRegion?: string;
+  sourceEndpointUserName?: string;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
-      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
-      sourceEndpointRegion: 'SourceEndpointRegion',
-      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
-      sourceEndpointIP: 'SourceEndpointIP',
-      sourceEndpointPort: 'SourceEndpointPort',
-      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
-      sourceEndpointUserName: 'SourceEndpointUserName',
-      sourceEndpointPassword: 'SourceEndpointPassword',
+      autoStartBackup: 'AutoStartBackup',
       backupGatewayId: 'BackupGatewayId',
-      OSSBucketName: 'OSSBucketName',
+      backupLogIntervalSeconds: 'BackupLogIntervalSeconds',
       backupObjects: 'BackupObjects',
       backupPeriod: 'BackupPeriod',
-      backupStartTime: 'BackupStartTime',
-      enableBackupLog: 'EnableBackupLog',
-      backupLogIntervalSeconds: 'BackupLogIntervalSeconds',
-      backupRetentionPeriod: 'BackupRetentionPeriod',
-      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
-      duplicationArchivePeriod: 'DuplicationArchivePeriod',
+      backupPlanId: 'BackupPlanId',
       backupPlanName: 'BackupPlanName',
-      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
-      backupStorageType: 'BackupStorageType',
-      backupSpeedLimit: 'BackupSpeedLimit',
       backupRateLimit: 'BackupRateLimit',
+      backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupSpeedLimit: 'BackupSpeedLimit',
+      backupStartTime: 'BackupStartTime',
+      backupStorageType: 'BackupStorageType',
       backupStrategyType: 'BackupStrategyType',
+      clientToken: 'ClientToken',
       crossAliyunId: 'CrossAliyunId',
       crossRoleName: 'CrossRoleName',
-      autoStartBackup: 'AutoStartBackup',
+      duplicationArchivePeriod: 'DuplicationArchivePeriod',
+      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
+      enableBackupLog: 'EnableBackupLog',
+      OSSBucketName: 'OSSBucketName',
       ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
+      resourceGroupId: 'ResourceGroupId',
+      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointIP: 'SourceEndpointIP',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointPassword: 'SourceEndpointPassword',
+      sourceEndpointPort: 'SourceEndpointPort',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointUserName: 'SourceEndpointUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
-      sourceEndpointInstanceType: 'string',
-      sourceEndpointRegion: 'string',
-      sourceEndpointInstanceID: 'string',
-      sourceEndpointIP: 'string',
-      sourceEndpointPort: 'number',
-      sourceEndpointDatabaseName: 'string',
-      sourceEndpointUserName: 'string',
-      sourceEndpointPassword: 'string',
+      autoStartBackup: 'boolean',
       backupGatewayId: 'number',
-      OSSBucketName: 'string',
+      backupLogIntervalSeconds: 'number',
       backupObjects: 'string',
       backupPeriod: 'string',
-      backupStartTime: 'string',
-      enableBackupLog: 'boolean',
-      backupLogIntervalSeconds: 'number',
-      backupRetentionPeriod: 'number',
-      duplicationInfrequentAccessPeriod: 'number',
-      duplicationArchivePeriod: 'number',
+      backupPlanId: 'string',
       backupPlanName: 'string',
-      sourceEndpointOracleSID: 'string',
-      backupStorageType: 'string',
-      backupSpeedLimit: 'number',
       backupRateLimit: 'number',
+      backupRetentionPeriod: 'number',
+      backupSpeedLimit: 'number',
+      backupStartTime: 'string',
+      backupStorageType: 'string',
       backupStrategyType: 'string',
+      clientToken: 'string',
       crossAliyunId: 'string',
       crossRoleName: 'string',
-      autoStartBackup: 'boolean',
+      duplicationArchivePeriod: 'number',
+      duplicationInfrequentAccessPeriod: 'number',
+      enableBackupLog: 'boolean',
+      OSSBucketName: 'string',
       ownerId: 'string',
-      clientToken: 'string',
+      resourceGroupId: 'string',
+      sourceEndpointDatabaseName: 'string',
+      sourceEndpointIP: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointInstanceType: 'string',
+      sourceEndpointOracleSID: 'string',
+      sourceEndpointPassword: 'string',
+      sourceEndpointPort: 'number',
+      sourceEndpointRegion: 'string',
+      sourceEndpointUserName: 'string',
     };
   }
 
@@ -114,31 +118,31 @@ export class ConfigureBackupPlanRequest extends $tea.Model {
 }
 
 export class ConfigureBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -149,10 +153,12 @@ export class ConfigureBackupPlanResponseBody extends $tea.Model {
 
 export class ConfigureBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ConfigureBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -160,6 +166,7 @@ export class ConfigureBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ConfigureBackupPlanResponseBody,
     };
   }
@@ -169,56 +176,266 @@ export class ConfigureBackupPlanResponse extends $tea.Model {
   }
 }
 
-export class CreateBackupPlanRequest extends $tea.Model {
-  region?: string;
-  instanceClass?: string;
-  databaseType?: string;
+export class CreateAndStartBackupPlanRequest extends $tea.Model {
+  backupGatewayId?: number;
+  backupLogIntervalSeconds?: number;
   backupMethod?: string;
-  period?: string;
-  usedTime?: number;
-  payType?: string;
-  databaseRegion?: string;
-  storageRegion?: string;
-  instanceType?: string;
-  storageType?: string;
-  fromApp?: string;
-  ownerId?: string;
+  backupObjects?: string;
+  backupPeriod?: string;
+  backupPlanId?: string;
+  backupPlanName?: string;
+  backupRateLimit?: number;
+  backupRetentionPeriod?: number;
+  backupSpeedLimit?: number;
+  backupStartTime?: string;
+  backupStorageType?: string;
+  backupStrategyType?: string;
   clientToken?: string;
+  crossAliyunId?: string;
+  crossRoleName?: string;
+  databaseRegion?: string;
+  databaseType?: string;
+  duplicationArchivePeriod?: number;
+  duplicationInfrequentAccessPeriod?: number;
+  enableBackupLog?: boolean;
+  fromApp?: string;
+  instanceClass?: string;
+  instanceType?: string;
+  OSSBucketName?: string;
+  ownerId?: string;
+  payType?: string;
+  period?: string;
+  region?: string;
+  resourceGroupId?: string;
+  sourceEndpointDatabaseName?: string;
+  sourceEndpointIP?: string;
+  sourceEndpointInstanceID?: string;
+  sourceEndpointInstanceType?: string;
+  sourceEndpointOracleSID?: string;
+  sourceEndpointPassword?: string;
+  sourceEndpointPort?: number;
+  sourceEndpointRegion?: string;
+  sourceEndpointUserName?: string;
+  storageRegion?: string;
+  storageType?: string;
+  usedTime?: number;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
-      instanceClass: 'InstanceClass',
-      databaseType: 'DatabaseType',
+      backupGatewayId: 'BackupGatewayId',
+      backupLogIntervalSeconds: 'BackupLogIntervalSeconds',
       backupMethod: 'BackupMethod',
-      period: 'Period',
-      usedTime: 'UsedTime',
-      payType: 'PayType',
-      databaseRegion: 'DatabaseRegion',
-      storageRegion: 'StorageRegion',
-      instanceType: 'InstanceType',
-      storageType: 'StorageType',
-      fromApp: 'FromApp',
-      ownerId: 'OwnerId',
+      backupObjects: 'BackupObjects',
+      backupPeriod: 'BackupPeriod',
+      backupPlanId: 'BackupPlanId',
+      backupPlanName: 'BackupPlanName',
+      backupRateLimit: 'BackupRateLimit',
+      backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupSpeedLimit: 'BackupSpeedLimit',
+      backupStartTime: 'BackupStartTime',
+      backupStorageType: 'BackupStorageType',
+      backupStrategyType: 'BackupStrategyType',
       clientToken: 'ClientToken',
+      crossAliyunId: 'CrossAliyunId',
+      crossRoleName: 'CrossRoleName',
+      databaseRegion: 'DatabaseRegion',
+      databaseType: 'DatabaseType',
+      duplicationArchivePeriod: 'DuplicationArchivePeriod',
+      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
+      enableBackupLog: 'EnableBackupLog',
+      fromApp: 'FromApp',
+      instanceClass: 'InstanceClass',
+      instanceType: 'InstanceType',
+      OSSBucketName: 'OSSBucketName',
+      ownerId: 'OwnerId',
+      payType: 'PayType',
+      period: 'Period',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointIP: 'SourceEndpointIP',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointPassword: 'SourceEndpointPassword',
+      sourceEndpointPort: 'SourceEndpointPort',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointUserName: 'SourceEndpointUserName',
+      storageRegion: 'StorageRegion',
+      storageType: 'StorageType',
+      usedTime: 'UsedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
-      instanceClass: 'string',
-      databaseType: 'string',
+      backupGatewayId: 'number',
+      backupLogIntervalSeconds: 'number',
       backupMethod: 'string',
-      period: 'string',
-      usedTime: 'number',
-      payType: 'string',
-      databaseRegion: 'string',
-      storageRegion: 'string',
-      instanceType: 'string',
-      storageType: 'string',
-      fromApp: 'string',
-      ownerId: 'string',
+      backupObjects: 'string',
+      backupPeriod: 'string',
+      backupPlanId: 'string',
+      backupPlanName: 'string',
+      backupRateLimit: 'number',
+      backupRetentionPeriod: 'number',
+      backupSpeedLimit: 'number',
+      backupStartTime: 'string',
+      backupStorageType: 'string',
+      backupStrategyType: 'string',
       clientToken: 'string',
+      crossAliyunId: 'string',
+      crossRoleName: 'string',
+      databaseRegion: 'string',
+      databaseType: 'string',
+      duplicationArchivePeriod: 'number',
+      duplicationInfrequentAccessPeriod: 'number',
+      enableBackupLog: 'boolean',
+      fromApp: 'string',
+      instanceClass: 'string',
+      instanceType: 'string',
+      OSSBucketName: 'string',
+      ownerId: 'string',
+      payType: 'string',
+      period: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      sourceEndpointDatabaseName: 'string',
+      sourceEndpointIP: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointInstanceType: 'string',
+      sourceEndpointOracleSID: 'string',
+      sourceEndpointPassword: 'string',
+      sourceEndpointPort: 'number',
+      sourceEndpointRegion: 'string',
+      sourceEndpointUserName: 'string',
+      storageRegion: 'string',
+      storageType: 'string',
+      usedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndStartBackupPlanResponseBody extends $tea.Model {
+  backupPlanId?: string;
+  createBackupSet?: boolean;
+  errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  orderId?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      backupPlanId: 'BackupPlanId',
+      createBackupSet: 'CreateBackupSet',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupPlanId: 'string',
+      createBackupSet: 'boolean',
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      orderId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndStartBackupPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAndStartBackupPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAndStartBackupPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupPlanRequest extends $tea.Model {
+  backupMethod?: string;
+  clientToken?: string;
+  databaseRegion?: string;
+  databaseType?: string;
+  fromApp?: string;
+  instanceClass?: string;
+  instanceType?: string;
+  ownerId?: string;
+  payType?: string;
+  period?: string;
+  region?: string;
+  resourceGroupId?: string;
+  storageRegion?: string;
+  storageType?: string;
+  usedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupMethod: 'BackupMethod',
+      clientToken: 'ClientToken',
+      databaseRegion: 'DatabaseRegion',
+      databaseType: 'DatabaseType',
+      fromApp: 'FromApp',
+      instanceClass: 'InstanceClass',
+      instanceType: 'InstanceType',
+      ownerId: 'OwnerId',
+      payType: 'PayType',
+      period: 'Period',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      storageRegion: 'StorageRegion',
+      storageType: 'StorageType',
+      usedTime: 'UsedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupMethod: 'string',
+      clientToken: 'string',
+      databaseRegion: 'string',
+      databaseType: 'string',
+      fromApp: 'string',
+      instanceClass: 'string',
+      instanceType: 'string',
+      ownerId: 'string',
+      payType: 'string',
+      period: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      storageRegion: 'string',
+      storageType: 'string',
+      usedTime: 'number',
     };
   }
 
@@ -228,34 +445,34 @@ export class CreateBackupPlanRequest extends $tea.Model {
 }
 
 export class CreateBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  orderId?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  orderId?: string;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      orderId: 'OrderId',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      orderId: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      orderId: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -266,10 +483,12 @@ export class CreateBackupPlanResponseBody extends $tea.Model {
 
 export class CreateBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -277,6 +496,7 @@ export class CreateBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateBackupPlanResponseBody,
     };
   }
@@ -287,25 +507,25 @@ export class CreateBackupPlanResponse extends $tea.Model {
 }
 
 export class CreateFullBackupSetDownloadRequest extends $tea.Model {
-  backupSetId?: string;
   backupSetDataFormat?: string;
-  ownerId?: string;
+  backupSetId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
-      backupSetId: 'BackupSetId',
       backupSetDataFormat: 'BackupSetDataFormat',
-      ownerId: 'OwnerId',
+      backupSetId: 'BackupSetId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupSetId: 'string',
       backupSetDataFormat: 'string',
-      ownerId: 'string',
+      backupSetId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -315,31 +535,31 @@ export class CreateFullBackupSetDownloadRequest extends $tea.Model {
 }
 
 export class CreateFullBackupSetDownloadResponseBody extends $tea.Model {
-  requestId?: string;
   backupSetDownloadTaskId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       backupSetDownloadTaskId: 'BackupSetDownloadTaskId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       backupSetDownloadTaskId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -350,10 +570,12 @@ export class CreateFullBackupSetDownloadResponseBody extends $tea.Model {
 
 export class CreateFullBackupSetDownloadResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateFullBackupSetDownloadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -361,6 +583,7 @@ export class CreateFullBackupSetDownloadResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateFullBackupSetDownloadResponseBody,
     };
   }
@@ -372,33 +595,33 @@ export class CreateFullBackupSetDownloadResponse extends $tea.Model {
 
 export class CreateGetDBListFromAgentTaskRequest extends $tea.Model {
   backupGatewayId?: number;
+  clientToken?: string;
   databaseType?: string;
-  sourceEndpointRegion?: string;
+  ownerId?: string;
   sourceEndpointIP?: string;
   sourceEndpointPort?: number;
-  ownerId?: string;
-  clientToken?: string;
+  sourceEndpointRegion?: string;
   static names(): { [key: string]: string } {
     return {
       backupGatewayId: 'BackupGatewayId',
+      clientToken: 'ClientToken',
       databaseType: 'DatabaseType',
-      sourceEndpointRegion: 'SourceEndpointRegion',
+      ownerId: 'OwnerId',
       sourceEndpointIP: 'SourceEndpointIP',
       sourceEndpointPort: 'SourceEndpointPort',
-      ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
+      sourceEndpointRegion: 'SourceEndpointRegion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupGatewayId: 'number',
+      clientToken: 'string',
       databaseType: 'string',
-      sourceEndpointRegion: 'string',
+      ownerId: 'string',
       sourceEndpointIP: 'string',
       sourceEndpointPort: 'number',
-      ownerId: 'string',
-      clientToken: 'string',
+      sourceEndpointRegion: 'string',
     };
   }
 
@@ -408,31 +631,31 @@ export class CreateGetDBListFromAgentTaskRequest extends $tea.Model {
 }
 
 export class CreateGetDBListFromAgentTaskResponseBody extends $tea.Model {
-  taskId?: number;
-  requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'number',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      taskId: 'number',
     };
   }
 
@@ -443,10 +666,12 @@ export class CreateGetDBListFromAgentTaskResponseBody extends $tea.Model {
 
 export class CreateGetDBListFromAgentTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGetDBListFromAgentTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -454,6 +679,7 @@ export class CreateGetDBListFromAgentTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGetDBListFromAgentTaskResponseBody,
     };
   }
@@ -464,28 +690,28 @@ export class CreateGetDBListFromAgentTaskResponse extends $tea.Model {
 }
 
 export class CreateIncrementBackupSetDownloadRequest extends $tea.Model {
+  backupSetDataFormat?: string;
   backupSetId?: string;
   backupSetName?: string;
-  backupSetDataFormat?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
+      backupSetDataFormat: 'BackupSetDataFormat',
       backupSetId: 'BackupSetId',
       backupSetName: 'BackupSetName',
-      backupSetDataFormat: 'BackupSetDataFormat',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backupSetDataFormat: 'string',
       backupSetId: 'string',
       backupSetName: 'string',
-      backupSetDataFormat: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -495,31 +721,31 @@ export class CreateIncrementBackupSetDownloadRequest extends $tea.Model {
 }
 
 export class CreateIncrementBackupSetDownloadResponseBody extends $tea.Model {
-  requestId?: string;
   backupSetDownloadTaskId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       backupSetDownloadTaskId: 'BackupSetDownloadTaskId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       backupSetDownloadTaskId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -530,10 +756,12 @@ export class CreateIncrementBackupSetDownloadResponseBody extends $tea.Model {
 
 export class CreateIncrementBackupSetDownloadResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateIncrementBackupSetDownloadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -541,6 +769,7 @@ export class CreateIncrementBackupSetDownloadResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateIncrementBackupSetDownloadResponseBody,
     };
   }
@@ -551,79 +780,79 @@ export class CreateIncrementBackupSetDownloadResponse extends $tea.Model {
 }
 
 export class CreateRestoreTaskRequest extends $tea.Model {
-  backupPlanId?: string;
-  destinationEndpointInstanceType?: string;
-  destinationEndpointRegion?: string;
-  destinationEndpointInstanceID?: string;
-  destinationEndpointIP?: string;
-  destinationEndpointPort?: number;
-  destinationEndpointDatabaseName?: string;
-  destinationEndpointUserName?: string;
-  destinationEndpointPassword?: string;
   backupGatewayId?: number;
-  restoreObjects?: string;
-  restoreTime?: number;
+  backupPlanId?: string;
   backupSetId?: string;
-  restoreTaskName?: string;
-  destinationEndpointOracleSID?: string;
-  restoreDir?: string;
-  restoreHome?: string;
-  duplicateConflict?: string;
+  clientToken?: string;
   crossAliyunId?: string;
   crossRoleName?: string;
+  destinationEndpointDatabaseName?: string;
+  destinationEndpointIP?: string;
+  destinationEndpointInstanceID?: string;
+  destinationEndpointInstanceType?: string;
+  destinationEndpointOracleSID?: string;
+  destinationEndpointPassword?: string;
+  destinationEndpointPort?: number;
+  destinationEndpointRegion?: string;
+  destinationEndpointUserName?: string;
+  duplicateConflict?: string;
   ownerId?: string;
-  clientToken?: string;
+  restoreDir?: string;
+  restoreHome?: string;
+  restoreObjects?: string;
+  restoreTaskName?: string;
+  restoreTime?: number;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
-      destinationEndpointInstanceType: 'DestinationEndpointInstanceType',
-      destinationEndpointRegion: 'DestinationEndpointRegion',
-      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
-      destinationEndpointIP: 'DestinationEndpointIP',
-      destinationEndpointPort: 'DestinationEndpointPort',
-      destinationEndpointDatabaseName: 'DestinationEndpointDatabaseName',
-      destinationEndpointUserName: 'DestinationEndpointUserName',
-      destinationEndpointPassword: 'DestinationEndpointPassword',
       backupGatewayId: 'BackupGatewayId',
-      restoreObjects: 'RestoreObjects',
-      restoreTime: 'RestoreTime',
+      backupPlanId: 'BackupPlanId',
       backupSetId: 'BackupSetId',
-      restoreTaskName: 'RestoreTaskName',
-      destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
-      restoreDir: 'RestoreDir',
-      restoreHome: 'RestoreHome',
-      duplicateConflict: 'DuplicateConflict',
+      clientToken: 'ClientToken',
       crossAliyunId: 'CrossAliyunId',
       crossRoleName: 'CrossRoleName',
+      destinationEndpointDatabaseName: 'DestinationEndpointDatabaseName',
+      destinationEndpointIP: 'DestinationEndpointIP',
+      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
+      destinationEndpointInstanceType: 'DestinationEndpointInstanceType',
+      destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
+      destinationEndpointPassword: 'DestinationEndpointPassword',
+      destinationEndpointPort: 'DestinationEndpointPort',
+      destinationEndpointRegion: 'DestinationEndpointRegion',
+      destinationEndpointUserName: 'DestinationEndpointUserName',
+      duplicateConflict: 'DuplicateConflict',
       ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
+      restoreDir: 'RestoreDir',
+      restoreHome: 'RestoreHome',
+      restoreObjects: 'RestoreObjects',
+      restoreTaskName: 'RestoreTaskName',
+      restoreTime: 'RestoreTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
-      destinationEndpointInstanceType: 'string',
-      destinationEndpointRegion: 'string',
-      destinationEndpointInstanceID: 'string',
-      destinationEndpointIP: 'string',
-      destinationEndpointPort: 'number',
-      destinationEndpointDatabaseName: 'string',
-      destinationEndpointUserName: 'string',
-      destinationEndpointPassword: 'string',
       backupGatewayId: 'number',
-      restoreObjects: 'string',
-      restoreTime: 'number',
+      backupPlanId: 'string',
       backupSetId: 'string',
-      restoreTaskName: 'string',
-      destinationEndpointOracleSID: 'string',
-      restoreDir: 'string',
-      restoreHome: 'string',
-      duplicateConflict: 'string',
+      clientToken: 'string',
       crossAliyunId: 'string',
       crossRoleName: 'string',
+      destinationEndpointDatabaseName: 'string',
+      destinationEndpointIP: 'string',
+      destinationEndpointInstanceID: 'string',
+      destinationEndpointInstanceType: 'string',
+      destinationEndpointOracleSID: 'string',
+      destinationEndpointPassword: 'string',
+      destinationEndpointPort: 'number',
+      destinationEndpointRegion: 'string',
+      destinationEndpointUserName: 'string',
+      duplicateConflict: 'string',
       ownerId: 'string',
-      clientToken: 'string',
+      restoreDir: 'string',
+      restoreHome: 'string',
+      restoreObjects: 'string',
+      restoreTaskName: 'string',
+      restoreTime: 'number',
     };
   }
 
@@ -633,31 +862,31 @@ export class CreateRestoreTaskRequest extends $tea.Model {
 }
 
 export class CreateRestoreTaskResponseBody extends $tea.Model {
-  restoreTaskId?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  restoreTaskId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      restoreTaskId: 'RestoreTaskId',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      restoreTaskId: 'RestoreTaskId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      restoreTaskId: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      restoreTaskId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -668,10 +897,12 @@ export class CreateRestoreTaskResponseBody extends $tea.Model {
 
 export class CreateRestoreTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRestoreTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -679,6 +910,7 @@ export class CreateRestoreTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRestoreTaskResponseBody,
     };
   }
@@ -689,31 +921,31 @@ export class CreateRestoreTaskResponse extends $tea.Model {
 }
 
 export class DescribeBackupGatewayListRequest extends $tea.Model {
-  region?: string;
-  identifier?: string;
-  pageSize?: number;
-  pageNum?: number;
-  ownerId?: string;
   clientToken?: string;
+  identifier?: string;
+  ownerId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
-      identifier: 'Identifier',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      identifier: 'Identifier',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
-      identifier: 'string',
-      pageSize: 'number',
-      pageNum: 'number',
-      ownerId: 'string',
       clientToken: 'string',
+      identifier: 'string',
+      ownerId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      region: 'string',
     };
   }
 
@@ -723,43 +955,43 @@ export class DescribeBackupGatewayListRequest extends $tea.Model {
 }
 
 export class DescribeBackupGatewayListResponseBody extends $tea.Model {
-  pageNum?: number;
-  requestId?: string;
-  pageSize?: number;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
+  items?: DescribeBackupGatewayListResponseBodyItems;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
   totalElements?: number;
   totalPages?: number;
-  items?: DescribeBackupGatewayListResponseBodyItems;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
-      items: 'Items',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
+      items: DescribeBackupGatewayListResponseBodyItems,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
       totalElements: 'number',
       totalPages: 'number',
-      items: DescribeBackupGatewayListResponseBodyItems,
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -770,10 +1002,12 @@ export class DescribeBackupGatewayListResponseBody extends $tea.Model {
 
 export class DescribeBackupGatewayListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBackupGatewayListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -781,6 +1015,7 @@ export class DescribeBackupGatewayListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBackupGatewayListResponseBody,
     };
   }
@@ -792,14 +1027,14 @@ export class DescribeBackupGatewayListResponse extends $tea.Model {
 
 export class DescribeBackupPlanBillingRequest extends $tea.Model {
   backupPlanId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   showStorageType?: boolean;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
       showStorageType: 'ShowStorageType',
     };
   }
@@ -807,8 +1042,8 @@ export class DescribeBackupPlanBillingRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
       showStorageType: 'boolean',
     };
   }
@@ -819,31 +1054,31 @@ export class DescribeBackupPlanBillingRequest extends $tea.Model {
 }
 
 export class DescribeBackupPlanBillingResponseBody extends $tea.Model {
+  errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
   item?: DescribeBackupPlanBillingResponseBodyItem;
   requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
   success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
       item: 'Item',
       requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
       success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
       item: DescribeBackupPlanBillingResponseBodyItem,
       requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
       success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -854,10 +1089,12 @@ export class DescribeBackupPlanBillingResponseBody extends $tea.Model {
 
 export class DescribeBackupPlanBillingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBackupPlanBillingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -865,6 +1102,7 @@ export class DescribeBackupPlanBillingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBackupPlanBillingResponseBody,
     };
   }
@@ -876,36 +1114,39 @@ export class DescribeBackupPlanBillingResponse extends $tea.Model {
 
 export class DescribeBackupPlanListRequest extends $tea.Model {
   backupPlanId?: string;
-  region?: string;
-  pageSize?: number;
-  pageNum?: number;
   backupPlanName?: string;
   backupPlanStatus?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  region?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      region: 'Region',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
       backupPlanName: 'BackupPlanName',
       backupPlanStatus: 'BackupPlanStatus',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      region: 'string',
-      pageSize: 'number',
-      pageNum: 'number',
       backupPlanName: 'string',
       backupPlanStatus: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      region: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -915,43 +1156,43 @@ export class DescribeBackupPlanListRequest extends $tea.Model {
 }
 
 export class DescribeBackupPlanListResponseBody extends $tea.Model {
-  pageNum?: number;
-  requestId?: string;
-  pageSize?: number;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
+  items?: DescribeBackupPlanListResponseBodyItems;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
   totalElements?: number;
   totalPages?: number;
-  items?: DescribeBackupPlanListResponseBodyItems;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
-      items: 'Items',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
+      items: DescribeBackupPlanListResponseBodyItems,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
       totalElements: 'number',
       totalPages: 'number',
-      items: DescribeBackupPlanListResponseBodyItems,
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -962,10 +1203,12 @@ export class DescribeBackupPlanListResponseBody extends $tea.Model {
 
 export class DescribeBackupPlanListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBackupPlanListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -973,6 +1216,7 @@ export class DescribeBackupPlanListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBackupPlanListResponseBody,
     };
   }
@@ -985,18 +1229,18 @@ export class DescribeBackupPlanListResponse extends $tea.Model {
 export class DescribeBackupSetDownloadTaskListRequest extends $tea.Model {
   backupPlanId?: string;
   backupSetDownloadTaskId?: string;
-  pageSize?: number;
-  pageNum?: number;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
+  pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       backupSetDownloadTaskId: 'BackupSetDownloadTaskId',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
@@ -1004,10 +1248,10 @@ export class DescribeBackupSetDownloadTaskListRequest extends $tea.Model {
     return {
       backupPlanId: 'string',
       backupSetDownloadTaskId: 'string',
-      pageSize: 'number',
-      pageNum: 'number',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -1017,43 +1261,43 @@ export class DescribeBackupSetDownloadTaskListRequest extends $tea.Model {
 }
 
 export class DescribeBackupSetDownloadTaskListResponseBody extends $tea.Model {
-  pageNum?: number;
-  requestId?: string;
-  pageSize?: number;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
+  items?: DescribeBackupSetDownloadTaskListResponseBodyItems;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
   totalElements?: number;
   totalPages?: number;
-  items?: DescribeBackupSetDownloadTaskListResponseBodyItems;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
-      items: 'Items',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
+      items: DescribeBackupSetDownloadTaskListResponseBodyItems,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
       totalElements: 'number',
       totalPages: 'number',
-      items: DescribeBackupSetDownloadTaskListResponseBodyItems,
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1064,10 +1308,12 @@ export class DescribeBackupSetDownloadTaskListResponseBody extends $tea.Model {
 
 export class DescribeBackupSetDownloadTaskListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBackupSetDownloadTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1075,7 +1321,98 @@ export class DescribeBackupSetDownloadTaskListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBackupSetDownloadTaskListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDLAServiceRequest extends $tea.Model {
+  backupPlanId?: string;
+  clientToken?: string;
+  ownerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupPlanId: 'BackupPlanId',
+      clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupPlanId: 'string',
+      clientToken: 'string',
+      ownerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDLAServiceResponseBody extends $tea.Model {
+  autoAdd?: boolean;
+  errCode?: string;
+  errMessage?: string;
+  haveJobFailed?: boolean;
+  httpStatusCode?: number;
+  requestId?: string;
+  state?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoAdd: 'AutoAdd',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      haveJobFailed: 'HaveJobFailed',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      state: 'State',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoAdd: 'boolean',
+      errCode: 'string',
+      errMessage: 'string',
+      haveJobFailed: 'boolean',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      state: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDLAServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDLAServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDLAServiceResponseBody,
     };
   }
 
@@ -1086,33 +1423,39 @@ export class DescribeBackupSetDownloadTaskListResponse extends $tea.Model {
 
 export class DescribeFullBackupListRequest extends $tea.Model {
   backupPlanId?: string;
-  pageSize?: number;
-  pageNum?: number;
-  ownerId?: string;
-  clientToken?: string;
-  showStorageType?: boolean;
   backupSetId?: string;
+  clientToken?: string;
+  endTimestamp?: number;
+  ownerId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  showStorageType?: boolean;
+  startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
-      ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
-      showStorageType: 'ShowStorageType',
       backupSetId: 'BackupSetId',
+      clientToken: 'ClientToken',
+      endTimestamp: 'EndTimestamp',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      showStorageType: 'ShowStorageType',
+      startTimestamp: 'StartTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      pageSize: 'number',
-      pageNum: 'number',
-      ownerId: 'string',
-      clientToken: 'string',
-      showStorageType: 'boolean',
       backupSetId: 'string',
+      clientToken: 'string',
+      endTimestamp: 'number',
+      ownerId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      showStorageType: 'boolean',
+      startTimestamp: 'number',
     };
   }
 
@@ -1122,43 +1465,43 @@ export class DescribeFullBackupListRequest extends $tea.Model {
 }
 
 export class DescribeFullBackupListResponseBody extends $tea.Model {
-  pageNum?: number;
-  requestId?: string;
-  pageSize?: number;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
+  items?: DescribeFullBackupListResponseBodyItems;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
   totalElements?: number;
   totalPages?: number;
-  items?: DescribeFullBackupListResponseBodyItems;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
-      items: 'Items',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
+      items: DescribeFullBackupListResponseBodyItems,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
       totalElements: 'number',
       totalPages: 'number',
-      items: DescribeFullBackupListResponseBodyItems,
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1169,10 +1512,12 @@ export class DescribeFullBackupListResponseBody extends $tea.Model {
 
 export class DescribeFullBackupListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeFullBackupListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1180,6 +1525,7 @@ export class DescribeFullBackupListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeFullBackupListResponseBody,
     };
   }
@@ -1191,30 +1537,36 @@ export class DescribeFullBackupListResponse extends $tea.Model {
 
 export class DescribeIncrementBackupListRequest extends $tea.Model {
   backupPlanId?: string;
-  pageSize?: number;
-  pageNum?: number;
-  ownerId?: string;
   clientToken?: string;
+  endTimestamp?: number;
+  ownerId?: string;
+  pageNum?: number;
+  pageSize?: number;
   showStorageType?: boolean;
+  startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      endTimestamp: 'EndTimestamp',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       showStorageType: 'ShowStorageType',
+      startTimestamp: 'StartTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      pageSize: 'number',
-      pageNum: 'number',
-      ownerId: 'string',
       clientToken: 'string',
+      endTimestamp: 'number',
+      ownerId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       showStorageType: 'boolean',
+      startTimestamp: 'number',
     };
   }
 
@@ -1224,43 +1576,43 @@ export class DescribeIncrementBackupListRequest extends $tea.Model {
 }
 
 export class DescribeIncrementBackupListResponseBody extends $tea.Model {
-  pageNum?: number;
-  requestId?: string;
-  pageSize?: number;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
+  items?: DescribeIncrementBackupListResponseBodyItems;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
   totalElements?: number;
   totalPages?: number;
-  items?: DescribeIncrementBackupListResponseBodyItems;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
-      items: 'Items',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
+      items: DescribeIncrementBackupListResponseBodyItems,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
       totalElements: 'number',
       totalPages: 'number',
-      items: DescribeIncrementBackupListResponseBodyItems,
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1271,10 +1623,12 @@ export class DescribeIncrementBackupListResponseBody extends $tea.Model {
 
 export class DescribeIncrementBackupListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeIncrementBackupListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1282,6 +1636,7 @@ export class DescribeIncrementBackupListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeIncrementBackupListResponseBody,
     };
   }
@@ -1292,25 +1647,25 @@ export class DescribeIncrementBackupListResponse extends $tea.Model {
 }
 
 export class DescribeJobErrorCodeRequest extends $tea.Model {
-  taskId?: string;
+  clientToken?: string;
   language?: string;
   ownerId?: string;
-  clientToken?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
+      clientToken: 'ClientToken',
       language: 'Language',
       ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
+      clientToken: 'string',
       language: 'string',
       ownerId: 'string',
-      clientToken: 'string',
+      taskId: 'string',
     };
   }
 
@@ -1320,31 +1675,31 @@ export class DescribeJobErrorCodeRequest extends $tea.Model {
 }
 
 export class DescribeJobErrorCodeResponseBody extends $tea.Model {
+  errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
   item?: DescribeJobErrorCodeResponseBodyItem;
   requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
   success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
       item: 'Item',
       requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
       success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
       item: DescribeJobErrorCodeResponseBodyItem,
       requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
       success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1355,10 +1710,12 @@ export class DescribeJobErrorCodeResponseBody extends $tea.Model {
 
 export class DescribeJobErrorCodeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeJobErrorCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1366,6 +1723,7 @@ export class DescribeJobErrorCodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeJobErrorCodeResponseBody,
     };
   }
@@ -1376,22 +1734,22 @@ export class DescribeJobErrorCodeResponse extends $tea.Model {
 }
 
 export class DescribeNodeCidrListRequest extends $tea.Model {
-  region?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
+      region: 'string',
     };
   }
 
@@ -1401,34 +1759,34 @@ export class DescribeNodeCidrListRequest extends $tea.Model {
 }
 
 export class DescribeNodeCidrListResponseBody extends $tea.Model {
-  requestId?: string;
-  internetIPs?: DescribeNodeCidrListResponseBodyInternetIPs;
-  httpStatusCode?: number;
-  intranetIPs?: DescribeNodeCidrListResponseBodyIntranetIPs;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  internetIPs?: DescribeNodeCidrListResponseBodyInternetIPs;
+  intranetIPs?: DescribeNodeCidrListResponseBodyIntranetIPs;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      internetIPs: 'InternetIPs',
-      httpStatusCode: 'HttpStatusCode',
-      intranetIPs: 'IntranetIPs',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      internetIPs: 'InternetIPs',
+      intranetIPs: 'IntranetIPs',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      internetIPs: DescribeNodeCidrListResponseBodyInternetIPs,
-      httpStatusCode: 'number',
-      intranetIPs: DescribeNodeCidrListResponseBodyIntranetIPs,
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      internetIPs: DescribeNodeCidrListResponseBodyInternetIPs,
+      intranetIPs: DescribeNodeCidrListResponseBodyIntranetIPs,
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -1439,10 +1797,12 @@ export class DescribeNodeCidrListResponseBody extends $tea.Model {
 
 export class DescribeNodeCidrListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeNodeCidrListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1450,6 +1810,7 @@ export class DescribeNodeCidrListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeNodeCidrListResponseBody,
     };
   }
@@ -1461,24 +1822,24 @@ export class DescribeNodeCidrListResponse extends $tea.Model {
 
 export class DescribePreCheckProgressListRequest extends $tea.Model {
   backupPlanId?: string;
-  restoreTaskId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
+  restoreTaskId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      restoreTaskId: 'RestoreTaskId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+      restoreTaskId: 'RestoreTaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      restoreTaskId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
+      restoreTaskId: 'string',
     };
   }
 
@@ -1488,37 +1849,37 @@ export class DescribePreCheckProgressListRequest extends $tea.Model {
 }
 
 export class DescribePreCheckProgressListResponseBody extends $tea.Model {
-  status?: string;
-  progress?: number;
-  requestId?: string;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
   items?: DescribePreCheckProgressListResponseBodyItems;
-  errMessage?: string;
+  progress?: number;
+  requestId?: string;
+  status?: string;
   success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      progress: 'Progress',
-      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
       items: 'Items',
-      errMessage: 'ErrMessage',
+      progress: 'Progress',
+      requestId: 'RequestId',
+      status: 'Status',
       success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      progress: 'number',
-      requestId: 'string',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
       items: DescribePreCheckProgressListResponseBodyItems,
-      errMessage: 'string',
+      progress: 'number',
+      requestId: 'string',
+      status: 'string',
       success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1529,10 +1890,12 @@ export class DescribePreCheckProgressListResponseBody extends $tea.Model {
 
 export class DescribePreCheckProgressListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePreCheckProgressListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1540,6 +1903,7 @@ export class DescribePreCheckProgressListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePreCheckProgressListResponseBody,
     };
   }
@@ -1550,19 +1914,19 @@ export class DescribePreCheckProgressListResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -1572,31 +1936,31 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
   regions?: DescribeRegionsResponseBodyRegions;
-  errMessage?: string;
+  requestId?: string;
   success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
       regions: 'Regions',
-      errMessage: 'ErrMessage',
+      requestId: 'RequestId',
       success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
       regions: DescribeRegionsResponseBodyRegions,
-      errMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1607,10 +1971,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1618,6 +1984,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -1630,17 +1997,17 @@ export class DescribeRegionsResponse extends $tea.Model {
 export class DescribeRestoreRangeInfoRequest extends $tea.Model {
   backupPlanId?: string;
   beginTimestampForRestore?: number;
+  clientToken?: string;
   endTimestampForRestore?: number;
   ownerId?: string;
-  clientToken?: string;
   recentlyRestore?: boolean;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       beginTimestampForRestore: 'BeginTimestampForRestore',
+      clientToken: 'ClientToken',
       endTimestampForRestore: 'EndTimestampForRestore',
       ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
       recentlyRestore: 'RecentlyRestore',
     };
   }
@@ -1649,9 +2016,9 @@ export class DescribeRestoreRangeInfoRequest extends $tea.Model {
     return {
       backupPlanId: 'string',
       beginTimestampForRestore: 'number',
+      clientToken: 'string',
       endTimestampForRestore: 'number',
       ownerId: 'string',
-      clientToken: 'string',
       recentlyRestore: 'boolean',
     };
   }
@@ -1662,31 +2029,31 @@ export class DescribeRestoreRangeInfoRequest extends $tea.Model {
 }
 
 export class DescribeRestoreRangeInfoResponseBody extends $tea.Model {
-  requestId?: string;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
   items?: DescribeRestoreRangeInfoResponseBodyItems;
-  errMessage?: string;
+  requestId?: string;
   success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
       items: 'Items',
-      errMessage: 'ErrMessage',
+      requestId: 'RequestId',
       success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
       items: DescribeRestoreRangeInfoResponseBodyItems,
-      errMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1697,10 +2064,12 @@ export class DescribeRestoreRangeInfoResponseBody extends $tea.Model {
 
 export class DescribeRestoreRangeInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRestoreRangeInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1708,6 +2077,7 @@ export class DescribeRestoreRangeInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRestoreRangeInfoResponseBody,
     };
   }
@@ -1719,30 +2089,36 @@ export class DescribeRestoreRangeInfoResponse extends $tea.Model {
 
 export class DescribeRestoreTaskListRequest extends $tea.Model {
   backupPlanId?: string;
-  restoreTaskId?: string;
-  pageSize?: number;
-  pageNum?: number;
-  ownerId?: string;
   clientToken?: string;
+  endTimestamp?: number;
+  ownerId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  restoreTaskId?: string;
+  startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      restoreTaskId: 'RestoreTaskId',
-      pageSize: 'PageSize',
-      pageNum: 'PageNum',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      endTimestamp: 'EndTimestamp',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      restoreTaskId: 'RestoreTaskId',
+      startTimestamp: 'StartTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      restoreTaskId: 'string',
-      pageSize: 'number',
-      pageNum: 'number',
-      ownerId: 'string',
       clientToken: 'string',
+      endTimestamp: 'number',
+      ownerId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      restoreTaskId: 'string',
+      startTimestamp: 'number',
     };
   }
 
@@ -1752,43 +2128,43 @@ export class DescribeRestoreTaskListRequest extends $tea.Model {
 }
 
 export class DescribeRestoreTaskListResponseBody extends $tea.Model {
-  pageNum?: number;
-  requestId?: string;
-  pageSize?: number;
+  errCode?: string;
+  errMessage?: string;
   httpStatusCode?: number;
+  items?: DescribeRestoreTaskListResponseBodyItems;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
   totalElements?: number;
   totalPages?: number;
-  items?: DescribeRestoreTaskListResponseBodyItems;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNum: 'PageNum',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
       httpStatusCode: 'HttpStatusCode',
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
-      items: 'Items',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNum: 'number',
-      requestId: 'string',
-      pageSize: 'number',
+      errCode: 'string',
+      errMessage: 'string',
       httpStatusCode: 'number',
+      items: DescribeRestoreTaskListResponseBodyItems,
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
       totalElements: 'number',
       totalPages: 'number',
-      items: DescribeRestoreTaskListResponseBodyItems,
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
     };
   }
 
@@ -1799,10 +2175,12 @@ export class DescribeRestoreTaskListResponseBody extends $tea.Model {
 
 export class DescribeRestoreTaskListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRestoreTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1810,6 +2188,7 @@ export class DescribeRestoreTaskListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRestoreTaskListResponseBody,
     };
   }
@@ -1821,21 +2200,21 @@ export class DescribeRestoreTaskListResponse extends $tea.Model {
 
 export class DisableBackupLogRequest extends $tea.Model {
   backupPlanId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -1845,34 +2224,34 @@ export class DisableBackupLogRequest extends $tea.Model {
 }
 
 export class DisableBackupLogResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  needPrecheck?: boolean;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  needPrecheck?: boolean;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      needPrecheck: 'NeedPrecheck',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      needPrecheck: 'NeedPrecheck',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      needPrecheck: 'boolean',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      needPrecheck: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -1883,10 +2262,12 @@ export class DisableBackupLogResponseBody extends $tea.Model {
 
 export class DisableBackupLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableBackupLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1894,6 +2275,7 @@ export class DisableBackupLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableBackupLogResponseBody,
     };
   }
@@ -1905,21 +2287,21 @@ export class DisableBackupLogResponse extends $tea.Model {
 
 export class EnableBackupLogRequest extends $tea.Model {
   backupPlanId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -1929,34 +2311,34 @@ export class EnableBackupLogRequest extends $tea.Model {
 }
 
 export class EnableBackupLogResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  needPrecheck?: boolean;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  needPrecheck?: boolean;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      needPrecheck: 'NeedPrecheck',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      needPrecheck: 'NeedPrecheck',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      needPrecheck: 'boolean',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      needPrecheck: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -1967,10 +2349,12 @@ export class EnableBackupLogResponseBody extends $tea.Model {
 
 export class EnableBackupLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableBackupLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1978,6 +2362,7 @@ export class EnableBackupLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableBackupLogResponseBody,
     };
   }
@@ -1989,27 +2374,27 @@ export class EnableBackupLogResponse extends $tea.Model {
 
 export class GetDBListFromAgentRequest extends $tea.Model {
   backupGatewayId?: number;
+  clientToken?: string;
+  ownerId?: string;
   sourceEndpointRegion?: string;
   taskId?: number;
-  ownerId?: string;
-  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       backupGatewayId: 'BackupGatewayId',
+      clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
       sourceEndpointRegion: 'SourceEndpointRegion',
       taskId: 'TaskId',
-      ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupGatewayId: 'number',
+      clientToken: 'string',
+      ownerId: 'string',
       sourceEndpointRegion: 'string',
       taskId: 'number',
-      ownerId: 'string',
-      clientToken: 'string',
     };
   }
 
@@ -2019,31 +2404,31 @@ export class GetDBListFromAgentRequest extends $tea.Model {
 }
 
 export class GetDBListFromAgentResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
   dbList?: GetDBListFromAgentResponseBodyDbList;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       dbList: 'DbList',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
       dbList: GetDBListFromAgentResponseBodyDbList,
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2054,10 +2439,12 @@ export class GetDBListFromAgentResponseBody extends $tea.Model {
 
 export class GetDBListFromAgentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDBListFromAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2065,6 +2452,7 @@ export class GetDBListFromAgentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDBListFromAgentResponseBody,
     };
   }
@@ -2074,26 +2462,82 @@ export class GetDBListFromAgentResponse extends $tea.Model {
   }
 }
 
-export class ModifyBackupObjectsRequest extends $tea.Model {
-  backupPlanId?: string;
-  backupObjects?: string;
-  ownerId?: string;
-  clientToken?: string;
+export class InitializeDbsServiceLinkedRoleResponseBody extends $tea.Model {
+  data?: string;
+  errMessage?: string;
+  errorCode?: string;
+  requestId?: string;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
-      backupObjects: 'BackupObjects',
-      ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
+      data: 'string',
+      errMessage: 'string',
+      errorCode: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeDbsServiceLinkedRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InitializeDbsServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitializeDbsServiceLinkedRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackupObjectsRequest extends $tea.Model {
+  backupObjects?: string;
+  backupPlanId?: string;
+  clientToken?: string;
+  ownerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupObjects: 'BackupObjects',
+      backupPlanId: 'BackupPlanId',
+      clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       backupObjects: 'string',
-      ownerId: 'string',
+      backupPlanId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -2103,34 +2547,34 @@ export class ModifyBackupObjectsRequest extends $tea.Model {
 }
 
 export class ModifyBackupObjectsResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  needPrecheck?: boolean;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  needPrecheck?: boolean;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      needPrecheck: 'NeedPrecheck',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      needPrecheck: 'NeedPrecheck',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      needPrecheck: 'boolean',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      needPrecheck: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2141,10 +2585,12 @@ export class ModifyBackupObjectsResponseBody extends $tea.Model {
 
 export class ModifyBackupObjectsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyBackupObjectsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2152,6 +2598,7 @@ export class ModifyBackupObjectsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyBackupObjectsResponseBody,
     };
   }
@@ -2164,14 +2611,14 @@ export class ModifyBackupObjectsResponse extends $tea.Model {
 export class ModifyBackupPlanNameRequest extends $tea.Model {
   backupPlanId?: string;
   backupPlanName?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       backupPlanName: 'BackupPlanName',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
@@ -2179,8 +2626,8 @@ export class ModifyBackupPlanNameRequest extends $tea.Model {
     return {
       backupPlanId: 'string',
       backupPlanName: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -2190,31 +2637,31 @@ export class ModifyBackupPlanNameRequest extends $tea.Model {
 }
 
 export class ModifyBackupPlanNameResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2225,10 +2672,12 @@ export class ModifyBackupPlanNameResponseBody extends $tea.Model {
 
 export class ModifyBackupPlanNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyBackupPlanNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2236,6 +2685,7 @@ export class ModifyBackupPlanNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyBackupPlanNameResponseBody,
     };
   }
@@ -2246,43 +2696,43 @@ export class ModifyBackupPlanNameResponse extends $tea.Model {
 }
 
 export class ModifyBackupSetDownloadRulesRequest extends $tea.Model {
-  backupPlanId?: string;
-  openAutoDownload?: boolean;
   backupGatewayId?: number;
-  fullDataFormat?: string;
-  incrementDataFormat?: string;
+  backupPlanId?: string;
   backupSetDownloadDir?: string;
   backupSetDownloadTargetType?: string;
   backupSetDownloadTargetTypeLocation?: string;
-  ownerId?: string;
   clientToken?: string;
+  fullDataFormat?: string;
+  incrementDataFormat?: string;
+  openAutoDownload?: boolean;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
-      openAutoDownload: 'OpenAutoDownload',
       backupGatewayId: 'BackupGatewayId',
-      fullDataFormat: 'FullDataFormat',
-      incrementDataFormat: 'IncrementDataFormat',
+      backupPlanId: 'BackupPlanId',
       backupSetDownloadDir: 'BackupSetDownloadDir',
       backupSetDownloadTargetType: 'BackupSetDownloadTargetType',
       backupSetDownloadTargetTypeLocation: 'BackupSetDownloadTargetTypeLocation',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      fullDataFormat: 'FullDataFormat',
+      incrementDataFormat: 'IncrementDataFormat',
+      openAutoDownload: 'OpenAutoDownload',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
-      openAutoDownload: 'boolean',
       backupGatewayId: 'number',
-      fullDataFormat: 'string',
-      incrementDataFormat: 'string',
+      backupPlanId: 'string',
       backupSetDownloadDir: 'string',
       backupSetDownloadTargetType: 'string',
       backupSetDownloadTargetTypeLocation: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      fullDataFormat: 'string',
+      incrementDataFormat: 'string',
+      openAutoDownload: 'boolean',
+      ownerId: 'string',
     };
   }
 
@@ -2292,31 +2742,31 @@ export class ModifyBackupSetDownloadRulesRequest extends $tea.Model {
 }
 
 export class ModifyBackupSetDownloadRulesResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2327,10 +2777,12 @@ export class ModifyBackupSetDownloadRulesResponseBody extends $tea.Model {
 
 export class ModifyBackupSetDownloadRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyBackupSetDownloadRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2338,6 +2790,7 @@ export class ModifyBackupSetDownloadRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyBackupSetDownloadRulesResponseBody,
     };
   }
@@ -2348,61 +2801,61 @@ export class ModifyBackupSetDownloadRulesResponse extends $tea.Model {
 }
 
 export class ModifyBackupSourceEndpointRequest extends $tea.Model {
-  backupPlanId?: string;
-  sourceEndpointInstanceType?: string;
-  sourceEndpointRegion?: string;
-  sourceEndpointInstanceID?: string;
-  sourceEndpointIP?: string;
-  sourceEndpointPort?: number;
-  sourceEndpointDatabaseName?: string;
-  sourceEndpointUserName?: string;
-  sourceEndpointPassword?: string;
   backupGatewayId?: number;
   backupObjects?: string;
-  sourceEndpointOracleSID?: string;
+  backupPlanId?: string;
+  clientToken?: string;
   crossAliyunId?: string;
   crossRoleName?: string;
   ownerId?: string;
-  clientToken?: string;
+  sourceEndpointDatabaseName?: string;
+  sourceEndpointIP?: string;
+  sourceEndpointInstanceID?: string;
+  sourceEndpointInstanceType?: string;
+  sourceEndpointOracleSID?: string;
+  sourceEndpointPassword?: string;
+  sourceEndpointPort?: number;
+  sourceEndpointRegion?: string;
+  sourceEndpointUserName?: string;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
-      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
-      sourceEndpointRegion: 'SourceEndpointRegion',
-      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
-      sourceEndpointIP: 'SourceEndpointIP',
-      sourceEndpointPort: 'SourceEndpointPort',
-      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
-      sourceEndpointUserName: 'SourceEndpointUserName',
-      sourceEndpointPassword: 'SourceEndpointPassword',
       backupGatewayId: 'BackupGatewayId',
       backupObjects: 'BackupObjects',
-      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      backupPlanId: 'BackupPlanId',
+      clientToken: 'ClientToken',
       crossAliyunId: 'CrossAliyunId',
       crossRoleName: 'CrossRoleName',
       ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
+      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointIP: 'SourceEndpointIP',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointPassword: 'SourceEndpointPassword',
+      sourceEndpointPort: 'SourceEndpointPort',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointUserName: 'SourceEndpointUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
-      sourceEndpointInstanceType: 'string',
-      sourceEndpointRegion: 'string',
-      sourceEndpointInstanceID: 'string',
-      sourceEndpointIP: 'string',
-      sourceEndpointPort: 'number',
-      sourceEndpointDatabaseName: 'string',
-      sourceEndpointUserName: 'string',
-      sourceEndpointPassword: 'string',
       backupGatewayId: 'number',
       backupObjects: 'string',
-      sourceEndpointOracleSID: 'string',
+      backupPlanId: 'string',
+      clientToken: 'string',
       crossAliyunId: 'string',
       crossRoleName: 'string',
       ownerId: 'string',
-      clientToken: 'string',
+      sourceEndpointDatabaseName: 'string',
+      sourceEndpointIP: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointInstanceType: 'string',
+      sourceEndpointOracleSID: 'string',
+      sourceEndpointPassword: 'string',
+      sourceEndpointPort: 'number',
+      sourceEndpointRegion: 'string',
+      sourceEndpointUserName: 'string',
     };
   }
 
@@ -2412,34 +2865,34 @@ export class ModifyBackupSourceEndpointRequest extends $tea.Model {
 }
 
 export class ModifyBackupSourceEndpointResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  needPrecheck?: boolean;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  needPrecheck?: boolean;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      needPrecheck: 'NeedPrecheck',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      needPrecheck: 'NeedPrecheck',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      needPrecheck: 'boolean',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      needPrecheck: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2450,10 +2903,12 @@ export class ModifyBackupSourceEndpointResponseBody extends $tea.Model {
 
 export class ModifyBackupSourceEndpointResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyBackupSourceEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2461,6 +2916,7 @@ export class ModifyBackupSourceEndpointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyBackupSourceEndpointResponseBody,
     };
   }
@@ -2471,34 +2927,34 @@ export class ModifyBackupSourceEndpointResponse extends $tea.Model {
 }
 
 export class ModifyBackupStrategyRequest extends $tea.Model {
-  backupPlanId?: string;
+  backupLogIntervalSeconds?: number;
   backupPeriod?: string;
+  backupPlanId?: string;
   backupStartTime?: string;
   backupStrategyType?: string;
-  backupLogIntervalSeconds?: number;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
+      backupLogIntervalSeconds: 'BackupLogIntervalSeconds',
       backupPeriod: 'BackupPeriod',
+      backupPlanId: 'BackupPlanId',
       backupStartTime: 'BackupStartTime',
       backupStrategyType: 'BackupStrategyType',
-      backupLogIntervalSeconds: 'BackupLogIntervalSeconds',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
+      backupLogIntervalSeconds: 'number',
       backupPeriod: 'string',
+      backupPlanId: 'string',
       backupStartTime: 'string',
       backupStrategyType: 'string',
-      backupLogIntervalSeconds: 'number',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -2508,34 +2964,34 @@ export class ModifyBackupStrategyRequest extends $tea.Model {
 }
 
 export class ModifyBackupStrategyResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  needPrecheck?: boolean;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  needPrecheck?: boolean;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      needPrecheck: 'NeedPrecheck',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      needPrecheck: 'NeedPrecheck',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      needPrecheck: 'boolean',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      needPrecheck: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2546,10 +3002,12 @@ export class ModifyBackupStrategyResponseBody extends $tea.Model {
 
 export class ModifyBackupStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyBackupStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2557,6 +3015,7 @@ export class ModifyBackupStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyBackupStrategyResponseBody,
     };
   }
@@ -2569,18 +3028,18 @@ export class ModifyBackupStrategyResponse extends $tea.Model {
 export class ModifyStorageStrategyRequest extends $tea.Model {
   backupPlanId?: string;
   backupRetentionPeriod?: number;
-  duplicationInfrequentAccessPeriod?: number;
-  duplicationArchivePeriod?: number;
-  ownerId?: string;
   clientToken?: string;
+  duplicationArchivePeriod?: number;
+  duplicationInfrequentAccessPeriod?: number;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
       backupRetentionPeriod: 'BackupRetentionPeriod',
-      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
-      duplicationArchivePeriod: 'DuplicationArchivePeriod',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      duplicationArchivePeriod: 'DuplicationArchivePeriod',
+      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
+      ownerId: 'OwnerId',
     };
   }
 
@@ -2588,10 +3047,10 @@ export class ModifyStorageStrategyRequest extends $tea.Model {
     return {
       backupPlanId: 'string',
       backupRetentionPeriod: 'number',
-      duplicationInfrequentAccessPeriod: 'number',
-      duplicationArchivePeriod: 'number',
-      ownerId: 'string',
       clientToken: 'string',
+      duplicationArchivePeriod: 'number',
+      duplicationInfrequentAccessPeriod: 'number',
+      ownerId: 'string',
     };
   }
 
@@ -2601,34 +3060,34 @@ export class ModifyStorageStrategyRequest extends $tea.Model {
 }
 
 export class ModifyStorageStrategyResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  needPrecheck?: boolean;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  needPrecheck?: boolean;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      needPrecheck: 'NeedPrecheck',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      needPrecheck: 'NeedPrecheck',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      needPrecheck: 'boolean',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      needPrecheck: 'boolean',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2639,10 +3098,12 @@ export class ModifyStorageStrategyResponseBody extends $tea.Model {
 
 export class ModifyStorageStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyStorageStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2650,6 +3111,7 @@ export class ModifyStorageStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyStorageStrategyResponseBody,
     };
   }
@@ -2661,21 +3123,21 @@ export class ModifyStorageStrategyResponse extends $tea.Model {
 
 export class ReleaseBackupPlanRequest extends $tea.Model {
   backupPlanId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -2685,31 +3147,31 @@ export class ReleaseBackupPlanRequest extends $tea.Model {
 }
 
 export class ReleaseBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2720,10 +3182,12 @@ export class ReleaseBackupPlanResponseBody extends $tea.Model {
 
 export class ReleaseBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReleaseBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2731,6 +3195,7 @@ export class ReleaseBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReleaseBackupPlanResponseBody,
     };
   }
@@ -2742,27 +3207,27 @@ export class ReleaseBackupPlanResponse extends $tea.Model {
 
 export class RenewBackupPlanRequest extends $tea.Model {
   backupPlanId?: string;
+  clientToken?: string;
+  ownerId?: string;
   period?: string;
   usedTime?: number;
-  ownerId?: string;
-  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
+      clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
       period: 'Period',
       usedTime: 'UsedTime',
-      ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
+      clientToken: 'string',
+      ownerId: 'string',
       period: 'string',
       usedTime: 'number',
-      ownerId: 'string',
-      clientToken: 'string',
     };
   }
 
@@ -2772,34 +3237,34 @@ export class RenewBackupPlanRequest extends $tea.Model {
 }
 
 export class RenewBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  orderId?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  orderId?: string;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      orderId: 'OrderId',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      orderId: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      orderId: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2810,10 +3275,12 @@ export class RenewBackupPlanResponseBody extends $tea.Model {
 
 export class RenewBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RenewBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2821,6 +3288,7 @@ export class RenewBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RenewBackupPlanResponseBody,
     };
   }
@@ -2832,21 +3300,21 @@ export class RenewBackupPlanResponse extends $tea.Model {
 
 export class StartBackupPlanRequest extends $tea.Model {
   backupPlanId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
     };
   }
 
@@ -2856,31 +3324,34 @@ export class StartBackupPlanRequest extends $tea.Model {
 }
 
 export class StartBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  success?: boolean;
+  createdFullBackupsetId?: string;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      createdFullBackupsetId: 'CreatedFullBackupsetId',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
+      createdFullBackupsetId: 'string',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2891,10 +3362,12 @@ export class StartBackupPlanResponseBody extends $tea.Model {
 
 export class StartBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2902,6 +3375,7 @@ export class StartBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartBackupPlanResponseBody,
     };
   }
@@ -2912,22 +3386,22 @@ export class StartBackupPlanResponse extends $tea.Model {
 }
 
 export class StartRestoreTaskRequest extends $tea.Model {
-  restoreTaskId?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
+  restoreTaskId?: string;
   static names(): { [key: string]: string } {
     return {
-      restoreTaskId: 'RestoreTaskId',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+      restoreTaskId: 'RestoreTaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      restoreTaskId: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
+      restoreTaskId: 'string',
     };
   }
 
@@ -2937,31 +3411,31 @@ export class StartRestoreTaskRequest extends $tea.Model {
 }
 
 export class StartRestoreTaskResponseBody extends $tea.Model {
-  restoreTaskId?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  restoreTaskId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      restoreTaskId: 'RestoreTaskId',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      restoreTaskId: 'RestoreTaskId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      restoreTaskId: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      restoreTaskId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2972,10 +3446,12 @@ export class StartRestoreTaskResponseBody extends $tea.Model {
 
 export class StartRestoreTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartRestoreTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2983,91 +3459,8 @@ export class StartRestoreTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartRestoreTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartTaskRequest extends $tea.Model {
-  taskId?: string;
-  ownerId?: string;
-  clientToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      ownerId: 'string',
-      clientToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  errMessage?: string;
-  success?: boolean;
-  errCode?: string;
-  jobTypeName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
-      jobTypeName: 'JobTypeName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      errMessage: 'string',
-      success: 'boolean',
-      errCode: 'string',
-      jobTypeName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartTaskResponseBody,
     };
   }
 
@@ -3078,24 +3471,24 @@ export class StartTaskResponse extends $tea.Model {
 
 export class StopBackupPlanRequest extends $tea.Model {
   backupPlanId?: string;
-  stopMethod?: string;
-  ownerId?: string;
   clientToken?: string;
+  ownerId?: string;
+  stopMethod?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
-      stopMethod: 'StopMethod',
-      ownerId: 'OwnerId',
       clientToken: 'ClientToken',
+      ownerId: 'OwnerId',
+      stopMethod: 'StopMethod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
-      stopMethod: 'string',
-      ownerId: 'string',
       clientToken: 'string',
+      ownerId: 'string',
+      stopMethod: 'string',
     };
   }
 
@@ -3105,31 +3498,31 @@ export class StopBackupPlanRequest extends $tea.Model {
 }
 
 export class StopBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -3140,10 +3533,12 @@ export class StopBackupPlanResponseBody extends $tea.Model {
 
 export class StopBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3151,6 +3546,7 @@ export class StopBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopBackupPlanResponseBody,
     };
   }
@@ -3162,24 +3558,24 @@ export class StopBackupPlanResponse extends $tea.Model {
 
 export class UpgradeBackupPlanRequest extends $tea.Model {
   backupPlanId?: string;
+  clientToken?: string;
   instanceClass?: string;
   ownerId?: string;
-  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       backupPlanId: 'BackupPlanId',
+      clientToken: 'ClientToken',
       instanceClass: 'InstanceClass',
       ownerId: 'OwnerId',
-      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       backupPlanId: 'string',
+      clientToken: 'string',
       instanceClass: 'string',
       ownerId: 'string',
-      clientToken: 'string',
     };
   }
 
@@ -3189,34 +3585,34 @@ export class UpgradeBackupPlanRequest extends $tea.Model {
 }
 
 export class UpgradeBackupPlanResponseBody extends $tea.Model {
-  requestId?: string;
-  httpStatusCode?: number;
   backupPlanId?: string;
-  errMessage?: string;
-  orderId?: string;
-  success?: boolean;
   errCode?: string;
+  errMessage?: string;
+  httpStatusCode?: number;
+  orderId?: string;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
       backupPlanId: 'BackupPlanId',
-      errMessage: 'ErrMessage',
-      orderId: 'OrderId',
-      success: 'Success',
       errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      httpStatusCode: 'HttpStatusCode',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      httpStatusCode: 'number',
       backupPlanId: 'string',
-      errMessage: 'string',
-      orderId: 'string',
-      success: 'boolean',
       errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      orderId: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -3227,10 +3623,12 @@ export class UpgradeBackupPlanResponseBody extends $tea.Model {
 
 export class UpgradeBackupPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeBackupPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3238,6 +3636,7 @@ export class UpgradeBackupPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeBackupPlanResponseBody,
     };
   }
@@ -3248,43 +3647,43 @@ export class UpgradeBackupPlanResponse extends $tea.Model {
 }
 
 export class DescribeBackupGatewayListResponseBodyItemsBackupGateway extends $tea.Model {
-  displayName?: string;
   backupGatewayCreateTime?: number;
   backupGatewayId?: string;
-  region?: string;
-  identifier?: string;
-  sourceEndpointInternetIP?: string;
   backupGatewayStatus?: string;
-  sourceEndpointIntranetIP?: string;
+  displayName?: string;
+  identifier?: string;
   lastHeartbeatTime?: number;
+  region?: string;
   sourceEndpointHostname?: string;
+  sourceEndpointInternetIP?: string;
+  sourceEndpointIntranetIP?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
       backupGatewayCreateTime: 'BackupGatewayCreateTime',
       backupGatewayId: 'BackupGatewayId',
-      region: 'Region',
-      identifier: 'Identifier',
-      sourceEndpointInternetIP: 'SourceEndpointInternetIP',
       backupGatewayStatus: 'BackupGatewayStatus',
-      sourceEndpointIntranetIP: 'SourceEndpointIntranetIP',
+      displayName: 'DisplayName',
+      identifier: 'Identifier',
       lastHeartbeatTime: 'LastHeartbeatTime',
+      region: 'Region',
       sourceEndpointHostname: 'SourceEndpointHostname',
+      sourceEndpointInternetIP: 'SourceEndpointInternetIP',
+      sourceEndpointIntranetIP: 'SourceEndpointIntranetIP',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
       backupGatewayCreateTime: 'number',
       backupGatewayId: 'string',
-      region: 'string',
-      identifier: 'string',
-      sourceEndpointInternetIP: 'string',
       backupGatewayStatus: 'string',
-      sourceEndpointIntranetIP: 'string',
+      displayName: 'string',
+      identifier: 'string',
       lastHeartbeatTime: 'number',
+      region: 'string',
       sourceEndpointHostname: 'string',
+      sourceEndpointInternetIP: 'string',
+      sourceEndpointIntranetIP: 'string',
     };
   }
 
@@ -3313,54 +3712,57 @@ export class DescribeBackupGatewayListResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeBackupPlanBillingResponseBodyItem extends $tea.Model {
-  fullStorageSize?: number;
+  buyChargeType?: string;
   buyCreateTimestamp?: number;
   buyExpiredTimestamp?: number;
-  quotaEndTimestamp?: number;
   buySpec?: string;
-  quotaStartTimestamp?: number;
+  contStorageSize?: number;
+  fullStorageSize?: number;
   isExpired?: boolean;
+  isFreeBytesUnlimited?: boolean;
   paiedBytes?: number;
+  quotaEndTimestamp?: number;
+  quotaStartTimestamp?: number;
+  resourceGroupId?: string;
   totalFreeBytes?: number;
   usedFullBytes?: number;
-  isFreeBytesUnlimited?: boolean;
-  contStorageSize?: number;
-  buyChargeType?: string;
   usedIncrementBytes?: number;
   static names(): { [key: string]: string } {
     return {
-      fullStorageSize: 'FullStorageSize',
+      buyChargeType: 'BuyChargeType',
       buyCreateTimestamp: 'BuyCreateTimestamp',
       buyExpiredTimestamp: 'BuyExpiredTimestamp',
-      quotaEndTimestamp: 'QuotaEndTimestamp',
       buySpec: 'BuySpec',
-      quotaStartTimestamp: 'QuotaStartTimestamp',
+      contStorageSize: 'ContStorageSize',
+      fullStorageSize: 'FullStorageSize',
       isExpired: 'IsExpired',
+      isFreeBytesUnlimited: 'IsFreeBytesUnlimited',
       paiedBytes: 'PaiedBytes',
+      quotaEndTimestamp: 'QuotaEndTimestamp',
+      quotaStartTimestamp: 'QuotaStartTimestamp',
+      resourceGroupId: 'ResourceGroupId',
       totalFreeBytes: 'TotalFreeBytes',
       usedFullBytes: 'UsedFullBytes',
-      isFreeBytesUnlimited: 'IsFreeBytesUnlimited',
-      contStorageSize: 'ContStorageSize',
-      buyChargeType: 'BuyChargeType',
       usedIncrementBytes: 'UsedIncrementBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fullStorageSize: 'number',
+      buyChargeType: 'string',
       buyCreateTimestamp: 'number',
       buyExpiredTimestamp: 'number',
-      quotaEndTimestamp: 'number',
       buySpec: 'string',
-      quotaStartTimestamp: 'number',
+      contStorageSize: 'number',
+      fullStorageSize: 'number',
       isExpired: 'boolean',
+      isFreeBytesUnlimited: 'boolean',
       paiedBytes: 'number',
+      quotaEndTimestamp: 'number',
+      quotaStartTimestamp: 'number',
+      resourceGroupId: 'string',
       totalFreeBytes: 'number',
       usedFullBytes: 'number',
-      isFreeBytesUnlimited: 'boolean',
-      contStorageSize: 'number',
-      buyChargeType: 'string',
       usedIncrementBytes: 'number',
     };
   }
@@ -3371,118 +3773,121 @@ export class DescribeBackupPlanBillingResponseBodyItem extends $tea.Model {
 }
 
 export class DescribeBackupPlanListResponseBodyItemsBackupPlanDetail extends $tea.Model {
-  crossRoleName?: string;
-  sourceEndpointInstanceType?: string;
-  backupSetDownloadDir?: string;
-  sourceEndpointIpPort?: string;
-  crossAliyunId?: string;
-  duplicationArchivePeriod?: number;
-  backupPlanId?: string;
-  endTimestampForRestore?: number;
-  backupPlanStatus?: string;
-  backupSetDownloadFullDataFormat?: string;
-  backupRetentionPeriod?: number;
-  OSSBucketRegion?: string;
-  sourceEndpointOracleSID?: string;
-  backupStorageType?: string;
-  backupMethod?: string;
-  sourceEndpointRegion?: string;
-  sourceEndpointDatabaseName?: string;
-  backupPeriod?: string;
-  backupSetDownloadGatewayId?: number;
-  instanceClass?: string;
-  backupPlanCreateTime?: number;
-  backupStartTime?: string;
-  duplicationInfrequentAccessPeriod?: number;
-  backupSetDownloadTargetType?: string;
-  errMessage?: string;
-  backupObjects?: string;
-  beginTimestampForRestore?: number;
-  sourceEndpointInstanceID?: string;
-  openBackupSetAutoDownload?: boolean;
-  backupPlanName?: string;
-  OSSBucketName?: string;
   backupGatewayId?: number;
-  sourceEndpointUserName?: string;
+  backupMethod?: string;
+  backupObjects?: string;
+  backupPeriod?: string;
+  backupPlanCreateTime?: number;
+  backupPlanId?: string;
+  backupPlanName?: string;
+  backupPlanStatus?: string;
+  backupRetentionPeriod?: number;
+  backupSetDownloadDir?: string;
+  backupSetDownloadFullDataFormat?: string;
+  backupSetDownloadGatewayId?: number;
   backupSetDownloadIncrementDataFormat?: string;
+  backupSetDownloadTargetType?: string;
+  backupStartTime?: string;
+  backupStorageType?: string;
+  beginTimestampForRestore?: number;
+  crossAliyunId?: string;
+  crossRoleName?: string;
+  duplicationArchivePeriod?: number;
+  duplicationInfrequentAccessPeriod?: number;
   enableBackupLog?: boolean;
+  endTimestampForRestore?: number;
+  errMessage?: string;
+  instanceClass?: string;
+  OSSBucketName?: string;
+  OSSBucketRegion?: string;
+  openBackupSetAutoDownload?: boolean;
+  resourceGroupId?: string;
+  sourceEndpointDatabaseName?: string;
+  sourceEndpointInstanceID?: string;
+  sourceEndpointInstanceType?: string;
+  sourceEndpointIpPort?: string;
+  sourceEndpointOracleSID?: string;
+  sourceEndpointRegion?: string;
+  sourceEndpointUserName?: string;
   static names(): { [key: string]: string } {
     return {
-      crossRoleName: 'CrossRoleName',
-      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
-      backupSetDownloadDir: 'BackupSetDownloadDir',
-      sourceEndpointIpPort: 'SourceEndpointIpPort',
-      crossAliyunId: 'CrossAliyunId',
-      duplicationArchivePeriod: 'DuplicationArchivePeriod',
-      backupPlanId: 'BackupPlanId',
-      endTimestampForRestore: 'EndTimestampForRestore',
-      backupPlanStatus: 'BackupPlanStatus',
-      backupSetDownloadFullDataFormat: 'BackupSetDownloadFullDataFormat',
-      backupRetentionPeriod: 'BackupRetentionPeriod',
-      OSSBucketRegion: 'OSSBucketRegion',
-      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
-      backupStorageType: 'BackupStorageType',
-      backupMethod: 'BackupMethod',
-      sourceEndpointRegion: 'SourceEndpointRegion',
-      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
-      backupPeriod: 'BackupPeriod',
-      backupSetDownloadGatewayId: 'BackupSetDownloadGatewayId',
-      instanceClass: 'InstanceClass',
-      backupPlanCreateTime: 'BackupPlanCreateTime',
-      backupStartTime: 'BackupStartTime',
-      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
-      backupSetDownloadTargetType: 'BackupSetDownloadTargetType',
-      errMessage: 'ErrMessage',
-      backupObjects: 'BackupObjects',
-      beginTimestampForRestore: 'BeginTimestampForRestore',
-      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
-      openBackupSetAutoDownload: 'OpenBackupSetAutoDownload',
-      backupPlanName: 'BackupPlanName',
-      OSSBucketName: 'OSSBucketName',
       backupGatewayId: 'BackupGatewayId',
-      sourceEndpointUserName: 'SourceEndpointUserName',
+      backupMethod: 'BackupMethod',
+      backupObjects: 'BackupObjects',
+      backupPeriod: 'BackupPeriod',
+      backupPlanCreateTime: 'BackupPlanCreateTime',
+      backupPlanId: 'BackupPlanId',
+      backupPlanName: 'BackupPlanName',
+      backupPlanStatus: 'BackupPlanStatus',
+      backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupSetDownloadDir: 'BackupSetDownloadDir',
+      backupSetDownloadFullDataFormat: 'BackupSetDownloadFullDataFormat',
+      backupSetDownloadGatewayId: 'BackupSetDownloadGatewayId',
       backupSetDownloadIncrementDataFormat: 'BackupSetDownloadIncrementDataFormat',
+      backupSetDownloadTargetType: 'BackupSetDownloadTargetType',
+      backupStartTime: 'BackupStartTime',
+      backupStorageType: 'BackupStorageType',
+      beginTimestampForRestore: 'BeginTimestampForRestore',
+      crossAliyunId: 'CrossAliyunId',
+      crossRoleName: 'CrossRoleName',
+      duplicationArchivePeriod: 'DuplicationArchivePeriod',
+      duplicationInfrequentAccessPeriod: 'DuplicationInfrequentAccessPeriod',
       enableBackupLog: 'EnableBackupLog',
+      endTimestampForRestore: 'EndTimestampForRestore',
+      errMessage: 'ErrMessage',
+      instanceClass: 'InstanceClass',
+      OSSBucketName: 'OSSBucketName',
+      OSSBucketRegion: 'OSSBucketRegion',
+      openBackupSetAutoDownload: 'OpenBackupSetAutoDownload',
+      resourceGroupId: 'ResourceGroupId',
+      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointIpPort: 'SourceEndpointIpPort',
+      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointUserName: 'SourceEndpointUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      crossRoleName: 'string',
-      sourceEndpointInstanceType: 'string',
-      backupSetDownloadDir: 'string',
-      sourceEndpointIpPort: 'string',
-      crossAliyunId: 'string',
-      duplicationArchivePeriod: 'number',
-      backupPlanId: 'string',
-      endTimestampForRestore: 'number',
-      backupPlanStatus: 'string',
-      backupSetDownloadFullDataFormat: 'string',
-      backupRetentionPeriod: 'number',
-      OSSBucketRegion: 'string',
-      sourceEndpointOracleSID: 'string',
-      backupStorageType: 'string',
-      backupMethod: 'string',
-      sourceEndpointRegion: 'string',
-      sourceEndpointDatabaseName: 'string',
-      backupPeriod: 'string',
-      backupSetDownloadGatewayId: 'number',
-      instanceClass: 'string',
-      backupPlanCreateTime: 'number',
-      backupStartTime: 'string',
-      duplicationInfrequentAccessPeriod: 'number',
-      backupSetDownloadTargetType: 'string',
-      errMessage: 'string',
-      backupObjects: 'string',
-      beginTimestampForRestore: 'number',
-      sourceEndpointInstanceID: 'string',
-      openBackupSetAutoDownload: 'boolean',
-      backupPlanName: 'string',
-      OSSBucketName: 'string',
       backupGatewayId: 'number',
-      sourceEndpointUserName: 'string',
+      backupMethod: 'string',
+      backupObjects: 'string',
+      backupPeriod: 'string',
+      backupPlanCreateTime: 'number',
+      backupPlanId: 'string',
+      backupPlanName: 'string',
+      backupPlanStatus: 'string',
+      backupRetentionPeriod: 'number',
+      backupSetDownloadDir: 'string',
+      backupSetDownloadFullDataFormat: 'string',
+      backupSetDownloadGatewayId: 'number',
       backupSetDownloadIncrementDataFormat: 'string',
+      backupSetDownloadTargetType: 'string',
+      backupStartTime: 'string',
+      backupStorageType: 'string',
+      beginTimestampForRestore: 'number',
+      crossAliyunId: 'string',
+      crossRoleName: 'string',
+      duplicationArchivePeriod: 'number',
+      duplicationInfrequentAccessPeriod: 'number',
       enableBackupLog: 'boolean',
+      endTimestampForRestore: 'number',
+      errMessage: 'string',
+      instanceClass: 'string',
+      OSSBucketName: 'string',
+      OSSBucketRegion: 'string',
+      openBackupSetAutoDownload: 'boolean',
+      resourceGroupId: 'string',
+      sourceEndpointDatabaseName: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointInstanceType: 'string',
+      sourceEndpointIpPort: 'string',
+      sourceEndpointOracleSID: 'string',
+      sourceEndpointRegion: 'string',
+      sourceEndpointUserName: 'string',
     };
   }
 
@@ -3511,70 +3916,70 @@ export class DescribeBackupPlanListResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeBackupSetDownloadTaskListResponseBodyItemsBackupSetDownloadTaskDetail extends $tea.Model {
-  backupSetDownloadStatus?: string;
-  backupSetDataSize?: number;
-  backupSetDownloadDir?: string;
-  backupSetDownloadTargetType?: string;
-  errMessage?: string;
-  backupPlanId?: string;
-  backupSetDownloadCreateTime?: number;
-  backupSetDbType?: string;
-  backupSetDownloadInternetUrl?: string;
-  backupSetId?: string;
   backupGatewayId?: number;
-  backupSetDownloadIntranetUrl?: string;
-  backupSetDownloadWay?: string;
+  backupPlanId?: string;
+  backupSetCode?: string;
+  backupSetDataFormat?: string;
+  backupSetDataSize?: number;
+  backupSetDbType?: string;
+  backupSetDownloadCreateTime?: number;
+  backupSetDownloadDir?: string;
   backupSetDownloadFinishTime?: number;
-  backupSetJobType?: string;
+  backupSetDownloadInternetUrl?: string;
+  backupSetDownloadIntranetUrl?: string;
+  backupSetDownloadStatus?: string;
+  backupSetDownloadTargetType?: string;
   backupSetDownloadTaskId?: string;
   backupSetDownloadTaskName?: string;
-  backupSetDataFormat?: string;
-  backupSetCode?: string;
+  backupSetDownloadWay?: string;
+  backupSetId?: string;
+  backupSetJobType?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      backupSetDownloadStatus: 'BackupSetDownloadStatus',
-      backupSetDataSize: 'BackupSetDataSize',
-      backupSetDownloadDir: 'BackupSetDownloadDir',
-      backupSetDownloadTargetType: 'BackupSetDownloadTargetType',
-      errMessage: 'ErrMessage',
-      backupPlanId: 'BackupPlanId',
-      backupSetDownloadCreateTime: 'BackupSetDownloadCreateTime',
-      backupSetDbType: 'BackupSetDbType',
-      backupSetDownloadInternetUrl: 'BackupSetDownloadInternetUrl',
-      backupSetId: 'BackupSetId',
       backupGatewayId: 'BackupGatewayId',
-      backupSetDownloadIntranetUrl: 'BackupSetDownloadIntranetUrl',
-      backupSetDownloadWay: 'BackupSetDownloadWay',
+      backupPlanId: 'BackupPlanId',
+      backupSetCode: 'BackupSetCode',
+      backupSetDataFormat: 'BackupSetDataFormat',
+      backupSetDataSize: 'BackupSetDataSize',
+      backupSetDbType: 'BackupSetDbType',
+      backupSetDownloadCreateTime: 'BackupSetDownloadCreateTime',
+      backupSetDownloadDir: 'BackupSetDownloadDir',
       backupSetDownloadFinishTime: 'BackupSetDownloadFinishTime',
-      backupSetJobType: 'BackupSetJobType',
+      backupSetDownloadInternetUrl: 'BackupSetDownloadInternetUrl',
+      backupSetDownloadIntranetUrl: 'BackupSetDownloadIntranetUrl',
+      backupSetDownloadStatus: 'BackupSetDownloadStatus',
+      backupSetDownloadTargetType: 'BackupSetDownloadTargetType',
       backupSetDownloadTaskId: 'BackupSetDownloadTaskId',
       backupSetDownloadTaskName: 'BackupSetDownloadTaskName',
-      backupSetDataFormat: 'BackupSetDataFormat',
-      backupSetCode: 'BackupSetCode',
+      backupSetDownloadWay: 'BackupSetDownloadWay',
+      backupSetId: 'BackupSetId',
+      backupSetJobType: 'BackupSetJobType',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupSetDownloadStatus: 'string',
-      backupSetDataSize: 'number',
-      backupSetDownloadDir: 'string',
-      backupSetDownloadTargetType: 'string',
-      errMessage: 'string',
-      backupPlanId: 'string',
-      backupSetDownloadCreateTime: 'number',
-      backupSetDbType: 'string',
-      backupSetDownloadInternetUrl: 'string',
-      backupSetId: 'string',
       backupGatewayId: 'number',
-      backupSetDownloadIntranetUrl: 'string',
-      backupSetDownloadWay: 'string',
+      backupPlanId: 'string',
+      backupSetCode: 'string',
+      backupSetDataFormat: 'string',
+      backupSetDataSize: 'number',
+      backupSetDbType: 'string',
+      backupSetDownloadCreateTime: 'number',
+      backupSetDownloadDir: 'string',
       backupSetDownloadFinishTime: 'number',
-      backupSetJobType: 'string',
+      backupSetDownloadInternetUrl: 'string',
+      backupSetDownloadIntranetUrl: 'string',
+      backupSetDownloadStatus: 'string',
+      backupSetDownloadTargetType: 'string',
       backupSetDownloadTaskId: 'string',
       backupSetDownloadTaskName: 'string',
-      backupSetDataFormat: 'string',
-      backupSetCode: 'string',
+      backupSetDownloadWay: 'string',
+      backupSetId: 'string',
+      backupSetJobType: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3603,49 +4008,49 @@ export class DescribeBackupSetDownloadTaskListResponseBodyItems extends $tea.Mod
 }
 
 export class DescribeFullBackupListResponseBodyItemsFullBackupFile extends $tea.Model {
-  finishTime?: number;
-  backupStatus?: string;
-  createTime?: number;
-  sourceEndpointIpPort?: string;
   backupObjects?: string;
-  errMessage?: string;
-  endTime?: number;
   backupSetExpiredTime?: number;
-  startTime?: number;
-  storageMethod?: string;
   backupSetId?: string;
   backupSize?: number;
+  backupStatus?: string;
+  createTime?: number;
+  endTime?: number;
+  errMessage?: string;
+  finishTime?: number;
+  sourceEndpointIpPort?: string;
+  startTime?: number;
+  storageMethod?: string;
   static names(): { [key: string]: string } {
     return {
-      finishTime: 'FinishTime',
-      backupStatus: 'BackupStatus',
-      createTime: 'CreateTime',
-      sourceEndpointIpPort: 'SourceEndpointIpPort',
       backupObjects: 'BackupObjects',
-      errMessage: 'ErrMessage',
-      endTime: 'EndTime',
       backupSetExpiredTime: 'BackupSetExpiredTime',
-      startTime: 'StartTime',
-      storageMethod: 'StorageMethod',
       backupSetId: 'BackupSetId',
       backupSize: 'BackupSize',
+      backupStatus: 'BackupStatus',
+      createTime: 'CreateTime',
+      endTime: 'EndTime',
+      errMessage: 'ErrMessage',
+      finishTime: 'FinishTime',
+      sourceEndpointIpPort: 'SourceEndpointIpPort',
+      startTime: 'StartTime',
+      storageMethod: 'StorageMethod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      finishTime: 'number',
-      backupStatus: 'string',
-      createTime: 'number',
-      sourceEndpointIpPort: 'string',
       backupObjects: 'string',
-      errMessage: 'string',
-      endTime: 'number',
       backupSetExpiredTime: 'number',
-      startTime: 'number',
-      storageMethod: 'string',
       backupSetId: 'string',
       backupSize: 'number',
+      backupStatus: 'string',
+      createTime: 'number',
+      endTime: 'number',
+      errMessage: 'string',
+      finishTime: 'number',
+      sourceEndpointIpPort: 'string',
+      startTime: 'number',
+      storageMethod: 'string',
     };
   }
 
@@ -3674,40 +4079,40 @@ export class DescribeFullBackupListResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeIncrementBackupListResponseBodyItemsIncrementBackupFile extends $tea.Model {
-  endTime?: number;
   backupSetExpiredTime?: number;
+  backupSetId?: string;
+  backupSetJobId?: string;
+  backupSize?: number;
+  backupStatus?: string;
+  endTime?: number;
+  sourceEndpointIpPort?: string;
   startTime?: number;
   storageMethod?: string;
-  backupSetJobId?: string;
-  backupSetId?: string;
-  backupStatus?: string;
-  sourceEndpointIpPort?: string;
-  backupSize?: number;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
       backupSetExpiredTime: 'BackupSetExpiredTime',
+      backupSetId: 'BackupSetId',
+      backupSetJobId: 'BackupSetJobId',
+      backupSize: 'BackupSize',
+      backupStatus: 'BackupStatus',
+      endTime: 'EndTime',
+      sourceEndpointIpPort: 'SourceEndpointIpPort',
       startTime: 'StartTime',
       storageMethod: 'StorageMethod',
-      backupSetJobId: 'BackupSetJobId',
-      backupSetId: 'BackupSetId',
-      backupStatus: 'BackupStatus',
-      sourceEndpointIpPort: 'SourceEndpointIpPort',
-      backupSize: 'BackupSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'number',
       backupSetExpiredTime: 'number',
+      backupSetId: 'string',
+      backupSetJobId: 'string',
+      backupSize: 'number',
+      backupStatus: 'string',
+      endTime: 'number',
+      sourceEndpointIpPort: 'string',
       startTime: 'number',
       storageMethod: 'string',
-      backupSetJobId: 'string',
-      backupSetId: 'string',
-      backupStatus: 'string',
-      sourceEndpointIpPort: 'string',
-      backupSize: 'number',
     };
   }
 
@@ -3736,18 +4141,18 @@ export class DescribeIncrementBackupListResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeJobErrorCodeResponseBodyItem extends $tea.Model {
-  jobState?: string;
-  errorMessage?: string;
   errorCode?: string;
+  errorMessage?: string;
   jobId?: string;
+  jobState?: string;
   jobType?: string;
   language?: string;
   static names(): { [key: string]: string } {
     return {
-      jobState: 'JobState',
-      errorMessage: 'ErrorMessage',
       errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
       jobId: 'JobId',
+      jobState: 'JobState',
       jobType: 'JobType',
       language: 'Language',
     };
@@ -3755,10 +4160,10 @@ export class DescribeJobErrorCodeResponseBodyItem extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      jobState: 'string',
-      errorMessage: 'string',
       errorCode: 'string',
+      errorMessage: 'string',
       jobId: 'string',
+      jobState: 'string',
       jobType: 'string',
       language: 'string',
     };
@@ -3808,37 +4213,37 @@ export class DescribeNodeCidrListResponseBodyIntranetIPs extends $tea.Model {
 }
 
 export class DescribePreCheckProgressListResponseBodyItemsPreCheckProgressDetail extends $tea.Model {
-  finishTime?: number;
-  state?: string;
   bootTime?: number;
-  jobId?: string;
-  item?: string;
   errMsg?: string;
-  orderNum?: string;
+  finishTime?: number;
+  item?: string;
+  jobId?: string;
   names?: string;
+  orderNum?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      finishTime: 'FinishTime',
-      state: 'State',
       bootTime: 'BootTime',
-      jobId: 'JobId',
-      item: 'Item',
       errMsg: 'ErrMsg',
-      orderNum: 'OrderNum',
+      finishTime: 'FinishTime',
+      item: 'Item',
+      jobId: 'JobId',
       names: 'Names',
+      orderNum: 'OrderNum',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      finishTime: 'number',
-      state: 'string',
       bootTime: 'number',
-      jobId: 'string',
-      item: 'string',
       errMsg: 'string',
-      orderNum: 'string',
+      finishTime: 'number',
+      item: 'string',
+      jobId: 'string',
       names: 'string',
+      orderNum: 'string',
+      state: 'string',
     };
   }
 
@@ -3886,22 +4291,22 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupListFullBackupDetail extends $tea.Model {
+  backupSetId?: string;
   endTime?: number;
   startTime?: number;
-  backupSetId?: string;
   static names(): { [key: string]: string } {
     return {
+      backupSetId: 'BackupSetId',
       endTime: 'EndTime',
       startTime: 'StartTime',
-      backupSetId: 'BackupSetId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backupSetId: 'string',
       endTime: 'number',
       startTime: 'number',
-      backupSetId: 'string',
     };
   }
 
@@ -3930,31 +4335,31 @@ export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupL
 }
 
 export class DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRange extends $tea.Model {
+  beginTimestampForRestore?: number;
   endTimestampForRestore?: number;
-  sourceEndpointInstanceType?: string;
   fullBackupList?: DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupList;
   rangeType?: string;
-  beginTimestampForRestore?: number;
   sourceEndpointInstanceID?: string;
+  sourceEndpointInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
+      beginTimestampForRestore: 'BeginTimestampForRestore',
       endTimestampForRestore: 'EndTimestampForRestore',
-      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
       fullBackupList: 'FullBackupList',
       rangeType: 'RangeType',
-      beginTimestampForRestore: 'BeginTimestampForRestore',
       sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      beginTimestampForRestore: 'number',
       endTimestampForRestore: 'number',
-      sourceEndpointInstanceType: 'string',
       fullBackupList: DescribeRestoreRangeInfoResponseBodyItemsDBSRecoverRangeFullBackupList,
       rangeType: 'string',
-      beginTimestampForRestore: 'number',
       sourceEndpointInstanceID: 'string',
+      sourceEndpointInstanceType: 'string',
     };
   }
 
@@ -3983,87 +4388,87 @@ export class DescribeRestoreRangeInfoResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeRestoreTaskListResponseBodyItemsRestoreTaskDetail extends $tea.Model {
-  restoreStatus?: string;
-  fullStruAfterRestoreProgress?: number;
-  crossRoleName?: string;
-  restoreDir?: string;
-  crossAliyunId?: string;
-  restoreObjects?: string;
-  backupPlanId?: string;
-  destinationEndpointRegion?: string;
-  restoreTaskCreateTime?: number;
-  destinationEndpointUserName?: string;
-  restoreTaskFinishTime?: number;
-  destinationEndpointIpPort?: string;
-  destinationEndpointDatabaseName?: string;
-  destinationEndpointOracleSID?: string;
-  destinationEndpointInstanceType?: string;
-  fullStruforeRestoreProgress?: number;
-  errMessage?: string;
-  restoreTaskId?: string;
-  fullDataRestoreProgress?: number;
-  continuousRestoreProgress?: number;
-  destinationEndpointInstanceID?: string;
-  backupSetId?: string;
-  restoreTaskName?: string;
   backupGatewayId?: number;
+  backupPlanId?: string;
+  backupSetId?: string;
+  continuousRestoreProgress?: number;
+  crossAliyunId?: string;
+  crossRoleName?: string;
+  destinationEndpointDatabaseName?: string;
+  destinationEndpointInstanceID?: string;
+  destinationEndpointInstanceType?: string;
+  destinationEndpointIpPort?: string;
+  destinationEndpointOracleSID?: string;
+  destinationEndpointRegion?: string;
+  destinationEndpointUserName?: string;
+  errMessage?: string;
+  fullDataRestoreProgress?: number;
+  fullStruAfterRestoreProgress?: number;
+  fullStruforeRestoreProgress?: number;
+  restoreDir?: string;
+  restoreObjects?: string;
+  restoreStatus?: string;
+  restoreTaskCreateTime?: number;
+  restoreTaskFinishTime?: number;
+  restoreTaskId?: string;
+  restoreTaskName?: string;
   restoreTime?: number;
   static names(): { [key: string]: string } {
     return {
-      restoreStatus: 'RestoreStatus',
-      fullStruAfterRestoreProgress: 'FullStruAfterRestoreProgress',
-      crossRoleName: 'CrossRoleName',
-      restoreDir: 'RestoreDir',
-      crossAliyunId: 'CrossAliyunId',
-      restoreObjects: 'RestoreObjects',
-      backupPlanId: 'BackupPlanId',
-      destinationEndpointRegion: 'DestinationEndpointRegion',
-      restoreTaskCreateTime: 'RestoreTaskCreateTime',
-      destinationEndpointUserName: 'DestinationEndpointUserName',
-      restoreTaskFinishTime: 'RestoreTaskFinishTime',
-      destinationEndpointIpPort: 'DestinationEndpointIpPort',
-      destinationEndpointDatabaseName: 'DestinationEndpointDatabaseName',
-      destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
-      destinationEndpointInstanceType: 'DestinationEndpointInstanceType',
-      fullStruforeRestoreProgress: 'FullStruforeRestoreProgress',
-      errMessage: 'ErrMessage',
-      restoreTaskId: 'RestoreTaskId',
-      fullDataRestoreProgress: 'FullDataRestoreProgress',
-      continuousRestoreProgress: 'ContinuousRestoreProgress',
-      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
-      backupSetId: 'BackupSetId',
-      restoreTaskName: 'RestoreTaskName',
       backupGatewayId: 'BackupGatewayId',
+      backupPlanId: 'BackupPlanId',
+      backupSetId: 'BackupSetId',
+      continuousRestoreProgress: 'ContinuousRestoreProgress',
+      crossAliyunId: 'CrossAliyunId',
+      crossRoleName: 'CrossRoleName',
+      destinationEndpointDatabaseName: 'DestinationEndpointDatabaseName',
+      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
+      destinationEndpointInstanceType: 'DestinationEndpointInstanceType',
+      destinationEndpointIpPort: 'DestinationEndpointIpPort',
+      destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
+      destinationEndpointRegion: 'DestinationEndpointRegion',
+      destinationEndpointUserName: 'DestinationEndpointUserName',
+      errMessage: 'ErrMessage',
+      fullDataRestoreProgress: 'FullDataRestoreProgress',
+      fullStruAfterRestoreProgress: 'FullStruAfterRestoreProgress',
+      fullStruforeRestoreProgress: 'FullStruforeRestoreProgress',
+      restoreDir: 'RestoreDir',
+      restoreObjects: 'RestoreObjects',
+      restoreStatus: 'RestoreStatus',
+      restoreTaskCreateTime: 'RestoreTaskCreateTime',
+      restoreTaskFinishTime: 'RestoreTaskFinishTime',
+      restoreTaskId: 'RestoreTaskId',
+      restoreTaskName: 'RestoreTaskName',
       restoreTime: 'RestoreTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      restoreStatus: 'string',
-      fullStruAfterRestoreProgress: 'number',
-      crossRoleName: 'string',
-      restoreDir: 'string',
-      crossAliyunId: 'string',
-      restoreObjects: 'string',
-      backupPlanId: 'string',
-      destinationEndpointRegion: 'string',
-      restoreTaskCreateTime: 'number',
-      destinationEndpointUserName: 'string',
-      restoreTaskFinishTime: 'number',
-      destinationEndpointIpPort: 'string',
-      destinationEndpointDatabaseName: 'string',
-      destinationEndpointOracleSID: 'string',
-      destinationEndpointInstanceType: 'string',
-      fullStruforeRestoreProgress: 'number',
-      errMessage: 'string',
-      restoreTaskId: 'string',
-      fullDataRestoreProgress: 'number',
-      continuousRestoreProgress: 'number',
-      destinationEndpointInstanceID: 'string',
-      backupSetId: 'string',
-      restoreTaskName: 'string',
       backupGatewayId: 'number',
+      backupPlanId: 'string',
+      backupSetId: 'string',
+      continuousRestoreProgress: 'number',
+      crossAliyunId: 'string',
+      crossRoleName: 'string',
+      destinationEndpointDatabaseName: 'string',
+      destinationEndpointInstanceID: 'string',
+      destinationEndpointInstanceType: 'string',
+      destinationEndpointIpPort: 'string',
+      destinationEndpointOracleSID: 'string',
+      destinationEndpointRegion: 'string',
+      destinationEndpointUserName: 'string',
+      errMessage: 'string',
+      fullDataRestoreProgress: 'number',
+      fullStruAfterRestoreProgress: 'number',
+      fullStruforeRestoreProgress: 'number',
+      restoreDir: 'string',
+      restoreObjects: 'string',
+      restoreStatus: 'string',
+      restoreTaskCreateTime: 'number',
+      restoreTaskFinishTime: 'number',
+      restoreTaskId: 'string',
+      restoreTaskName: 'string',
       restoreTime: 'number',
     };
   }
@@ -4161,10 +4566,146 @@ export default class Client extends OpenApi {
 
   async configureBackupPlanWithOptions(request: ConfigureBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<ConfigureBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoStartBackup)) {
+      query["AutoStartBackup"] = request.autoStartBackup;
+    }
+
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.backupLogIntervalSeconds)) {
+      query["BackupLogIntervalSeconds"] = request.backupLogIntervalSeconds;
+    }
+
+    if (!Util.isUnset(request.backupObjects)) {
+      query["BackupObjects"] = request.backupObjects;
+    }
+
+    if (!Util.isUnset(request.backupPeriod)) {
+      query["BackupPeriod"] = request.backupPeriod;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupPlanName)) {
+      query["BackupPlanName"] = request.backupPlanName;
+    }
+
+    if (!Util.isUnset(request.backupRateLimit)) {
+      query["BackupRateLimit"] = request.backupRateLimit;
+    }
+
+    if (!Util.isUnset(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
+    if (!Util.isUnset(request.backupSpeedLimit)) {
+      query["BackupSpeedLimit"] = request.backupSpeedLimit;
+    }
+
+    if (!Util.isUnset(request.backupStartTime)) {
+      query["BackupStartTime"] = request.backupStartTime;
+    }
+
+    if (!Util.isUnset(request.backupStorageType)) {
+      query["BackupStorageType"] = request.backupStorageType;
+    }
+
+    if (!Util.isUnset(request.backupStrategyType)) {
+      query["BackupStrategyType"] = request.backupStrategyType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossAliyunId)) {
+      query["CrossAliyunId"] = request.crossAliyunId;
+    }
+
+    if (!Util.isUnset(request.crossRoleName)) {
+      query["CrossRoleName"] = request.crossRoleName;
+    }
+
+    if (!Util.isUnset(request.duplicationArchivePeriod)) {
+      query["DuplicationArchivePeriod"] = request.duplicationArchivePeriod;
+    }
+
+    if (!Util.isUnset(request.duplicationInfrequentAccessPeriod)) {
+      query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod;
+    }
+
+    if (!Util.isUnset(request.enableBackupLog)) {
+      query["EnableBackupLog"] = request.enableBackupLog;
+    }
+
+    if (!Util.isUnset(request.OSSBucketName)) {
+      query["OSSBucketName"] = request.OSSBucketName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointDatabaseName)) {
+      query["SourceEndpointDatabaseName"] = request.sourceEndpointDatabaseName;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointIP)) {
+      query["SourceEndpointIP"] = request.sourceEndpointIP;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceID)) {
+      query["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceType)) {
+      query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointOracleSID)) {
+      query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPassword)) {
+      query["SourceEndpointPassword"] = request.sourceEndpointPassword;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPort)) {
+      query["SourceEndpointPort"] = request.sourceEndpointPort;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointRegion)) {
+      query["SourceEndpointRegion"] = request.sourceEndpointRegion;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointUserName)) {
+      query["SourceEndpointUserName"] = request.sourceEndpointUserName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ConfigureBackupPlanResponse>(await this.doRPCRequest("ConfigureBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ConfigureBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConfigureBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigureBackupPlanResponse>(await this.callApi(params, req, runtime), new ConfigureBackupPlanResponse({}));
   }
 
   async configureBackupPlan(request: ConfigureBackupPlanRequest): Promise<ConfigureBackupPlanResponse> {
@@ -4172,12 +4713,277 @@ export default class Client extends OpenApi {
     return await this.configureBackupPlanWithOptions(request, runtime);
   }
 
+  async createAndStartBackupPlanWithOptions(request: CreateAndStartBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndStartBackupPlanResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.backupLogIntervalSeconds)) {
+      query["BackupLogIntervalSeconds"] = request.backupLogIntervalSeconds;
+    }
+
+    if (!Util.isUnset(request.backupMethod)) {
+      query["BackupMethod"] = request.backupMethod;
+    }
+
+    if (!Util.isUnset(request.backupObjects)) {
+      query["BackupObjects"] = request.backupObjects;
+    }
+
+    if (!Util.isUnset(request.backupPeriod)) {
+      query["BackupPeriod"] = request.backupPeriod;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupPlanName)) {
+      query["BackupPlanName"] = request.backupPlanName;
+    }
+
+    if (!Util.isUnset(request.backupRateLimit)) {
+      query["BackupRateLimit"] = request.backupRateLimit;
+    }
+
+    if (!Util.isUnset(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
+    if (!Util.isUnset(request.backupSpeedLimit)) {
+      query["BackupSpeedLimit"] = request.backupSpeedLimit;
+    }
+
+    if (!Util.isUnset(request.backupStartTime)) {
+      query["BackupStartTime"] = request.backupStartTime;
+    }
+
+    if (!Util.isUnset(request.backupStorageType)) {
+      query["BackupStorageType"] = request.backupStorageType;
+    }
+
+    if (!Util.isUnset(request.backupStrategyType)) {
+      query["BackupStrategyType"] = request.backupStrategyType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossAliyunId)) {
+      query["CrossAliyunId"] = request.crossAliyunId;
+    }
+
+    if (!Util.isUnset(request.crossRoleName)) {
+      query["CrossRoleName"] = request.crossRoleName;
+    }
+
+    if (!Util.isUnset(request.databaseRegion)) {
+      query["DatabaseRegion"] = request.databaseRegion;
+    }
+
+    if (!Util.isUnset(request.databaseType)) {
+      query["DatabaseType"] = request.databaseType;
+    }
+
+    if (!Util.isUnset(request.duplicationArchivePeriod)) {
+      query["DuplicationArchivePeriod"] = request.duplicationArchivePeriod;
+    }
+
+    if (!Util.isUnset(request.duplicationInfrequentAccessPeriod)) {
+      query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod;
+    }
+
+    if (!Util.isUnset(request.enableBackupLog)) {
+      query["EnableBackupLog"] = request.enableBackupLog;
+    }
+
+    if (!Util.isUnset(request.fromApp)) {
+      query["FromApp"] = request.fromApp;
+    }
+
+    if (!Util.isUnset(request.instanceClass)) {
+      query["InstanceClass"] = request.instanceClass;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.OSSBucketName)) {
+      query["OSSBucketName"] = request.OSSBucketName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointDatabaseName)) {
+      query["SourceEndpointDatabaseName"] = request.sourceEndpointDatabaseName;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointIP)) {
+      query["SourceEndpointIP"] = request.sourceEndpointIP;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceID)) {
+      query["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceType)) {
+      query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointOracleSID)) {
+      query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPassword)) {
+      query["SourceEndpointPassword"] = request.sourceEndpointPassword;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPort)) {
+      query["SourceEndpointPort"] = request.sourceEndpointPort;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointRegion)) {
+      query["SourceEndpointRegion"] = request.sourceEndpointRegion;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointUserName)) {
+      query["SourceEndpointUserName"] = request.sourceEndpointUserName;
+    }
+
+    if (!Util.isUnset(request.storageRegion)) {
+      query["StorageRegion"] = request.storageRegion;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAndStartBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAndStartBackupPlanResponse>(await this.callApi(params, req, runtime), new CreateAndStartBackupPlanResponse({}));
+  }
+
+  async createAndStartBackupPlan(request: CreateAndStartBackupPlanRequest): Promise<CreateAndStartBackupPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAndStartBackupPlanWithOptions(request, runtime);
+  }
+
   async createBackupPlanWithOptions(request: CreateBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupMethod)) {
+      query["BackupMethod"] = request.backupMethod;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.databaseRegion)) {
+      query["DatabaseRegion"] = request.databaseRegion;
+    }
+
+    if (!Util.isUnset(request.databaseType)) {
+      query["DatabaseType"] = request.databaseType;
+    }
+
+    if (!Util.isUnset(request.fromApp)) {
+      query["FromApp"] = request.fromApp;
+    }
+
+    if (!Util.isUnset(request.instanceClass)) {
+      query["InstanceClass"] = request.instanceClass;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.storageRegion)) {
+      query["StorageRegion"] = request.storageRegion;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateBackupPlanResponse>(await this.doRPCRequest("CreateBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackupPlanResponse>(await this.callApi(params, req, runtime), new CreateBackupPlanResponse({}));
   }
 
   async createBackupPlan(request: CreateBackupPlanRequest): Promise<CreateBackupPlanResponse> {
@@ -4187,10 +4993,38 @@ export default class Client extends OpenApi {
 
   async createFullBackupSetDownloadWithOptions(request: CreateFullBackupSetDownloadRequest, runtime: $Util.RuntimeOptions): Promise<CreateFullBackupSetDownloadResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupSetDataFormat)) {
+      query["BackupSetDataFormat"] = request.backupSetDataFormat;
+    }
+
+    if (!Util.isUnset(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateFullBackupSetDownloadResponse>(await this.doRPCRequest("CreateFullBackupSetDownload", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFullBackupSetDownloadResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateFullBackupSetDownload",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFullBackupSetDownloadResponse>(await this.callApi(params, req, runtime), new CreateFullBackupSetDownloadResponse({}));
   }
 
   async createFullBackupSetDownload(request: CreateFullBackupSetDownloadRequest): Promise<CreateFullBackupSetDownloadResponse> {
@@ -4200,10 +5034,50 @@ export default class Client extends OpenApi {
 
   async createGetDBListFromAgentTaskWithOptions(request: CreateGetDBListFromAgentTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateGetDBListFromAgentTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.databaseType)) {
+      query["DatabaseType"] = request.databaseType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointIP)) {
+      query["SourceEndpointIP"] = request.sourceEndpointIP;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPort)) {
+      query["SourceEndpointPort"] = request.sourceEndpointPort;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointRegion)) {
+      query["SourceEndpointRegion"] = request.sourceEndpointRegion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateGetDBListFromAgentTaskResponse>(await this.doRPCRequest("CreateGetDBListFromAgentTask", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateGetDBListFromAgentTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateGetDBListFromAgentTask",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGetDBListFromAgentTaskResponse>(await this.callApi(params, req, runtime), new CreateGetDBListFromAgentTaskResponse({}));
   }
 
   async createGetDBListFromAgentTask(request: CreateGetDBListFromAgentTaskRequest): Promise<CreateGetDBListFromAgentTaskResponse> {
@@ -4213,10 +5087,42 @@ export default class Client extends OpenApi {
 
   async createIncrementBackupSetDownloadWithOptions(request: CreateIncrementBackupSetDownloadRequest, runtime: $Util.RuntimeOptions): Promise<CreateIncrementBackupSetDownloadResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupSetDataFormat)) {
+      query["BackupSetDataFormat"] = request.backupSetDataFormat;
+    }
+
+    if (!Util.isUnset(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!Util.isUnset(request.backupSetName)) {
+      query["BackupSetName"] = request.backupSetName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateIncrementBackupSetDownloadResponse>(await this.doRPCRequest("CreateIncrementBackupSetDownload", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIncrementBackupSetDownloadResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateIncrementBackupSetDownload",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIncrementBackupSetDownloadResponse>(await this.callApi(params, req, runtime), new CreateIncrementBackupSetDownloadResponse({}));
   }
 
   async createIncrementBackupSetDownload(request: CreateIncrementBackupSetDownloadRequest): Promise<CreateIncrementBackupSetDownloadResponse> {
@@ -4226,10 +5132,110 @@ export default class Client extends OpenApi {
 
   async createRestoreTaskWithOptions(request: CreateRestoreTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestoreTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossAliyunId)) {
+      query["CrossAliyunId"] = request.crossAliyunId;
+    }
+
+    if (!Util.isUnset(request.crossRoleName)) {
+      query["CrossRoleName"] = request.crossRoleName;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointDatabaseName)) {
+      query["DestinationEndpointDatabaseName"] = request.destinationEndpointDatabaseName;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointIP)) {
+      query["DestinationEndpointIP"] = request.destinationEndpointIP;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointInstanceID)) {
+      query["DestinationEndpointInstanceID"] = request.destinationEndpointInstanceID;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointInstanceType)) {
+      query["DestinationEndpointInstanceType"] = request.destinationEndpointInstanceType;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointOracleSID)) {
+      query["DestinationEndpointOracleSID"] = request.destinationEndpointOracleSID;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointPassword)) {
+      query["DestinationEndpointPassword"] = request.destinationEndpointPassword;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointPort)) {
+      query["DestinationEndpointPort"] = request.destinationEndpointPort;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointRegion)) {
+      query["DestinationEndpointRegion"] = request.destinationEndpointRegion;
+    }
+
+    if (!Util.isUnset(request.destinationEndpointUserName)) {
+      query["DestinationEndpointUserName"] = request.destinationEndpointUserName;
+    }
+
+    if (!Util.isUnset(request.duplicateConflict)) {
+      query["DuplicateConflict"] = request.duplicateConflict;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.restoreDir)) {
+      query["RestoreDir"] = request.restoreDir;
+    }
+
+    if (!Util.isUnset(request.restoreHome)) {
+      query["RestoreHome"] = request.restoreHome;
+    }
+
+    if (!Util.isUnset(request.restoreObjects)) {
+      query["RestoreObjects"] = request.restoreObjects;
+    }
+
+    if (!Util.isUnset(request.restoreTaskName)) {
+      query["RestoreTaskName"] = request.restoreTaskName;
+    }
+
+    if (!Util.isUnset(request.restoreTime)) {
+      query["RestoreTime"] = request.restoreTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRestoreTaskResponse>(await this.doRPCRequest("CreateRestoreTask", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRestoreTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRestoreTask",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRestoreTaskResponse>(await this.callApi(params, req, runtime), new CreateRestoreTaskResponse({}));
   }
 
   async createRestoreTask(request: CreateRestoreTaskRequest): Promise<CreateRestoreTaskResponse> {
@@ -4239,10 +5245,46 @@ export default class Client extends OpenApi {
 
   async describeBackupGatewayListWithOptions(request: DescribeBackupGatewayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupGatewayListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupGatewayListResponse>(await this.doRPCRequest("DescribeBackupGatewayList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupGatewayListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupGatewayList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupGatewayListResponse>(await this.callApi(params, req, runtime), new DescribeBackupGatewayListResponse({}));
   }
 
   async describeBackupGatewayList(request: DescribeBackupGatewayListRequest): Promise<DescribeBackupGatewayListResponse> {
@@ -4252,10 +5294,38 @@ export default class Client extends OpenApi {
 
   async describeBackupPlanBillingWithOptions(request: DescribeBackupPlanBillingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPlanBillingResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.showStorageType)) {
+      query["ShowStorageType"] = request.showStorageType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupPlanBillingResponse>(await this.doRPCRequest("DescribeBackupPlanBilling", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupPlanBillingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupPlanBilling",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupPlanBillingResponse>(await this.callApi(params, req, runtime), new DescribeBackupPlanBillingResponse({}));
   }
 
   async describeBackupPlanBilling(request: DescribeBackupPlanBillingRequest): Promise<DescribeBackupPlanBillingResponse> {
@@ -4265,10 +5335,58 @@ export default class Client extends OpenApi {
 
   async describeBackupPlanListWithOptions(request: DescribeBackupPlanListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPlanListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupPlanName)) {
+      query["BackupPlanName"] = request.backupPlanName;
+    }
+
+    if (!Util.isUnset(request.backupPlanStatus)) {
+      query["BackupPlanStatus"] = request.backupPlanStatus;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupPlanListResponse>(await this.doRPCRequest("DescribeBackupPlanList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupPlanListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupPlanList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupPlanListResponse>(await this.callApi(params, req, runtime), new DescribeBackupPlanListResponse({}));
   }
 
   async describeBackupPlanList(request: DescribeBackupPlanListRequest): Promise<DescribeBackupPlanListResponse> {
@@ -4278,10 +5396,46 @@ export default class Client extends OpenApi {
 
   async describeBackupSetDownloadTaskListWithOptions(request: DescribeBackupSetDownloadTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetDownloadTaskListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupSetDownloadTaskId)) {
+      query["BackupSetDownloadTaskId"] = request.backupSetDownloadTaskId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupSetDownloadTaskListResponse>(await this.doRPCRequest("DescribeBackupSetDownloadTaskList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupSetDownloadTaskListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupSetDownloadTaskList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupSetDownloadTaskListResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetDownloadTaskListResponse({}));
   }
 
   async describeBackupSetDownloadTaskList(request: DescribeBackupSetDownloadTaskListRequest): Promise<DescribeBackupSetDownloadTaskListResponse> {
@@ -4289,12 +5443,97 @@ export default class Client extends OpenApi {
     return await this.describeBackupSetDownloadTaskListWithOptions(request, runtime);
   }
 
+  async describeDLAServiceWithOptions(request: DescribeDLAServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDLAServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDLAService",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDLAServiceResponse>(await this.callApi(params, req, runtime), new DescribeDLAServiceResponse({}));
+  }
+
+  async describeDLAService(request: DescribeDLAServiceRequest): Promise<DescribeDLAServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDLAServiceWithOptions(request, runtime);
+  }
+
   async describeFullBackupListWithOptions(request: DescribeFullBackupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFullBackupListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.showStorageType)) {
+      query["ShowStorageType"] = request.showStorageType;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFullBackupListResponse>(await this.doRPCRequest("DescribeFullBackupList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFullBackupListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFullBackupList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFullBackupListResponse>(await this.callApi(params, req, runtime), new DescribeFullBackupListResponse({}));
   }
 
   async describeFullBackupList(request: DescribeFullBackupListRequest): Promise<DescribeFullBackupListResponse> {
@@ -4304,10 +5543,54 @@ export default class Client extends OpenApi {
 
   async describeIncrementBackupListWithOptions(request: DescribeIncrementBackupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIncrementBackupListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.showStorageType)) {
+      query["ShowStorageType"] = request.showStorageType;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeIncrementBackupListResponse>(await this.doRPCRequest("DescribeIncrementBackupList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIncrementBackupListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeIncrementBackupList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIncrementBackupListResponse>(await this.callApi(params, req, runtime), new DescribeIncrementBackupListResponse({}));
   }
 
   async describeIncrementBackupList(request: DescribeIncrementBackupListRequest): Promise<DescribeIncrementBackupListResponse> {
@@ -4317,10 +5600,38 @@ export default class Client extends OpenApi {
 
   async describeJobErrorCodeWithOptions(request: DescribeJobErrorCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobErrorCodeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeJobErrorCodeResponse>(await this.doRPCRequest("DescribeJobErrorCode", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeJobErrorCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeJobErrorCode",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeJobErrorCodeResponse>(await this.callApi(params, req, runtime), new DescribeJobErrorCodeResponse({}));
   }
 
   async describeJobErrorCode(request: DescribeJobErrorCodeRequest): Promise<DescribeJobErrorCodeResponse> {
@@ -4330,10 +5641,34 @@ export default class Client extends OpenApi {
 
   async describeNodeCidrListWithOptions(request: DescribeNodeCidrListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNodeCidrListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeNodeCidrListResponse>(await this.doRPCRequest("DescribeNodeCidrList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeNodeCidrListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeNodeCidrList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNodeCidrListResponse>(await this.callApi(params, req, runtime), new DescribeNodeCidrListResponse({}));
   }
 
   async describeNodeCidrList(request: DescribeNodeCidrListRequest): Promise<DescribeNodeCidrListResponse> {
@@ -4343,10 +5678,38 @@ export default class Client extends OpenApi {
 
   async describePreCheckProgressListWithOptions(request: DescribePreCheckProgressListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePreCheckProgressListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.restoreTaskId)) {
+      query["RestoreTaskId"] = request.restoreTaskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePreCheckProgressListResponse>(await this.doRPCRequest("DescribePreCheckProgressList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePreCheckProgressListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePreCheckProgressList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePreCheckProgressListResponse>(await this.callApi(params, req, runtime), new DescribePreCheckProgressListResponse({}));
   }
 
   async describePreCheckProgressList(request: DescribePreCheckProgressListRequest): Promise<DescribePreCheckProgressListResponse> {
@@ -4356,10 +5719,30 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -4369,10 +5752,46 @@ export default class Client extends OpenApi {
 
   async describeRestoreRangeInfoWithOptions(request: DescribeRestoreRangeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreRangeInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.beginTimestampForRestore)) {
+      query["BeginTimestampForRestore"] = request.beginTimestampForRestore;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endTimestampForRestore)) {
+      query["EndTimestampForRestore"] = request.endTimestampForRestore;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.recentlyRestore)) {
+      query["RecentlyRestore"] = request.recentlyRestore;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRestoreRangeInfoResponse>(await this.doRPCRequest("DescribeRestoreRangeInfo", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRestoreRangeInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRestoreRangeInfo",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRestoreRangeInfoResponse>(await this.callApi(params, req, runtime), new DescribeRestoreRangeInfoResponse({}));
   }
 
   async describeRestoreRangeInfo(request: DescribeRestoreRangeInfoRequest): Promise<DescribeRestoreRangeInfoResponse> {
@@ -4382,10 +5801,54 @@ export default class Client extends OpenApi {
 
   async describeRestoreTaskListWithOptions(request: DescribeRestoreTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreTaskListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.restoreTaskId)) {
+      query["RestoreTaskId"] = request.restoreTaskId;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRestoreTaskListResponse>(await this.doRPCRequest("DescribeRestoreTaskList", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRestoreTaskListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRestoreTaskList",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRestoreTaskListResponse>(await this.callApi(params, req, runtime), new DescribeRestoreTaskListResponse({}));
   }
 
   async describeRestoreTaskList(request: DescribeRestoreTaskListRequest): Promise<DescribeRestoreTaskListResponse> {
@@ -4395,10 +5858,34 @@ export default class Client extends OpenApi {
 
   async disableBackupLogWithOptions(request: DisableBackupLogRequest, runtime: $Util.RuntimeOptions): Promise<DisableBackupLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableBackupLogResponse>(await this.doRPCRequest("DisableBackupLog", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new DisableBackupLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableBackupLog",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableBackupLogResponse>(await this.callApi(params, req, runtime), new DisableBackupLogResponse({}));
   }
 
   async disableBackupLog(request: DisableBackupLogRequest): Promise<DisableBackupLogResponse> {
@@ -4408,10 +5895,34 @@ export default class Client extends OpenApi {
 
   async enableBackupLogWithOptions(request: EnableBackupLogRequest, runtime: $Util.RuntimeOptions): Promise<EnableBackupLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableBackupLogResponse>(await this.doRPCRequest("EnableBackupLog", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new EnableBackupLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableBackupLog",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableBackupLogResponse>(await this.callApi(params, req, runtime), new EnableBackupLogResponse({}));
   }
 
   async enableBackupLog(request: EnableBackupLogRequest): Promise<EnableBackupLogResponse> {
@@ -4421,10 +5932,42 @@ export default class Client extends OpenApi {
 
   async getDBListFromAgentWithOptions(request: GetDBListFromAgentRequest, runtime: $Util.RuntimeOptions): Promise<GetDBListFromAgentResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointRegion)) {
+      query["SourceEndpointRegion"] = request.sourceEndpointRegion;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetDBListFromAgentResponse>(await this.doRPCRequest("GetDBListFromAgent", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new GetDBListFromAgentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDBListFromAgent",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDBListFromAgentResponse>(await this.callApi(params, req, runtime), new GetDBListFromAgentResponse({}));
   }
 
   async getDBListFromAgent(request: GetDBListFromAgentRequest): Promise<GetDBListFromAgentResponse> {
@@ -4432,12 +5975,61 @@ export default class Client extends OpenApi {
     return await this.getDBListFromAgentWithOptions(request, runtime);
   }
 
+  async initializeDbsServiceLinkedRoleWithOptions(runtime: $Util.RuntimeOptions): Promise<InitializeDbsServiceLinkedRoleResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "InitializeDbsServiceLinkedRole",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitializeDbsServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new InitializeDbsServiceLinkedRoleResponse({}));
+  }
+
+  async initializeDbsServiceLinkedRole(): Promise<InitializeDbsServiceLinkedRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initializeDbsServiceLinkedRoleWithOptions(runtime);
+  }
+
   async modifyBackupObjectsWithOptions(request: ModifyBackupObjectsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupObjectsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupObjects)) {
+      query["BackupObjects"] = request.backupObjects;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupObjectsResponse>(await this.doRPCRequest("ModifyBackupObjects", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupObjectsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupObjects",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupObjectsResponse>(await this.callApi(params, req, runtime), new ModifyBackupObjectsResponse({}));
   }
 
   async modifyBackupObjects(request: ModifyBackupObjectsRequest): Promise<ModifyBackupObjectsResponse> {
@@ -4447,10 +6039,38 @@ export default class Client extends OpenApi {
 
   async modifyBackupPlanNameWithOptions(request: ModifyBackupPlanNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPlanNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupPlanName)) {
+      query["BackupPlanName"] = request.backupPlanName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupPlanNameResponse>(await this.doRPCRequest("ModifyBackupPlanName", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupPlanNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupPlanName",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupPlanNameResponse>(await this.callApi(params, req, runtime), new ModifyBackupPlanNameResponse({}));
   }
 
   async modifyBackupPlanName(request: ModifyBackupPlanNameRequest): Promise<ModifyBackupPlanNameResponse> {
@@ -4460,10 +6080,62 @@ export default class Client extends OpenApi {
 
   async modifyBackupSetDownloadRulesWithOptions(request: ModifyBackupSetDownloadRulesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupSetDownloadRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupSetDownloadDir)) {
+      query["BackupSetDownloadDir"] = request.backupSetDownloadDir;
+    }
+
+    if (!Util.isUnset(request.backupSetDownloadTargetType)) {
+      query["BackupSetDownloadTargetType"] = request.backupSetDownloadTargetType;
+    }
+
+    if (!Util.isUnset(request.backupSetDownloadTargetTypeLocation)) {
+      query["BackupSetDownloadTargetTypeLocation"] = request.backupSetDownloadTargetTypeLocation;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.fullDataFormat)) {
+      query["FullDataFormat"] = request.fullDataFormat;
+    }
+
+    if (!Util.isUnset(request.incrementDataFormat)) {
+      query["IncrementDataFormat"] = request.incrementDataFormat;
+    }
+
+    if (!Util.isUnset(request.openAutoDownload)) {
+      query["OpenAutoDownload"] = request.openAutoDownload;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupSetDownloadRulesResponse>(await this.doRPCRequest("ModifyBackupSetDownloadRules", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupSetDownloadRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupSetDownloadRules",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupSetDownloadRulesResponse>(await this.callApi(params, req, runtime), new ModifyBackupSetDownloadRulesResponse({}));
   }
 
   async modifyBackupSetDownloadRules(request: ModifyBackupSetDownloadRulesRequest): Promise<ModifyBackupSetDownloadRulesResponse> {
@@ -4473,10 +6145,86 @@ export default class Client extends OpenApi {
 
   async modifyBackupSourceEndpointWithOptions(request: ModifyBackupSourceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupSourceEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupGatewayId)) {
+      query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!Util.isUnset(request.backupObjects)) {
+      query["BackupObjects"] = request.backupObjects;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.crossAliyunId)) {
+      query["CrossAliyunId"] = request.crossAliyunId;
+    }
+
+    if (!Util.isUnset(request.crossRoleName)) {
+      query["CrossRoleName"] = request.crossRoleName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointDatabaseName)) {
+      query["SourceEndpointDatabaseName"] = request.sourceEndpointDatabaseName;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointIP)) {
+      query["SourceEndpointIP"] = request.sourceEndpointIP;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceID)) {
+      query["SourceEndpointInstanceID"] = request.sourceEndpointInstanceID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointInstanceType)) {
+      query["SourceEndpointInstanceType"] = request.sourceEndpointInstanceType;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointOracleSID)) {
+      query["SourceEndpointOracleSID"] = request.sourceEndpointOracleSID;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPassword)) {
+      query["SourceEndpointPassword"] = request.sourceEndpointPassword;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointPort)) {
+      query["SourceEndpointPort"] = request.sourceEndpointPort;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointRegion)) {
+      query["SourceEndpointRegion"] = request.sourceEndpointRegion;
+    }
+
+    if (!Util.isUnset(request.sourceEndpointUserName)) {
+      query["SourceEndpointUserName"] = request.sourceEndpointUserName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupSourceEndpointResponse>(await this.doRPCRequest("ModifyBackupSourceEndpoint", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupSourceEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupSourceEndpoint",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupSourceEndpointResponse>(await this.callApi(params, req, runtime), new ModifyBackupSourceEndpointResponse({}));
   }
 
   async modifyBackupSourceEndpoint(request: ModifyBackupSourceEndpointRequest): Promise<ModifyBackupSourceEndpointResponse> {
@@ -4486,10 +6234,50 @@ export default class Client extends OpenApi {
 
   async modifyBackupStrategyWithOptions(request: ModifyBackupStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupLogIntervalSeconds)) {
+      query["BackupLogIntervalSeconds"] = request.backupLogIntervalSeconds;
+    }
+
+    if (!Util.isUnset(request.backupPeriod)) {
+      query["BackupPeriod"] = request.backupPeriod;
+    }
+
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupStartTime)) {
+      query["BackupStartTime"] = request.backupStartTime;
+    }
+
+    if (!Util.isUnset(request.backupStrategyType)) {
+      query["BackupStrategyType"] = request.backupStrategyType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupStrategyResponse>(await this.doRPCRequest("ModifyBackupStrategy", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupStrategy",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupStrategyResponse>(await this.callApi(params, req, runtime), new ModifyBackupStrategyResponse({}));
   }
 
   async modifyBackupStrategy(request: ModifyBackupStrategyRequest): Promise<ModifyBackupStrategyResponse> {
@@ -4499,10 +6287,46 @@ export default class Client extends OpenApi {
 
   async modifyStorageStrategyWithOptions(request: ModifyStorageStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStorageStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.duplicationArchivePeriod)) {
+      query["DuplicationArchivePeriod"] = request.duplicationArchivePeriod;
+    }
+
+    if (!Util.isUnset(request.duplicationInfrequentAccessPeriod)) {
+      query["DuplicationInfrequentAccessPeriod"] = request.duplicationInfrequentAccessPeriod;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyStorageStrategyResponse>(await this.doRPCRequest("ModifyStorageStrategy", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyStorageStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyStorageStrategy",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyStorageStrategyResponse>(await this.callApi(params, req, runtime), new ModifyStorageStrategyResponse({}));
   }
 
   async modifyStorageStrategy(request: ModifyStorageStrategyRequest): Promise<ModifyStorageStrategyResponse> {
@@ -4512,10 +6336,34 @@ export default class Client extends OpenApi {
 
   async releaseBackupPlanWithOptions(request: ReleaseBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ReleaseBackupPlanResponse>(await this.doRPCRequest("ReleaseBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReleaseBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseBackupPlanResponse>(await this.callApi(params, req, runtime), new ReleaseBackupPlanResponse({}));
   }
 
   async releaseBackupPlan(request: ReleaseBackupPlanRequest): Promise<ReleaseBackupPlanResponse> {
@@ -4525,10 +6373,42 @@ export default class Client extends OpenApi {
 
   async renewBackupPlanWithOptions(request: RenewBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<RenewBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RenewBackupPlanResponse>(await this.doRPCRequest("RenewBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new RenewBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenewBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewBackupPlanResponse>(await this.callApi(params, req, runtime), new RenewBackupPlanResponse({}));
   }
 
   async renewBackupPlan(request: RenewBackupPlanRequest): Promise<RenewBackupPlanResponse> {
@@ -4538,10 +6418,34 @@ export default class Client extends OpenApi {
 
   async startBackupPlanWithOptions(request: StartBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<StartBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartBackupPlanResponse>(await this.doRPCRequest("StartBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new StartBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartBackupPlanResponse>(await this.callApi(params, req, runtime), new StartBackupPlanResponse({}));
   }
 
   async startBackupPlan(request: StartBackupPlanRequest): Promise<StartBackupPlanResponse> {
@@ -4551,10 +6455,34 @@ export default class Client extends OpenApi {
 
   async startRestoreTaskWithOptions(request: StartRestoreTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRestoreTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.restoreTaskId)) {
+      query["RestoreTaskId"] = request.restoreTaskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartRestoreTaskResponse>(await this.doRPCRequest("StartRestoreTask", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new StartRestoreTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartRestoreTask",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartRestoreTaskResponse>(await this.callApi(params, req, runtime), new StartRestoreTaskResponse({}));
   }
 
   async startRestoreTask(request: StartRestoreTaskRequest): Promise<StartRestoreTaskResponse> {
@@ -4562,25 +6490,40 @@ export default class Client extends OpenApi {
     return await this.startRestoreTaskWithOptions(request, runtime);
   }
 
-  async startTaskWithOptions(request: StartTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StartTaskResponse>(await this.doRPCRequest("StartTask", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new StartTaskResponse({}));
-  }
-
-  async startTask(request: StartTaskRequest): Promise<StartTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startTaskWithOptions(request, runtime);
-  }
-
   async stopBackupPlanWithOptions(request: StopBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<StopBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.stopMethod)) {
+      query["StopMethod"] = request.stopMethod;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopBackupPlanResponse>(await this.doRPCRequest("StopBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new StopBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopBackupPlanResponse>(await this.callApi(params, req, runtime), new StopBackupPlanResponse({}));
   }
 
   async stopBackupPlan(request: StopBackupPlanRequest): Promise<StopBackupPlanResponse> {
@@ -4590,10 +6533,38 @@ export default class Client extends OpenApi {
 
   async upgradeBackupPlanWithOptions(request: UpgradeBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeBackupPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupPlanId)) {
+      query["BackupPlanId"] = request.backupPlanId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.instanceClass)) {
+      query["InstanceClass"] = request.instanceClass;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpgradeBackupPlanResponse>(await this.doRPCRequest("UpgradeBackupPlan", "2019-03-06", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeBackupPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeBackupPlan",
+      version: "2019-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeBackupPlanResponse>(await this.callApi(params, req, runtime), new UpgradeBackupPlanResponse({}));
   }
 
   async upgradeBackupPlan(request: UpgradeBackupPlanRequest): Promise<UpgradeBackupPlanResponse> {
