@@ -542,6 +542,165 @@ export class CreateOAuthTokenResponse extends $tea.Model {
   }
 }
 
+export class CreatePipelineRequest extends $tea.Model {
+  basicInfo?: CreatePipelineRequestBasicInfo;
+  pipelineYaml?: string;
+  settings?: CreatePipelineRequestSettings;
+  triggerInfo?: CreatePipelineRequestTriggerInfo;
+  static names(): { [key: string]: string } {
+    return {
+      basicInfo: 'basicInfo',
+      pipelineYaml: 'pipelineYaml',
+      settings: 'settings',
+      triggerInfo: 'triggerInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicInfo: CreatePipelineRequestBasicInfo,
+      pipelineYaml: 'string',
+      settings: CreatePipelineRequestSettings,
+      triggerInfo: CreatePipelineRequestTriggerInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  object?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      object: 'object',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      object: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePipelineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePipelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineGroupRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  pipelineGroup?: CreatePipelineGroupResponseBodyPipelineGroup;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      pipelineGroup: 'pipelineGroup',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      pipelineGroup: CreatePipelineGroupResponseBodyPipelineGroup,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePipelineGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePipelineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequest extends $tea.Model {
   customCode?: string;
   name?: string;
@@ -1485,6 +1644,59 @@ export class DeletePipelineResponse extends $tea.Model {
   }
 }
 
+export class DeletePipelineGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePipelineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePipelineGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePipelineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteProjectRequest extends $tea.Model {
   identifier?: string;
   static names(): { [key: string]: string } {
@@ -2336,6 +2548,62 @@ export class GetPipelineEmasArtifactUrlResponse extends $tea.Model {
   }
 }
 
+export class GetPipelineGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  pipelineGroup?: GetPipelineGroupResponseBodyPipelineGroup;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      pipelineGroup: 'pipelineGroup',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      pipelineGroup: GetPipelineGroupResponseBodyPipelineGroup,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPipelineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPipelineGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPipelineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineRunResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -3099,6 +3367,81 @@ export class GetWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class JoinPipelineGroupRequest extends $tea.Model {
+  groupId?: number;
+  pipelineIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'groupId',
+      pipelineIds: 'pipelineIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      pipelineIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JoinPipelineGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JoinPipelineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: JoinPipelineGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: JoinPipelineGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFlowTagGroupsResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -3354,6 +3697,192 @@ export class ListOrganizationMembersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListOrganizationMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupPipelinesRequest extends $tea.Model {
+  createEndTime?: number;
+  createStartTime?: number;
+  executeEndTime?: number;
+  executeStartTime?: number;
+  maxResults?: number;
+  nextToken?: string;
+  pipelineName?: string;
+  resultStatusList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createEndTime: 'createEndTime',
+      createStartTime: 'createStartTime',
+      executeEndTime: 'executeEndTime',
+      executeStartTime: 'executeStartTime',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      pipelineName: 'pipelineName',
+      resultStatusList: 'resultStatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createEndTime: 'number',
+      createStartTime: 'number',
+      executeEndTime: 'number',
+      executeStartTime: 'number',
+      maxResults: 'number',
+      nextToken: 'string',
+      pipelineName: 'string',
+      resultStatusList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupPipelinesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  nextToken?: string;
+  pipelines?: ListPipelineGroupPipelinesResponseBodyPipelines[];
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      nextToken: 'nextToken',
+      pipelines: 'pipelines',
+      requestId: 'requestId',
+      success: 'success',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      nextToken: 'string',
+      pipelines: { 'type': 'array', 'itemType': ListPipelineGroupPipelinesResponseBodyPipelines },
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupPipelinesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPipelineGroupPipelinesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPipelineGroupPipelinesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  nextToken?: string;
+  pipelineGroups?: ListPipelineGroupsResponseBodyPipelineGroups[];
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      nextToken: 'nextToken',
+      pipelineGroups: 'pipelineGroups',
+      requestId: 'requestId',
+      success: 'success',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      nextToken: 'string',
+      pipelineGroups: { 'type': 'array', 'itemType': ListPipelineGroupsResponseBodyPipelineGroups },
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListPipelineGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPipelineGroupsResponseBody,
     };
   }
 
@@ -6251,6 +6780,90 @@ export class UpdateHostGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdatePipelineRequest extends $tea.Model {
+  basicInfo?: UpdatePipelineRequestBasicInfo;
+  pipelineYaml?: string;
+  settings?: UpdatePipelineRequestSettings;
+  triggerInfo?: UpdatePipelineRequestTriggerInfo;
+  static names(): { [key: string]: string } {
+    return {
+      basicInfo: 'basicInfo',
+      pipelineYaml: 'pipelineYaml',
+      settings: 'settings',
+      triggerInfo: 'triggerInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basicInfo: UpdatePipelineRequestBasicInfo,
+      pipelineYaml: 'string',
+      settings: UpdatePipelineRequestSettings,
+      triggerInfo: UpdatePipelineRequestTriggerInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  object?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      object: 'object',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      object: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePipelineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePipelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePipelineBaseInfoRequest extends $tea.Model {
   envId?: number;
   pipelineName?: string;
@@ -6321,6 +6934,78 @@ export class UpdatePipelineBaseInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdatePipelineBaseInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineGroupRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePipelineGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePipelineGroupResponseBody,
     };
   }
 
@@ -6756,6 +7441,193 @@ export class CreateOAuthTokenResponseBodyResult extends $tea.Model {
       id: 'string',
       scope: 'string',
       tokenType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestBasicInfo extends $tea.Model {
+  envId?: number;
+  groupId?: number;
+  name?: string;
+  tagIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envId: 'envId',
+      groupId: 'groupId',
+      name: 'name',
+      tagIds: 'tagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envId: 'number',
+      groupId: 'number',
+      name: 'string',
+      tagIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSettingsCaches extends $tea.Model {
+  desc?: string;
+  directory?: string;
+  disable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      directory: 'directory',
+      disable: 'disable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      directory: 'string',
+      disable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSettingsGlobalParams extends $tea.Model {
+  key?: string;
+  mask?: boolean;
+  runningConfig?: boolean;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      mask: 'mask',
+      runningConfig: 'runningConfig',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      mask: 'boolean',
+      runningConfig: 'boolean',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestSettings extends $tea.Model {
+  caches?: CreatePipelineRequestSettingsCaches[];
+  globalParams?: CreatePipelineRequestSettingsGlobalParams[];
+  runnerCacheMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caches: 'caches',
+      globalParams: 'globalParams',
+      runnerCacheMode: 'runnerCacheMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caches: { 'type': 'array', 'itemType': CreatePipelineRequestSettingsCaches },
+      globalParams: { 'type': 'array', 'itemType': CreatePipelineRequestSettingsGlobalParams },
+      runnerCacheMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestTriggerInfoScheduled extends $tea.Model {
+  daysOfWeek?: string;
+  fixedTime?: string;
+  from?: string;
+  interval?: number;
+  onlySourceChange?: boolean;
+  to?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      daysOfWeek: 'daysOfWeek',
+      fixedTime: 'fixedTime',
+      from: 'from',
+      interval: 'interval',
+      onlySourceChange: 'onlySourceChange',
+      to: 'to',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysOfWeek: 'string',
+      fixedTime: 'string',
+      from: 'string',
+      interval: 'number',
+      onlySourceChange: 'boolean',
+      to: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineRequestTriggerInfo extends $tea.Model {
+  scheduled?: CreatePipelineRequestTriggerInfoScheduled;
+  webhookEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      scheduled: 'scheduled',
+      webhookEnable: 'webhookEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduled: CreatePipelineRequestTriggerInfoScheduled,
+      webhookEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePipelineGroupResponseBodyPipelineGroup extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
     };
   }
 
@@ -7735,6 +8607,31 @@ export class GetPipelineResponseBodyPipeline extends $tea.Model {
   }
 }
 
+export class GetPipelineGroupResponseBodyPipelineGroup extends $tea.Model {
+  createTime?: number;
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineRunResponseBodyPipelineRunSourcesData extends $tea.Model {
   branch?: string;
   commint?: string;
@@ -7787,7 +8684,7 @@ export class GetPipelineRunResponseBodyPipelineRunSources extends $tea.Model {
 
 export class GetPipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions extends $tea.Model {
   disable?: boolean;
-  params?: any;
+  params?: { [key: string]: any };
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7800,7 +8697,7 @@ export class GetPipelineRunResponseBodyPipelineRunStagesStageInfoJobsActions ext
   static types(): { [key: string]: any } {
     return {
       disable: 'boolean',
-      params: 'any',
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'string',
     };
   }
@@ -9067,6 +9964,56 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
   }
 }
 
+export class ListPipelineGroupPipelinesResponseBodyPipelines extends $tea.Model {
+  createTime?: number;
+  pipelineId?: number;
+  pipelineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      pipelineId: 'pipelineId',
+      pipelineName: 'pipelineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      pipelineId: 'number',
+      pipelineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPipelineGroupsResponseBodyPipelineGroups extends $tea.Model {
+  createTime?: number;
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPipelineJobHistorysResponseBodyJobs extends $tea.Model {
   executeNumber?: number;
   identifier?: string;
@@ -9178,12 +10125,14 @@ export class ListPipelineRunsResponseBodyPipelineRuns extends $tea.Model {
 export class ListPipelinesResponseBodyPipelines extends $tea.Model {
   createTime?: number;
   creatorAccountId?: string;
+  groupId?: number;
   pipelineId?: number;
   pipelineName?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
       creatorAccountId: 'creatorAccountId',
+      groupId: 'groupId',
       pipelineId: 'pipelineId',
       pipelineName: 'pipelineName',
     };
@@ -9193,6 +10142,7 @@ export class ListPipelinesResponseBodyPipelines extends $tea.Model {
     return {
       createTime: 'number',
       creatorAccountId: 'string',
+      groupId: 'number',
       pipelineId: 'number',
       pipelineName: 'string',
     };
@@ -10297,6 +11247,174 @@ export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
   }
 }
 
+export class UpdatePipelineRequestBasicInfo extends $tea.Model {
+  envId?: number;
+  groupId?: number;
+  name?: string;
+  pipelineId?: number;
+  tagIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envId: 'envId',
+      groupId: 'groupId',
+      name: 'name',
+      pipelineId: 'pipelineId',
+      tagIds: 'tagIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envId: 'number',
+      groupId: 'number',
+      name: 'string',
+      pipelineId: 'number',
+      tagIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineRequestSettingsCaches extends $tea.Model {
+  desc?: string;
+  directory?: string;
+  disable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      directory: 'directory',
+      disable: 'disable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      directory: 'string',
+      disable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineRequestSettingsGlobalParams extends $tea.Model {
+  key?: string;
+  mask?: boolean;
+  runningConfig?: boolean;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      mask: 'mask',
+      runningConfig: 'runningConfig',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      mask: 'boolean',
+      runningConfig: 'boolean',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineRequestSettings extends $tea.Model {
+  caches?: UpdatePipelineRequestSettingsCaches[];
+  globalParams?: UpdatePipelineRequestSettingsGlobalParams[];
+  runnerCacheMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caches: 'caches',
+      globalParams: 'globalParams',
+      runnerCacheMode: 'runnerCacheMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caches: { 'type': 'array', 'itemType': UpdatePipelineRequestSettingsCaches },
+      globalParams: { 'type': 'array', 'itemType': UpdatePipelineRequestSettingsGlobalParams },
+      runnerCacheMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineRequestTriggerInfoScheduled extends $tea.Model {
+  daysOfWeek?: string;
+  fixedTime?: string;
+  from?: string;
+  interval?: number;
+  onlySourceChange?: boolean;
+  to?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      daysOfWeek: 'daysOfWeek',
+      fixedTime: 'fixedTime',
+      from: 'from',
+      interval: 'interval',
+      onlySourceChange: 'onlySourceChange',
+      to: 'to',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      daysOfWeek: 'string',
+      fixedTime: 'string',
+      from: 'string',
+      interval: 'number',
+      onlySourceChange: 'boolean',
+      to: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineRequestTriggerInfo extends $tea.Model {
+  scheduled?: UpdatePipelineRequestTriggerInfoScheduled;
+  webhookEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      scheduled: 'scheduled',
+      webhookEnable: 'webhookEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduled: UpdatePipelineRequestTriggerInfoScheduled,
+      webhookEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectMemberResponseBodyMember extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
@@ -10744,6 +11862,82 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<CreateOAuthTokenResponse>(await this.callApi(params, req, runtime), new CreateOAuthTokenResponse({}));
+  }
+
+  async createPipeline(organizationId: string, request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPipelineWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createPipelineWithOptions(organizationId: string, request: CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.basicInfo))) {
+      body["basicInfo"] = request.basicInfo;
+    }
+
+    if (!Util.isUnset(request.pipelineYaml)) {
+      body["pipelineYaml"] = request.pipelineYaml;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.settings))) {
+      body["settings"] = request.settings;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.triggerInfo))) {
+      body["triggerInfo"] = request.triggerInfo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePipeline",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePipelineResponse>(await this.callApi(params, req, runtime), new CreatePipelineResponse({}));
+  }
+
+  async createPipelineGroup(organizationId: string, request: CreatePipelineGroupRequest): Promise<CreatePipelineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPipelineGroupWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createPipelineGroupWithOptions(organizationId: string, request: CreatePipelineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePipelineGroupResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePipelineGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePipelineGroupResponse>(await this.callApi(params, req, runtime), new CreatePipelineGroupResponse({}));
   }
 
   async createProject(organizationId: string, request: CreateProjectRequest): Promise<CreateProjectResponse> {
@@ -11305,6 +12499,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelineResponse>(await this.callApi(params, req, runtime), new DeletePipelineResponse({}));
   }
 
+  async deletePipelineGroup(organizationId: string, groupId: string): Promise<DeletePipelineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePipelineGroupWithOptions(organizationId, groupId, headers, runtime);
+  }
+
+  async deletePipelineGroupWithOptions(organizationId: string, groupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    groupId = OpenApiUtil.getEncodeParam(groupId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePipelineGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePipelineGroupResponse>(await this.callApi(params, req, runtime), new DeletePipelineGroupResponse({}));
+  }
+
   async deleteProject(organizationId: string, request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11709,6 +12929,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPipelineEmasArtifactUrlResponse>(await this.callApi(params, req, runtime), new GetPipelineEmasArtifactUrlResponse({}));
   }
 
+  async getPipelineGroup(organizationId: string, groupId: string): Promise<GetPipelineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPipelineGroupWithOptions(organizationId, groupId, headers, runtime);
+  }
+
+  async getPipelineGroupWithOptions(organizationId: string, groupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    groupId = OpenApiUtil.getEncodeParam(groupId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPipelineGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineGroupResponse>(await this.callApi(params, req, runtime), new GetPipelineGroupResponse({}));
+  }
+
   async getPipelineRun(organizationId: string, pipelineId: string, pipelineRunId: string): Promise<GetPipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12065,6 +13311,42 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWorkspaceResponse>(await this.callApi(params, req, runtime), new GetWorkspaceResponse({}));
   }
 
+  async joinPipelineGroup(organizationId: string, request: JoinPipelineGroupRequest): Promise<JoinPipelineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.joinPipelineGroupWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async joinPipelineGroupWithOptions(organizationId: string, request: JoinPipelineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<JoinPipelineGroupResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["groupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pipelineIds)) {
+      query["pipelineIds"] = request.pipelineIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "JoinPipelineGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups/join`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<JoinPipelineGroupResponse>(await this.callApi(params, req, runtime), new JoinPipelineGroupResponse({}));
+  }
+
   async listFlowTagGroups(organizationId: string): Promise<ListFlowTagGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12212,6 +13494,103 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListOrganizationMembersResponse>(await this.callApi(params, req, runtime), new ListOrganizationMembersResponse({}));
+  }
+
+  async listPipelineGroupPipelines(organizationId: string, groupId: string, request: ListPipelineGroupPipelinesRequest): Promise<ListPipelineGroupPipelinesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPipelineGroupPipelinesWithOptions(organizationId, groupId, request, headers, runtime);
+  }
+
+  async listPipelineGroupPipelinesWithOptions(organizationId: string, groupId: string, request: ListPipelineGroupPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineGroupPipelinesResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    groupId = OpenApiUtil.getEncodeParam(groupId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createEndTime)) {
+      query["createEndTime"] = request.createEndTime;
+    }
+
+    if (!Util.isUnset(request.createStartTime)) {
+      query["createStartTime"] = request.createStartTime;
+    }
+
+    if (!Util.isUnset(request.executeEndTime)) {
+      query["executeEndTime"] = request.executeEndTime;
+    }
+
+    if (!Util.isUnset(request.executeStartTime)) {
+      query["executeStartTime"] = request.executeStartTime;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pipelineName)) {
+      query["pipelineName"] = request.pipelineName;
+    }
+
+    if (!Util.isUnset(request.resultStatusList)) {
+      query["resultStatusList"] = request.resultStatusList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPipelineGroupPipelines",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}/pipelines`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPipelineGroupPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelineGroupPipelinesResponse({}));
+  }
+
+  async listPipelineGroups(organizationId: string, request: ListPipelineGroupsRequest): Promise<ListPipelineGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPipelineGroupsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listPipelineGroupsWithOptions(organizationId: string, request: ListPipelineGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineGroupsResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPipelineGroups",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPipelineGroupsResponse>(await this.callApi(params, req, runtime), new ListPipelineGroupsResponse({}));
   }
 
   async listPipelineJobHistorys(organizationId: string, pipelineId: string, request: ListPipelineJobHistorysRequest): Promise<ListPipelineJobHistorysResponse> {
@@ -13687,6 +15066,50 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHostGroupResponse>(await this.callApi(params, req, runtime), new UpdateHostGroupResponse({}));
   }
 
+  async updatePipeline(organizationId: string, request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePipelineWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async updatePipelineWithOptions(organizationId: string, request: UpdatePipelineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.basicInfo))) {
+      body["basicInfo"] = request.basicInfo;
+    }
+
+    if (!Util.isUnset(request.pipelineYaml)) {
+      body["pipelineYaml"] = request.pipelineYaml;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.settings))) {
+      body["settings"] = request.settings;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.triggerInfo))) {
+      body["triggerInfo"] = request.triggerInfo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePipeline",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePipelineResponse>(await this.callApi(params, req, runtime), new UpdatePipelineResponse({}));
+  }
+
   async updatePipelineBaseInfo(organizationId: string, pipelineId: string, request: UpdatePipelineBaseInfoRequest): Promise<UpdatePipelineBaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13726,6 +15149,39 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdatePipelineBaseInfoResponse>(await this.callApi(params, req, runtime), new UpdatePipelineBaseInfoResponse({}));
+  }
+
+  async updatePipelineGroup(organizationId: string, groupId: string, request: UpdatePipelineGroupRequest): Promise<UpdatePipelineGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePipelineGroupWithOptions(organizationId, groupId, request, headers, runtime);
+  }
+
+  async updatePipelineGroupWithOptions(organizationId: string, groupId: string, request: UpdatePipelineGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineGroupResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    groupId = OpenApiUtil.getEncodeParam(groupId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePipelineGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelineGroups/${groupId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePipelineGroupResponse>(await this.callApi(params, req, runtime), new UpdatePipelineGroupResponse({}));
   }
 
   async updateProjectMember(organizationId: string, projectId: string, request: UpdateProjectMemberRequest): Promise<UpdateProjectMemberResponse> {
