@@ -1,33 +1,296 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPCUtil from '@alicloud/rpc-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class FtDynamicAddressHttpVpcRequest extends $tea.Model {
-  stringValue?: { [key: string]: any };
-  defaultValue?: { [key: string]: any };
-  otherParam?: { [key: string]: any };
-  booleanParam?: boolean;
-  p1?: string;
+export class BatchAuditTest01Request extends $tea.Model {
+  batchAuditTest01?: string;
+  demo01?: string;
+  name?: string;
+  test010101?: boolean;
   static names(): { [key: string]: string } {
     return {
-      stringValue: 'StringValue',
-      defaultValue: 'DefaultValue',
-      otherParam: 'OtherParam',
-      booleanParam: 'BooleanParam',
-      p1: 'P1',
+      batchAuditTest01: 'BatchAuditTest01',
+      demo01: 'Demo01',
+      name: 'Name',
+      test010101: 'Test010101',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stringValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      batchAuditTest01: 'string',
+      demo01: 'string',
+      name: 'string',
+      test010101: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAuditTest01ResponseBody extends $tea.Model {
+  demo01?: BatchAuditTest01ResponseBodyDemo01;
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      demo01: 'Demo01',
+      name: 'Name',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demo01: BatchAuditTest01ResponseBodyDemo01,
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAuditTest01Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchAuditTest01ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchAuditTest01ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FTApiAliasApiRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FTApiAliasApiResponseBody extends $tea.Model {
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FTApiAliasApiResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FTApiAliasApiResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FTApiAliasApiResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressDubboRequest extends $tea.Model {
+  intValue?: number;
+  stringValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intValue: 'IntValue',
+      stringValue: 'StringValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intValue: 'number',
+      stringValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressDubboResponseBody extends $tea.Model {
+  intValue?: number;
+  requestId?: string;
+  stringValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intValue: 'IntValue',
+      requestId: 'RequestId',
+      stringValue: 'StringValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intValue: 'number',
+      requestId: 'string',
+      stringValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressDubboResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtDynamicAddressDubboResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtDynamicAddressDubboResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressHsfResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressHsfResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtDynamicAddressHsfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtDynamicAddressHsfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressHttpVpcRequest extends $tea.Model {
+  booleanParam?: boolean;
+  defaultValue?: { [key: string]: any };
+  otherParam?: { [key: string]: any };
+  p1?: string;
+  stringValue?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      booleanParam: 'BooleanParam',
+      defaultValue: 'DefaultValue',
+      otherParam: 'OtherParam',
+      p1: 'P1',
+      stringValue: 'StringValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      booleanParam: 'boolean',
       defaultValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       otherParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      booleanParam: 'boolean',
       p1: 'string',
+      stringValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -37,28 +300,28 @@ export class FtDynamicAddressHttpVpcRequest extends $tea.Model {
 }
 
 export class FtDynamicAddressHttpVpcShrinkRequest extends $tea.Model {
-  stringValueShrink?: string;
+  booleanParam?: boolean;
   defaultValueShrink?: string;
   otherParamShrink?: string;
-  booleanParam?: boolean;
   p1?: string;
+  stringValueShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      stringValueShrink: 'StringValue',
+      booleanParam: 'BooleanParam',
       defaultValueShrink: 'DefaultValue',
       otherParamShrink: 'OtherParam',
-      booleanParam: 'BooleanParam',
       p1: 'P1',
+      stringValueShrink: 'StringValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stringValueShrink: 'string',
+      booleanParam: 'boolean',
       defaultValueShrink: 'string',
       otherParamShrink: 'string',
-      booleanParam: 'boolean',
       p1: 'string',
+      stringValueShrink: 'string',
     };
   }
 
@@ -67,9 +330,9 @@ export class FtDynamicAddressHttpVpcShrinkRequest extends $tea.Model {
   }
 }
 
-export class FtDynamicAddressHttpVpcResponse extends $tea.Model {
-  params: string;
-  serviceRpcSign: string;
+export class FtDynamicAddressHttpVpcResponseBody extends $tea.Model {
+  params?: string;
+  serviceRpcSign?: string;
   static names(): { [key: string]: string } {
     return {
       params: 'Params',
@@ -81,6 +344,367 @@ export class FtDynamicAddressHttpVpcResponse extends $tea.Model {
     return {
       params: 'string',
       serviceRpcSign: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressHttpVpcResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtDynamicAddressHttpVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtDynamicAddressHttpVpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtEagleEyeRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtEagleEyeResponseBody extends $tea.Model {
+  name?: string;
+  requestId?: string;
+  eagleEyeTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      requestId: 'RequestId',
+      eagleEyeTraceId: 'eagleEyeTraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      requestId: 'string',
+      eagleEyeTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtEagleEyeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtEagleEyeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtEagleEyeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtFlowSpecialRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtFlowSpecialResponseBody extends $tea.Model {
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtFlowSpecialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtFlowSpecialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtFlowSpecialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtGatedLaunchPolicy4Request extends $tea.Model {
+  isGatedLaunch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isGatedLaunch: 'IsGatedLaunch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isGatedLaunch: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtGatedLaunchPolicy4ResponseBody extends $tea.Model {
+  isGatedLaunch?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isGatedLaunch: 'IsGatedLaunch',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isGatedLaunch: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtGatedLaunchPolicy4Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtGatedLaunchPolicy4ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtGatedLaunchPolicy4ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtIpFlowControlRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtIpFlowControlResponseBody extends $tea.Model {
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtIpFlowControlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtIpFlowControlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtIpFlowControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtParamListRequest extends $tea.Model {
+  disk?: FtParamListRequestDisk[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'Disk',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: { 'type': 'array', 'itemType': FtParamListRequestDisk },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtParamListResponseBody extends $tea.Model {
+  name?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtParamListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FtParamListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FtParamListResponseBody,
     };
   }
 
@@ -127,23 +751,48 @@ export class TestFlowStrategy01ShrinkRequest extends $tea.Model {
   }
 }
 
-export class TestFlowStrategy01Response extends $tea.Model {
-  requestId: string;
-  list: string[];
-  names: string[];
+export class TestFlowStrategy01ResponseBody extends $tea.Model {
+  list?: string[];
+  names?: string[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       list: 'List',
       names: 'Names',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       list: { 'type': 'array', 'itemType': 'string' },
       names: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestFlowStrategy01Response extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TestFlowStrategy01ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TestFlowStrategy01ResponseBody,
     };
   }
 
@@ -153,25 +802,25 @@ export class TestFlowStrategy01Response extends $tea.Model {
 }
 
 export class TestHttpApiRequest extends $tea.Model {
-  stringValue?: { [key: string]: any };
+  booleanParam?: boolean;
   defaultValue?: { [key: string]: any };
   otherParam?: { [key: string]: any };
-  booleanParam?: boolean;
+  stringValue?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      stringValue: 'StringValue',
+      booleanParam: 'BooleanParam',
       defaultValue: 'DefaultValue',
       otherParam: 'OtherParam',
-      booleanParam: 'BooleanParam',
+      stringValue: 'StringValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stringValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      booleanParam: 'boolean',
       defaultValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       otherParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      booleanParam: 'boolean',
+      stringValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -181,25 +830,25 @@ export class TestHttpApiRequest extends $tea.Model {
 }
 
 export class TestHttpApiShrinkRequest extends $tea.Model {
-  stringValueShrink?: string;
+  booleanParam?: boolean;
   defaultValueShrink?: string;
   otherParamShrink?: string;
-  booleanParam?: boolean;
+  stringValueShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      stringValueShrink: 'StringValue',
+      booleanParam: 'BooleanParam',
       defaultValueShrink: 'DefaultValue',
       otherParamShrink: 'OtherParam',
-      booleanParam: 'BooleanParam',
+      stringValueShrink: 'StringValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stringValueShrink: 'string',
+      booleanParam: 'boolean',
       defaultValueShrink: 'string',
       otherParamShrink: 'string',
-      booleanParam: 'boolean',
+      stringValueShrink: 'string',
     };
   }
 
@@ -208,9 +857,9 @@ export class TestHttpApiShrinkRequest extends $tea.Model {
   }
 }
 
-export class TestHttpApiResponse extends $tea.Model {
-  params: string;
-  serviceRpcSign: string;
+export class TestHttpApiResponseBody extends $tea.Model {
+  params?: string;
+  serviceRpcSign?: string;
   static names(): { [key: string]: string } {
     return {
       params: 'Params',
@@ -230,26 +879,23 @@ export class TestHttpApiResponse extends $tea.Model {
   }
 }
 
-export class BatchAuditTest01Request extends $tea.Model {
-  name?: string;
-  batchAuditTest01?: string;
-  demo01?: string;
-  test010101?: boolean;
+export class TestHttpApiResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TestHttpApiResponseBody;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      batchAuditTest01: 'BatchAuditTest01',
-      demo01: 'Demo01',
-      test010101: 'Test010101',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      batchAuditTest01: 'string',
-      demo01: 'string',
-      test010101: 'boolean',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TestHttpApiResponseBody,
     };
   }
 
@@ -258,367 +904,8 @@ export class BatchAuditTest01Request extends $tea.Model {
   }
 }
 
-export class BatchAuditTest01Response extends $tea.Model {
-  requestId: string;
-  name: string;
-  demo01: BatchAuditTest01ResponseDemo01;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      name: 'Name',
-      demo01: 'Demo01',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      name: 'string',
-      demo01: BatchAuditTest01ResponseDemo01,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtIpFlowControlRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtIpFlowControlResponse extends $tea.Model {
-  requestId: string;
-  name: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtDynamicAddressDubboRequest extends $tea.Model {
-  intValue?: number;
-  stringValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      intValue: 'IntValue',
-      stringValue: 'StringValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      intValue: 'number',
-      stringValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtDynamicAddressDubboResponse extends $tea.Model {
-  requestId: string;
-  stringValue: string;
-  intValue: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      stringValue: 'StringValue',
-      intValue: 'IntValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      stringValue: 'string',
-      intValue: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtDynamicAddressHsfRequest extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtDynamicAddressHsfResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtFlowSpecialRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtFlowSpecialResponse extends $tea.Model {
-  requestId: string;
-  name: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FTApiAliasApiRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FTApiAliasApiResponse extends $tea.Model {
-  requestId: string;
-  name: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtEagleEyeRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtEagleEyeResponse extends $tea.Model {
-  requestId: string;
-  name: string;
-  eagleEyeTraceId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      name: 'Name',
-      eagleEyeTraceId: 'eagleEyeTraceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      name: 'string',
-      eagleEyeTraceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtParamListRequest extends $tea.Model {
-  name?: string;
-  disk?: FtParamListRequestDisk[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      disk: 'Disk',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      disk: { 'type': 'array', 'itemType': FtParamListRequestDisk },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtParamListResponse extends $tea.Model {
-  requestId: string;
-  name: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtGatedLaunchPolicy4Request extends $tea.Model {
-  isGatedLaunch?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isGatedLaunch: 'IsGatedLaunch',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isGatedLaunch: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FtGatedLaunchPolicy4Response extends $tea.Model {
-  requestId: string;
-  isGatedLaunch: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      isGatedLaunch: 'IsGatedLaunch',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      isGatedLaunch: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAuditTest01ResponseDemo01Demo011Demo011 extends $tea.Model {
-  demo0111: string;
+export class BatchAuditTest01ResponseBodyDemo01Demo011Demo011 extends $tea.Model {
+  demo0111?: string;
   static names(): { [key: string]: string } {
     return {
       demo0111: 'Demo0111',
@@ -636,8 +923,8 @@ export class BatchAuditTest01ResponseDemo01Demo011Demo011 extends $tea.Model {
   }
 }
 
-export class BatchAuditTest01ResponseDemo01Demo011 extends $tea.Model {
-  demo011: BatchAuditTest01ResponseDemo01Demo011Demo011[];
+export class BatchAuditTest01ResponseBodyDemo01Demo011 extends $tea.Model {
+  demo011?: BatchAuditTest01ResponseBodyDemo01Demo011Demo011[];
   static names(): { [key: string]: string } {
     return {
       demo011: 'Demo011',
@@ -646,7 +933,7 @@ export class BatchAuditTest01ResponseDemo01Demo011 extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      demo011: { 'type': 'array', 'itemType': BatchAuditTest01ResponseDemo01Demo011Demo011 },
+      demo011: { 'type': 'array', 'itemType': BatchAuditTest01ResponseBodyDemo01Demo011Demo011 },
     };
   }
 
@@ -655,8 +942,8 @@ export class BatchAuditTest01ResponseDemo01Demo011 extends $tea.Model {
   }
 }
 
-export class BatchAuditTest01ResponseDemo01 extends $tea.Model {
-  demo011: BatchAuditTest01ResponseDemo01Demo011;
+export class BatchAuditTest01ResponseBodyDemo01 extends $tea.Model {
+  demo011?: BatchAuditTest01ResponseBodyDemo01Demo011;
   static names(): { [key: string]: string } {
     return {
       demo011: 'Demo011',
@@ -665,7 +952,7 @@ export class BatchAuditTest01ResponseDemo01 extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      demo011: BatchAuditTest01ResponseDemo01Demo011,
+      demo011: BatchAuditTest01ResponseBodyDemo01Demo011,
     };
   }
 
@@ -697,10 +984,11 @@ export class FtParamListRequestDisk extends $tea.Model {
 }
 
 
-export default class Client extends RPC {
+export default class Client extends OpenApi {
 
-  constructor(config: $RPC.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "ft.aliyuncs.com",
@@ -758,160 +1046,6 @@ export default class Client extends RPC {
   }
 
 
-  async ftDynamicAddressHttpVpcWithOptions(tmp: FtDynamicAddressHttpVpcRequest, runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressHttpVpcResponse> {
-    Util.validateModel(tmp);
-    let request = new FtDynamicAddressHttpVpcShrinkRequest({ });
-    RPCUtil.convert(tmp, request);
-    if (!Util.isUnset(tmp.stringValue)) {
-      request.stringValueShrink = Util.toJSONString(tmp.stringValue);
-    }
-
-    if (!Util.isUnset(tmp.defaultValue)) {
-      request.defaultValueShrink = Util.toJSONString(tmp.defaultValue);
-    }
-
-    if (!Util.isUnset(tmp.otherParam)) {
-      request.otherParamShrink = Util.toJSONString(tmp.otherParam);
-    }
-
-    return $tea.cast<FtDynamicAddressHttpVpcResponse>(await this.doRequest("FtDynamicAddressHttpVpc", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtDynamicAddressHttpVpcResponse({}));
-  }
-
-  async ftDynamicAddressHttpVpc(request: FtDynamicAddressHttpVpcRequest): Promise<FtDynamicAddressHttpVpcResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftDynamicAddressHttpVpcWithOptions(request, runtime);
-  }
-
-  async testFlowStrategy01WithOptions(tmp: TestFlowStrategy01Request, runtime: $Util.RuntimeOptions): Promise<TestFlowStrategy01Response> {
-    Util.validateModel(tmp);
-    let request = new TestFlowStrategy01ShrinkRequest({ });
-    RPCUtil.convert(tmp, request);
-    if (!Util.isUnset(tmp.names)) {
-      request.namesShrink = Util.toJSONString(tmp.names);
-    }
-
-    return $tea.cast<TestFlowStrategy01Response>(await this.doRequest("TestFlowStrategy01", "HTTPS", "PUT", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new TestFlowStrategy01Response({}));
-  }
-
-  async testFlowStrategy01(request: TestFlowStrategy01Request): Promise<TestFlowStrategy01Response> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.testFlowStrategy01WithOptions(request, runtime);
-  }
-
-  async testHttpApiWithOptions(tmp: TestHttpApiRequest, runtime: $Util.RuntimeOptions): Promise<TestHttpApiResponse> {
-    Util.validateModel(tmp);
-    let request = new TestHttpApiShrinkRequest({ });
-    RPCUtil.convert(tmp, request);
-    if (!Util.isUnset(tmp.stringValue)) {
-      request.stringValueShrink = Util.toJSONString(tmp.stringValue);
-    }
-
-    if (!Util.isUnset(tmp.defaultValue)) {
-      request.defaultValueShrink = Util.toJSONString(tmp.defaultValue);
-    }
-
-    if (!Util.isUnset(tmp.otherParam)) {
-      request.otherParamShrink = Util.toJSONString(tmp.otherParam);
-    }
-
-    return $tea.cast<TestHttpApiResponse>(await this.doRequest("TestHttpApi", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new TestHttpApiResponse({}));
-  }
-
-  async testHttpApi(request: TestHttpApiRequest): Promise<TestHttpApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.testHttpApiWithOptions(request, runtime);
-  }
-
-  async batchAuditTest01WithOptions(request: BatchAuditTest01Request, runtime: $Util.RuntimeOptions): Promise<BatchAuditTest01Response> {
-    Util.validateModel(request);
-    return $tea.cast<BatchAuditTest01Response>(await this.doRequest("BatchAuditTest01", "HTTPS", "POST", "2018-07-13", "Anonymous", null, $tea.toMap(request), runtime), new BatchAuditTest01Response({}));
-  }
-
-  async batchAuditTest01(request: BatchAuditTest01Request): Promise<BatchAuditTest01Response> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchAuditTest01WithOptions(request, runtime);
-  }
-
-  async ftIpFlowControlWithOptions(request: FtIpFlowControlRequest, runtime: $Util.RuntimeOptions): Promise<FtIpFlowControlResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FtIpFlowControlResponse>(await this.doRequest("FtIpFlowControl", "HTTPS", "POST", "2018-07-13", "Anonymous", null, $tea.toMap(request), runtime), new FtIpFlowControlResponse({}));
-  }
-
-  async ftIpFlowControl(request: FtIpFlowControlRequest): Promise<FtIpFlowControlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftIpFlowControlWithOptions(request, runtime);
-  }
-
-  async ftDynamicAddressDubboWithOptions(request: FtDynamicAddressDubboRequest, runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressDubboResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FtDynamicAddressDubboResponse>(await this.doRequest("FtDynamicAddressDubbo", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtDynamicAddressDubboResponse({}));
-  }
-
-  async ftDynamicAddressDubbo(request: FtDynamicAddressDubboRequest): Promise<FtDynamicAddressDubboResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftDynamicAddressDubboWithOptions(request, runtime);
-  }
-
-  async ftDynamicAddressHsfWithOptions(request: FtDynamicAddressHsfRequest, runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressHsfResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FtDynamicAddressHsfResponse>(await this.doRequest("FtDynamicAddressHsf", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtDynamicAddressHsfResponse({}));
-  }
-
-  async ftDynamicAddressHsf(request: FtDynamicAddressHsfRequest): Promise<FtDynamicAddressHsfResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftDynamicAddressHsfWithOptions(request, runtime);
-  }
-
-  async ftFlowSpecialWithOptions(request: FtFlowSpecialRequest, runtime: $Util.RuntimeOptions): Promise<FtFlowSpecialResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FtFlowSpecialResponse>(await this.doRequest("FtFlowSpecial", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtFlowSpecialResponse({}));
-  }
-
-  async ftFlowSpecial(request: FtFlowSpecialRequest): Promise<FtFlowSpecialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftFlowSpecialWithOptions(request, runtime);
-  }
-
-  async FTApiAliasApiWithOptions(request: FTApiAliasApiRequest, runtime: $Util.RuntimeOptions): Promise<FTApiAliasApiResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FTApiAliasApiResponse>(await this.doRequest("FTApiAliasApi", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FTApiAliasApiResponse({}));
-  }
-
-  async FTApiAliasApi(request: FTApiAliasApiRequest): Promise<FTApiAliasApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.FTApiAliasApiWithOptions(request, runtime);
-  }
-
-  async ftEagleEyeWithOptions(request: FtEagleEyeRequest, runtime: $Util.RuntimeOptions): Promise<FtEagleEyeResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FtEagleEyeResponse>(await this.doRequest("FtEagleEye", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtEagleEyeResponse({}));
-  }
-
-  async ftEagleEye(request: FtEagleEyeRequest): Promise<FtEagleEyeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftEagleEyeWithOptions(request, runtime);
-  }
-
-  async ftParamListWithOptions(request: FtParamListRequest, runtime: $Util.RuntimeOptions): Promise<FtParamListResponse> {
-    Util.validateModel(request);
-    return $tea.cast<FtParamListResponse>(await this.doRequest("FtParamList", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtParamListResponse({}));
-  }
-
-  async ftParamList(request: FtParamListRequest): Promise<FtParamListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftParamListWithOptions(request, runtime);
-  }
-
-  async ftGatedLaunchPolicy4WithOptions(request: FtGatedLaunchPolicy4Request, runtime: $Util.RuntimeOptions): Promise<FtGatedLaunchPolicy4Response> {
-    Util.validateModel(request);
-    return $tea.cast<FtGatedLaunchPolicy4Response>(await this.doRequest("FtGatedLaunchPolicy4", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtGatedLaunchPolicy4Response({}));
-  }
-
-  async ftGatedLaunchPolicy4(request: FtGatedLaunchPolicy4Request): Promise<FtGatedLaunchPolicy4Response> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ftGatedLaunchPolicy4WithOptions(request, runtime);
-  }
-
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!Util.empty(endpoint)) {
       return endpoint;
@@ -922,6 +1056,430 @@ export default class Client extends RPC {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async batchAuditTest01WithOptions(request: BatchAuditTest01Request, runtime: $Util.RuntimeOptions): Promise<BatchAuditTest01Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.batchAuditTest01)) {
+      query["BatchAuditTest01"] = request.batchAuditTest01;
+    }
+
+    if (!Util.isUnset(request.demo01)) {
+      query["Demo01"] = request.demo01;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.test010101)) {
+      body["Test010101"] = request.test010101;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchAuditTest01",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchAuditTest01Response>(await this.callApi(params, req, runtime), new BatchAuditTest01Response({}));
+  }
+
+  async batchAuditTest01(request: BatchAuditTest01Request): Promise<BatchAuditTest01Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchAuditTest01WithOptions(request, runtime);
+  }
+
+  async fTApiAliasApiWithOptions(request: FTApiAliasApiRequest, runtime: $Util.RuntimeOptions): Promise<FTApiAliasApiResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FTApiAliasApi",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FTApiAliasApiResponse>(await this.callApi(params, req, runtime), new FTApiAliasApiResponse({}));
+  }
+
+  async fTApiAliasApi(request: FTApiAliasApiRequest): Promise<FTApiAliasApiResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.fTApiAliasApiWithOptions(request, runtime);
+  }
+
+  async ftDynamicAddressDubboWithOptions(request: FtDynamicAddressDubboRequest, runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressDubboResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.intValue)) {
+      query["IntValue"] = request.intValue;
+    }
+
+    if (!Util.isUnset(request.stringValue)) {
+      query["StringValue"] = request.stringValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtDynamicAddressDubbo",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtDynamicAddressDubboResponse>(await this.callApi(params, req, runtime), new FtDynamicAddressDubboResponse({}));
+  }
+
+  async ftDynamicAddressDubbo(request: FtDynamicAddressDubboRequest): Promise<FtDynamicAddressDubboResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftDynamicAddressDubboWithOptions(request, runtime);
+  }
+
+  async ftDynamicAddressHsfWithOptions(runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressHsfResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "FtDynamicAddressHsf",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtDynamicAddressHsfResponse>(await this.callApi(params, req, runtime), new FtDynamicAddressHsfResponse({}));
+  }
+
+  async ftDynamicAddressHsf(): Promise<FtDynamicAddressHsfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftDynamicAddressHsfWithOptions(runtime);
+  }
+
+  async ftDynamicAddressHttpVpcWithOptions(tmpReq: FtDynamicAddressHttpVpcRequest, runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressHttpVpcResponse> {
+    Util.validateModel(tmpReq);
+    let request = new FtDynamicAddressHttpVpcShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.defaultValue)) {
+      request.defaultValueShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultValue, "DefaultValue", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.otherParam)) {
+      request.otherParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.otherParam, "OtherParam", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.stringValue)) {
+      request.stringValueShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stringValue, "StringValue", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.booleanParam)) {
+      query["BooleanParam"] = request.booleanParam;
+    }
+
+    if (!Util.isUnset(request.defaultValueShrink)) {
+      query["DefaultValue"] = request.defaultValueShrink;
+    }
+
+    if (!Util.isUnset(request.otherParamShrink)) {
+      query["OtherParam"] = request.otherParamShrink;
+    }
+
+    if (!Util.isUnset(request.p1)) {
+      query["P1"] = request.p1;
+    }
+
+    if (!Util.isUnset(request.stringValueShrink)) {
+      query["StringValue"] = request.stringValueShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtDynamicAddressHttpVpc",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtDynamicAddressHttpVpcResponse>(await this.callApi(params, req, runtime), new FtDynamicAddressHttpVpcResponse({}));
+  }
+
+  async ftDynamicAddressHttpVpc(request: FtDynamicAddressHttpVpcRequest): Promise<FtDynamicAddressHttpVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftDynamicAddressHttpVpcWithOptions(request, runtime);
+  }
+
+  async ftEagleEyeWithOptions(request: FtEagleEyeRequest, runtime: $Util.RuntimeOptions): Promise<FtEagleEyeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtEagleEye",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtEagleEyeResponse>(await this.callApi(params, req, runtime), new FtEagleEyeResponse({}));
+  }
+
+  async ftEagleEye(request: FtEagleEyeRequest): Promise<FtEagleEyeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftEagleEyeWithOptions(request, runtime);
+  }
+
+  async ftFlowSpecialWithOptions(request: FtFlowSpecialRequest, runtime: $Util.RuntimeOptions): Promise<FtFlowSpecialResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtFlowSpecial",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtFlowSpecialResponse>(await this.callApi(params, req, runtime), new FtFlowSpecialResponse({}));
+  }
+
+  async ftFlowSpecial(request: FtFlowSpecialRequest): Promise<FtFlowSpecialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftFlowSpecialWithOptions(request, runtime);
+  }
+
+  async ftGatedLaunchPolicy4WithOptions(request: FtGatedLaunchPolicy4Request, runtime: $Util.RuntimeOptions): Promise<FtGatedLaunchPolicy4Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.isGatedLaunch)) {
+      query["IsGatedLaunch"] = request.isGatedLaunch;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtGatedLaunchPolicy4",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtGatedLaunchPolicy4Response>(await this.callApi(params, req, runtime), new FtGatedLaunchPolicy4Response({}));
+  }
+
+  async ftGatedLaunchPolicy4(request: FtGatedLaunchPolicy4Request): Promise<FtGatedLaunchPolicy4Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftGatedLaunchPolicy4WithOptions(request, runtime);
+  }
+
+  async ftIpFlowControlWithOptions(request: FtIpFlowControlRequest, runtime: $Util.RuntimeOptions): Promise<FtIpFlowControlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtIpFlowControl",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtIpFlowControlResponse>(await this.callApi(params, req, runtime), new FtIpFlowControlResponse({}));
+  }
+
+  async ftIpFlowControl(request: FtIpFlowControlRequest): Promise<FtIpFlowControlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftIpFlowControlWithOptions(request, runtime);
+  }
+
+  async ftParamListWithOptions(request: FtParamListRequest, runtime: $Util.RuntimeOptions): Promise<FtParamListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.disk)) {
+      query["Disk"] = request.disk;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FtParamList",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FtParamListResponse>(await this.callApi(params, req, runtime), new FtParamListResponse({}));
+  }
+
+  async ftParamList(request: FtParamListRequest): Promise<FtParamListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftParamListWithOptions(request, runtime);
+  }
+
+  async testFlowStrategy01WithOptions(tmpReq: TestFlowStrategy01Request, runtime: $Util.RuntimeOptions): Promise<TestFlowStrategy01Response> {
+    Util.validateModel(tmpReq);
+    let request = new TestFlowStrategy01ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.names)) {
+      request.namesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.names, "Names", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.namesShrink)) {
+      body["Names"] = request.namesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TestFlowStrategy01",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "PUT",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TestFlowStrategy01Response>(await this.callApi(params, req, runtime), new TestFlowStrategy01Response({}));
+  }
+
+  async testFlowStrategy01(request: TestFlowStrategy01Request): Promise<TestFlowStrategy01Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.testFlowStrategy01WithOptions(request, runtime);
+  }
+
+  async testHttpApiWithOptions(tmpReq: TestHttpApiRequest, runtime: $Util.RuntimeOptions): Promise<TestHttpApiResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TestHttpApiShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.defaultValue)) {
+      request.defaultValueShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultValue, "DefaultValue", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.otherParam)) {
+      request.otherParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.otherParam, "OtherParam", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.stringValue)) {
+      request.stringValueShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stringValue, "StringValue", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.booleanParam)) {
+      query["BooleanParam"] = request.booleanParam;
+    }
+
+    if (!Util.isUnset(request.defaultValueShrink)) {
+      query["DefaultValue"] = request.defaultValueShrink;
+    }
+
+    if (!Util.isUnset(request.otherParamShrink)) {
+      query["OtherParam"] = request.otherParamShrink;
+    }
+
+    if (!Util.isUnset(request.stringValueShrink)) {
+      query["StringValue"] = request.stringValueShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TestHttpApi",
+      version: "2018-07-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TestHttpApiResponse>(await this.callApi(params, req, runtime), new TestHttpApiResponse({}));
+  }
+
+  async testHttpApi(request: TestHttpApiRequest): Promise<TestHttpApiResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.testHttpApiWithOptions(request, runtime);
   }
 
 }
