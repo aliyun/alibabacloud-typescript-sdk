@@ -8,6 +8,81 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddInstallCodeRequest extends $tea.Model {
+  expiredDate?: number;
+  groupId?: number;
+  onlyImage?: boolean;
+  os?: string;
+  vendorName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredDate: 'ExpiredDate',
+      groupId: 'GroupId',
+      onlyImage: 'OnlyImage',
+      os: 'Os',
+      vendorName: 'VendorName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredDate: 'number',
+      groupId: 'number',
+      onlyImage: 'boolean',
+      os: 'string',
+      vendorName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddInstallCodeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddInstallCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddInstallCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddInstallCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddVpcHoneyPotRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -3334,6 +3409,75 @@ export class DescribeCloudProductFieldStatisticsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCloudProductFieldStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommonOverallConfigRequest extends $tea.Model {
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommonOverallConfigResponseBody extends $tea.Model {
+  overallConfig?: DescribeCommonOverallConfigResponseBodyOverallConfig;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      overallConfig: 'OverallConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      overallConfig: DescribeCommonOverallConfigResponseBodyOverallConfig,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommonOverallConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCommonOverallConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCommonOverallConfigResponseBody,
     };
   }
 
@@ -9664,6 +9808,75 @@ export class DescribeSuspEventsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSuspiciousOverallConfigRequest extends $tea.Model {
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSuspiciousOverallConfigResponseBody extends $tea.Model {
+  overallConfig?: DescribeSuspiciousOverallConfigResponseBodyOverallConfig;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      overallConfig: 'OverallConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      overallConfig: DescribeSuspiciousOverallConfigResponseBodyOverallConfig,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSuspiciousOverallConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSuspiciousOverallConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSuspiciousOverallConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSuspiciousUUIDConfigRequest extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
@@ -10024,6 +10237,53 @@ export class DescribeUuidsByVulNamesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeUuidsByVulNamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVendorListResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vendorNameList: 'VendorNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVendorListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVendorListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVendorListResponseBody,
     };
   }
 
@@ -14725,6 +14985,150 @@ export class OperateAgentClientInstallResponse extends $tea.Model {
   }
 }
 
+export class OperateCommonOverallConfigRequest extends $tea.Model {
+  config?: string;
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateCommonOverallConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateCommonOverallConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OperateCommonOverallConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperateCommonOverallConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateSuspiciousOverallConfigRequest extends $tea.Model {
+  config?: string;
+  lang?: string;
+  noTargetAsOn?: boolean;
+  sourceIp?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      lang: 'Lang',
+      noTargetAsOn: 'NoTargetAsOn',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      lang: 'string',
+      noTargetAsOn: 'boolean',
+      sourceIp: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateSuspiciousOverallConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateSuspiciousOverallConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OperateSuspiciousOverallConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperateSuspiciousOverallConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperateSuspiciousTargetConfigRequest extends $tea.Model {
   lang?: string;
   sourceIp?: string;
@@ -17608,6 +18012,28 @@ export class DescribeCloudProductFieldStatisticsResponseBodyGroupedFields extend
   }
 }
 
+export class DescribeCommonOverallConfigResponseBodyOverallConfig extends $tea.Model {
+  config?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerStatisticsResponseBodyData extends $tea.Model {
   remindAlarmCount?: number;
   seriousAlarmCount?: number;
@@ -18196,6 +18622,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
   newInstanceCount?: number;
   notRunningStatusCount?: number;
   offlineInstanceCount?: number;
+  outMachineInstanceCount?: number;
   pauseInstanceCount?: number;
   regionCount?: number;
   riskInstanceCount?: number;
@@ -18218,6 +18645,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       newInstanceCount: 'NewInstanceCount',
       notRunningStatusCount: 'NotRunningStatusCount',
       offlineInstanceCount: 'OfflineInstanceCount',
+      outMachineInstanceCount: 'OutMachineInstanceCount',
       pauseInstanceCount: 'PauseInstanceCount',
       regionCount: 'RegionCount',
       riskInstanceCount: 'RiskInstanceCount',
@@ -18243,6 +18671,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       newInstanceCount: 'number',
       notRunningStatusCount: 'number',
       offlineInstanceCount: 'number',
+      outMachineInstanceCount: 'number',
       pauseInstanceCount: 'number',
       regionCount: 'number',
       riskInstanceCount: 'number',
@@ -22067,6 +22496,28 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   }
 }
 
+export class DescribeSuspiciousOverallConfigResponseBodyOverallConfig extends $tea.Model {
+  config?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserBackupMachinesResponseBodyMachines extends $tea.Model {
   id?: number;
   policyName?: string;
@@ -23653,6 +24104,51 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addInstallCodeWithOptions(request: AddInstallCodeRequest, runtime: $Util.RuntimeOptions): Promise<AddInstallCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.expiredDate)) {
+      query["ExpiredDate"] = request.expiredDate;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.onlyImage)) {
+      query["OnlyImage"] = request.onlyImage;
+    }
+
+    if (!Util.isUnset(request.os)) {
+      query["Os"] = request.os;
+    }
+
+    if (!Util.isUnset(request.vendorName)) {
+      query["VendorName"] = request.vendorName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddInstallCode",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddInstallCodeResponse>(await this.callApi(params, req, runtime), new AddInstallCodeResponse({}));
+  }
+
+  async addInstallCode(request: AddInstallCodeRequest): Promise<AddInstallCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addInstallCodeWithOptions(request, runtime);
   }
 
   async addVpcHoneyPotWithOptions(request: AddVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<AddVpcHoneyPotResponse> {
@@ -25387,6 +25883,39 @@ export default class Client extends OpenApi {
   async describeCloudProductFieldStatistics(): Promise<DescribeCloudProductFieldStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudProductFieldStatisticsWithOptions(runtime);
+  }
+
+  async describeCommonOverallConfigWithOptions(request: DescribeCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonOverallConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommonOverallConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommonOverallConfigResponse>(await this.callApi(params, req, runtime), new DescribeCommonOverallConfigResponse({}));
+  }
+
+  async describeCommonOverallConfig(request: DescribeCommonOverallConfigRequest): Promise<DescribeCommonOverallConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommonOverallConfigWithOptions(request, runtime);
   }
 
   async describeConcernNecessityWithOptions(request: DescribeConcernNecessityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConcernNecessityResponse> {
@@ -28845,6 +29374,39 @@ export default class Client extends OpenApi {
     return await this.describeSuspEventsWithOptions(request, runtime);
   }
 
+  async describeSuspiciousOverallConfigWithOptions(request: DescribeSuspiciousOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspiciousOverallConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSuspiciousOverallConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSuspiciousOverallConfigResponse>(await this.callApi(params, req, runtime), new DescribeSuspiciousOverallConfigResponse({}));
+  }
+
+  async describeSuspiciousOverallConfig(request: DescribeSuspiciousOverallConfigRequest): Promise<DescribeSuspiciousOverallConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSuspiciousOverallConfigWithOptions(request, runtime);
+  }
+
   async describeSuspiciousUUIDConfigWithOptions(request: DescribeSuspiciousUUIDConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspiciousUUIDConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29052,6 +29614,27 @@ export default class Client extends OpenApi {
   async describeUuidsByVulNames(request: DescribeUuidsByVulNamesRequest): Promise<DescribeUuidsByVulNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUuidsByVulNamesWithOptions(request, runtime);
+  }
+
+  async describeVendorListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVendorListResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeVendorList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVendorListResponse>(await this.callApi(params, req, runtime), new DescribeVendorListResponse({}));
+  }
+
+  async describeVendorList(): Promise<DescribeVendorListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVendorListWithOptions(runtime);
   }
 
   async describeVersionConfigWithOptions(request: DescribeVersionConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVersionConfigResponse> {
@@ -31649,6 +32232,88 @@ export default class Client extends OpenApi {
   async operateAgentClientInstall(request: OperateAgentClientInstallRequest): Promise<OperateAgentClientInstallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateAgentClientInstallWithOptions(request, runtime);
+  }
+
+  async operateCommonOverallConfigWithOptions(request: OperateCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateCommonOverallConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperateCommonOverallConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateCommonOverallConfigResponse>(await this.callApi(params, req, runtime), new OperateCommonOverallConfigResponse({}));
+  }
+
+  async operateCommonOverallConfig(request: OperateCommonOverallConfigRequest): Promise<OperateCommonOverallConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateCommonOverallConfigWithOptions(request, runtime);
+  }
+
+  async operateSuspiciousOverallConfigWithOptions(request: OperateSuspiciousOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateSuspiciousOverallConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.noTargetAsOn)) {
+      query["NoTargetAsOn"] = request.noTargetAsOn;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperateSuspiciousOverallConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateSuspiciousOverallConfigResponse>(await this.callApi(params, req, runtime), new OperateSuspiciousOverallConfigResponse({}));
+  }
+
+  async operateSuspiciousOverallConfig(request: OperateSuspiciousOverallConfigRequest): Promise<OperateSuspiciousOverallConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateSuspiciousOverallConfigWithOptions(request, runtime);
   }
 
   async operateSuspiciousTargetConfigWithOptions(request: OperateSuspiciousTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateSuspiciousTargetConfigResponse> {
