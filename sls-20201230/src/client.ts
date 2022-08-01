@@ -157,8 +157,8 @@ export class SavedSearch extends $tea.Model {
 
 export class Chart extends $tea.Model {
   action?: { [key: string]: any };
-  display?: ChartDisplay;
-  search?: ChartSearch;
+  display?: { [key: string]: any };
+  search?: { [key: string]: any };
   title?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -174,8 +174,8 @@ export class Chart extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       action: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      display: ChartDisplay,
-      search: ChartSearch,
+      display: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      search: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       title: 'string',
       type: 'string',
     };
@@ -1033,6 +1033,147 @@ export class CreateMachineGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateOdpsShipperRequest extends $tea.Model {
+  shipperName?: string;
+  targetConfiguration?: CreateOdpsShipperRequestTargetConfiguration;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shipperName: 'shipperName',
+      targetConfiguration: 'targetConfiguration',
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shipperName: 'string',
+      targetConfiguration: CreateOdpsShipperRequestTargetConfiguration,
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOdpsShipperResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssExternalStoreRequest extends $tea.Model {
+  externalStoreName?: string;
+  parameter?: CreateOssExternalStoreRequestParameter;
+  storeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalStoreName: 'externalStoreName',
+      parameter: 'parameter',
+      storeType: 'storeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalStoreName: 'string',
+      parameter: CreateOssExternalStoreRequestParameter,
+      storeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssExternalStoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssShipperRequest extends $tea.Model {
+  shipperName?: string;
+  targetConfiguration?: CreateOssShipperRequestTargetConfiguration;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shipperName: 'shipperName',
+      targetConfiguration: 'targetConfiguration',
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shipperName: 'string',
+      targetConfiguration: CreateOssShipperRequestTargetConfiguration,
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssShipperResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequest extends $tea.Model {
   description?: string;
   projectName?: string;
@@ -1056,6 +1197,53 @@ export class CreateProjectRequest extends $tea.Model {
 }
 
 export class CreateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsExternalStoreRequest extends $tea.Model {
+  externalStoreName?: string;
+  parameter?: CreateRdsExternalStoreRequestParameter;
+  storeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalStoreName: 'externalStoreName',
+      parameter: 'parameter',
+      storeType: 'storeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalStoreName: 'string',
+      parameter: CreateRdsExternalStoreRequestParameter,
+      storeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsExternalStoreResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1221,6 +1409,28 @@ export class DeleteEtlMetaResponse extends $tea.Model {
   }
 }
 
+export class DeleteExternalStoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndexResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -1353,6 +1563,28 @@ export class DeleteSavedSearchResponse extends $tea.Model {
   }
 }
 
+export class DeleteShipperResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppliedConfigsResponseBody extends $tea.Model {
   configs?: string[];
   count?: number;
@@ -1392,6 +1624,53 @@ export class GetAppliedConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAppliedConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedMachineGroupsResponseBody extends $tea.Model {
+  count?: number;
+  machinegroups?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      machinegroups: 'machinegroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      machinegroups: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppliedMachineGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAppliedMachineGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppliedMachineGroupsResponseBody,
     };
   }
 
@@ -1727,6 +2006,31 @@ export class GetEtlMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetEtlMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExternalStoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ExternalStore;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExternalStore,
     };
   }
 
@@ -2102,6 +2406,146 @@ export class GetSavedSearchResponse extends $tea.Model {
   }
 }
 
+export class GetShipperConfigResponseBody extends $tea.Model {
+  createTime?: number;
+  lastModifyTime?: number;
+  shipperName?: string;
+  targetConfiguration?: { [key: string]: any };
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      lastModifyTime: 'lastModifyTime',
+      shipperName: 'shipperName',
+      targetConfiguration: 'targetConfiguration',
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      lastModifyTime: 'number',
+      shipperName: 'string',
+      targetConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShipperConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetShipperConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetShipperConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShipperStatusRequest extends $tea.Model {
+  from?: number;
+  offset?: number;
+  size?: number;
+  status?: string;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'from',
+      offset: 'offset',
+      size: 'size',
+      status: 'status',
+      to: 'to',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      offset: 'number',
+      size: 'number',
+      status: 'string',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShipperStatusResponseBody extends $tea.Model {
+  count?: number;
+  statistics?: GetShipperStatusResponseBodyStatistics;
+  tasks?: GetShipperStatusResponseBodyTasks;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      statistics: 'statistics',
+      tasks: 'tasks',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      statistics: GetShipperStatusResponseBodyStatistics,
+      tasks: GetShipperStatusResponseBodyTasks,
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShipperStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetShipperStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetShipperStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -2344,6 +2788,81 @@ export class ListEtlMetaNameResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEtlMetaNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExternalStoreRequest extends $tea.Model {
+  externalStoreName?: string;
+  offset?: number;
+  sizs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      externalStoreName: 'externalStoreName',
+      offset: 'offset',
+      sizs: 'sizs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalStoreName: 'string',
+      offset: 'number',
+      sizs: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExternalStoreResponseBody extends $tea.Model {
+  count?: number;
+  externalstores?: ExternalStore[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      externalstores: 'externalstores',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      externalstores: { 'type': 'array', 'itemType': ExternalStore },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExternalStoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListExternalStoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListExternalStoreResponseBody,
     };
   }
 
@@ -2738,6 +3257,56 @@ export class ListShardsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': Shard },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShipperResponseBody extends $tea.Model {
+  count?: number;
+  shipper?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      shipper: 'shipper',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      shipper: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShipperResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListShipperResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListShipperResponseBody,
     };
   }
 
@@ -3430,6 +3999,147 @@ export class UpdateMachineGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdateOdpsShipperRequest extends $tea.Model {
+  shipperName?: string;
+  targetConfiguration?: UpdateOdpsShipperRequestTargetConfiguration;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shipperName: 'shipperName',
+      targetConfiguration: 'targetConfiguration',
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shipperName: 'string',
+      targetConfiguration: UpdateOdpsShipperRequestTargetConfiguration,
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOdpsShipperResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssExternalStoreRequest extends $tea.Model {
+  externalStoreName?: string;
+  parameter?: UpdateOssExternalStoreRequestParameter;
+  storeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalStoreName: 'externalStoreName',
+      parameter: 'parameter',
+      storeType: 'storeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalStoreName: 'string',
+      parameter: UpdateOssExternalStoreRequestParameter,
+      storeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssExternalStoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssShipperRequest extends $tea.Model {
+  shipperName?: string;
+  targetConfiguration?: UpdateOssShipperRequestTargetConfiguration;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shipperName: 'shipperName',
+      targetConfiguration: 'targetConfiguration',
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shipperName: 'string',
+      targetConfiguration: UpdateOssShipperRequestTargetConfiguration,
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssShipperResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectRequest extends $tea.Model {
   description?: string;
   static names(): { [key: string]: string } {
@@ -3450,6 +4160,53 @@ export class UpdateProjectRequest extends $tea.Model {
 }
 
 export class UpdateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRdsExternalStoreRequest extends $tea.Model {
+  externalStoreName?: string;
+  parameter?: UpdateRdsExternalStoreRequestParameter;
+  storeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalStoreName: 'externalStoreName',
+      parameter: 'parameter',
+      storeType: 'storeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalStoreName: 'string',
+      parameter: UpdateRdsExternalStoreRequestParameter,
+      storeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRdsExternalStoreResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -3575,71 +4332,6 @@ export class LogtailConfigOutputDetail extends $tea.Model {
       endpoint: 'string',
       logstoreName: 'string',
       region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChartDisplay extends $tea.Model {
-  height?: number;
-  width?: number;
-  xAxis?: string[];
-  xPos?: number;
-  yAxis?: string[];
-  yPos?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'height',
-      width: 'width',
-      xAxis: 'xAxis',
-      xPos: 'xPos',
-      yAxis: 'yAxis',
-      yPos: 'yPos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-      xAxis: { 'type': 'array', 'itemType': 'string' },
-      xPos: 'number',
-      yAxis: { 'type': 'array', 'itemType': 'string' },
-      yPos: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChartSearch extends $tea.Model {
-  end?: string;
-  logstore?: string;
-  query?: string;
-  start?: string;
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      end: 'end',
-      logstore: 'logstore',
-      query: 'query',
-      start: 'start',
-      topic: 'topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      end: 'string',
-      logstore: 'string',
-      query: 'string',
-      start: 'string',
-      topic: 'string',
     };
   }
 
@@ -3941,6 +4633,213 @@ export class CreateMachineGroupRequestGroupAttribute extends $tea.Model {
   }
 }
 
+export class CreateOdpsShipperRequestTargetConfiguration extends $tea.Model {
+  bufferInterval?: number;
+  enable?: boolean;
+  fields?: string[];
+  odpsEndpoint?: string;
+  odpsProject?: string;
+  odpsTable?: string;
+  partitionColumn?: string[];
+  partitionTimeFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bufferInterval: 'bufferInterval',
+      enable: 'enable',
+      fields: 'fields',
+      odpsEndpoint: 'odpsEndpoint',
+      odpsProject: 'odpsProject',
+      odpsTable: 'odpsTable',
+      partitionColumn: 'partitionColumn',
+      partitionTimeFormat: 'partitionTimeFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bufferInterval: 'number',
+      enable: 'boolean',
+      fields: { 'type': 'array', 'itemType': 'string' },
+      odpsEndpoint: 'string',
+      odpsProject: 'string',
+      odpsTable: 'string',
+      partitionColumn: { 'type': 'array', 'itemType': 'string' },
+      partitionTimeFormat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssExternalStoreRequestParameterColumns extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssExternalStoreRequestParameter extends $tea.Model {
+  accessid?: string;
+  accesskey?: string;
+  bucket?: string;
+  columns?: CreateOssExternalStoreRequestParameterColumns[];
+  endpoint?: string;
+  objects?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accessid: 'accessid',
+      accesskey: 'accesskey',
+      bucket: 'bucket',
+      columns: 'columns',
+      endpoint: 'endpoint',
+      objects: 'objects',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessid: 'string',
+      accesskey: 'string',
+      bucket: 'string',
+      columns: { 'type': 'array', 'itemType': CreateOssExternalStoreRequestParameterColumns },
+      endpoint: 'string',
+      objects: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssShipperRequestTargetConfigurationStorage extends $tea.Model {
+  detail?: { [key: string]: any };
+  format?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      format: 'format',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      format: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOssShipperRequestTargetConfiguration extends $tea.Model {
+  bufferInterval?: number;
+  bufferSize?: number;
+  compressType?: string;
+  enable?: boolean;
+  ossBucket?: string;
+  ossPrefix?: string;
+  pathFormat?: string;
+  roleArn?: string;
+  storage?: CreateOssShipperRequestTargetConfigurationStorage;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bufferInterval: 'bufferInterval',
+      bufferSize: 'bufferSize',
+      compressType: 'compressType',
+      enable: 'enable',
+      ossBucket: 'ossBucket',
+      ossPrefix: 'ossPrefix',
+      pathFormat: 'pathFormat',
+      roleArn: 'roleArn',
+      storage: 'storage',
+      timeZone: 'timeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bufferInterval: 'number',
+      bufferSize: 'number',
+      compressType: 'string',
+      enable: 'boolean',
+      ossBucket: 'string',
+      ossPrefix: 'string',
+      pathFormat: 'string',
+      roleArn: 'string',
+      storage: CreateOssShipperRequestTargetConfigurationStorage,
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRdsExternalStoreRequestParameter extends $tea.Model {
+  db?: string;
+  host?: string;
+  instanceId?: string;
+  password?: string;
+  port?: string;
+  region?: string;
+  table?: string;
+  username?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      db: 'db',
+      host: 'host',
+      instanceId: 'instance-id',
+      password: 'password',
+      port: 'port',
+      region: 'region',
+      table: 'table',
+      username: 'username',
+      vpcId: 'vpc-id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      db: 'string',
+      host: 'string',
+      instanceId: 'string',
+      password: 'string',
+      port: 'string',
+      region: 'string',
+      table: 'string',
+      username: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCheckPointResponseBody extends $tea.Model {
   shard?: number;
   checkpoint?: string;
@@ -4020,6 +4919,71 @@ export class GetIndexResponseBodyLine extends $tea.Model {
       excludeKeys: { 'type': 'array', 'itemType': 'string' },
       includeKeys: { 'type': 'array', 'itemType': 'string' },
       token: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShipperStatusResponseBodyStatistics extends $tea.Model {
+  fail?: number;
+  running?: number;
+  success?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fail: 'fail',
+      running: 'running',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fail: 'number',
+      running: 'number',
+      success: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShipperStatusResponseBodyTasks extends $tea.Model {
+  id?: string;
+  taskCode?: string;
+  taskCreateTime?: number;
+  taskDataLines?: number;
+  taskFinishTime?: number;
+  taskLastDataReceiveTime?: number;
+  taskMessage?: string;
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      taskCode: 'taskCode',
+      taskCreateTime: 'taskCreateTime',
+      taskDataLines: 'taskDataLines',
+      taskFinishTime: 'taskFinishTime',
+      taskLastDataReceiveTime: 'taskLastDataReceiveTime',
+      taskMessage: 'taskMessage',
+      taskStatus: 'taskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      taskCode: 'string',
+      taskCreateTime: 'number',
+      taskDataLines: 'number',
+      taskFinishTime: 'number',
+      taskLastDataReceiveTime: 'number',
+      taskMessage: 'string',
+      taskStatus: 'string',
     };
   }
 
@@ -4167,6 +5131,213 @@ export class UpdateMachineGroupRequestGroupAttribute extends $tea.Model {
     return {
       externalName: 'string',
       groupTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOdpsShipperRequestTargetConfiguration extends $tea.Model {
+  bufferInterval?: number;
+  enable?: boolean;
+  fields?: string[];
+  odpsEndpoint?: string;
+  odpsProject?: string;
+  odpsTable?: string;
+  partitionColumn?: string[];
+  partitionTimeFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bufferInterval: 'bufferInterval',
+      enable: 'enable',
+      fields: 'fields',
+      odpsEndpoint: 'odpsEndpoint',
+      odpsProject: 'odpsProject',
+      odpsTable: 'odpsTable',
+      partitionColumn: 'partitionColumn',
+      partitionTimeFormat: 'partitionTimeFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bufferInterval: 'number',
+      enable: 'boolean',
+      fields: { 'type': 'array', 'itemType': 'string' },
+      odpsEndpoint: 'string',
+      odpsProject: 'string',
+      odpsTable: 'string',
+      partitionColumn: { 'type': 'array', 'itemType': 'string' },
+      partitionTimeFormat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssExternalStoreRequestParameterColumns extends $tea.Model {
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssExternalStoreRequestParameter extends $tea.Model {
+  accessid?: string;
+  accesskey?: string;
+  bucket?: string;
+  columns?: UpdateOssExternalStoreRequestParameterColumns[];
+  endpoint?: string;
+  objects?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accessid: 'accessid',
+      accesskey: 'accesskey',
+      bucket: 'bucket',
+      columns: 'columns',
+      endpoint: 'endpoint',
+      objects: 'objects',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessid: 'string',
+      accesskey: 'string',
+      bucket: 'string',
+      columns: { 'type': 'array', 'itemType': UpdateOssExternalStoreRequestParameterColumns },
+      endpoint: 'string',
+      objects: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssShipperRequestTargetConfigurationStorage extends $tea.Model {
+  detail?: { [key: string]: any };
+  format?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      format: 'format',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      format: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOssShipperRequestTargetConfiguration extends $tea.Model {
+  bufferInterval?: number;
+  bufferSize?: number;
+  compressType?: string;
+  enable?: boolean;
+  ossBucket?: string;
+  ossPrefix?: string;
+  pathFormat?: string;
+  roleArn?: string;
+  storage?: UpdateOssShipperRequestTargetConfigurationStorage;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bufferInterval: 'bufferInterval',
+      bufferSize: 'bufferSize',
+      compressType: 'compressType',
+      enable: 'enable',
+      ossBucket: 'ossBucket',
+      ossPrefix: 'ossPrefix',
+      pathFormat: 'pathFormat',
+      roleArn: 'roleArn',
+      storage: 'storage',
+      timeZone: 'timeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bufferInterval: 'number',
+      bufferSize: 'number',
+      compressType: 'string',
+      enable: 'boolean',
+      ossBucket: 'string',
+      ossPrefix: 'string',
+      pathFormat: 'string',
+      roleArn: 'string',
+      storage: UpdateOssShipperRequestTargetConfigurationStorage,
+      timeZone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRdsExternalStoreRequestParameter extends $tea.Model {
+  db?: string;
+  host?: string;
+  instanceId?: string;
+  password?: string;
+  port?: string;
+  region?: string;
+  table?: string;
+  username?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      db: 'db',
+      host: 'host',
+      instanceId: 'instance-id',
+      password: 'password',
+      port: 'port',
+      region: 'region',
+      table: 'table',
+      username: 'username',
+      vpcId: 'vpc-id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      db: 'string',
+      host: 'string',
+      instanceId: 'string',
+      password: 'string',
+      port: 'string',
+      region: 'string',
+      table: 'string',
+      username: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -4680,6 +5851,134 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMachineGroupResponse>(await this.execute(params, req, runtime), new CreateMachineGroupResponse({}));
   }
 
+  async createOdpsShipper(project: string, logstore: string, request: CreateOdpsShipperRequest): Promise<CreateOdpsShipperResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOdpsShipperWithOptions(project, logstore, request, headers, runtime);
+  }
+
+  async createOdpsShipperWithOptions(project: string, logstore: string, request: CreateOdpsShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOdpsShipperResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.shipperName)) {
+      body["shipperName"] = request.shipperName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+      body["targetConfiguration"] = request.targetConfiguration;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOdpsShipper",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateOdpsShipperResponse>(await this.execute(params, req, runtime), new CreateOdpsShipperResponse({}));
+  }
+
+  async createOssExternalStore(project: string, request: CreateOssExternalStoreRequest): Promise<CreateOssExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOssExternalStoreWithOptions(project, request, headers, runtime);
+  }
+
+  async createOssExternalStoreWithOptions(project: string, request: CreateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssExternalStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.externalStoreName)) {
+      body["externalStoreName"] = request.externalStoreName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.parameter))) {
+      body["parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.storeType)) {
+      body["storeType"] = request.storeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOssExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateOssExternalStoreResponse>(await this.execute(params, req, runtime), new CreateOssExternalStoreResponse({}));
+  }
+
+  async createOssShipper(project: string, logstore: string, request: CreateOssShipperRequest): Promise<CreateOssShipperResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOssShipperWithOptions(project, logstore, request, headers, runtime);
+  }
+
+  async createOssShipperWithOptions(project: string, logstore: string, request: CreateOssShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOssShipperResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.shipperName)) {
+      body["shipperName"] = request.shipperName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+      body["targetConfiguration"] = request.targetConfiguration;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOssShipper",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateOssShipperResponse>(await this.execute(params, req, runtime), new CreateOssShipperResponse({}));
+  }
+
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4713,6 +6012,48 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
+  }
+
+  async createRdsExternalStore(project: string, request: CreateRdsExternalStoreRequest): Promise<CreateRdsExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRdsExternalStoreWithOptions(project, request, headers, runtime);
+  }
+
+  async createRdsExternalStoreWithOptions(project: string, request: CreateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRdsExternalStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.externalStoreName)) {
+      body["externalStoreName"] = request.externalStoreName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.parameter))) {
+      body["parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.storeType)) {
+      body["storeType"] = request.storeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRdsExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateRdsExternalStoreResponse>(await this.execute(params, req, runtime), new CreateRdsExternalStoreResponse({}));
   }
 
   async createSavedSearch(project: string, request: CreateSavedSearchRequest): Promise<CreateSavedSearchResponse> {
@@ -4862,6 +6203,34 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<DeleteEtlMetaResponse>(await this.execute(params, req, runtime), new DeleteEtlMetaResponse({}));
+  }
+
+  async deleteExternalStore(project: string, externalStoreName: string): Promise<DeleteExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteExternalStoreWithOptions(project, externalStoreName, headers, runtime);
+  }
+
+  async deleteExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExternalStoreResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores/${externalStoreName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteExternalStoreResponse>(await this.execute(params, req, runtime), new DeleteExternalStoreResponse({}));
   }
 
   async deleteIndex(project: string, logstore: string): Promise<DeleteIndexResponse> {
@@ -5030,6 +6399,35 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSavedSearchResponse>(await this.execute(params, req, runtime), new DeleteSavedSearchResponse({}));
   }
 
+  async deleteShipper(project: string, logstore: string, shipperName: string): Promise<DeleteShipperResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
+  }
+
+  async deleteShipperWithOptions(project: string, logstore: string, shipperName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteShipperResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shipperName = OpenApiUtil.getEncodeParam(shipperName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteShipper",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper/${shipperName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteShipperResponse>(await this.execute(params, req, runtime), new DeleteShipperResponse({}));
+  }
+
   async getAppliedConfigs(project: string, machineGroup: string): Promise<GetAppliedConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5056,6 +6454,34 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetAppliedConfigsResponse>(await this.execute(params, req, runtime), new GetAppliedConfigsResponse({}));
+  }
+
+  async getAppliedMachineGroups(project: string, configName: string): Promise<GetAppliedMachineGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAppliedMachineGroupsWithOptions(project, configName, headers, runtime);
+  }
+
+  async getAppliedMachineGroupsWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedMachineGroupsResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    configName = OpenApiUtil.getEncodeParam(configName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAppliedMachineGroups",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/configs/${configName}/machinegroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppliedMachineGroupsResponse>(await this.execute(params, req, runtime), new GetAppliedMachineGroupsResponse({}));
   }
 
   async getCheckPoint(project: string, logstore: string, consumerGroup: string, request: GetCheckPointRequest): Promise<GetCheckPointResponse> {
@@ -5265,6 +6691,34 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetEtlMetaResponse>(await this.execute(params, req, runtime), new GetEtlMetaResponse({}));
+  }
+
+  async getExternalStore(project: string, externalStoreName: string): Promise<GetExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getExternalStoreWithOptions(project, externalStoreName, headers, runtime);
+  }
+
+  async getExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExternalStoreResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores/${externalStoreName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetExternalStoreResponse>(await this.execute(params, req, runtime), new GetExternalStoreResponse({}));
   }
 
   async getHistograms(project: string, logstore: string, request: GetHistogramsRequest): Promise<GetHistogramsResponse> {
@@ -5589,6 +7043,87 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSavedSearchResponse>(await this.execute(params, req, runtime), new GetSavedSearchResponse({}));
   }
 
+  async getShipperConfig(project: string, logstore: string, shipperName: string): Promise<GetShipperConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getShipperConfigWithOptions(project, logstore, shipperName, headers, runtime);
+  }
+
+  async getShipperConfigWithOptions(project: string, logstore: string, shipperName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShipperConfigResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shipperName = OpenApiUtil.getEncodeParam(shipperName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetShipperConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper/${shipperName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetShipperConfigResponse>(await this.execute(params, req, runtime), new GetShipperConfigResponse({}));
+  }
+
+  async getShipperStatus(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest): Promise<GetShipperStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
+  }
+
+  async getShipperStatusWithOptions(project: string, logstore: string, shipperName: string, request: GetShipperStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShipperStatusResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shipperName = OpenApiUtil.getEncodeParam(shipperName);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.from)) {
+      query["from"] = request.from;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["to"] = request.to;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetShipperStatus",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper/${shipperName}/tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetShipperStatusResponse>(await this.execute(params, req, runtime), new GetShipperStatusResponse({}));
+  }
+
   async listConsumerGroup(project: string, logstore: string): Promise<ListConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5745,6 +7280,48 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListEtlMetaNameResponse>(await this.execute(params, req, runtime), new ListEtlMetaNameResponse({}));
+  }
+
+  async listExternalStore(project: string, request: ListExternalStoreRequest): Promise<ListExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listExternalStoreWithOptions(project, request, headers, runtime);
+  }
+
+  async listExternalStoreWithOptions(project: string, request: ListExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExternalStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.externalStoreName)) {
+      query["externalStoreName"] = request.externalStoreName;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.sizs)) {
+      query["sizs"] = request.sizs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExternalStoreResponse>(await this.execute(params, req, runtime), new ListExternalStoreResponse({}));
   }
 
   async listLogStores(project: string, request: ListLogStoresRequest): Promise<ListLogStoresResponse> {
@@ -5977,6 +7554,34 @@ export default class Client extends OpenApi {
       bodyType: "array",
     });
     return $tea.cast<ListShardsResponse>(await this.execute(params, req, runtime), new ListShardsResponse({}));
+  }
+
+  async listShipper(project: string, logstore: string): Promise<ListShipperResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listShipperWithOptions(project, logstore, headers, runtime);
+  }
+
+  async listShipperWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShipperResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListShipper",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListShipperResponse>(await this.execute(params, req, runtime), new ListShipperResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -6582,6 +8187,137 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMachineGroupResponse>(await this.execute(params, req, runtime), new UpdateMachineGroupResponse({}));
   }
 
+  async updateOdpsShipper(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest): Promise<UpdateOdpsShipperResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOdpsShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
+  }
+
+  async updateOdpsShipperWithOptions(project: string, logstore: string, shipperName: string, request: UpdateOdpsShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOdpsShipperResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shipperName = OpenApiUtil.getEncodeParam(shipperName);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.shipperName)) {
+      body["shipperName"] = request.shipperName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+      body["targetConfiguration"] = request.targetConfiguration;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOdpsShipper",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper/${shipperName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateOdpsShipperResponse>(await this.execute(params, req, runtime), new UpdateOdpsShipperResponse({}));
+  }
+
+  async updateOssExternalStore(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest): Promise<UpdateOssExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
+  }
+
+  async updateOssExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateOssExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssExternalStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.externalStoreName)) {
+      body["externalStoreName"] = request.externalStoreName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.parameter))) {
+      body["parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.storeType)) {
+      body["storeType"] = request.storeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOssExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores/${externalStoreName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateOssExternalStoreResponse>(await this.execute(params, req, runtime), new UpdateOssExternalStoreResponse({}));
+  }
+
+  async updateOssShipper(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest): Promise<UpdateOssShipperResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
+  }
+
+  async updateOssShipperWithOptions(project: string, logstore: string, shipperName: string, request: UpdateOssShipperRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOssShipperResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    logstore = OpenApiUtil.getEncodeParam(logstore);
+    shipperName = OpenApiUtil.getEncodeParam(shipperName);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.shipperName)) {
+      body["shipperName"] = request.shipperName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.targetConfiguration))) {
+      body["targetConfiguration"] = request.targetConfiguration;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOssShipper",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/shipper/${shipperName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateOssShipperResponse>(await this.execute(params, req, runtime), new UpdateOssShipperResponse({}));
+  }
+
   async updateProject(project: string, request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6614,6 +8350,49 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<UpdateProjectResponse>(await this.execute(params, req, runtime), new UpdateProjectResponse({}));
+  }
+
+  async updateRdsExternalStore(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest): Promise<UpdateRdsExternalStoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateRdsExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
+  }
+
+  async updateRdsExternalStoreWithOptions(project: string, externalStoreName: string, request: UpdateRdsExternalStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRdsExternalStoreResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.externalStoreName)) {
+      body["externalStoreName"] = request.externalStoreName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.parameter))) {
+      body["parameter"] = request.parameter;
+    }
+
+    if (!Util.isUnset(request.storeType)) {
+      body["storeType"] = request.storeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRdsExternalStore",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/externalstores/${externalStoreName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateRdsExternalStoreResponse>(await this.execute(params, req, runtime), new UpdateRdsExternalStoreResponse({}));
   }
 
   async updateSavedSearch(project: string, savedsearchName: string, request: UpdateSavedSearchRequest): Promise<UpdateSavedSearchResponse> {
