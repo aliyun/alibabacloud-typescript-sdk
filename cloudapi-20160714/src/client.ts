@@ -12718,11 +12718,13 @@ export class BatchAbolishApisRequestApi extends $tea.Model {
   apiUid?: string;
   groupId?: string;
   stageId?: string;
+  stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiUid: 'ApiUid',
       groupId: 'GroupId',
       stageId: 'StageId',
+      stageName: 'StageName',
     };
   }
 
@@ -12731,6 +12733,7 @@ export class BatchAbolishApisRequestApi extends $tea.Model {
       apiUid: 'string',
       groupId: 'string',
       stageId: 'string',
+      stageName: 'string',
     };
   }
 
