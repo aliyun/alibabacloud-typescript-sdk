@@ -914,6 +914,78 @@ export class DeleteGameResponse extends $tea.Model {
   }
 }
 
+export class DeleteGameArchiveRequest extends $tea.Model {
+  accountId?: string;
+  archiveId?: string;
+  gameId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      archiveId: 'ArchiveId',
+      gameId: 'GameId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      archiveId: 'string',
+      gameId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGameArchiveResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGameArchiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGameArchiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGameArchiveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGameVersionRequest extends $tea.Model {
   versionId?: string;
   static names(): { [key: string]: string } {
@@ -2648,6 +2720,93 @@ export class ListHistoryContainerStatusResponse extends $tea.Model {
   }
 }
 
+export class ListLatestGameArchiveRequest extends $tea.Model {
+  accountId?: string;
+  gameId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  tagStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      gameId: 'GameId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tagStatus: 'TagStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      gameId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      tagStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLatestGameArchiveResponseBody extends $tea.Model {
+  dataList?: ListLatestGameArchiveResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': ListLatestGameArchiveResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLatestGameArchiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLatestGameArchiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLatestGameArchiveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -3345,6 +3504,78 @@ export class RemoveGameFromProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveGameFromProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreGameArchiveRequest extends $tea.Model {
+  accountId?: string;
+  archiveId?: string;
+  gameId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      archiveId: 'ArchiveId',
+      gameId: 'GameId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      archiveId: 'string',
+      gameId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreGameArchiveResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestoreGameArchiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RestoreGameArchiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestoreGameArchiveResponseBody,
     };
   }
 
@@ -4188,6 +4419,81 @@ export class SubmitInternalPurchaseReadyFlagResponse extends $tea.Model {
   }
 }
 
+export class UpdateGameArchiveTagStatusRequest extends $tea.Model {
+  accountId?: string;
+  archiveId?: string;
+  gameId?: string;
+  tagStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      archiveId: 'ArchiveId',
+      gameId: 'GameId',
+      tagStatus: 'TagStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      archiveId: 'string',
+      gameId: 'string',
+      tagStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGameArchiveTagStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGameArchiveTagStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGameArchiveTagStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGameArchiveTagStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadGameVersionByDownloadRequest extends $tea.Model {
   downloadType?: string;
   fileType?: string;
@@ -4959,6 +5265,37 @@ export class ListHistoryContainerStatusResponseBodyDataList extends $tea.Model {
       projectId: 'string',
       tags: 'string',
       timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLatestGameArchiveResponseBodyDataList extends $tea.Model {
+  accountId?: string;
+  archiveId?: string;
+  archiveTime?: string;
+  gameId?: string;
+  tagStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      archiveId: 'ArchiveId',
+      archiveTime: 'ArchiveTime',
+      gameId: 'GameId',
+      tagStatus: 'TagStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      archiveId: 'string',
+      archiveTime: 'string',
+      gameId: 'string',
+      tagStatus: 'number',
     };
   }
 
@@ -5966,6 +6303,43 @@ export default class Client extends OpenApi {
     return await this.deleteGameWithOptions(request, runtime);
   }
 
+  async deleteGameArchiveWithOptions(request: DeleteGameArchiveRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGameArchiveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.archiveId)) {
+      query["ArchiveId"] = request.archiveId;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGameArchive",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGameArchiveResponse>(await this.callApi(params, req, runtime), new DeleteGameArchiveResponse({}));
+  }
+
+  async deleteGameArchive(request: DeleteGameArchiveRequest): Promise<DeleteGameArchiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGameArchiveWithOptions(request, runtime);
+  }
+
   async deleteGameVersionWithOptions(request: DeleteGameVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGameVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6793,6 +7167,51 @@ export default class Client extends OpenApi {
     return await this.listHistoryContainerStatusWithOptions(request, runtime);
   }
 
+  async listLatestGameArchiveWithOptions(request: ListLatestGameArchiveRequest, runtime: $Util.RuntimeOptions): Promise<ListLatestGameArchiveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tagStatus)) {
+      query["TagStatus"] = request.tagStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLatestGameArchive",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLatestGameArchiveResponse>(await this.callApi(params, req, runtime), new ListLatestGameArchiveResponse({}));
+  }
+
+  async listLatestGameArchive(request: ListLatestGameArchiveRequest): Promise<ListLatestGameArchiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLatestGameArchiveWithOptions(request, runtime);
+  }
+
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7116,6 +7535,43 @@ export default class Client extends OpenApi {
   async removeGameFromProject(request: RemoveGameFromProjectRequest): Promise<RemoveGameFromProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeGameFromProjectWithOptions(request, runtime);
+  }
+
+  async restoreGameArchiveWithOptions(request: RestoreGameArchiveRequest, runtime: $Util.RuntimeOptions): Promise<RestoreGameArchiveResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.archiveId)) {
+      query["ArchiveId"] = request.archiveId;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestoreGameArchive",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestoreGameArchiveResponse>(await this.callApi(params, req, runtime), new RestoreGameArchiveResponse({}));
+  }
+
+  async restoreGameArchive(request: RestoreGameArchiveRequest): Promise<RestoreGameArchiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restoreGameArchiveWithOptions(request, runtime);
   }
 
   async setGameAliveWithOptions(request: SetGameAliveRequest, runtime: $Util.RuntimeOptions): Promise<SetGameAliveResponse> {
@@ -7560,6 +8016,47 @@ export default class Client extends OpenApi {
   async submitInternalPurchaseReadyFlag(request: SubmitInternalPurchaseReadyFlagRequest): Promise<SubmitInternalPurchaseReadyFlagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitInternalPurchaseReadyFlagWithOptions(request, runtime);
+  }
+
+  async updateGameArchiveTagStatusWithOptions(request: UpdateGameArchiveTagStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGameArchiveTagStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.archiveId)) {
+      query["ArchiveId"] = request.archiveId;
+    }
+
+    if (!Util.isUnset(request.gameId)) {
+      query["GameId"] = request.gameId;
+    }
+
+    if (!Util.isUnset(request.tagStatus)) {
+      query["TagStatus"] = request.tagStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGameArchiveTagStatus",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGameArchiveTagStatusResponse>(await this.callApi(params, req, runtime), new UpdateGameArchiveTagStatusResponse({}));
+  }
+
+  async updateGameArchiveTagStatus(request: UpdateGameArchiveTagStatusRequest): Promise<UpdateGameArchiveTagStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGameArchiveTagStatusWithOptions(request, runtime);
   }
 
   async uploadGameVersionByDownloadWithOptions(request: UploadGameVersionByDownloadRequest, runtime: $Util.RuntimeOptions): Promise<UploadGameVersionByDownloadResponse> {
