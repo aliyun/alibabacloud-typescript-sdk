@@ -535,16 +535,12 @@ export class CreateApplicationRequest extends $tea.Model {
   jarStartOptions?: string;
   jdk?: string;
   kafkaConfigs?: string;
-  kafkaEndpoint?: string;
-  kafkaInstanceId?: string;
-  kafkaLogfileConfig?: string;
   liveness?: string;
   memory?: number;
   mountDesc?: string;
   mountHost?: string;
   namespaceId?: string;
   nasId?: string;
-  openCollectToKafka?: boolean;
   ossAkId?: string;
   ossAkSecret?: string;
   ossMountDescs?: string;
@@ -568,7 +564,6 @@ export class CreateApplicationRequest extends $tea.Model {
   vpcId?: string;
   warStartOptions?: string;
   webContainer?: string;
-  mseFeatureConfig?: string;
   static names(): { [key: string]: string } {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
@@ -590,16 +585,12 @@ export class CreateApplicationRequest extends $tea.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
-      kafkaEndpoint: 'KafkaEndpoint',
-      kafkaInstanceId: 'KafkaInstanceId',
-      kafkaLogfileConfig: 'KafkaLogfileConfig',
       liveness: 'Liveness',
       memory: 'Memory',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       namespaceId: 'NamespaceId',
       nasId: 'NasId',
-      openCollectToKafka: 'OpenCollectToKafka',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -623,7 +614,6 @@ export class CreateApplicationRequest extends $tea.Model {
       vpcId: 'VpcId',
       warStartOptions: 'WarStartOptions',
       webContainer: 'WebContainer',
-      mseFeatureConfig: 'mseFeatureConfig',
     };
   }
 
@@ -648,16 +638,12 @@ export class CreateApplicationRequest extends $tea.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
-      kafkaEndpoint: 'string',
-      kafkaInstanceId: 'string',
-      kafkaLogfileConfig: 'string',
       liveness: 'string',
       memory: 'number',
       mountDesc: 'string',
       mountHost: 'string',
       namespaceId: 'string',
       nasId: 'string',
-      openCollectToKafka: 'boolean',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
@@ -681,7 +667,6 @@ export class CreateApplicationRequest extends $tea.Model {
       vpcId: 'string',
       warStartOptions: 'string',
       webContainer: 'string',
-      mseFeatureConfig: 'string',
     };
   }
 
@@ -1709,17 +1694,12 @@ export class DeployApplicationRequest extends $tea.Model {
   jarStartOptions?: string;
   jdk?: string;
   kafkaConfigs?: string;
-  kafkaEndpoint?: string;
-  kafkaInstanceId?: string;
-  kafkaLogfileConfig?: string;
   liveness?: string;
   minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   mountDesc?: string;
   mountHost?: string;
-  mseFeatureConfig?: string;
   nasId?: string;
-  openCollectToKafka?: boolean;
   ossAkId?: string;
   ossAkSecret?: string;
   ossMountDescs?: string;
@@ -1760,17 +1740,12 @@ export class DeployApplicationRequest extends $tea.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
-      kafkaEndpoint: 'KafkaEndpoint',
-      kafkaInstanceId: 'KafkaInstanceId',
-      kafkaLogfileConfig: 'KafkaLogfileConfig',
       liveness: 'Liveness',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
-      mseFeatureConfig: 'MseFeatureConfig',
       nasId: 'NasId',
-      openCollectToKafka: 'OpenCollectToKafka',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -1814,17 +1789,12 @@ export class DeployApplicationRequest extends $tea.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       kafkaConfigs: 'string',
-      kafkaEndpoint: 'string',
-      kafkaInstanceId: 'string',
-      kafkaLogfileConfig: 'string',
       liveness: 'string',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: 'string',
       mountHost: 'string',
-      mseFeatureConfig: 'string',
       nasId: 'string',
-      openCollectToKafka: 'boolean',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
@@ -11788,18 +11758,6 @@ export default class Client extends OpenApi {
       query["KafkaConfigs"] = request.kafkaConfigs;
     }
 
-    if (!Util.isUnset(request.kafkaEndpoint)) {
-      query["KafkaEndpoint"] = request.kafkaEndpoint;
-    }
-
-    if (!Util.isUnset(request.kafkaInstanceId)) {
-      query["KafkaInstanceId"] = request.kafkaInstanceId;
-    }
-
-    if (!Util.isUnset(request.kafkaLogfileConfig)) {
-      query["KafkaLogfileConfig"] = request.kafkaLogfileConfig;
-    }
-
     if (!Util.isUnset(request.liveness)) {
       query["Liveness"] = request.liveness;
     }
@@ -11822,10 +11780,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nasId)) {
       query["NasId"] = request.nasId;
-    }
-
-    if (!Util.isUnset(request.openCollectToKafka)) {
-      query["OpenCollectToKafka"] = request.openCollectToKafka;
     }
 
     if (!Util.isUnset(request.packageType)) {
@@ -11902,10 +11856,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.webContainer)) {
       query["WebContainer"] = request.webContainer;
-    }
-
-    if (!Util.isUnset(request.mseFeatureConfig)) {
-      query["mseFeatureConfig"] = request.mseFeatureConfig;
     }
 
     let body : {[key: string ]: any} = { };
@@ -12478,18 +12428,6 @@ export default class Client extends OpenApi {
       query["KafkaConfigs"] = request.kafkaConfigs;
     }
 
-    if (!Util.isUnset(request.kafkaEndpoint)) {
-      query["KafkaEndpoint"] = request.kafkaEndpoint;
-    }
-
-    if (!Util.isUnset(request.kafkaInstanceId)) {
-      query["KafkaInstanceId"] = request.kafkaInstanceId;
-    }
-
-    if (!Util.isUnset(request.kafkaLogfileConfig)) {
-      query["KafkaLogfileConfig"] = request.kafkaLogfileConfig;
-    }
-
     if (!Util.isUnset(request.liveness)) {
       query["Liveness"] = request.liveness;
     }
@@ -12510,16 +12448,8 @@ export default class Client extends OpenApi {
       query["MountHost"] = request.mountHost;
     }
 
-    if (!Util.isUnset(request.mseFeatureConfig)) {
-      query["MseFeatureConfig"] = request.mseFeatureConfig;
-    }
-
     if (!Util.isUnset(request.nasId)) {
       query["NasId"] = request.nasId;
-    }
-
-    if (!Util.isUnset(request.openCollectToKafka)) {
-      query["OpenCollectToKafka"] = request.openCollectToKafka;
     }
 
     if (!Util.isUnset(request.packageUrl)) {
