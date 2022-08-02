@@ -3614,6 +3614,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   tags?: GetInstanceListResponseBodyInstanceListInstanceVOTags;
   topicNumLimit?: number;
   upgradeServiceDetailInfo?: GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo;
+  usedGroupCount?: number;
+  usedPartitionCount?: number;
+  usedTopicCount?: number;
   vSwitchId?: string;
   vpcId?: string;
   zoneId?: string;
@@ -3644,6 +3647,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       tags: 'Tags',
       topicNumLimit: 'TopicNumLimit',
       upgradeServiceDetailInfo: 'UpgradeServiceDetailInfo',
+      usedGroupCount: 'UsedGroupCount',
+      usedPartitionCount: 'UsedPartitionCount',
+      usedTopicCount: 'UsedTopicCount',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -3677,6 +3683,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       tags: GetInstanceListResponseBodyInstanceListInstanceVOTags,
       topicNumLimit: 'number',
       upgradeServiceDetailInfo: GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo,
+      usedGroupCount: 'number',
+      usedPartitionCount: 'number',
+      usedTopicCount: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
