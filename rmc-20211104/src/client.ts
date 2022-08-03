@@ -72,10 +72,12 @@ export class ListResourceRelationshipsResponseBody extends $tea.Model {
 
 export class ListResourceRelationshipsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListResourceRelationshipsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -83,6 +85,7 @@ export class ListResourceRelationshipsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListResourceRelationshipsResponseBody,
     };
   }
@@ -156,10 +159,12 @@ export class SearchResourcesResponseBody extends $tea.Model {
 
 export class SearchResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SearchResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -167,6 +172,7 @@ export class SearchResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SearchResourcesResponseBody,
     };
   }
@@ -178,7 +184,6 @@ export class SearchResourcesResponse extends $tea.Model {
 
 export class ListResourceRelationshipsResponseBodyResourceRelationships extends $tea.Model {
   accountId?: string;
-  relationshipType?: string;
   sourceRegionId?: string;
   sourceResourceId?: string;
   sourceResourceType?: string;
@@ -188,7 +193,6 @@ export class ListResourceRelationshipsResponseBodyResourceRelationships extends 
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
-      relationshipType: 'RelationshipType',
       sourceRegionId: 'SourceRegionId',
       sourceResourceId: 'SourceResourceId',
       sourceResourceType: 'SourceResourceType',
@@ -201,7 +205,6 @@ export class ListResourceRelationshipsResponseBodyResourceRelationships extends 
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
-      relationshipType: 'string',
       sourceRegionId: 'string',
       sourceResourceId: 'string',
       sourceResourceType: 'string',
