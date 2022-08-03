@@ -1474,7 +1474,9 @@ export class QuerySendStatisticsRequest extends $tea.Model {
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  signName?: string;
   startDate?: string;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
       endDate: 'EndDate',
@@ -1484,7 +1486,9 @@ export class QuerySendStatisticsRequest extends $tea.Model {
       pageSize: 'PageSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
       startDate: 'StartDate',
+      templateType: 'TemplateType',
     };
   }
 
@@ -1497,7 +1501,9 @@ export class QuerySendStatisticsRequest extends $tea.Model {
       pageSize: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      signName: 'string',
       startDate: 'string',
+      templateType: 'number',
     };
   }
 
@@ -2686,15 +2692,18 @@ export class GetCardSmsLinkResponseBodyData extends $tea.Model {
 }
 
 export class GetMediaResourceIdResponseBodyData extends $tea.Model {
+  resUrlDownload?: string;
   resourceId?: number;
   static names(): { [key: string]: string } {
     return {
+      resUrlDownload: 'ResUrlDownload',
       resourceId: 'ResourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resUrlDownload: 'string',
       resourceId: 'number',
     };
   }
@@ -4107,8 +4116,16 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
     if (!Util.isUnset(request.startDate)) {
       query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
