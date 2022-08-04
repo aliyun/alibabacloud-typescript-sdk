@@ -938,6 +938,7 @@ export class HuichengetRequest extends $tea.Model {
   apple?: string;
   blue?: string;
   code?: string;
+  east?: string;
   enight?: string;
   five?: string;
   four?: string;
@@ -972,6 +973,7 @@ export class HuichengetRequest extends $tea.Model {
       apple: 'Apple',
       blue: 'Blue',
       code: 'Code',
+      east: 'East',
       enight: 'Enight',
       five: 'Five',
       four: 'Four',
@@ -1009,6 +1011,7 @@ export class HuichengetRequest extends $tea.Model {
       apple: 'string',
       blue: 'string',
       code: 'string',
+      east: 'string',
       enight: 'string',
       five: 'string',
       four: 'string',
@@ -3034,6 +3037,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.code)) {
       query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.east)) {
+      query["East"] = request.east;
     }
 
     if (!Util.isUnset(request.enight)) {
