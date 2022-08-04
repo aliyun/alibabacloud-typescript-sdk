@@ -942,6 +942,7 @@ export class HuichengetRequest extends $tea.Model {
   five?: string;
   four?: string;
   hello?: string;
+  hold?: string;
   jack?: string;
   list?: string;
   mack?: string;
@@ -956,11 +957,13 @@ export class HuichengetRequest extends $tea.Model {
   params3?: string;
   params4?: string;
   red?: string;
+  rong?: string;
   six?: string;
   tea?: string;
   ten?: string;
   three?: string;
   two?: string;
+  visity?: string;
   white?: string;
   static names(): { [key: string]: string } {
     return {
@@ -973,6 +976,7 @@ export class HuichengetRequest extends $tea.Model {
       five: 'Five',
       four: 'Four',
       hello: 'Hello',
+      hold: 'Hold',
       jack: 'Jack',
       list: 'List',
       mack: 'Mack',
@@ -987,11 +991,13 @@ export class HuichengetRequest extends $tea.Model {
       params3: 'Params3',
       params4: 'Params4',
       red: 'Red',
+      rong: 'Rong',
       six: 'Six',
       tea: 'Tea',
       ten: 'Ten',
       three: 'Three',
       two: 'Two',
+      visity: 'Visity',
       white: 'White',
     };
   }
@@ -1007,6 +1013,7 @@ export class HuichengetRequest extends $tea.Model {
       five: 'string',
       four: 'string',
       hello: 'string',
+      hold: 'string',
       jack: 'string',
       list: 'string',
       mack: 'string',
@@ -1021,11 +1028,13 @@ export class HuichengetRequest extends $tea.Model {
       params3: 'string',
       params4: 'string',
       red: 'string',
+      rong: 'string',
       six: 'string',
       tea: 'string',
       ten: 'string',
       three: 'string',
       two: 'string',
+      visity: 'string',
       white: 'string',
     };
   }
@@ -3043,6 +3052,10 @@ export default class Client extends OpenApi {
       query["Hello"] = request.hello;
     }
 
+    if (!Util.isUnset(request.hold)) {
+      query["Hold"] = request.hold;
+    }
+
     if (!Util.isUnset(request.jack)) {
       query["Jack"] = request.jack;
     }
@@ -3099,6 +3112,10 @@ export default class Client extends OpenApi {
       query["Red"] = request.red;
     }
 
+    if (!Util.isUnset(request.rong)) {
+      query["Rong"] = request.rong;
+    }
+
     if (!Util.isUnset(request.six)) {
       query["Six"] = request.six;
     }
@@ -3117,6 +3134,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.two)) {
       query["Two"] = request.two;
+    }
+
+    if (!Util.isUnset(request.visity)) {
+      query["Visity"] = request.visity;
     }
 
     if (!Util.isUnset(request.white)) {
