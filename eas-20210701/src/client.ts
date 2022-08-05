@@ -721,9 +721,9 @@ export class CreateServiceAutoScalerRequest extends $tea.Model {
   strategies?: CreateServiceAutoScalerRequestStrategies;
   static names(): { [key: string]: string } {
     return {
-      max: 'Max',
-      min: 'Min',
-      strategies: 'Strategies',
+      max: 'max',
+      min: 'min',
+      strategies: 'strategies',
     };
   }
 
@@ -1787,6 +1787,7 @@ export class DescribeServiceResponse extends $tea.Model {
 }
 
 export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
+  behavior?: { [key: string]: any };
   currentValues?: { [key: string]: any };
   maxReplica?: number;
   minReplica?: number;
@@ -1795,6 +1796,7 @@ export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
   strategies?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      behavior: 'Behavior',
       currentValues: 'CurrentValues',
       maxReplica: 'MaxReplica',
       minReplica: 'MinReplica',
@@ -1806,6 +1808,7 @@ export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      behavior: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       currentValues: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maxReplica: 'number',
       minReplica: 'number',
@@ -3104,9 +3107,9 @@ export class UpdateServiceAutoScalerRequest extends $tea.Model {
   strategies?: UpdateServiceAutoScalerRequestStrategies;
   static names(): { [key: string]: string } {
     return {
-      max: 'Max',
-      min: 'Min',
-      strategies: 'Strategies',
+      max: 'max',
+      min: 'min',
+      strategies: 'strategies',
     };
   }
 
@@ -3379,8 +3382,8 @@ export class CreateServiceAutoScalerRequestStrategies extends $tea.Model {
   qps?: number;
   static names(): { [key: string]: string } {
     return {
-      cpu: 'Cpu',
-      qps: 'Qps',
+      cpu: 'cpu',
+      qps: 'qps',
     };
   }
 
@@ -3506,8 +3509,8 @@ export class UpdateServiceAutoScalerRequestStrategies extends $tea.Model {
   qps?: number;
   static names(): { [key: string]: string } {
     return {
-      cpu: 'Cpu',
-      qps: 'Qps',
+      cpu: 'cpu',
+      qps: 'qps',
     };
   }
 
@@ -3781,15 +3784,15 @@ export default class Client extends OpenApi {
     ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.max)) {
-      body["Max"] = request.max;
+      body["max"] = request.max;
     }
 
     if (!Util.isUnset(request.min)) {
-      body["Min"] = request.min;
+      body["min"] = request.min;
     }
 
     if (!Util.isUnset($tea.toMap(request.strategies))) {
-      body["Strategies"] = request.strategies;
+      body["strategies"] = request.strategies;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4991,15 +4994,15 @@ export default class Client extends OpenApi {
     ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.max)) {
-      body["Max"] = request.max;
+      body["max"] = request.max;
     }
 
     if (!Util.isUnset(request.min)) {
-      body["Min"] = request.min;
+      body["min"] = request.min;
     }
 
     if (!Util.isUnset($tea.toMap(request.strategies))) {
-      body["Strategies"] = request.strategies;
+      body["strategies"] = request.strategies;
     }
 
     let req = new $OpenApi.OpenApiRequest({
