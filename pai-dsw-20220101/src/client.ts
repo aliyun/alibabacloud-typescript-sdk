@@ -804,6 +804,84 @@ export class GetInstanceSnapshotResponse extends $tea.Model {
   }
 }
 
+export class GetTokenRequest extends $tea.Model {
+  expireTime?: number;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireTime: 'number',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTokenResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserConfigResponseBody extends $tea.Model {
   accountSufficient?: boolean;
   code?: string;
@@ -2501,6 +2579,41 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
+  }
+
+  async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTokenWithOptions(request, headers, runtime);
+  }
+
+  async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetToken",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tokens`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
   async getUserConfig(): Promise<GetUserConfigResponse> {
