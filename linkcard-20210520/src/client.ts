@@ -8,6 +8,304 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddDirectionalCardRequest extends $tea.Model {
+  fileUri?: string;
+  groupId?: string;
+  groupName?: string;
+  orderList?: string[];
+  tagList?: string[];
+  uploadMethod?: string;
+  uploadType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUri: 'FileUri',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      orderList: 'OrderList',
+      tagList: 'TagList',
+      uploadMethod: 'UploadMethod',
+      uploadType: 'UploadType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUri: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      orderList: { 'type': 'array', 'itemType': 'string' },
+      tagList: { 'type': 'array', 'itemType': 'string' },
+      uploadMethod: 'string',
+      uploadType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalCardShrinkRequest extends $tea.Model {
+  fileUri?: string;
+  groupId?: string;
+  groupName?: string;
+  orderListShrink?: string;
+  tagListShrink?: string;
+  uploadMethod?: string;
+  uploadType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUri: 'FileUri',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      orderListShrink: 'OrderList',
+      tagListShrink: 'TagList',
+      uploadMethod: 'UploadMethod',
+      uploadType: 'UploadType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUri: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      orderListShrink: 'string',
+      tagListShrink: 'string',
+      uploadMethod: 'string',
+      uploadType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalCardResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddDirectionalCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDirectionalCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalGroupRequest extends $tea.Model {
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDirectionalGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddDirectionalGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDirectionalGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDirectionalAddressRequest extends $tea.Model {
+  addressType?: string;
+  groupId?: number;
+  listAddress?: string[];
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressType: 'AddressType',
+      groupId: 'GroupId',
+      listAddress: 'ListAddress',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressType: 'string',
+      groupId: 'number',
+      listAddress: { 'type': 'array', 'itemType': 'string' },
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDirectionalAddressResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDirectionalAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchAddDirectionalAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchAddDirectionalAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CardStatisticsResponseBody extends $tea.Model {
   code?: string;
   data?: CardStatisticsResponseBodyData;
@@ -410,6 +708,8 @@ export class ListCardInfoRequest extends $tea.Model {
   iccid?: string;
   imsi?: string;
   isAutoRecharge?: boolean;
+  maxFlow?: string;
+  minFlow?: string;
   msisdn?: string;
   notifyId?: string;
   osStatus?: string;
@@ -438,6 +738,8 @@ export class ListCardInfoRequest extends $tea.Model {
       iccid: 'Iccid',
       imsi: 'Imsi',
       isAutoRecharge: 'IsAutoRecharge',
+      maxFlow: 'MaxFlow',
+      minFlow: 'MinFlow',
       msisdn: 'Msisdn',
       notifyId: 'NotifyId',
       osStatus: 'OsStatus',
@@ -469,6 +771,8 @@ export class ListCardInfoRequest extends $tea.Model {
       iccid: 'string',
       imsi: 'string',
       isAutoRecharge: 'boolean',
+      maxFlow: 'string',
+      minFlow: 'string',
       msisdn: 'string',
       notifyId: 'string',
       osStatus: 'string',
@@ -539,6 +843,174 @@ export class ListCardInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCardInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalAddressRequest extends $tea.Model {
+  groupId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalAddressResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDirectionalAddressResponseBodyData;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDirectionalAddressResponseBodyData,
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalAddressResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDirectionalAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDirectionalAddressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalDetailRequest extends $tea.Model {
+  iccid?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDirectionalDetailResponseBodyData;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDirectionalDetailResponseBodyData,
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListDirectionalDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDirectionalDetailResponseBody,
     };
   }
 
@@ -1205,6 +1677,84 @@ export class UpdateAutoRechargeSwitchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAutoRechargeSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIotCardRequest extends $tea.Model {
+  iccid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIotCardResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errorMessage?: string;
+  localizedMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      localizedMessage: 'LocalizedMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errorMessage: 'string',
+      localizedMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyIotCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyIotCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyIotCardResponseBody,
     };
   }
 
@@ -1886,6 +2436,7 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
   effectiveAvailableFlow?: string;
   effectiveTotalFlow?: string;
   monthFeatureFee?: number;
+  monthUsedAmount?: number;
   poolAvaiable?: string;
   poolGrandTotal?: string;
   poolGrandTotalUsed?: string;
@@ -1902,6 +2453,7 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
       effectiveAvailableFlow: 'EffectiveAvailableFlow',
       effectiveTotalFlow: 'EffectiveTotalFlow',
       monthFeatureFee: 'MonthFeatureFee',
+      monthUsedAmount: 'MonthUsedAmount',
       poolAvaiable: 'PoolAvaiable',
       poolGrandTotal: 'PoolGrandTotal',
       poolGrandTotalUsed: 'PoolGrandTotalUsed',
@@ -1921,6 +2473,7 @@ export class GetCredentialPoolStatisticsResponseBodyData extends $tea.Model {
       effectiveAvailableFlow: 'string',
       effectiveTotalFlow: 'string',
       monthFeatureFee: 'number',
+      monthUsedAmount: 'number',
       poolAvaiable: 'string',
       poolGrandTotal: 'string',
       poolGrandTotalUsed: 'string',
@@ -1969,6 +2522,7 @@ export class ListCardInfoResponseBodyDataList extends $tea.Model {
   credentialType?: string;
   dataLevel?: string;
   dataType?: string;
+  directionalGroupId?: number;
   directionalGroupName?: string;
   expireTime?: string;
   iccid?: string;
@@ -2002,6 +2556,7 @@ export class ListCardInfoResponseBodyDataList extends $tea.Model {
       credentialType: 'CredentialType',
       dataLevel: 'DataLevel',
       dataType: 'DataType',
+      directionalGroupId: 'DirectionalGroupId',
       directionalGroupName: 'DirectionalGroupName',
       expireTime: 'ExpireTime',
       iccid: 'Iccid',
@@ -2038,6 +2593,7 @@ export class ListCardInfoResponseBodyDataList extends $tea.Model {
       credentialType: 'string',
       dataLevel: 'string',
       dataType: 'string',
+      directionalGroupId: 'number',
       directionalGroupName: 'string',
       expireTime: 'string',
       iccid: 'string',
@@ -2089,6 +2645,155 @@ export class ListCardInfoResponseBodyData extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalAddressResponseBodyDataList extends $tea.Model {
+  address?: string;
+  addressType?: string;
+  groupId?: string;
+  source?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressType: 'AddressType',
+      groupId: 'GroupId',
+      source: 'Source',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressType: 'string',
+      groupId: 'string',
+      source: 'string',
+      state: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalAddressResponseBodyData extends $tea.Model {
+  list?: ListDirectionalAddressResponseBodyDataList[];
+  pageCount?: number;
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageCount: 'PageCount',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListDirectionalAddressResponseBodyDataList },
+      pageCount: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalDetailResponseBodyDataPaginationResultList extends $tea.Model {
+  address?: string;
+  addressType?: string;
+  groupId?: string;
+  source?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      addressType: 'AddressType',
+      groupId: 'GroupId',
+      source: 'Source',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      addressType: 'string',
+      groupId: 'string',
+      source: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalDetailResponseBodyDataPaginationResult extends $tea.Model {
+  list?: ListDirectionalDetailResponseBodyDataPaginationResultList[];
+  pageCount?: number;
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageCount: 'PageCount',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListDirectionalDetailResponseBodyDataPaginationResultList },
+      pageCount: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectionalDetailResponseBodyData extends $tea.Model {
+  directionalGroupId?: number;
+  directionalName?: string;
+  paginationResult?: ListDirectionalDetailResponseBodyDataPaginationResult;
+  static names(): { [key: string]: string } {
+    return {
+      directionalGroupId: 'DirectionalGroupId',
+      directionalName: 'DirectionalName',
+      paginationResult: 'PaginationResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directionalGroupId: 'number',
+      directionalName: 'string',
+      paginationResult: ListDirectionalDetailResponseBodyDataPaginationResult,
     };
   }
 
@@ -2268,6 +2973,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("linkcard", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -2284,6 +2990,139 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addDirectionalCardWithOptions(tmpReq: AddDirectionalCardRequest, runtime: $Util.RuntimeOptions): Promise<AddDirectionalCardResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddDirectionalCardShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.orderList)) {
+      request.orderListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderList, "OrderList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tagList)) {
+      request.tagListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagList, "TagList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.fileUri)) {
+      query["FileUri"] = request.fileUri;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.orderListShrink)) {
+      query["OrderList"] = request.orderListShrink;
+    }
+
+    if (!Util.isUnset(request.tagListShrink)) {
+      query["TagList"] = request.tagListShrink;
+    }
+
+    if (!Util.isUnset(request.uploadMethod)) {
+      query["UploadMethod"] = request.uploadMethod;
+    }
+
+    if (!Util.isUnset(request.uploadType)) {
+      query["UploadType"] = request.uploadType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDirectionalCard",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDirectionalCardResponse>(await this.callApi(params, req, runtime), new AddDirectionalCardResponse({}));
+  }
+
+  async addDirectionalCard(request: AddDirectionalCardRequest): Promise<AddDirectionalCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDirectionalCardWithOptions(request, runtime);
+  }
+
+  async addDirectionalGroupWithOptions(request: AddDirectionalGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddDirectionalGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDirectionalGroup",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDirectionalGroupResponse>(await this.callApi(params, req, runtime), new AddDirectionalGroupResponse({}));
+  }
+
+  async addDirectionalGroup(request: AddDirectionalGroupRequest): Promise<AddDirectionalGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDirectionalGroupWithOptions(request, runtime);
+  }
+
+  async batchAddDirectionalAddressWithOptions(request: BatchAddDirectionalAddressRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDirectionalAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.listAddress)) {
+      query["ListAddress"] = request.listAddress;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchAddDirectionalAddress",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchAddDirectionalAddressResponse>(await this.callApi(params, req, runtime), new BatchAddDirectionalAddressResponse({}));
+  }
+
+  async batchAddDirectionalAddress(request: BatchAddDirectionalAddressRequest): Promise<BatchAddDirectionalAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchAddDirectionalAddressWithOptions(request, runtime);
   }
 
   async cardStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<CardStatisticsResponse> {
@@ -2510,6 +3349,14 @@ export default class Client extends OpenApi {
       query["IsAutoRecharge"] = request.isAutoRecharge;
     }
 
+    if (!Util.isUnset(request.maxFlow)) {
+      query["MaxFlow"] = request.maxFlow;
+    }
+
+    if (!Util.isUnset(request.minFlow)) {
+      query["MinFlow"] = request.minFlow;
+    }
+
     if (!Util.isUnset(request.msisdn)) {
       query["Msisdn"] = request.msisdn;
     }
@@ -2574,6 +3421,80 @@ export default class Client extends OpenApi {
   async listCardInfo(request: ListCardInfoRequest): Promise<ListCardInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCardInfoWithOptions(request, runtime);
+  }
+
+  async listDirectionalAddressWithOptions(request: ListDirectionalAddressRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectionalAddressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDirectionalAddress",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDirectionalAddressResponse>(await this.callApi(params, req, runtime), new ListDirectionalAddressResponse({}));
+  }
+
+  async listDirectionalAddress(request: ListDirectionalAddressRequest): Promise<ListDirectionalAddressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDirectionalAddressWithOptions(request, runtime);
+  }
+
+  async listDirectionalDetailWithOptions(request: ListDirectionalDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectionalDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iccid)) {
+      query["Iccid"] = request.iccid;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDirectionalDetail",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDirectionalDetailResponse>(await this.callApi(params, req, runtime), new ListDirectionalDetailResponse({}));
+  }
+
+  async listDirectionalDetail(request: ListDirectionalDetailRequest): Promise<ListDirectionalDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDirectionalDetailWithOptions(request, runtime);
   }
 
   async listOrderWithOptions(request: ListOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListOrderResponse> {
@@ -2869,6 +3790,35 @@ export default class Client extends OpenApi {
   async updateAutoRechargeSwitch(request: UpdateAutoRechargeSwitchRequest): Promise<UpdateAutoRechargeSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAutoRechargeSwitchWithOptions(request, runtime);
+  }
+
+  async verifyIotCardWithOptions(request: VerifyIotCardRequest, runtime: $Util.RuntimeOptions): Promise<VerifyIotCardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iccid)) {
+      query["Iccid"] = request.iccid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyIotCard",
+      version: "2021-05-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyIotCardResponse>(await this.callApi(params, req, runtime), new VerifyIotCardResponse({}));
+  }
+
+  async verifyIotCard(request: VerifyIotCardRequest): Promise<VerifyIotCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyIotCardWithOptions(request, runtime);
   }
 
 }
