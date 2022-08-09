@@ -1641,18 +1641,15 @@ export class CorpTokenResponse extends $tea.Model {
 
 export class CostCenterDeleteRequest extends $tea.Model {
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -1729,7 +1726,6 @@ export class CostCenterModifyRequest extends $tea.Model {
   scope?: number;
   thirdpartId?: string;
   title?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       alipayNo: 'alipay_no',
@@ -1737,7 +1733,6 @@ export class CostCenterModifyRequest extends $tea.Model {
       scope: 'scope',
       thirdpartId: 'thirdpart_id',
       title: 'title',
-      userId: 'user_id',
     };
   }
 
@@ -1748,7 +1743,6 @@ export class CostCenterModifyRequest extends $tea.Model {
       scope: 'number',
       thirdpartId: 'string',
       title: 'string',
-      userId: 'string',
     };
   }
 
@@ -1913,37 +1907,31 @@ export class CostCenterQueryResponse extends $tea.Model {
 }
 
 export class CostCenterSaveRequest extends $tea.Model {
-  alipayId?: string;
   alipayNo?: string;
   corpId?: string;
   number?: string;
   scope?: number;
   thirdpartId?: string;
   title?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      alipayId: 'alipay_id',
       alipayNo: 'alipay_no',
       corpId: 'corp_id',
       number: 'number',
       scope: 'scope',
       thirdpartId: 'thirdpart_id',
       title: 'title',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      alipayId: 'string',
       alipayNo: 'string',
       corpId: 'string',
       number: 'string',
       scope: 'number',
       thirdpartId: 'string',
       title: 'string',
-      userId: 'string',
     };
   }
 
@@ -2016,18 +2004,15 @@ export class CostCenterSaveResponse extends $tea.Model {
 
 export class DepartmentSaveRequest extends $tea.Model {
   departList?: DepartmentSaveRequestDepartList[];
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       departList: 'depart_list',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       departList: { 'type': 'array', 'itemType': DepartmentSaveRequestDepartList },
-      userId: 'string',
     };
   }
 
@@ -2038,18 +2023,15 @@ export class DepartmentSaveRequest extends $tea.Model {
 
 export class DepartmentSaveShrinkRequest extends $tea.Model {
   departListShrink?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       departListShrink: 'depart_list',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       departListShrink: 'string',
-      userId: 'string',
     };
   }
 
@@ -2120,12 +2102,10 @@ export class DepartmentSaveResponse extends $tea.Model {
 export class EntityAddRequest extends $tea.Model {
   entityDOList?: EntityAddRequestEntityDOList[];
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       entityDOList: 'entity_d_o_list',
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
@@ -2133,7 +2113,6 @@ export class EntityAddRequest extends $tea.Model {
     return {
       entityDOList: { 'type': 'array', 'itemType': EntityAddRequestEntityDOList },
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -2145,12 +2124,10 @@ export class EntityAddRequest extends $tea.Model {
 export class EntityAddShrinkRequest extends $tea.Model {
   entityDOListShrink?: string;
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       entityDOListShrink: 'entity_d_o_list',
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
@@ -2158,7 +2135,6 @@ export class EntityAddShrinkRequest extends $tea.Model {
     return {
       entityDOListShrink: 'string',
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -2233,13 +2209,11 @@ export class EntityDeleteRequest extends $tea.Model {
   delAll?: boolean;
   entityDOList?: EntityDeleteRequestEntityDOList[];
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       delAll: 'del_all',
       entityDOList: 'entity_d_o_list',
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
@@ -2248,7 +2222,6 @@ export class EntityDeleteRequest extends $tea.Model {
       delAll: 'boolean',
       entityDOList: { 'type': 'array', 'itemType': EntityDeleteRequestEntityDOList },
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -2261,13 +2234,11 @@ export class EntityDeleteShrinkRequest extends $tea.Model {
   delAll?: boolean;
   entityDOListShrink?: string;
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       delAll: 'del_all',
       entityDOListShrink: 'entity_d_o_list',
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
@@ -2276,7 +2247,6 @@ export class EntityDeleteShrinkRequest extends $tea.Model {
       delAll: 'boolean',
       entityDOListShrink: 'string',
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -2350,12 +2320,10 @@ export class EntityDeleteResponse extends $tea.Model {
 export class EntitySetRequest extends $tea.Model {
   entityDOList?: EntitySetRequestEntityDOList[];
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       entityDOList: 'entity_d_o_list',
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
@@ -2363,7 +2331,6 @@ export class EntitySetRequest extends $tea.Model {
     return {
       entityDOList: { 'type': 'array', 'itemType': EntitySetRequestEntityDOList },
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -2375,12 +2342,10 @@ export class EntitySetRequest extends $tea.Model {
 export class EntitySetShrinkRequest extends $tea.Model {
   entityDOListShrink?: string;
   thirdpartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       entityDOListShrink: 'entity_d_o_list',
       thirdpartId: 'thirdpart_id',
-      userId: 'user_id',
     };
   }
 
@@ -2388,7 +2353,6 @@ export class EntitySetShrinkRequest extends $tea.Model {
     return {
       entityDOListShrink: 'string',
       thirdpartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -3201,25 +3165,21 @@ export class InvoiceAddRequest extends $tea.Model {
   address?: string;
   bankName?: string;
   bankNo?: string;
-  corpId?: string;
   taxNo?: string;
   tel?: string;
   thirdPartId?: string;
   title?: string;
   type?: number;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
       bankName: 'bank_name',
       bankNo: 'bank_no',
-      corpId: 'corp_id',
       taxNo: 'tax_no',
       tel: 'tel',
       thirdPartId: 'third_part_id',
       title: 'title',
       type: 'type',
-      userId: 'user_id',
     };
   }
 
@@ -3228,13 +3188,11 @@ export class InvoiceAddRequest extends $tea.Model {
       address: 'string',
       bankName: 'string',
       bankNo: 'string',
-      corpId: 'string',
       taxNo: 'string',
       tel: 'string',
       thirdPartId: 'string',
       title: 'string',
       type: 'number',
-      userId: 'string',
     };
   }
 
@@ -3307,18 +3265,15 @@ export class InvoiceAddResponse extends $tea.Model {
 
 export class InvoiceDeleteRequest extends $tea.Model {
   thirdPartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       thirdPartId: 'third_part_id',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       thirdPartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -3393,25 +3348,21 @@ export class InvoiceModifyRequest extends $tea.Model {
   address?: string;
   bankName?: string;
   bankNo?: string;
-  corpId?: string;
   taxNo?: string;
   tel?: string;
   thirdPartId?: string;
   title?: string;
   type?: number;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
       bankName: 'bank_name',
       bankNo: 'bank_no',
-      corpId: 'corp_id',
       taxNo: 'tax_no',
       tel: 'tel',
       thirdPartId: 'third_part_id',
       title: 'title',
       type: 'type',
-      userId: 'user_id',
     };
   }
 
@@ -3420,13 +3371,11 @@ export class InvoiceModifyRequest extends $tea.Model {
       address: 'string',
       bankName: 'string',
       bankNo: 'string',
-      corpId: 'string',
       taxNo: 'string',
       tel: 'string',
       thirdPartId: 'string',
       title: 'string',
       type: 'number',
-      userId: 'string',
     };
   }
 
@@ -3499,27 +3448,21 @@ export class InvoiceModifyResponse extends $tea.Model {
 
 export class InvoiceRuleSaveRequest extends $tea.Model {
   allEmploye?: boolean;
-  corpId?: string;
   entities?: InvoiceRuleSaveRequestEntities[];
   thirdPartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       allEmploye: 'all_employe',
-      corpId: 'corp_id',
       entities: 'entities',
       thirdPartId: 'third_part_id',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allEmploye: 'boolean',
-      corpId: 'string',
       entities: { 'type': 'array', 'itemType': InvoiceRuleSaveRequestEntities },
       thirdPartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -3530,27 +3473,21 @@ export class InvoiceRuleSaveRequest extends $tea.Model {
 
 export class InvoiceRuleSaveShrinkRequest extends $tea.Model {
   allEmploye?: boolean;
-  corpId?: string;
   entitiesShrink?: string;
   thirdPartId?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       allEmploye: 'all_employe',
-      corpId: 'corp_id',
       entitiesShrink: 'entities',
       thirdPartId: 'third_part_id',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allEmploye: 'boolean',
-      corpId: 'string',
       entitiesShrink: 'string',
       thirdPartId: 'string',
-      userId: 'string',
     };
   }
 
@@ -3622,25 +3559,16 @@ export class InvoiceRuleSaveResponse extends $tea.Model {
 }
 
 export class InvoiceSearchRequest extends $tea.Model {
-  authority?: boolean;
-  corpId?: string;
   title?: string;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      authority: 'authority',
-      corpId: 'corp_id',
       title: 'title',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authority: 'boolean',
-      corpId: 'string',
       title: 'string',
-      userId: 'string',
     };
   }
 
@@ -3712,18 +3640,15 @@ export class InvoiceSearchResponse extends $tea.Model {
 }
 
 export class IsvUserSaveRequest extends $tea.Model {
-  userId?: string;
   userList?: IsvUserSaveRequestUserList[];
   static names(): { [key: string]: string } {
     return {
-      userId: 'user_Id',
       userList: 'user_list',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
       userList: { 'type': 'array', 'itemType': IsvUserSaveRequestUserList },
     };
   }
@@ -3734,18 +3659,15 @@ export class IsvUserSaveRequest extends $tea.Model {
 }
 
 export class IsvUserSaveShrinkRequest extends $tea.Model {
-  userId?: string;
   userListShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'user_Id',
       userListShrink: 'user_list',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
       userListShrink: 'string',
     };
   }
@@ -4526,17 +4448,11 @@ export class UserQueryRequest extends $tea.Model {
   modifiedTimeGreaterOrEqualThan?: string;
   thirdPartCorpId?: string;
   thirdPartJobNo?: string;
-  topAppKeyOwnerId?: string;
-  topAuthorizedHavanaId?: string;
-  topAuthorizedUserNick?: string;
   static names(): { [key: string]: string } {
     return {
       modifiedTimeGreaterOrEqualThan: 'modified_time_greater_or_equal_than',
       thirdPartCorpId: 'third_part_corp_id',
       thirdPartJobNo: 'third_part_job_no',
-      topAppKeyOwnerId: 'top_app_key_owner_id',
-      topAuthorizedHavanaId: 'top_authorized_havana_id',
-      topAuthorizedUserNick: 'top_authorized_user_nick',
     };
   }
 
@@ -4545,9 +4461,6 @@ export class UserQueryRequest extends $tea.Model {
       modifiedTimeGreaterOrEqualThan: 'string',
       thirdPartCorpId: 'string',
       thirdPartJobNo: 'string',
-      topAppKeyOwnerId: 'string',
-      topAuthorizedHavanaId: 'string',
-      topAuthorizedUserNick: 'string',
     };
   }
 
@@ -6623,28 +6536,19 @@ export class DepartmentSaveRequestDepartList extends $tea.Model {
 }
 
 export class EntityAddRequestEntityDOList extends $tea.Model {
-  corpId?: string;
   entityId?: string;
   entityType?: string;
-  name?: string;
-  userNum?: number;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'corp_id',
       entityId: 'entity_id',
       entityType: 'entity_type',
-      name: 'name',
-      userNum: 'user_num',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       entityId: 'string',
       entityType: 'string',
-      name: 'string',
-      userNum: 'number',
     };
   }
 
@@ -6676,28 +6580,19 @@ export class EntityAddResponseBodyModule extends $tea.Model {
 }
 
 export class EntityDeleteRequestEntityDOList extends $tea.Model {
-  corpId?: string;
   entityId?: string;
   entityType?: string;
-  name?: string;
-  userNum?: number;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'corp_id',
       entityId: 'entity_id',
       entityType: 'entity_type',
-      name: 'name',
-      userNum: 'user_num',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       entityId: 'string',
       entityType: 'string',
-      name: 'string',
-      userNum: 'number',
     };
   }
 
@@ -6729,28 +6624,19 @@ export class EntityDeleteResponseBodyModule extends $tea.Model {
 }
 
 export class EntitySetRequestEntityDOList extends $tea.Model {
-  corpId?: string;
   entityId?: string;
   entityType?: string;
-  name?: string;
-  userNum?: number;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'corp_id',
       entityId: 'entity_id',
       entityType: 'entity_type',
-      name: 'name',
-      userNum: 'user_num',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       entityId: 'string',
       entityType: 'string',
-      name: 'string',
-      userNum: 'number',
     };
   }
 
@@ -8500,43 +8386,19 @@ export class InvoiceRuleSaveRequestEntities extends $tea.Model {
 }
 
 export class InvoiceRuleSaveResponseBodyModule extends $tea.Model {
-  account?: string;
   addNum?: number;
-  havanaId?: string;
   removeNum?: number;
-  selectedExternalUserNum?: number;
-  selectedUserNum?: number;
-  suiteKey?: string;
-  tokenGrantType?: number;
-  version?: number;
-  withoutAuthority?: boolean;
   static names(): { [key: string]: string } {
     return {
-      account: 'account',
       addNum: 'add_num',
-      havanaId: 'havana_id',
       removeNum: 'remove_num',
-      selectedExternalUserNum: 'selected_external_user_num',
-      selectedUserNum: 'selected_user_num',
-      suiteKey: 'suite_key',
-      tokenGrantType: 'token_grant_type',
-      version: 'version',
-      withoutAuthority: 'without_authority',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      account: 'string',
       addNum: 'number',
-      havanaId: 'string',
       removeNum: 'number',
-      selectedExternalUserNum: 'number',
-      selectedUserNum: 'number',
-      suiteKey: 'string',
-      tokenGrantType: 'number',
-      version: 'number',
-      withoutAuthority: 'boolean',
     };
   }
 
@@ -10687,10 +10549,6 @@ export default class Client extends OpenApi {
       query["thirdpart_id"] = request.thirdpartId;
     }
 
-    if (!Util.isUnset(request.userId)) {
-      query["user_id"] = request.userId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -10736,10 +10594,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.title)) {
       body["title"] = request.title;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10818,10 +10672,6 @@ export default class Client extends OpenApi {
   async costCenterSaveWithOptions(request: CostCenterSaveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CostCenterSaveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alipayId)) {
-      body["alipay_id"] = request.alipayId;
-    }
-
     if (!Util.isUnset(request.alipayNo)) {
       body["alipay_no"] = request.alipayNo;
     }
@@ -10844,10 +10694,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.title)) {
       body["title"] = request.title;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10885,10 +10731,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.departListShrink)) {
       body["depart_list"] = request.departListShrink;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10930,10 +10772,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.thirdpartId)) {
       body["thirdpart_id"] = request.thirdpartId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10982,10 +10820,6 @@ export default class Client extends OpenApi {
       body["entity_d_o_list"] = request.entityDOListShrink;
     }
 
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -11026,10 +10860,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.thirdpartId)) {
       body["thirdpart_id"] = request.thirdpartId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11463,10 +11293,6 @@ export default class Client extends OpenApi {
       body["bank_no"] = request.bankNo;
     }
 
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.taxNo)) {
       body["tax_no"] = request.taxNo;
     }
@@ -11485,10 +11311,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.type)) {
       body["type"] = request.type;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11522,15 +11344,9 @@ export default class Client extends OpenApi {
       query["third_part_id"] = request.thirdPartId;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "InvoiceDelete",
@@ -11540,7 +11356,7 @@ export default class Client extends OpenApi {
       method: "DELETE",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<InvoiceDeleteResponse>(await this.callApi(params, req, runtime), new InvoiceDeleteResponse({}));
@@ -11567,10 +11383,6 @@ export default class Client extends OpenApi {
       body["bank_no"] = request.bankNo;
     }
 
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.taxNo)) {
       body["tax_no"] = request.taxNo;
     }
@@ -11589,10 +11401,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.type)) {
       body["type"] = request.type;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11632,20 +11440,12 @@ export default class Client extends OpenApi {
       body["all_employe"] = request.allEmploye;
     }
 
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.entitiesShrink)) {
       body["entities"] = request.entitiesShrink;
     }
 
     if (!Util.isUnset(request.thirdPartId)) {
       body["third_part_id"] = request.thirdPartId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11675,27 +11475,13 @@ export default class Client extends OpenApi {
   async invoiceSearchWithOptions(request: InvoiceSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvoiceSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["user_id"] = request.userId;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.authority)) {
-      body["authority"] = request.authority;
-    }
-
     if (!Util.isUnset(request.title)) {
-      body["title"] = request.title;
+      query["title"] = request.title;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "InvoiceSearch",
@@ -11705,7 +11491,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<InvoiceSearchResponse>(await this.callApi(params, req, runtime), new InvoiceSearchResponse({}));
@@ -11726,10 +11512,6 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.userId)) {
-      body["user_Id"] = request.userId;
-    }
-
     if (!Util.isUnset(request.userListShrink)) {
       body["user_list"] = request.userListShrink;
     }
@@ -12123,18 +11905,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.thirdPartJobNo)) {
       query["third_part_job_no"] = request.thirdPartJobNo;
-    }
-
-    if (!Util.isUnset(request.topAppKeyOwnerId)) {
-      query["top_app_key_owner_id"] = request.topAppKeyOwnerId;
-    }
-
-    if (!Util.isUnset(request.topAuthorizedHavanaId)) {
-      query["top_authorized_havana_id"] = request.topAuthorizedHavanaId;
-    }
-
-    if (!Util.isUnset(request.topAuthorizedUserNick)) {
-      query["top_authorized_user_nick"] = request.topAuthorizedUserNick;
     }
 
     let req = new $OpenApi.OpenApiRequest({
