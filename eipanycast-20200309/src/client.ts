@@ -72,10 +72,12 @@ export class AllocateAnycastEipAddressResponseBody extends $tea.Model {
 
 export class AllocateAnycastEipAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AllocateAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -83,6 +85,7 @@ export class AllocateAnycastEipAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AllocateAnycastEipAddressResponseBody,
     };
   }
@@ -156,10 +159,12 @@ export class AssociateAnycastEipAddressResponseBody extends $tea.Model {
 
 export class AssociateAnycastEipAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssociateAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -167,6 +172,7 @@ export class AssociateAnycastEipAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssociateAnycastEipAddressResponseBody,
     };
   }
@@ -264,10 +270,12 @@ export class DescribeAnycastEipAddressResponseBody extends $tea.Model {
 
 export class DescribeAnycastEipAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -275,6 +283,7 @@ export class DescribeAnycastEipAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAnycastEipAddressResponseBody,
     };
   }
@@ -330,10 +339,12 @@ export class DescribeAnycastPopLocationsResponseBody extends $tea.Model {
 
 export class DescribeAnycastPopLocationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAnycastPopLocationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -341,6 +352,7 @@ export class DescribeAnycastPopLocationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAnycastPopLocationsResponseBody,
     };
   }
@@ -396,10 +408,12 @@ export class DescribeAnycastServerRegionsResponseBody extends $tea.Model {
 
 export class DescribeAnycastServerRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAnycastServerRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -407,6 +421,7 @@ export class DescribeAnycastServerRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAnycastServerRegionsResponseBody,
     };
   }
@@ -419,6 +434,7 @@ export class DescribeAnycastServerRegionsResponse extends $tea.Model {
 export class ListAnycastEipAddressesRequest extends $tea.Model {
   anycastEipAddress?: string;
   anycastId?: string;
+  anycastIds?: string[];
   bindInstanceIds?: string[];
   businessStatus?: string;
   instanceChargeType?: string;
@@ -432,6 +448,7 @@ export class ListAnycastEipAddressesRequest extends $tea.Model {
     return {
       anycastEipAddress: 'AnycastEipAddress',
       anycastId: 'AnycastId',
+      anycastIds: 'AnycastIds',
       bindInstanceIds: 'BindInstanceIds',
       businessStatus: 'BusinessStatus',
       instanceChargeType: 'InstanceChargeType',
@@ -448,6 +465,7 @@ export class ListAnycastEipAddressesRequest extends $tea.Model {
     return {
       anycastEipAddress: 'string',
       anycastId: 'string',
+      anycastIds: { 'type': 'array', 'itemType': 'string' },
       bindInstanceIds: { 'type': 'array', 'itemType': 'string' },
       businessStatus: 'string',
       instanceChargeType: 'string',
@@ -495,10 +513,12 @@ export class ListAnycastEipAddressesResponseBody extends $tea.Model {
 
 export class ListAnycastEipAddressesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAnycastEipAddressesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -506,6 +526,7 @@ export class ListAnycastEipAddressesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAnycastEipAddressesResponseBody,
     };
   }
@@ -561,10 +582,12 @@ export class ModifyAnycastEipAddressAttributeResponseBody extends $tea.Model {
 
 export class ModifyAnycastEipAddressAttributeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAnycastEipAddressAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -572,6 +595,7 @@ export class ModifyAnycastEipAddressAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAnycastEipAddressAttributeResponseBody,
     };
   }
@@ -624,10 +648,12 @@ export class ModifyAnycastEipAddressSpecResponseBody extends $tea.Model {
 
 export class ModifyAnycastEipAddressSpecResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyAnycastEipAddressSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -635,6 +661,7 @@ export class ModifyAnycastEipAddressSpecResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAnycastEipAddressSpecResponseBody,
     };
   }
@@ -687,10 +714,12 @@ export class ReleaseAnycastEipAddressResponseBody extends $tea.Model {
 
 export class ReleaseAnycastEipAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReleaseAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -698,6 +727,7 @@ export class ReleaseAnycastEipAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReleaseAnycastEipAddressResponseBody,
     };
   }
@@ -765,10 +795,12 @@ export class UnassociateAnycastEipAddressResponseBody extends $tea.Model {
 
 export class UnassociateAnycastEipAddressResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnassociateAnycastEipAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -776,6 +808,7 @@ export class UnassociateAnycastEipAddressResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnassociateAnycastEipAddressResponseBody,
     };
   }
@@ -843,10 +876,12 @@ export class UpdateAnycastEipAddressAssociationsResponseBody extends $tea.Model 
 
 export class UpdateAnycastEipAddressAssociationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAnycastEipAddressAssociationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -854,6 +889,7 @@ export class UpdateAnycastEipAddressAssociationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAnycastEipAddressAssociationsResponseBody,
     };
   }
@@ -1018,7 +1054,6 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
   anycastEipBindInfoList?: ListAnycastEipAddressesResponseBodyAnycastListAnycastEipBindInfoList[];
   anycastId?: string;
   bandwidth?: number;
-  bid?: string;
   businessStatus?: string;
   createTime?: string;
   description?: string;
@@ -1027,6 +1062,7 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
   ipAddress?: string;
   name?: string;
   serviceLocation?: string;
+  serviceManaged?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1034,7 +1070,6 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
       anycastEipBindInfoList: 'AnycastEipBindInfoList',
       anycastId: 'AnycastId',
       bandwidth: 'Bandwidth',
-      bid: 'Bid',
       businessStatus: 'BusinessStatus',
       createTime: 'CreateTime',
       description: 'Description',
@@ -1043,6 +1078,7 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
       ipAddress: 'IpAddress',
       name: 'Name',
       serviceLocation: 'ServiceLocation',
+      serviceManaged: 'ServiceManaged',
       status: 'Status',
     };
   }
@@ -1053,7 +1089,6 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
       anycastEipBindInfoList: { 'type': 'array', 'itemType': ListAnycastEipAddressesResponseBodyAnycastListAnycastEipBindInfoList },
       anycastId: 'string',
       bandwidth: 'number',
-      bid: 'string',
       businessStatus: 'string',
       createTime: 'string',
       description: 'string',
@@ -1062,6 +1097,7 @@ export class ListAnycastEipAddressesResponseBodyAnycastList extends $tea.Model {
       ipAddress: 'string',
       name: 'string',
       serviceLocation: 'string',
+      serviceManaged: 'number',
       status: 'string',
     };
   }
@@ -1135,13 +1171,34 @@ export default class Client extends OpenApi {
   async allocateAnycastEipAddressWithOptions(request: AllocateAnycastEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateAnycastEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["Name"] = request.name;
-    query["ServiceLocation"] = request.serviceLocation;
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.serviceLocation)) {
+      query["ServiceLocation"] = request.serviceLocation;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1167,15 +1224,42 @@ export default class Client extends OpenApi {
   async associateAnycastEipAddressWithOptions(request: AssociateAnycastEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAnycastEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["AssociationMode"] = request.associationMode;
-    query["BindInstanceId"] = request.bindInstanceId;
-    query["BindInstanceRegionId"] = request.bindInstanceRegionId;
-    query["BindInstanceType"] = request.bindInstanceType;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["PopLocations"] = request.popLocations;
-    query["PrivateIpAddress"] = request.privateIpAddress;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.associationMode)) {
+      query["AssociationMode"] = request.associationMode;
+    }
+
+    if (!Util.isUnset(request.bindInstanceId)) {
+      query["BindInstanceId"] = request.bindInstanceId;
+    }
+
+    if (!Util.isUnset(request.bindInstanceRegionId)) {
+      query["BindInstanceRegionId"] = request.bindInstanceRegionId;
+    }
+
+    if (!Util.isUnset(request.bindInstanceType)) {
+      query["BindInstanceType"] = request.bindInstanceType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.popLocations)) {
+      query["PopLocations"] = request.popLocations;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1201,9 +1285,18 @@ export default class Client extends OpenApi {
   async describeAnycastEipAddressWithOptions(request: DescribeAnycastEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnycastEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["BindInstanceId"] = request.bindInstanceId;
-    query["Ip"] = request.ip;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.bindInstanceId)) {
+      query["BindInstanceId"] = request.bindInstanceId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1229,7 +1322,10 @@ export default class Client extends OpenApi {
   async describeAnycastPopLocationsWithOptions(request: DescribeAnycastPopLocationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnycastPopLocationsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ServiceLocation"] = request.serviceLocation;
+    if (!Util.isUnset(request.serviceLocation)) {
+      query["ServiceLocation"] = request.serviceLocation;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1255,7 +1351,10 @@ export default class Client extends OpenApi {
   async describeAnycastServerRegionsWithOptions(request: DescribeAnycastServerRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAnycastServerRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ServiceLocation"] = request.serviceLocation;
+    if (!Util.isUnset(request.serviceLocation)) {
+      query["ServiceLocation"] = request.serviceLocation;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1281,17 +1380,54 @@ export default class Client extends OpenApi {
   async listAnycastEipAddressesWithOptions(request: ListAnycastEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<ListAnycastEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastEipAddress"] = request.anycastEipAddress;
-    query["AnycastId"] = request.anycastId;
-    query["BindInstanceIds"] = request.bindInstanceIds;
-    query["BusinessStatus"] = request.businessStatus;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["MaxResults"] = request.maxResults;
-    query["Name"] = request.name;
-    query["NextToken"] = request.nextToken;
-    query["ServiceLocation"] = request.serviceLocation;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.anycastEipAddress)) {
+      query["AnycastEipAddress"] = request.anycastEipAddress;
+    }
+
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.anycastIds)) {
+      query["AnycastIds"] = request.anycastIds;
+    }
+
+    if (!Util.isUnset(request.bindInstanceIds)) {
+      query["BindInstanceIds"] = request.bindInstanceIds;
+    }
+
+    if (!Util.isUnset(request.businessStatus)) {
+      query["BusinessStatus"] = request.businessStatus;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.serviceLocation)) {
+      query["ServiceLocation"] = request.serviceLocation;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1317,9 +1453,18 @@ export default class Client extends OpenApi {
   async modifyAnycastEipAddressAttributeWithOptions(request: ModifyAnycastEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAnycastEipAddressAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1345,8 +1490,14 @@ export default class Client extends OpenApi {
   async modifyAnycastEipAddressSpecWithOptions(request: ModifyAnycastEipAddressSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAnycastEipAddressSpecResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["Bandwidth"] = request.bandwidth;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1372,8 +1523,14 @@ export default class Client extends OpenApi {
   async releaseAnycastEipAddressWithOptions(request: ReleaseAnycastEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseAnycastEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["ClientToken"] = request.clientToken;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1399,13 +1556,34 @@ export default class Client extends OpenApi {
   async unassociateAnycastEipAddressWithOptions(request: UnassociateAnycastEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateAnycastEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["BindInstanceId"] = request.bindInstanceId;
-    query["BindInstanceRegionId"] = request.bindInstanceRegionId;
-    query["BindInstanceType"] = request.bindInstanceType;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["PrivateIpAddress"] = request.privateIpAddress;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.bindInstanceId)) {
+      query["BindInstanceId"] = request.bindInstanceId;
+    }
+
+    if (!Util.isUnset(request.bindInstanceRegionId)) {
+      query["BindInstanceRegionId"] = request.bindInstanceRegionId;
+    }
+
+    if (!Util.isUnset(request.bindInstanceType)) {
+      query["BindInstanceType"] = request.bindInstanceType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1431,13 +1609,34 @@ export default class Client extends OpenApi {
   async updateAnycastEipAddressAssociationsWithOptions(request: UpdateAnycastEipAddressAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAnycastEipAddressAssociationsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AnycastId"] = request.anycastId;
-    query["AssociationMode"] = request.associationMode;
-    query["BindInstanceId"] = request.bindInstanceId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["PopLocationAddList"] = request.popLocationAddList;
-    query["PopLocationDeleteList"] = request.popLocationDeleteList;
+    if (!Util.isUnset(request.anycastId)) {
+      query["AnycastId"] = request.anycastId;
+    }
+
+    if (!Util.isUnset(request.associationMode)) {
+      query["AssociationMode"] = request.associationMode;
+    }
+
+    if (!Util.isUnset(request.bindInstanceId)) {
+      query["BindInstanceId"] = request.bindInstanceId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.popLocationAddList)) {
+      query["PopLocationAddList"] = request.popLocationAddList;
+    }
+
+    if (!Util.isUnset(request.popLocationDeleteList)) {
+      query["PopLocationDeleteList"] = request.popLocationDeleteList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
