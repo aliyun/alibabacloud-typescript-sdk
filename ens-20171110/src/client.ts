@@ -2536,12 +2536,14 @@ export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
 
 export class CreateNatGatewayRequest extends $tea.Model {
   ensRegionId?: string;
+  instanceType?: string;
   name?: string;
   networkId?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
+      instanceType: 'InstanceType',
       name: 'Name',
       networkId: 'NetworkId',
       vSwitchId: 'VSwitchId',
@@ -2551,6 +2553,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ensRegionId: 'string',
+      instanceType: 'string',
       name: 'string',
       networkId: 'string',
       vSwitchId: 'string',
@@ -2761,6 +2764,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   snatEntryName?: string;
   snatIp?: string;
   sourceCIDR?: string;
+  sourceNetworkId?: string;
   sourceVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2768,6 +2772,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
       snatEntryName: 'SnatEntryName',
       snatIp: 'SnatIp',
       sourceCIDR: 'SourceCIDR',
+      sourceNetworkId: 'SourceNetworkId',
       sourceVSwitchId: 'SourceVSwitchId',
     };
   }
@@ -2778,6 +2783,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
       snatEntryName: 'string',
       snatIp: 'string',
       sourceCIDR: 'string',
+      sourceNetworkId: 'string',
       sourceVSwitchId: 'string',
     };
   }
@@ -9839,6 +9845,72 @@ export class GetDeviceInternetPortResponse extends $tea.Model {
   }
 }
 
+export class GetOssStorageAndAccByBucketsRequest extends $tea.Model {
+  bucketList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketList: 'BucketList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssStorageAndAccByBucketsResponseBody extends $tea.Model {
+  bucketList?: GetOssStorageAndAccByBucketsResponseBodyBucketList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketList: 'BucketList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketList: { 'type': 'array', 'itemType': GetOssStorageAndAccByBucketsResponseBodyBucketList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssStorageAndAccByBucketsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOssStorageAndAccByBucketsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOssStorageAndAccByBucketsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportKeyPairRequest extends $tea.Model {
   keyPairName?: string;
   publicKeyBody?: string;
@@ -11519,12 +11591,10 @@ export class RebootARMServerInstanceResponse extends $tea.Model {
 export class RebootInstanceRequest extends $tea.Model {
   forceStop?: string;
   instanceId?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       forceStop: 'ForceStop',
       instanceId: 'InstanceId',
-      version: 'Version',
     };
   }
 
@@ -11532,7 +11602,6 @@ export class RebootInstanceRequest extends $tea.Model {
     return {
       forceStop: 'string',
       instanceId: 'string',
-      version: 'string',
     };
   }
 
@@ -11580,6 +11649,75 @@ export class RebootInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RebootInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReinitInstanceRequest extends $tea.Model {
+  imageId?: string;
+  instanceId?: string;
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      instanceId: 'InstanceId',
+      password: 'Password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      instanceId: 'string',
+      password: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReinitInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReinitInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReinitInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReinitInstanceResponseBody,
     };
   }
 
@@ -13819,18 +13957,15 @@ export class StartEpnInstanceResponse extends $tea.Model {
 
 export class StartInstanceRequest extends $tea.Model {
   instanceId?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      version: 'string',
     };
   }
 
@@ -17814,6 +17949,7 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
   name?: string;
   natGatewayId?: string;
   networkId?: string;
+  spec?: string;
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17822,6 +17958,7 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
       name: 'Name',
       natGatewayId: 'NatGatewayId',
       networkId: 'NetworkId',
+      spec: 'Spec',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -17833,6 +17970,7 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
       name: 'string',
       natGatewayId: 'string',
       networkId: 'string',
+      spec: 'string',
       vSwitchId: 'string',
     };
   }
@@ -18819,6 +18957,31 @@ export class GetDeviceInternetPortResponseBodyNetworkInfo extends $tea.Model {
       internalIp: 'string',
       internalPort: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $tea.Model {
+  acc?: number;
+  bucket?: string;
+  storageUsageByte?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acc: 'Acc',
+      bucket: 'Bucket',
+      storageUsageByte: 'StorageUsageByte',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acc: 'number',
+      bucket: 'string',
+      storageUsageByte: 'number',
     };
   }
 
@@ -20671,6 +20834,10 @@ export default class Client extends OpenApi {
       query["EnsRegionId"] = request.ensRegionId;
     }
 
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -20800,6 +20967,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceCIDR)) {
       query["SourceCIDR"] = request.sourceCIDR;
+    }
+
+    if (!Util.isUnset(request.sourceNetworkId)) {
+      query["SourceNetworkId"] = request.sourceNetworkId;
     }
 
     if (!Util.isUnset(request.sourceVSwitchId)) {
@@ -24034,6 +24205,31 @@ export default class Client extends OpenApi {
     return await this.getDeviceInternetPortWithOptions(request, runtime);
   }
 
+  async getOssStorageAndAccByBucketsWithOptions(request: GetOssStorageAndAccByBucketsRequest, runtime: $Util.RuntimeOptions): Promise<GetOssStorageAndAccByBucketsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOssStorageAndAccByBuckets",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOssStorageAndAccByBucketsResponse>(await this.callApi(params, req, runtime), new GetOssStorageAndAccByBucketsResponse({}));
+  }
+
+  async getOssStorageAndAccByBuckets(request: GetOssStorageAndAccByBucketsRequest): Promise<GetOssStorageAndAccByBucketsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOssStorageAndAccByBucketsWithOptions(request, runtime);
+  }
+
   async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyPairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24944,10 +25140,6 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24968,6 +25160,43 @@ export default class Client extends OpenApi {
   async rebootInstance(request: RebootInstanceRequest): Promise<RebootInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootInstanceWithOptions(request, runtime);
+  }
+
+  async reinitInstanceWithOptions(request: ReinitInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReinitInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReinitInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReinitInstanceResponse>(await this.callApi(params, req, runtime), new ReinitInstanceResponse({}));
+  }
+
+  async reinitInstance(request: ReinitInstanceRequest): Promise<ReinitInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reinitInstanceWithOptions(request, runtime);
   }
 
   async releaseARMServerInstanceWithOptions(request: ReleaseARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseARMServerInstanceResponse> {
@@ -26257,10 +26486,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
