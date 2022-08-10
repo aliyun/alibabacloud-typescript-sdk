@@ -8,6 +8,90 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CheckResultRequest extends $tea.Model {
+  extraImageControlList?: string;
+  isReturnImage?: string;
+  merchantBizId?: string;
+  returnFiveCategorySpoofResult?: string;
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extraImageControlList: 'ExtraImageControlList',
+      isReturnImage: 'IsReturnImage',
+      merchantBizId: 'MerchantBizId',
+      returnFiveCategorySpoofResult: 'ReturnFiveCategorySpoofResult',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraImageControlList: 'string',
+      isReturnImage: 'string',
+      merchantBizId: 'string',
+      returnFiveCategorySpoofResult: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckResultResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  result?: CheckResultResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: CheckResultResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitializeRequest extends $tea.Model {
   docType?: string;
   flowType?: string;
@@ -110,6 +194,37 @@ export class InitializeResponse extends $tea.Model {
   }
 }
 
+export class CheckResultResponseBodyResult extends $tea.Model {
+  ekycResult?: string;
+  extBasicInfo?: string;
+  extFaceInfo?: string;
+  extIdInfo?: string;
+  extRiskInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ekycResult: 'EkycResult',
+      extBasicInfo: 'ExtBasicInfo',
+      extFaceInfo: 'ExtFaceInfo',
+      extIdInfo: 'ExtIdInfo',
+      extRiskInfo: 'ExtRiskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ekycResult: 'string',
+      extBasicInfo: 'string',
+      extFaceInfo: 'string',
+      extIdInfo: 'string',
+      extRiskInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitializeResponseBodyResult extends $tea.Model {
   transactionId?: string;
   static names(): { [key: string]: string } {
@@ -150,6 +265,51 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async checkResultWithOptions(request: CheckResultRequest, runtime: $Util.RuntimeOptions): Promise<CheckResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.extraImageControlList)) {
+      query["ExtraImageControlList"] = request.extraImageControlList;
+    }
+
+    if (!Util.isUnset(request.isReturnImage)) {
+      query["IsReturnImage"] = request.isReturnImage;
+    }
+
+    if (!Util.isUnset(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!Util.isUnset(request.returnFiveCategorySpoofResult)) {
+      query["ReturnFiveCategorySpoofResult"] = request.returnFiveCategorySpoofResult;
+    }
+
+    if (!Util.isUnset(request.transactionId)) {
+      query["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckResult",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckResultResponse>(await this.callApi(params, req, runtime), new CheckResultResponse({}));
+  }
+
+  async checkResult(request: CheckResultRequest): Promise<CheckResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkResultWithOptions(request, runtime);
   }
 
   async initializeWithOptions(request: InitializeRequest, runtime: $Util.RuntimeOptions): Promise<InitializeResponse> {
