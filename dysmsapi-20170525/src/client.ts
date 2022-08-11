@@ -4441,10 +4441,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumberJson)) {
-      query["PhoneNumberJson"] = request.phoneNumberJson;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -4453,24 +4449,30 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signNameJson)) {
-      query["SignNameJson"] = request.signNameJson;
-    }
-
-    if (!Util.isUnset(request.smsUpExtendCodeJson)) {
-      query["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
-    }
-
     if (!Util.isUnset(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.phoneNumberJson)) {
+      body["PhoneNumberJson"] = request.phoneNumberJson;
+    }
+
+    if (!Util.isUnset(request.signNameJson)) {
+      body["SignNameJson"] = request.signNameJson;
+    }
+
+    if (!Util.isUnset(request.smsUpExtendCodeJson)) {
+      body["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
+    }
+
     if (!Util.isUnset(request.templateParamJson)) {
-      query["TemplateParamJson"] = request.templateParamJson;
+      body["TemplateParamJson"] = request.templateParamJson;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SendBatchSms",
