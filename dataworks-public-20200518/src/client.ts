@@ -8754,6 +8754,7 @@ export class GetMetaTablePartitionRequest extends $tea.Model {
   databaseName?: string;
   pageNumber?: number;
   pageSize?: number;
+  sortCriterion?: GetMetaTablePartitionRequestSortCriterion;
   tableGuid?: string;
   tableName?: string;
   static names(): { [key: string]: string } {
@@ -8763,6 +8764,7 @@ export class GetMetaTablePartitionRequest extends $tea.Model {
       databaseName: 'DatabaseName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sortCriterion: 'SortCriterion',
       tableGuid: 'TableGuid',
       tableName: 'TableName',
     };
@@ -8775,6 +8777,47 @@ export class GetMetaTablePartitionRequest extends $tea.Model {
       databaseName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sortCriterion: GetMetaTablePartitionRequestSortCriterion,
+      tableGuid: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTablePartitionShrinkRequest extends $tea.Model {
+  clusterId?: string;
+  dataSourceType?: string;
+  databaseName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortCriterionShrink?: string;
+  tableGuid?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataSourceType: 'DataSourceType',
+      databaseName: 'DatabaseName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortCriterionShrink: 'SortCriterion',
+      tableGuid: 'TableGuid',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataSourceType: 'string',
+      databaseName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortCriterionShrink: 'string',
       tableGuid: 'string',
       tableName: 'string',
     };
@@ -24043,6 +24086,28 @@ export class GetMetaTableOutputResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetMetaTablePartitionRequestSortCriterion extends $tea.Model {
+  order?: string;
+  sortField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      order: 'Order',
+      sortField: 'SortField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      order: 'string',
+      sortField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $tea.Model {
   comment?: string;
   createTime?: number;
@@ -35620,8 +35685,14 @@ export default class Client extends OpenApi {
     return await this.getMetaTableOutputWithOptions(request, runtime);
   }
 
-  async getMetaTablePartitionWithOptions(request: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
-    Util.validateModel(request);
+  async getMetaTablePartitionWithOptions(tmpReq: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetMetaTablePartitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.sortCriterion))) {
+      request.sortCriterionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sortCriterion), "SortCriterion", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
@@ -35641,6 +35712,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortCriterionShrink)) {
+      query["SortCriterion"] = request.sortCriterionShrink;
     }
 
     if (!Util.isUnset(request.tableGuid)) {
