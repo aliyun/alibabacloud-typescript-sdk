@@ -553,6 +553,7 @@ export class JobLogConfig extends $tea.Model {
 export class Layer extends $tea.Model {
   acl?: number;
   arn?: string;
+  arnV2?: string;
   code?: LayerCode;
   codeChecksum?: string;
   codeSize?: number;
@@ -560,11 +561,13 @@ export class Layer extends $tea.Model {
   createTime?: string;
   description?: string;
   layerName?: string;
+  license?: string;
   version?: number;
   static names(): { [key: string]: string } {
     return {
       acl: 'acl',
       arn: 'arn',
+      arnV2: 'arnV2',
       code: 'code',
       codeChecksum: 'codeChecksum',
       codeSize: 'codeSize',
@@ -572,6 +575,7 @@ export class Layer extends $tea.Model {
       createTime: 'createTime',
       description: 'description',
       layerName: 'layerName',
+      license: 'license',
       version: 'version',
     };
   }
@@ -580,6 +584,7 @@ export class Layer extends $tea.Model {
     return {
       acl: 'number',
       arn: 'string',
+      arnV2: 'string',
       code: LayerCode,
       codeChecksum: 'string',
       codeSize: 'number',
@@ -587,6 +592,7 @@ export class Layer extends $tea.Model {
       createTime: 'string',
       description: 'string',
       layerName: 'string',
+      license: 'string',
       version: 'number',
     };
   }
@@ -949,6 +955,34 @@ export class PathConfig extends $tea.Model {
   }
 }
 
+export class PolicyItem extends $tea.Model {
+  key?: Buffer;
+  operator?: Buffer;
+  type?: Buffer;
+  value?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      operator: 'operator',
+      type: 'type',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'Buffer',
+      operator: 'Buffer',
+      type: 'Buffer',
+      value: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreFreeze extends $tea.Model {
   handler?: string;
   timeout?: number;
@@ -1054,6 +1088,28 @@ export class RouteConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       routes: { 'type': 'array', 'itemType': PathConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RoutePolicy extends $tea.Model {
+  condition?: Buffer;
+  policyItems?: PolicyItem;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      policyItems: 'policyItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'Buffer',
+      policyItems: PolicyItem,
     };
   }
 
@@ -1476,12 +1532,16 @@ export class CreateAliasRequest extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
   aliasName?: string;
   description?: string;
+  resolvePolicy?: string;
+  routePolicy?: RoutePolicy;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
       additionalVersionWeight: 'additionalVersionWeight',
       aliasName: 'aliasName',
       description: 'description',
+      resolvePolicy: 'resolvePolicy',
+      routePolicy: 'routePolicy',
       versionId: 'versionId',
     };
   }
@@ -1491,6 +1551,8 @@ export class CreateAliasRequest extends $tea.Model {
       additionalVersionWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       aliasName: 'string',
       description: 'string',
+      resolvePolicy: 'string',
+      routePolicy: RoutePolicy,
       versionId: 'string',
     };
   }
@@ -2103,7 +2165,6 @@ export class CreateServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
-  vendorConfig?: VendorConfig;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -2117,7 +2178,6 @@ export class CreateServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
-      vendorConfig: 'vendorConfig',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -2134,7 +2194,6 @@ export class CreateServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
-      vendorConfig: VendorConfig,
       vpcConfig: VPCConfig,
     };
   }
@@ -3114,6 +3173,8 @@ export class GetAliasResponseBody extends $tea.Model {
   createdTime?: string;
   description?: string;
   lastModifiedTime?: string;
+  resolvePolicy?: string;
+  routePolicy?: RoutePolicy;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3122,6 +3183,8 @@ export class GetAliasResponseBody extends $tea.Model {
       createdTime: 'createdTime',
       description: 'description',
       lastModifiedTime: 'lastModifiedTime',
+      resolvePolicy: 'resolvePolicy',
+      routePolicy: 'routePolicy',
       versionId: 'versionId',
     };
   }
@@ -3133,6 +3196,8 @@ export class GetAliasResponseBody extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       lastModifiedTime: 'string',
+      resolvePolicy: 'string',
+      routePolicy: RoutePolicy,
       versionId: 'string',
     };
   }
@@ -4885,14 +4950,10 @@ export class ListFunctionsResponse extends $tea.Model {
 export class ListInstancesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
-  xFcDate?: string;
-  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcDate: 'X-Fc-Date',
-      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4900,8 +4961,6 @@ export class ListInstancesHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
-      xFcDate: 'string',
-      xFcTraceId: 'string',
     };
   }
 
@@ -5107,13 +5166,17 @@ export class ListLayersHeaders extends $tea.Model {
 export class ListLayersRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
+  official?: boolean;
   prefix?: string;
+  public?: boolean;
   startKey?: string;
   static names(): { [key: string]: string } {
     return {
       limit: 'limit',
       nextToken: 'nextToken',
+      official: 'official',
       prefix: 'prefix',
+      public: 'public',
       startKey: 'startKey',
     };
   }
@@ -5122,7 +5185,9 @@ export class ListLayersRequest extends $tea.Model {
     return {
       limit: 'number',
       nextToken: 'string',
+      official: 'boolean',
       prefix: 'string',
+      public: 'boolean',
       startKey: 'string',
     };
   }
@@ -6517,6 +6582,78 @@ export class PutFunctionOnDemandConfigResponse extends $tea.Model {
   }
 }
 
+export class PutLayerACLHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcDate?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcDate: 'X-Fc-Date',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcDate: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutLayerACLRequest extends $tea.Model {
+  public?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      public: 'public',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      public: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutLayerACLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PutProvisionConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
@@ -6982,11 +7119,15 @@ export class UpdateAliasHeaders extends $tea.Model {
 export class UpdateAliasRequest extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
   description?: string;
+  resolvePolicy?: string;
+  routePolicy?: RoutePolicy;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
       additionalVersionWeight: 'additionalVersionWeight',
       description: 'description',
+      resolvePolicy: 'resolvePolicy',
+      routePolicy: 'routePolicy',
       versionId: 'versionId',
     };
   }
@@ -6995,6 +7136,8 @@ export class UpdateAliasRequest extends $tea.Model {
     return {
       additionalVersionWeight: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       description: 'string',
+      resolvePolicy: 'string',
+      routePolicy: RoutePolicy,
       versionId: 'string',
     };
   }
@@ -7477,7 +7620,6 @@ export class UpdateServiceResponseBody extends $tea.Model {
   serviceId?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
-  vendorConfig?: VendorConfig;
   vpcConfig?: VPCConfig;
   static names(): { [key: string]: string } {
     return {
@@ -7491,7 +7633,6 @@ export class UpdateServiceResponseBody extends $tea.Model {
       serviceId: 'serviceId',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
-      vendorConfig: 'vendorConfig',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -7508,7 +7649,6 @@ export class UpdateServiceResponseBody extends $tea.Model {
       serviceId: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
-      vendorConfig: VendorConfig,
       vpcConfig: VPCConfig,
     };
   }
@@ -7710,6 +7850,8 @@ export class ListAliasesResponseBodyAliases extends $tea.Model {
   createdTime?: string;
   description?: string;
   lastModifiedTime?: string;
+  resolvePolicy?: string;
+  routePolicy?: RoutePolicy;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7718,6 +7860,8 @@ export class ListAliasesResponseBodyAliases extends $tea.Model {
       createdTime: 'createdTime',
       description: 'description',
       lastModifiedTime: 'lastModifiedTime',
+      resolvePolicy: 'resolvePolicy',
+      routePolicy: 'routePolicy',
       versionId: 'versionId',
     };
   }
@@ -7729,6 +7873,8 @@ export class ListAliasesResponseBodyAliases extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       lastModifiedTime: 'string',
+      resolvePolicy: 'string',
+      routePolicy: RoutePolicy,
       versionId: 'string',
     };
   }
@@ -8182,6 +8328,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.resolvePolicy)) {
+      body["resolvePolicy"] = request.resolvePolicy;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.routePolicy))) {
+      body["routePolicy"] = request.routePolicy;
     }
 
     if (!Util.isUnset(request.versionId)) {
@@ -9820,6 +9974,11 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let body : string = "";
+    if (!Util.isUnset(request.body)) {
+      body = Util.toString(request.body);
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -9852,7 +10011,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
-      body: Util.toString(request.body),
+      body: body,
     });
     let params = new $OpenApi.Params({
       action: "InvokeFunction",
@@ -10202,14 +10361,6 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
-    if (!Util.isUnset(headers.xFcDate)) {
-      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
-    }
-
-    if (!Util.isUnset(headers.xFcTraceId)) {
-      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
@@ -10298,8 +10449,16 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    if (!Util.isUnset(request.official)) {
+      query["official"] = request.official;
+    }
+
     if (!Util.isUnset(request.prefix)) {
       query["prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.public)) {
+      query["public"] = request.public;
     }
 
     if (!Util.isUnset(request.startKey)) {
@@ -11117,6 +11276,55 @@ export default class Client extends OpenApi {
     return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionOnDemandConfigResponse({}));
   }
 
+  async putLayerACL(layerName: string, request: PutLayerACLRequest): Promise<PutLayerACLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new PutLayerACLHeaders({ });
+    return await this.putLayerACLWithOptions(layerName, request, headers, runtime);
+  }
+
+  async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: PutLayerACLHeaders, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
+    Util.validateModel(request);
+    layerName = OpenApiUtil.getEncodeParam(layerName);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.public)) {
+      query["public"] = request.public;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutLayerACL",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers/${layerName}/acl`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $tea.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
+  }
+
   async putProvisionConfig(serviceName: string, functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new PutProvisionConfigHeaders({ });
@@ -11417,6 +11625,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.resolvePolicy)) {
+      body["resolvePolicy"] = request.resolvePolicy;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.routePolicy))) {
+      body["routePolicy"] = request.routePolicy;
     }
 
     if (!Util.isUnset(request.versionId)) {
