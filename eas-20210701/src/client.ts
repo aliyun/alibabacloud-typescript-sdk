@@ -237,6 +237,7 @@ export class Service extends $tea.Model {
   cpu?: number;
   createTime?: string;
   currentVersion?: number;
+  extraData?: string;
   gpu?: number;
   image?: string;
   internetEndpoint?: string;
@@ -251,8 +252,10 @@ export class Service extends $tea.Model {
   region?: string;
   requestId?: string;
   resource?: string;
+  resourceAlias?: string;
   runningInstance?: number;
   serviceConfig?: string;
+  serviceGroup?: string;
   serviceId?: string;
   serviceName?: string;
   source?: string;
@@ -267,6 +270,7 @@ export class Service extends $tea.Model {
       cpu: 'Cpu',
       createTime: 'CreateTime',
       currentVersion: 'CurrentVersion',
+      extraData: 'ExtraData',
       gpu: 'Gpu',
       image: 'Image',
       internetEndpoint: 'InternetEndpoint',
@@ -281,8 +285,10 @@ export class Service extends $tea.Model {
       region: 'Region',
       requestId: 'RequestId',
       resource: 'Resource',
+      resourceAlias: 'ResourceAlias',
       runningInstance: 'RunningInstance',
       serviceConfig: 'ServiceConfig',
+      serviceGroup: 'ServiceGroup',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       source: 'Source',
@@ -300,6 +306,7 @@ export class Service extends $tea.Model {
       cpu: 'number',
       createTime: 'string',
       currentVersion: 'number',
+      extraData: 'string',
       gpu: 'number',
       image: 'string',
       internetEndpoint: 'string',
@@ -314,8 +321,10 @@ export class Service extends $tea.Model {
       region: 'string',
       requestId: 'string',
       resource: 'string',
+      resourceAlias: 'string',
       runningInstance: 'number',
       serviceConfig: 'string',
+      serviceGroup: 'string',
       serviceId: 'string',
       serviceName: 'string',
       source: 'string',
@@ -2572,15 +2581,18 @@ export class ListServicesResponse extends $tea.Model {
 }
 
 export class ReleaseServiceRequest extends $tea.Model {
+  trafficState?: string;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      trafficState: 'TrafficState',
       weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      trafficState: 'string',
       weight: 'number',
     };
   }
@@ -4722,6 +4734,10 @@ export default class Client extends OpenApi {
     ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     ServiceName = OpenApiUtil.getEncodeParam(ServiceName);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.trafficState)) {
+      body["TrafficState"] = request.trafficState;
+    }
+
     if (!Util.isUnset(request.weight)) {
       body["Weight"] = request.weight;
     }
