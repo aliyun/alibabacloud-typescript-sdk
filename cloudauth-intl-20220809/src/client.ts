@@ -227,15 +227,18 @@ export class CheckResultResponseBodyResult extends $tea.Model {
 
 export class InitializeResponseBodyResult extends $tea.Model {
   transactionId?: string;
+  clientCfg?: string;
   static names(): { [key: string]: string } {
     return {
       transactionId: 'TransactionId',
+      clientCfg: 'clientCfg',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       transactionId: 'string',
+      clientCfg: 'string',
     };
   }
 
