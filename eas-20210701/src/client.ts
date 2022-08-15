@@ -258,6 +258,7 @@ export class Service extends $tea.Model {
   serviceGroup?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceUid?: string;
   source?: string;
   status?: string;
   totalInstance?: number;
@@ -291,6 +292,7 @@ export class Service extends $tea.Model {
       serviceGroup: 'ServiceGroup',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceUid: 'ServiceUid',
       source: 'Source',
       status: 'Status',
       totalInstance: 'TotalInstance',
@@ -327,6 +329,7 @@ export class Service extends $tea.Model {
       serviceGroup: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceUid: 'string',
       source: 'string',
       status: 'string',
       totalInstance: 'number',
