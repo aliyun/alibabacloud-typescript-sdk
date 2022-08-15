@@ -24,6 +24,7 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   payType?: string;
   pricingCycle?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -51,6 +52,7 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       payType: 'PayType',
       pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -81,6 +83,7 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       payType: 'string',
       pricingCycle: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -126,10 +129,12 @@ export class CreateLindormInstanceResponseBody extends $tea.Model {
 
 export class CreateLindormInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -137,6 +142,7 @@ export class CreateLindormInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLindormInstanceResponseBody,
     };
   }
@@ -204,10 +210,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -215,6 +223,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -288,10 +297,12 @@ export class GetInstanceIpWhiteListResponseBody extends $tea.Model {
 
 export class GetInstanceIpWhiteListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetInstanceIpWhiteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -299,6 +310,7 @@ export class GetInstanceIpWhiteListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetInstanceIpWhiteListResponseBody,
     };
   }
@@ -312,7 +324,6 @@ export class GetLindormInstanceRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
-  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -321,7 +332,6 @@ export class GetLindormInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -333,7 +343,6 @@ export class GetLindormInstanceRequest extends $tea.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -375,6 +384,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
   payType?: string;
   regionId?: string;
   requestId?: string;
+  resourceGroupId?: string;
   serviceType?: string;
   vpcId?: string;
   vswitchId?: string;
@@ -410,6 +420,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       payType: 'PayType',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
@@ -448,6 +459,7 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
       payType: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       serviceType: 'string',
       vpcId: 'string',
       vswitchId: 'string',
@@ -462,10 +474,12 @@ export class GetLindormInstanceResponseBody extends $tea.Model {
 
 export class GetLindormInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -473,6 +487,7 @@ export class GetLindormInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetLindormInstanceResponseBody,
     };
   }
@@ -546,10 +561,12 @@ export class GetLindormInstanceEngineListResponseBody extends $tea.Model {
 
 export class GetLindormInstanceEngineListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetLindormInstanceEngineListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -557,6 +574,7 @@ export class GetLindormInstanceEngineListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetLindormInstanceEngineListResponseBody,
     };
   }
@@ -573,6 +591,7 @@ export class GetLindormInstanceListRequest extends $tea.Model {
   pageSize?: number;
   queryStr?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -587,6 +606,7 @@ export class GetLindormInstanceListRequest extends $tea.Model {
       pageSize: 'PageSize',
       queryStr: 'QueryStr',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -604,6 +624,7 @@ export class GetLindormInstanceListRequest extends $tea.Model {
       pageSize: 'number',
       queryStr: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -651,10 +672,12 @@ export class GetLindormInstanceListResponseBody extends $tea.Model {
 
 export class GetLindormInstanceListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetLindormInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -662,6 +685,7 @@ export class GetLindormInstanceListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetLindormInstanceListResponseBody,
     };
   }
@@ -744,10 +768,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -755,6 +781,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -819,10 +846,12 @@ export class ReleaseLindormInstanceResponseBody extends $tea.Model {
 
 export class ReleaseLindormInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ReleaseLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -830,6 +859,7 @@ export class ReleaseLindormInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ReleaseLindormInstanceResponseBody,
     };
   }
@@ -842,6 +872,7 @@ export class ReleaseLindormInstanceResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -852,6 +883,7 @@ export class TagResourcesRequest extends $tea.Model {
     return {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -865,6 +897,7 @@ export class TagResourcesRequest extends $tea.Model {
     return {
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -900,10 +933,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -911,6 +946,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -984,10 +1020,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -995,6 +1033,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -1065,10 +1104,12 @@ export class UpdateInstanceIpWhiteListResponseBody extends $tea.Model {
 
 export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateInstanceIpWhiteListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1076,6 +1117,7 @@ export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateInstanceIpWhiteListResponseBody,
     };
   }
@@ -1200,10 +1242,12 @@ export class UpgradeLindormInstanceResponseBody extends $tea.Model {
 
 export class UpgradeLindormInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeLindormInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1211,6 +1255,7 @@ export class UpgradeLindormInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeLindormInstanceResponseBody,
     };
   }
@@ -1380,6 +1425,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   aliUid?: number;
   createMilliseconds?: number;
   createTime?: string;
+  enableCompute?: boolean;
   enableStream?: boolean;
   engineType?: string;
   expireTime?: string;
@@ -1391,6 +1437,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   networkType?: string;
   payType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   serviceType?: string;
   tags?: GetLindormInstanceListResponseBodyInstanceListTags[];
   vpcId?: string;
@@ -1400,6 +1447,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       aliUid: 'AliUid',
       createMilliseconds: 'CreateMilliseconds',
       createTime: 'CreateTime',
+      enableCompute: 'EnableCompute',
       enableStream: 'EnableStream',
       engineType: 'EngineType',
       expireTime: 'ExpireTime',
@@ -1411,6 +1459,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       networkType: 'NetworkType',
       payType: 'PayType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
       tags: 'Tags',
       vpcId: 'VpcId',
@@ -1423,6 +1472,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       aliUid: 'number',
       createMilliseconds: 'number',
       createTime: 'string',
+      enableCompute: 'boolean',
       enableStream: 'boolean',
       engineType: 'string',
       expireTime: 'string',
@@ -1434,6 +1484,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       networkType: 'string',
       payType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       serviceType: 'string',
       tags: { 'type': 'array', 'itemType': GetLindormInstanceListResponseBodyInstanceListTags },
       vpcId: 'string',
@@ -1653,6 +1704,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -1832,10 +1887,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -1948,6 +1999,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -2119,6 +2174,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
