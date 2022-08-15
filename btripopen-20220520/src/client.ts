@@ -188,6 +188,8 @@ export class ApplyAddRequest extends $tea.Model {
   hotelBudget?: number;
   hotelShare?: ApplyAddRequestHotelShare;
   itineraryList?: ApplyAddRequestItineraryList[];
+  itineraryRule?: number;
+  itinerarySetList?: ApplyAddRequestItinerarySetList[];
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -217,6 +219,8 @@ export class ApplyAddRequest extends $tea.Model {
       hotelBudget: 'hotel_budget',
       hotelShare: 'hotel_share',
       itineraryList: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
+      itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -249,6 +253,8 @@ export class ApplyAddRequest extends $tea.Model {
       hotelBudget: 'number',
       hotelShare: ApplyAddRequestHotelShare,
       itineraryList: { 'type': 'array', 'itemType': ApplyAddRequestItineraryList },
+      itineraryRule: 'number',
+      itinerarySetList: { 'type': 'array', 'itemType': ApplyAddRequestItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -285,6 +291,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
   hotelBudget?: number;
   hotelShareShrink?: string;
   itineraryListShrink?: string;
+  itineraryRule?: number;
+  itinerarySetListShrink?: string;
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -314,6 +322,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       hotelBudget: 'hotel_budget',
       hotelShareShrink: 'hotel_share',
       itineraryListShrink: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
+      itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -346,6 +356,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       hotelBudget: 'number',
       hotelShareShrink: 'string',
       itineraryListShrink: 'string',
+      itineraryRule: 'number',
+      itinerarySetListShrink: 'string',
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -1085,7 +1097,6 @@ export class CarApplyModifyResponse extends $tea.Model {
 }
 
 export class CarApplyQueryRequest extends $tea.Model {
-  corpId?: string;
   createdEndAt?: string;
   createdStartAt?: string;
   pageNumber?: number;
@@ -1094,7 +1105,6 @@ export class CarApplyQueryRequest extends $tea.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'corp_id',
       createdEndAt: 'created_end_at',
       createdStartAt: 'created_start_at',
       pageNumber: 'page_number',
@@ -1106,7 +1116,6 @@ export class CarApplyQueryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       createdEndAt: 'string',
       createdStartAt: 'string',
       pageNumber: 'number',
@@ -1384,13 +1393,11 @@ export class CarOrderListQueryResponse extends $tea.Model {
 export class CommonApplyQueryRequest extends $tea.Model {
   applyId?: number;
   bizCategory?: number;
-  corpId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
       bizCategory: 'biz_category',
-      corpId: 'corp_id',
       userId: 'user_id',
     };
   }
@@ -1399,7 +1406,6 @@ export class CommonApplyQueryRequest extends $tea.Model {
     return {
       applyId: 'number',
       bizCategory: 'number',
-      corpId: 'string',
       userId: 'string',
     };
   }
@@ -1814,14 +1820,12 @@ export class CostCenterModifyResponse extends $tea.Model {
 }
 
 export class CostCenterQueryRequest extends $tea.Model {
-  corpId?: string;
   needOrgEntity?: boolean;
   thirdpartId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'corp_id',
       needOrgEntity: 'need_org_entity',
       thirdpartId: 'thirdpart_id',
       title: 'title',
@@ -1831,7 +1835,6 @@ export class CostCenterQueryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       needOrgEntity: 'boolean',
       thirdpartId: 'string',
       title: 'string',
@@ -1908,7 +1911,6 @@ export class CostCenterQueryResponse extends $tea.Model {
 
 export class CostCenterSaveRequest extends $tea.Model {
   alipayNo?: string;
-  corpId?: string;
   number?: string;
   scope?: number;
   thirdpartId?: string;
@@ -1916,7 +1918,6 @@ export class CostCenterSaveRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alipayNo: 'alipay_no',
-      corpId: 'corp_id',
       number: 'number',
       scope: 'scope',
       thirdpartId: 'thirdpart_id',
@@ -1927,7 +1928,6 @@ export class CostCenterSaveRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alipayNo: 'string',
-      corpId: 'string',
       number: 'string',
       scope: 'number',
       thirdpartId: 'string',
@@ -2426,7 +2426,6 @@ export class EntitySetResponse extends $tea.Model {
 export class ExceedApplySyncRequest extends $tea.Model {
   applyId?: number;
   bizCategory?: number;
-  corpId?: string;
   remark?: string;
   status?: number;
   thirdpartyFlowId?: string;
@@ -2435,7 +2434,6 @@ export class ExceedApplySyncRequest extends $tea.Model {
     return {
       applyId: 'apply_id',
       bizCategory: 'biz_category',
-      corpId: 'corp_id',
       remark: 'remark',
       status: 'status',
       thirdpartyFlowId: 'thirdparty_flow_id',
@@ -2447,7 +2445,6 @@ export class ExceedApplySyncRequest extends $tea.Model {
     return {
       applyId: 'number',
       bizCategory: 'number',
-      corpId: 'string',
       remark: 'string',
       status: 'number',
       thirdpartyFlowId: 'string',
@@ -2608,18 +2605,15 @@ export class FlightBillSettlementQueryResponse extends $tea.Model {
 
 export class FlightExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
-  corpId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
-      corpId: 'corp_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
-      corpId: 'string',
     };
   }
 
@@ -2968,12 +2962,10 @@ export class HotelBillSettlementQueryResponse extends $tea.Model {
 
 export class HotelExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
-  corpId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
-      corpId: 'corp_id',
       userId: 'user_id',
     };
   }
@@ -2981,7 +2973,6 @@ export class HotelExceedApplyQueryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
-      corpId: 'string',
       userId: 'string',
     };
   }
@@ -3816,7 +3807,6 @@ export class MonthBillGetResponse extends $tea.Model {
 
 export class ProjectAddRequest extends $tea.Model {
   code?: string;
-  corpId?: string;
   projectName?: string;
   thirdPartCostCenterId?: string;
   thirdPartId?: string;
@@ -3824,7 +3814,6 @@ export class ProjectAddRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
-      corpId: 'corp_id',
       projectName: 'project_name',
       thirdPartCostCenterId: 'third_part_cost_center_id',
       thirdPartId: 'third_part_id',
@@ -3835,7 +3824,6 @@ export class ProjectAddRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      corpId: 'string',
       projectName: 'string',
       thirdPartCostCenterId: 'string',
       thirdPartId: 'string',
@@ -3990,7 +3978,6 @@ export class ProjectDeleteResponse extends $tea.Model {
 
 export class ProjectModifyRequest extends $tea.Model {
   code?: string;
-  corpId?: string;
   projectName?: string;
   thirdPartCostCenterId?: string;
   thirdPartId?: string;
@@ -3998,7 +3985,6 @@ export class ProjectModifyRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
-      corpId: 'corp_id',
       projectName: 'project_name',
       thirdPartCostCenterId: 'third_part_cost_center_id',
       thirdPartId: 'third_part_id',
@@ -4009,7 +3995,6 @@ export class ProjectModifyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      corpId: 'string',
       projectName: 'string',
       thirdPartCostCenterId: 'string',
       thirdPartId: 'string',
@@ -4170,12 +4155,10 @@ export class TrainBillSettlementQueryResponse extends $tea.Model {
 
 export class TrainExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
-  corpId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
-      corpId: 'corp_id',
       userId: 'user_id',
     };
   }
@@ -4183,7 +4166,6 @@ export class TrainExceedApplyQueryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
-      corpId: 'string',
       userId: 'string',
     };
   }
@@ -4446,12 +4428,10 @@ export class TrainOrderQueryResponse extends $tea.Model {
 
 export class UserQueryRequest extends $tea.Model {
   modifiedTimeGreaterOrEqualThan?: string;
-  thirdPartCorpId?: string;
   thirdPartJobNo?: string;
   static names(): { [key: string]: string } {
     return {
       modifiedTimeGreaterOrEqualThan: 'modified_time_greater_or_equal_than',
-      thirdPartCorpId: 'third_part_corp_id',
       thirdPartJobNo: 'third_part_job_no',
     };
   }
@@ -4459,7 +4439,6 @@ export class UserQueryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       modifiedTimeGreaterOrEqualThan: 'string',
-      thirdPartCorpId: 'string',
       thirdPartJobNo: 'string',
     };
   }
@@ -4731,6 +4710,58 @@ export class ApplyAddRequestItineraryList extends $tea.Model {
       thirdpartCostCenterId: 'string',
       trafficType: 'number',
       tripWay: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyAddRequestItinerarySetList extends $tea.Model {
+  arrDate?: string;
+  cityCodeSet?: string;
+  citySet?: string;
+  costCenterId?: number;
+  depDate?: string;
+  invoiceId?: number;
+  itineraryId?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  transport?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrDate: 'arr_date',
+      cityCodeSet: 'city_code_set',
+      citySet: 'city_set',
+      costCenterId: 'cost_center_id',
+      depDate: 'dep_date',
+      invoiceId: 'invoice_id',
+      itineraryId: 'itinerary_id',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      transport: 'transport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDate: 'string',
+      cityCodeSet: 'string',
+      citySet: 'string',
+      costCenterId: 'number',
+      depDate: 'string',
+      invoiceId: 'number',
+      itineraryId: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      transport: 'number',
     };
   }
 
@@ -9694,6 +9725,10 @@ export default class Client extends OpenApi {
       request.itineraryListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itineraryList, "itinerary_list", "json");
     }
 
+    if (!Util.isUnset(tmpReq.itinerarySetList)) {
+      request.itinerarySetListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itinerarySetList, "itinerary_set_list", "json");
+    }
+
     if (!Util.isUnset(tmpReq.travelerList)) {
       request.travelerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerList, "traveler_list", "json");
     }
@@ -9745,6 +9780,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.itineraryListShrink)) {
       body["itinerary_list"] = request.itineraryListShrink;
+    }
+
+    if (!Util.isUnset(request.itineraryRule)) {
+      body["itinerary_rule"] = request.itineraryRule;
+    }
+
+    if (!Util.isUnset(request.itinerarySetListShrink)) {
+      body["itinerary_set_list"] = request.itinerarySetListShrink;
     }
 
     if (!Util.isUnset(request.limitTraveler)) {
@@ -10247,10 +10290,6 @@ export default class Client extends OpenApi {
   async carApplyQueryWithOptions(request: CarApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.createdEndAt)) {
       query["created_end_at"] = request.createdEndAt;
     }
@@ -10422,10 +10461,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bizCategory)) {
       query["biz_category"] = request.bizCategory;
-    }
-
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
     }
 
     if (!Util.isUnset(request.userId)) {
@@ -10623,31 +10658,25 @@ export default class Client extends OpenApi {
   async costCenterQueryWithOptions(request: CostCenterQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CostCenterQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
-    }
-
-    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.needOrgEntity)) {
-      body["need_org_entity"] = request.needOrgEntity;
+      query["need_org_entity"] = request.needOrgEntity;
     }
 
     if (!Util.isUnset(request.thirdpartId)) {
-      body["thirdpart_id"] = request.thirdpartId;
+      query["thirdpart_id"] = request.thirdpartId;
     }
 
     if (!Util.isUnset(request.title)) {
-      body["title"] = request.title;
+      query["title"] = request.title;
     }
 
     if (!Util.isUnset(request.userId)) {
-      body["user_id"] = request.userId;
+      query["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CostCenterQuery",
@@ -10657,7 +10686,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "formData",
+      reqBodyType: "json",
       bodyType: "json",
     });
     return $tea.cast<CostCenterQueryResponse>(await this.callApi(params, req, runtime), new CostCenterQueryResponse({}));
@@ -10674,10 +10703,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alipayNo)) {
       body["alipay_no"] = request.alipayNo;
-    }
-
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
     }
 
     if (!Util.isUnset(request.number)) {
@@ -10897,10 +10922,6 @@ export default class Client extends OpenApi {
       query["biz_category"] = request.bizCategory;
     }
 
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.remark)) {
       query["remark"] = request.remark;
     }
@@ -10989,10 +11010,6 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
-    }
-
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11173,10 +11190,6 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
-    }
-
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
     }
 
     if (!Util.isUnset(request.userId)) {
@@ -11578,10 +11591,6 @@ export default class Client extends OpenApi {
       body["code"] = request.code;
     }
 
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.projectName)) {
       body["project_name"] = request.projectName;
     }
@@ -11658,10 +11667,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.code)) {
       body["code"] = request.code;
-    }
-
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
     }
 
     if (!Util.isUnset(request.projectName)) {
@@ -11752,10 +11757,6 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
-    }
-
-    if (!Util.isUnset(request.corpId)) {
-      query["corp_id"] = request.corpId;
     }
 
     if (!Util.isUnset(request.userId)) {
@@ -11897,10 +11898,6 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.modifiedTimeGreaterOrEqualThan)) {
       query["modified_time_greater_or_equal_than"] = request.modifiedTimeGreaterOrEqualThan;
-    }
-
-    if (!Util.isUnset(request.thirdPartCorpId)) {
-      query["third_part_corp_id"] = request.thirdPartCorpId;
     }
 
     if (!Util.isUnset(request.thirdPartJobNo)) {
