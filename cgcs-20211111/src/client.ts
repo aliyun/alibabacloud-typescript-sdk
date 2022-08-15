@@ -77,6 +77,81 @@ export class CancelReserveTaskResponse extends $tea.Model {
   }
 }
 
+export class CancelUploadTaskRequest extends $tea.Model {
+  appId?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUploadTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelUploadTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CancelUploadTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelUploadTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAdaptationRequest extends $tea.Model {
   adaptTarget?: CreateAdaptationRequestAdaptTarget;
   appVersionId?: string;
@@ -244,6 +319,7 @@ export class CreateAppSessionRequest extends $tea.Model {
   customSessionId?: string;
   customUserId?: string;
   enablePostpaid?: boolean;
+  projectId?: string;
   startParameters?: CreateAppSessionRequestStartParameters[];
   systemInfo?: CreateAppSessionRequestSystemInfo[];
   timeout?: number;
@@ -255,6 +331,7 @@ export class CreateAppSessionRequest extends $tea.Model {
       customSessionId: 'CustomSessionId',
       customUserId: 'CustomUserId',
       enablePostpaid: 'EnablePostpaid',
+      projectId: 'ProjectId',
       startParameters: 'StartParameters',
       systemInfo: 'SystemInfo',
       timeout: 'Timeout',
@@ -269,6 +346,7 @@ export class CreateAppSessionRequest extends $tea.Model {
       customSessionId: 'string',
       customUserId: 'string',
       enablePostpaid: 'boolean',
+      projectId: 'string',
       startParameters: { 'type': 'array', 'itemType': CreateAppSessionRequestStartParameters },
       systemInfo: { 'type': 'array', 'itemType': CreateAppSessionRequestSystemInfo },
       timeout: 'number',
@@ -694,130 +772,6 @@ export class CreateCapacityReservationResponse extends $tea.Model {
   }
 }
 
-export class CreateProjectRequest extends $tea.Model {
-  boundAppIdList?: string[];
-  operatorId?: string;
-  operatorType?: string;
-  projectMemo?: string;
-  projectName?: string;
-  projectQuotaLimit?: CreateProjectRequestProjectQuotaLimit;
-  static names(): { [key: string]: string } {
-    return {
-      boundAppIdList: 'BoundAppIdList',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      projectMemo: 'ProjectMemo',
-      projectName: 'ProjectName',
-      projectQuotaLimit: 'ProjectQuotaLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boundAppIdList: { 'type': 'array', 'itemType': 'string' },
-      operatorId: 'string',
-      operatorType: 'string',
-      projectMemo: 'string',
-      projectName: 'string',
-      projectQuotaLimit: CreateProjectRequestProjectQuotaLimit,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectShrinkRequest extends $tea.Model {
-  boundAppIdListShrink?: string;
-  operatorId?: string;
-  operatorType?: string;
-  projectMemo?: string;
-  projectName?: string;
-  projectQuotaLimitShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      boundAppIdListShrink: 'BoundAppIdList',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      projectMemo: 'ProjectMemo',
-      projectName: 'ProjectName',
-      projectQuotaLimitShrink: 'ProjectQuotaLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boundAppIdListShrink: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-      projectMemo: 'string',
-      projectName: 'string',
-      projectQuotaLimitShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponseBody extends $tea.Model {
-  code?: string;
-  data?: CreateProjectResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateProjectResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteAppRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -942,87 +896,6 @@ export class DeleteAppVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAppVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectRequest extends $tea.Model {
-  operatorId?: string;
-  operatorType?: string;
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operatorId: 'string',
-      operatorType: 'string',
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectResponseBody extends $tea.Model {
-  code?: string;
-  data?: DeleteProjectResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: DeleteProjectResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteProjectResponseBody,
     };
   }
 
@@ -1225,10 +1098,12 @@ export class GetAppCcuRequest extends $tea.Model {
 }
 
 export class GetAppCcuResponseBody extends $tea.Model {
+  detailList?: GetAppCcuResponseBodyDetailList[];
   requestId?: string;
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
+      detailList: 'DetailList',
       requestId: 'RequestId',
       timestamp: 'Timestamp',
     };
@@ -1236,6 +1111,7 @@ export class GetAppCcuResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      detailList: { 'type': 'array', 'itemType': GetAppCcuResponseBodyDetailList },
       requestId: 'string',
       timestamp: 'string',
     };
@@ -1544,87 +1420,6 @@ export class GetCapacityResponse extends $tea.Model {
   }
 }
 
-export class GetProjectRequest extends $tea.Model {
-  operatorId?: string;
-  operatorType?: string;
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operatorId: 'string',
-      operatorType: 'string',
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetProjectResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetProjectResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetReserveTaskDetailRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -1788,62 +1583,6 @@ export class GetResourcePublicIPsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetResourcePublicIPsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTenantResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetTenantResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetTenantResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTenantResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTenantResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTenantResponseBody,
     };
   }
 
@@ -2227,249 +1966,20 @@ export class ModifyAppVersionResponse extends $tea.Model {
   }
 }
 
-export class ModifyProjectRequest extends $tea.Model {
-  boundAppIdList?: string[];
-  operatorId?: string;
-  operatorType?: string;
-  projectId?: string;
-  projectMemo?: string;
-  projectName?: string;
-  projectQuotaLimit?: ModifyProjectRequestProjectQuotaLimit;
-  static names(): { [key: string]: string } {
-    return {
-      boundAppIdList: 'BoundAppIdList',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      projectId: 'ProjectId',
-      projectMemo: 'ProjectMemo',
-      projectName: 'ProjectName',
-      projectQuotaLimit: 'ProjectQuotaLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boundAppIdList: { 'type': 'array', 'itemType': 'string' },
-      operatorId: 'string',
-      operatorType: 'string',
-      projectId: 'string',
-      projectMemo: 'string',
-      projectName: 'string',
-      projectQuotaLimit: ModifyProjectRequestProjectQuotaLimit,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyProjectShrinkRequest extends $tea.Model {
-  boundAppIdListShrink?: string;
-  operatorId?: string;
-  operatorType?: string;
-  projectId?: string;
-  projectMemo?: string;
-  projectName?: string;
-  projectQuotaLimitShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      boundAppIdListShrink: 'BoundAppIdList',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      projectId: 'ProjectId',
-      projectMemo: 'ProjectMemo',
-      projectName: 'ProjectName',
-      projectQuotaLimitShrink: 'ProjectQuotaLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boundAppIdListShrink: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-      projectId: 'string',
-      projectMemo: 'string',
-      projectName: 'string',
-      projectQuotaLimitShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyProjectResponseBody extends $tea.Model {
-  code?: string;
-  data?: ModifyProjectResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ModifyProjectResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectRequest extends $tea.Model {
-  keySearch?: string;
-  operatorId?: string;
-  operatorType?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      keySearch: 'KeySearch',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keySearch: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectResponseBody extends $tea.Model {
-  code?: string;
-  data?: PageQueryProjectResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: PageQueryProjectResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PageQueryProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PageQueryProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectAppsRequest extends $tea.Model {
+export class QueryOfflineTaskProgressRequest extends $tea.Model {
   appId?: string;
-  operatorId?: string;
-  operatorType?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
+      versionId: 'string',
     };
   }
 
@@ -2478,29 +1988,26 @@ export class PageQueryProjectAppsRequest extends $tea.Model {
   }
 }
 
-export class PageQueryProjectAppsResponseBody extends $tea.Model {
+export class QueryOfflineTaskProgressResponseBody extends $tea.Model {
   code?: string;
-  data?: PageQueryProjectAppsResponseBodyData;
+  data?: QueryOfflineTaskProgressResponseBodyData;
   message?: string;
   requestId?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: PageQueryProjectAppsResponseBodyData,
+      data: QueryOfflineTaskProgressResponseBodyData,
       message: 'string',
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -2509,10 +2016,10 @@ export class PageQueryProjectAppsResponseBody extends $tea.Model {
   }
 }
 
-export class PageQueryProjectAppsResponse extends $tea.Model {
+export class QueryOfflineTaskProgressResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: PageQueryProjectAppsResponseBody;
+  body: QueryOfflineTaskProgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2525,63 +2032,7 @@ export class PageQueryProjectAppsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: PageQueryProjectAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshDistrictMetaResponseBody extends $tea.Model {
-  code?: string;
-  data?: RefreshDistrictMetaResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: RefreshDistrictMetaResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshDistrictMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshDistrictMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RefreshDistrictMetaResponseBody,
+      body: QueryOfflineTaskProgressResponseBody,
     };
   }
 
@@ -2895,20 +2346,26 @@ export class StopAppSessionBatchResponse extends $tea.Model {
   }
 }
 
-export class VersionCheckSameNameServiceRequest extends $tea.Model {
+export class SubmitOfflineTaskRequest extends $tea.Model {
   appId?: string;
-  appVersionName?: string;
+  appType?: string;
+  uri?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      appVersionName: 'AppVersionName',
+      appType: 'AppType',
+      uri: 'Uri',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      appVersionName: 'string',
+      appType: 'string',
+      uri: 'string',
+      versionId: 'string',
     };
   }
 
@@ -2917,9 +2374,9 @@ export class VersionCheckSameNameServiceRequest extends $tea.Model {
   }
 }
 
-export class VersionCheckSameNameServiceResponseBody extends $tea.Model {
+export class SubmitOfflineTaskResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: boolean;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -2934,7 +2391,7 @@ export class VersionCheckSameNameServiceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: 'boolean',
       message: 'string',
       requestId: 'string',
     };
@@ -2945,10 +2402,10 @@ export class VersionCheckSameNameServiceResponseBody extends $tea.Model {
   }
 }
 
-export class VersionCheckSameNameServiceResponse extends $tea.Model {
+export class SubmitOfflineTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: VersionCheckSameNameServiceResponseBody;
+  body: SubmitOfflineTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2961,82 +2418,7 @@ export class VersionCheckSameNameServiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: VersionCheckSameNameServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ProjectQuotaLimitDistrictLimitMapValue extends $tea.Model {
-  districtId?: string;
-  districtName?: string;
-  maxLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      districtId: 'DistrictId',
-      districtName: 'DistrictName',
-      maxLimit: 'MaxLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtId: 'string',
-      districtName: 'string',
-      maxLimit: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DataProjectQuotaLimitDistrictLimitMapValue extends $tea.Model {
-  districtId?: string;
-  districtName?: string;
-  maxLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      districtId: 'DistrictId',
-      districtName: 'DistrictName',
-      maxLimit: 'MaxLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtId: 'string',
-      districtName: 'string',
-      maxLimit: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DataRecordsProjectQuotaLimitDistrictLimitMapValue extends $tea.Model {
-  districtId?: string;
-  districtName?: string;
-  maxLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      districtId: 'DistrictId',
-      districtName: 'DistrictName',
-      maxLimit: 'MaxLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtId: 'string',
-      districtName: 'string',
-      maxLimit: 'number',
+      body: SubmitOfflineTaskResponseBody,
     };
   }
 
@@ -3485,81 +2867,6 @@ export class CreateAppSessionSyncResponseBodyBizInfo extends $tea.Model {
   }
 }
 
-export class CreateProjectRequestProjectQuotaLimit extends $tea.Model {
-  districtLimitMap?: { [key: string]: ProjectQuotaLimitDistrictLimitMapValue };
-  limitType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      districtLimitMap: 'DistrictLimitMap',
-      limitType: 'LimitType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtLimitMap: { 'type': 'map', 'keyType': 'string', 'valueType': ProjectQuotaLimitDistrictLimitMapValue },
-      limitType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponseBodyData extends $tea.Model {
-  code?: string;
-  data?: { [key: string]: any };
-  message?: string;
-  projectId?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      projectId: 'ProjectId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      projectId: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectResponseBodyData extends $tea.Model {
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAdaptationResponseBodyAdaptTarget extends $tea.Model {
   bitRate?: number;
   frameRate?: number;
@@ -3580,6 +2887,34 @@ export class GetAdaptationResponseBodyAdaptTarget extends $tea.Model {
       frameRate: 'number',
       resolution: 'string',
       startProgram: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppCcuResponseBodyDetailList extends $tea.Model {
+  appId?: string;
+  ccu?: string;
+  districtId?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      ccu: 'Ccu',
+      districtId: 'DistrictId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      ccu: 'string',
+      districtId: 'string',
+      projectId: 'string',
     };
   }
 
@@ -3638,65 +2973,6 @@ export class GetCapacityResponseBodyCapacities extends $tea.Model {
   }
 }
 
-export class GetProjectResponseBodyDataProjectQuotaLimit extends $tea.Model {
-  districtLimitMap?: { [key: string]: DataProjectQuotaLimitDistrictLimitMapValue };
-  limitType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      districtLimitMap: 'DistrictLimitMap',
-      limitType: 'LimitType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtLimitMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataProjectQuotaLimitDistrictLimitMapValue },
-      limitType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectResponseBodyData extends $tea.Model {
-  boundAppNums?: number;
-  gmtCreate?: string;
-  gmtModified?: string;
-  projectId?: string;
-  projectMemo?: string;
-  projectName?: string;
-  projectQuotaLimit?: GetProjectResponseBodyDataProjectQuotaLimit;
-  static names(): { [key: string]: string } {
-    return {
-      boundAppNums: 'BoundAppNums',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      projectId: 'ProjectId',
-      projectMemo: 'ProjectMemo',
-      projectName: 'ProjectName',
-      projectQuotaLimit: 'ProjectQuotaLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boundAppNums: 'number',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      projectId: 'string',
-      projectMemo: 'string',
-      projectName: 'string',
-      projectQuotaLimit: GetProjectResponseBodyDataProjectQuotaLimit,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetResourcePublicIPsResponseBodyIpList extends $tea.Model {
   ip?: string;
   projectId?: string;
@@ -3711,46 +2987,6 @@ export class GetResourcePublicIPsResponseBodyIpList extends $tea.Model {
     return {
       ip: 'string',
       projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTenantResponseBodyData extends $tea.Model {
-  chargeMode?: string;
-  contactsMobile?: string;
-  contactsName?: string;
-  industryCategory?: string;
-  scenceDesc?: string;
-  status?: string;
-  tenantId?: string;
-  tenantName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeMode: 'ChargeMode',
-      contactsMobile: 'ContactsMobile',
-      contactsName: 'ContactsName',
-      industryCategory: 'IndustryCategory',
-      scenceDesc: 'ScenceDesc',
-      status: 'Status',
-      tenantId: 'TenantId',
-      tenantName: 'TenantName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeMode: 'string',
-      contactsMobile: 'string',
-      contactsName: 'string',
-      industryCategory: 'string',
-      scenceDesc: 'string',
-      status: 'string',
-      tenantId: 'string',
-      tenantName: 'string',
     };
   }
 
@@ -3904,244 +3140,26 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
   }
 }
 
-export class ModifyProjectRequestProjectQuotaLimit extends $tea.Model {
-  districtLimitMap?: { [key: string]: ProjectQuotaLimitDistrictLimitMapValue };
-  limitType?: string;
+export class QueryOfflineTaskProgressResponseBodyData extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  progress?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      districtLimitMap: 'DistrictLimitMap',
-      limitType: 'LimitType',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      districtLimitMap: { 'type': 'map', 'keyType': 'string', 'valueType': ProjectQuotaLimitDistrictLimitMapValue },
-      limitType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyProjectResponseBodyData extends $tea.Model {
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectResponseBodyDataRecordsProjectQuotaLimit extends $tea.Model {
-  districtLimitMap?: { [key: string]: DataRecordsProjectQuotaLimitDistrictLimitMapValue };
-  limitType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      districtLimitMap: 'DistrictLimitMap',
-      limitType: 'LimitType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtLimitMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataRecordsProjectQuotaLimitDistrictLimitMapValue },
-      limitType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectResponseBodyDataRecords extends $tea.Model {
-  boundAppNums?: number;
-  gmtCreate?: string;
-  gmtModified?: string;
-  projectId?: string;
-  projectMemo?: string;
-  projectName?: string;
-  projectQuotaLimit?: PageQueryProjectResponseBodyDataRecordsProjectQuotaLimit;
-  static names(): { [key: string]: string } {
-    return {
-      boundAppNums: 'BoundAppNums',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      projectId: 'ProjectId',
-      projectMemo: 'ProjectMemo',
-      projectName: 'ProjectName',
-      projectQuotaLimit: 'ProjectQuotaLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boundAppNums: 'number',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      projectId: 'string',
-      projectMemo: 'string',
-      projectName: 'string',
-      projectQuotaLimit: PageQueryProjectResponseBodyDataRecordsProjectQuotaLimit,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectResponseBodyData extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  pages?: number;
-  records?: PageQueryProjectResponseBodyDataRecords[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      pages: 'Pages',
-      records: 'Records',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      pages: 'number',
-      records: { 'type': 'array', 'itemType': PageQueryProjectResponseBodyDataRecords },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectAppsResponseBodyDataRecords extends $tea.Model {
-  appId?: string;
-  appName?: string;
-  gmtCreate?: string;
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appName: 'AppName',
-      gmtCreate: 'GmtCreate',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appName: 'string',
-      gmtCreate: 'string',
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageQueryProjectAppsResponseBodyData extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  pages?: number;
-  records?: PageQueryProjectAppsResponseBodyDataRecords[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      pages: 'Pages',
-      records: 'Records',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      pages: 'number',
-      records: { 'type': 'array', 'itemType': PageQueryProjectAppsResponseBodyDataRecords },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshDistrictMetaResponseBodyDataProjectQuotaLimit extends $tea.Model {
-  districtLimitMap?: { [key: string]: DataProjectQuotaLimitDistrictLimitMapValue };
-  limitType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      districtLimitMap: 'DistrictLimitMap',
-      limitType: 'LimitType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      districtLimitMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataProjectQuotaLimitDistrictLimitMapValue },
-      limitType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshDistrictMetaResponseBodyData extends $tea.Model {
-  code?: string;
-  data?: { [key: string]: any };
-  message?: string;
-  projectQuotaLimit?: RefreshDistrictMetaResponseBodyDataProjectQuotaLimit;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      projectQuotaLimit: 'ProjectQuotaLimit',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      projectQuotaLimit: RefreshDistrictMetaResponseBodyDataProjectQuotaLimit,
-      requestId: 'string',
-      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      progress: 'number',
+      status: 'string',
     };
   }
 
@@ -4294,6 +3312,39 @@ export default class Client extends OpenApi {
     return await this.cancelReserveTaskWithOptions(request, runtime);
   }
 
+  async cancelUploadTaskWithOptions(request: CancelUploadTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelUploadTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelUploadTask",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelUploadTaskResponse>(await this.callApi(params, req, runtime), new CancelUploadTaskResponse({}));
+  }
+
+  async cancelUploadTask(request: CancelUploadTaskRequest): Promise<CancelUploadTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelUploadTaskWithOptions(request, runtime);
+  }
+
   async createAdaptationWithOptions(tmpReq: CreateAdaptationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdaptationResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAdaptationShrinkRequest({ });
@@ -4391,6 +3442,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enablePostpaid)) {
       query["EnablePostpaid"] = request.enablePostpaid;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
     }
 
     if (!Util.isUnset(request.startParameters)) {
@@ -4617,65 +3672,6 @@ export default class Client extends OpenApi {
     return await this.createCapacityReservationWithOptions(request, runtime);
   }
 
-  async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateProjectShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.boundAppIdList)) {
-      request.boundAppIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.boundAppIdList, "BoundAppIdList", "json");
-    }
-
-    if (!Util.isUnset($tea.toMap(tmpReq.projectQuotaLimit))) {
-      request.projectQuotaLimitShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.projectQuotaLimit), "ProjectQuotaLimit", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.boundAppIdListShrink)) {
-      body["BoundAppIdList"] = request.boundAppIdListShrink;
-    }
-
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.projectMemo)) {
-      body["ProjectMemo"] = request.projectMemo;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      body["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.projectQuotaLimitShrink)) {
-      body["ProjectQuotaLimit"] = request.projectQuotaLimitShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateProject",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
-  }
-
-  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createProjectWithOptions(request, runtime);
-  }
-
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4732,43 +3728,6 @@ export default class Client extends OpenApi {
   async deleteAppVersion(request: DeleteAppVersionRequest): Promise<DeleteAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppVersionWithOptions(request, runtime);
-  }
-
-  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteProject",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
-  }
-
-  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteProjectWithOptions(request, runtime);
   }
 
   async getAdaptationWithOptions(request: GetAdaptationRequest, runtime: $Util.RuntimeOptions): Promise<GetAdaptationResponse> {
@@ -4969,43 +3928,6 @@ export default class Client extends OpenApi {
     return await this.getCapacityWithOptions(request, runtime);
   }
 
-  async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetProject",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
-  }
-
-  async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getProjectWithOptions(request, runtime);
-  }
-
   async getReserveTaskDetailWithOptions(request: GetReserveTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetReserveTaskDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5070,27 +3992,6 @@ export default class Client extends OpenApi {
   async getResourcePublicIPs(request: GetResourcePublicIPsRequest): Promise<GetResourcePublicIPsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourcePublicIPsWithOptions(request, runtime);
-  }
-
-  async getTenantWithOptions(runtime: $Util.RuntimeOptions): Promise<GetTenantResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "GetTenant",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetTenantResponse>(await this.callApi(params, req, runtime), new GetTenantResponse({}));
-  }
-
-  async getTenant(): Promise<GetTenantResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getTenantWithOptions(runtime);
   }
 
   async listAppWithOptions(request: ListAppRequest, runtime: $Util.RuntimeOptions): Promise<ListAppResponse> {
@@ -5278,146 +4179,22 @@ export default class Client extends OpenApi {
     return await this.modifyAppVersionWithOptions(request, runtime);
   }
 
-  async modifyProjectWithOptions(tmpReq: ModifyProjectRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProjectResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ModifyProjectShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.boundAppIdList)) {
-      request.boundAppIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.boundAppIdList, "BoundAppIdList", "json");
-    }
-
-    if (!Util.isUnset($tea.toMap(tmpReq.projectQuotaLimit))) {
-      request.projectQuotaLimitShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.projectQuotaLimit), "ProjectQuotaLimit", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.boundAppIdListShrink)) {
-      body["BoundAppIdList"] = request.boundAppIdListShrink;
-    }
-
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
-    }
-
-    if (!Util.isUnset(request.projectMemo)) {
-      body["ProjectMemo"] = request.projectMemo;
-    }
-
-    if (!Util.isUnset(request.projectName)) {
-      body["ProjectName"] = request.projectName;
-    }
-
-    if (!Util.isUnset(request.projectQuotaLimitShrink)) {
-      body["ProjectQuotaLimit"] = request.projectQuotaLimitShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyProject",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyProjectResponse>(await this.callApi(params, req, runtime), new ModifyProjectResponse({}));
-  }
-
-  async modifyProject(request: ModifyProjectRequest): Promise<ModifyProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyProjectWithOptions(request, runtime);
-  }
-
-  async pageQueryProjectWithOptions(request: PageQueryProjectRequest, runtime: $Util.RuntimeOptions): Promise<PageQueryProjectResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keySearch)) {
-      body["KeySearch"] = request.keySearch;
-    }
-
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "PageQueryProject",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<PageQueryProjectResponse>(await this.callApi(params, req, runtime), new PageQueryProjectResponse({}));
-  }
-
-  async pageQueryProject(request: PageQueryProjectRequest): Promise<PageQueryProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.pageQueryProjectWithOptions(request, runtime);
-  }
-
-  async pageQueryProjectAppsWithOptions(request: PageQueryProjectAppsRequest, runtime: $Util.RuntimeOptions): Promise<PageQueryProjectAppsResponse> {
+  async queryOfflineTaskProgressWithOptions(request: QueryOfflineTaskProgressRequest, runtime: $Util.RuntimeOptions): Promise<QueryOfflineTaskProgressResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
-    if (!Util.isUnset(request.operatorType)) {
-      body["OperatorType"] = request.operatorType;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      body["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.versionId)) {
+      body["VersionId"] = request.versionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "PageQueryProjectApps",
+      action: "QueryOfflineTaskProgress",
       version: "2021-11-11",
       protocol: "HTTPS",
       pathname: "/",
@@ -5427,33 +4204,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PageQueryProjectAppsResponse>(await this.callApi(params, req, runtime), new PageQueryProjectAppsResponse({}));
+    return $tea.cast<QueryOfflineTaskProgressResponse>(await this.callApi(params, req, runtime), new QueryOfflineTaskProgressResponse({}));
   }
 
-  async pageQueryProjectApps(request: PageQueryProjectAppsRequest): Promise<PageQueryProjectAppsResponse> {
+  async queryOfflineTaskProgress(request: QueryOfflineTaskProgressRequest): Promise<QueryOfflineTaskProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.pageQueryProjectAppsWithOptions(request, runtime);
-  }
-
-  async refreshDistrictMetaWithOptions(runtime: $Util.RuntimeOptions): Promise<RefreshDistrictMetaResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "RefreshDistrictMeta",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RefreshDistrictMetaResponse>(await this.callApi(params, req, runtime), new RefreshDistrictMetaResponse({}));
-  }
-
-  async refreshDistrictMeta(): Promise<RefreshDistrictMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.refreshDistrictMetaWithOptions(runtime);
+    return await this.queryOfflineTaskProgressWithOptions(request, runtime);
   }
 
   async releaseCapacityWithOptions(request: ReleaseCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCapacityResponse> {
@@ -5599,22 +4355,30 @@ export default class Client extends OpenApi {
     return await this.stopAppSessionBatchWithOptions(request, runtime);
   }
 
-  async versionCheckSameNameServiceWithOptions(request: VersionCheckSameNameServiceRequest, runtime: $Util.RuntimeOptions): Promise<VersionCheckSameNameServiceResponse> {
+  async submitOfflineTaskWithOptions(request: SubmitOfflineTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOfflineTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appVersionName)) {
-      body["AppVersionName"] = request.appVersionName;
+    if (!Util.isUnset(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.uri)) {
+      body["Uri"] = request.uri;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      body["VersionId"] = request.versionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "VersionCheckSameNameService",
+      action: "SubmitOfflineTask",
       version: "2021-11-11",
       protocol: "HTTPS",
       pathname: "/",
@@ -5624,12 +4388,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VersionCheckSameNameServiceResponse>(await this.callApi(params, req, runtime), new VersionCheckSameNameServiceResponse({}));
+    return $tea.cast<SubmitOfflineTaskResponse>(await this.callApi(params, req, runtime), new SubmitOfflineTaskResponse({}));
   }
 
-  async versionCheckSameNameService(request: VersionCheckSameNameServiceRequest): Promise<VersionCheckSameNameServiceResponse> {
+  async submitOfflineTask(request: SubmitOfflineTaskRequest): Promise<SubmitOfflineTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.versionCheckSameNameServiceWithOptions(request, runtime);
+    return await this.submitOfflineTaskWithOptions(request, runtime);
   }
 
 }
