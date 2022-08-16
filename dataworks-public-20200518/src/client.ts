@@ -7369,10 +7369,12 @@ export class GetInstanceErrorRankResponse extends $tea.Model {
 }
 
 export class GetInstanceLogRequest extends $tea.Model {
+  instanceHistoryId?: number;
   instanceId?: number;
   projectEnv?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceHistoryId: 'InstanceHistoryId',
       instanceId: 'InstanceId',
       projectEnv: 'ProjectEnv',
     };
@@ -7380,6 +7382,7 @@ export class GetInstanceLogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceHistoryId: 'number',
       instanceId: 'number',
       projectEnv: 'string',
     };
@@ -13030,6 +13033,93 @@ export class ListHistoryTasksForResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class ListInnerNodesRequest extends $tea.Model {
+  nodeName?: string;
+  outerNodeId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  programType?: string;
+  projectEnv?: string;
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeName: 'NodeName',
+      outerNodeId: 'OuterNodeId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      programType: 'ProgramType',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeName: 'string',
+      outerNodeId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      programType: 'string',
+      projectEnv: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInnerNodesResponseBody extends $tea.Model {
+  paging?: ListInnerNodesResponseBodyPaging;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      paging: 'Paging',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paging: ListInnerNodesResponseBodyPaging,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInnerNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInnerNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInnerNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceAmountRequest extends $tea.Model {
   beginDate?: string;
   endDate?: string;
@@ -13094,6 +13184,78 @@ export class ListInstanceAmountResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListInstanceAmountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryRequest extends $tea.Model {
+  instanceId?: number;
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryResponseBody extends $tea.Model {
+  instances?: ListInstanceHistoryResponseBodyInstances[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListInstanceHistoryResponseBodyInstances },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstanceHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceHistoryResponseBody,
     };
   }
 
@@ -16057,6 +16219,7 @@ export class RunCycleDagNodesRequest extends $tea.Model {
   projectEnv?: string;
   rootNodeId?: number;
   startBizDate?: string;
+  startFutureInstanceImmediately?: boolean;
   static names(): { [key: string]: string } {
     return {
       bizBeginTime: 'BizBeginTime',
@@ -16070,6 +16233,7 @@ export class RunCycleDagNodesRequest extends $tea.Model {
       projectEnv: 'ProjectEnv',
       rootNodeId: 'RootNodeId',
       startBizDate: 'StartBizDate',
+      startFutureInstanceImmediately: 'StartFutureInstanceImmediately',
     };
   }
 
@@ -16086,6 +16250,7 @@ export class RunCycleDagNodesRequest extends $tea.Model {
       projectEnv: 'string',
       rootNodeId: 'number',
       startBizDate: 'string',
+      startFutureInstanceImmediately: 'boolean',
     };
   }
 
@@ -28413,6 +28578,104 @@ export class ListHistoryTasksForResourceGroupResponseBodyData extends $tea.Model
   }
 }
 
+export class ListInnerNodesResponseBodyPagingNodes extends $tea.Model {
+  baselineId?: number;
+  businessId?: number;
+  connection?: string;
+  cronExpress?: string;
+  description?: string;
+  dqcDescription?: string;
+  dqcType?: string;
+  nodeId?: number;
+  nodeName?: string;
+  ownerId?: string;
+  paramValues?: string;
+  priority?: number;
+  programType?: string;
+  projectId?: number;
+  repeatInterval?: number;
+  repeatability?: boolean;
+  resGroupName?: string;
+  schedulerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      businessId: 'BusinessId',
+      connection: 'Connection',
+      cronExpress: 'CronExpress',
+      description: 'Description',
+      dqcDescription: 'DqcDescription',
+      dqcType: 'DqcType',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      ownerId: 'OwnerId',
+      paramValues: 'ParamValues',
+      priority: 'Priority',
+      programType: 'ProgramType',
+      projectId: 'ProjectId',
+      repeatInterval: 'RepeatInterval',
+      repeatability: 'Repeatability',
+      resGroupName: 'ResGroupName',
+      schedulerType: 'SchedulerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      businessId: 'number',
+      connection: 'string',
+      cronExpress: 'string',
+      description: 'string',
+      dqcDescription: 'string',
+      dqcType: 'string',
+      nodeId: 'number',
+      nodeName: 'string',
+      ownerId: 'string',
+      paramValues: 'string',
+      priority: 'number',
+      programType: 'string',
+      projectId: 'number',
+      repeatInterval: 'number',
+      repeatability: 'boolean',
+      resGroupName: 'string',
+      schedulerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInnerNodesResponseBodyPaging extends $tea.Model {
+  nodes?: ListInnerNodesResponseBodyPagingNodes[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': ListInnerNodesResponseBodyPagingNodes },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceAmountResponseBodyInstanceCounts extends $tea.Model {
   count?: number;
   date?: number;
@@ -28427,6 +28690,73 @@ export class ListInstanceAmountResponseBodyInstanceCounts extends $tea.Model {
     return {
       count: 'number',
       date: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceHistoryResponseBodyInstances extends $tea.Model {
+  beginRunningTime?: number;
+  beginWaitResTime?: number;
+  beginWaitTimeTime?: number;
+  bizdate?: number;
+  createTime?: number;
+  cycTime?: number;
+  dagId?: number;
+  dagType?: string;
+  errorMessage?: string;
+  finishTime?: number;
+  instanceHistoryId?: number;
+  instanceId?: number;
+  modifyTime?: number;
+  nodeId?: number;
+  nodeName?: string;
+  status?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginRunningTime: 'BeginRunningTime',
+      beginWaitResTime: 'BeginWaitResTime',
+      beginWaitTimeTime: 'BeginWaitTimeTime',
+      bizdate: 'Bizdate',
+      createTime: 'CreateTime',
+      cycTime: 'CycTime',
+      dagId: 'DagId',
+      dagType: 'DagType',
+      errorMessage: 'ErrorMessage',
+      finishTime: 'FinishTime',
+      instanceHistoryId: 'InstanceHistoryId',
+      instanceId: 'InstanceId',
+      modifyTime: 'ModifyTime',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      status: 'Status',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginRunningTime: 'number',
+      beginWaitResTime: 'number',
+      beginWaitTimeTime: 'number',
+      bizdate: 'number',
+      createTime: 'number',
+      cycTime: 'number',
+      dagId: 'number',
+      dagType: 'string',
+      errorMessage: 'string',
+      finishTime: 'number',
+      instanceHistoryId: 'number',
+      instanceId: 'number',
+      modifyTime: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      status: 'string',
+      taskType: 'string',
     };
   }
 
@@ -35076,6 +35406,10 @@ export default class Client extends OpenApi {
   async getInstanceLogWithOptions(request: GetInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceHistoryId)) {
+      body["InstanceHistoryId"] = request.instanceHistoryId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -37674,6 +38008,59 @@ export default class Client extends OpenApi {
     return await this.listHistoryTasksForResourceGroupWithOptions(request, runtime);
   }
 
+  async listInnerNodesWithOptions(request: ListInnerNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListInnerNodesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeName)) {
+      body["NodeName"] = request.nodeName;
+    }
+
+    if (!Util.isUnset(request.outerNodeId)) {
+      body["OuterNodeId"] = request.outerNodeId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.programType)) {
+      body["ProgramType"] = request.programType;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInnerNodes",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInnerNodesResponse>(await this.callApi(params, req, runtime), new ListInnerNodesResponse({}));
+  }
+
+  async listInnerNodes(request: ListInnerNodesRequest): Promise<ListInnerNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInnerNodesWithOptions(request, runtime);
+  }
+
   async listInstanceAmountWithOptions(request: ListInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceAmountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37709,6 +38096,39 @@ export default class Client extends OpenApi {
   async listInstanceAmount(request: ListInstanceAmountRequest): Promise<ListInstanceAmountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceAmountWithOptions(request, runtime);
+  }
+
+  async listInstanceHistoryWithOptions(request: ListInstanceHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceHistoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceHistory",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceHistoryResponse>(await this.callApi(params, req, runtime), new ListInstanceHistoryResponse({}));
+  }
+
+  async listInstanceHistory(request: ListInstanceHistoryRequest): Promise<ListInstanceHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceHistoryWithOptions(request, runtime);
   }
 
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
@@ -39216,6 +39636,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startBizDate)) {
       body["StartBizDate"] = request.startBizDate;
+    }
+
+    if (!Util.isUnset(request.startFutureInstanceImmediately)) {
+      body["StartFutureInstanceImmediately"] = request.startFutureInstanceImmediately;
     }
 
     let req = new $OpenApi.OpenApiRequest({
