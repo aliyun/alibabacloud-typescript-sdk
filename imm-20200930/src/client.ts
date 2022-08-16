@@ -2560,7 +2560,6 @@ export class CreateDatasetResponse extends $tea.Model {
 
 export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
-  notifyEndpoint?: string;
   notifyTopicName?: string;
   projectName?: string;
   sourceURI?: string;
@@ -2569,7 +2568,6 @@ export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfig: 'CredentialConfig',
-      notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
@@ -2581,7 +2579,6 @@ export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfig: CredentialConfig,
-      notifyEndpoint: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       sourceURI: 'string',
@@ -2597,7 +2594,6 @@ export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
 
 export class CreateDetectVideoLabelsTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
-  notifyEndpoint?: string;
   notifyTopicName?: string;
   projectName?: string;
   sourceURI?: string;
@@ -2606,7 +2602,6 @@ export class CreateDetectVideoLabelsTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       credentialConfigShrink: 'CredentialConfig',
-      notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
@@ -2618,7 +2613,6 @@ export class CreateDetectVideoLabelsTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       credentialConfigShrink: 'string',
-      notifyEndpoint: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       sourceURI: 'string',
@@ -2684,7 +2678,6 @@ export class CreateDetectVideoLabelsTaskResponse extends $tea.Model {
 
 export class CreateFigureClusteringTaskRequest extends $tea.Model {
   datasetName?: string;
-  notifyEndpoint?: string;
   notifyTopicName?: string;
   projectName?: string;
   tags?: { [key: string]: any };
@@ -2692,7 +2685,6 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
-      notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tags: 'Tags',
@@ -2703,7 +2695,6 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      notifyEndpoint: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -2718,7 +2709,6 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
 
 export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   datasetName?: string;
-  notifyEndpoint?: string;
   notifyTopicName?: string;
   projectName?: string;
   tagsShrink?: string;
@@ -2726,7 +2716,6 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
-      notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       tagsShrink: 'Tags',
@@ -2737,7 +2726,6 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      notifyEndpoint: 'string',
       notifyTopicName: 'string',
       projectName: 'string',
       tagsShrink: 'string',
@@ -9672,10 +9660,6 @@ export default class Client extends OpenApi {
       query["CredentialConfig"] = request.credentialConfigShrink;
     }
 
-    if (!Util.isUnset(request.notifyEndpoint)) {
-      query["NotifyEndpoint"] = request.notifyEndpoint;
-    }
-
     if (!Util.isUnset(request.notifyTopicName)) {
       query["NotifyTopicName"] = request.notifyTopicName;
     }
@@ -9729,10 +9713,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
-    }
-
-    if (!Util.isUnset(request.notifyEndpoint)) {
-      query["NotifyEndpoint"] = request.notifyEndpoint;
     }
 
     if (!Util.isUnset(request.notifyTopicName)) {
