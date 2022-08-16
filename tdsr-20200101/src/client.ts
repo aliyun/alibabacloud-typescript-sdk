@@ -794,81 +794,6 @@ export class CreateUploadPolicyResponse extends $tea.Model {
   }
 }
 
-export class DecryptContentRequest extends $tea.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DecryptContentResponseBody extends $tea.Model {
-  code?: number;
-  content?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DecryptContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DecryptContentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DecryptContentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetailProjectRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -1395,81 +1320,6 @@ export class DropSubSceneResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DropSubSceneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EncryptContentRequest extends $tea.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EncryptContentResponseBody extends $tea.Model {
-  code?: number;
-  content?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      content: 'Content',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      content: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EncryptContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EncryptContentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EncryptContentResponseBody,
     };
   }
 
@@ -4760,6 +4610,81 @@ export class SaveHotspotTagListResponse extends $tea.Model {
   }
 }
 
+export class SaveMinimapRequest extends $tea.Model {
+  data?: string;
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveMinimapResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveMinimapResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SaveMinimapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveMinimapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveModelConfigRequest extends $tea.Model {
   data?: string;
   sceneId?: string;
@@ -6774,35 +6699,6 @@ export default class Client extends OpenApi {
     return await this.createUploadPolicyWithOptions(request, runtime);
   }
 
-  async decryptContentWithOptions(request: DecryptContentRequest, runtime: $Util.RuntimeOptions): Promise<DecryptContentResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.content)) {
-      query["Content"] = request.content;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DecryptContent",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DecryptContentResponse>(await this.callApi(params, req, runtime), new DecryptContentResponse({}));
-  }
-
-  async decryptContent(request: DecryptContentRequest): Promise<DecryptContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.decryptContentWithOptions(request, runtime);
-  }
-
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6975,35 +6871,6 @@ export default class Client extends OpenApi {
   async dropSubScene(request: DropSubSceneRequest): Promise<DropSubSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dropSubSceneWithOptions(request, runtime);
-  }
-
-  async encryptContentWithOptions(request: EncryptContentRequest, runtime: $Util.RuntimeOptions): Promise<EncryptContentResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.content)) {
-      query["Content"] = request.content;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "EncryptContent",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<EncryptContentResponse>(await this.callApi(params, req, runtime), new EncryptContentResponse({}));
-  }
-
-  async encryptContent(request: EncryptContentRequest): Promise<EncryptContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.encryptContentWithOptions(request, runtime);
   }
 
   async getConnDataWithOptions(request: GetConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetConnDataResponse> {
@@ -8381,6 +8248,39 @@ export default class Client extends OpenApi {
   async saveHotspotTagList(request: SaveHotspotTagListRequest): Promise<SaveHotspotTagListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveHotspotTagListWithOptions(request, runtime);
+  }
+
+  async saveMinimapWithOptions(request: SaveMinimapRequest, runtime: $Util.RuntimeOptions): Promise<SaveMinimapResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveMinimap",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveMinimapResponse>(await this.callApi(params, req, runtime), new SaveMinimapResponse({}));
+  }
+
+  async saveMinimap(request: SaveMinimapRequest): Promise<SaveMinimapResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveMinimapWithOptions(request, runtime);
   }
 
   async saveModelConfigWithOptions(request: SaveModelConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveModelConfigResponse> {
