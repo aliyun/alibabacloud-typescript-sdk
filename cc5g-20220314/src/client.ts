@@ -69,10 +69,12 @@ export class AddDNSAuthorizationRuleResponseBody extends $tea.Model {
 
 export class AddDNSAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDNSAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -80,6 +82,7 @@ export class AddDNSAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDNSAuthorizationRuleResponseBody,
     };
   }
@@ -147,10 +150,12 @@ export class AttachVpcToNetLinkResponseBody extends $tea.Model {
 
 export class AttachVpcToNetLinkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachVpcToNetLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -158,6 +163,7 @@ export class AttachVpcToNetLinkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachVpcToNetLinkResponseBody,
     };
   }
@@ -234,10 +240,12 @@ export class CreateAuthorizationRuleResponseBody extends $tea.Model {
 
 export class CreateAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -245,6 +253,7 @@ export class CreateAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAuthorizationRuleResponseBody,
     };
   }
@@ -254,7 +263,179 @@ export class CreateAuthorizationRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateBatchOperateCardsTaskRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  effectType?: string;
+  iccids?: string[];
+  iccidsOssFilePath?: string;
+  name?: string;
+  operateType?: string;
+  regionId?: string;
+  threshold?: number;
+  wirelessCloudConnectorIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      effectType: 'EffectType',
+      iccids: 'Iccids',
+      iccidsOssFilePath: 'IccidsOssFilePath',
+      name: 'Name',
+      operateType: 'OperateType',
+      regionId: 'RegionId',
+      threshold: 'Threshold',
+      wirelessCloudConnectorIds: 'WirelessCloudConnectorIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      effectType: 'string',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      iccidsOssFilePath: 'string',
+      name: 'string',
+      operateType: 'string',
+      regionId: 'string',
+      threshold: 'number',
+      wirelessCloudConnectorIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchOperateCardsTaskResponseBody extends $tea.Model {
+  batchOperateCardsTaskId?: string;
+  operateResultOssFilePath?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOperateCardsTaskId: 'BatchOperateCardsTaskId',
+      operateResultOssFilePath: 'OperateResultOssFilePath',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOperateCardsTaskId: 'string',
+      operateResultOssFilePath: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBatchOperateCardsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateBatchOperateCardsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBatchOperateCardsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  netLinkId?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      netLinkId: 'NetLinkId',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      netLinkId: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateIoTCloudConnectorBackhaulRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIoTCloudConnectorBackhaulRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWirelessCloudConnectorRequest extends $tea.Model {
+  businessType?: string;
   clientToken?: string;
   description?: string;
   dryRun?: boolean;
@@ -265,6 +446,7 @@ export class CreateWirelessCloudConnectorRequest extends $tea.Model {
   useCase?: string;
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       clientToken: 'ClientToken',
       description: 'Description',
       dryRun: 'DryRun',
@@ -278,6 +460,7 @@ export class CreateWirelessCloudConnectorRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'string',
       clientToken: 'string',
       description: 'string',
       dryRun: 'boolean',
@@ -318,10 +501,12 @@ export class CreateWirelessCloudConnectorResponseBody extends $tea.Model {
 
 export class CreateWirelessCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -329,6 +514,7 @@ export class CreateWirelessCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateWirelessCloudConnectorResponseBody,
     };
   }
@@ -387,10 +573,12 @@ export class DeleteAuthorizationRuleResponseBody extends $tea.Model {
 
 export class DeleteAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -398,7 +586,152 @@ export class DeleteAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchOperateCardsTaskRequest extends $tea.Model {
+  batchOperateCardsTaskId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOperateCardsTaskId: 'BatchOperateCardsTaskId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOperateCardsTaskId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchOperateCardsTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBatchOperateCardsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteBatchOperateCardsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBatchOperateCardsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  netLinkId?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      netLinkId: 'NetLinkId',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      netLinkId: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteIoTCloudConnectorBackhaulRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIoTCloudConnectorBackhaulRouteResponseBody,
     };
   }
 
@@ -453,10 +786,12 @@ export class DeleteWirelessCloudConnectorResponseBody extends $tea.Model {
 
 export class DeleteWirelessCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -464,6 +799,7 @@ export class DeleteWirelessCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteWirelessCloudConnectorResponseBody,
     };
   }
@@ -522,10 +858,12 @@ export class DetachVpcFromNetLinkResponseBody extends $tea.Model {
 
 export class DetachVpcFromNetLinkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachVpcFromNetLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -533,7 +871,278 @@ export class DetachVpcFromNetLinkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachVpcFromNetLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardRequest extends $tea.Model {
+  iccid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardResponseBody extends $tea.Model {
+  APN?: string;
+  activatedTime?: string;
+  alarmThreshold?: number;
+  cloudConnectorId?: string;
+  description?: string;
+  ISP?: string;
+  iccid?: string;
+  imei?: string;
+  imsi?: string;
+  ipAddress?: string;
+  limitThreshold?: number;
+  lock?: string;
+  msisdn?: string;
+  name?: string;
+  netType?: string;
+  orderId?: string;
+  requestId?: string;
+  simStatus?: string;
+  spec?: string;
+  status?: string;
+  stopThreshold?: number;
+  usageDataMonth?: number;
+  usageDataTotal?: number;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      APN: 'APN',
+      activatedTime: 'ActivatedTime',
+      alarmThreshold: 'AlarmThreshold',
+      cloudConnectorId: 'CloudConnectorId',
+      description: 'Description',
+      ISP: 'ISP',
+      iccid: 'Iccid',
+      imei: 'Imei',
+      imsi: 'Imsi',
+      ipAddress: 'IpAddress',
+      limitThreshold: 'LimitThreshold',
+      lock: 'Lock',
+      msisdn: 'Msisdn',
+      name: 'Name',
+      netType: 'NetType',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      simStatus: 'SimStatus',
+      spec: 'Spec',
+      status: 'Status',
+      stopThreshold: 'StopThreshold',
+      usageDataMonth: 'UsageDataMonth',
+      usageDataTotal: 'UsageDataTotal',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      APN: 'string',
+      activatedTime: 'string',
+      alarmThreshold: 'number',
+      cloudConnectorId: 'string',
+      description: 'string',
+      ISP: 'string',
+      iccid: 'string',
+      imei: 'string',
+      imsi: 'string',
+      ipAddress: 'string',
+      limitThreshold: 'number',
+      lock: 'string',
+      msisdn: 'string',
+      name: 'string',
+      netType: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      simStatus: 'string',
+      spec: 'string',
+      status: 'string',
+      stopThreshold: 'number',
+      usageDataMonth: 'number',
+      usageDataTotal: 'number',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardLockReasonRequest extends $tea.Model {
+  iccid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iccid: 'Iccid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iccid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardLockReasonResponseBody extends $tea.Model {
+  lockReason?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardLockReasonResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCardLockReasonResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCardLockReasonResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateCustomerInformationRequest extends $tea.Model {
+  regionId?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateCustomerInformationResponseBody extends $tea.Model {
+  canBuyCard?: string;
+  requestId?: string;
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canBuyCard: 'CanBuyCard',
+      requestId: 'RequestId',
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canBuyCard: 'string',
+      requestId: 'string',
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateCustomerInformationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCreateCustomerInformationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCreateCustomerInformationResponseBody,
     };
   }
 
@@ -565,11 +1174,13 @@ export class GetWirelessCloudConnectorRequest extends $tea.Model {
 }
 
 export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
+  businessType?: string;
   cardCount?: string;
   createTime?: string;
   dataPackageId?: string;
   dataPackageType?: string;
   description?: string;
+  features?: string[];
   name?: string;
   netLinks?: GetWirelessCloudConnectorResponseBodyNetLinks[];
   regionId?: string;
@@ -579,11 +1190,13 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
   wirelessCloudConnectorId?: string;
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       cardCount: 'CardCount',
       createTime: 'CreateTime',
       dataPackageId: 'DataPackageId',
       dataPackageType: 'DataPackageType',
       description: 'Description',
+      features: 'Features',
       name: 'Name',
       netLinks: 'NetLinks',
       regionId: 'RegionId',
@@ -596,11 +1209,13 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'string',
       cardCount: 'string',
       createTime: 'string',
       dataPackageId: 'string',
       dataPackageType: 'string',
       description: 'string',
+      features: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       netLinks: { 'type': 'array', 'itemType': GetWirelessCloudConnectorResponseBodyNetLinks },
       regionId: 'string',
@@ -618,10 +1233,12 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
 
 export class GetWirelessCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -629,6 +1246,7 @@ export class GetWirelessCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetWirelessCloudConnectorResponseBody,
     };
   }
@@ -720,10 +1338,12 @@ export class ListAuthorizationRulesResponseBody extends $tea.Model {
 
 export class ListAuthorizationRulesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAuthorizationRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -731,7 +1351,98 @@ export class ListAuthorizationRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAuthorizationRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchOperateCardsTasksRequest extends $tea.Model {
+  batchOperateCardsTaskIds?: string[];
+  maxResults?: number;
+  names?: string[];
+  nextToken?: string;
+  regionId?: string;
+  statuses?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      batchOperateCardsTaskIds: 'BatchOperateCardsTaskIds',
+      maxResults: 'MaxResults',
+      names: 'Names',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      statuses: 'Statuses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOperateCardsTaskIds: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      names: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
+      regionId: 'string',
+      statuses: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchOperateCardsTasksResponseBody extends $tea.Model {
+  batchOperateCardsTasks?: ListBatchOperateCardsTasksResponseBodyBatchOperateCardsTasks[];
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOperateCardsTasks: 'BatchOperateCardsTasks',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOperateCardsTasks: { 'type': 'array', 'itemType': ListBatchOperateCardsTasksResponseBodyBatchOperateCardsTasks },
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchOperateCardsTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListBatchOperateCardsTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBatchOperateCardsTasksResponseBody,
     };
   }
 
@@ -742,7 +1453,7 @@ export class ListAuthorizationRulesResponse extends $tea.Model {
 
 export class ListCardsRequest extends $tea.Model {
   apn?: string;
-  destinationType?: string;
+  iccid?: string;
   iccids?: string[];
   ipAddress?: string;
   lock?: boolean;
@@ -751,12 +1462,11 @@ export class ListCardsRequest extends $tea.Model {
   nextToken?: string;
   online?: boolean;
   statuses?: string[];
-  vpcId?: string;
   wirelessCloudConnectorId?: string;
   static names(): { [key: string]: string } {
     return {
       apn: 'Apn',
-      destinationType: 'DestinationType',
+      iccid: 'Iccid',
       iccids: 'Iccids',
       ipAddress: 'IpAddress',
       lock: 'Lock',
@@ -765,7 +1475,6 @@ export class ListCardsRequest extends $tea.Model {
       nextToken: 'NextToken',
       online: 'Online',
       statuses: 'Statuses',
-      vpcId: 'VpcId',
       wirelessCloudConnectorId: 'WirelessCloudConnectorId',
     };
   }
@@ -773,7 +1482,7 @@ export class ListCardsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       apn: 'string',
-      destinationType: 'string',
+      iccid: 'string',
       iccids: { 'type': 'array', 'itemType': 'string' },
       ipAddress: 'string',
       lock: 'boolean',
@@ -782,7 +1491,6 @@ export class ListCardsRequest extends $tea.Model {
       nextToken: 'string',
       online: 'boolean',
       statuses: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
       wirelessCloudConnectorId: 'string',
     };
   }
@@ -825,10 +1533,12 @@ export class ListCardsResponseBody extends $tea.Model {
 
 export class ListCardsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -836,6 +1546,7 @@ export class ListCardsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCardsResponseBody,
     };
   }
@@ -912,10 +1623,12 @@ export class ListDataPackagesResponseBody extends $tea.Model {
 
 export class ListDataPackagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDataPackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -923,7 +1636,83 @@ export class ListDataPackagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDataPackagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorBackhaulRouteRequest extends $tea.Model {
+  netLinkId?: string;
+  regionId?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      netLinkId: 'NetLinkId',
+      regionId: 'RegionId',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      netLinkId: 'string',
+      regionId: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model {
+  netLinkId?: string;
+  requestId?: string;
+  routes?: ListIoTCloudConnectorBackhaulRouteResponseBodyRoutes[];
+  static names(): { [key: string]: string } {
+    return {
+      netLinkId: 'NetLinkId',
+      requestId: 'RequestId',
+      routes: 'Routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      netLinkId: 'string',
+      requestId: 'string',
+      routes: { 'type': 'array', 'itemType': ListIoTCloudConnectorBackhaulRouteResponseBodyRoutes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIoTCloudConnectorBackhaulRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIoTCloudConnectorBackhaulRouteResponseBody,
     };
   }
 
@@ -999,10 +1788,12 @@ export class ListOrdersResponseBody extends $tea.Model {
 
 export class ListOrdersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListOrdersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1010,6 +1801,7 @@ export class ListOrdersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListOrdersResponseBody,
     };
   }
@@ -1065,10 +1857,12 @@ export class ListRegionsResponseBody extends $tea.Model {
 
 export class ListRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1076,6 +1870,7 @@ export class ListRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRegionsResponseBody,
     };
   }
@@ -1086,6 +1881,7 @@ export class ListRegionsResponse extends $tea.Model {
 }
 
 export class ListWirelessCloudConnectorsRequest extends $tea.Model {
+  businessType?: string;
   maxResults?: number;
   names?: string[];
   nextToken?: string;
@@ -1094,6 +1890,7 @@ export class ListWirelessCloudConnectorsRequest extends $tea.Model {
   wirelessCloudConnectorIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       maxResults: 'MaxResults',
       names: 'Names',
       nextToken: 'NextToken',
@@ -1105,6 +1902,7 @@ export class ListWirelessCloudConnectorsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'string',
       maxResults: 'number',
       names: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
@@ -1152,10 +1950,12 @@ export class ListWirelessCloudConnectorsResponseBody extends $tea.Model {
 
 export class ListWirelessCloudConnectorsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListWirelessCloudConnectorsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1163,6 +1963,7 @@ export class ListWirelessCloudConnectorsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListWirelessCloudConnectorsResponseBody,
     };
   }
@@ -1215,10 +2016,12 @@ export class ListZonesResponseBody extends $tea.Model {
 
 export class ListZonesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1226,7 +2029,155 @@ export class ListZonesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LockCardsRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  iccids?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      iccids: 'Iccids',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LockCardsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LockCardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: LockCardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LockCardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWirelessCloudConnectorFeatureRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  featureName?: string;
+  featureValue?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      featureName: 'FeatureName',
+      featureValue: 'FeatureValue',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      featureName: 'string',
+      featureValue: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWirelessCloudConnectorFeatureResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWirelessCloudConnectorFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyWirelessCloudConnectorFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyWirelessCloudConnectorFeatureResponseBody,
     };
   }
 
@@ -1275,10 +2226,12 @@ export class OpenCc5gServiceResponseBody extends $tea.Model {
 
 export class OpenCc5gServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OpenCc5gServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1286,7 +2239,293 @@ export class OpenCc5gServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OpenCc5gServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeCardsRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  iccids?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      iccids: 'Iccids',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeCardsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeCardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResumeCardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResumeCardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCardsRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  iccids?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      iccids: 'Iccids',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCardsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: StopCardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopCardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchWirelessCloudConnectorToBusinessRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchWirelessCloudConnectorToBusinessResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchWirelessCloudConnectorToBusinessResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SwitchWirelessCloudConnectorToBusinessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchWirelessCloudConnectorToBusinessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnlockCardsRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  iccids?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      iccids: 'Iccids',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnlockCardsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnlockCardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnlockCardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnlockCardsResponseBody,
     };
   }
 
@@ -1359,10 +2598,12 @@ export class UpdateAuthorizationRuleResponseBody extends $tea.Model {
 
 export class UpdateAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1370,7 +2611,104 @@ export class UpdateAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchOperateCardsTaskRequest extends $tea.Model {
+  batchOperateCardsTaskId?: string;
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  effectType?: string;
+  iccids?: string[];
+  iccidsOssFilePath?: string;
+  name?: string;
+  operateType?: string;
+  regionId?: string;
+  threshold?: number;
+  wirelessCloudConnectorIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      batchOperateCardsTaskId: 'BatchOperateCardsTaskId',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      effectType: 'EffectType',
+      iccids: 'Iccids',
+      iccidsOssFilePath: 'IccidsOssFilePath',
+      name: 'Name',
+      operateType: 'OperateType',
+      regionId: 'RegionId',
+      threshold: 'Threshold',
+      wirelessCloudConnectorIds: 'WirelessCloudConnectorIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOperateCardsTaskId: 'string',
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      effectType: 'string',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      iccidsOssFilePath: 'string',
+      name: 'string',
+      operateType: 'string',
+      regionId: 'string',
+      threshold: 'number',
+      wirelessCloudConnectorIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchOperateCardsTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchOperateCardsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateBatchOperateCardsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBatchOperateCardsTaskResponseBody,
     };
   }
 
@@ -1434,10 +2772,12 @@ export class UpdateCardResponseBody extends $tea.Model {
 
 export class UpdateCardResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1445,6 +2785,7 @@ export class UpdateCardResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateCardResponseBody,
     };
   }
@@ -1515,10 +2856,12 @@ export class UpdateDNSAuthorizationRuleResponseBody extends $tea.Model {
 
 export class UpdateDNSAuthorizationRuleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDNSAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1526,6 +2869,7 @@ export class UpdateDNSAuthorizationRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDNSAuthorizationRuleResponseBody,
     };
   }
@@ -1587,10 +2931,12 @@ export class UpdateWirelessCloudConnectorResponseBody extends $tea.Model {
 
 export class UpdateWirelessCloudConnectorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1598,6 +2944,7 @@ export class UpdateWirelessCloudConnectorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateWirelessCloudConnectorResponseBody,
     };
   }
@@ -1687,7 +3034,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
   description?: string;
   destination?: string;
   destinationType?: string;
-  dns?: string;
+  dns?: boolean;
   name?: string;
   policy?: string;
   sourceCidr?: string;
@@ -1716,7 +3063,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
       description: 'string',
       destination: 'string',
       destinationType: 'string',
-      dns: 'string',
+      dns: 'boolean',
       name: 'string',
       policy: 'string',
       sourceCidr: 'string',
@@ -1730,9 +3077,81 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
   }
 }
 
+export class ListBatchOperateCardsTasksResponseBodyBatchOperateCardsTasksWirelessCloudConnectors extends $tea.Model {
+  status?: string;
+  wirelessCloudConnectorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      wirelessCloudConnectorId: 'WirelessCloudConnectorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      wirelessCloudConnectorId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchOperateCardsTasksResponseBodyBatchOperateCardsTasks extends $tea.Model {
+  batchOperateCardsTaskId?: string;
+  createTime?: string;
+  description?: string;
+  effectType?: string;
+  iccidsOssFilePath?: string;
+  name?: string;
+  operateResultOssFilePath?: string;
+  operateType?: string;
+  status?: string;
+  threshold?: string;
+  wirelessCloudConnectors?: ListBatchOperateCardsTasksResponseBodyBatchOperateCardsTasksWirelessCloudConnectors[];
+  static names(): { [key: string]: string } {
+    return {
+      batchOperateCardsTaskId: 'BatchOperateCardsTaskId',
+      createTime: 'CreateTime',
+      description: 'Description',
+      effectType: 'EffectType',
+      iccidsOssFilePath: 'IccidsOssFilePath',
+      name: 'Name',
+      operateResultOssFilePath: 'OperateResultOssFilePath',
+      operateType: 'OperateType',
+      status: 'Status',
+      threshold: 'Threshold',
+      wirelessCloudConnectors: 'WirelessCloudConnectors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOperateCardsTaskId: 'string',
+      createTime: 'string',
+      description: 'string',
+      effectType: 'string',
+      iccidsOssFilePath: 'string',
+      name: 'string',
+      operateResultOssFilePath: 'string',
+      operateType: 'string',
+      status: 'string',
+      threshold: 'string',
+      wirelessCloudConnectors: { 'type': 'array', 'itemType': ListBatchOperateCardsTasksResponseBodyBatchOperateCardsTasksWirelessCloudConnectors },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCardsResponseBodyCards extends $tea.Model {
   APN?: string;
   activatedTime?: string;
+  businessStatus?: string;
   description?: string;
   ISP?: string;
   iccid?: string;
@@ -1740,16 +3159,19 @@ export class ListCardsResponseBodyCards extends $tea.Model {
   imsi?: string;
   ipAddress?: string;
   lock?: boolean;
+  msisdn?: string;
   name?: string;
   netType?: string;
   orderId?: string;
   spec?: string;
   status?: string;
   usageDataMonth?: number;
+  usageDataTotal?: string;
   static names(): { [key: string]: string } {
     return {
       APN: 'APN',
       activatedTime: 'ActivatedTime',
+      businessStatus: 'BusinessStatus',
       description: 'Description',
       ISP: 'ISP',
       iccid: 'Iccid',
@@ -1757,12 +3179,14 @@ export class ListCardsResponseBodyCards extends $tea.Model {
       imsi: 'Imsi',
       ipAddress: 'IpAddress',
       lock: 'Lock',
+      msisdn: 'Msisdn',
       name: 'Name',
       netType: 'NetType',
       orderId: 'OrderId',
       spec: 'Spec',
       status: 'Status',
       usageDataMonth: 'UsageDataMonth',
+      usageDataTotal: 'UsageDataTotal',
     };
   }
 
@@ -1770,6 +3194,7 @@ export class ListCardsResponseBodyCards extends $tea.Model {
     return {
       APN: 'string',
       activatedTime: 'string',
+      businessStatus: 'string',
       description: 'string',
       ISP: 'string',
       iccid: 'string',
@@ -1777,12 +3202,14 @@ export class ListCardsResponseBodyCards extends $tea.Model {
       imsi: 'string',
       ipAddress: 'string',
       lock: 'boolean',
+      msisdn: 'string',
       name: 'string',
       netType: 'string',
       orderId: 'string',
       spec: 'string',
       status: 'string',
       usageDataMonth: 'number',
+      usageDataTotal: 'string',
     };
   }
 
@@ -1822,6 +3249,37 @@ export class ListDataPackagesResponseBodyDataPackages extends $tea.Model {
       ISP: 'string',
       name: 'string',
       size: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorBackhaulRouteResponseBodyRoutes extends $tea.Model {
+  description?: string;
+  destinationCidrBlock?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destinationCidrBlock: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
       status: 'string',
     };
   }
@@ -1924,6 +3382,7 @@ export class ListRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class ListWirelessCloudConnectorsResponseBodyWirelessCloudConnectors extends $tea.Model {
+  businessType?: string;
   cardCount?: string;
   createTime?: string;
   dataPackageId?: string;
@@ -1936,6 +3395,7 @@ export class ListWirelessCloudConnectorsResponseBodyWirelessCloudConnectors exte
   wirelessCloudConnectorId?: string;
   static names(): { [key: string]: string } {
     return {
+      businessType: 'BusinessType',
       cardCount: 'CardCount',
       createTime: 'CreateTime',
       dataPackageId: 'DataPackageId',
@@ -1951,6 +3411,7 @@ export class ListWirelessCloudConnectorsResponseBodyWirelessCloudConnectors exte
 
   static types(): { [key: string]: any } {
     return {
+      businessType: 'string',
       cardCount: 'string',
       createTime: 'string',
       dataPackageId: 'string',
@@ -2181,9 +3642,123 @@ export default class Client extends OpenApi {
     return await this.createAuthorizationRuleWithOptions(request, runtime);
   }
 
+  async createBatchOperateCardsTaskWithOptions(request: CreateBatchOperateCardsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateBatchOperateCardsTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.effectType)) {
+      query["EffectType"] = request.effectType;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.iccidsOssFilePath)) {
+      query["IccidsOssFilePath"] = request.iccidsOssFilePath;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorIds)) {
+      query["WirelessCloudConnectorIds"] = request.wirelessCloudConnectorIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBatchOperateCardsTask",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBatchOperateCardsTaskResponse>(await this.callApi(params, req, runtime), new CreateBatchOperateCardsTaskResponse({}));
+  }
+
+  async createBatchOperateCardsTask(request: CreateBatchOperateCardsTaskRequest): Promise<CreateBatchOperateCardsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBatchOperateCardsTaskWithOptions(request, runtime);
+  }
+
+  async createIoTCloudConnectorBackhaulRouteWithOptions(request: CreateIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.netLinkId)) {
+      query["NetLinkId"] = request.netLinkId;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorId)) {
+      query["WirelessCloudConnectorId"] = request.wirelessCloudConnectorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIoTCloudConnectorBackhaulRoute",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new CreateIoTCloudConnectorBackhaulRouteResponse({}));
+  }
+
+  async createIoTCloudConnectorBackhaulRoute(request: CreateIoTCloudConnectorBackhaulRouteRequest): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
+  }
+
   async createWirelessCloudConnectorWithOptions(request: CreateWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<CreateWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2279,6 +3854,88 @@ export default class Client extends OpenApi {
     return await this.deleteAuthorizationRuleWithOptions(request, runtime);
   }
 
+  async deleteBatchOperateCardsTaskWithOptions(request: DeleteBatchOperateCardsTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBatchOperateCardsTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.batchOperateCardsTaskId)) {
+      query["BatchOperateCardsTaskId"] = request.batchOperateCardsTaskId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBatchOperateCardsTask",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBatchOperateCardsTaskResponse>(await this.callApi(params, req, runtime), new DeleteBatchOperateCardsTaskResponse({}));
+  }
+
+  async deleteBatchOperateCardsTask(request: DeleteBatchOperateCardsTaskRequest): Promise<DeleteBatchOperateCardsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBatchOperateCardsTaskWithOptions(request, runtime);
+  }
+
+  async deleteIoTCloudConnectorBackhaulRouteWithOptions(request: DeleteIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorBackhaulRouteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.netLinkId)) {
+      query["NetLinkId"] = request.netLinkId;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorId)) {
+      query["WirelessCloudConnectorId"] = request.wirelessCloudConnectorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIoTCloudConnectorBackhaulRoute",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new DeleteIoTCloudConnectorBackhaulRouteResponse({}));
+  }
+
+  async deleteIoTCloudConnectorBackhaulRoute(request: DeleteIoTCloudConnectorBackhaulRouteRequest): Promise<DeleteIoTCloudConnectorBackhaulRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
+  }
+
   async deleteWirelessCloudConnectorWithOptions(request: DeleteWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2357,6 +4014,81 @@ export default class Client extends OpenApi {
     return await this.detachVpcFromNetLinkWithOptions(request, runtime);
   }
 
+  async getCardWithOptions(request: GetCardRequest, runtime: $Util.RuntimeOptions): Promise<GetCardResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCard",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardResponse>(await this.callApi(params, req, runtime), new GetCardResponse({}));
+  }
+
+  async getCard(request: GetCardRequest): Promise<GetCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardWithOptions(request, runtime);
+  }
+
+  async getCardLockReasonWithOptions(request: GetCardLockReasonRequest, runtime: $Util.RuntimeOptions): Promise<GetCardLockReasonResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCardLockReason",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCardLockReasonResponse>(await this.callApi(params, req, runtime), new GetCardLockReasonResponse({}));
+  }
+
+  async getCardLockReason(request: GetCardLockReasonRequest): Promise<GetCardLockReasonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCardLockReasonWithOptions(request, runtime);
+  }
+
+  async getCreateCustomerInformationWithOptions(request: GetCreateCustomerInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetCreateCustomerInformationResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCreateCustomerInformation",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCreateCustomerInformationResponse>(await this.callApi(params, req, runtime), new GetCreateCustomerInformationResponse({}));
+  }
+
+  async getCreateCustomerInformation(request: GetCreateCustomerInformationRequest): Promise<GetCreateCustomerInformationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCreateCustomerInformationWithOptions(request, runtime);
+  }
+
   async getWirelessCloudConnectorWithOptions(request: GetWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<GetWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2407,6 +4139,31 @@ export default class Client extends OpenApi {
     return await this.listAuthorizationRulesWithOptions(request, runtime);
   }
 
+  async listBatchOperateCardsTasksWithOptions(request: ListBatchOperateCardsTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchOperateCardsTasksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBatchOperateCardsTasks",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBatchOperateCardsTasksResponse>(await this.callApi(params, req, runtime), new ListBatchOperateCardsTasksResponse({}));
+  }
+
+  async listBatchOperateCardsTasks(request: ListBatchOperateCardsTasksRequest): Promise<ListBatchOperateCardsTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBatchOperateCardsTasksWithOptions(request, runtime);
+  }
+
   async listCardsWithOptions(request: ListCardsRequest, runtime: $Util.RuntimeOptions): Promise<ListCardsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -2455,6 +4212,31 @@ export default class Client extends OpenApi {
   async listDataPackages(request: ListDataPackagesRequest): Promise<ListDataPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataPackagesWithOptions(request, runtime);
+  }
+
+  async listIoTCloudConnectorBackhaulRouteWithOptions(request: ListIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorBackhaulRouteResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIoTCloudConnectorBackhaulRoute",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorBackhaulRouteResponse({}));
+  }
+
+  async listIoTCloudConnectorBackhaulRoute(request: ListIoTCloudConnectorBackhaulRouteRequest): Promise<ListIoTCloudConnectorBackhaulRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
   }
 
   async listOrdersWithOptions(request: ListOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrdersResponse> {
@@ -2557,6 +4339,92 @@ export default class Client extends OpenApi {
     return await this.listZonesWithOptions(request, runtime);
   }
 
+  async lockCardsWithOptions(request: LockCardsRequest, runtime: $Util.RuntimeOptions): Promise<LockCardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LockCards",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LockCardsResponse>(await this.callApi(params, req, runtime), new LockCardsResponse({}));
+  }
+
+  async lockCards(request: LockCardsRequest): Promise<LockCardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.lockCardsWithOptions(request, runtime);
+  }
+
+  async modifyWirelessCloudConnectorFeatureWithOptions(request: ModifyWirelessCloudConnectorFeatureRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWirelessCloudConnectorFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!Util.isUnset(request.featureValue)) {
+      query["FeatureValue"] = request.featureValue;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorId)) {
+      query["WirelessCloudConnectorId"] = request.wirelessCloudConnectorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyWirelessCloudConnectorFeature",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWirelessCloudConnectorFeatureResponse>(await this.callApi(params, req, runtime), new ModifyWirelessCloudConnectorFeatureResponse({}));
+  }
+
+  async modifyWirelessCloudConnectorFeature(request: ModifyWirelessCloudConnectorFeatureRequest): Promise<ModifyWirelessCloudConnectorFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyWirelessCloudConnectorFeatureWithOptions(request, runtime);
+  }
+
   async openCc5gServiceWithOptions(request: OpenCc5gServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCc5gServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2584,6 +4452,166 @@ export default class Client extends OpenApi {
   async openCc5gService(request: OpenCc5gServiceRequest): Promise<OpenCc5gServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openCc5gServiceWithOptions(request, runtime);
+  }
+
+  async resumeCardsWithOptions(request: ResumeCardsRequest, runtime: $Util.RuntimeOptions): Promise<ResumeCardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeCards",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeCardsResponse>(await this.callApi(params, req, runtime), new ResumeCardsResponse({}));
+  }
+
+  async resumeCards(request: ResumeCardsRequest): Promise<ResumeCardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumeCardsWithOptions(request, runtime);
+  }
+
+  async stopCardsWithOptions(request: StopCardsRequest, runtime: $Util.RuntimeOptions): Promise<StopCardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopCards",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopCardsResponse>(await this.callApi(params, req, runtime), new StopCardsResponse({}));
+  }
+
+  async stopCards(request: StopCardsRequest): Promise<StopCardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopCardsWithOptions(request, runtime);
+  }
+
+  async switchWirelessCloudConnectorToBusinessWithOptions(request: SwitchWirelessCloudConnectorToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<SwitchWirelessCloudConnectorToBusinessResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorId)) {
+      query["WirelessCloudConnectorId"] = request.wirelessCloudConnectorId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SwitchWirelessCloudConnectorToBusiness",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchWirelessCloudConnectorToBusinessResponse>(await this.callApi(params, req, runtime), new SwitchWirelessCloudConnectorToBusinessResponse({}));
+  }
+
+  async switchWirelessCloudConnectorToBusiness(request: SwitchWirelessCloudConnectorToBusinessRequest): Promise<SwitchWirelessCloudConnectorToBusinessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.switchWirelessCloudConnectorToBusinessWithOptions(request, runtime);
+  }
+
+  async unlockCardsWithOptions(request: UnlockCardsRequest, runtime: $Util.RuntimeOptions): Promise<UnlockCardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnlockCards",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnlockCardsResponse>(await this.callApi(params, req, runtime), new UnlockCardsResponse({}));
+  }
+
+  async unlockCards(request: UnlockCardsRequest): Promise<UnlockCardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unlockCardsWithOptions(request, runtime);
   }
 
   async updateAuthorizationRuleWithOptions(request: UpdateAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthorizationRuleResponse> {
@@ -2645,6 +4673,79 @@ export default class Client extends OpenApi {
   async updateAuthorizationRule(request: UpdateAuthorizationRuleRequest): Promise<UpdateAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async updateBatchOperateCardsTaskWithOptions(request: UpdateBatchOperateCardsTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchOperateCardsTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.batchOperateCardsTaskId)) {
+      query["BatchOperateCardsTaskId"] = request.batchOperateCardsTaskId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.effectType)) {
+      query["EffectType"] = request.effectType;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.iccidsOssFilePath)) {
+      query["IccidsOssFilePath"] = request.iccidsOssFilePath;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    if (!Util.isUnset(request.wirelessCloudConnectorIds)) {
+      query["WirelessCloudConnectorIds"] = request.wirelessCloudConnectorIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBatchOperateCardsTask",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBatchOperateCardsTaskResponse>(await this.callApi(params, req, runtime), new UpdateBatchOperateCardsTaskResponse({}));
+  }
+
+  async updateBatchOperateCardsTask(request: UpdateBatchOperateCardsTaskRequest): Promise<UpdateBatchOperateCardsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBatchOperateCardsTaskWithOptions(request, runtime);
   }
 
   async updateCardWithOptions(request: UpdateCardRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCardResponse> {
