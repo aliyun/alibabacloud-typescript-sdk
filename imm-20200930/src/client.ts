@@ -3226,6 +3226,130 @@ export class CreateImageSplicingTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateImageToPDFTaskRequest extends $tea.Model {
+  credentialConfig?: CredentialConfig;
+  notifyTopicName?: string;
+  projectName?: string;
+  sources?: CreateImageToPDFTaskRequestSources[];
+  tags?: { [key: string]: any };
+  targetURI?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfig: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sources: 'Sources',
+      tags: 'Tags',
+      targetURI: 'TargetURI',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfig: CredentialConfig,
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sources: { 'type': 'array', 'itemType': CreateImageToPDFTaskRequestSources },
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      targetURI: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
+  credentialConfigShrink?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  sourcesShrink?: string;
+  tagsShrink?: string;
+  targetURI?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialConfigShrink: 'CredentialConfig',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      sourcesShrink: 'Sources',
+      tagsShrink: 'Tags',
+      targetURI: 'TargetURI',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialConfigShrink: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      sourcesShrink: 'string',
+      tagsShrink: 'string',
+      targetURI: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageToPDFTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageToPDFTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateImageToPDFTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageToPDFTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notifyTopicName?: string;
@@ -8414,6 +8538,28 @@ export class CreateImageSplicingTaskRequestSources extends $tea.Model {
   }
 }
 
+export class CreateImageToPDFTaskRequestSources extends $tea.Model {
+  rotate?: number;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rotate: 'Rotate',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rotate: 'number',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
   language?: string;
   timeOffset?: number;
@@ -9988,6 +10134,73 @@ export default class Client extends OpenApi {
   async createImageSplicingTask(request: CreateImageSplicingTaskRequest): Promise<CreateImageSplicingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageSplicingTaskWithOptions(request, runtime);
+  }
+
+  async createImageToPDFTaskWithOptions(tmpReq: CreateImageToPDFTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageToPDFTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateImageToPDFTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.credentialConfig))) {
+      request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.credentialConfig), "CredentialConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sources)) {
+      request.sourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sources, "Sources", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.credentialConfigShrink)) {
+      query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourcesShrink)) {
+      query["Sources"] = request.sourcesShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateImageToPDFTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageToPDFTaskResponse>(await this.callApi(params, req, runtime), new CreateImageToPDFTaskResponse({}));
+  }
+
+  async createImageToPDFTask(request: CreateImageToPDFTaskRequest): Promise<CreateImageToPDFTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createImageToPDFTaskWithOptions(request, runtime);
   }
 
   async createMediaConvertTaskWithOptions(tmpReq: CreateMediaConvertTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMediaConvertTaskResponse> {
