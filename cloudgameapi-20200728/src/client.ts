@@ -3365,6 +3365,114 @@ export class QueryProjectResponse extends $tea.Model {
   }
 }
 
+export class QuerySessionStatusRequest extends $tea.Model {
+  accessKey?: string;
+  gameSession?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      gameSession: 'GameSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      gameSession: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySessionStatusResponseBody extends $tea.Model {
+  accountId?: string;
+  code?: string;
+  dispatchTime?: number;
+  gameId?: string;
+  gameSession?: string;
+  message?: string;
+  playTime?: number;
+  projectId?: string;
+  regionId?: string;
+  requestId?: string;
+  status?: string;
+  stopTime?: number;
+  success?: boolean;
+  tenantId?: number;
+  userLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      code: 'Code',
+      dispatchTime: 'DispatchTime',
+      gameId: 'GameId',
+      gameSession: 'GameSession',
+      message: 'Message',
+      playTime: 'PlayTime',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      status: 'Status',
+      stopTime: 'StopTime',
+      success: 'Success',
+      tenantId: 'TenantId',
+      userLevel: 'UserLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      code: 'string',
+      dispatchTime: 'number',
+      gameId: 'string',
+      gameSession: 'string',
+      message: 'string',
+      playTime: 'number',
+      projectId: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      status: 'string',
+      stopTime: 'number',
+      success: 'boolean',
+      tenantId: 'number',
+      userLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySessionStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySessionStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySessionStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryTenantRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
@@ -7465,6 +7573,39 @@ export default class Client extends OpenApi {
   async queryProject(request: QueryProjectRequest): Promise<QueryProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryProjectWithOptions(request, runtime);
+  }
+
+  async querySessionStatusWithOptions(request: QuerySessionStatusRequest, runtime: $Util.RuntimeOptions): Promise<QuerySessionStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessKey)) {
+      body["AccessKey"] = request.accessKey;
+    }
+
+    if (!Util.isUnset(request.gameSession)) {
+      body["GameSession"] = request.gameSession;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySessionStatus",
+      version: "2020-07-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySessionStatusResponse>(await this.callApi(params, req, runtime), new QuerySessionStatusResponse({}));
+  }
+
+  async querySessionStatus(request: QuerySessionStatusRequest): Promise<QuerySessionStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySessionStatusWithOptions(request, runtime);
   }
 
   async queryTenantWithOptions(request: QueryTenantRequest, runtime: $Util.RuntimeOptions): Promise<QueryTenantResponse> {
