@@ -1652,6 +1652,81 @@ export class TagDbfsResponse extends $tea.Model {
   }
 }
 
+export class UpdateDbfsRequest extends $tea.Model {
+  advancedFeatures?: string;
+  fsId?: string;
+  instanceType?: string;
+  regionId?: string;
+  usedScene?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advancedFeatures: 'AdvancedFeatures',
+      fsId: 'FsId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+      usedScene: 'UsedScene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedFeatures: 'string',
+      fsId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      usedScene: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDbfsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDbfsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDbfsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDbfsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceTypesResponseBodyInstanceTypes extends $tea.Model {
   cpuCoreCount?: number;
   instanceTypeDescription?: string;
@@ -3075,6 +3150,51 @@ export default class Client extends OpenApi {
   async tagDbfs(request: TagDbfsRequest): Promise<TagDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagDbfsWithOptions(request, runtime);
+  }
+
+  async updateDbfsWithOptions(request: UpdateDbfsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDbfsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.advancedFeatures)) {
+      query["AdvancedFeatures"] = request.advancedFeatures;
+    }
+
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.usedScene)) {
+      query["UsedScene"] = request.usedScene;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDbfsResponse>(await this.callApi(params, req, runtime), new UpdateDbfsResponse({}));
+  }
+
+  async updateDbfs(request: UpdateDbfsRequest): Promise<UpdateDbfsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDbfsWithOptions(request, runtime);
   }
 
 }
