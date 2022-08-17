@@ -7221,16 +7221,37 @@ export class GetFeatureDetailsResponseBodyTemplateScratch extends $tea.Model {
   }
 }
 
+export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk extends $tea.Model {
+  deleteStack?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deleteStack: 'DeleteStack',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteStack: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extends $tea.Model {
   customTag?: string[];
   estimateCost?: string[];
   resourceGroup?: string[];
+  stackOperationRisk?: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk;
   systemTag?: string[];
   static names(): { [key: string]: string } {
     return {
       customTag: 'CustomTag',
       estimateCost: 'EstimateCost',
       resourceGroup: 'ResourceGroup',
+      stackOperationRisk: 'StackOperationRisk',
       systemTag: 'SystemTag',
     };
   }
@@ -7240,6 +7261,7 @@ export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extend
       customTag: { 'type': 'array', 'itemType': 'string' },
       estimateCost: { 'type': 'array', 'itemType': 'string' },
       resourceGroup: { 'type': 'array', 'itemType': 'string' },
+      stackOperationRisk: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypesStackOperationRisk,
       systemTag: { 'type': 'array', 'itemType': 'string' },
     };
   }
