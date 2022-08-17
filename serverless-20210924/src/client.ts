@@ -13,15 +13,14 @@ export class Application extends $tea.Model {
   createdTime?: string;
   description?: string;
   envVars?: { [key: string]: any };
-  localSource?: string;
+  lastRelease?: { [key: string]: any };
   name?: string;
-  ossSource?: ApplicationOssSource;
-  parameter?: { [key: string]: any };
+  output?: { [key: string]: any };
+  parameters?: { [key: string]: any };
   repoSource?: ApplicationRepoSource;
   roleArn?: string;
   template?: string;
   trigger?: ApplicationTrigger;
-  uid?: string;
   updatedTime?: string;
   workDir?: string;
   static names(): { [key: string]: string } {
@@ -30,15 +29,14 @@ export class Application extends $tea.Model {
       createdTime: 'createdTime',
       description: 'description',
       envVars: 'envVars',
-      localSource: 'localSource',
+      lastRelease: 'lastRelease',
       name: 'name',
-      ossSource: 'ossSource',
-      parameter: 'parameter',
+      output: 'output',
+      parameters: 'parameters',
       repoSource: 'repoSource',
       roleArn: 'roleArn',
       template: 'template',
       trigger: 'trigger',
-      uid: 'uid',
       updatedTime: 'updatedTime',
       workDir: 'workDir',
     };
@@ -50,15 +48,14 @@ export class Application extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       envVars: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      localSource: 'string',
+      lastRelease: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       name: 'string',
-      ossSource: ApplicationOssSource,
-      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      output: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       repoSource: ApplicationRepoSource,
       roleArn: 'string',
       template: 'string',
       trigger: ApplicationTrigger,
-      uid: 'string',
       updatedTime: 'string',
       workDir: 'string',
     };
@@ -275,11 +272,8 @@ export class Release extends $tea.Model {
   codeVersion?: ReleaseCodeVersion;
   createdTime?: string;
   description?: string;
-  finishedTime?: string;
   output?: { [key: string]: any };
-  pipeline?: ReleasePipeline;
   status?: string;
-  uid?: string;
   versionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -287,11 +281,8 @@ export class Release extends $tea.Model {
       codeVersion: 'codeVersion',
       createdTime: 'createdTime',
       description: 'description',
-      finishedTime: 'finishedTime',
       output: 'output',
-      pipeline: 'pipeline',
       status: 'status',
-      uid: 'uid',
       versionId: 'versionId',
     };
   }
@@ -302,12 +293,34 @@ export class Release extends $tea.Model {
       codeVersion: ReleaseCodeVersion,
       createdTime: 'string',
       description: 'string',
-      finishedTime: 'string',
       output: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      pipeline: ReleasePipeline,
       status: 'string',
-      uid: 'string',
       versionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RepoSource extends $tea.Model {
+  owner?: string;
+  provider?: string;
+  repo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      owner: 'owner',
+      provider: 'provider',
+      repo: 'repo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      owner: 'string',
+      provider: 'string',
+      repo: 'string',
     };
   }
 
@@ -665,17 +678,66 @@ export class TemplateStatus extends $tea.Model {
   }
 }
 
-export class CreateApplicationRequest extends $tea.Model {
-  body?: Application;
+export class TriggerConfig extends $tea.Model {
+  branch?: string;
+  commit?: string;
+  on?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      branch: 'branch',
+      commit: 'commit',
+      on: 'on',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: Application,
+      branch: 'string',
+      commit: 'string',
+      on: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationRequest extends $tea.Model {
+  autoDeploy?: boolean;
+  description?: string;
+  envVars?: { [key: string]: string };
+  name?: string;
+  parameters?: { [key: string]: string };
+  repoSource?: RepoSource;
+  roleArn?: string;
+  template?: string;
+  trigger?: TriggerConfig;
+  static names(): { [key: string]: string } {
+    return {
+      autoDeploy: 'autoDeploy',
+      description: 'description',
+      envVars: 'envVars',
+      name: 'name',
+      parameters: 'parameters',
+      repoSource: 'repoSource',
+      roleArn: 'roleArn',
+      template: 'template',
+      trigger: 'trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoDeploy: 'boolean',
+      description: 'string',
+      envVars: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      repoSource: RepoSource,
+      roleArn: 'string',
+      template: 'string',
+      trigger: TriggerConfig,
     };
   }
 
@@ -686,10 +748,12 @@ export class CreateApplicationRequest extends $tea.Model {
 
 export class CreateApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Application;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -697,6 +761,7 @@ export class CreateApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Application,
     };
   }
@@ -707,16 +772,16 @@ export class CreateApplicationResponse extends $tea.Model {
 }
 
 export class CreateReleaseRequest extends $tea.Model {
-  body?: Release;
+  description?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      description: 'description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: Release,
+      description: 'string',
     };
   }
 
@@ -727,10 +792,12 @@ export class CreateReleaseRequest extends $tea.Model {
 
 export class CreateReleaseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Release;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -738,6 +805,7 @@ export class CreateReleaseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Release,
     };
   }
@@ -749,10 +817,12 @@ export class CreateReleaseResponse extends $tea.Model {
 
 export class DeleteApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: string;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -760,7 +830,30 @@ export class DeleteApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnvironmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -790,10 +883,12 @@ export class DeleteTemplateRequest extends $tea.Model {
 
 export class DeleteTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Status;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -801,6 +896,7 @@ export class DeleteTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Status,
     };
   }
@@ -812,10 +908,12 @@ export class DeleteTemplateResponse extends $tea.Model {
 
 export class GetApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Application;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -823,6 +921,7 @@ export class GetApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Application,
     };
   }
@@ -834,10 +933,12 @@ export class GetApplicationResponse extends $tea.Model {
 
 export class GetEnvironmentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Environment;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -845,6 +946,7 @@ export class GetEnvironmentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Environment,
     };
   }
@@ -856,10 +958,12 @@ export class GetEnvironmentResponse extends $tea.Model {
 
 export class GetReleaseResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Release;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -867,6 +971,7 @@ export class GetReleaseResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Release,
     };
   }
@@ -878,10 +983,12 @@ export class GetReleaseResponse extends $tea.Model {
 
 export class GetServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Service;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -889,6 +996,7 @@ export class GetServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Service,
     };
   }
@@ -919,10 +1027,12 @@ export class GetTemplateRequest extends $tea.Model {
 
 export class GetTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Template;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -930,6 +1040,7 @@ export class GetTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Template,
     };
   }
@@ -960,10 +1071,12 @@ export class ListEnvironmentRevisionsRequest extends $tea.Model {
 
 export class ListEnvironmentRevisionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnvironmentRevision[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -971,6 +1084,7 @@ export class ListEnvironmentRevisionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'array', 'itemType': EnvironmentRevision },
     };
   }
@@ -982,10 +1096,12 @@ export class ListEnvironmentRevisionsResponse extends $tea.Model {
 
 export class ListEnvironmentsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Environment[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -993,6 +1109,7 @@ export class ListEnvironmentsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'array', 'itemType': Environment },
     };
   }
@@ -1023,10 +1140,12 @@ export class ListServiceRevisionsRequest extends $tea.Model {
 
 export class ListServiceRevisionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ServiceRevision[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1034,6 +1153,7 @@ export class ListServiceRevisionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'array', 'itemType': ServiceRevision },
     };
   }
@@ -1045,10 +1165,12 @@ export class ListServiceRevisionsResponse extends $tea.Model {
 
 export class ListServicesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Service[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1056,6 +1178,7 @@ export class ListServicesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'array', 'itemType': Service },
     };
   }
@@ -1089,10 +1212,12 @@ export class ListTemplateRevisionsRequest extends $tea.Model {
 
 export class ListTemplateRevisionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TemplateRevision[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1100,6 +1225,7 @@ export class ListTemplateRevisionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'array', 'itemType': TemplateRevision },
     };
   }
@@ -1130,10 +1256,12 @@ export class ListTemplatesRequest extends $tea.Model {
 
 export class ListTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Template[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1141,6 +1269,7 @@ export class ListTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: { 'type': 'array', 'itemType': Template },
     };
   }
@@ -1171,10 +1300,12 @@ export class PutEnvironmentRequest extends $tea.Model {
 
 export class PutEnvironmentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Environment;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1182,6 +1313,7 @@ export class PutEnvironmentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Environment,
     };
   }
@@ -1212,10 +1344,12 @@ export class PutServiceRequest extends $tea.Model {
 
 export class PutServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Service;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1223,6 +1357,7 @@ export class PutServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Service,
     };
   }
@@ -1256,10 +1391,12 @@ export class PutTemplateRequest extends $tea.Model {
 
 export class PutTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Template;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1267,6 +1404,7 @@ export class PutTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Template,
     };
   }
@@ -1297,10 +1435,12 @@ export class UpdateApplicationRequest extends $tea.Model {
 
 export class UpdateApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: Application;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1308,29 +1448,8 @@ export class UpdateApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: Application,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplicationOssSource extends $tea.Model {
-  bucketName?: string;
-  objectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucketName: 'bucketName',
-      objectName: 'objectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucketName: 'string',
-      objectName: 'string',
     };
   }
 
@@ -1365,22 +1484,22 @@ export class ApplicationRepoSource extends $tea.Model {
 }
 
 export class ApplicationTrigger extends $tea.Model {
-  branch?: string[];
+  branch?: string;
+  commit?: string;
   on?: string;
-  paths?: string[];
   static names(): { [key: string]: string } {
     return {
       branch: 'branch',
+      commit: 'commit',
       on: 'on',
-      paths: 'paths',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      branch: { 'type': 'array', 'itemType': 'string' },
+      branch: 'string',
+      commit: 'string',
       on: 'string',
-      paths: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1403,47 +1522,6 @@ export class ReleaseCodeVersion extends $tea.Model {
     return {
       branch: 'string',
       commit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleasePipelineStages extends $tea.Model {
-  environment?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      environment: 'environment',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      environment: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleasePipeline extends $tea.Model {
-  stages?: ReleasePipelineStages[];
-  static names(): { [key: string]: string } {
-    return {
-      stages: 'stages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stages: { 'type': 'array', 'itemType': ReleasePipelineStages },
     };
   }
 
@@ -1483,9 +1561,46 @@ export default class Client extends OpenApi {
 
   async createApplicationWithOptions(request: CreateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoDeploy)) {
+      body["autoDeploy"] = request.autoDeploy;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envVars)) {
+      body["envVars"] = request.envVars;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.repoSource))) {
+      body["repoSource"] = request.repoSource;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      body["roleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.template)) {
+      body["template"] = request.template;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.trigger))) {
+      body["trigger"] = request.trigger;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateApplication",
@@ -1510,9 +1625,14 @@ export default class Client extends OpenApi {
   async createReleaseWithOptions(appName: string, request: CreateReleaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateReleaseResponse> {
     Util.validateModel(request);
     appName = OpenApiUtil.getEncodeParam(appName);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      query["description"] = request.description;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "CreateRelease",
@@ -1551,6 +1671,31 @@ export default class Client extends OpenApi {
       bodyType: "string",
     });
     return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+  }
+
+  async deleteEnvironment(name: string): Promise<DeleteEnvironmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteEnvironmentWithOptions(name, headers, runtime);
+  }
+
+  async deleteEnvironmentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentResponse> {
+    name = OpenApiUtil.getEncodeParam(name);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEnvironment",
+      version: "2021-09-24",
+      protocol: "HTTPS",
+      pathname: `/apis/serverlessdeployment/v1/environments/${name}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteEnvironmentResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentResponse({}));
   }
 
   async deleteTemplate(name: string, request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
