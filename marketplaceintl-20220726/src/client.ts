@@ -16,16 +16,20 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AddIntlImageProductVersionRequest extends $tea.Model {
   accessDetail?: AddIntlImageProductVersionRequestAccessDetail;
+  ak?: string;
   commodityCode?: string;
   imageConstraint?: AddIntlImageProductVersionRequestImageConstraint;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
       accessDetail: 'AccessDetail',
+      ak: 'Ak',
       commodityCode: 'CommodityCode',
       imageConstraint: 'ImageConstraint',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
@@ -33,9 +37,11 @@ export class AddIntlImageProductVersionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessDetail: AddIntlImageProductVersionRequestAccessDetail,
+      ak: 'string',
       commodityCode: 'string',
       imageConstraint: AddIntlImageProductVersionRequestImageConstraint,
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -106,6 +112,7 @@ export class AddIntlImageProductVersionResponse extends $tea.Model {
 
 export class CreateOrUpdateIntlImageRequest extends $tea.Model {
   accessInfo?: CreateOrUpdateIntlImageRequestAccessInfo;
+  ak?: string;
   basicInfo?: CreateOrUpdateIntlImageRequestBasicInfo;
   bussinessInfo?: CreateOrUpdateIntlImageRequestBussinessInfo;
   callBackUrl?: string;
@@ -113,10 +120,12 @@ export class CreateOrUpdateIntlImageRequest extends $tea.Model {
   protocolInfo?: CreateOrUpdateIntlImageRequestProtocolInfo;
   requestId?: string;
   saleInfo?: CreateOrUpdateIntlImageRequestSaleInfo;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
       accessInfo: 'AccessInfo',
+      ak: 'Ak',
       basicInfo: 'BasicInfo',
       bussinessInfo: 'BussinessInfo',
       callBackUrl: 'CallBackUrl',
@@ -124,6 +133,7 @@ export class CreateOrUpdateIntlImageRequest extends $tea.Model {
       protocolInfo: 'ProtocolInfo',
       requestId: 'RequestId',
       saleInfo: 'SaleInfo',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
@@ -131,6 +141,7 @@ export class CreateOrUpdateIntlImageRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessInfo: CreateOrUpdateIntlImageRequestAccessInfo,
+      ak: 'string',
       basicInfo: CreateOrUpdateIntlImageRequestBasicInfo,
       bussinessInfo: CreateOrUpdateIntlImageRequestBussinessInfo,
       callBackUrl: 'string',
@@ -138,6 +149,7 @@ export class CreateOrUpdateIntlImageRequest extends $tea.Model {
       protocolInfo: CreateOrUpdateIntlImageRequestProtocolInfo,
       requestId: 'string',
       saleInfo: CreateOrUpdateIntlImageRequestSaleInfo,
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -207,18 +219,24 @@ export class CreateOrUpdateIntlImageResponse extends $tea.Model {
 }
 
 export class DescribeAccessibleRegionsRequest extends $tea.Model {
+  ak?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -288,18 +306,24 @@ export class DescribeAccessibleRegionsResponse extends $tea.Model {
 }
 
 export class DescribeCategoriesRequest extends $tea.Model {
+  ak?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -369,18 +393,24 @@ export class DescribeCategoriesResponse extends $tea.Model {
 }
 
 export class DescribeCountriesRequest extends $tea.Model {
+  ak?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -540,21 +570,27 @@ export class DescribeCustomImagesResponse extends $tea.Model {
 }
 
 export class DescribeImageCommodityInfoRequest extends $tea.Model {
+  ak?: string;
   commodityCode?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       commodityCode: 'CommodityCode',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       commodityCode: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -624,21 +660,27 @@ export class DescribeImageCommodityInfoResponse extends $tea.Model {
 }
 
 export class DescribeImageCommodityStatusRequest extends $tea.Model {
+  ak?: string;
   commodityCode?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       commodityCode: 'CommodityCode',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       commodityCode: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -801,18 +843,24 @@ export class DescribeImageConstraintsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTypesRequest extends $tea.Model {
+  ak?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -882,12 +930,16 @@ export class DescribeInstanceTypesResponse extends $tea.Model {
 }
 
 export class DescribeListResourcesRequest extends $tea.Model {
+  ak?: string;
   requestId?: string;
+  secret?: string;
   type?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       requestId: 'RequestId',
+      secret: 'Secret',
       type: 'Type',
       uid: 'Uid',
     };
@@ -895,7 +947,9 @@ export class DescribeListResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       requestId: 'string',
+      secret: 'string',
       type: 'string',
       uid: 'string',
     };
@@ -966,18 +1020,24 @@ export class DescribeListResourcesResponse extends $tea.Model {
 }
 
 export class DescribeReleasableRegionListRequest extends $tea.Model {
+  ak?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -1047,21 +1107,27 @@ export class DescribeReleasableRegionListResponse extends $tea.Model {
 }
 
 export class SubmitImageCommodityReviewRequest extends $tea.Model {
+  ak?: string;
   commodityCode?: string;
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       commodityCode: 'CommodityCode',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       commodityCode: 'string',
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -1131,16 +1197,20 @@ export class SubmitImageCommodityReviewResponse extends $tea.Model {
 }
 
 export class UploadFileRequest extends $tea.Model {
+  ak?: string;
   fileName?: string;
   fileUrl?: string;
   requestId?: string;
+  secret?: string;
   type?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       fileName: 'FileName',
       fileUrl: 'FileUrl',
       requestId: 'RequestId',
+      secret: 'Secret',
       type: 'Type',
       uid: 'Uid',
     };
@@ -1148,9 +1218,11 @@ export class UploadFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       fileName: 'string',
       fileUrl: 'string',
       requestId: 'string',
+      secret: 'string',
       type: 'string',
       uid: 'string',
     };
@@ -1163,15 +1235,19 @@ export class UploadFileRequest extends $tea.Model {
 
 export class UploadFileAdvanceRequest extends $tea.Model {
   fileUrlObject: Readable;
+  ak?: string;
   fileName?: string;
   requestId?: string;
+  secret?: string;
   type?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
       fileUrlObject: 'FileUrlObject',
+      ak: 'Ak',
       fileName: 'FileName',
       requestId: 'RequestId',
+      secret: 'Secret',
       type: 'Type',
       uid: 'Uid',
     };
@@ -1180,8 +1256,10 @@ export class UploadFileAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fileUrlObject: 'Readable',
+      ak: 'string',
       fileName: 'string',
       requestId: 'string',
+      secret: 'string',
       type: 'string',
       uid: 'string',
     };
@@ -1923,21 +2001,27 @@ export class DescribeCategoriesResponseBodyData extends $tea.Model {
 }
 
 export class DescribeCountriesResponseBodyData extends $tea.Model {
+  ak?: string;
   countries?: string[];
   requestId?: string;
+  secret?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      ak: 'Ak',
       countries: 'Countries',
       requestId: 'RequestId',
+      secret: 'Secret',
       uid: 'Uid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ak: 'string',
       countries: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      secret: 'string',
       uid: 'string',
     };
   }
@@ -2669,6 +2753,10 @@ export default class Client extends OpenApi {
       bodyFlat["AccessDetail"] = request.accessDetail;
     }
 
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.commodityCode)) {
       body["CommodityCode"] = request.commodityCode;
     }
@@ -2679,6 +2767,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -2719,6 +2811,10 @@ export default class Client extends OpenApi {
       bodyFlat["AccessInfo"] = request.accessInfo;
     }
 
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset($tea.toMap(request.basicInfo))) {
       bodyFlat["BasicInfo"] = request.basicInfo;
     }
@@ -2745,6 +2841,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.saleInfo))) {
       bodyFlat["SaleInfo"] = request.saleInfo;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -2780,8 +2880,16 @@ export default class Client extends OpenApi {
   async describeAccessibleRegionsWithOptions(request: DescribeAccessibleRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessibleRegionsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -2813,8 +2921,16 @@ export default class Client extends OpenApi {
   async describeCategoriesWithOptions(request: DescribeCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -2846,8 +2962,16 @@ export default class Client extends OpenApi {
   async describeCountriesWithOptions(request: DescribeCountriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCountriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -2924,12 +3048,20 @@ export default class Client extends OpenApi {
   async describeImageCommodityInfoWithOptions(request: DescribeImageCommodityInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageCommodityInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.commodityCode)) {
       body["CommodityCode"] = request.commodityCode;
     }
 
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -2961,12 +3093,20 @@ export default class Client extends OpenApi {
   async describeImageCommodityStatusWithOptions(request: DescribeImageCommodityStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageCommodityStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.commodityCode)) {
       body["CommodityCode"] = request.commodityCode;
     }
 
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -3047,8 +3187,16 @@ export default class Client extends OpenApi {
   async describeInstanceTypesWithOptions(request: DescribeInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -3080,8 +3228,16 @@ export default class Client extends OpenApi {
   async describeListResourcesWithOptions(request: DescribeListResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -3117,8 +3273,16 @@ export default class Client extends OpenApi {
   async describeReleasableRegionListWithOptions(request: DescribeReleasableRegionListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReleasableRegionListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -3150,12 +3314,20 @@ export default class Client extends OpenApi {
   async submitImageCommodityReviewWithOptions(request: SubmitImageCommodityReviewRequest, runtime: $Util.RuntimeOptions): Promise<SubmitImageCommodityReviewResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.commodityCode)) {
       body["CommodityCode"] = request.commodityCode;
     }
 
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.uid)) {
@@ -3187,6 +3359,10 @@ export default class Client extends OpenApi {
   async uploadFileWithOptions(request: UploadFileRequest, runtime: $Util.RuntimeOptions): Promise<UploadFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
     if (!Util.isUnset(request.fileName)) {
       body["FileName"] = request.fileName;
     }
@@ -3197,6 +3373,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.requestId)) {
       body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
     }
 
     if (!Util.isUnset(request.type)) {
