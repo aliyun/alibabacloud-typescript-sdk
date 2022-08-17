@@ -80,7 +80,92 @@ export class AddDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
+  azone?: string;
+  capacity?: number;
+  dbscId?: string;
+  dbscName?: string;
+  regionId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      azone: 'Azone',
+      capacity: 'Capacity',
+      dbscId: 'DbscId',
+      dbscName: 'DbscName',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      azone: 'string',
+      capacity: 'number',
+      dbscId: 'string',
+      dbscName: 'string',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedBlockStorageClusterResponseBody extends $tea.Model {
+  dbscId?: string;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbscId: 'DbscId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbscId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedBlockStorageClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDedicatedBlockStorageClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDedicatedBlockStorageClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDiskReplicaGroupRequest extends $tea.Model {
+  bandwidth?: number;
   clientToken?: string;
   description?: string;
   destinationRegionId?: string;
@@ -91,6 +176,7 @@ export class CreateDiskReplicaGroupRequest extends $tea.Model {
   sourceZoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       description: 'Description',
       destinationRegionId: 'DestinationRegionId',
@@ -104,6 +190,7 @@ export class CreateDiskReplicaGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'number',
       clientToken: 'string',
       description: 'string',
       destinationRegionId: 'string',
@@ -405,6 +492,174 @@ export class DeleteDiskReplicaPairResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDiskReplicaPairResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksRequest extends $tea.Model {
+  dbscId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbscId: 'DbscId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbscId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksResponseBody extends $tea.Model {
+  disks?: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks;
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disks: 'Disks',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disks: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks,
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDedicatedBlockStorageClusterDisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDedicatedBlockStorageClusterDisksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersRequest extends $tea.Model {
+  azoneId?: string;
+  category?: string;
+  clientToken?: string;
+  dedicatedBlockStorageClusterId?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  status?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      azoneId: 'AzoneId',
+      category: 'Category',
+      clientToken: 'ClientToken',
+      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      azoneId: 'string',
+      category: 'string',
+      clientToken: 'string',
+      dedicatedBlockStorageClusterId: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersResponseBody extends $tea.Model {
+  dedicatedBlockStorageClusters?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedBlockStorageClusters: 'DedicatedBlockStorageClusters',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedBlockStorageClusters: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDedicatedBlockStorageClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDedicatedBlockStorageClustersResponseBody,
     };
   }
 
@@ -803,7 +1058,83 @@ export class FailoverDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class ModifyDedicatedBlockStorageClusterAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  dbscId?: string;
+  dbscName?: string;
+  description?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dbscId: 'DbscId',
+      dbscName: 'DbscName',
+      description: 'Description',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dbscId: 'string',
+      dbscName: 'string',
+      description: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDedicatedBlockStorageClusterAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDedicatedBlockStorageClusterAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyDedicatedBlockStorageClusterAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDedicatedBlockStorageClusterAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDiskReplicaGroupRequest extends $tea.Model {
+  bandwidth?: number;
   clientToken?: string;
   description?: string;
   groupName?: string;
@@ -812,6 +1143,7 @@ export class ModifyDiskReplicaGroupRequest extends $tea.Model {
   replicaGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       description: 'Description',
       groupName: 'GroupName',
@@ -823,6 +1155,7 @@ export class ModifyDiskReplicaGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'number',
       clientToken: 'string',
       description: 'string',
       groupName: 'string',
@@ -1454,7 +1787,241 @@ export class StopDiskReplicaPairResponse extends $tea.Model {
   }
 }
 
+export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk extends $tea.Model {
+  attachedTime?: string;
+  bdfId?: string;
+  category?: string;
+  deleteAutoSnapshot?: boolean;
+  deleteWithInstance?: boolean;
+  description?: string;
+  detachedTime?: string;
+  device?: string;
+  diskChargeType?: string;
+  diskId?: string;
+  diskName?: string;
+  enableAutoSnapshot?: boolean;
+  encrypted?: boolean;
+  IOPS?: number;
+  imageId?: string;
+  instanceId?: string;
+  KMSKeyId?: string;
+  mountInstanceNum?: number;
+  multiAttach?: string;
+  performanceLevel?: string;
+  portable?: boolean;
+  regionId?: string;
+  size?: number;
+  sourceSnapshotId?: string;
+  status?: string;
+  storageClusterId?: string;
+  storageSetId?: string;
+  storageSetPartitionNumber?: number;
+  tags?: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags[];
+  type?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachedTime: 'AttachedTime',
+      bdfId: 'BdfId',
+      category: 'Category',
+      deleteAutoSnapshot: 'DeleteAutoSnapshot',
+      deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
+      detachedTime: 'DetachedTime',
+      device: 'Device',
+      diskChargeType: 'DiskChargeType',
+      diskId: 'DiskId',
+      diskName: 'DiskName',
+      enableAutoSnapshot: 'EnableAutoSnapshot',
+      encrypted: 'Encrypted',
+      IOPS: 'IOPS',
+      imageId: 'ImageId',
+      instanceId: 'InstanceId',
+      KMSKeyId: 'KMSKeyId',
+      mountInstanceNum: 'MountInstanceNum',
+      multiAttach: 'MultiAttach',
+      performanceLevel: 'PerformanceLevel',
+      portable: 'Portable',
+      regionId: 'RegionId',
+      size: 'Size',
+      sourceSnapshotId: 'SourceSnapshotId',
+      status: 'Status',
+      storageClusterId: 'StorageClusterId',
+      storageSetId: 'StorageSetId',
+      storageSetPartitionNumber: 'StorageSetPartitionNumber',
+      tags: 'Tags',
+      type: 'Type',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachedTime: 'string',
+      bdfId: 'string',
+      category: 'string',
+      deleteAutoSnapshot: 'boolean',
+      deleteWithInstance: 'boolean',
+      description: 'string',
+      detachedTime: 'string',
+      device: 'string',
+      diskChargeType: 'string',
+      diskId: 'string',
+      diskName: 'string',
+      enableAutoSnapshot: 'boolean',
+      encrypted: 'boolean',
+      IOPS: 'number',
+      imageId: 'string',
+      instanceId: 'string',
+      KMSKeyId: 'string',
+      mountInstanceNum: 'number',
+      multiAttach: 'string',
+      performanceLevel: 'string',
+      portable: 'boolean',
+      regionId: 'string',
+      size: 'number',
+      sourceSnapshotId: 'string',
+      status: 'string',
+      storageClusterId: 'string',
+      storageSetId: 'string',
+      storageSetPartitionNumber: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags },
+      type: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks extends $tea.Model {
+  disk?: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk[];
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'Disk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity extends $tea.Model {
+  availableCapacity?: number;
+  deliveryCapacity?: number;
+  totalCapacity?: number;
+  usedCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableCapacity: 'AvailableCapacity',
+      deliveryCapacity: 'DeliveryCapacity',
+      totalCapacity: 'TotalCapacity',
+      usedCapacity: 'UsedCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableCapacity: 'number',
+      deliveryCapacity: 'number',
+      totalCapacity: 'number',
+      usedCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters extends $tea.Model {
+  category?: string;
+  createTime?: string;
+  dedicatedBlockStorageClusterCapacity?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity;
+  dedicatedBlockStorageClusterId?: string;
+  dedicatedBlockStorageClusterName?: string;
+  description?: string;
+  expiredTime?: string;
+  performanceLevel?: string;
+  regionId?: string;
+  status?: string;
+  supportedCategory?: string;
+  type?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createTime: 'CreateTime',
+      dedicatedBlockStorageClusterCapacity: 'DedicatedBlockStorageClusterCapacity',
+      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
+      dedicatedBlockStorageClusterName: 'DedicatedBlockStorageClusterName',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      performanceLevel: 'PerformanceLevel',
+      regionId: 'RegionId',
+      status: 'Status',
+      supportedCategory: 'SupportedCategory',
+      type: 'Type',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createTime: 'string',
+      dedicatedBlockStorageClusterCapacity: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity,
+      dedicatedBlockStorageClusterId: 'string',
+      dedicatedBlockStorageClusterName: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      performanceLevel: 'string',
+      regionId: 'string',
+      status: 'string',
+      supportedCategory: 'string',
+      type: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Model {
+  bandwidth?: number;
   description?: string;
   destinationRegionId?: string;
   destinationZoneId?: string;
@@ -1474,6 +2041,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
       description: 'Description',
       destinationRegionId: 'DestinationRegionId',
       destinationZoneId: 'DestinationZoneId',
@@ -1496,6 +2064,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'number',
       description: 'string',
       destinationRegionId: 'string',
       destinationZoneId: 'string',
@@ -1723,9 +2292,62 @@ export default class Client extends OpenApi {
     return await this.addDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async createDedicatedBlockStorageClusterWithOptions(request: CreateDedicatedBlockStorageClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedBlockStorageClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.azone)) {
+      query["Azone"] = request.azone;
+    }
+
+    if (!Util.isUnset(request.capacity)) {
+      query["Capacity"] = request.capacity;
+    }
+
+    if (!Util.isUnset(request.dbscId)) {
+      query["DbscId"] = request.dbscId;
+    }
+
+    if (!Util.isUnset(request.dbscName)) {
+      query["DbscName"] = request.dbscName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDedicatedBlockStorageCluster",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDedicatedBlockStorageClusterResponse>(await this.callApi(params, req, runtime), new CreateDedicatedBlockStorageClusterResponse({}));
+  }
+
+  async createDedicatedBlockStorageCluster(request: CreateDedicatedBlockStorageClusterRequest): Promise<CreateDedicatedBlockStorageClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDedicatedBlockStorageClusterWithOptions(request, runtime);
+  }
+
   async createDiskReplicaGroupWithOptions(request: CreateDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -1933,6 +2555,104 @@ export default class Client extends OpenApi {
   async deleteDiskReplicaPair(request: DeleteDiskReplicaPairRequest): Promise<DeleteDiskReplicaPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskReplicaPairWithOptions(request, runtime);
+  }
+
+  async describeDedicatedBlockStorageClusterDisksWithOptions(request: DescribeDedicatedBlockStorageClusterDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbscId)) {
+      query["DbscId"] = request.dbscId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDedicatedBlockStorageClusterDisks",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDedicatedBlockStorageClusterDisksResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClusterDisksResponse({}));
+  }
+
+  async describeDedicatedBlockStorageClusterDisks(request: DescribeDedicatedBlockStorageClusterDisksRequest): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDedicatedBlockStorageClusterDisksWithOptions(request, runtime);
+  }
+
+  async describeDedicatedBlockStorageClustersWithOptions(request: DescribeDedicatedBlockStorageClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClustersResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.azoneId)) {
+      body["AzoneId"] = request.azoneId;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      body["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dedicatedBlockStorageClusterId)) {
+      body["DedicatedBlockStorageClusterId"] = request.dedicatedBlockStorageClusterId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDedicatedBlockStorageClusters",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDedicatedBlockStorageClustersResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClustersResponse({}));
+  }
+
+  async describeDedicatedBlockStorageClusters(request: DescribeDedicatedBlockStorageClustersRequest): Promise<DescribeDedicatedBlockStorageClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDedicatedBlockStorageClustersWithOptions(request, runtime);
   }
 
   async describeDiskReplicaGroupsWithOptions(request: DescribeDiskReplicaGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaGroupsResponse> {
@@ -2148,9 +2868,58 @@ export default class Client extends OpenApi {
     return await this.failoverDiskReplicaPairWithOptions(request, runtime);
   }
 
+  async modifyDedicatedBlockStorageClusterAttributeWithOptions(request: ModifyDedicatedBlockStorageClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dbscId)) {
+      query["DbscId"] = request.dbscId;
+    }
+
+    if (!Util.isUnset(request.dbscName)) {
+      query["DbscName"] = request.dbscName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDedicatedBlockStorageClusterAttribute",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDedicatedBlockStorageClusterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedBlockStorageClusterAttributeResponse({}));
+  }
+
+  async modifyDedicatedBlockStorageClusterAttribute(request: ModifyDedicatedBlockStorageClusterAttributeRequest): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDedicatedBlockStorageClusterAttributeWithOptions(request, runtime);
+  }
+
   async modifyDiskReplicaGroupWithOptions(request: ModifyDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaGroupResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
