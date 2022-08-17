@@ -187,9 +187,8 @@ export class ApplyAddRequest extends $tea.Model {
   flightBudget?: number;
   hotelBudget?: number;
   hotelShare?: ApplyAddRequestHotelShare;
+  internationalFlightCabins?: string;
   itineraryList?: ApplyAddRequestItineraryList[];
-  itineraryRule?: number;
-  itinerarySetList?: ApplyAddRequestItinerarySetList[];
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -218,9 +217,8 @@ export class ApplyAddRequest extends $tea.Model {
       flightBudget: 'flight_budget',
       hotelBudget: 'hotel_budget',
       hotelShare: 'hotel_share',
+      internationalFlightCabins: 'international_flight_cabins',
       itineraryList: 'itinerary_list',
-      itineraryRule: 'itinerary_rule',
-      itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -252,9 +250,8 @@ export class ApplyAddRequest extends $tea.Model {
       flightBudget: 'number',
       hotelBudget: 'number',
       hotelShare: ApplyAddRequestHotelShare,
+      internationalFlightCabins: 'string',
       itineraryList: { 'type': 'array', 'itemType': ApplyAddRequestItineraryList },
-      itineraryRule: 'number',
-      itinerarySetList: { 'type': 'array', 'itemType': ApplyAddRequestItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -290,9 +287,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
   flightBudget?: number;
   hotelBudget?: number;
   hotelShareShrink?: string;
+  internationalFlightCabins?: string;
   itineraryListShrink?: string;
-  itineraryRule?: number;
-  itinerarySetListShrink?: string;
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -321,9 +317,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       flightBudget: 'flight_budget',
       hotelBudget: 'hotel_budget',
       hotelShareShrink: 'hotel_share',
+      internationalFlightCabins: 'international_flight_cabins',
       itineraryListShrink: 'itinerary_list',
-      itineraryRule: 'itinerary_rule',
-      itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -355,9 +350,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       flightBudget: 'number',
       hotelBudget: 'number',
       hotelShareShrink: 'string',
+      internationalFlightCabins: 'string',
       itineraryListShrink: 'string',
-      itineraryRule: 'number',
-      itinerarySetListShrink: 'string',
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -1004,7 +998,6 @@ export class CarApplyAddResponse extends $tea.Model {
 }
 
 export class CarApplyModifyRequest extends $tea.Model {
-  corpId?: string;
   operateTime?: string;
   remark?: string;
   status?: number;
@@ -1012,7 +1005,6 @@ export class CarApplyModifyRequest extends $tea.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      corpId: 'corp_id',
       operateTime: 'operate_time',
       remark: 'remark',
       status: 'status',
@@ -1023,7 +1015,6 @@ export class CarApplyModifyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      corpId: 'string',
       operateTime: 'string',
       remark: 'string',
       status: 'number',
@@ -1666,8 +1657,6 @@ export class CostCenterDeleteRequest extends $tea.Model {
 
 export class CostCenterDeleteResponseBody extends $tea.Model {
   requestId?: string;
-  module?: { [key: string]: any };
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -1675,8 +1664,6 @@ export class CostCenterDeleteResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -1687,8 +1674,6 @@ export class CostCenterDeleteResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      module: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -1759,8 +1744,6 @@ export class CostCenterModifyRequest extends $tea.Model {
 
 export class CostCenterModifyResponseBody extends $tea.Model {
   requestId?: string;
-  module?: { [key: string]: any };
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -1768,8 +1751,6 @@ export class CostCenterModifyResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -1780,8 +1761,6 @@ export class CostCenterModifyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      module: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -1943,7 +1922,6 @@ export class CostCenterSaveRequest extends $tea.Model {
 export class CostCenterSaveResponseBody extends $tea.Model {
   requestId?: string;
   module?: CostCenterSaveResponseBodyModule;
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -1952,7 +1930,6 @@ export class CostCenterSaveResponseBody extends $tea.Model {
     return {
       requestId: 'RequestId',
       module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -1964,7 +1941,6 @@ export class CostCenterSaveResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       module: CostCenterSaveResponseBodyModule,
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -2146,7 +2122,6 @@ export class EntityAddShrinkRequest extends $tea.Model {
 export class EntityAddResponseBody extends $tea.Model {
   requestId?: string;
   module?: EntityAddResponseBodyModule;
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -2155,7 +2130,6 @@ export class EntityAddResponseBody extends $tea.Model {
     return {
       requestId: 'RequestId',
       module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -2167,7 +2141,6 @@ export class EntityAddResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       module: EntityAddResponseBodyModule,
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -2962,18 +2935,15 @@ export class HotelBillSettlementQueryResponse extends $tea.Model {
 
 export class HotelExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
-      userId: 'string',
     };
   }
 
@@ -3194,8 +3164,6 @@ export class InvoiceAddRequest extends $tea.Model {
 
 export class InvoiceAddResponseBody extends $tea.Model {
   requestId?: string;
-  module?: number;
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -3203,8 +3171,6 @@ export class InvoiceAddResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -3215,8 +3181,6 @@ export class InvoiceAddResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      module: 'number',
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -3275,8 +3239,6 @@ export class InvoiceDeleteRequest extends $tea.Model {
 
 export class InvoiceDeleteResponseBody extends $tea.Model {
   requestId?: string;
-  module?: boolean;
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -3284,8 +3246,6 @@ export class InvoiceDeleteResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -3296,8 +3256,6 @@ export class InvoiceDeleteResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      module: 'boolean',
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -3377,8 +3335,6 @@ export class InvoiceModifyRequest extends $tea.Model {
 
 export class InvoiceModifyResponseBody extends $tea.Model {
   requestId?: string;
-  module?: boolean;
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -3386,8 +3342,6 @@ export class InvoiceModifyResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -3398,8 +3352,6 @@ export class InvoiceModifyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      module: 'boolean',
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -3490,7 +3442,6 @@ export class InvoiceRuleSaveShrinkRequest extends $tea.Model {
 export class InvoiceRuleSaveResponseBody extends $tea.Model {
   requestId?: string;
   module?: InvoiceRuleSaveResponseBodyModule;
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -3499,7 +3450,6 @@ export class InvoiceRuleSaveResponseBody extends $tea.Model {
     return {
       requestId: 'RequestId',
       module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -3511,7 +3461,6 @@ export class InvoiceRuleSaveResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       module: InvoiceRuleSaveResponseBodyModule,
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -3551,15 +3500,18 @@ export class InvoiceRuleSaveResponse extends $tea.Model {
 
 export class InvoiceSearchRequest extends $tea.Model {
   title?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       title: 'title',
+      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       title: 'string',
+      userId: 'string',
     };
   }
 
@@ -3571,7 +3523,6 @@ export class InvoiceSearchRequest extends $tea.Model {
 export class InvoiceSearchResponseBody extends $tea.Model {
   requestId?: string;
   module?: InvoiceSearchResponseBodyModule[];
-  morePage?: boolean;
   resultCode?: number;
   resultMsg?: string;
   success?: boolean;
@@ -3580,7 +3531,6 @@ export class InvoiceSearchResponseBody extends $tea.Model {
     return {
       requestId: 'RequestId',
       module: 'module',
-      morePage: 'more_page',
       resultCode: 'result_code',
       resultMsg: 'result_msg',
       success: 'success',
@@ -3592,7 +3542,6 @@ export class InvoiceSearchResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       module: { 'type': 'array', 'itemType': InvoiceSearchResponseBodyModule },
-      morePage: 'boolean',
       resultCode: 'number',
       resultMsg: 'string',
       success: 'boolean',
@@ -4155,18 +4104,15 @@ export class TrainBillSettlementQueryResponse extends $tea.Model {
 
 export class TrainExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
-  userId?: string;
   static names(): { [key: string]: string } {
     return {
       applyId: 'apply_id',
-      userId: 'user_id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applyId: 'number',
-      userId: 'string',
     };
   }
 
@@ -4718,58 +4664,6 @@ export class ApplyAddRequestItineraryList extends $tea.Model {
   }
 }
 
-export class ApplyAddRequestItinerarySetList extends $tea.Model {
-  arrDate?: string;
-  cityCodeSet?: string;
-  citySet?: string;
-  costCenterId?: number;
-  depDate?: string;
-  invoiceId?: number;
-  itineraryId?: string;
-  projectCode?: string;
-  projectTitle?: string;
-  thirdPartInvoiceId?: string;
-  thirdpartCostCenterId?: string;
-  transport?: number;
-  static names(): { [key: string]: string } {
-    return {
-      arrDate: 'arr_date',
-      cityCodeSet: 'city_code_set',
-      citySet: 'city_set',
-      costCenterId: 'cost_center_id',
-      depDate: 'dep_date',
-      invoiceId: 'invoice_id',
-      itineraryId: 'itinerary_id',
-      projectCode: 'project_code',
-      projectTitle: 'project_title',
-      thirdPartInvoiceId: 'third_part_invoice_id',
-      thirdpartCostCenterId: 'thirdpart_cost_center_id',
-      transport: 'transport',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arrDate: 'string',
-      cityCodeSet: 'string',
-      citySet: 'string',
-      costCenterId: 'number',
-      depDate: 'string',
-      invoiceId: 'number',
-      itineraryId: 'string',
-      projectCode: 'string',
-      projectTitle: 'string',
-      thirdPartInvoiceId: 'string',
-      thirdpartCostCenterId: 'string',
-      transport: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ApplyAddRequestTravelerList extends $tea.Model {
   userId?: string;
   userName?: string;
@@ -5022,6 +4916,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
   gmtModified?: string;
   id?: number;
   itineraryList?: ApplyListQueryResponseBodyModuleListItineraryList[];
+  itineraryRule?: number;
   status?: number;
   statusDesc?: string;
   thirdpartBusinessId?: string;
@@ -5048,6 +4943,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       gmtModified: 'gmt_modified',
       id: 'id',
       itineraryList: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
       status: 'status',
       statusDesc: 'status_desc',
       thirdpartBusinessId: 'thirdpart_business_id',
@@ -5077,6 +4973,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       gmtModified: 'string',
       id: 'number',
       itineraryList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListItineraryList },
+      itineraryRule: 'number',
       status: 'number',
       statusDesc: 'string',
       thirdpartBusinessId: 'string',
@@ -5643,6 +5540,7 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
   hotelShare?: ApplyQueryResponseBodyModuleHotelShare;
   id?: number;
   itineraryList?: ApplyQueryResponseBodyModuleItineraryList[];
+  itineraryRule?: number;
   limitTraveler?: number;
   status?: number;
   statusDesc?: string;
@@ -5677,6 +5575,7 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
       hotelShare: 'hotel_share',
       id: 'id',
       itineraryList: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
       limitTraveler: 'limit_traveler',
       status: 'status',
       statusDesc: 'status_desc',
@@ -5714,6 +5613,7 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
       hotelShare: ApplyQueryResponseBodyModuleHotelShare,
       id: 'number',
       itineraryList: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleItineraryList },
+      itineraryRule: 'number',
       limitTraveler: 'number',
       status: 'number',
       statusDesc: 'string',
@@ -6112,6 +6012,7 @@ export class CarBillSettlementQueryResponseBodyModule extends $tea.Model {
 export class CarOrderListQueryResponseBodyModulePriceInfoList extends $tea.Model {
   categoryCode?: number;
   categoryType?: number;
+  gmtCreate?: string;
   passengerName?: string;
   payType?: number;
   personPrice?: number;
@@ -6122,6 +6023,7 @@ export class CarOrderListQueryResponseBodyModulePriceInfoList extends $tea.Model
     return {
       categoryCode: 'category_code',
       categoryType: 'category_type',
+      gmtCreate: 'gmt_create',
       passengerName: 'passenger_name',
       payType: 'pay_type',
       personPrice: 'person_price',
@@ -6135,6 +6037,7 @@ export class CarOrderListQueryResponseBodyModulePriceInfoList extends $tea.Model
     return {
       categoryCode: 'number',
       categoryType: 'number',
+      gmtCreate: 'string',
       passengerName: 'string',
       payType: 'number',
       personPrice: 'number',
@@ -6197,7 +6100,6 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
   invoiceTitle?: string;
   isSpecial?: boolean;
   memo?: string;
-  orderId?: string;
   orderStatus?: number;
   passengerName?: string;
   payTime?: string;
@@ -6250,7 +6152,6 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       invoiceTitle: 'invoice_title',
       isSpecial: 'is_special',
       memo: 'memo',
-      orderId: 'order_id',
       orderStatus: 'order_status',
       passengerName: 'passenger_name',
       payTime: 'pay_time',
@@ -6306,7 +6207,6 @@ export class CarOrderListQueryResponseBodyModule extends $tea.Model {
       invoiceTitle: 'string',
       isSpecial: 'boolean',
       memo: 'string',
-      orderId: 'string',
       orderStatus: 'number',
       passengerName: 'string',
       payTime: 'string',
@@ -9286,7 +9186,6 @@ export class TrainOrderQueryResponseBodyModulePassengerInfoList extends $tea.Mod
   projectCode?: string;
   projectId?: number;
   projectTitle?: string;
-  thirdpartCostCenterId?: string;
   thirdpartProjectId?: string;
   userId?: string;
   userName?: string;
@@ -9299,7 +9198,6 @@ export class TrainOrderQueryResponseBodyModulePassengerInfoList extends $tea.Mod
       projectCode: 'project_code',
       projectId: 'project_id',
       projectTitle: 'project_title',
-      thirdpartCostCenterId: 'thirdpart_cost_center_id',
       thirdpartProjectId: 'thirdpart_project_id',
       userId: 'user_id',
       userName: 'user_name',
@@ -9315,7 +9213,6 @@ export class TrainOrderQueryResponseBodyModulePassengerInfoList extends $tea.Mod
       projectCode: 'string',
       projectId: 'number',
       projectTitle: 'string',
-      thirdpartCostCenterId: 'string',
       thirdpartProjectId: 'string',
       userId: 'string',
       userName: 'string',
@@ -9725,16 +9622,17 @@ export default class Client extends OpenApi {
       request.itineraryListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itineraryList, "itinerary_list", "json");
     }
 
-    if (!Util.isUnset(tmpReq.itinerarySetList)) {
-      request.itinerarySetListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itinerarySetList, "itinerary_set_list", "json");
-    }
-
     if (!Util.isUnset(tmpReq.travelerList)) {
       request.travelerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerList, "traveler_list", "json");
     }
 
     if (!Util.isUnset(tmpReq.travelerStandard)) {
       request.travelerStandardShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerStandard, "traveler_standard", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.internationalFlightCabins)) {
+      query["international_flight_cabins"] = request.internationalFlightCabins;
     }
 
     let body : {[key: string ]: any} = { };
@@ -9780,14 +9678,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.itineraryListShrink)) {
       body["itinerary_list"] = request.itineraryListShrink;
-    }
-
-    if (!Util.isUnset(request.itineraryRule)) {
-      body["itinerary_rule"] = request.itineraryRule;
-    }
-
-    if (!Util.isUnset(request.itinerarySetListShrink)) {
-      body["itinerary_set_list"] = request.itinerarySetListShrink;
     }
 
     if (!Util.isUnset(request.limitTraveler)) {
@@ -9856,6 +9746,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10239,10 +10130,6 @@ export default class Client extends OpenApi {
   async carApplyModifyWithOptions(request: CarApplyModifyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarApplyModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.corpId)) {
-      body["corp_id"] = request.corpId;
-    }
-
     if (!Util.isUnset(request.operateTime)) {
       body["operate_time"] = request.operateTime;
     }
@@ -11192,10 +11079,6 @@ export default class Client extends OpenApi {
       query["apply_id"] = request.applyId;
     }
 
-    if (!Util.isUnset(request.userId)) {
-      query["user_id"] = request.userId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -11492,6 +11375,10 @@ export default class Client extends OpenApi {
       query["title"] = request.title;
     }
 
+    if (!Util.isUnset(request.userId)) {
+      query["user_id"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -11757,10 +11644,6 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["user_id"] = request.userId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
