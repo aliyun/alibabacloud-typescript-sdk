@@ -4,32 +4,30 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddCustomLineRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
-  lineName?: string;
   ipSegment?: AddCustomLineRequestIpSegment[];
+  lang?: string;
+  lineName?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
-      lineName: 'LineName',
       ipSegment: 'IpSegment',
+      lang: 'Lang',
+      lineName: 'LineName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
-      lineName: 'string',
       ipSegment: { 'type': 'array', 'itemType': AddCustomLineRequestIpSegment },
+      lang: 'string',
+      lineName: 'string',
     };
   }
 
@@ -39,22 +37,22 @@ export class AddCustomLineRequest extends $tea.Model {
 }
 
 export class AddCustomLineResponseBody extends $tea.Model {
+  lineCode?: string;
   lineId?: number;
   requestId?: string;
-  lineCode?: string;
   static names(): { [key: string]: string } {
     return {
+      lineCode: 'LineCode',
       lineId: 'LineId',
       requestId: 'RequestId',
-      lineCode: 'LineCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      lineCode: 'string',
       lineId: 'number',
       requestId: 'string',
-      lineCode: 'string',
     };
   }
 
@@ -65,10 +63,12 @@ export class AddCustomLineResponseBody extends $tea.Model {
 
 export class AddCustomLineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddCustomLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -76,6 +76,7 @@ export class AddCustomLineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddCustomLineResponseBody,
     };
   }
@@ -86,43 +87,40 @@ export class AddCustomLineResponse extends $tea.Model {
 }
 
 export class AddDnsCacheDomainRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
+  cacheTtlMax?: number;
+  cacheTtlMin?: number;
   domainName?: string;
   instanceId?: string;
-  cacheTtlMin?: number;
-  cacheTtlMax?: number;
-  sourceProtocol?: string;
-  sourceEdns?: string;
+  lang?: string;
   remark?: string;
   sourceDnsServer?: AddDnsCacheDomainRequestSourceDnsServer[];
+  sourceEdns?: string;
+  sourceProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
+      cacheTtlMax: 'CacheTtlMax',
+      cacheTtlMin: 'CacheTtlMin',
       domainName: 'DomainName',
       instanceId: 'InstanceId',
-      cacheTtlMin: 'CacheTtlMin',
-      cacheTtlMax: 'CacheTtlMax',
-      sourceProtocol: 'SourceProtocol',
-      sourceEdns: 'SourceEdns',
+      lang: 'Lang',
       remark: 'Remark',
       sourceDnsServer: 'SourceDnsServer',
+      sourceEdns: 'SourceEdns',
+      sourceProtocol: 'SourceProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
+      cacheTtlMax: 'number',
+      cacheTtlMin: 'number',
       domainName: 'string',
       instanceId: 'string',
-      cacheTtlMin: 'number',
-      cacheTtlMax: 'number',
-      sourceProtocol: 'string',
-      sourceEdns: 'string',
+      lang: 'string',
       remark: 'string',
       sourceDnsServer: { 'type': 'array', 'itemType': AddDnsCacheDomainRequestSourceDnsServer },
+      sourceEdns: 'string',
+      sourceProtocol: 'string',
     };
   }
 
@@ -152,10 +150,12 @@ export class AddDnsCacheDomainResponseBody extends $tea.Model {
 
 export class AddDnsCacheDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDnsCacheDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -163,6 +163,7 @@ export class AddDnsCacheDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDnsCacheDomainResponseBody,
     };
   }
@@ -173,67 +174,64 @@ export class AddDnsCacheDomainResponse extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  instanceId?: string;
-  strategyName?: string;
-  lines?: string;
-  defaultAddrPoolType?: string;
-  defaultLbaStrategy?: string;
-  defaultMinAvailableAddrNum?: number;
-  defaultMaxReturnAddrNum?: number;
-  defaultLatencyOptimization?: string;
-  failoverAddrPoolType?: string;
-  failoverLbaStrategy?: string;
-  failoverMinAvailableAddrNum?: number;
-  failoverMaxReturnAddrNum?: number;
-  failoverLatencyOptimization?: string;
-  strategyMode?: string;
   defaultAddrPool?: AddDnsGtmAccessStrategyRequestDefaultAddrPool[];
+  defaultAddrPoolType?: string;
+  defaultLatencyOptimization?: string;
+  defaultLbaStrategy?: string;
+  defaultMaxReturnAddrNum?: number;
+  defaultMinAvailableAddrNum?: number;
   failoverAddrPool?: AddDnsGtmAccessStrategyRequestFailoverAddrPool[];
+  failoverAddrPoolType?: string;
+  failoverLatencyOptimization?: string;
+  failoverLbaStrategy?: string;
+  failoverMaxReturnAddrNum?: number;
+  failoverMinAvailableAddrNum?: number;
+  instanceId?: string;
+  lang?: string;
+  lines?: string;
+  strategyMode?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
-      strategyName: 'StrategyName',
-      lines: 'Lines',
-      defaultAddrPoolType: 'DefaultAddrPoolType',
-      defaultLbaStrategy: 'DefaultLbaStrategy',
-      defaultMinAvailableAddrNum: 'DefaultMinAvailableAddrNum',
-      defaultMaxReturnAddrNum: 'DefaultMaxReturnAddrNum',
-      defaultLatencyOptimization: 'DefaultLatencyOptimization',
-      failoverAddrPoolType: 'FailoverAddrPoolType',
-      failoverLbaStrategy: 'FailoverLbaStrategy',
-      failoverMinAvailableAddrNum: 'FailoverMinAvailableAddrNum',
-      failoverMaxReturnAddrNum: 'FailoverMaxReturnAddrNum',
-      failoverLatencyOptimization: 'FailoverLatencyOptimization',
-      strategyMode: 'StrategyMode',
       defaultAddrPool: 'DefaultAddrPool',
+      defaultAddrPoolType: 'DefaultAddrPoolType',
+      defaultLatencyOptimization: 'DefaultLatencyOptimization',
+      defaultLbaStrategy: 'DefaultLbaStrategy',
+      defaultMaxReturnAddrNum: 'DefaultMaxReturnAddrNum',
+      defaultMinAvailableAddrNum: 'DefaultMinAvailableAddrNum',
       failoverAddrPool: 'FailoverAddrPool',
+      failoverAddrPoolType: 'FailoverAddrPoolType',
+      failoverLatencyOptimization: 'FailoverLatencyOptimization',
+      failoverLbaStrategy: 'FailoverLbaStrategy',
+      failoverMaxReturnAddrNum: 'FailoverMaxReturnAddrNum',
+      failoverMinAvailableAddrNum: 'FailoverMinAvailableAddrNum',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      lines: 'Lines',
+      strategyMode: 'StrategyMode',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      instanceId: 'string',
-      strategyName: 'string',
-      lines: 'string',
-      defaultAddrPoolType: 'string',
-      defaultLbaStrategy: 'string',
-      defaultMinAvailableAddrNum: 'number',
-      defaultMaxReturnAddrNum: 'number',
-      defaultLatencyOptimization: 'string',
-      failoverAddrPoolType: 'string',
-      failoverLbaStrategy: 'string',
-      failoverMinAvailableAddrNum: 'number',
-      failoverMaxReturnAddrNum: 'number',
-      failoverLatencyOptimization: 'string',
-      strategyMode: 'string',
       defaultAddrPool: { 'type': 'array', 'itemType': AddDnsGtmAccessStrategyRequestDefaultAddrPool },
+      defaultAddrPoolType: 'string',
+      defaultLatencyOptimization: 'string',
+      defaultLbaStrategy: 'string',
+      defaultMaxReturnAddrNum: 'number',
+      defaultMinAvailableAddrNum: 'number',
       failoverAddrPool: { 'type': 'array', 'itemType': AddDnsGtmAccessStrategyRequestFailoverAddrPool },
+      failoverAddrPoolType: 'string',
+      failoverLatencyOptimization: 'string',
+      failoverLbaStrategy: 'string',
+      failoverMaxReturnAddrNum: 'number',
+      failoverMinAvailableAddrNum: 'number',
+      instanceId: 'string',
+      lang: 'string',
+      lines: 'string',
+      strategyMode: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -266,10 +264,12 @@ export class AddDnsGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class AddDnsGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDnsGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -277,6 +277,7 @@ export class AddDnsGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDnsGtmAccessStrategyResponseBody,
     };
   }
@@ -287,55 +288,52 @@ export class AddDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  instanceId?: string;
-  name?: string;
-  type?: string;
-  lbaStrategy?: string;
-  monitorStatus?: string;
-  protocolType?: string;
-  interval?: number;
-  evaluationCount?: number;
-  timeout?: number;
-  monitorExtendInfo?: string;
   addr?: AddDnsGtmAddressPoolRequestAddr[];
+  evaluationCount?: number;
+  instanceId?: string;
+  interval?: number;
   ispCityNode?: AddDnsGtmAddressPoolRequestIspCityNode[];
+  lang?: string;
+  lbaStrategy?: string;
+  monitorExtendInfo?: string;
+  monitorStatus?: string;
+  name?: string;
+  protocolType?: string;
+  timeout?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      instanceId: 'InstanceId',
-      name: 'Name',
-      type: 'Type',
-      lbaStrategy: 'LbaStrategy',
-      monitorStatus: 'MonitorStatus',
-      protocolType: 'ProtocolType',
-      interval: 'Interval',
-      evaluationCount: 'EvaluationCount',
-      timeout: 'Timeout',
-      monitorExtendInfo: 'MonitorExtendInfo',
       addr: 'Addr',
+      evaluationCount: 'EvaluationCount',
+      instanceId: 'InstanceId',
+      interval: 'Interval',
       ispCityNode: 'IspCityNode',
+      lang: 'Lang',
+      lbaStrategy: 'LbaStrategy',
+      monitorExtendInfo: 'MonitorExtendInfo',
+      monitorStatus: 'MonitorStatus',
+      name: 'Name',
+      protocolType: 'ProtocolType',
+      timeout: 'Timeout',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      instanceId: 'string',
-      name: 'string',
-      type: 'string',
-      lbaStrategy: 'string',
-      monitorStatus: 'string',
-      protocolType: 'string',
-      interval: 'number',
-      evaluationCount: 'number',
-      timeout: 'number',
-      monitorExtendInfo: 'string',
       addr: { 'type': 'array', 'itemType': AddDnsGtmAddressPoolRequestAddr },
+      evaluationCount: 'number',
+      instanceId: 'string',
+      interval: 'number',
       ispCityNode: { 'type': 'array', 'itemType': AddDnsGtmAddressPoolRequestIspCityNode },
+      lang: 'string',
+      lbaStrategy: 'string',
+      monitorExtendInfo: 'string',
+      monitorStatus: 'string',
+      name: 'string',
+      protocolType: 'string',
+      timeout: 'number',
+      type: 'string',
     };
   }
 
@@ -345,22 +343,22 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolResponseBody extends $tea.Model {
-  requestId?: string;
   addrPoolId?: string;
   monitorConfigId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       addrPoolId: 'AddrPoolId',
       monitorConfigId: 'MonitorConfigId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       addrPoolId: 'string',
       monitorConfigId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -371,10 +369,12 @@ export class AddDnsGtmAddressPoolResponseBody extends $tea.Model {
 
 export class AddDnsGtmAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDnsGtmAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -382,6 +382,7 @@ export class AddDnsGtmAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDnsGtmAddressPoolResponseBody,
     };
   }
@@ -392,40 +393,37 @@ export class AddDnsGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class AddDnsGtmMonitorRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   addrPoolId?: string;
-  protocolType?: string;
-  interval?: number;
   evaluationCount?: number;
-  timeout?: number;
-  monitorExtendInfo?: string;
+  interval?: number;
   ispCityNode?: AddDnsGtmMonitorRequestIspCityNode[];
+  lang?: string;
+  monitorExtendInfo?: string;
+  protocolType?: string;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       addrPoolId: 'AddrPoolId',
-      protocolType: 'ProtocolType',
-      interval: 'Interval',
       evaluationCount: 'EvaluationCount',
-      timeout: 'Timeout',
-      monitorExtendInfo: 'MonitorExtendInfo',
+      interval: 'Interval',
       ispCityNode: 'IspCityNode',
+      lang: 'Lang',
+      monitorExtendInfo: 'MonitorExtendInfo',
+      protocolType: 'ProtocolType',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       addrPoolId: 'string',
-      protocolType: 'string',
-      interval: 'number',
       evaluationCount: 'number',
-      timeout: 'number',
-      monitorExtendInfo: 'string',
+      interval: 'number',
       ispCityNode: { 'type': 'array', 'itemType': AddDnsGtmMonitorRequestIspCityNode },
+      lang: 'string',
+      monitorExtendInfo: 'string',
+      protocolType: 'string',
+      timeout: 'number',
     };
   }
 
@@ -435,19 +433,19 @@ export class AddDnsGtmMonitorRequest extends $tea.Model {
 }
 
 export class AddDnsGtmMonitorResponseBody extends $tea.Model {
-  requestId?: string;
   monitorConfigId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       monitorConfigId: 'MonitorConfigId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       monitorConfigId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -458,10 +456,12 @@ export class AddDnsGtmMonitorResponseBody extends $tea.Model {
 
 export class AddDnsGtmMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDnsGtmMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -469,6 +469,7 @@ export class AddDnsGtmMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDnsGtmMonitorResponseBody,
     };
   }
@@ -479,28 +480,25 @@ export class AddDnsGtmMonitorResponse extends $tea.Model {
 }
 
 export class AddDomainRequest extends $tea.Model {
-  lang?: string;
   domainName?: string;
   groupId?: string;
+  lang?: string;
   resourceGroupId?: string;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       domainName: 'DomainName',
       groupId: 'GroupId',
+      lang: 'Lang',
       resourceGroupId: 'ResourceGroupId',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       domainName: 'string',
       groupId: 'string',
+      lang: 'string',
       resourceGroupId: 'string',
-      userClientIp: 'string',
     };
   }
 
@@ -510,34 +508,34 @@ export class AddDomainRequest extends $tea.Model {
 }
 
 export class AddDomainResponseBody extends $tea.Model {
-  groupName?: string;
-  domainId?: string;
-  requestId?: string;
-  domainName?: string;
-  punyCode?: string;
   dnsServers?: AddDomainResponseBodyDnsServers;
+  domainId?: string;
+  domainName?: string;
   groupId?: string;
+  groupName?: string;
+  punyCode?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
-      domainId: 'DomainId',
-      requestId: 'RequestId',
-      domainName: 'DomainName',
-      punyCode: 'PunyCode',
       dnsServers: 'DnsServers',
+      domainId: 'DomainId',
+      domainName: 'DomainName',
       groupId: 'GroupId',
+      groupName: 'GroupName',
+      punyCode: 'PunyCode',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
-      domainId: 'string',
-      requestId: 'string',
-      domainName: 'string',
-      punyCode: 'string',
       dnsServers: AddDomainResponseBodyDnsServers,
+      domainId: 'string',
+      domainName: 'string',
       groupId: 'string',
+      groupName: 'string',
+      punyCode: 'string',
+      requestId: 'string',
     };
   }
 
@@ -548,10 +546,12 @@ export class AddDomainResponseBody extends $tea.Model {
 
 export class AddDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -559,6 +559,7 @@ export class AddDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDomainResponseBody,
     };
   }
@@ -569,25 +570,22 @@ export class AddDomainResponse extends $tea.Model {
 }
 
 export class AddDomainBackupRequest extends $tea.Model {
-  lang?: string;
   domainName?: string;
+  lang?: string;
   periodType?: string;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
       periodType: 'PeriodType',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
       periodType: 'string',
-      userClientIp: 'string',
     };
   }
 
@@ -597,22 +595,22 @@ export class AddDomainBackupRequest extends $tea.Model {
 }
 
 export class AddDomainBackupResponseBody extends $tea.Model {
+  domainName?: string;
   periodType?: string;
   requestId?: string;
-  domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       periodType: 'PeriodType',
       requestId: 'RequestId',
-      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       periodType: 'string',
       requestId: 'string',
-      domainName: 'string',
     };
   }
 
@@ -623,10 +621,12 @@ export class AddDomainBackupResponseBody extends $tea.Model {
 
 export class AddDomainBackupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDomainBackupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -634,6 +634,7 @@ export class AddDomainBackupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDomainBackupResponseBody,
     };
   }
@@ -644,22 +645,19 @@ export class AddDomainBackupResponse extends $tea.Model {
 }
 
 export class AddDomainGroupRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   groupName?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       groupName: 'GroupName',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       groupName: 'string',
+      lang: 'string',
     };
   }
 
@@ -669,22 +667,22 @@ export class AddDomainGroupRequest extends $tea.Model {
 }
 
 export class AddDomainGroupResponseBody extends $tea.Model {
+  groupId?: string;
   groupName?: string;
   requestId?: string;
-  groupId?: string;
   static names(): { [key: string]: string } {
     return {
+      groupId: 'GroupId',
       groupName: 'GroupName',
       requestId: 'RequestId',
-      groupId: 'GroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupId: 'string',
       groupName: 'string',
       requestId: 'string',
-      groupId: 'string',
     };
   }
 
@@ -695,10 +693,12 @@ export class AddDomainGroupResponseBody extends $tea.Model {
 
 export class AddDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -706,6 +706,7 @@ export class AddDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDomainGroupResponseBody,
     };
   }
@@ -716,40 +717,40 @@ export class AddDomainGroupResponse extends $tea.Model {
 }
 
 export class AddDomainRecordRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
-  RR?: string;
-  type?: string;
-  value?: string;
-  TTL?: number;
-  priority?: number;
+  lang?: string;
   line?: string;
+  priority?: number;
+  RR?: string;
+  TTL?: number;
+  type?: string;
+  userClientIp?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
-      RR: 'RR',
-      type: 'Type',
-      value: 'Value',
-      TTL: 'TTL',
-      priority: 'Priority',
+      lang: 'Lang',
       line: 'Line',
+      priority: 'Priority',
+      RR: 'RR',
+      TTL: 'TTL',
+      type: 'Type',
+      userClientIp: 'UserClientIp',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
-      RR: 'string',
-      type: 'string',
-      value: 'string',
-      TTL: 'number',
-      priority: 'number',
+      lang: 'string',
       line: 'string',
+      priority: 'number',
+      RR: 'string',
+      TTL: 'number',
+      type: 'string',
+      userClientIp: 'string',
+      value: 'string',
     };
   }
 
@@ -759,19 +760,19 @@ export class AddDomainRecordRequest extends $tea.Model {
 }
 
 export class AddDomainRecordResponseBody extends $tea.Model {
-  requestId?: string;
   recordId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       recordId: 'RecordId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       recordId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -782,10 +783,12 @@ export class AddDomainRecordResponseBody extends $tea.Model {
 
 export class AddDomainRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddDomainRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -793,6 +796,7 @@ export class AddDomainRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddDomainRecordResponseBody,
     };
   }
@@ -803,34 +807,31 @@ export class AddDomainRecordResponse extends $tea.Model {
 }
 
 export class AddGtmAccessStrategyRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  instanceId?: string;
-  strategyName?: string;
+  accessLines?: string;
   defaultAddrPoolId?: string;
   failoverAddrPoolId?: string;
-  accessLines?: string;
+  instanceId?: string;
+  lang?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
-      strategyName: 'StrategyName',
+      accessLines: 'AccessLines',
       defaultAddrPoolId: 'DefaultAddrPoolId',
       failoverAddrPoolId: 'FailoverAddrPoolId',
-      accessLines: 'AccessLines',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      instanceId: 'string',
-      strategyName: 'string',
+      accessLines: 'string',
       defaultAddrPoolId: 'string',
       failoverAddrPoolId: 'string',
-      accessLines: 'string',
+      instanceId: 'string',
+      lang: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -863,10 +864,12 @@ export class AddGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class AddGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -874,6 +877,7 @@ export class AddGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddGtmAccessStrategyResponseBody,
     };
   }
@@ -884,55 +888,52 @@ export class AddGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class AddGtmAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  instanceId?: string;
-  name?: string;
-  type?: string;
-  minAvailableAddrNum?: number;
-  monitorStatus?: string;
-  protocolType?: string;
-  interval?: number;
-  evaluationCount?: number;
-  timeout?: number;
-  monitorExtendInfo?: string;
   addr?: AddGtmAddressPoolRequestAddr[];
+  evaluationCount?: number;
+  instanceId?: string;
+  interval?: number;
   ispCityNode?: AddGtmAddressPoolRequestIspCityNode[];
+  lang?: string;
+  minAvailableAddrNum?: number;
+  monitorExtendInfo?: string;
+  monitorStatus?: string;
+  name?: string;
+  protocolType?: string;
+  timeout?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      instanceId: 'InstanceId',
-      name: 'Name',
-      type: 'Type',
-      minAvailableAddrNum: 'MinAvailableAddrNum',
-      monitorStatus: 'MonitorStatus',
-      protocolType: 'ProtocolType',
-      interval: 'Interval',
-      evaluationCount: 'EvaluationCount',
-      timeout: 'Timeout',
-      monitorExtendInfo: 'MonitorExtendInfo',
       addr: 'Addr',
+      evaluationCount: 'EvaluationCount',
+      instanceId: 'InstanceId',
+      interval: 'Interval',
       ispCityNode: 'IspCityNode',
+      lang: 'Lang',
+      minAvailableAddrNum: 'MinAvailableAddrNum',
+      monitorExtendInfo: 'MonitorExtendInfo',
+      monitorStatus: 'MonitorStatus',
+      name: 'Name',
+      protocolType: 'ProtocolType',
+      timeout: 'Timeout',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      instanceId: 'string',
-      name: 'string',
-      type: 'string',
-      minAvailableAddrNum: 'number',
-      monitorStatus: 'string',
-      protocolType: 'string',
-      interval: 'number',
-      evaluationCount: 'number',
-      timeout: 'number',
-      monitorExtendInfo: 'string',
       addr: { 'type': 'array', 'itemType': AddGtmAddressPoolRequestAddr },
+      evaluationCount: 'number',
+      instanceId: 'string',
+      interval: 'number',
       ispCityNode: { 'type': 'array', 'itemType': AddGtmAddressPoolRequestIspCityNode },
+      lang: 'string',
+      minAvailableAddrNum: 'number',
+      monitorExtendInfo: 'string',
+      monitorStatus: 'string',
+      name: 'string',
+      protocolType: 'string',
+      timeout: 'number',
+      type: 'string',
     };
   }
 
@@ -942,22 +943,22 @@ export class AddGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class AddGtmAddressPoolResponseBody extends $tea.Model {
-  requestId?: string;
   addrPoolId?: string;
   monitorConfigId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       addrPoolId: 'AddrPoolId',
       monitorConfigId: 'MonitorConfigId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       addrPoolId: 'string',
       monitorConfigId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -968,10 +969,12 @@ export class AddGtmAddressPoolResponseBody extends $tea.Model {
 
 export class AddGtmAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddGtmAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -979,6 +982,7 @@ export class AddGtmAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddGtmAddressPoolResponseBody,
     };
   }
@@ -989,40 +993,37 @@ export class AddGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class AddGtmMonitorRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   addrPoolId?: string;
-  protocolType?: string;
-  interval?: number;
   evaluationCount?: number;
-  timeout?: number;
-  monitorExtendInfo?: string;
+  interval?: number;
   ispCityNode?: AddGtmMonitorRequestIspCityNode[];
+  lang?: string;
+  monitorExtendInfo?: string;
+  protocolType?: string;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       addrPoolId: 'AddrPoolId',
-      protocolType: 'ProtocolType',
-      interval: 'Interval',
       evaluationCount: 'EvaluationCount',
-      timeout: 'Timeout',
-      monitorExtendInfo: 'MonitorExtendInfo',
+      interval: 'Interval',
       ispCityNode: 'IspCityNode',
+      lang: 'Lang',
+      monitorExtendInfo: 'MonitorExtendInfo',
+      protocolType: 'ProtocolType',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       addrPoolId: 'string',
-      protocolType: 'string',
-      interval: 'number',
       evaluationCount: 'number',
-      timeout: 'number',
-      monitorExtendInfo: 'string',
+      interval: 'number',
       ispCityNode: { 'type': 'array', 'itemType': AddGtmMonitorRequestIspCityNode },
+      lang: 'string',
+      monitorExtendInfo: 'string',
+      protocolType: 'string',
+      timeout: 'number',
     };
   }
 
@@ -1032,19 +1033,19 @@ export class AddGtmMonitorRequest extends $tea.Model {
 }
 
 export class AddGtmMonitorResponseBody extends $tea.Model {
-  requestId?: string;
   monitorConfigId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       monitorConfigId: 'MonitorConfigId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       monitorConfigId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1055,10 +1056,12 @@ export class AddGtmMonitorResponseBody extends $tea.Model {
 
 export class AddGtmMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddGtmMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1066,6 +1069,7 @@ export class AddGtmMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddGtmMonitorResponseBody,
     };
   }
@@ -1076,28 +1080,25 @@ export class AddGtmMonitorResponse extends $tea.Model {
 }
 
 export class AddGtmRecoveryPlanRequest extends $tea.Model {
+  faultAddrPool?: string;
   lang?: string;
-  userClientIp?: string;
   name?: string;
   remark?: string;
-  faultAddrPool?: string;
   static names(): { [key: string]: string } {
     return {
+      faultAddrPool: 'FaultAddrPool',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       name: 'Name',
       remark: 'Remark',
-      faultAddrPool: 'FaultAddrPool',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faultAddrPool: 'string',
       lang: 'string',
-      userClientIp: 'string',
       name: 'string',
       remark: 'string',
-      faultAddrPool: 'string',
     };
   }
 
@@ -1130,10 +1131,12 @@ export class AddGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class AddGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1141,6 +1144,7 @@ export class AddGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddGtmRecoveryPlanResponseBody,
     };
   }
@@ -1151,25 +1155,22 @@ export class AddGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class BindInstanceDomainsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  instanceId?: string;
   domainNames?: string;
+  instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
       domainNames: 'DomainNames',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      instanceId: 'string',
       domainNames: 'string',
+      instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -1179,21 +1180,21 @@ export class BindInstanceDomainsRequest extends $tea.Model {
 }
 
 export class BindInstanceDomainsResponseBody extends $tea.Model {
-  requestId?: string;
   failedCount?: number;
+  requestId?: string;
   successCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       failedCount: 'FailedCount',
+      requestId: 'RequestId',
       successCount: 'SuccessCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       failedCount: 'number',
+      requestId: 'string',
       successCount: 'number',
     };
   }
@@ -1205,10 +1206,12 @@ export class BindInstanceDomainsResponseBody extends $tea.Model {
 
 export class BindInstanceDomainsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BindInstanceDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1216,6 +1219,7 @@ export class BindInstanceDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BindInstanceDomainsResponseBody,
     };
   }
@@ -1226,25 +1230,22 @@ export class BindInstanceDomainsResponse extends $tea.Model {
 }
 
 export class ChangeDomainGroupRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
   groupId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
       groupId: 'GroupId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
       groupId: 'string',
+      lang: 'string',
     };
   }
 
@@ -1254,22 +1255,22 @@ export class ChangeDomainGroupRequest extends $tea.Model {
 }
 
 export class ChangeDomainGroupResponseBody extends $tea.Model {
+  groupId?: string;
   groupName?: string;
   requestId?: string;
-  groupId?: string;
   static names(): { [key: string]: string } {
     return {
+      groupId: 'GroupId',
       groupName: 'GroupName',
       requestId: 'RequestId',
-      groupId: 'GroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupId: 'string',
       groupName: 'string',
       requestId: 'string',
-      groupId: 'string',
     };
   }
 
@@ -1280,10 +1281,12 @@ export class ChangeDomainGroupResponseBody extends $tea.Model {
 
 export class ChangeDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ChangeDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1291,6 +1294,7 @@ export class ChangeDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ChangeDomainGroupResponseBody,
     };
   }
@@ -1301,28 +1305,28 @@ export class ChangeDomainGroupResponse extends $tea.Model {
 }
 
 export class ChangeDomainOfDnsProductRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  instanceId?: string;
-  newDomain?: string;
   force?: boolean;
+  instanceId?: string;
+  lang?: string;
+  newDomain?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
-      newDomain: 'NewDomain',
       force: 'Force',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      newDomain: 'NewDomain',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      instanceId: 'string',
-      newDomain: 'string',
       force: 'boolean',
+      instanceId: 'string',
+      lang: 'string',
+      newDomain: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -1332,19 +1336,19 @@ export class ChangeDomainOfDnsProductRequest extends $tea.Model {
 }
 
 export class ChangeDomainOfDnsProductResponseBody extends $tea.Model {
-  requestId?: string;
   originalDomain?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       originalDomain: 'OriginalDomain',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       originalDomain: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1355,10 +1359,12 @@ export class ChangeDomainOfDnsProductResponseBody extends $tea.Model {
 
 export class ChangeDomainOfDnsProductResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ChangeDomainOfDnsProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1366,6 +1372,7 @@ export class ChangeDomainOfDnsProductResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ChangeDomainOfDnsProductResponseBody,
     };
   }
@@ -1376,28 +1383,25 @@ export class ChangeDomainOfDnsProductResponse extends $tea.Model {
 }
 
 export class CopyGtmConfigRequest extends $tea.Model {
-  userClientIp?: string;
+  copyType?: string;
   lang?: string;
   sourceId?: string;
   targetId?: string;
-  copyType?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      copyType: 'CopyType',
       lang: 'Lang',
       sourceId: 'SourceId',
       targetId: 'TargetId',
-      copyType: 'CopyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      copyType: 'string',
       lang: 'string',
       sourceId: 'string',
       targetId: 'string',
-      copyType: 'string',
     };
   }
 
@@ -1427,10 +1431,12 @@ export class CopyGtmConfigResponseBody extends $tea.Model {
 
 export class CopyGtmConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CopyGtmConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1438,7 +1444,143 @@ export class CopyGtmConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CopyGtmConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdnsAppKeyRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdnsAppKeyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdnsAppKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePdnsAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePdnsAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdnsUdpIpSegmentRequest extends $tea.Model {
+  ip?: string;
+  lang?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      lang: 'Lang',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      lang: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdnsUdpIpSegmentResponseBody extends $tea.Model {
+  requestId?: string;
+  validMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      validMessage: 'ValidMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      validMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePdnsUdpIpSegmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreatePdnsUdpIpSegmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePdnsUdpIpSegmentResponseBody,
     };
   }
 
@@ -1449,12 +1591,10 @@ export class CopyGtmConfigResponse extends $tea.Model {
 
 export class DeleteCustomLinesRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   lineIds?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       lineIds: 'LineIds',
     };
   }
@@ -1462,7 +1602,6 @@ export class DeleteCustomLinesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       lineIds: 'string',
     };
   }
@@ -1493,10 +1632,12 @@ export class DeleteCustomLinesResponseBody extends $tea.Model {
 
 export class DeleteCustomLinesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCustomLinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1504,6 +1645,7 @@ export class DeleteCustomLinesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCustomLinesResponseBody,
     };
   }
@@ -1514,22 +1656,19 @@ export class DeleteCustomLinesResponse extends $tea.Model {
 }
 
 export class DeleteDnsCacheDomainRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
     };
   }
 
@@ -1559,10 +1698,12 @@ export class DeleteDnsCacheDomainResponseBody extends $tea.Model {
 
 export class DeleteDnsCacheDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDnsCacheDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1570,6 +1711,7 @@ export class DeleteDnsCacheDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDnsCacheDomainResponseBody,
     };
   }
@@ -1581,12 +1723,10 @@ export class DeleteDnsCacheDomainResponse extends $tea.Model {
 
 export class DeleteDnsGtmAccessStrategyRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       strategyId: 'StrategyId',
     };
   }
@@ -1594,7 +1734,6 @@ export class DeleteDnsGtmAccessStrategyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       strategyId: 'string',
     };
   }
@@ -1625,10 +1764,12 @@ export class DeleteDnsGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class DeleteDnsGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDnsGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1636,6 +1777,7 @@ export class DeleteDnsGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDnsGtmAccessStrategyResponseBody,
     };
   }
@@ -1646,22 +1788,19 @@ export class DeleteDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DeleteDnsGtmAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   addrPoolId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       addrPoolId: 'AddrPoolId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       addrPoolId: 'string',
+      lang: 'string',
     };
   }
 
@@ -1691,10 +1830,12 @@ export class DeleteDnsGtmAddressPoolResponseBody extends $tea.Model {
 
 export class DeleteDnsGtmAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDnsGtmAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1702,6 +1843,7 @@ export class DeleteDnsGtmAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDnsGtmAddressPoolResponseBody,
     };
   }
@@ -1712,22 +1854,19 @@ export class DeleteDnsGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
     };
   }
 
@@ -1737,19 +1876,19 @@ export class DeleteDomainRequest extends $tea.Model {
 }
 
 export class DeleteDomainResponseBody extends $tea.Model {
-  requestId?: string;
   domainName?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       domainName: 'DomainName',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       domainName: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1760,10 +1899,12 @@ export class DeleteDomainResponseBody extends $tea.Model {
 
 export class DeleteDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1771,6 +1912,7 @@ export class DeleteDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainResponseBody,
     };
   }
@@ -1781,22 +1923,19 @@ export class DeleteDomainResponse extends $tea.Model {
 }
 
 export class DeleteDomainGroupRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   groupId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       groupId: 'GroupId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       groupId: 'string',
+      lang: 'string',
     };
   }
 
@@ -1829,10 +1968,12 @@ export class DeleteDomainGroupResponseBody extends $tea.Model {
 
 export class DeleteDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1840,6 +1981,7 @@ export class DeleteDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainGroupResponseBody,
     };
   }
@@ -1851,21 +1993,21 @@ export class DeleteDomainGroupResponse extends $tea.Model {
 
 export class DeleteDomainRecordRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recordId?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recordId: 'RecordId',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recordId: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -1875,19 +2017,19 @@ export class DeleteDomainRecordRequest extends $tea.Model {
 }
 
 export class DeleteDomainRecordResponseBody extends $tea.Model {
-  requestId?: string;
   recordId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       recordId: 'RecordId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       recordId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1898,10 +2040,12 @@ export class DeleteDomainRecordResponseBody extends $tea.Model {
 
 export class DeleteDomainRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDomainRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1909,6 +2053,7 @@ export class DeleteDomainRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDomainRecordResponseBody,
     };
   }
@@ -1920,12 +2065,10 @@ export class DeleteDomainRecordResponse extends $tea.Model {
 
 export class DeleteGtmAccessStrategyRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       strategyId: 'StrategyId',
     };
   }
@@ -1933,7 +2076,6 @@ export class DeleteGtmAccessStrategyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       strategyId: 'string',
     };
   }
@@ -1964,10 +2106,12 @@ export class DeleteGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class DeleteGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1975,6 +2119,7 @@ export class DeleteGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGtmAccessStrategyResponseBody,
     };
   }
@@ -1985,22 +2130,19 @@ export class DeleteGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DeleteGtmAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   addrPoolId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       addrPoolId: 'AddrPoolId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       addrPoolId: 'string',
+      lang: 'string',
     };
   }
 
@@ -2030,10 +2172,12 @@ export class DeleteGtmAddressPoolResponseBody extends $tea.Model {
 
 export class DeleteGtmAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGtmAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2041,6 +2185,7 @@ export class DeleteGtmAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGtmAddressPoolResponseBody,
     };
   }
@@ -2052,12 +2197,10 @@ export class DeleteGtmAddressPoolResponse extends $tea.Model {
 
 export class DeleteGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recoveryPlanId: 'RecoveryPlanId',
     };
   }
@@ -2065,7 +2208,6 @@ export class DeleteGtmRecoveryPlanRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recoveryPlanId: 'number',
     };
   }
@@ -2096,10 +2238,12 @@ export class DeleteGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class DeleteGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2107,6 +2251,7 @@ export class DeleteGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGtmRecoveryPlanResponseBody,
     };
   }
@@ -2117,28 +2262,28 @@ export class DeleteGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class DeleteSubDomainRecordsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   RR?: string;
   type?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
       RR: 'RR',
       type: 'Type',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
       RR: 'string',
       type: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -2149,21 +2294,21 @@ export class DeleteSubDomainRecordsRequest extends $tea.Model {
 
 export class DeleteSubDomainRecordsResponseBody extends $tea.Model {
   RR?: string;
-  totalCount?: string;
   requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       RR: 'RR',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       RR: 'string',
-      totalCount: 'string',
       requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -2174,10 +2319,12 @@ export class DeleteSubDomainRecordsResponseBody extends $tea.Model {
 
 export class DeleteSubDomainRecordsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSubDomainRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2185,6 +2332,7 @@ export class DeleteSubDomainRecordsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSubDomainRecordsResponseBody,
     };
   }
@@ -2195,25 +2343,22 @@ export class DeleteSubDomainRecordsResponse extends $tea.Model {
 }
 
 export class DescribeBatchResultCountRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  taskId?: number;
   batchType?: string;
+  lang?: string;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      taskId: 'TaskId',
       batchType: 'BatchType',
+      lang: 'Lang',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      taskId: 'number',
       batchType: 'string',
+      lang: 'string',
+      taskId: 'number',
     };
   }
 
@@ -2223,37 +2368,37 @@ export class DescribeBatchResultCountRequest extends $tea.Model {
 }
 
 export class DescribeBatchResultCountResponseBody extends $tea.Model {
-  status?: number;
-  totalCount?: number;
-  taskId?: number;
-  requestId?: string;
-  failedCount?: number;
-  successCount?: number;
   batchType?: string;
+  failedCount?: number;
   reason?: string;
+  requestId?: string;
+  status?: number;
+  successCount?: number;
+  taskId?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      totalCount: 'TotalCount',
-      taskId: 'TaskId',
-      requestId: 'RequestId',
-      failedCount: 'FailedCount',
-      successCount: 'SuccessCount',
       batchType: 'BatchType',
+      failedCount: 'FailedCount',
       reason: 'Reason',
+      requestId: 'RequestId',
+      status: 'Status',
+      successCount: 'SuccessCount',
+      taskId: 'TaskId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      totalCount: 'number',
-      taskId: 'number',
-      requestId: 'string',
-      failedCount: 'number',
-      successCount: 'number',
       batchType: 'string',
+      failedCount: 'number',
       reason: 'string',
+      requestId: 'string',
+      status: 'number',
+      successCount: 'number',
+      taskId: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -2264,10 +2409,12 @@ export class DescribeBatchResultCountResponseBody extends $tea.Model {
 
 export class DescribeBatchResultCountResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBatchResultCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2275,6 +2422,7 @@ export class DescribeBatchResultCountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBatchResultCountResponseBody,
     };
   }
@@ -2285,34 +2433,31 @@ export class DescribeBatchResultCountResponse extends $tea.Model {
 }
 
 export class DescribeBatchResultDetailRequest extends $tea.Model {
+  batchType?: string;
   lang?: string;
-  userClientIp?: string;
   pageNumber?: number;
   pageSize?: number;
-  taskId?: number;
-  batchType?: string;
   status?: string;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
+      batchType: 'BatchType',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      taskId: 'TaskId',
-      batchType: 'BatchType',
       status: 'Status',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      batchType: 'string',
       lang: 'string',
-      userClientIp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      taskId: 'number',
-      batchType: 'string',
       status: 'string',
+      taskId: 'number',
     };
   }
 
@@ -2322,28 +2467,28 @@ export class DescribeBatchResultDetailRequest extends $tea.Model {
 }
 
 export class DescribeBatchResultDetailResponseBody extends $tea.Model {
-  totalCount?: number;
   batchResultDetails?: DescribeBatchResultDetailResponseBodyBatchResultDetails;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       batchResultDetails: 'BatchResultDetails',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       batchResultDetails: DescribeBatchResultDetailResponseBodyBatchResultDetails,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -2354,10 +2499,12 @@ export class DescribeBatchResultDetailResponseBody extends $tea.Model {
 
 export class DescribeBatchResultDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeBatchResultDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2365,6 +2512,7 @@ export class DescribeBatchResultDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeBatchResultDetailResponseBody,
     };
   }
@@ -2375,22 +2523,19 @@ export class DescribeBatchResultDetailResponse extends $tea.Model {
 }
 
 export class DescribeCustomLineRequest extends $tea.Model {
-  lineId?: number;
   lang?: string;
-  userClientIp?: string;
+  lineId?: number;
   static names(): { [key: string]: string } {
     return {
-      lineId: 'LineId',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
+      lineId: 'LineId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lineId: 'number',
       lang: 'string',
-      userClientIp: 'string',
+      lineId: 'number',
     };
   }
 
@@ -2400,31 +2545,31 @@ export class DescribeCustomLineRequest extends $tea.Model {
 }
 
 export class DescribeCustomLineResponseBody extends $tea.Model {
-  requestId?: string;
-  ipSegmentList?: DescribeCustomLineResponseBodyIpSegmentList[];
+  code?: string;
   domainName?: string;
   id?: number;
-  code?: string;
+  ipSegmentList?: DescribeCustomLineResponseBodyIpSegmentList[];
   name?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      ipSegmentList: 'IpSegmentList',
+      code: 'Code',
       domainName: 'DomainName',
       id: 'Id',
-      code: 'Code',
+      ipSegmentList: 'IpSegmentList',
       name: 'Name',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      ipSegmentList: { 'type': 'array', 'itemType': DescribeCustomLineResponseBodyIpSegmentList },
+      code: 'string',
       domainName: 'string',
       id: 'number',
-      code: 'string',
+      ipSegmentList: { 'type': 'array', 'itemType': DescribeCustomLineResponseBodyIpSegmentList },
       name: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2435,10 +2580,12 @@ export class DescribeCustomLineResponseBody extends $tea.Model {
 
 export class DescribeCustomLineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCustomLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2446,6 +2593,7 @@ export class DescribeCustomLineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCustomLineResponseBody,
     };
   }
@@ -2456,28 +2604,25 @@ export class DescribeCustomLineResponse extends $tea.Model {
 }
 
 export class DescribeCustomLinesRequest extends $tea.Model {
+  domainName?: string;
   lang?: string;
-  userClientIp?: string;
   pageNumber?: number;
   pageSize?: number;
-  domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       lang: 'string',
-      userClientIp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      domainName: 'string',
     };
   }
 
@@ -2487,31 +2632,31 @@ export class DescribeCustomLinesRequest extends $tea.Model {
 }
 
 export class DescribeCustomLinesResponseBody extends $tea.Model {
+  customLines?: DescribeCustomLinesResponseBodyCustomLines[];
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  customLines?: DescribeCustomLinesResponseBodyCustomLines[];
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      customLines: 'CustomLines',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      customLines: 'CustomLines',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customLines: { 'type': 'array', 'itemType': DescribeCustomLinesResponseBodyCustomLines },
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      customLines: { 'type': 'array', 'itemType': DescribeCustomLinesResponseBodyCustomLines },
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -2522,10 +2667,12 @@ export class DescribeCustomLinesResponseBody extends $tea.Model {
 
 export class DescribeCustomLinesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCustomLinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2533,6 +2680,7 @@ export class DescribeCustomLinesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCustomLinesResponseBody,
     };
   }
@@ -2542,17 +2690,105 @@ export class DescribeCustomLinesResponse extends $tea.Model {
   }
 }
 
-export class DescribeDnsCacheDomainsRequest extends $tea.Model {
+export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
+  domainName?: string;
   lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  rr?: string;
   userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      rr: 'Rr',
+      userClientIp: 'UserClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      rr: 'string',
+      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDNSSLBSubDomainsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  slbSubDomains?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      slbSubDomains: 'SlbSubDomains',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      slbSubDomains: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains,
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDNSSLBSubDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDNSSLBSubDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDNSSLBSubDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsCacheDomainsRequest extends $tea.Model {
   keyword?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       keyword: 'Keyword',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -2560,9 +2796,8 @@ export class DescribeDnsCacheDomainsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       keyword: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -2575,27 +2810,27 @@ export class DescribeDnsCacheDomainsRequest extends $tea.Model {
 
 export class DescribeDnsCacheDomainsResponseBody extends $tea.Model {
   domains?: DescribeDnsCacheDomainsResponseBodyDomains[];
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       domains: 'Domains',
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domains: { 'type': 'array', 'itemType': DescribeDnsCacheDomainsResponseBodyDomains },
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -2606,10 +2841,12 @@ export class DescribeDnsCacheDomainsResponseBody extends $tea.Model {
 
 export class DescribeDnsCacheDomainsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsCacheDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2617,6 +2854,7 @@ export class DescribeDnsCacheDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsCacheDomainsResponseBody,
     };
   }
@@ -2627,17 +2865,15 @@ export class DescribeDnsCacheDomainsResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategiesRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   strategyMode?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       strategyMode: 'StrategyMode',
@@ -2646,9 +2882,8 @@ export class DescribeDnsGtmAccessStrategiesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       strategyMode: 'string',
@@ -2661,31 +2896,31 @@ export class DescribeDnsGtmAccessStrategiesRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategiesResponseBody extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
   strategies?: DescribeDnsGtmAccessStrategiesResponseBodyStrategies;
-  totalPages?: number;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
       strategies: 'Strategies',
-      totalPages: 'TotalPages',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
       strategies: DescribeDnsGtmAccessStrategiesResponseBodyStrategies,
-      totalPages: 'number',
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -2696,10 +2931,12 @@ export class DescribeDnsGtmAccessStrategiesResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmAccessStrategiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmAccessStrategiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2707,6 +2944,7 @@ export class DescribeDnsGtmAccessStrategiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmAccessStrategiesResponseBody,
     };
   }
@@ -2718,12 +2956,10 @@ export class DescribeDnsGtmAccessStrategiesResponse extends $tea.Model {
 
 export class DescribeDnsGtmAccessStrategyRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       strategyId: 'StrategyId',
     };
   }
@@ -2731,7 +2967,6 @@ export class DescribeDnsGtmAccessStrategyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       strategyId: 'string',
     };
   }
@@ -2742,91 +2977,91 @@ export class DescribeDnsGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBody extends $tea.Model {
-  failoverMinAvailableAddrNum?: number;
-  defaultAddrPoolType?: string;
-  defaultAvailableAddrNum?: number;
-  strategyId?: string;
-  failoverAddrPoolGroupStatus?: string;
-  failoverAvailableAddrNum?: number;
-  failoverLbaStrategy?: string;
-  defaultMaxReturnAddrNum?: number;
-  strategyMode?: string;
-  createTimestamp?: number;
-  defaultLbaStrategy?: string;
-  defaultAddrPoolGroupStatus?: string;
-  failoverAddrPoolType?: string;
-  requestId?: string;
-  instanceId?: string;
-  failoverAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools;
-  defaultLatencyOptimization?: string;
-  effectiveAddrPoolGroupType?: string;
-  createTime?: string;
-  defaultAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools;
-  defaultMinAvailableAddrNum?: number;
-  failoverLatencyOptimization?: string;
-  strategyName?: string;
-  failoverMaxReturnAddrNum?: number;
   accessMode?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  defaultAddrPoolGroupStatus?: string;
+  defaultAddrPoolType?: string;
+  defaultAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools;
+  defaultAvailableAddrNum?: number;
+  defaultLatencyOptimization?: string;
+  defaultLbaStrategy?: string;
+  defaultMaxReturnAddrNum?: number;
+  defaultMinAvailableAddrNum?: number;
+  effectiveAddrPoolGroupType?: string;
+  failoverAddrPoolGroupStatus?: string;
+  failoverAddrPoolType?: string;
+  failoverAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools;
+  failoverAvailableAddrNum?: number;
+  failoverLatencyOptimization?: string;
+  failoverLbaStrategy?: string;
+  failoverMaxReturnAddrNum?: number;
+  failoverMinAvailableAddrNum?: number;
+  instanceId?: string;
   lines?: DescribeDnsGtmAccessStrategyResponseBodyLines;
+  requestId?: string;
+  strategyId?: string;
+  strategyMode?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
-      failoverMinAvailableAddrNum: 'FailoverMinAvailableAddrNum',
-      defaultAddrPoolType: 'DefaultAddrPoolType',
-      defaultAvailableAddrNum: 'DefaultAvailableAddrNum',
-      strategyId: 'StrategyId',
-      failoverAddrPoolGroupStatus: 'FailoverAddrPoolGroupStatus',
-      failoverAvailableAddrNum: 'FailoverAvailableAddrNum',
-      failoverLbaStrategy: 'FailoverLbaStrategy',
-      defaultMaxReturnAddrNum: 'DefaultMaxReturnAddrNum',
-      strategyMode: 'StrategyMode',
-      createTimestamp: 'CreateTimestamp',
-      defaultLbaStrategy: 'DefaultLbaStrategy',
-      defaultAddrPoolGroupStatus: 'DefaultAddrPoolGroupStatus',
-      failoverAddrPoolType: 'FailoverAddrPoolType',
-      requestId: 'RequestId',
-      instanceId: 'InstanceId',
-      failoverAddrPools: 'FailoverAddrPools',
-      defaultLatencyOptimization: 'DefaultLatencyOptimization',
-      effectiveAddrPoolGroupType: 'EffectiveAddrPoolGroupType',
-      createTime: 'CreateTime',
-      defaultAddrPools: 'DefaultAddrPools',
-      defaultMinAvailableAddrNum: 'DefaultMinAvailableAddrNum',
-      failoverLatencyOptimization: 'FailoverLatencyOptimization',
-      strategyName: 'StrategyName',
-      failoverMaxReturnAddrNum: 'FailoverMaxReturnAddrNum',
       accessMode: 'AccessMode',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      defaultAddrPoolGroupStatus: 'DefaultAddrPoolGroupStatus',
+      defaultAddrPoolType: 'DefaultAddrPoolType',
+      defaultAddrPools: 'DefaultAddrPools',
+      defaultAvailableAddrNum: 'DefaultAvailableAddrNum',
+      defaultLatencyOptimization: 'DefaultLatencyOptimization',
+      defaultLbaStrategy: 'DefaultLbaStrategy',
+      defaultMaxReturnAddrNum: 'DefaultMaxReturnAddrNum',
+      defaultMinAvailableAddrNum: 'DefaultMinAvailableAddrNum',
+      effectiveAddrPoolGroupType: 'EffectiveAddrPoolGroupType',
+      failoverAddrPoolGroupStatus: 'FailoverAddrPoolGroupStatus',
+      failoverAddrPoolType: 'FailoverAddrPoolType',
+      failoverAddrPools: 'FailoverAddrPools',
+      failoverAvailableAddrNum: 'FailoverAvailableAddrNum',
+      failoverLatencyOptimization: 'FailoverLatencyOptimization',
+      failoverLbaStrategy: 'FailoverLbaStrategy',
+      failoverMaxReturnAddrNum: 'FailoverMaxReturnAddrNum',
+      failoverMinAvailableAddrNum: 'FailoverMinAvailableAddrNum',
+      instanceId: 'InstanceId',
       lines: 'Lines',
+      requestId: 'RequestId',
+      strategyId: 'StrategyId',
+      strategyMode: 'StrategyMode',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failoverMinAvailableAddrNum: 'number',
-      defaultAddrPoolType: 'string',
-      defaultAvailableAddrNum: 'number',
-      strategyId: 'string',
-      failoverAddrPoolGroupStatus: 'string',
-      failoverAvailableAddrNum: 'number',
-      failoverLbaStrategy: 'string',
-      defaultMaxReturnAddrNum: 'number',
-      strategyMode: 'string',
-      createTimestamp: 'number',
-      defaultLbaStrategy: 'string',
-      defaultAddrPoolGroupStatus: 'string',
-      failoverAddrPoolType: 'string',
-      requestId: 'string',
-      instanceId: 'string',
-      failoverAddrPools: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools,
-      defaultLatencyOptimization: 'string',
-      effectiveAddrPoolGroupType: 'string',
-      createTime: 'string',
-      defaultAddrPools: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools,
-      defaultMinAvailableAddrNum: 'number',
-      failoverLatencyOptimization: 'string',
-      strategyName: 'string',
-      failoverMaxReturnAddrNum: 'number',
       accessMode: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      defaultAddrPoolGroupStatus: 'string',
+      defaultAddrPoolType: 'string',
+      defaultAddrPools: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools,
+      defaultAvailableAddrNum: 'number',
+      defaultLatencyOptimization: 'string',
+      defaultLbaStrategy: 'string',
+      defaultMaxReturnAddrNum: 'number',
+      defaultMinAvailableAddrNum: 'number',
+      effectiveAddrPoolGroupType: 'string',
+      failoverAddrPoolGroupStatus: 'string',
+      failoverAddrPoolType: 'string',
+      failoverAddrPools: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools,
+      failoverAvailableAddrNum: 'number',
+      failoverLatencyOptimization: 'string',
+      failoverLbaStrategy: 'string',
+      failoverMaxReturnAddrNum: 'number',
+      failoverMinAvailableAddrNum: 'number',
+      instanceId: 'string',
       lines: DescribeDnsGtmAccessStrategyResponseBodyLines,
+      requestId: 'string',
+      strategyId: 'string',
+      strategyMode: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -2837,10 +3072,12 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2848,6 +3085,7 @@ export class DescribeDnsGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmAccessStrategyResponseBody,
     };
   }
@@ -2858,24 +3096,21 @@ export class DescribeDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   strategyMode?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       strategyMode: 'StrategyMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
       strategyMode: 'string',
     };
   }
@@ -2886,40 +3121,40 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $tea.Mod
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $tea.Model {
-  selectedDomainLines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines;
   domainAddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools;
   ipv4AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools;
-  requestId?: string;
-  selectedIpv4Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines;
   ipv6AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools;
-  suggestSetDefaultLine?: boolean;
-  selectedIpv6Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines;
   lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines;
+  requestId?: string;
+  selectedDomainLines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines;
+  selectedIpv4Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines;
+  selectedIpv6Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines;
+  suggestSetDefaultLine?: boolean;
   static names(): { [key: string]: string } {
     return {
-      selectedDomainLines: 'SelectedDomainLines',
       domainAddrPools: 'DomainAddrPools',
       ipv4AddrPools: 'Ipv4AddrPools',
-      requestId: 'RequestId',
-      selectedIpv4Lines: 'SelectedIpv4Lines',
       ipv6AddrPools: 'Ipv6AddrPools',
-      suggestSetDefaultLine: 'SuggestSetDefaultLine',
-      selectedIpv6Lines: 'SelectedIpv6Lines',
       lines: 'Lines',
+      requestId: 'RequestId',
+      selectedDomainLines: 'SelectedDomainLines',
+      selectedIpv4Lines: 'SelectedIpv4Lines',
+      selectedIpv6Lines: 'SelectedIpv6Lines',
+      suggestSetDefaultLine: 'SuggestSetDefaultLine',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      selectedDomainLines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines,
       domainAddrPools: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools,
       ipv4AddrPools: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools,
-      requestId: 'string',
-      selectedIpv4Lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines,
       ipv6AddrPools: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools,
-      suggestSetDefaultLine: 'boolean',
-      selectedIpv6Lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines,
       lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines,
+      requestId: 'string',
+      selectedDomainLines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines,
+      selectedIpv4Lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines,
+      selectedIpv6Lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines,
+      suggestSetDefaultLine: 'boolean',
     };
   }
 
@@ -2930,10 +3165,12 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $te
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmAccessStrategyAvailableConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2941,6 +3178,7 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponse extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmAccessStrategyAvailableConfigResponseBody,
     };
   }
@@ -2951,25 +3189,22 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponse extends $tea.Mo
 }
 
 export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  type?: string;
   addrs?: string;
+  lang?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      type: 'Type',
       addrs: 'Addrs',
+      lang: 'Lang',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      type: 'string',
       addrs: 'string',
+      lang: 'string',
+      type: 'string',
     };
   }
 
@@ -2979,19 +3214,19 @@ export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAddrAttributeInfoResponseBody extends $tea.Model {
-  requestId?: string;
   addr?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddr;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       addr: 'Addr',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       addr: DescribeDnsGtmAddrAttributeInfoResponseBodyAddr,
+      requestId: 'string',
     };
   }
 
@@ -3002,10 +3237,12 @@ export class DescribeDnsGtmAddrAttributeInfoResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmAddrAttributeInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmAddrAttributeInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3013,6 +3250,7 @@ export class DescribeDnsGtmAddrAttributeInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmAddrAttributeInfoResponseBody,
     };
   }
@@ -3023,22 +3261,19 @@ export class DescribeDnsGtmAddrAttributeInfoResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAddressPoolAvailableConfigRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -3048,19 +3283,19 @@ export class DescribeDnsGtmAddressPoolAvailableConfigRequest extends $tea.Model 
 }
 
 export class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends $tea.Model {
-  requestId?: string;
   attributeInfos?: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       attributeInfos: 'AttributeInfos',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       attributeInfos: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos,
+      requestId: 'string',
     };
   }
 
@@ -3071,10 +3306,12 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends $tea.M
 
 export class DescribeDnsGtmAddressPoolAvailableConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmAddressPoolAvailableConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3082,6 +3319,7 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmAddressPoolAvailableConfigResponseBody,
     };
   }
@@ -3093,18 +3331,15 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponse extends $tea.Model
 
 export class DescribeDnsGtmAvailableAlertGroupRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
     };
   }
 
@@ -3114,19 +3349,19 @@ export class DescribeDnsGtmAvailableAlertGroupRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAvailableAlertGroupResponseBody extends $tea.Model {
-  requestId?: string;
   availableAlertGroup?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       availableAlertGroup: 'AvailableAlertGroup',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       availableAlertGroup: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3137,10 +3372,12 @@ export class DescribeDnsGtmAvailableAlertGroupResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmAvailableAlertGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmAvailableAlertGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3148,6 +3385,7 @@ export class DescribeDnsGtmAvailableAlertGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmAvailableAlertGroupResponseBody,
     };
   }
@@ -3158,22 +3396,19 @@ export class DescribeDnsGtmAvailableAlertGroupResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -3183,52 +3418,52 @@ export class DescribeDnsGtmInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceResponseBody extends $tea.Model {
-  expireTimestamp?: number;
-  requestId?: string;
-  resourceGroupId?: string;
-  instanceId?: string;
-  taskQuota?: number;
   config?: DescribeDnsGtmInstanceResponseBodyConfig;
   createTime?: string;
-  smsQuota?: number;
-  versionCode?: string;
-  paymentType?: string;
-  expireTime?: string;
   createTimestamp?: number;
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
+  paymentType?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  smsQuota?: number;
+  taskQuota?: number;
   usedQuota?: DescribeDnsGtmInstanceResponseBodyUsedQuota;
+  versionCode?: string;
   static names(): { [key: string]: string } {
     return {
-      expireTimestamp: 'ExpireTimestamp',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      instanceId: 'InstanceId',
-      taskQuota: 'TaskQuota',
       config: 'Config',
       createTime: 'CreateTime',
-      smsQuota: 'SmsQuota',
-      versionCode: 'VersionCode',
-      paymentType: 'PaymentType',
-      expireTime: 'ExpireTime',
       createTimestamp: 'CreateTimestamp',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      paymentType: 'PaymentType',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      smsQuota: 'SmsQuota',
+      taskQuota: 'TaskQuota',
       usedQuota: 'UsedQuota',
+      versionCode: 'VersionCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expireTimestamp: 'number',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      instanceId: 'string',
-      taskQuota: 'number',
       config: DescribeDnsGtmInstanceResponseBodyConfig,
       createTime: 'string',
-      smsQuota: 'number',
-      versionCode: 'string',
-      paymentType: 'string',
-      expireTime: 'string',
       createTimestamp: 'number',
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
+      paymentType: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      smsQuota: 'number',
+      taskQuota: 'number',
       usedQuota: DescribeDnsGtmInstanceResponseBodyUsedQuota,
+      versionCode: 'string',
     };
   }
 
@@ -3239,10 +3474,12 @@ export class DescribeDnsGtmInstanceResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3250,6 +3487,7 @@ export class DescribeDnsGtmInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmInstanceResponseBody,
     };
   }
@@ -3260,22 +3498,19 @@ export class DescribeDnsGtmInstanceResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   addrPoolId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       addrPoolId: 'AddrPoolId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       addrPoolId: 'string',
+      lang: 'string',
     };
   }
 
@@ -3285,52 +3520,52 @@ export class DescribeDnsGtmInstanceAddressPoolRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $tea.Model {
-  addrs?: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs;
-  requestId?: string;
-  lbaStrategy?: string;
-  createTime?: string;
   addrCount?: number;
-  name?: string;
-  type?: string;
-  updateTime?: string;
   addrPoolId?: string;
-  updateTimestamp?: number;
+  addrs?: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs;
+  createTime?: string;
+  createTimestamp?: number;
+  lbaStrategy?: string;
   monitorConfigId?: string;
   monitorStatus?: string;
-  createTimestamp?: number;
+  name?: string;
+  requestId?: string;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      addrs: 'Addrs',
-      requestId: 'RequestId',
-      lbaStrategy: 'LbaStrategy',
-      createTime: 'CreateTime',
       addrCount: 'AddrCount',
-      name: 'Name',
-      type: 'Type',
-      updateTime: 'UpdateTime',
       addrPoolId: 'AddrPoolId',
-      updateTimestamp: 'UpdateTimestamp',
+      addrs: 'Addrs',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      lbaStrategy: 'LbaStrategy',
       monitorConfigId: 'MonitorConfigId',
       monitorStatus: 'MonitorStatus',
-      createTimestamp: 'CreateTimestamp',
+      name: 'Name',
+      requestId: 'RequestId',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addrs: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs,
-      requestId: 'string',
-      lbaStrategy: 'string',
-      createTime: 'string',
       addrCount: 'number',
-      name: 'string',
-      type: 'string',
-      updateTime: 'string',
       addrPoolId: 'string',
-      updateTimestamp: 'number',
+      addrs: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs,
+      createTime: 'string',
+      createTimestamp: 'number',
+      lbaStrategy: 'string',
       monitorConfigId: 'string',
       monitorStatus: 'string',
-      createTimestamp: 'number',
+      name: 'string',
+      requestId: 'string',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
     };
   }
 
@@ -3341,10 +3576,12 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmInstanceAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmInstanceAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3352,6 +3589,7 @@ export class DescribeDnsGtmInstanceAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmInstanceAddressPoolResponseBody,
     };
   }
@@ -3362,16 +3600,14 @@ export class DescribeDnsGtmInstanceAddressPoolResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolsRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   instanceId?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -3379,9 +3615,8 @@ export class DescribeDnsGtmInstanceAddressPoolsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       instanceId: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -3393,31 +3628,31 @@ export class DescribeDnsGtmInstanceAddressPoolsRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $tea.Model {
+  addrPools?: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
   totalItems?: number;
-  addrPools?: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      addrPools: 'AddrPools',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
       totalItems: 'TotalItems',
-      addrPools: 'AddrPools',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addrPools: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
       totalItems: 'number',
-      addrPools: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools,
+      totalPages: 'number',
     };
   }
 
@@ -3428,10 +3663,12 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmInstanceAddressPoolsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmInstanceAddressPoolsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3439,6 +3676,7 @@ export class DescribeDnsGtmInstanceAddressPoolsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmInstanceAddressPoolsResponseBody,
     };
   }
@@ -3448,113 +3686,20 @@ export class DescribeDnsGtmInstanceAddressPoolsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDnsGtmInstancesRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  keyword?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      keyword: 'Keyword',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      keyword: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  gtmInstances?: DescribeDnsGtmInstancesResponseBodyGtmInstances[];
-  totalPages?: number;
-  totalItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      gtmInstances: 'GtmInstances',
-      totalPages: 'TotalPages',
-      totalItems: 'TotalItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      gtmInstances: { 'type': 'array', 'itemType': DescribeDnsGtmInstancesResponseBodyGtmInstances },
-      totalPages: 'number',
-      totalItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDnsGtmInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDnsGtmInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDnsGtmInstanceStatusRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -3564,31 +3709,31 @@ export class DescribeDnsGtmInstanceStatusRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceStatusResponseBody extends $tea.Model {
-  strategyNotAvailableNum?: number;
   addrAvailableNum?: number;
-  requestId?: string;
-  switchToFailoverStrategyNum?: number;
   addrNotAvailableNum?: number;
   addrPoolGroupNotAvailableNum?: number;
+  requestId?: string;
+  strategyNotAvailableNum?: number;
+  switchToFailoverStrategyNum?: number;
   static names(): { [key: string]: string } {
     return {
-      strategyNotAvailableNum: 'StrategyNotAvailableNum',
       addrAvailableNum: 'AddrAvailableNum',
-      requestId: 'RequestId',
-      switchToFailoverStrategyNum: 'SwitchToFailoverStrategyNum',
       addrNotAvailableNum: 'AddrNotAvailableNum',
       addrPoolGroupNotAvailableNum: 'AddrPoolGroupNotAvailableNum',
+      requestId: 'RequestId',
+      strategyNotAvailableNum: 'StrategyNotAvailableNum',
+      switchToFailoverStrategyNum: 'SwitchToFailoverStrategyNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      strategyNotAvailableNum: 'number',
       addrAvailableNum: 'number',
-      requestId: 'string',
-      switchToFailoverStrategyNum: 'number',
       addrNotAvailableNum: 'number',
       addrPoolGroupNotAvailableNum: 'number',
+      requestId: 'string',
+      strategyNotAvailableNum: 'number',
+      switchToFailoverStrategyNum: 'number',
     };
   }
 
@@ -3599,10 +3744,12 @@ export class DescribeDnsGtmInstanceStatusResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmInstanceStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmInstanceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3610,6 +3757,7 @@ export class DescribeDnsGtmInstanceStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmInstanceStatusResponseBody,
     };
   }
@@ -3620,22 +3768,19 @@ export class DescribeDnsGtmInstanceStatusResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceSystemCnameRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -3645,19 +3790,19 @@ export class DescribeDnsGtmInstanceSystemCnameRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceSystemCnameResponseBody extends $tea.Model {
-  systemCname?: string;
   requestId?: string;
+  systemCname?: string;
   static names(): { [key: string]: string } {
     return {
-      systemCname: 'SystemCname',
       requestId: 'RequestId',
+      systemCname: 'SystemCname',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      systemCname: 'string',
       requestId: 'string',
+      systemCname: 'string',
     };
   }
 
@@ -3668,10 +3813,12 @@ export class DescribeDnsGtmInstanceSystemCnameResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmInstanceSystemCnameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmInstanceSystemCnameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3679,6 +3826,7 @@ export class DescribeDnsGtmInstanceSystemCnameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmInstanceSystemCnameResponseBody,
     };
   }
@@ -3688,38 +3836,125 @@ export class DescribeDnsGtmInstanceSystemCnameResponse extends $tea.Model {
   }
 }
 
-export class DescribeDnsGtmLogsRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  instanceId?: string;
+export class DescribeDnsGtmInstancesRequest extends $tea.Model {
   keyword?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
-  startTimestamp?: number;
-  endTimestamp?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      instanceId: 'InstanceId',
       keyword: 'Keyword',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      startTimestamp: 'StartTimestamp',
-      endTimestamp: 'EndTimestamp',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      keyword: 'string',
       lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
+  gtmInstances?: DescribeDnsGtmInstancesResponseBodyGtmInstances[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gtmInstances: 'GtmInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gtmInstances: { 'type': 'array', 'itemType': DescribeDnsGtmInstancesResponseBodyGtmInstances },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDnsGtmInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDnsGtmInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmLogsRequest extends $tea.Model {
+  endTimestamp?: number;
+  instanceId?: string;
+  keyword?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTimestamp: 'EndTimestamp',
+      instanceId: 'InstanceId',
+      keyword: 'Keyword',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTimestamp: 'StartTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTimestamp: 'number',
       instanceId: 'string',
       keyword: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startTimestamp: 'number',
-      endTimestamp: 'number',
     };
   }
 
@@ -3729,31 +3964,31 @@ export class DescribeDnsGtmLogsRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmLogsResponseBody extends $tea.Model {
+  logs?: DescribeDnsGtmLogsResponseBodyLogs;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  logs?: DescribeDnsGtmLogsResponseBodyLogs;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      logs: 'Logs',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      logs: 'Logs',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      logs: DescribeDnsGtmLogsResponseBodyLogs,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      logs: DescribeDnsGtmLogsResponseBodyLogs,
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -3764,10 +3999,12 @@ export class DescribeDnsGtmLogsResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3775,6 +4012,7 @@ export class DescribeDnsGtmLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmLogsResponseBody,
     };
   }
@@ -3785,18 +4023,15 @@ export class DescribeDnsGtmLogsResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
     };
   }
@@ -3807,28 +4042,28 @@ export class DescribeDnsGtmMonitorAvailableConfigRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBody extends $tea.Model {
-  ipv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes;
   domainIpv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes;
-  requestId?: string;
   domainIpv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes;
+  ipv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes;
   ipv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      ipv4IspCityNodes: 'Ipv4IspCityNodes',
       domainIpv4IspCityNodes: 'DomainIpv4IspCityNodes',
-      requestId: 'RequestId',
       domainIpv6IspCityNodes: 'DomainIpv6IspCityNodes',
+      ipv4IspCityNodes: 'Ipv4IspCityNodes',
       ipv6IspCityNodes: 'Ipv6IspCityNodes',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ipv4IspCityNodes: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes,
       domainIpv4IspCityNodes: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes,
-      requestId: 'string',
       domainIpv6IspCityNodes: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes,
+      ipv4IspCityNodes: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes,
       ipv6IspCityNodes: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes,
+      requestId: 'string',
     };
   }
 
@@ -3839,10 +4074,12 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBody extends $tea.Model
 
 export class DescribeDnsGtmMonitorAvailableConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmMonitorAvailableConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3850,6 +4087,7 @@ export class DescribeDnsGtmMonitorAvailableConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmMonitorAvailableConfigResponseBody,
     };
   }
@@ -3860,12 +4098,10 @@ export class DescribeDnsGtmMonitorAvailableConfigResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorConfigRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   monitorConfigId?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       monitorConfigId: 'MonitorConfigId',
     };
@@ -3873,7 +4109,6 @@ export class DescribeDnsGtmMonitorConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       monitorConfigId: 'string',
     };
@@ -3885,49 +4120,49 @@ export class DescribeDnsGtmMonitorConfigRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  evaluationCount?: number;
+  interval?: number;
+  ispCityNodes?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes;
+  monitorConfigId?: string;
+  monitorExtendInfo?: string;
+  protocolType?: string;
   requestId?: string;
   timeout?: number;
-  protocolType?: string;
-  ispCityNodes?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes;
-  createTime?: string;
   updateTime?: string;
-  evaluationCount?: number;
   updateTimestamp?: number;
-  monitorExtendInfo?: string;
-  monitorConfigId?: string;
-  createTimestamp?: number;
-  interval?: number;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      evaluationCount: 'EvaluationCount',
+      interval: 'Interval',
+      ispCityNodes: 'IspCityNodes',
+      monitorConfigId: 'MonitorConfigId',
+      monitorExtendInfo: 'MonitorExtendInfo',
+      protocolType: 'ProtocolType',
       requestId: 'RequestId',
       timeout: 'Timeout',
-      protocolType: 'ProtocolType',
-      ispCityNodes: 'IspCityNodes',
-      createTime: 'CreateTime',
       updateTime: 'UpdateTime',
-      evaluationCount: 'EvaluationCount',
       updateTimestamp: 'UpdateTimestamp',
-      monitorExtendInfo: 'MonitorExtendInfo',
-      monitorConfigId: 'MonitorConfigId',
-      createTimestamp: 'CreateTimestamp',
-      interval: 'Interval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      evaluationCount: 'number',
+      interval: 'number',
+      ispCityNodes: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes,
+      monitorConfigId: 'string',
+      monitorExtendInfo: 'string',
+      protocolType: 'string',
       requestId: 'string',
       timeout: 'number',
-      protocolType: 'string',
-      ispCityNodes: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes,
-      createTime: 'string',
       updateTime: 'string',
-      evaluationCount: 'number',
       updateTimestamp: 'number',
-      monitorExtendInfo: 'string',
-      monitorConfigId: 'string',
-      createTimestamp: 'number',
-      interval: 'number',
     };
   }
 
@@ -3938,10 +4173,12 @@ export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
 
 export class DescribeDnsGtmMonitorConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsGtmMonitorConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3949,6 +4186,7 @@ export class DescribeDnsGtmMonitorConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsGtmMonitorConfigResponseBody,
     };
   }
@@ -3959,22 +4197,22 @@ export class DescribeDnsGtmMonitorConfigResponse extends $tea.Model {
 }
 
 export class DescribeDnsProductInstanceRequest extends $tea.Model {
+  instanceId?: string;
   lang?: string;
   userClientIp?: string;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       lang: 'string',
       userClientIp: 'string',
-      instanceId: 'string',
     };
   }
 
@@ -3984,118 +4222,118 @@ export class DescribeDnsProductInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
-  monitorNodeCount?: number;
-  inBlackHole?: boolean;
-  bindDomainCount?: number;
-  regionLines?: boolean;
   bindCount?: number;
-  endTime?: string;
-  startTimestamp?: number;
-  ISPLines?: string;
-  endTimestamp?: number;
-  dnsServers?: DescribeDnsProductInstanceResponseBodyDnsServers;
-  DDosDefendQuery?: number;
-  dnsSecurity?: string;
-  domainType?: string;
-  URLForwardCount?: number;
-  TTLMinValue?: number;
-  paymentType?: string;
-  versionName?: string;
-  overseaLine?: string;
-  ISPRegionLines?: string;
-  gslb?: boolean;
-  bindUsedCount?: number;
-  requestId?: string;
-  dnsSLBCount?: number;
-  instanceId?: string;
-  monitorTaskCount?: number;
-  startTime?: string;
-  DDosDefendFlow?: number;
-  monitorFrequency?: number;
-  searchEngineLines?: string;
+  bindDomainCount?: number;
   bindDomainUsedCount?: number;
-  versionCode?: string;
-  overseaDDosDefendFlow?: number;
-  inClean?: boolean;
-  subDomainLevel?: number;
+  bindUsedCount?: number;
+  DDosDefendFlow?: number;
+  DDosDefendQuery?: number;
+  dnsSLBCount?: number;
+  dnsSecurity?: string;
+  dnsServers?: DescribeDnsProductInstanceResponseBodyDnsServers;
   domain?: string;
+  domainType?: string;
+  endTime?: string;
+  endTimestamp?: number;
+  gslb?: boolean;
+  ISPLines?: string;
+  ISPRegionLines?: string;
+  inBlackHole?: boolean;
+  inClean?: boolean;
+  instanceId?: string;
+  monitorFrequency?: number;
+  monitorNodeCount?: number;
+  monitorTaskCount?: number;
+  overseaDDosDefendFlow?: number;
+  overseaLine?: string;
+  paymentType?: string;
+  regionLines?: boolean;
+  requestId?: string;
+  searchEngineLines?: string;
+  startTime?: string;
+  startTimestamp?: number;
+  subDomainLevel?: number;
+  TTLMinValue?: number;
+  URLForwardCount?: number;
+  versionCode?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      monitorNodeCount: 'MonitorNodeCount',
-      inBlackHole: 'InBlackHole',
-      bindDomainCount: 'BindDomainCount',
-      regionLines: 'RegionLines',
       bindCount: 'BindCount',
-      endTime: 'EndTime',
-      startTimestamp: 'StartTimestamp',
-      ISPLines: 'ISPLines',
-      endTimestamp: 'EndTimestamp',
-      dnsServers: 'DnsServers',
-      DDosDefendQuery: 'DDosDefendQuery',
-      dnsSecurity: 'DnsSecurity',
-      domainType: 'DomainType',
-      URLForwardCount: 'URLForwardCount',
-      TTLMinValue: 'TTLMinValue',
-      paymentType: 'PaymentType',
-      versionName: 'VersionName',
-      overseaLine: 'OverseaLine',
-      ISPRegionLines: 'ISPRegionLines',
-      gslb: 'Gslb',
-      bindUsedCount: 'BindUsedCount',
-      requestId: 'RequestId',
-      dnsSLBCount: 'DnsSLBCount',
-      instanceId: 'InstanceId',
-      monitorTaskCount: 'MonitorTaskCount',
-      startTime: 'StartTime',
-      DDosDefendFlow: 'DDosDefendFlow',
-      monitorFrequency: 'MonitorFrequency',
-      searchEngineLines: 'SearchEngineLines',
+      bindDomainCount: 'BindDomainCount',
       bindDomainUsedCount: 'BindDomainUsedCount',
-      versionCode: 'VersionCode',
-      overseaDDosDefendFlow: 'OverseaDDosDefendFlow',
-      inClean: 'InClean',
-      subDomainLevel: 'SubDomainLevel',
+      bindUsedCount: 'BindUsedCount',
+      DDosDefendFlow: 'DDosDefendFlow',
+      DDosDefendQuery: 'DDosDefendQuery',
+      dnsSLBCount: 'DnsSLBCount',
+      dnsSecurity: 'DnsSecurity',
+      dnsServers: 'DnsServers',
       domain: 'Domain',
+      domainType: 'DomainType',
+      endTime: 'EndTime',
+      endTimestamp: 'EndTimestamp',
+      gslb: 'Gslb',
+      ISPLines: 'ISPLines',
+      ISPRegionLines: 'ISPRegionLines',
+      inBlackHole: 'InBlackHole',
+      inClean: 'InClean',
+      instanceId: 'InstanceId',
+      monitorFrequency: 'MonitorFrequency',
+      monitorNodeCount: 'MonitorNodeCount',
+      monitorTaskCount: 'MonitorTaskCount',
+      overseaDDosDefendFlow: 'OverseaDDosDefendFlow',
+      overseaLine: 'OverseaLine',
+      paymentType: 'PaymentType',
+      regionLines: 'RegionLines',
+      requestId: 'RequestId',
+      searchEngineLines: 'SearchEngineLines',
+      startTime: 'StartTime',
+      startTimestamp: 'StartTimestamp',
+      subDomainLevel: 'SubDomainLevel',
+      TTLMinValue: 'TTLMinValue',
+      URLForwardCount: 'URLForwardCount',
+      versionCode: 'VersionCode',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      monitorNodeCount: 'number',
-      inBlackHole: 'boolean',
-      bindDomainCount: 'number',
-      regionLines: 'boolean',
       bindCount: 'number',
-      endTime: 'string',
-      startTimestamp: 'number',
-      ISPLines: 'string',
-      endTimestamp: 'number',
-      dnsServers: DescribeDnsProductInstanceResponseBodyDnsServers,
-      DDosDefendQuery: 'number',
-      dnsSecurity: 'string',
-      domainType: 'string',
-      URLForwardCount: 'number',
-      TTLMinValue: 'number',
-      paymentType: 'string',
-      versionName: 'string',
-      overseaLine: 'string',
-      ISPRegionLines: 'string',
-      gslb: 'boolean',
-      bindUsedCount: 'number',
-      requestId: 'string',
-      dnsSLBCount: 'number',
-      instanceId: 'string',
-      monitorTaskCount: 'number',
-      startTime: 'string',
-      DDosDefendFlow: 'number',
-      monitorFrequency: 'number',
-      searchEngineLines: 'string',
+      bindDomainCount: 'number',
       bindDomainUsedCount: 'number',
-      versionCode: 'string',
-      overseaDDosDefendFlow: 'number',
-      inClean: 'boolean',
-      subDomainLevel: 'number',
+      bindUsedCount: 'number',
+      DDosDefendFlow: 'number',
+      DDosDefendQuery: 'number',
+      dnsSLBCount: 'number',
+      dnsSecurity: 'string',
+      dnsServers: DescribeDnsProductInstanceResponseBodyDnsServers,
       domain: 'string',
+      domainType: 'string',
+      endTime: 'string',
+      endTimestamp: 'number',
+      gslb: 'boolean',
+      ISPLines: 'string',
+      ISPRegionLines: 'string',
+      inBlackHole: 'boolean',
+      inClean: 'boolean',
+      instanceId: 'string',
+      monitorFrequency: 'number',
+      monitorNodeCount: 'number',
+      monitorTaskCount: 'number',
+      overseaDDosDefendFlow: 'number',
+      overseaLine: 'string',
+      paymentType: 'string',
+      regionLines: 'boolean',
+      requestId: 'string',
+      searchEngineLines: 'string',
+      startTime: 'string',
+      startTimestamp: 'number',
+      subDomainLevel: 'number',
+      TTLMinValue: 'number',
+      URLForwardCount: 'number',
+      versionCode: 'string',
+      versionName: 'string',
     };
   }
 
@@ -4106,10 +4344,12 @@ export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
 
 export class DescribeDnsProductInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsProductInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4117,6 +4357,7 @@ export class DescribeDnsProductInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsProductInstanceResponseBody,
     };
   }
@@ -4127,31 +4368,31 @@ export class DescribeDnsProductInstanceResponse extends $tea.Model {
 }
 
 export class DescribeDnsProductInstancesRequest extends $tea.Model {
+  domainType?: string;
   lang?: string;
-  userClientIp?: string;
   pageNumber?: number;
   pageSize?: number;
+  userClientIp?: string;
   versionCode?: string;
-  domainType?: string;
   static names(): { [key: string]: string } {
     return {
+      domainType: 'DomainType',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      userClientIp: 'UserClientIp',
       versionCode: 'VersionCode',
-      domainType: 'DomainType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainType: 'string',
       lang: 'string',
-      userClientIp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      userClientIp: 'string',
       versionCode: 'string',
-      domainType: 'string',
     };
   }
 
@@ -4161,31 +4402,31 @@ export class DescribeDnsProductInstancesRequest extends $tea.Model {
 }
 
 export class DescribeDnsProductInstancesResponseBody extends $tea.Model {
-  totalCount?: number;
+  dnsProducts?: DescribeDnsProductInstancesResponseBodyDnsProducts;
   domainType?: string;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  dnsProducts?: DescribeDnsProductInstancesResponseBodyDnsProducts;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      dnsProducts: 'DnsProducts',
       domainType: 'DomainType',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      dnsProducts: 'DnsProducts',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      dnsProducts: DescribeDnsProductInstancesResponseBodyDnsProducts,
       domainType: 'string',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      dnsProducts: DescribeDnsProductInstancesResponseBodyDnsProducts,
+      totalCount: 'number',
     };
   }
 
@@ -4196,10 +4437,12 @@ export class DescribeDnsProductInstancesResponseBody extends $tea.Model {
 
 export class DescribeDnsProductInstancesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDnsProductInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4207,6 +4450,7 @@ export class DescribeDnsProductInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDnsProductInstancesResponseBody,
     };
   }
@@ -4216,110 +4460,23 @@ export class DescribeDnsProductInstancesResponse extends $tea.Model {
   }
 }
 
-export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  domainName?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  rr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      rr: 'Rr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-      domainName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      rr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDNSSLBSubDomainsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  slbSubDomains?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      slbSubDomains: 'SlbSubDomains',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      slbSubDomains: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDNSSLBSubDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDNSSLBSubDomainsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDNSSLBSubDomainsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDohAccountStatisticsRequest extends $tea.Model {
+  endDate?: string;
   lang?: string;
   startDate?: string;
-  endDate?: string;
   static names(): { [key: string]: string } {
     return {
+      endDate: 'EndDate',
       lang: 'Lang',
       startDate: 'StartDate',
-      endDate: 'EndDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endDate: 'string',
       lang: 'string',
       startDate: 'string',
-      endDate: 'string',
     };
   }
 
@@ -4352,10 +4509,12 @@ export class DescribeDohAccountStatisticsResponseBody extends $tea.Model {
 
 export class DescribeDohAccountStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDohAccountStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4363,6 +4522,7 @@ export class DescribeDohAccountStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDohAccountStatisticsResponseBody,
     };
   }
@@ -4373,25 +4533,25 @@ export class DescribeDohAccountStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsRequest extends $tea.Model {
-  lang?: string;
   domainName?: string;
-  startDate?: string;
   endDate?: string;
+  lang?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       domainName: 'DomainName',
-      startDate: 'StartDate',
       endDate: 'EndDate',
+      lang: 'Lang',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       domainName: 'string',
-      startDate: 'string',
       endDate: 'string',
+      lang: 'string',
+      startDate: 'string',
     };
   }
 
@@ -4424,10 +4584,12 @@ export class DescribeDohDomainStatisticsResponseBody extends $tea.Model {
 
 export class DescribeDohDomainStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDohDomainStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4435,6 +4597,7 @@ export class DescribeDohDomainStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDohDomainStatisticsResponseBody,
     };
   }
@@ -4445,37 +4608,31 @@ export class DescribeDohDomainStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsSummaryRequest extends $tea.Model {
+  domainName?: string;
+  endDate?: string;
   lang?: string;
   pageNumber?: number;
   pageSize?: number;
   startDate?: string;
-  endDate?: string;
-  orderBy?: string;
-  direction?: string;
-  domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
+      endDate: 'EndDate',
       lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       startDate: 'StartDate',
-      endDate: 'EndDate',
-      orderBy: 'OrderBy',
-      direction: 'Direction',
-      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
+      endDate: 'string',
       lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startDate: 'string',
-      endDate: 'string',
-      orderBy: 'string',
-      direction: 'string',
-      domainName: 'string',
     };
   }
 
@@ -4485,31 +4642,31 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsSummaryResponseBody extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  totalItems?: number;
   statistics?: DescribeDohDomainStatisticsSummaryResponseBodyStatistics[];
+  totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      totalItems: 'TotalItems',
       statistics: 'Statistics',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      totalItems: 'number',
       statistics: { 'type': 'array', 'itemType': DescribeDohDomainStatisticsSummaryResponseBodyStatistics },
+      totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -4520,10 +4677,12 @@ export class DescribeDohDomainStatisticsSummaryResponseBody extends $tea.Model {
 
 export class DescribeDohDomainStatisticsSummaryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDohDomainStatisticsSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4531,6 +4690,7 @@ export class DescribeDohDomainStatisticsSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDohDomainStatisticsSummaryResponseBody,
     };
   }
@@ -4541,25 +4701,25 @@ export class DescribeDohDomainStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsRequest extends $tea.Model {
-  lang?: string;
-  subDomain?: string;
-  startDate?: string;
   endDate?: string;
+  lang?: string;
+  startDate?: string;
+  subDomain?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      subDomain: 'SubDomain',
-      startDate: 'StartDate',
       endDate: 'EndDate',
+      lang: 'Lang',
+      startDate: 'StartDate',
+      subDomain: 'SubDomain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      subDomain: 'string',
-      startDate: 'string',
       endDate: 'string',
+      lang: 'string',
+      startDate: 'string',
+      subDomain: 'string',
     };
   }
 
@@ -4592,10 +4752,12 @@ export class DescribeDohSubDomainStatisticsResponseBody extends $tea.Model {
 
 export class DescribeDohSubDomainStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDohSubDomainStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4603,6 +4765,7 @@ export class DescribeDohSubDomainStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDohSubDomainStatisticsResponseBody,
     };
   }
@@ -4613,40 +4776,34 @@ export class DescribeDohSubDomainStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsSummaryRequest extends $tea.Model {
+  domainName?: string;
+  endDate?: string;
   lang?: string;
   pageNumber?: number;
   pageSize?: number;
   startDate?: string;
-  endDate?: string;
-  orderBy?: string;
-  direction?: string;
   subDomain?: string;
-  domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
+      endDate: 'EndDate',
       lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       startDate: 'StartDate',
-      endDate: 'EndDate',
-      orderBy: 'OrderBy',
-      direction: 'Direction',
       subDomain: 'SubDomain',
-      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
+      endDate: 'string',
       lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startDate: 'string',
-      endDate: 'string',
-      orderBy: 'string',
-      direction: 'string',
       subDomain: 'string',
-      domainName: 'string',
     };
   }
 
@@ -4656,31 +4813,31 @@ export class DescribeDohSubDomainStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  totalItems?: number;
   statistics?: DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics[];
+  totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      totalItems: 'TotalItems',
       statistics: 'Statistics',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      totalItems: 'number',
       statistics: { 'type': 'array', 'itemType': DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics },
+      totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -4691,10 +4848,12 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $tea.Mode
 
 export class DescribeDohSubDomainStatisticsSummaryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDohSubDomainStatisticsSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4702,6 +4861,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDohSubDomainStatisticsSummaryResponseBody,
     };
   }
@@ -4712,22 +4872,22 @@ export class DescribeDohSubDomainStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeDohUserInfoRequest extends $tea.Model {
+  endDate?: string;
   lang?: string;
   startDate?: string;
-  endDate?: string;
   static names(): { [key: string]: string } {
     return {
+      endDate: 'EndDate',
       lang: 'Lang',
       startDate: 'StartDate',
-      endDate: 'EndDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endDate: 'string',
       lang: 'string',
       startDate: 'string',
-      endDate: 'string',
     };
   }
 
@@ -4737,25 +4897,25 @@ export class DescribeDohUserInfoRequest extends $tea.Model {
 }
 
 export class DescribeDohUserInfoResponseBody extends $tea.Model {
+  domainCount?: number;
+  pdnsId?: number;
   requestId?: string;
   subDomainCount?: number;
-  pdnsId?: number;
-  domainCount?: number;
   static names(): { [key: string]: string } {
     return {
+      domainCount: 'DomainCount',
+      pdnsId: 'PdnsId',
       requestId: 'RequestId',
       subDomainCount: 'SubDomainCount',
-      pdnsId: 'PdnsId',
-      domainCount: 'DomainCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainCount: 'number',
+      pdnsId: 'number',
       requestId: 'string',
       subDomainCount: 'number',
-      pdnsId: 'number',
-      domainCount: 'number',
     };
   }
 
@@ -4766,10 +4926,12 @@ export class DescribeDohUserInfoResponseBody extends $tea.Model {
 
 export class DescribeDohUserInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDohUserInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4777,6 +4939,7 @@ export class DescribeDohUserInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDohUserInfoResponseBody,
     };
   }
@@ -4787,22 +4950,19 @@ export class DescribeDohUserInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainDnssecInfoRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
     };
   }
 
@@ -4812,43 +4972,43 @@ export class DescribeDomainDnssecInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainDnssecInfoResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
-  digest?: string;
-  domainName?: string;
-  publicKey?: string;
-  digestType?: string;
-  dsRecord?: string;
-  keyTag?: string;
-  flags?: string;
   algorithm?: string;
+  digest?: string;
+  digestType?: string;
+  domainName?: string;
+  dsRecord?: string;
+  flags?: string;
+  keyTag?: string;
+  publicKey?: string;
+  requestId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      requestId: 'RequestId',
-      digest: 'Digest',
-      domainName: 'DomainName',
-      publicKey: 'PublicKey',
-      digestType: 'DigestType',
-      dsRecord: 'DsRecord',
-      keyTag: 'KeyTag',
-      flags: 'Flags',
       algorithm: 'Algorithm',
+      digest: 'Digest',
+      digestType: 'DigestType',
+      domainName: 'DomainName',
+      dsRecord: 'DsRecord',
+      flags: 'Flags',
+      keyTag: 'KeyTag',
+      publicKey: 'PublicKey',
+      requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      requestId: 'string',
-      digest: 'string',
-      domainName: 'string',
-      publicKey: 'string',
-      digestType: 'string',
-      dsRecord: 'string',
-      keyTag: 'string',
-      flags: 'string',
       algorithm: 'string',
+      digest: 'string',
+      digestType: 'string',
+      domainName: 'string',
+      dsRecord: 'string',
+      flags: 'string',
+      keyTag: 'string',
+      publicKey: 'string',
+      requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -4859,10 +5019,12 @@ export class DescribeDomainDnssecInfoResponseBody extends $tea.Model {
 
 export class DescribeDomainDnssecInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainDnssecInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4870,6 +5032,7 @@ export class DescribeDomainDnssecInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainDnssecInfoResponseBody,
     };
   }
@@ -4880,16 +5043,14 @@ export class DescribeDomainDnssecInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainGroupsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   keyWord?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       keyWord: 'KeyWord',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -4897,9 +5058,8 @@ export class DescribeDomainGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       keyWord: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -4912,27 +5072,27 @@ export class DescribeDomainGroupsRequest extends $tea.Model {
 
 export class DescribeDomainGroupsResponseBody extends $tea.Model {
   domainGroups?: DescribeDomainGroupsResponseBodyDomainGroups;
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       domainGroups: 'DomainGroups',
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainGroups: DescribeDomainGroupsResponseBodyDomainGroups,
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -4943,10 +5103,12 @@ export class DescribeDomainGroupsResponseBody extends $tea.Model {
 
 export class DescribeDomainGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4954,6 +5116,7 @@ export class DescribeDomainGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainGroupsResponseBody,
     };
   }
@@ -4964,24 +5127,21 @@ export class DescribeDomainGroupsResponse extends $tea.Model {
 }
 
 export class DescribeDomainInfoRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   needDetailAttributes?: boolean;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
       needDetailAttributes: 'NeedDetailAttributes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
       needDetailAttributes: 'boolean',
     };
   }
@@ -4992,82 +5152,82 @@ export class DescribeDomainInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainInfoResponseBody extends $tea.Model {
-  recordLineTreeJson?: string;
+  aliDomain?: boolean;
+  availableTtls?: DescribeDomainInfoResponseBodyAvailableTtls;
+  createTime?: string;
+  dnsServers?: DescribeDomainInfoResponseBodyDnsServers;
+  domainId?: string;
+  domainName?: string;
+  groupId?: string;
   groupName?: string;
   inBlackHole?: boolean;
+  inClean?: boolean;
+  instanceId?: string;
+  lineType?: string;
+  minTtl?: number;
+  punyCode?: string;
+  recordLineTreeJson?: string;
+  recordLines?: DescribeDomainInfoResponseBodyRecordLines;
   regionLines?: boolean;
-  slaveDns?: boolean;
-  aliDomain?: boolean;
+  remark?: string;
   requestId?: string;
   resourceGroupId?: string;
-  instanceId?: string;
-  domainName?: string;
-  createTime?: string;
-  punyCode?: string;
-  dnsServers?: DescribeDomainInfoResponseBodyDnsServers;
-  remark?: string;
-  groupId?: string;
+  slaveDns?: boolean;
   versionCode?: string;
-  recordLines?: DescribeDomainInfoResponseBodyRecordLines;
-  domainId?: string;
-  availableTtls?: DescribeDomainInfoResponseBodyAvailableTtls;
-  minTtl?: number;
-  inClean?: boolean;
   versionName?: string;
-  lineType?: string;
   static names(): { [key: string]: string } {
     return {
-      recordLineTreeJson: 'RecordLineTreeJson',
+      aliDomain: 'AliDomain',
+      availableTtls: 'AvailableTtls',
+      createTime: 'CreateTime',
+      dnsServers: 'DnsServers',
+      domainId: 'DomainId',
+      domainName: 'DomainName',
+      groupId: 'GroupId',
       groupName: 'GroupName',
       inBlackHole: 'InBlackHole',
+      inClean: 'InClean',
+      instanceId: 'InstanceId',
+      lineType: 'LineType',
+      minTtl: 'MinTtl',
+      punyCode: 'PunyCode',
+      recordLineTreeJson: 'RecordLineTreeJson',
+      recordLines: 'RecordLines',
       regionLines: 'RegionLines',
-      slaveDns: 'SlaveDns',
-      aliDomain: 'AliDomain',
+      remark: 'Remark',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
-      instanceId: 'InstanceId',
-      domainName: 'DomainName',
-      createTime: 'CreateTime',
-      punyCode: 'PunyCode',
-      dnsServers: 'DnsServers',
-      remark: 'Remark',
-      groupId: 'GroupId',
+      slaveDns: 'SlaveDns',
       versionCode: 'VersionCode',
-      recordLines: 'RecordLines',
-      domainId: 'DomainId',
-      availableTtls: 'AvailableTtls',
-      minTtl: 'MinTtl',
-      inClean: 'InClean',
       versionName: 'VersionName',
-      lineType: 'LineType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      recordLineTreeJson: 'string',
+      aliDomain: 'boolean',
+      availableTtls: DescribeDomainInfoResponseBodyAvailableTtls,
+      createTime: 'string',
+      dnsServers: DescribeDomainInfoResponseBodyDnsServers,
+      domainId: 'string',
+      domainName: 'string',
+      groupId: 'string',
       groupName: 'string',
       inBlackHole: 'boolean',
+      inClean: 'boolean',
+      instanceId: 'string',
+      lineType: 'string',
+      minTtl: 'number',
+      punyCode: 'string',
+      recordLineTreeJson: 'string',
+      recordLines: DescribeDomainInfoResponseBodyRecordLines,
       regionLines: 'boolean',
-      slaveDns: 'boolean',
-      aliDomain: 'boolean',
+      remark: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
-      instanceId: 'string',
-      domainName: 'string',
-      createTime: 'string',
-      punyCode: 'string',
-      dnsServers: DescribeDomainInfoResponseBodyDnsServers,
-      remark: 'string',
-      groupId: 'string',
+      slaveDns: 'boolean',
       versionCode: 'string',
-      recordLines: DescribeDomainInfoResponseBodyRecordLines,
-      domainId: 'string',
-      availableTtls: DescribeDomainInfoResponseBodyAvailableTtls,
-      minTtl: 'number',
-      inClean: 'boolean',
       versionName: 'string',
-      lineType: 'string',
     };
   }
 
@@ -5078,10 +5238,12 @@ export class DescribeDomainInfoResponseBody extends $tea.Model {
 
 export class DescribeDomainInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5089,6 +5251,7 @@ export class DescribeDomainInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainInfoResponseBody,
     };
   }
@@ -5099,40 +5262,37 @@ export class DescribeDomainInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainLogsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  keyWord?: string;
   groupId?: string;
+  keyWord?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   startDate?: string;
-  endDate?: string;
   type?: string;
+  endDate?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      keyWord: 'KeyWord',
       groupId: 'GroupId',
+      keyWord: 'KeyWord',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       startDate: 'StartDate',
-      endDate: 'endDate',
       type: 'Type',
+      endDate: 'endDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      keyWord: 'string',
       groupId: 'string',
+      keyWord: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startDate: 'string',
-      endDate: 'string',
       type: 'string',
+      endDate: 'string',
     };
   }
 
@@ -5142,28 +5302,28 @@ export class DescribeDomainLogsRequest extends $tea.Model {
 }
 
 export class DescribeDomainLogsResponseBody extends $tea.Model {
-  totalCount?: number;
+  domainLogs?: DescribeDomainLogsResponseBodyDomainLogs;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  domainLogs?: DescribeDomainLogsResponseBodyDomainLogs;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      domainLogs: 'DomainLogs',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      domainLogs: 'DomainLogs',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      domainLogs: DescribeDomainLogsResponseBodyDomainLogs,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      domainLogs: DescribeDomainLogsResponseBodyDomainLogs,
+      totalCount: 'number',
     };
   }
 
@@ -5174,10 +5334,12 @@ export class DescribeDomainLogsResponseBody extends $tea.Model {
 
 export class DescribeDomainLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5185,6 +5347,7 @@ export class DescribeDomainLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainLogsResponseBody,
     };
   }
@@ -5195,25 +5358,19 @@ export class DescribeDomainLogsResponse extends $tea.Model {
 }
 
 export class DescribeDomainNsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
-  domainType?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
-      domainType: 'DomainType',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
-      domainType: 'string',
+      lang: 'string',
     };
   }
 
@@ -5224,27 +5381,27 @@ export class DescribeDomainNsRequest extends $tea.Model {
 
 export class DescribeDomainNsResponseBody extends $tea.Model {
   allAliDns?: boolean;
-  requestId?: string;
-  expectDnsServers?: DescribeDomainNsResponseBodyExpectDnsServers;
   dnsServers?: DescribeDomainNsResponseBodyDnsServers;
+  expectDnsServers?: DescribeDomainNsResponseBodyExpectDnsServers;
   includeAliDns?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       allAliDns: 'AllAliDns',
-      requestId: 'RequestId',
-      expectDnsServers: 'ExpectDnsServers',
       dnsServers: 'DnsServers',
+      expectDnsServers: 'ExpectDnsServers',
       includeAliDns: 'IncludeAliDns',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allAliDns: 'boolean',
-      requestId: 'string',
-      expectDnsServers: DescribeDomainNsResponseBodyExpectDnsServers,
       dnsServers: DescribeDomainNsResponseBodyDnsServers,
+      expectDnsServers: DescribeDomainNsResponseBodyExpectDnsServers,
       includeAliDns: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -5255,10 +5412,12 @@ export class DescribeDomainNsResponseBody extends $tea.Model {
 
 export class DescribeDomainNsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainNsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5266,6 +5425,7 @@ export class DescribeDomainNsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainNsResponseBody,
     };
   }
@@ -5277,21 +5437,21 @@ export class DescribeDomainNsResponse extends $tea.Model {
 
 export class DescribeDomainRecordInfoRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recordId?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recordId: 'RecordId',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recordId: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -5301,58 +5461,58 @@ export class DescribeDomainRecordInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainRecordInfoResponseBody extends $tea.Model {
-  status?: string;
-  RR?: string;
-  groupName?: string;
-  requestId?: string;
+  domainId?: string;
   domainName?: string;
-  priority?: number;
-  punyCode?: string;
-  TTL?: number;
   groupId?: string;
+  groupName?: string;
   line?: string;
   locked?: boolean;
-  type?: string;
-  domainId?: string;
-  value?: string;
+  priority?: number;
+  punyCode?: string;
+  RR?: string;
   recordId?: string;
+  requestId?: string;
+  status?: string;
+  TTL?: number;
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      RR: 'RR',
-      groupName: 'GroupName',
-      requestId: 'RequestId',
+      domainId: 'DomainId',
       domainName: 'DomainName',
-      priority: 'Priority',
-      punyCode: 'PunyCode',
-      TTL: 'TTL',
       groupId: 'GroupId',
+      groupName: 'GroupName',
       line: 'Line',
       locked: 'Locked',
-      type: 'Type',
-      domainId: 'DomainId',
-      value: 'Value',
+      priority: 'Priority',
+      punyCode: 'PunyCode',
+      RR: 'RR',
       recordId: 'RecordId',
+      requestId: 'RequestId',
+      status: 'Status',
+      TTL: 'TTL',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      RR: 'string',
-      groupName: 'string',
-      requestId: 'string',
+      domainId: 'string',
       domainName: 'string',
-      priority: 'number',
-      punyCode: 'string',
-      TTL: 'number',
       groupId: 'string',
+      groupName: 'string',
       line: 'string',
       locked: 'boolean',
-      type: 'string',
-      domainId: 'string',
-      value: 'string',
+      priority: 'number',
+      punyCode: 'string',
+      RR: 'string',
       recordId: 'string',
+      requestId: 'string',
+      status: 'string',
+      TTL: 'number',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -5363,10 +5523,12 @@ export class DescribeDomainRecordInfoResponseBody extends $tea.Model {
 
 export class DescribeDomainRecordInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainRecordInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5374,6 +5536,7 @@ export class DescribeDomainRecordInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainRecordInfoResponseBody,
     };
   }
@@ -5384,61 +5547,58 @@ export class DescribeDomainRecordInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainRecordsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
+  direction?: string;
   domainName?: string;
+  groupId?: number;
+  keyWord?: string;
+  lang?: string;
+  line?: string;
+  orderBy?: string;
   pageNumber?: number;
   pageSize?: number;
-  keyWord?: string;
   RRKeyWord?: string;
+  searchMode?: string;
+  status?: string;
+  type?: string;
   typeKeyWord?: string;
   valueKeyWord?: string;
-  orderBy?: string;
-  direction?: string;
-  searchMode?: string;
-  groupId?: number;
-  type?: string;
-  line?: string;
-  status?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
+      direction: 'Direction',
       domainName: 'DomainName',
+      groupId: 'GroupId',
+      keyWord: 'KeyWord',
+      lang: 'Lang',
+      line: 'Line',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      keyWord: 'KeyWord',
       RRKeyWord: 'RRKeyWord',
+      searchMode: 'SearchMode',
+      status: 'Status',
+      type: 'Type',
       typeKeyWord: 'TypeKeyWord',
       valueKeyWord: 'ValueKeyWord',
-      orderBy: 'OrderBy',
-      direction: 'Direction',
-      searchMode: 'SearchMode',
-      groupId: 'GroupId',
-      type: 'Type',
-      line: 'Line',
-      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
+      direction: 'string',
       domainName: 'string',
+      groupId: 'number',
+      keyWord: 'string',
+      lang: 'string',
+      line: 'string',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      keyWord: 'string',
       RRKeyWord: 'string',
+      searchMode: 'string',
+      status: 'string',
+      type: 'string',
       typeKeyWord: 'string',
       valueKeyWord: 'string',
-      orderBy: 'string',
-      direction: 'string',
-      searchMode: 'string',
-      groupId: 'number',
-      type: 'string',
-      line: 'string',
-      status: 'string',
     };
   }
 
@@ -5448,28 +5608,28 @@ export class DescribeDomainRecordsRequest extends $tea.Model {
 }
 
 export class DescribeDomainRecordsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
   domainRecords?: DescribeDomainRecordsResponseBodyDomainRecords;
   pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       domainRecords: 'DomainRecords',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
       domainRecords: DescribeDomainRecordsResponseBodyDomainRecords,
       pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -5480,10 +5640,12 @@ export class DescribeDomainRecordsResponseBody extends $tea.Model {
 
 export class DescribeDomainRecordsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5491,6 +5653,7 @@ export class DescribeDomainRecordsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainRecordsResponseBody,
     };
   }
@@ -5500,143 +5663,29 @@ export class DescribeDomainRecordsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDomainsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  keyWord?: string;
-  groupId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  searchMode?: string;
-  resourceGroupId?: string;
-  orderBy?: string;
-  direction?: string;
-  starmark?: boolean;
-  startDate?: string;
-  endDate?: string;
-  tag?: DescribeDomainsRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      keyWord: 'KeyWord',
-      groupId: 'GroupId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      searchMode: 'SearchMode',
-      resourceGroupId: 'ResourceGroupId',
-      orderBy: 'OrderBy',
-      direction: 'Direction',
-      starmark: 'Starmark',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-      keyWord: 'string',
-      groupId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      searchMode: 'string',
-      resourceGroupId: 'string',
-      orderBy: 'string',
-      direction: 'string',
-      starmark: 'boolean',
-      startDate: 'string',
-      endDate: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeDomainsRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainsResponseBody extends $tea.Model {
-  domains?: DescribeDomainsResponseBodyDomains;
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      domains: 'Domains',
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domains: DescribeDomainsResponseBodyDomains,
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDomainsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDomainsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDomainStatisticsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
-  startDate?: string;
-  endDate?: string;
   domainType?: string;
+  endDate?: string;
+  lang?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
       domainType: 'DomainType',
+      endDate: 'EndDate',
+      lang: 'Lang',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
-      startDate: 'string',
-      endDate: 'string',
       domainType: 'string',
+      endDate: 'string',
+      lang: 'string',
+      startDate: 'string',
     };
   }
 
@@ -5669,10 +5718,12 @@ export class DescribeDomainStatisticsResponseBody extends $tea.Model {
 
 export class DescribeDomainStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5680,6 +5731,7 @@ export class DescribeDomainStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainStatisticsResponseBody,
     };
   }
@@ -5690,45 +5742,36 @@ export class DescribeDomainStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsSummaryRequest extends $tea.Model {
+  endDate?: string;
+  keyword?: string;
   lang?: string;
-  userClientIp?: string;
   pageNumber?: number;
   pageSize?: number;
-  startDate?: string;
-  endDate?: string;
-  orderBy?: string;
-  direction?: string;
   searchMode?: string;
-  keyword?: string;
+  startDate?: string;
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
+      endDate: 'EndDate',
+      keyword: 'Keyword',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-      orderBy: 'OrderBy',
-      direction: 'Direction',
       searchMode: 'SearchMode',
-      keyword: 'Keyword',
+      startDate: 'StartDate',
       threshold: 'Threshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endDate: 'string',
+      keyword: 'string',
       lang: 'string',
-      userClientIp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      startDate: 'string',
-      endDate: 'string',
-      orderBy: 'string',
-      direction: 'string',
       searchMode: 'string',
-      keyword: 'string',
+      startDate: 'string',
       threshold: 'number',
     };
   }
@@ -5739,31 +5782,31 @@ export class DescribeDomainStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsSummaryResponseBody extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  totalItems?: number;
   statistics?: DescribeDomainStatisticsSummaryResponseBodyStatistics;
+  totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      totalItems: 'TotalItems',
       statistics: 'Statistics',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      totalItems: 'number',
       statistics: DescribeDomainStatisticsSummaryResponseBodyStatistics,
+      totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -5774,10 +5817,12 @@ export class DescribeDomainStatisticsSummaryResponseBody extends $tea.Model {
 
 export class DescribeDomainStatisticsSummaryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeDomainStatisticsSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5785,6 +5830,7 @@ export class DescribeDomainStatisticsSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeDomainStatisticsSummaryResponseBody,
     };
   }
@@ -5794,17 +5840,111 @@ export class DescribeDomainStatisticsSummaryResponse extends $tea.Model {
   }
 }
 
-export class DescribeGtmAccessStrategiesRequest extends $tea.Model {
+export class DescribeDomainsRequest extends $tea.Model {
+  groupId?: string;
+  keyWord?: string;
   lang?: string;
-  userClientIp?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceGroupId?: string;
+  searchMode?: string;
+  starmark?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      keyWord: 'KeyWord',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
+      searchMode: 'SearchMode',
+      starmark: 'Starmark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      keyWord: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+      searchMode: 'string',
+      starmark: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainsResponseBody extends $tea.Model {
+  domains?: DescribeDomainsResponseBodyDomains;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: DescribeDomainsResponseBodyDomains,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmAccessStrategiesRequest extends $tea.Model {
   instanceId?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -5812,9 +5952,8 @@ export class DescribeGtmAccessStrategiesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -5826,31 +5965,31 @@ export class DescribeGtmAccessStrategiesRequest extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategiesResponseBody extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
   strategies?: DescribeGtmAccessStrategiesResponseBodyStrategies;
-  totalPages?: number;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
       strategies: 'Strategies',
-      totalPages: 'TotalPages',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
       strategies: DescribeGtmAccessStrategiesResponseBodyStrategies,
-      totalPages: 'number',
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -5861,10 +6000,12 @@ export class DescribeGtmAccessStrategiesResponseBody extends $tea.Model {
 
 export class DescribeGtmAccessStrategiesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmAccessStrategiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5872,6 +6013,7 @@ export class DescribeGtmAccessStrategiesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmAccessStrategiesResponseBody,
     };
   }
@@ -5883,12 +6025,10 @@ export class DescribeGtmAccessStrategiesResponse extends $tea.Model {
 
 export class DescribeGtmAccessStrategyRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       strategyId: 'StrategyId',
     };
   }
@@ -5896,7 +6036,6 @@ export class DescribeGtmAccessStrategyRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       strategyId: 'string',
     };
   }
@@ -5907,61 +6046,61 @@ export class DescribeGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategyResponseBody extends $tea.Model {
-  requestId?: string;
-  instanceId?: string;
-  strategyId?: string;
-  defaultAddrPoolStatus?: string;
-  failoverAddrPoolId?: string;
+  accessMode?: string;
   accessStatus?: string;
   defaultAddrPoolMonitorStatus?: string;
   defaultAddrPoolName?: string;
+  defaultAddrPoolStatus?: string;
   defultAddrPoolId?: string;
-  strategyName?: string;
-  failoverAddrPoolStatus?: string;
-  accessMode?: string;
-  strategyMode?: string;
+  failoverAddrPoolId?: string;
   failoverAddrPoolMonitorStatus?: string;
   failoverAddrPoolName?: string;
+  failoverAddrPoolStatus?: string;
+  instanceId?: string;
   lines?: DescribeGtmAccessStrategyResponseBodyLines;
+  requestId?: string;
+  strategyId?: string;
+  strategyMode?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      instanceId: 'InstanceId',
-      strategyId: 'StrategyId',
-      defaultAddrPoolStatus: 'DefaultAddrPoolStatus',
-      failoverAddrPoolId: 'FailoverAddrPoolId',
+      accessMode: 'AccessMode',
       accessStatus: 'AccessStatus',
       defaultAddrPoolMonitorStatus: 'DefaultAddrPoolMonitorStatus',
       defaultAddrPoolName: 'DefaultAddrPoolName',
+      defaultAddrPoolStatus: 'DefaultAddrPoolStatus',
       defultAddrPoolId: 'DefultAddrPoolId',
-      strategyName: 'StrategyName',
-      failoverAddrPoolStatus: 'FailoverAddrPoolStatus',
-      accessMode: 'AccessMode',
-      strategyMode: 'StrategyMode',
+      failoverAddrPoolId: 'FailoverAddrPoolId',
       failoverAddrPoolMonitorStatus: 'FailoverAddrPoolMonitorStatus',
       failoverAddrPoolName: 'FailoverAddrPoolName',
+      failoverAddrPoolStatus: 'FailoverAddrPoolStatus',
+      instanceId: 'InstanceId',
       lines: 'Lines',
+      requestId: 'RequestId',
+      strategyId: 'StrategyId',
+      strategyMode: 'StrategyMode',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      instanceId: 'string',
-      strategyId: 'string',
-      defaultAddrPoolStatus: 'string',
-      failoverAddrPoolId: 'string',
+      accessMode: 'string',
       accessStatus: 'string',
       defaultAddrPoolMonitorStatus: 'string',
       defaultAddrPoolName: 'string',
+      defaultAddrPoolStatus: 'string',
       defultAddrPoolId: 'string',
-      strategyName: 'string',
-      failoverAddrPoolStatus: 'string',
-      accessMode: 'string',
-      strategyMode: 'string',
+      failoverAddrPoolId: 'string',
       failoverAddrPoolMonitorStatus: 'string',
       failoverAddrPoolName: 'string',
+      failoverAddrPoolStatus: 'string',
+      instanceId: 'string',
       lines: DescribeGtmAccessStrategyResponseBodyLines,
+      requestId: 'string',
+      strategyId: 'string',
+      strategyMode: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -5972,10 +6111,12 @@ export class DescribeGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class DescribeGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5983,6 +6124,7 @@ export class DescribeGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmAccessStrategyResponseBody,
     };
   }
@@ -5993,22 +6135,19 @@ export class DescribeGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -6018,22 +6157,22 @@ export class DescribeGtmAccessStrategyAvailableConfigRequest extends $tea.Model 
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBody extends $tea.Model {
-  requestId?: string;
   addrPools?: DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools;
   lines?: DescribeGtmAccessStrategyAvailableConfigResponseBodyLines;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       addrPools: 'AddrPools',
       lines: 'Lines',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       addrPools: DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools,
       lines: DescribeGtmAccessStrategyAvailableConfigResponseBodyLines,
+      requestId: 'string',
     };
   }
 
@@ -6044,10 +6183,12 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBody extends $tea.M
 
 export class DescribeGtmAccessStrategyAvailableConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmAccessStrategyAvailableConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6055,6 +6196,7 @@ export class DescribeGtmAccessStrategyAvailableConfigResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmAccessStrategyAvailableConfigResponseBody,
     };
   }
@@ -6066,18 +6208,15 @@ export class DescribeGtmAccessStrategyAvailableConfigResponse extends $tea.Model
 
 export class DescribeGtmAvailableAlertGroupRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
     };
   }
 
@@ -6087,19 +6226,19 @@ export class DescribeGtmAvailableAlertGroupRequest extends $tea.Model {
 }
 
 export class DescribeGtmAvailableAlertGroupResponseBody extends $tea.Model {
-  requestId?: string;
   availableAlertGroup?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       availableAlertGroup: 'AvailableAlertGroup',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       availableAlertGroup: 'string',
+      requestId: 'string',
     };
   }
 
@@ -6110,10 +6249,12 @@ export class DescribeGtmAvailableAlertGroupResponseBody extends $tea.Model {
 
 export class DescribeGtmAvailableAlertGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmAvailableAlertGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6121,6 +6262,7 @@ export class DescribeGtmAvailableAlertGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmAvailableAlertGroupResponseBody,
     };
   }
@@ -6131,24 +6273,21 @@ export class DescribeGtmAvailableAlertGroupResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   needDetailAttributes?: boolean;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       needDetailAttributes: 'NeedDetailAttributes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
       needDetailAttributes: 'boolean',
     };
   }
@@ -6159,61 +6298,64 @@ export class DescribeGtmInstanceRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceResponseBody extends $tea.Model {
-  expireTimestamp?: number;
-  userDomainName?: string;
-  requestId?: string;
-  lbaStrategy?: string;
-  instanceId?: string;
-  createTime?: string;
-  cnameMode?: string;
-  ttl?: number;
-  cname?: string;
-  instanceName?: string;
-  versionCode?: string;
-  alertGroup?: string;
-  addressPoolNum?: number;
   accessStrategyNum?: number;
-  expireTime?: string;
+  addressPoolNum?: number;
+  alertGroup?: string;
+  cname?: string;
+  cnameMode?: string;
+  createTime?: string;
   createTimestamp?: number;
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
+  instanceName?: string;
+  lbaStrategy?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  ttl?: number;
+  userDomainName?: string;
+  versionCode?: string;
   static names(): { [key: string]: string } {
     return {
-      expireTimestamp: 'ExpireTimestamp',
-      userDomainName: 'UserDomainName',
-      requestId: 'RequestId',
-      lbaStrategy: 'LbaStrategy',
-      instanceId: 'InstanceId',
-      createTime: 'CreateTime',
-      cnameMode: 'CnameMode',
-      ttl: 'Ttl',
-      cname: 'Cname',
-      instanceName: 'InstanceName',
-      versionCode: 'VersionCode',
-      alertGroup: 'AlertGroup',
-      addressPoolNum: 'AddressPoolNum',
       accessStrategyNum: 'AccessStrategyNum',
-      expireTime: 'ExpireTime',
+      addressPoolNum: 'AddressPoolNum',
+      alertGroup: 'AlertGroup',
+      cname: 'Cname',
+      cnameMode: 'CnameMode',
+      createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      lbaStrategy: 'LbaStrategy',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      ttl: 'Ttl',
+      userDomainName: 'UserDomainName',
+      versionCode: 'VersionCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expireTimestamp: 'number',
-      userDomainName: 'string',
-      requestId: 'string',
-      lbaStrategy: 'string',
-      instanceId: 'string',
-      createTime: 'string',
-      cnameMode: 'string',
-      ttl: 'number',
-      cname: 'string',
-      instanceName: 'string',
-      versionCode: 'string',
-      alertGroup: 'string',
-      addressPoolNum: 'number',
       accessStrategyNum: 'number',
-      expireTime: 'string',
+      addressPoolNum: 'number',
+      alertGroup: 'string',
+      cname: 'string',
+      cnameMode: 'string',
+      createTime: 'string',
       createTimestamp: 'number',
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      lbaStrategy: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      ttl: 'number',
+      userDomainName: 'string',
+      versionCode: 'string',
     };
   }
 
@@ -6224,10 +6366,12 @@ export class DescribeGtmInstanceResponseBody extends $tea.Model {
 
 export class DescribeGtmInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6235,6 +6379,7 @@ export class DescribeGtmInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmInstanceResponseBody,
     };
   }
@@ -6245,22 +6390,19 @@ export class DescribeGtmInstanceResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   addrPoolId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       addrPoolId: 'AddrPoolId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       addrPoolId: 'string',
+      lang: 'string',
     };
   }
 
@@ -6270,55 +6412,55 @@ export class DescribeGtmInstanceAddressPoolRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolResponseBody extends $tea.Model {
-  status?: string;
-  addrs?: DescribeGtmInstanceAddressPoolResponseBodyAddrs;
-  requestId?: string;
-  createTime?: string;
   addrCount?: number;
+  addrPoolId?: string;
+  addrs?: DescribeGtmInstanceAddressPoolResponseBodyAddrs;
+  createTime?: string;
+  createTimestamp?: number;
+  minAvailableAddrNum?: number;
+  monitorConfigId?: string;
+  monitorStatus?: string;
   name?: string;
+  requestId?: string;
+  status?: string;
   type?: string;
   updateTime?: string;
-  addrPoolId?: string;
   updateTimestamp?: number;
-  monitorConfigId?: string;
-  minAvailableAddrNum?: number;
-  monitorStatus?: string;
-  createTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      addrs: 'Addrs',
-      requestId: 'RequestId',
-      createTime: 'CreateTime',
       addrCount: 'AddrCount',
+      addrPoolId: 'AddrPoolId',
+      addrs: 'Addrs',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      minAvailableAddrNum: 'MinAvailableAddrNum',
+      monitorConfigId: 'MonitorConfigId',
+      monitorStatus: 'MonitorStatus',
       name: 'Name',
+      requestId: 'RequestId',
+      status: 'Status',
       type: 'Type',
       updateTime: 'UpdateTime',
-      addrPoolId: 'AddrPoolId',
       updateTimestamp: 'UpdateTimestamp',
-      monitorConfigId: 'MonitorConfigId',
-      minAvailableAddrNum: 'MinAvailableAddrNum',
-      monitorStatus: 'MonitorStatus',
-      createTimestamp: 'CreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      addrs: DescribeGtmInstanceAddressPoolResponseBodyAddrs,
-      requestId: 'string',
-      createTime: 'string',
       addrCount: 'number',
+      addrPoolId: 'string',
+      addrs: DescribeGtmInstanceAddressPoolResponseBodyAddrs,
+      createTime: 'string',
+      createTimestamp: 'number',
+      minAvailableAddrNum: 'number',
+      monitorConfigId: 'string',
+      monitorStatus: 'string',
       name: 'string',
+      requestId: 'string',
+      status: 'string',
       type: 'string',
       updateTime: 'string',
-      addrPoolId: 'string',
       updateTimestamp: 'number',
-      monitorConfigId: 'string',
-      minAvailableAddrNum: 'number',
-      monitorStatus: 'string',
-      createTimestamp: 'number',
     };
   }
 
@@ -6329,10 +6471,12 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $tea.Model {
 
 export class DescribeGtmInstanceAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmInstanceAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6340,6 +6484,7 @@ export class DescribeGtmInstanceAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmInstanceAddressPoolResponseBody,
     };
   }
@@ -6350,16 +6495,14 @@ export class DescribeGtmInstanceAddressPoolResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolsRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   instanceId?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -6367,9 +6510,8 @@ export class DescribeGtmInstanceAddressPoolsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       instanceId: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -6381,31 +6523,31 @@ export class DescribeGtmInstanceAddressPoolsRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolsResponseBody extends $tea.Model {
+  addrPools?: DescribeGtmInstanceAddressPoolsResponseBodyAddrPools;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
   totalItems?: number;
-  addrPools?: DescribeGtmInstanceAddressPoolsResponseBodyAddrPools;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      addrPools: 'AddrPools',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
       totalItems: 'TotalItems',
-      addrPools: 'AddrPools',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addrPools: DescribeGtmInstanceAddressPoolsResponseBodyAddrPools,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
       totalItems: 'number',
-      addrPools: DescribeGtmInstanceAddressPoolsResponseBodyAddrPools,
+      totalPages: 'number',
     };
   }
 
@@ -6416,10 +6558,12 @@ export class DescribeGtmInstanceAddressPoolsResponseBody extends $tea.Model {
 
 export class DescribeGtmInstanceAddressPoolsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmInstanceAddressPoolsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6427,6 +6571,7 @@ export class DescribeGtmInstanceAddressPoolsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmInstanceAddressPoolsResponseBody,
     };
   }
@@ -6436,116 +6581,20 @@ export class DescribeGtmInstanceAddressPoolsResponse extends $tea.Model {
   }
 }
 
-export class DescribeGtmInstancesRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  keyword?: string;
-  resourceGroupId?: string;
-  needDetailAttributes?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      keyword: 'Keyword',
-      resourceGroupId: 'ResourceGroupId',
-      needDetailAttributes: 'NeedDetailAttributes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      keyword: 'string',
-      resourceGroupId: 'string',
-      needDetailAttributes: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGtmInstancesResponseBody extends $tea.Model {
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  gtmInstances?: DescribeGtmInstancesResponseBodyGtmInstances;
-  totalPages?: number;
-  totalItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      gtmInstances: 'GtmInstances',
-      totalPages: 'TotalPages',
-      totalItems: 'TotalItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      gtmInstances: DescribeGtmInstancesResponseBodyGtmInstances,
-      totalPages: 'number',
-      totalItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGtmInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeGtmInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeGtmInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeGtmInstanceStatusRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -6555,34 +6604,34 @@ export class DescribeGtmInstanceStatusRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
-  status?: string;
-  strategyNotAvailableNum?: number;
-  requestId?: string;
-  switchToFailoverStrategyNum?: number;
-  statusReason?: string;
   addrNotAvailableNum?: number;
   addrPoolNotAvailableNum?: number;
+  requestId?: string;
+  status?: string;
+  statusReason?: string;
+  strategyNotAvailableNum?: number;
+  switchToFailoverStrategyNum?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      strategyNotAvailableNum: 'StrategyNotAvailableNum',
-      requestId: 'RequestId',
-      switchToFailoverStrategyNum: 'SwitchToFailoverStrategyNum',
-      statusReason: 'StatusReason',
       addrNotAvailableNum: 'AddrNotAvailableNum',
       addrPoolNotAvailableNum: 'AddrPoolNotAvailableNum',
+      requestId: 'RequestId',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      strategyNotAvailableNum: 'StrategyNotAvailableNum',
+      switchToFailoverStrategyNum: 'SwitchToFailoverStrategyNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      strategyNotAvailableNum: 'number',
-      requestId: 'string',
-      switchToFailoverStrategyNum: 'number',
-      statusReason: 'string',
       addrNotAvailableNum: 'number',
       addrPoolNotAvailableNum: 'number',
+      requestId: 'string',
+      status: 'string',
+      statusReason: 'string',
+      strategyNotAvailableNum: 'number',
+      switchToFailoverStrategyNum: 'number',
     };
   }
 
@@ -6593,10 +6642,12 @@ export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
 
 export class DescribeGtmInstanceStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmInstanceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6604,6 +6655,7 @@ export class DescribeGtmInstanceStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmInstanceStatusResponseBody,
     };
   }
@@ -6614,22 +6666,19 @@ export class DescribeGtmInstanceStatusResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceSystemCnameRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -6639,19 +6688,19 @@ export class DescribeGtmInstanceSystemCnameRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceSystemCnameResponseBody extends $tea.Model {
-  systemCname?: string;
   requestId?: string;
+  systemCname?: string;
   static names(): { [key: string]: string } {
     return {
-      systemCname: 'SystemCname',
       requestId: 'RequestId',
+      systemCname: 'SystemCname',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      systemCname: 'string',
       requestId: 'string',
+      systemCname: 'string',
     };
   }
 
@@ -6662,10 +6711,12 @@ export class DescribeGtmInstanceSystemCnameResponseBody extends $tea.Model {
 
 export class DescribeGtmInstanceSystemCnameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmInstanceSystemCnameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6673,6 +6724,7 @@ export class DescribeGtmInstanceSystemCnameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmInstanceSystemCnameResponseBody,
     };
   }
@@ -6682,38 +6734,128 @@ export class DescribeGtmInstanceSystemCnameResponse extends $tea.Model {
   }
 }
 
-export class DescribeGtmLogsRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  instanceId?: string;
+export class DescribeGtmInstancesRequest extends $tea.Model {
   keyword?: string;
+  lang?: string;
+  needDetailAttributes?: boolean;
   pageNumber?: number;
   pageSize?: number;
-  startTimestamp?: number;
-  endTimestamp?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      instanceId: 'InstanceId',
       keyword: 'Keyword',
+      lang: 'Lang',
+      needDetailAttributes: 'NeedDetailAttributes',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      startTimestamp: 'StartTimestamp',
-      endTimestamp: 'EndTimestamp',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      keyword: 'string',
       lang: 'string',
+      needDetailAttributes: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmInstancesResponseBody extends $tea.Model {
+  gtmInstances?: DescribeGtmInstancesResponseBodyGtmInstances;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gtmInstances: 'GtmInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gtmInstances: DescribeGtmInstancesResponseBodyGtmInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeGtmInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGtmInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmLogsRequest extends $tea.Model {
+  endTimestamp?: number;
+  instanceId?: string;
+  keyword?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTimestamp: 'EndTimestamp',
+      instanceId: 'InstanceId',
+      keyword: 'Keyword',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTimestamp: 'StartTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTimestamp: 'number',
       instanceId: 'string',
       keyword: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startTimestamp: 'number',
-      endTimestamp: 'number',
     };
   }
 
@@ -6723,31 +6865,31 @@ export class DescribeGtmLogsRequest extends $tea.Model {
 }
 
 export class DescribeGtmLogsResponseBody extends $tea.Model {
+  logs?: DescribeGtmLogsResponseBodyLogs;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  logs?: DescribeGtmLogsResponseBodyLogs;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      logs: 'Logs',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      logs: 'Logs',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      logs: DescribeGtmLogsResponseBodyLogs,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      logs: DescribeGtmLogsResponseBodyLogs,
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -6758,10 +6900,12 @@ export class DescribeGtmLogsResponseBody extends $tea.Model {
 
 export class DescribeGtmLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6769,6 +6913,7 @@ export class DescribeGtmLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmLogsResponseBody,
     };
   }
@@ -6779,18 +6924,15 @@ export class DescribeGtmLogsResponse extends $tea.Model {
 }
 
 export class DescribeGtmMonitorAvailableConfigRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
     };
   }
@@ -6801,19 +6943,19 @@ export class DescribeGtmMonitorAvailableConfigRequest extends $tea.Model {
 }
 
 export class DescribeGtmMonitorAvailableConfigResponseBody extends $tea.Model {
-  requestId?: string;
   ispCityNodes?: DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodes;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ispCityNodes: 'IspCityNodes',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ispCityNodes: DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodes,
+      requestId: 'string',
     };
   }
 
@@ -6824,10 +6966,12 @@ export class DescribeGtmMonitorAvailableConfigResponseBody extends $tea.Model {
 
 export class DescribeGtmMonitorAvailableConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmMonitorAvailableConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6835,6 +6979,7 @@ export class DescribeGtmMonitorAvailableConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmMonitorAvailableConfigResponseBody,
     };
   }
@@ -6845,12 +6990,10 @@ export class DescribeGtmMonitorAvailableConfigResponse extends $tea.Model {
 }
 
 export class DescribeGtmMonitorConfigRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   monitorConfigId?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       monitorConfigId: 'MonitorConfigId',
     };
@@ -6858,7 +7001,6 @@ export class DescribeGtmMonitorConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       monitorConfigId: 'string',
     };
@@ -6870,49 +7012,49 @@ export class DescribeGtmMonitorConfigRequest extends $tea.Model {
 }
 
 export class DescribeGtmMonitorConfigResponseBody extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  evaluationCount?: number;
+  interval?: number;
+  ispCityNodes?: DescribeGtmMonitorConfigResponseBodyIspCityNodes;
+  monitorConfigId?: string;
+  monitorExtendInfo?: string;
+  protocolType?: string;
   requestId?: string;
   timeout?: number;
-  protocolType?: string;
-  ispCityNodes?: DescribeGtmMonitorConfigResponseBodyIspCityNodes;
-  createTime?: string;
   updateTime?: string;
-  evaluationCount?: number;
   updateTimestamp?: number;
-  monitorExtendInfo?: string;
-  monitorConfigId?: string;
-  createTimestamp?: number;
-  interval?: number;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      evaluationCount: 'EvaluationCount',
+      interval: 'Interval',
+      ispCityNodes: 'IspCityNodes',
+      monitorConfigId: 'MonitorConfigId',
+      monitorExtendInfo: 'MonitorExtendInfo',
+      protocolType: 'ProtocolType',
       requestId: 'RequestId',
       timeout: 'Timeout',
-      protocolType: 'ProtocolType',
-      ispCityNodes: 'IspCityNodes',
-      createTime: 'CreateTime',
       updateTime: 'UpdateTime',
-      evaluationCount: 'EvaluationCount',
       updateTimestamp: 'UpdateTimestamp',
-      monitorExtendInfo: 'MonitorExtendInfo',
-      monitorConfigId: 'MonitorConfigId',
-      createTimestamp: 'CreateTimestamp',
-      interval: 'Interval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      evaluationCount: 'number',
+      interval: 'number',
+      ispCityNodes: DescribeGtmMonitorConfigResponseBodyIspCityNodes,
+      monitorConfigId: 'string',
+      monitorExtendInfo: 'string',
+      protocolType: 'string',
       requestId: 'string',
       timeout: 'number',
-      protocolType: 'string',
-      ispCityNodes: DescribeGtmMonitorConfigResponseBodyIspCityNodes,
-      createTime: 'string',
       updateTime: 'string',
-      evaluationCount: 'number',
       updateTimestamp: 'number',
-      monitorExtendInfo: 'string',
-      monitorConfigId: 'string',
-      createTimestamp: 'number',
-      interval: 'number',
     };
   }
 
@@ -6923,10 +7065,12 @@ export class DescribeGtmMonitorConfigResponseBody extends $tea.Model {
 
 export class DescribeGtmMonitorConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmMonitorConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6934,6 +7078,7 @@ export class DescribeGtmMonitorConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmMonitorConfigResponseBody,
     };
   }
@@ -6944,12 +7089,10 @@ export class DescribeGtmMonitorConfigResponse extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       recoveryPlanId: 'RecoveryPlanId',
     };
@@ -6957,7 +7100,6 @@ export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       recoveryPlanId: 'number',
     };
@@ -6969,58 +7111,58 @@ export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
-  status?: string;
-  lastRollbackTime?: string;
+  createTime?: string;
+  createTimestamp?: number;
   faultAddrPoolNum?: number;
   faultAddrPools?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPools;
   lastExecuteTime?: string;
-  requestId?: string;
-  createTime?: string;
   lastExecuteTimestamp?: number;
-  remark?: string;
+  lastRollbackTime?: string;
+  lastRollbackTimestamp?: number;
   name?: string;
   recoveryPlanId?: number;
+  remark?: string;
+  requestId?: string;
+  status?: string;
   updateTime?: string;
   updateTimestamp?: number;
-  lastRollbackTimestamp?: number;
-  createTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      lastRollbackTime: 'LastRollbackTime',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
       faultAddrPoolNum: 'FaultAddrPoolNum',
       faultAddrPools: 'FaultAddrPools',
       lastExecuteTime: 'LastExecuteTime',
-      requestId: 'RequestId',
-      createTime: 'CreateTime',
       lastExecuteTimestamp: 'LastExecuteTimestamp',
-      remark: 'Remark',
+      lastRollbackTime: 'LastRollbackTime',
+      lastRollbackTimestamp: 'LastRollbackTimestamp',
       name: 'Name',
       recoveryPlanId: 'RecoveryPlanId',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      status: 'Status',
       updateTime: 'UpdateTime',
       updateTimestamp: 'UpdateTimestamp',
-      lastRollbackTimestamp: 'LastRollbackTimestamp',
-      createTimestamp: 'CreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      lastRollbackTime: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
       faultAddrPoolNum: 'number',
       faultAddrPools: DescribeGtmRecoveryPlanResponseBodyFaultAddrPools,
       lastExecuteTime: 'string',
-      requestId: 'string',
-      createTime: 'string',
       lastExecuteTimestamp: 'number',
-      remark: 'string',
+      lastRollbackTime: 'string',
+      lastRollbackTimestamp: 'number',
       name: 'string',
       recoveryPlanId: 'number',
+      remark: 'string',
+      requestId: 'string',
+      status: 'string',
       updateTime: 'string',
       updateTimestamp: 'number',
-      lastRollbackTimestamp: 'number',
-      createTimestamp: 'number',
     };
   }
 
@@ -7031,10 +7173,12 @@ export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class DescribeGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7042,6 +7186,7 @@ export class DescribeGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmRecoveryPlanResponseBody,
     };
   }
@@ -7053,18 +7198,15 @@ export class DescribeGtmRecoveryPlanResponse extends $tea.Model {
 
 export class DescribeGtmRecoveryPlanAvailableConfigRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
     };
   }
 
@@ -7097,10 +7239,12 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends $tea.Mod
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmRecoveryPlanAvailableConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7108,6 +7252,7 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmRecoveryPlanAvailableConfigResponseBody,
     };
   }
@@ -7118,16 +7263,14 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponse extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlansRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   keyword?: string;
+  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       keyword: 'Keyword',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -7135,9 +7278,8 @@ export class DescribeGtmRecoveryPlansRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       keyword: 'string',
+      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -7149,31 +7291,31 @@ export class DescribeGtmRecoveryPlansRequest extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlansResponseBody extends $tea.Model {
-  recoveryPlans?: DescribeGtmRecoveryPlansResponseBodyRecoveryPlans;
-  pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
-  totalPages?: number;
+  pageSize?: number;
+  recoveryPlans?: DescribeGtmRecoveryPlansResponseBodyRecoveryPlans;
+  requestId?: string;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
-      recoveryPlans: 'RecoveryPlans',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
+      pageSize: 'PageSize',
+      recoveryPlans: 'RecoveryPlans',
+      requestId: 'RequestId',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      recoveryPlans: DescribeGtmRecoveryPlansResponseBodyRecoveryPlans,
-      pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
-      totalPages: 'number',
+      pageSize: 'number',
+      recoveryPlans: DescribeGtmRecoveryPlansResponseBodyRecoveryPlans,
+      requestId: 'string',
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -7184,10 +7326,12 @@ export class DescribeGtmRecoveryPlansResponseBody extends $tea.Model {
 
 export class DescribeGtmRecoveryPlansResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGtmRecoveryPlansResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7195,6 +7339,7 @@ export class DescribeGtmRecoveryPlansResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGtmRecoveryPlansResponseBody,
     };
   }
@@ -7205,28 +7350,25 @@ export class DescribeGtmRecoveryPlansResponse extends $tea.Model {
 }
 
 export class DescribeInstanceDomainsRequest extends $tea.Model {
+  instanceId?: string;
   lang?: string;
-  userClientIp?: string;
   pageNumber?: number;
   pageSize?: number;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       lang: 'string',
-      userClientIp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      instanceId: 'string',
     };
   }
 
@@ -7236,31 +7378,31 @@ export class DescribeInstanceDomainsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceDomainsResponseBody extends $tea.Model {
+  instanceDomains?: DescribeInstanceDomainsResponseBodyInstanceDomains[];
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  instanceDomains?: DescribeInstanceDomainsResponseBodyInstanceDomains[];
-  totalPages?: number;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      instanceDomains: 'InstanceDomains',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      instanceDomains: 'InstanceDomains',
-      totalPages: 'TotalPages',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceDomains: { 'type': 'array', 'itemType': DescribeInstanceDomainsResponseBodyInstanceDomains },
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      instanceDomains: { 'type': 'array', 'itemType': DescribeInstanceDomainsResponseBodyInstanceDomains },
-      totalPages: 'number',
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -7271,10 +7413,12 @@ export class DescribeInstanceDomainsResponseBody extends $tea.Model {
 
 export class DescribeInstanceDomainsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeInstanceDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7282,6 +7426,7 @@ export class DescribeInstanceDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceDomainsResponseBody,
     };
   }
@@ -7291,37 +7436,1300 @@ export class DescribeInstanceDomainsResponse extends $tea.Model {
   }
 }
 
-export class DescribeRecordLogsRequest extends $tea.Model {
+export class DescribeIspFlushCacheInstancesRequest extends $tea.Model {
+  direction?: string;
+  isp?: string;
+  keyword?: string;
   lang?: string;
-  userClientIp?: string;
-  domainName?: string;
+  orderBy?: string;
   pageNumber?: number;
   pageSize?: number;
-  keyWord?: string;
-  startDate?: string;
-  endDate?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      isp: 'Isp',
+      keyword: 'Keyword',
+      lang: 'Lang',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      isp: 'string',
+      keyword: 'string',
+      lang: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheInstancesResponseBody extends $tea.Model {
+  ispFlushCacheInstances?: DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstances[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ispFlushCacheInstances: 'IspFlushCacheInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispFlushCacheInstances: { 'type': 'array', 'itemType': DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstances },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeIspFlushCacheInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIspFlushCacheInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheRemainQuotaRequest extends $tea.Model {
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      keyWord: 'KeyWord',
-      startDate: 'StartDate',
-      endDate: 'endDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheRemainQuotaResponseBody extends $tea.Model {
+  requestId?: string;
+  telecomRemainQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      telecomRemainQuota: 'TelecomRemainQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      telecomRemainQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheRemainQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeIspFlushCacheRemainQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIspFlushCacheRemainQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTaskRequest extends $tea.Model {
+  lang?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTaskResponseBody extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  domainName?: string;
+  flushCacheResults?: DescribeIspFlushCacheTaskResponseBodyFlushCacheResults[];
+  instanceId?: string;
+  instanceName?: string;
+  isp?: string;
+  requestId?: string;
+  taskId?: string;
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      domainName: 'DomainName',
+      flushCacheResults: 'FlushCacheResults',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      isp: 'Isp',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createTimestamp: 'number',
       domainName: 'string',
+      flushCacheResults: { 'type': 'array', 'itemType': DescribeIspFlushCacheTaskResponseBodyFlushCacheResults },
+      instanceId: 'string',
+      instanceName: 'string',
+      isp: 'string',
+      requestId: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeIspFlushCacheTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIspFlushCacheTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTasksRequest extends $tea.Model {
+  direction?: string;
+  domainName?: string;
+  instanceId?: string;
+  isp?: string;
+  lang?: string;
+  orderBy?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      domainName: 'DomainName',
+      instanceId: 'InstanceId',
+      isp: 'Isp',
+      lang: 'Lang',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      domainName: 'string',
+      instanceId: 'string',
+      isp: 'string',
+      lang: 'string',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      keyWord: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTasksResponseBody extends $tea.Model {
+  ispFlushCacheTasks?: DescribeIspFlushCacheTasksResponseBodyIspFlushCacheTasks[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalItems?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ispFlushCacheTasks: 'IspFlushCacheTasks',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispFlushCacheTasks: { 'type': 'array', 'itemType': DescribeIspFlushCacheTasksResponseBodyIspFlushCacheTasks },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItems: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeIspFlushCacheTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIspFlushCacheTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAccountSummaryRequest extends $tea.Model {
+  endDate?: string;
+  lang?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      lang: 'Lang',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      lang: 'string',
       startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAccountSummaryResponseBody extends $tea.Model {
+  data?: DescribePdnsAccountSummaryResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribePdnsAccountSummaryResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAccountSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsAccountSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsAccountSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeyRequest extends $tea.Model {
+  appKeyId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKeyId: 'AppKeyId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKeyId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeyResponseBody extends $tea.Model {
+  appKey?: DescribePdnsAppKeyResponseBodyAppKey;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: DescribePdnsAppKeyResponseBodyAppKey,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeysRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeysResponseBody extends $tea.Model {
+  appKeys?: DescribePdnsAppKeysResponseBodyAppKeys[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKeys: 'AppKeys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKeys: { 'type': 'array', 'itemType': DescribePdnsAppKeysResponseBodyAppKeys },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeysResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsAppKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsAppKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsOperateLogsRequest extends $tea.Model {
+  actionType?: string;
+  endDate?: string;
+  keyword?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      endDate: 'EndDate',
+      keyword: 'Keyword',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'string',
+      endDate: 'string',
+      keyword: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsOperateLogsResponseBody extends $tea.Model {
+  logs?: DescribePdnsOperateLogsResponseBodyLogs[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: { 'type': 'array', 'itemType': DescribePdnsOperateLogsResponseBodyLogs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsOperateLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsOperateLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsOperateLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticRequest extends $tea.Model {
+  domainName?: string;
+  endDate?: string;
+  lang?: string;
+  startDate?: string;
+  subDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endDate: 'EndDate',
+      lang: 'Lang',
+      startDate: 'StartDate',
+      subDomain: 'SubDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endDate: 'string',
+      lang: 'string',
+      startDate: 'string',
+      subDomain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticResponseBody extends $tea.Model {
+  data?: DescribePdnsRequestStatisticResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribePdnsRequestStatisticResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsRequestStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsRequestStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticsRequest extends $tea.Model {
+  domainName?: string;
+  endDate?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startDate?: string;
+  subDomain?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endDate: 'EndDate',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+      subDomain: 'SubDomain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endDate: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startDate: 'string',
+      subDomain: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticsResponseBody extends $tea.Model {
+  data?: DescribePdnsRequestStatisticsResponseBodyData[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribePdnsRequestStatisticsResponseBodyData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsRequestStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsRequestStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatLogsRequest extends $tea.Model {
+  endDate?: string;
+  keyword?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startDate?: string;
+  threatLevel?: string;
+  threatSourceIp?: string;
+  threatType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      keyword: 'Keyword',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+      threatLevel: 'ThreatLevel',
+      threatSourceIp: 'ThreatSourceIp',
+      threatType: 'ThreatType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      keyword: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startDate: 'string',
+      threatLevel: 'string',
+      threatSourceIp: 'string',
+      threatType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatLogsResponseBody extends $tea.Model {
+  logs?: DescribePdnsThreatLogsResponseBodyLogs[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: { 'type': 'array', 'itemType': DescribePdnsThreatLogsResponseBodyLogs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsThreatLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsThreatLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticRequest extends $tea.Model {
+  endDate?: string;
+  lang?: string;
+  startDate?: string;
+  threatSourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      lang: 'Lang',
+      startDate: 'StartDate',
+      threatSourceIp: 'ThreatSourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      lang: 'string',
+      startDate: 'string',
+      threatSourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticResponseBody extends $tea.Model {
+  data?: DescribePdnsThreatStatisticResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribePdnsThreatStatisticResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsThreatStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsThreatStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticsRequest extends $tea.Model {
+  direction?: string;
+  domainName?: string;
+  endDate?: string;
+  lang?: string;
+  orderBy?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startDate?: string;
+  subDomain?: string;
+  threatLevel?: string;
+  threatSourceIp?: string;
+  threatType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      domainName: 'DomainName',
+      endDate: 'EndDate',
+      lang: 'Lang',
+      orderBy: 'OrderBy',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+      subDomain: 'SubDomain',
+      threatLevel: 'ThreatLevel',
+      threatSourceIp: 'ThreatSourceIp',
+      threatType: 'ThreatType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      domainName: 'string',
+      endDate: 'string',
+      lang: 'string',
+      orderBy: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startDate: 'string',
+      subDomain: 'string',
+      threatLevel: 'string',
+      threatSourceIp: 'string',
+      threatType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticsResponseBody extends $tea.Model {
+  data?: DescribePdnsThreatStatisticsResponseBodyData[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribePdnsThreatStatisticsResponseBodyData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsThreatStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsThreatStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUdpIpSegmentsRequest extends $tea.Model {
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUdpIpSegmentsResponseBody extends $tea.Model {
+  ipSegments?: DescribePdnsUdpIpSegmentsResponseBodyIpSegments[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipSegments: 'IpSegments',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipSegments: { 'type': 'array', 'itemType': DescribePdnsUdpIpSegmentsResponseBodyIpSegments },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUdpIpSegmentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsUdpIpSegmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsUdpIpSegmentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUserInfoRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUserInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  userInfo?: DescribePdnsUserInfoResponseBodyUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userInfo: DescribePdnsUserInfoResponseBodyUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePdnsUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePdnsUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRecordLogsRequest extends $tea.Model {
+  domainName?: string;
+  keyWord?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  startDate?: string;
+  userClientIp?: string;
+  endDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      keyWord: 'KeyWord',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+      userClientIp: 'UserClientIp',
+      endDate: 'endDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      keyWord: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startDate: 'string',
+      userClientIp: 'string',
       endDate: 'string',
     };
   }
@@ -7332,28 +8740,28 @@ export class DescribeRecordLogsRequest extends $tea.Model {
 }
 
 export class DescribeRecordLogsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
+  pageSize?: number;
   recordLogs?: DescribeRecordLogsResponseBodyRecordLogs;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       recordLogs: 'RecordLogs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
+      pageSize: 'number',
       recordLogs: DescribeRecordLogsResponseBodyRecordLogs,
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -7364,10 +8772,12 @@ export class DescribeRecordLogsResponseBody extends $tea.Model {
 
 export class DescribeRecordLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRecordLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7375,6 +8785,7 @@ export class DescribeRecordLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRecordLogsResponseBody,
     };
   }
@@ -7385,34 +8796,31 @@ export class DescribeRecordLogsResponse extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  startDate?: string;
-  endDate?: string;
   domainName?: string;
-  rr?: string;
   domainType?: string;
+  endDate?: string;
+  lang?: string;
+  rr?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
       domainName: 'DomainName',
-      rr: 'Rr',
       domainType: 'DomainType',
+      endDate: 'EndDate',
+      lang: 'Lang',
+      rr: 'Rr',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      startDate: 'string',
-      endDate: 'string',
       domainName: 'string',
-      rr: 'string',
       domainType: 'string',
+      endDate: 'string',
+      lang: 'string',
+      rr: 'string',
+      startDate: 'string',
     };
   }
 
@@ -7445,10 +8853,12 @@ export class DescribeRecordStatisticsResponseBody extends $tea.Model {
 
 export class DescribeRecordStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRecordStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7456,6 +8866,7 @@ export class DescribeRecordStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRecordStatisticsResponseBody,
     };
   }
@@ -7466,52 +8877,43 @@ export class DescribeRecordStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsSummaryRequest extends $tea.Model {
+  domainName?: string;
+  domainType?: string;
+  endDate?: string;
+  keyword?: string;
   lang?: string;
-  userClientIp?: string;
   pageNumber?: number;
   pageSize?: number;
-  startDate?: string;
-  endDate?: string;
-  orderBy?: string;
-  direction?: string;
-  domainName?: string;
   searchMode?: string;
-  keyword?: string;
+  startDate?: string;
   threshold?: number;
-  domainType?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
+      domainType: 'DomainType',
+      endDate: 'EndDate',
+      keyword: 'Keyword',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-      orderBy: 'OrderBy',
-      direction: 'Direction',
-      domainName: 'DomainName',
       searchMode: 'SearchMode',
-      keyword: 'Keyword',
+      startDate: 'StartDate',
       threshold: 'Threshold',
-      domainType: 'DomainType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
+      domainType: 'string',
+      endDate: 'string',
+      keyword: 'string',
       lang: 'string',
-      userClientIp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      startDate: 'string',
-      endDate: 'string',
-      orderBy: 'string',
-      direction: 'string',
-      domainName: 'string',
       searchMode: 'string',
-      keyword: 'string',
+      startDate: 'string',
       threshold: 'number',
-      domainType: 'string',
     };
   }
 
@@ -7521,31 +8923,31 @@ export class DescribeRecordStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsSummaryResponseBody extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  totalPages?: number;
-  totalItems?: number;
   statistics?: DescribeRecordStatisticsSummaryResponseBodyStatistics;
+  totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      totalPages: 'TotalPages',
-      totalItems: 'TotalItems',
       statistics: 'Statistics',
+      totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      totalPages: 'number',
-      totalItems: 'number',
       statistics: DescribeRecordStatisticsSummaryResponseBodyStatistics,
+      totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -7556,10 +8958,12 @@ export class DescribeRecordStatisticsSummaryResponseBody extends $tea.Model {
 
 export class DescribeRecordStatisticsSummaryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRecordStatisticsSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7567,6 +8971,7 @@ export class DescribeRecordStatisticsSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRecordStatisticsSummaryResponseBody,
     };
   }
@@ -7577,37 +8982,37 @@ export class DescribeRecordStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeSubDomainRecordsRequest extends $tea.Model {
+  domainName?: string;
   lang?: string;
-  userClientIp?: string;
-  subDomain?: string;
+  line?: string;
   pageNumber?: number;
   pageSize?: number;
+  subDomain?: string;
   type?: string;
-  line?: string;
-  domainName?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      subDomain: 'SubDomain',
+      line: 'Line',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      subDomain: 'SubDomain',
       type: 'Type',
-      line: 'Line',
-      domainName: 'DomainName',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       lang: 'string',
-      userClientIp: 'string',
-      subDomain: 'string',
+      line: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      subDomain: 'string',
       type: 'string',
-      line: 'string',
-      domainName: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -7617,28 +9022,28 @@ export class DescribeSubDomainRecordsRequest extends $tea.Model {
 }
 
 export class DescribeSubDomainRecordsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
   domainRecords?: DescribeSubDomainRecordsResponseBodyDomainRecords;
   pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       domainRecords: 'DomainRecords',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
       domainRecords: DescribeSubDomainRecordsResponseBodyDomainRecords,
       pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -7649,10 +9054,12 @@ export class DescribeSubDomainRecordsResponseBody extends $tea.Model {
 
 export class DescribeSubDomainRecordsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSubDomainRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7660,6 +9067,7 @@ export class DescribeSubDomainRecordsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSubDomainRecordsResponseBody,
     };
   }
@@ -7670,22 +9078,22 @@ export class DescribeSubDomainRecordsResponse extends $tea.Model {
 }
 
 export class DescribeSupportLinesRequest extends $tea.Model {
+  domainName?: string;
   lang?: string;
   userClientIp?: string;
-  domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       lang: 'string',
       userClientIp: 'string',
-      domainName: 'string',
     };
   }
 
@@ -7718,10 +9126,12 @@ export class DescribeSupportLinesResponseBody extends $tea.Model {
 
 export class DescribeSupportLinesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeSupportLinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7729,6 +9139,7 @@ export class DescribeSupportLinesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeSupportLinesResponseBody,
     };
   }
@@ -7740,27 +9151,24 @@ export class DescribeSupportLinesResponse extends $tea.Model {
 
 export class DescribeTagsRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
-  resourceType?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      resourceType: 'ResourceType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
-      resourceType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceType: 'string',
     };
   }
 
@@ -7770,28 +9178,28 @@ export class DescribeTagsRequest extends $tea.Model {
 }
 
 export class DescribeTagsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
   tags?: DescribeTagsResponseBodyTags[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
       tags: 'Tags',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
       tags: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTags },
+      totalCount: 'number',
     };
   }
 
@@ -7802,10 +9210,12 @@ export class DescribeTagsResponseBody extends $tea.Model {
 
 export class DescribeTagsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeTagsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7813,6 +9223,7 @@ export class DescribeTagsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTagsResponseBody,
     };
   }
@@ -7823,37 +9234,34 @@ export class DescribeTagsResponse extends $tea.Model {
 }
 
 export class DescribeTransferDomainsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  transferType?: string;
   domainName?: string;
   fromUserId?: number;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
   targetUserId?: number;
+  transferType?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      transferType: 'TransferType',
       domainName: 'DomainName',
       fromUserId: 'FromUserId',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       targetUserId: 'TargetUserId',
+      transferType: 'TransferType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      transferType: 'string',
       domainName: 'string',
       fromUserId: 'number',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       targetUserId: 'number',
+      transferType: 'string',
     };
   }
 
@@ -7863,28 +9271,28 @@ export class DescribeTransferDomainsRequest extends $tea.Model {
 }
 
 export class DescribeTransferDomainsResponseBody extends $tea.Model {
-  totalCount?: number;
+  domainTransfers?: DescribeTransferDomainsResponseBodyDomainTransfers;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  domainTransfers?: DescribeTransferDomainsResponseBodyDomainTransfers;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      domainTransfers: 'DomainTransfers',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      domainTransfers: 'DomainTransfers',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      domainTransfers: DescribeTransferDomainsResponseBodyDomainTransfers,
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      domainTransfers: DescribeTransferDomainsResponseBodyDomainTransfers,
+      totalCount: 'number',
     };
   }
 
@@ -7895,10 +9303,12 @@ export class DescribeTransferDomainsResponseBody extends $tea.Model {
 
 export class DescribeTransferDomainsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeTransferDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7906,6 +9316,7 @@ export class DescribeTransferDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeTransferDomainsResponseBody,
     };
   }
@@ -7917,12 +9328,10 @@ export class DescribeTransferDomainsResponse extends $tea.Model {
 
 export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recoveryPlanId: 'RecoveryPlanId',
     };
   }
@@ -7930,7 +9339,6 @@ export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recoveryPlanId: 'number',
     };
   }
@@ -7961,10 +9369,12 @@ export class ExecuteGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class ExecuteGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ExecuteGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7972,6 +9382,7 @@ export class ExecuteGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ExecuteGtmRecoveryPlanResponseBody,
     };
   }
@@ -7982,22 +9393,19 @@ export class ExecuteGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class GetMainDomainNameRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   inputString?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       inputString: 'InputString',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       inputString: 'string',
+      lang: 'string',
     };
   }
 
@@ -8007,25 +9415,25 @@ export class GetMainDomainNameRequest extends $tea.Model {
 }
 
 export class GetMainDomainNameResponseBody extends $tea.Model {
+  domainLevel?: number;
+  domainName?: string;
   RR?: string;
   requestId?: string;
-  domainName?: string;
-  domainLevel?: number;
   static names(): { [key: string]: string } {
     return {
+      domainLevel: 'DomainLevel',
+      domainName: 'DomainName',
       RR: 'RR',
       requestId: 'RequestId',
-      domainName: 'DomainName',
-      domainLevel: 'DomainLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainLevel: 'number',
+      domainName: 'string',
       RR: 'string',
       requestId: 'string',
-      domainName: 'string',
-      domainLevel: 'number',
     };
   }
 
@@ -8036,10 +9444,12 @@ export class GetMainDomainNameResponseBody extends $tea.Model {
 
 export class GetMainDomainNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetMainDomainNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8047,6 +9457,7 @@ export class GetMainDomainNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetMainDomainNameResponseBody,
     };
   }
@@ -8057,25 +9468,22 @@ export class GetMainDomainNameResponse extends $tea.Model {
 }
 
 export class GetTxtRecordForVerifyRequest extends $tea.Model {
-  lang?: string;
   domainName?: string;
+  lang?: string;
   type?: string;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
       type: 'Type',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
       type: 'string',
-      userClientIp: 'string',
     };
   }
 
@@ -8085,24 +9493,24 @@ export class GetTxtRecordForVerifyRequest extends $tea.Model {
 }
 
 export class GetTxtRecordForVerifyResponseBody extends $tea.Model {
+  domainName?: string;
   RR?: string;
   requestId?: string;
-  domainName?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       RR: 'RR',
       requestId: 'RequestId',
-      domainName: 'DomainName',
       value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       RR: 'string',
       requestId: 'string',
-      domainName: 'string',
       value: 'string',
     };
   }
@@ -8114,10 +9522,12 @@ export class GetTxtRecordForVerifyResponseBody extends $tea.Model {
 
 export class GetTxtRecordForVerifyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTxtRecordForVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8125,6 +9535,7 @@ export class GetTxtRecordForVerifyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTxtRecordForVerifyResponseBody,
     };
   }
@@ -8136,33 +9547,27 @@ export class GetTxtRecordForVerifyResponse extends $tea.Model {
 
 export class ListTagResourcesRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
-  resourceType?: string;
   nextToken?: string;
-  size?: number;
-  tag?: ListTagResourcesRequestTag[];
   resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      resourceType: 'ResourceType',
       nextToken: 'NextToken',
-      size: 'Size',
-      tag: 'Tag',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
-      resourceType: 'string',
       nextToken: 'string',
-      size: 'number',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
 
@@ -8198,10 +9603,12 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8209,6 +9616,7 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
@@ -8219,22 +9627,22 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ModifyHichinaDomainDNSRequest extends $tea.Model {
+  domainName?: string;
   lang?: string;
   userClientIp?: string;
-  domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       lang: 'Lang',
       userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       lang: 'string',
       userClientIp: 'string',
-      domainName: 'string',
     };
   }
 
@@ -8244,22 +9652,22 @@ export class ModifyHichinaDomainDNSRequest extends $tea.Model {
 }
 
 export class ModifyHichinaDomainDNSResponseBody extends $tea.Model {
-  requestId?: string;
   newDnsServers?: ModifyHichinaDomainDNSResponseBodyNewDnsServers;
   originalDnsServers?: ModifyHichinaDomainDNSResponseBodyOriginalDnsServers;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       newDnsServers: 'NewDnsServers',
       originalDnsServers: 'OriginalDnsServers',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       newDnsServers: ModifyHichinaDomainDNSResponseBodyNewDnsServers,
       originalDnsServers: ModifyHichinaDomainDNSResponseBodyOriginalDnsServers,
+      requestId: 'string',
     };
   }
 
@@ -8270,10 +9678,12 @@ export class ModifyHichinaDomainDNSResponseBody extends $tea.Model {
 
 export class ModifyHichinaDomainDNSResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyHichinaDomainDNSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8281,6 +9691,7 @@ export class ModifyHichinaDomainDNSResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyHichinaDomainDNSResponseBody,
     };
   }
@@ -8292,24 +9703,21 @@ export class ModifyHichinaDomainDNSResponse extends $tea.Model {
 
 export class MoveDomainResourceGroupRequest extends $tea.Model {
   lang?: string;
-  resourceId?: string;
   newResourceGroupId?: string;
-  userClientIp?: string;
+  resourceId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      resourceId: 'ResourceId',
       newResourceGroupId: 'NewResourceGroupId',
-      userClientIp: 'UserClientIp',
+      resourceId: 'ResourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      resourceId: 'string',
       newResourceGroupId: 'string',
-      userClientIp: 'string',
+      resourceId: 'string',
     };
   }
 
@@ -8339,10 +9747,12 @@ export class MoveDomainResourceGroupResponseBody extends $tea.Model {
 
 export class MoveDomainResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MoveDomainResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8350,6 +9760,7 @@ export class MoveDomainResourceGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MoveDomainResourceGroupResponseBody,
     };
   }
@@ -8361,24 +9772,21 @@ export class MoveDomainResourceGroupResponse extends $tea.Model {
 
 export class MoveGtmResourceGroupRequest extends $tea.Model {
   lang?: string;
-  resourceId?: string;
   newResourceGroupId?: string;
-  userClientIp?: string;
+  resourceId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      resourceId: 'ResourceId',
       newResourceGroupId: 'NewResourceGroupId',
-      userClientIp: 'UserClientIp',
+      resourceId: 'ResourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      resourceId: 'string',
       newResourceGroupId: 'string',
-      userClientIp: 'string',
+      resourceId: 'string',
     };
   }
 
@@ -8408,10 +9816,12 @@ export class MoveGtmResourceGroupResponseBody extends $tea.Model {
 
 export class MoveGtmResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MoveGtmResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8419,6 +9829,7 @@ export class MoveGtmResourceGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MoveGtmResourceGroupResponseBody,
     };
   }
@@ -8429,25 +9840,22 @@ export class MoveGtmResourceGroupResponse extends $tea.Model {
 }
 
 export class OperateBatchDomainRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  type?: string;
   domainRecordInfo?: OperateBatchDomainRequestDomainRecordInfo[];
+  lang?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      type: 'Type',
       domainRecordInfo: 'DomainRecordInfo',
+      lang: 'Lang',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      type: 'string',
       domainRecordInfo: { 'type': 'array', 'itemType': OperateBatchDomainRequestDomainRecordInfo },
+      lang: 'string',
+      type: 'string',
     };
   }
 
@@ -8457,19 +9865,19 @@ export class OperateBatchDomainRequest extends $tea.Model {
 }
 
 export class OperateBatchDomainResponseBody extends $tea.Model {
-  taskId?: number;
   requestId?: string;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'number',
       requestId: 'string',
+      taskId: 'number',
     };
   }
 
@@ -8480,10 +9888,12 @@ export class OperateBatchDomainResponseBody extends $tea.Model {
 
 export class OperateBatchDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: OperateBatchDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8491,7 +9901,74 @@ export class OperateBatchDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: OperateBatchDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PausePdnsServiceRequest extends $tea.Model {
+  lang?: string;
+  serviceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      serviceType: 'ServiceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      serviceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PausePdnsServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PausePdnsServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PausePdnsServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PausePdnsServiceResponseBody,
     };
   }
 
@@ -8502,27 +9979,24 @@ export class OperateBatchDomainResponse extends $tea.Model {
 
 export class PreviewGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
-  recoveryPlanId?: number;
   pageNumber?: number;
   pageSize?: number;
+  recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      recoveryPlanId: 'RecoveryPlanId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      recoveryPlanId: 'RecoveryPlanId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
-      recoveryPlanId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      recoveryPlanId: 'number',
     };
   }
 
@@ -8532,31 +10006,31 @@ export class PreviewGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class PreviewGtmRecoveryPlanResponseBody extends $tea.Model {
-  pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
+  pageSize?: number;
   previews?: PreviewGtmRecoveryPlanResponseBodyPreviews;
-  totalPages?: number;
+  requestId?: string;
   totalItems?: number;
+  totalPages?: number;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       previews: 'Previews',
-      totalPages: 'TotalPages',
+      requestId: 'RequestId',
       totalItems: 'TotalItems',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
+      pageSize: 'number',
       previews: PreviewGtmRecoveryPlanResponseBodyPreviews,
-      totalPages: 'number',
+      requestId: 'string',
       totalItems: 'number',
+      totalPages: 'number',
     };
   }
 
@@ -8567,10 +10041,12 @@ export class PreviewGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class PreviewGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PreviewGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8578,6 +10054,7 @@ export class PreviewGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PreviewGtmRecoveryPlanResponseBody,
     };
   }
@@ -8587,23 +10064,218 @@ export class PreviewGtmRecoveryPlanResponse extends $tea.Model {
   }
 }
 
-export class RetrieveDomainRequest extends $tea.Model {
+export class RemovePdnsAppKeyRequest extends $tea.Model {
+  appKeyId?: string;
   lang?: string;
-  userClientIp?: string;
-  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKeyId: 'AppKeyId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKeyId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemovePdnsAppKeyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemovePdnsAppKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemovePdnsAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemovePdnsAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemovePdnsUdpIpSegmentRequest extends $tea.Model {
+  ip?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemovePdnsUdpIpSegmentResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemovePdnsUdpIpSegmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemovePdnsUdpIpSegmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemovePdnsUdpIpSegmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumePdnsServiceRequest extends $tea.Model {
+  lang?: string;
+  serviceType?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
+      serviceType: 'ServiceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
+      serviceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumePdnsServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumePdnsServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResumePdnsServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResumePdnsServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveDomainRequest extends $tea.Model {
+  domainName?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       domainName: 'string',
+      lang: 'string',
     };
   }
 
@@ -8633,10 +10305,12 @@ export class RetrieveDomainResponseBody extends $tea.Model {
 
 export class RetrieveDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RetrieveDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8644,6 +10318,7 @@ export class RetrieveDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RetrieveDomainResponseBody,
     };
   }
@@ -8655,12 +10330,10 @@ export class RetrieveDomainResponse extends $tea.Model {
 
 export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recoveryPlanId: 'RecoveryPlanId',
     };
   }
@@ -8668,7 +10341,6 @@ export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recoveryPlanId: 'number',
     };
   }
@@ -8699,10 +10371,12 @@ export class RollbackGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class RollbackGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RollbackGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8710,6 +10384,7 @@ export class RollbackGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RollbackGtmRecoveryPlanResponseBody,
     };
   }
@@ -8719,26 +10394,110 @@ export class RollbackGtmRecoveryPlanResponse extends $tea.Model {
   }
 }
 
-export class SetDnsGtmAccessModeRequest extends $tea.Model {
+export class SetDNSSLBStatusRequest extends $tea.Model {
+  domainName?: string;
   lang?: string;
+  line?: string;
+  open?: boolean;
+  subDomain?: string;
+  type?: string;
   userClientIp?: string;
-  strategyId?: string;
-  accessMode?: string;
   static names(): { [key: string]: string } {
     return {
+      domainName: 'DomainName',
       lang: 'Lang',
+      line: 'Line',
+      open: 'Open',
+      subDomain: 'SubDomain',
+      type: 'Type',
       userClientIp: 'UserClientIp',
-      strategyId: 'StrategyId',
-      accessMode: 'AccessMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainName: 'string',
       lang: 'string',
+      line: 'string',
+      open: 'boolean',
+      subDomain: 'string',
+      type: 'string',
       userClientIp: 'string',
-      strategyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDNSSLBStatusResponseBody extends $tea.Model {
+  open?: boolean;
+  recordCount?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      open: 'Open',
+      recordCount: 'RecordCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      open: 'boolean',
+      recordCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDNSSLBStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SetDNSSLBStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDNSSLBStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDnsGtmAccessModeRequest extends $tea.Model {
+  accessMode?: string;
+  lang?: string;
+  strategyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+      lang: 'Lang',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       accessMode: 'string',
+      lang: 'string',
+      strategyId: 'string',
     };
   }
 
@@ -8768,10 +10527,12 @@ export class SetDnsGtmAccessModeResponseBody extends $tea.Model {
 
 export class SetDnsGtmAccessModeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDnsGtmAccessModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8779,6 +10540,7 @@ export class SetDnsGtmAccessModeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDnsGtmAccessModeResponseBody,
     };
   }
@@ -8789,13 +10551,11 @@ export class SetDnsGtmAccessModeResponse extends $tea.Model {
 }
 
 export class SetDnsGtmMonitorStatusRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   monitorConfigId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       monitorConfigId: 'MonitorConfigId',
       status: 'Status',
@@ -8804,7 +10564,6 @@ export class SetDnsGtmMonitorStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       monitorConfigId: 'string',
       status: 'string',
@@ -8837,10 +10596,12 @@ export class SetDnsGtmMonitorStatusResponseBody extends $tea.Model {
 
 export class SetDnsGtmMonitorStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDnsGtmMonitorStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8848,6 +10609,7 @@ export class SetDnsGtmMonitorStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDnsGtmMonitorStatusResponseBody,
     };
   }
@@ -8857,109 +10619,22 @@ export class SetDnsGtmMonitorStatusResponse extends $tea.Model {
   }
 }
 
-export class SetDNSSLBStatusRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  subDomain?: string;
-  open?: boolean;
-  domainName?: string;
-  type?: string;
-  line?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      subDomain: 'SubDomain',
-      open: 'Open',
-      domainName: 'DomainName',
-      type: 'Type',
-      line: 'Line',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-      subDomain: 'string',
-      open: 'boolean',
-      domainName: 'string',
-      type: 'string',
-      line: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDNSSLBStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  recordCount?: number;
-  open?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      recordCount: 'RecordCount',
-      open: 'Open',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      recordCount: 'number',
-      open: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDNSSLBStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetDNSSLBStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetDNSSLBStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetDomainDnssecStatusRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
   domainName?: string;
+  lang?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
       domainName: 'DomainName',
+      lang: 'Lang',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
       domainName: 'string',
+      lang: 'string',
       status: 'string',
     };
   }
@@ -8990,10 +10665,12 @@ export class SetDomainDnssecStatusResponseBody extends $tea.Model {
 
 export class SetDomainDnssecStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDomainDnssecStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9001,6 +10678,7 @@ export class SetDomainDnssecStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDomainDnssecStatusResponseBody,
     };
   }
@@ -9012,24 +10690,24 @@ export class SetDomainDnssecStatusResponse extends $tea.Model {
 
 export class SetDomainRecordStatusRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recordId?: string;
   status?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recordId: 'RecordId',
       status: 'Status',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recordId: 'string',
       status: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -9039,22 +10717,22 @@ export class SetDomainRecordStatusRequest extends $tea.Model {
 }
 
 export class SetDomainRecordStatusResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
   recordId?: string;
+  requestId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      requestId: 'RequestId',
       recordId: 'RecordId',
+      requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      requestId: 'string',
       recordId: 'string',
+      requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -9065,10 +10743,12 @@ export class SetDomainRecordStatusResponseBody extends $tea.Model {
 
 export class SetDomainRecordStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDomainRecordStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9076,6 +10756,7 @@ export class SetDomainRecordStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDomainRecordStatusResponseBody,
     };
   }
@@ -9086,25 +10767,22 @@ export class SetDomainRecordStatusResponse extends $tea.Model {
 }
 
 export class SetGtmAccessModeRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  strategyId?: string;
   accessMode?: string;
+  lang?: string;
+  strategyId?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      strategyId: 'StrategyId',
       accessMode: 'AccessMode',
+      lang: 'Lang',
+      strategyId: 'StrategyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      strategyId: 'string',
       accessMode: 'string',
+      lang: 'string',
+      strategyId: 'string',
     };
   }
 
@@ -9134,10 +10812,12 @@ export class SetGtmAccessModeResponseBody extends $tea.Model {
 
 export class SetGtmAccessModeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetGtmAccessModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9145,6 +10825,7 @@ export class SetGtmAccessModeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetGtmAccessModeResponseBody,
     };
   }
@@ -9155,13 +10836,11 @@ export class SetGtmAccessModeResponse extends $tea.Model {
 }
 
 export class SetGtmMonitorStatusRequest extends $tea.Model {
-  userClientIp?: string;
   lang?: string;
   monitorConfigId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
       lang: 'Lang',
       monitorConfigId: 'MonitorConfigId',
       status: 'Status',
@@ -9170,7 +10849,6 @@ export class SetGtmMonitorStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
       lang: 'string',
       monitorConfigId: 'string',
       status: 'string',
@@ -9203,10 +10881,12 @@ export class SetGtmMonitorStatusResponseBody extends $tea.Model {
 
 export class SetGtmMonitorStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetGtmMonitorStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9214,6 +10894,7 @@ export class SetGtmMonitorStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetGtmMonitorStatusResponseBody,
     };
   }
@@ -9223,25 +10904,94 @@ export class SetGtmMonitorStatusResponse extends $tea.Model {
   }
 }
 
-export class SwitchDnsGtmInstanceStrategyModeRequest extends $tea.Model {
+export class SubmitIspFlushCacheTaskRequest extends $tea.Model {
+  clientToken?: string;
+  domainName?: string;
+  isp?: string[];
   lang?: string;
-  userClientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      domainName: 'DomainName',
+      isp: 'Isp',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      domainName: 'string',
+      isp: { 'type': 'array', 'itemType': 'string' },
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIspFlushCacheTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitIspFlushCacheTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SubmitIspFlushCacheTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitIspFlushCacheTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDnsGtmInstanceStrategyModeRequest extends $tea.Model {
   instanceId?: string;
+  lang?: string;
   strategyMode?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       instanceId: 'InstanceId',
+      lang: 'Lang',
       strategyMode: 'StrategyMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       instanceId: 'string',
+      lang: 'string',
       strategyMode: 'string',
     };
   }
@@ -9272,10 +11022,12 @@ export class SwitchDnsGtmInstanceStrategyModeResponseBody extends $tea.Model {
 
 export class SwitchDnsGtmInstanceStrategyModeResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SwitchDnsGtmInstanceStrategyModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9283,6 +11035,7 @@ export class SwitchDnsGtmInstanceStrategyModeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SwitchDnsGtmInstanceStrategyModeResponseBody,
     };
   }
@@ -9294,30 +11047,24 @@ export class SwitchDnsGtmInstanceStrategyModeResponse extends $tea.Model {
 
 export class TagResourcesRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
-  resourceType?: string;
-  overWrite?: boolean;
-  tag?: TagResourcesRequestTag[];
   resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      resourceType: 'ResourceType',
-      overWrite: 'OverWrite',
-      tag: 'Tag',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
-      resourceType: 'string',
-      overWrite: 'boolean',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
 
@@ -9347,10 +11094,12 @@ export class TagResourcesResponseBody extends $tea.Model {
 
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9358,6 +11107,7 @@ export class TagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TagResourcesResponseBody,
     };
   }
@@ -9368,28 +11118,25 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TransferDomainRequest extends $tea.Model {
-  lang?: string;
   domainNames?: string;
+  lang?: string;
   remark?: string;
   targetUserId?: number;
-  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
       domainNames: 'DomainNames',
+      lang: 'Lang',
       remark: 'Remark',
       targetUserId: 'TargetUserId',
-      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
       domainNames: 'string',
+      lang: 'string',
       remark: 'string',
       targetUserId: 'number',
-      userClientIp: 'string',
     };
   }
 
@@ -9399,19 +11146,19 @@ export class TransferDomainRequest extends $tea.Model {
 }
 
 export class TransferDomainResponseBody extends $tea.Model {
-  taskId?: number;
   requestId?: string;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'number',
       requestId: 'string',
+      taskId: 'number',
     };
   }
 
@@ -9422,10 +11169,12 @@ export class TransferDomainResponseBody extends $tea.Model {
 
 export class TransferDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: TransferDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9433,6 +11182,7 @@ export class TransferDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: TransferDomainResponseBody,
     };
   }
@@ -9443,25 +11193,22 @@ export class TransferDomainResponse extends $tea.Model {
 }
 
 export class UnbindInstanceDomainsRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainNames?: string;
   instanceId?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainNames: 'DomainNames',
       instanceId: 'InstanceId',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainNames: 'string',
       instanceId: 'string',
+      lang: 'string',
     };
   }
 
@@ -9471,21 +11218,21 @@ export class UnbindInstanceDomainsRequest extends $tea.Model {
 }
 
 export class UnbindInstanceDomainsResponseBody extends $tea.Model {
-  requestId?: string;
   failedCount?: number;
+  requestId?: string;
   successCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       failedCount: 'FailedCount',
+      requestId: 'RequestId',
       successCount: 'SuccessCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       failedCount: 'number',
+      requestId: 'string',
       successCount: 'number',
     };
   }
@@ -9497,10 +11244,12 @@ export class UnbindInstanceDomainsResponseBody extends $tea.Model {
 
 export class UnbindInstanceDomainsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnbindInstanceDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9508,6 +11257,7 @@ export class UnbindInstanceDomainsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnbindInstanceDomainsResponseBody,
     };
   }
@@ -9518,30 +11268,27 @@ export class UnbindInstanceDomainsResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  resourceType?: string;
   all?: boolean;
+  lang?: string;
   resourceId?: string[];
+  resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      resourceType: 'ResourceType',
       all: 'All',
+      lang: 'Lang',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      resourceType: 'string',
       all: 'boolean',
+      lang: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -9572,10 +11319,12 @@ export class UntagResourcesResponseBody extends $tea.Model {
 
 export class UntagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9583,6 +11332,7 @@ export class UntagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UntagResourcesResponseBody,
     };
   }
@@ -9592,29 +11342,95 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
-export class UpdateCustomLineRequest extends $tea.Model {
+export class UpdateAppKeyStateRequest extends $tea.Model {
+  appKeyId?: string;
   lang?: string;
-  userClientIp?: string;
-  lineName?: string;
-  lineId?: number;
-  ipSegment?: UpdateCustomLineRequestIpSegment[];
+  state?: string;
   static names(): { [key: string]: string } {
     return {
+      appKeyId: 'AppKeyId',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      lineName: 'LineName',
-      lineId: 'LineId',
-      ipSegment: 'IpSegment',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appKeyId: 'string',
       lang: 'string',
-      userClientIp: 'string',
-      lineName: 'string',
-      lineId: 'number',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppKeyStateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppKeyStateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateAppKeyStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAppKeyStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomLineRequest extends $tea.Model {
+  ipSegment?: UpdateCustomLineRequestIpSegment[];
+  lang?: string;
+  lineId?: number;
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipSegment: 'IpSegment',
+      lang: 'Lang',
+      lineId: 'LineId',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       ipSegment: { 'type': 'array', 'itemType': UpdateCustomLineRequestIpSegment },
+      lang: 'string',
+      lineId: 'number',
+      lineName: 'string',
     };
   }
 
@@ -9644,10 +11460,12 @@ export class UpdateCustomLineResponseBody extends $tea.Model {
 
 export class UpdateCustomLineResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateCustomLineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9655,6 +11473,7 @@ export class UpdateCustomLineResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateCustomLineResponseBody,
     };
   }
@@ -9664,41 +11483,116 @@ export class UpdateCustomLineResponse extends $tea.Model {
   }
 }
 
-export class UpdateDnsCacheDomainRequest extends $tea.Model {
+export class UpdateDNSSLBWeightRequest extends $tea.Model {
   lang?: string;
+  recordId?: string;
   userClientIp?: string;
-  domainName?: string;
-  instanceId?: string;
-  cacheTtlMin?: number;
-  cacheTtlMax?: number;
-  sourceProtocol?: string;
-  sourceEdns?: string;
-  sourceDnsServer?: UpdateDnsCacheDomainRequestSourceDnsServer[];
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      recordId: 'RecordId',
       userClientIp: 'UserClientIp',
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      cacheTtlMin: 'CacheTtlMin',
-      cacheTtlMax: 'CacheTtlMax',
-      sourceProtocol: 'SourceProtocol',
-      sourceEdns: 'SourceEdns',
-      sourceDnsServer: 'SourceDnsServer',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      recordId: 'string',
       userClientIp: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDNSSLBWeightResponseBody extends $tea.Model {
+  recordId?: string;
+  requestId?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      recordId: 'RecordId',
+      requestId: 'RequestId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordId: 'string',
+      requestId: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDNSSLBWeightResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateDNSSLBWeightResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDNSSLBWeightResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainRequest extends $tea.Model {
+  cacheTtlMax?: number;
+  cacheTtlMin?: number;
+  domainName?: string;
+  instanceId?: string;
+  lang?: string;
+  sourceDnsServer?: UpdateDnsCacheDomainRequestSourceDnsServer[];
+  sourceEdns?: string;
+  sourceProtocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheTtlMax: 'CacheTtlMax',
+      cacheTtlMin: 'CacheTtlMin',
+      domainName: 'DomainName',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      sourceDnsServer: 'SourceDnsServer',
+      sourceEdns: 'SourceEdns',
+      sourceProtocol: 'SourceProtocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheTtlMax: 'number',
+      cacheTtlMin: 'number',
       domainName: 'string',
       instanceId: 'string',
-      cacheTtlMin: 'number',
-      cacheTtlMax: 'number',
-      sourceProtocol: 'string',
-      sourceEdns: 'string',
+      lang: 'string',
       sourceDnsServer: { 'type': 'array', 'itemType': UpdateDnsCacheDomainRequestSourceDnsServer },
+      sourceEdns: 'string',
+      sourceProtocol: 'string',
     };
   }
 
@@ -9728,10 +11622,12 @@ export class UpdateDnsCacheDomainResponseBody extends $tea.Model {
 
 export class UpdateDnsCacheDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDnsCacheDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9739,6 +11635,7 @@ export class UpdateDnsCacheDomainResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDnsCacheDomainResponseBody,
     };
   }
@@ -9749,24 +11646,21 @@ export class UpdateDnsCacheDomainResponse extends $tea.Model {
 }
 
 export class UpdateDnsCacheDomainRemarkRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
       remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
       remark: 'string',
     };
   }
@@ -9797,10 +11691,12 @@ export class UpdateDnsCacheDomainRemarkResponseBody extends $tea.Model {
 
 export class UpdateDnsCacheDomainRemarkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDnsCacheDomainRemarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9808,6 +11704,7 @@ export class UpdateDnsCacheDomainRemarkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDnsCacheDomainRemarkResponseBody,
     };
   }
@@ -9818,64 +11715,64 @@ export class UpdateDnsCacheDomainRemarkResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmAccessStrategyRequest extends $tea.Model {
+  accessMode?: string;
+  defaultAddrPool?: UpdateDnsGtmAccessStrategyRequestDefaultAddrPool[];
+  defaultAddrPoolType?: string;
+  defaultLatencyOptimization?: string;
+  defaultLbaStrategy?: string;
+  defaultMaxReturnAddrNum?: number;
+  defaultMinAvailableAddrNum?: number;
+  failoverAddrPool?: UpdateDnsGtmAccessStrategyRequestFailoverAddrPool[];
+  failoverAddrPoolType?: string;
+  failoverLatencyOptimization?: string;
+  failoverLbaStrategy?: string;
+  failoverMaxReturnAddrNum?: number;
+  failoverMinAvailableAddrNum?: number;
   lang?: string;
-  userClientIp?: string;
+  lines?: string;
   strategyId?: string;
   strategyName?: string;
-  lines?: string;
-  defaultAddrPoolType?: string;
-  defaultLbaStrategy?: string;
-  defaultMinAvailableAddrNum?: number;
-  defaultMaxReturnAddrNum?: number;
-  defaultLatencyOptimization?: string;
-  failoverAddrPoolType?: string;
-  failoverLbaStrategy?: string;
-  failoverMinAvailableAddrNum?: number;
-  failoverMaxReturnAddrNum?: number;
-  failoverLatencyOptimization?: string;
-  defaultAddrPool?: UpdateDnsGtmAccessStrategyRequestDefaultAddrPool[];
-  failoverAddrPool?: UpdateDnsGtmAccessStrategyRequestFailoverAddrPool[];
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'AccessMode',
+      defaultAddrPool: 'DefaultAddrPool',
+      defaultAddrPoolType: 'DefaultAddrPoolType',
+      defaultLatencyOptimization: 'DefaultLatencyOptimization',
+      defaultLbaStrategy: 'DefaultLbaStrategy',
+      defaultMaxReturnAddrNum: 'DefaultMaxReturnAddrNum',
+      defaultMinAvailableAddrNum: 'DefaultMinAvailableAddrNum',
+      failoverAddrPool: 'FailoverAddrPool',
+      failoverAddrPoolType: 'FailoverAddrPoolType',
+      failoverLatencyOptimization: 'FailoverLatencyOptimization',
+      failoverLbaStrategy: 'FailoverLbaStrategy',
+      failoverMaxReturnAddrNum: 'FailoverMaxReturnAddrNum',
+      failoverMinAvailableAddrNum: 'FailoverMinAvailableAddrNum',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
+      lines: 'Lines',
       strategyId: 'StrategyId',
       strategyName: 'StrategyName',
-      lines: 'Lines',
-      defaultAddrPoolType: 'DefaultAddrPoolType',
-      defaultLbaStrategy: 'DefaultLbaStrategy',
-      defaultMinAvailableAddrNum: 'DefaultMinAvailableAddrNum',
-      defaultMaxReturnAddrNum: 'DefaultMaxReturnAddrNum',
-      defaultLatencyOptimization: 'DefaultLatencyOptimization',
-      failoverAddrPoolType: 'FailoverAddrPoolType',
-      failoverLbaStrategy: 'FailoverLbaStrategy',
-      failoverMinAvailableAddrNum: 'FailoverMinAvailableAddrNum',
-      failoverMaxReturnAddrNum: 'FailoverMaxReturnAddrNum',
-      failoverLatencyOptimization: 'FailoverLatencyOptimization',
-      defaultAddrPool: 'DefaultAddrPool',
-      failoverAddrPool: 'FailoverAddrPool',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      defaultAddrPool: { 'type': 'array', 'itemType': UpdateDnsGtmAccessStrategyRequestDefaultAddrPool },
+      defaultAddrPoolType: 'string',
+      defaultLatencyOptimization: 'string',
+      defaultLbaStrategy: 'string',
+      defaultMaxReturnAddrNum: 'number',
+      defaultMinAvailableAddrNum: 'number',
+      failoverAddrPool: { 'type': 'array', 'itemType': UpdateDnsGtmAccessStrategyRequestFailoverAddrPool },
+      failoverAddrPoolType: 'string',
+      failoverLatencyOptimization: 'string',
+      failoverLbaStrategy: 'string',
+      failoverMaxReturnAddrNum: 'number',
+      failoverMinAvailableAddrNum: 'number',
       lang: 'string',
-      userClientIp: 'string',
+      lines: 'string',
       strategyId: 'string',
       strategyName: 'string',
-      lines: 'string',
-      defaultAddrPoolType: 'string',
-      defaultLbaStrategy: 'string',
-      defaultMinAvailableAddrNum: 'number',
-      defaultMaxReturnAddrNum: 'number',
-      defaultLatencyOptimization: 'string',
-      failoverAddrPoolType: 'string',
-      failoverLbaStrategy: 'string',
-      failoverMinAvailableAddrNum: 'number',
-      failoverMaxReturnAddrNum: 'number',
-      failoverLatencyOptimization: 'string',
-      defaultAddrPool: { 'type': 'array', 'itemType': UpdateDnsGtmAccessStrategyRequestDefaultAddrPool },
-      failoverAddrPool: { 'type': 'array', 'itemType': UpdateDnsGtmAccessStrategyRequestFailoverAddrPool },
     };
   }
 
@@ -9908,10 +11805,12 @@ export class UpdateDnsGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class UpdateDnsGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDnsGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9919,6 +11818,7 @@ export class UpdateDnsGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDnsGtmAccessStrategyResponseBody,
     };
   }
@@ -9929,31 +11829,28 @@ export class UpdateDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
-  addrPoolId?: string;
-  name?: string;
-  lbaStrategy?: string;
   addr?: UpdateDnsGtmAddressPoolRequestAddr[];
+  addrPoolId?: string;
+  lang?: string;
+  lbaStrategy?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
-      addrPoolId: 'AddrPoolId',
-      name: 'Name',
-      lbaStrategy: 'LbaStrategy',
       addr: 'Addr',
+      addrPoolId: 'AddrPoolId',
+      lang: 'Lang',
+      lbaStrategy: 'LbaStrategy',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
-      addrPoolId: 'string',
-      name: 'string',
-      lbaStrategy: 'string',
       addr: { 'type': 'array', 'itemType': UpdateDnsGtmAddressPoolRequestAddr },
+      addrPoolId: 'string',
+      lang: 'string',
+      lbaStrategy: 'string',
+      name: 'string',
     };
   }
 
@@ -9983,10 +11880,12 @@ export class UpdateDnsGtmAddressPoolResponseBody extends $tea.Model {
 
 export class UpdateDnsGtmAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDnsGtmAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9994,6 +11893,7 @@ export class UpdateDnsGtmAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDnsGtmAddressPoolResponseBody,
     };
   }
@@ -10004,46 +11904,49 @@ export class UpdateDnsGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmInstanceGlobalConfigRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  instanceId?: string;
-  instanceName?: string;
-  ttl?: number;
-  publicCnameMode?: string;
-  publicUserDomainName?: string;
-  publicZoneName?: string;
+  alertConfig?: UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig[];
   alertGroup?: string;
   cnameType?: string;
-  alertConfig?: UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig[];
+  forceUpdate?: boolean;
+  instanceId?: string;
+  instanceName?: string;
+  lang?: string;
+  publicCnameMode?: string;
+  publicRr?: string;
+  publicUserDomainName?: string;
+  publicZoneName?: string;
+  ttl?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      ttl: 'Ttl',
-      publicCnameMode: 'PublicCnameMode',
-      publicUserDomainName: 'PublicUserDomainName',
-      publicZoneName: 'PublicZoneName',
+      alertConfig: 'AlertConfig',
       alertGroup: 'AlertGroup',
       cnameType: 'CnameType',
-      alertConfig: 'AlertConfig',
+      forceUpdate: 'ForceUpdate',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      lang: 'Lang',
+      publicCnameMode: 'PublicCnameMode',
+      publicRr: 'PublicRr',
+      publicUserDomainName: 'PublicUserDomainName',
+      publicZoneName: 'PublicZoneName',
+      ttl: 'Ttl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      ttl: 'number',
-      publicCnameMode: 'string',
-      publicUserDomainName: 'string',
-      publicZoneName: 'string',
+      alertConfig: { 'type': 'array', 'itemType': UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig },
       alertGroup: 'string',
       cnameType: 'string',
-      alertConfig: { 'type': 'array', 'itemType': UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig },
+      forceUpdate: 'boolean',
+      instanceId: 'string',
+      instanceName: 'string',
+      lang: 'string',
+      publicCnameMode: 'string',
+      publicRr: 'string',
+      publicUserDomainName: 'string',
+      publicZoneName: 'string',
+      ttl: 'number',
     };
   }
 
@@ -10073,10 +11976,12 @@ export class UpdateDnsGtmInstanceGlobalConfigResponseBody extends $tea.Model {
 
 export class UpdateDnsGtmInstanceGlobalConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDnsGtmInstanceGlobalConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10084,6 +11989,7 @@ export class UpdateDnsGtmInstanceGlobalConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDnsGtmInstanceGlobalConfigResponseBody,
     };
   }
@@ -10094,40 +12000,37 @@ export class UpdateDnsGtmInstanceGlobalConfigResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmMonitorRequest extends $tea.Model {
-  userClientIp?: string;
+  evaluationCount?: number;
+  interval?: number;
+  ispCityNode?: UpdateDnsGtmMonitorRequestIspCityNode[];
   lang?: string;
   monitorConfigId?: string;
-  protocolType?: string;
-  interval?: number;
-  evaluationCount?: number;
-  timeout?: number;
   monitorExtendInfo?: string;
-  ispCityNode?: UpdateDnsGtmMonitorRequestIspCityNode[];
+  protocolType?: string;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      evaluationCount: 'EvaluationCount',
+      interval: 'Interval',
+      ispCityNode: 'IspCityNode',
       lang: 'Lang',
       monitorConfigId: 'MonitorConfigId',
-      protocolType: 'ProtocolType',
-      interval: 'Interval',
-      evaluationCount: 'EvaluationCount',
-      timeout: 'Timeout',
       monitorExtendInfo: 'MonitorExtendInfo',
-      ispCityNode: 'IspCityNode',
+      protocolType: 'ProtocolType',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      evaluationCount: 'number',
+      interval: 'number',
+      ispCityNode: { 'type': 'array', 'itemType': UpdateDnsGtmMonitorRequestIspCityNode },
       lang: 'string',
       monitorConfigId: 'string',
-      protocolType: 'string',
-      interval: 'number',
-      evaluationCount: 'number',
-      timeout: 'number',
       monitorExtendInfo: 'string',
-      ispCityNode: { 'type': 'array', 'itemType': UpdateDnsGtmMonitorRequestIspCityNode },
+      protocolType: 'string',
+      timeout: 'number',
     };
   }
 
@@ -10157,10 +12060,12 @@ export class UpdateDnsGtmMonitorResponseBody extends $tea.Model {
 
 export class UpdateDnsGtmMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDnsGtmMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10168,6 +12073,7 @@ export class UpdateDnsGtmMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDnsGtmMonitorResponseBody,
     };
   }
@@ -10177,101 +12083,23 @@ export class UpdateDnsGtmMonitorResponse extends $tea.Model {
   }
 }
 
-export class UpdateDNSSLBWeightRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  recordId?: string;
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      recordId: 'RecordId',
-      weight: 'Weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-      recordId: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDNSSLBWeightResponseBody extends $tea.Model {
-  requestId?: string;
-  recordId?: string;
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      recordId: 'RecordId',
-      weight: 'Weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      recordId: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDNSSLBWeightResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateDNSSLBWeightResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateDNSSLBWeightResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateDomainGroupRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   groupId?: string;
   groupName?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       groupId: 'GroupId',
       groupName: 'GroupName',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       groupId: 'string',
       groupName: 'string',
+      lang: 'string',
     };
   }
 
@@ -10281,22 +12109,22 @@ export class UpdateDomainGroupRequest extends $tea.Model {
 }
 
 export class UpdateDomainGroupResponseBody extends $tea.Model {
+  groupId?: string;
   groupName?: string;
   requestId?: string;
-  groupId?: string;
   static names(): { [key: string]: string } {
     return {
+      groupId: 'GroupId',
       groupName: 'GroupName',
       requestId: 'RequestId',
-      groupId: 'GroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupId: 'string',
       groupName: 'string',
       requestId: 'string',
-      groupId: 'string',
     };
   }
 
@@ -10307,10 +12135,12 @@ export class UpdateDomainGroupResponseBody extends $tea.Model {
 
 export class UpdateDomainGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDomainGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10318,6 +12148,7 @@ export class UpdateDomainGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDomainGroupResponseBody,
     };
   }
@@ -10329,39 +12160,39 @@ export class UpdateDomainGroupResponse extends $tea.Model {
 
 export class UpdateDomainRecordRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
-  recordId?: string;
-  RR?: string;
-  type?: string;
-  value?: string;
-  TTL?: number;
-  priority?: number;
   line?: string;
+  priority?: number;
+  RR?: string;
+  recordId?: string;
+  TTL?: number;
+  type?: string;
+  userClientIp?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      recordId: 'RecordId',
-      RR: 'RR',
-      type: 'Type',
-      value: 'Value',
-      TTL: 'TTL',
-      priority: 'Priority',
       line: 'Line',
+      priority: 'Priority',
+      RR: 'RR',
+      recordId: 'RecordId',
+      TTL: 'TTL',
+      type: 'Type',
+      userClientIp: 'UserClientIp',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
-      recordId: 'string',
-      RR: 'string',
-      type: 'string',
-      value: 'string',
-      TTL: 'number',
-      priority: 'number',
       line: 'string',
+      priority: 'number',
+      RR: 'string',
+      recordId: 'string',
+      TTL: 'number',
+      type: 'string',
+      userClientIp: 'string',
+      value: 'string',
     };
   }
 
@@ -10371,19 +12202,19 @@ export class UpdateDomainRecordRequest extends $tea.Model {
 }
 
 export class UpdateDomainRecordResponseBody extends $tea.Model {
-  requestId?: string;
   recordId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       recordId: 'RecordId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       recordId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -10394,10 +12225,12 @@ export class UpdateDomainRecordResponseBody extends $tea.Model {
 
 export class UpdateDomainRecordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDomainRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10405,6 +12238,7 @@ export class UpdateDomainRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDomainRecordResponseBody,
     };
   }
@@ -10416,24 +12250,24 @@ export class UpdateDomainRecordResponse extends $tea.Model {
 
 export class UpdateDomainRecordRemarkRequest extends $tea.Model {
   lang?: string;
-  userClientIp?: string;
   recordId?: string;
   remark?: string;
+  userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
       recordId: 'RecordId',
       remark: 'Remark',
+      userClientIp: 'UserClientIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      userClientIp: 'string',
       recordId: 'string',
       remark: 'string',
+      userClientIp: 'string',
     };
   }
 
@@ -10463,10 +12297,12 @@ export class UpdateDomainRecordRemarkResponseBody extends $tea.Model {
 
 export class UpdateDomainRecordRemarkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDomainRecordRemarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10474,6 +12310,7 @@ export class UpdateDomainRecordRemarkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDomainRecordRemarkResponseBody,
     };
   }
@@ -10484,24 +12321,21 @@ export class UpdateDomainRecordRemarkResponse extends $tea.Model {
 }
 
 export class UpdateDomainRemarkRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
   domainName?: string;
+  lang?: string;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
       domainName: 'DomainName',
+      lang: 'Lang',
       remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
       domainName: 'string',
+      lang: 'string',
       remark: 'string',
     };
   }
@@ -10532,10 +12366,12 @@ export class UpdateDomainRemarkResponseBody extends $tea.Model {
 
 export class UpdateDomainRemarkResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDomainRemarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10543,6 +12379,7 @@ export class UpdateDomainRemarkResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDomainRemarkResponseBody,
     };
   }
@@ -10553,34 +12390,31 @@ export class UpdateDomainRemarkResponse extends $tea.Model {
 }
 
 export class UpdateGtmAccessStrategyRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  strategyId?: string;
-  strategyName?: string;
+  accessLines?: string;
   defaultAddrPoolId?: string;
   failoverAddrPoolId?: string;
-  accessLines?: string;
+  lang?: string;
+  strategyId?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      strategyId: 'StrategyId',
-      strategyName: 'StrategyName',
+      accessLines: 'AccessLines',
       defaultAddrPoolId: 'DefaultAddrPoolId',
       failoverAddrPoolId: 'FailoverAddrPoolId',
-      accessLines: 'AccessLines',
+      lang: 'Lang',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      strategyId: 'string',
-      strategyName: 'string',
+      accessLines: 'string',
       defaultAddrPoolId: 'string',
       failoverAddrPoolId: 'string',
-      accessLines: 'string',
+      lang: 'string',
+      strategyId: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -10610,10 +12444,12 @@ export class UpdateGtmAccessStrategyResponseBody extends $tea.Model {
 
 export class UpdateGtmAccessStrategyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGtmAccessStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10621,6 +12457,7 @@ export class UpdateGtmAccessStrategyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGtmAccessStrategyResponseBody,
     };
   }
@@ -10631,34 +12468,31 @@ export class UpdateGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class UpdateGtmAddressPoolRequest extends $tea.Model {
-  userClientIp?: string;
-  lang?: string;
+  addr?: UpdateGtmAddressPoolRequestAddr[];
   addrPoolId?: string;
+  lang?: string;
+  minAvailableAddrNum?: number;
   name?: string;
   type?: string;
-  minAvailableAddrNum?: number;
-  addr?: UpdateGtmAddressPoolRequestAddr[];
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
-      lang: 'Lang',
+      addr: 'Addr',
       addrPoolId: 'AddrPoolId',
+      lang: 'Lang',
+      minAvailableAddrNum: 'MinAvailableAddrNum',
       name: 'Name',
       type: 'Type',
-      minAvailableAddrNum: 'MinAvailableAddrNum',
-      addr: 'Addr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
-      lang: 'string',
+      addr: { 'type': 'array', 'itemType': UpdateGtmAddressPoolRequestAddr },
       addrPoolId: 'string',
+      lang: 'string',
+      minAvailableAddrNum: 'number',
       name: 'string',
       type: 'string',
-      minAvailableAddrNum: 'number',
-      addr: { 'type': 'array', 'itemType': UpdateGtmAddressPoolRequestAddr },
     };
   }
 
@@ -10688,10 +12522,12 @@ export class UpdateGtmAddressPoolResponseBody extends $tea.Model {
 
 export class UpdateGtmAddressPoolResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGtmAddressPoolResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10699,6 +12535,7 @@ export class UpdateGtmAddressPoolResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGtmAddressPoolResponseBody,
     };
   }
@@ -10709,43 +12546,40 @@ export class UpdateGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class UpdateGtmInstanceGlobalConfigRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
+  alertGroup?: string;
+  cnameCustomDomainName?: string;
+  cnameMode?: string;
   instanceId?: string;
   instanceName?: string;
+  lang?: string;
+  lbaStrategy?: string;
   ttl?: number;
   userDomainName?: string;
-  lbaStrategy?: string;
-  alertGroup?: string;
-  cnameMode?: string;
-  cnameCustomDomainName?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
+      alertGroup: 'AlertGroup',
+      cnameCustomDomainName: 'CnameCustomDomainName',
+      cnameMode: 'CnameMode',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      lang: 'Lang',
+      lbaStrategy: 'LbaStrategy',
       ttl: 'Ttl',
       userDomainName: 'UserDomainName',
-      lbaStrategy: 'LbaStrategy',
-      alertGroup: 'AlertGroup',
-      cnameMode: 'CnameMode',
-      cnameCustomDomainName: 'CnameCustomDomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
+      alertGroup: 'string',
+      cnameCustomDomainName: 'string',
+      cnameMode: 'string',
       instanceId: 'string',
       instanceName: 'string',
+      lang: 'string',
+      lbaStrategy: 'string',
       ttl: 'number',
       userDomainName: 'string',
-      lbaStrategy: 'string',
-      alertGroup: 'string',
-      cnameMode: 'string',
-      cnameCustomDomainName: 'string',
     };
   }
 
@@ -10775,10 +12609,12 @@ export class UpdateGtmInstanceGlobalConfigResponseBody extends $tea.Model {
 
 export class UpdateGtmInstanceGlobalConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGtmInstanceGlobalConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10786,6 +12622,7 @@ export class UpdateGtmInstanceGlobalConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGtmInstanceGlobalConfigResponseBody,
     };
   }
@@ -10796,40 +12633,37 @@ export class UpdateGtmInstanceGlobalConfigResponse extends $tea.Model {
 }
 
 export class UpdateGtmMonitorRequest extends $tea.Model {
-  userClientIp?: string;
+  evaluationCount?: number;
+  interval?: number;
+  ispCityNode?: UpdateGtmMonitorRequestIspCityNode[];
   lang?: string;
   monitorConfigId?: string;
-  protocolType?: string;
-  interval?: number;
-  evaluationCount?: number;
-  timeout?: number;
   monitorExtendInfo?: string;
-  ispCityNode?: UpdateGtmMonitorRequestIspCityNode[];
+  protocolType?: string;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
-      userClientIp: 'UserClientIp',
+      evaluationCount: 'EvaluationCount',
+      interval: 'Interval',
+      ispCityNode: 'IspCityNode',
       lang: 'Lang',
       monitorConfigId: 'MonitorConfigId',
-      protocolType: 'ProtocolType',
-      interval: 'Interval',
-      evaluationCount: 'EvaluationCount',
-      timeout: 'Timeout',
       monitorExtendInfo: 'MonitorExtendInfo',
-      ispCityNode: 'IspCityNode',
+      protocolType: 'ProtocolType',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userClientIp: 'string',
+      evaluationCount: 'number',
+      interval: 'number',
+      ispCityNode: { 'type': 'array', 'itemType': UpdateGtmMonitorRequestIspCityNode },
       lang: 'string',
       monitorConfigId: 'string',
-      protocolType: 'string',
-      interval: 'number',
-      evaluationCount: 'number',
-      timeout: 'number',
       monitorExtendInfo: 'string',
-      ispCityNode: { 'type': 'array', 'itemType': UpdateGtmMonitorRequestIspCityNode },
+      protocolType: 'string',
+      timeout: 'number',
     };
   }
 
@@ -10859,10 +12693,12 @@ export class UpdateGtmMonitorResponseBody extends $tea.Model {
 
 export class UpdateGtmMonitorResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGtmMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10870,6 +12706,7 @@ export class UpdateGtmMonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGtmMonitorResponseBody,
     };
   }
@@ -10880,31 +12717,28 @@ export class UpdateGtmMonitorResponse extends $tea.Model {
 }
 
 export class UpdateGtmRecoveryPlanRequest extends $tea.Model {
-  lang?: string;
-  userClientIp?: string;
-  recoveryPlanId?: number;
-  name?: string;
-  remark?: string;
   faultAddrPool?: string;
+  lang?: string;
+  name?: string;
+  recoveryPlanId?: number;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      recoveryPlanId: 'RecoveryPlanId',
-      name: 'Name',
-      remark: 'Remark',
       faultAddrPool: 'FaultAddrPool',
+      lang: 'Lang',
+      name: 'Name',
+      recoveryPlanId: 'RecoveryPlanId',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      userClientIp: 'string',
-      recoveryPlanId: 'number',
-      name: 'string',
-      remark: 'string',
       faultAddrPool: 'string',
+      lang: 'string',
+      name: 'string',
+      recoveryPlanId: 'number',
+      remark: 'string',
     };
   }
 
@@ -10934,10 +12768,12 @@ export class UpdateGtmRecoveryPlanResponseBody extends $tea.Model {
 
 export class UpdateGtmRecoveryPlanResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGtmRecoveryPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -10945,6 +12781,7 @@ export class UpdateGtmRecoveryPlanResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGtmRecoveryPlanResponseBody,
     };
   }
@@ -10954,23 +12791,23 @@ export class UpdateGtmRecoveryPlanResponse extends $tea.Model {
   }
 }
 
-export class ValidateDnsGtmAttributeInfoRequest extends $tea.Model {
+export class UpdateIspFlushCacheInstanceConfigRequest extends $tea.Model {
+  instanceId?: string;
+  instanceName?: string;
   lang?: string;
-  userClientIp?: string;
-  lineCode?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       lang: 'Lang',
-      userClientIp: 'UserClientIp',
-      lineCode: 'LineCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
+      instanceName: 'string',
       lang: 'string',
-      userClientIp: 'string',
-      lineCode: 'string',
     };
   }
 
@@ -10979,7 +12816,7 @@ export class ValidateDnsGtmAttributeInfoRequest extends $tea.Model {
   }
 }
 
-export class ValidateDnsGtmAttributeInfoResponseBody extends $tea.Model {
+export class UpdateIspFlushCacheInstanceConfigResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10998,12 +12835,14 @@ export class ValidateDnsGtmAttributeInfoResponseBody extends $tea.Model {
   }
 }
 
-export class ValidateDnsGtmAttributeInfoResponse extends $tea.Model {
+export class UpdateIspFlushCacheInstanceConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ValidateDnsGtmAttributeInfoResponseBody;
+  statusCode: number;
+  body: UpdateIspFlushCacheInstanceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -11011,7 +12850,152 @@ export class ValidateDnsGtmAttributeInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ValidateDnsGtmAttributeInfoResponseBody,
+      statusCode: 'number',
+      body: UpdateIspFlushCacheInstanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateDnsGtmCnameRrCanUseRequest extends $tea.Model {
+  cnameMode?: string;
+  cnameRr?: string;
+  cnameType?: string;
+  cnameZone?: string;
+  instanceId?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cnameMode: 'CnameMode',
+      cnameRr: 'CnameRr',
+      cnameType: 'CnameType',
+      cnameZone: 'CnameZone',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cnameMode: 'string',
+      cnameRr: 'string',
+      cnameType: 'string',
+      cnameZone: 'string',
+      instanceId: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateDnsGtmCnameRrCanUseResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateDnsGtmCnameRrCanUseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ValidateDnsGtmCnameRrCanUseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ValidateDnsGtmCnameRrCanUseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidatePdnsUdpIpSegmentRequest extends $tea.Model {
+  ip?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidatePdnsUdpIpSegmentResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidatePdnsUdpIpSegmentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ValidatePdnsUdpIpSegmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ValidatePdnsUdpIpSegmentResponseBody,
     };
   }
 
@@ -11065,19 +13049,19 @@ export class AddDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
-  lbaWeight?: number;
   id?: string;
+  lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
-      lbaWeight: 'LbaWeight',
       id: 'Id',
+      lbaWeight: 'LbaWeight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lbaWeight: 'number',
       id: 'string',
+      lbaWeight: 'number',
     };
   }
 
@@ -11087,19 +13071,19 @@ export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Model {
-  lbaWeight?: number;
   id?: string;
+  lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
-      lbaWeight: 'LbaWeight',
       id: 'Id',
+      lbaWeight: 'LbaWeight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lbaWeight: 'number',
       id: 'string',
+      lbaWeight: 'number',
     };
   }
 
@@ -11109,28 +13093,28 @@ export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolRequestAddr extends $tea.Model {
-  attributeInfo?: string;
-  remark?: string;
-  lbaWeight?: number;
   addr?: string;
+  attributeInfo?: string;
+  lbaWeight?: number;
   mode?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
-      attributeInfo: 'AttributeInfo',
-      remark: 'Remark',
-      lbaWeight: 'LbaWeight',
       addr: 'Addr',
+      attributeInfo: 'AttributeInfo',
+      lbaWeight: 'LbaWeight',
       mode: 'Mode',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      attributeInfo: 'string',
-      remark: 'string',
-      lbaWeight: 'number',
       addr: 'string',
+      attributeInfo: 'string',
+      lbaWeight: 'number',
       mode: 'string',
+      remark: 'string',
     };
   }
 
@@ -11203,22 +13187,22 @@ export class AddDomainResponseBodyDnsServers extends $tea.Model {
 }
 
 export class AddGtmAddressPoolRequestAddr extends $tea.Model {
-  value?: string;
   lbaWeight?: number;
   mode?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       lbaWeight: 'LbaWeight',
       mode: 'Mode',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       lbaWeight: 'number',
       mode: 'string',
+      value: 'string',
     };
   }
 
@@ -11272,61 +13256,61 @@ export class AddGtmMonitorRequestIspCityNode extends $tea.Model {
 }
 
 export class DescribeBatchResultDetailResponseBodyBatchResultDetailsBatchResultDetail extends $tea.Model {
-  status?: boolean;
-  type?: string;
-  domain?: string;
-  remark?: string;
-  recordId?: string;
-  rr?: string;
-  priority?: string;
-  rrStatus?: string;
-  operateDateStr?: string;
-  newValue?: string;
-  value?: string;
-  ttl?: string;
   batchType?: string;
+  domain?: string;
   line?: string;
   newRr?: string;
+  newValue?: string;
+  operateDateStr?: string;
+  priority?: string;
   reason?: string;
+  recordId?: string;
+  remark?: string;
+  rr?: string;
+  rrStatus?: string;
+  status?: boolean;
+  ttl?: string;
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      type: 'Type',
-      domain: 'Domain',
-      remark: 'Remark',
-      recordId: 'RecordId',
-      rr: 'Rr',
-      priority: 'Priority',
-      rrStatus: 'RrStatus',
-      operateDateStr: 'OperateDateStr',
-      newValue: 'NewValue',
-      value: 'Value',
-      ttl: 'Ttl',
       batchType: 'BatchType',
+      domain: 'Domain',
       line: 'Line',
       newRr: 'NewRr',
+      newValue: 'NewValue',
+      operateDateStr: 'OperateDateStr',
+      priority: 'Priority',
       reason: 'Reason',
+      recordId: 'RecordId',
+      remark: 'Remark',
+      rr: 'Rr',
+      rrStatus: 'RrStatus',
+      status: 'Status',
+      ttl: 'Ttl',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'boolean',
-      type: 'string',
-      domain: 'string',
-      remark: 'string',
-      recordId: 'string',
-      rr: 'string',
-      priority: 'string',
-      rrStatus: 'string',
-      operateDateStr: 'string',
-      newValue: 'string',
-      value: 'string',
-      ttl: 'string',
       batchType: 'string',
+      domain: 'string',
       line: 'string',
       newRr: 'string',
+      newValue: 'string',
+      operateDateStr: 'string',
+      priority: 'string',
       reason: 'string',
+      recordId: 'string',
+      remark: 'string',
+      rr: 'string',
+      rrStatus: 'string',
+      status: 'boolean',
+      ttl: 'string',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -11378,1641 +13362,21 @@ export class DescribeCustomLineResponseBodyIpSegmentList extends $tea.Model {
 
 export class DescribeCustomLinesResponseBodyCustomLines extends $tea.Model {
   code?: string;
-  name?: string;
   id?: number;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      name: 'Name',
       id: 'Id',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      name: 'string',
       id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends $tea.Model {
-  host?: string;
-  port?: string;
-  static names(): { [key: string]: string } {
-    return {
-      host: 'Host',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      host: 'string',
-      port: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsCacheDomainsResponseBodyDomains extends $tea.Model {
-  sourceProtocol?: string;
-  updateTime?: string;
-  remark?: string;
-  expireTime?: string;
-  createTime?: string;
-  instanceId?: string;
-  sourceEdns?: string;
-  domainName?: string;
-  domainId?: string;
-  updateTimestamp?: number;
-  expireTimestamp?: number;
-  cacheTtlMax?: number;
-  cacheTtlMin?: number;
-  versionCode?: string;
-  sourceDnsServers?: DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers[];
-  createTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceProtocol: 'SourceProtocol',
-      updateTime: 'UpdateTime',
-      remark: 'Remark',
-      expireTime: 'ExpireTime',
-      createTime: 'CreateTime',
-      instanceId: 'InstanceId',
-      sourceEdns: 'SourceEdns',
-      domainName: 'DomainName',
-      domainId: 'DomainId',
-      updateTimestamp: 'UpdateTimestamp',
-      expireTimestamp: 'ExpireTimestamp',
-      cacheTtlMax: 'CacheTtlMax',
-      cacheTtlMin: 'CacheTtlMin',
-      versionCode: 'VersionCode',
-      sourceDnsServers: 'SourceDnsServers',
-      createTimestamp: 'CreateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceProtocol: 'string',
-      updateTime: 'string',
-      remark: 'string',
-      expireTime: 'string',
-      createTime: 'string',
-      instanceId: 'string',
-      sourceEdns: 'string',
-      domainName: 'string',
-      domainId: 'string',
-      updateTimestamp: 'number',
-      expireTimestamp: 'number',
-      cacheTtlMax: 'number',
-      cacheTtlMin: 'number',
-      versionCode: 'string',
-      sourceDnsServers: { 'type': 'array', 'itemType': DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers },
-      createTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool extends $tea.Model {
-  lbaWeight?: number;
-  name?: string;
-  addrCount?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lbaWeight: 'LbaWeight',
-      name: 'Name',
-      addrCount: 'AddrCount',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lbaWeight: 'number',
       name: 'string',
-      addrCount: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools extends $tea.Model {
-  effectiveAddrPool?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      effectiveAddrPool: 'EffectiveAddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effectiveAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine extends $tea.Model {
-  groupName?: string;
-  lineCode?: string;
-  lineName?: string;
-  groupCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      lineCode: 'LineCode',
-      lineName: 'LineName',
-      groupCode: 'GroupCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      lineCode: 'string',
-      lineName: 'string',
-      groupCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines extends $tea.Model {
-  line?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine[];
-  static names(): { [key: string]: string } {
-    return {
-      line: 'Line',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy extends $tea.Model {
-  effectiveLbaStrategy?: string;
-  strategyId?: string;
-  strategyName?: string;
-  effectiveAddrPoolGroupType?: string;
-  createTime?: string;
-  effectiveAddrPools?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools;
-  createTimestamp?: number;
-  effectiveAddrPoolType?: string;
-  lines?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines;
-  static names(): { [key: string]: string } {
-    return {
-      effectiveLbaStrategy: 'EffectiveLbaStrategy',
-      strategyId: 'StrategyId',
-      strategyName: 'StrategyName',
-      effectiveAddrPoolGroupType: 'EffectiveAddrPoolGroupType',
-      createTime: 'CreateTime',
-      effectiveAddrPools: 'EffectiveAddrPools',
-      createTimestamp: 'CreateTimestamp',
-      effectiveAddrPoolType: 'EffectiveAddrPoolType',
-      lines: 'Lines',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effectiveLbaStrategy: 'string',
-      strategyId: 'string',
-      strategyName: 'string',
-      effectiveAddrPoolGroupType: 'string',
-      createTime: 'string',
-      effectiveAddrPools: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools,
-      createTimestamp: 'number',
-      effectiveAddrPoolType: 'string',
-      lines: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategiesResponseBodyStrategies extends $tea.Model {
-  strategy?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy[];
-  static names(): { [key: string]: string } {
-    return {
-      strategy: 'Strategy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      strategy: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool extends $tea.Model {
-  lbaWeight?: number;
-  name?: string;
-  addrCount?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lbaWeight: 'LbaWeight',
-      name: 'Name',
-      addrCount: 'AddrCount',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lbaWeight: 'number',
-      name: 'string',
-      addrCount: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools extends $tea.Model {
-  failoverAddrPool?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      failoverAddrPool: 'FailoverAddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failoverAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool extends $tea.Model {
-  lbaWeight?: number;
-  name?: string;
-  addrCount?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lbaWeight: 'LbaWeight',
-      name: 'Name',
-      addrCount: 'AddrCount',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lbaWeight: 'number',
-      name: 'string',
-      addrCount: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools extends $tea.Model {
-  defaultAddrPool?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      defaultAddrPool: 'DefaultAddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyResponseBodyLinesLine extends $tea.Model {
-  groupName?: string;
-  lineCode?: string;
-  lineName?: string;
-  groupCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      lineCode: 'LineCode',
-      lineName: 'LineName',
-      groupCode: 'GroupCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      lineCode: 'string',
-      lineName: 'string',
-      groupCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyResponseBodyLines extends $tea.Model {
-  line?: DescribeDnsGtmAccessStrategyResponseBodyLinesLine[];
-  static names(): { [key: string]: string } {
-    return {
-      line: 'Line',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyLinesLine },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines extends $tea.Model {
-  selectedDomainLine?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      selectedDomainLine: 'SelectedDomainLine',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      selectedDomainLine: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool extends $tea.Model {
-  name?: string;
-  addrCount?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      addrCount: 'AddrCount',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      addrCount: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools extends $tea.Model {
-  domainAddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      domainAddrPool: 'DomainAddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool extends $tea.Model {
-  name?: string;
-  addrCount?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      addrCount: 'AddrCount',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      addrCount: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools extends $tea.Model {
-  ipv4AddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      ipv4AddrPool: 'Ipv4AddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipv4AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines extends $tea.Model {
-  selectedIpv4Line?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      selectedIpv4Line: 'SelectedIpv4Line',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      selectedIpv4Line: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool extends $tea.Model {
-  name?: string;
-  addrCount?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      addrCount: 'AddrCount',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      addrCount: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools extends $tea.Model {
-  ipv6AddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      ipv6AddrPool: 'Ipv6AddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipv6AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines extends $tea.Model {
-  selectedIpv6Line?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      selectedIpv6Line: 'SelectedIpv6Line',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      selectedIpv6Line: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $tea.Model {
-  fatherCode?: string;
-  groupName?: string;
-  lineCode?: string;
-  lineName?: string;
-  groupCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fatherCode: 'FatherCode',
-      groupName: 'GroupName',
-      lineCode: 'LineCode',
-      lineName: 'LineName',
-      groupCode: 'GroupCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fatherCode: 'string',
-      groupName: 'string',
-      lineCode: 'string',
-      lineName: 'string',
-      groupCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines extends $tea.Model {
-  line?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine[];
-  static names(): { [key: string]: string } {
-    return {
-      line: 'Line',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo extends $tea.Model {
-  fatherCode?: string;
-  groupName?: string;
-  lineCode?: string;
-  lineName?: string;
-  groupCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fatherCode: 'FatherCode',
-      groupName: 'GroupName',
-      lineCode: 'LineCode',
-      lineName: 'LineName',
-      groupCode: 'GroupCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fatherCode: 'string',
-      groupName: 'string',
-      lineCode: 'string',
-      lineName: 'string',
-      groupCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr extends $tea.Model {
-  attributeInfo?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo;
-  addr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributeInfo: 'AttributeInfo',
-      addr: 'Addr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeInfo: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo,
-      addr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddr extends $tea.Model {
-  addr?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr[];
-  static names(): { [key: string]: string } {
-    return {
-      addr: 'Addr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addr: { 'type': 'array', 'itemType': DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo extends $tea.Model {
-  fatherCode?: string;
-  groupName?: string;
-  lineCode?: string;
-  lineName?: string;
-  groupCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fatherCode: 'FatherCode',
-      groupName: 'GroupName',
-      lineCode: 'LineCode',
-      lineName: 'LineName',
-      groupCode: 'GroupCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fatherCode: 'string',
-      groupName: 'string',
-      lineCode: 'string',
-      lineName: 'string',
-      groupCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos extends $tea.Model {
-  attributeInfo?: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      attributeInfo: 'AttributeInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeInfo: { 'type': 'array', 'itemType': DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig extends $tea.Model {
-  smsNotice?: boolean;
-  noticeType?: string;
-  emailNotice?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      smsNotice: 'SmsNotice',
-      noticeType: 'NoticeType',
-      emailNotice: 'EmailNotice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      smsNotice: 'boolean',
-      noticeType: 'string',
-      emailNotice: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceResponseBodyConfigAlertConfig extends $tea.Model {
-  alertConfig?: DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig[];
-  static names(): { [key: string]: string } {
-    return {
-      alertConfig: 'AlertConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alertConfig: { 'type': 'array', 'itemType': DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceResponseBodyConfig extends $tea.Model {
-  ttl?: number;
-  alertGroup?: string;
-  cnameType?: string;
-  strategyMode?: string;
-  instanceName?: string;
-  publicCnameMode?: string;
-  alertConfig?: DescribeDnsGtmInstanceResponseBodyConfigAlertConfig;
-  publicUserDomainName?: string;
-  pubicZoneName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ttl: 'Ttl',
-      alertGroup: 'AlertGroup',
-      cnameType: 'CnameType',
-      strategyMode: 'StrategyMode',
-      instanceName: 'InstanceName',
-      publicCnameMode: 'PublicCnameMode',
-      alertConfig: 'AlertConfig',
-      publicUserDomainName: 'PublicUserDomainName',
-      pubicZoneName: 'PubicZoneName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ttl: 'number',
-      alertGroup: 'string',
-      cnameType: 'string',
-      strategyMode: 'string',
-      instanceName: 'string',
-      publicCnameMode: 'string',
-      alertConfig: DescribeDnsGtmInstanceResponseBodyConfigAlertConfig,
-      publicUserDomainName: 'string',
-      pubicZoneName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $tea.Model {
-  emailUsedCount?: number;
-  taskUsedCount?: number;
-  smsUsedCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      emailUsedCount: 'EmailUsedCount',
-      taskUsedCount: 'TaskUsedCount',
-      smsUsedCount: 'SmsUsedCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      emailUsedCount: 'number',
-      taskUsedCount: 'number',
-      smsUsedCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr extends $tea.Model {
-  updateTimestamp?: number;
-  attributeInfo?: string;
-  updateTime?: string;
-  alertStatus?: string;
-  remark?: string;
-  lbaWeight?: number;
-  addr?: string;
-  createTime?: string;
-  mode?: string;
-  createTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      updateTimestamp: 'UpdateTimestamp',
-      attributeInfo: 'AttributeInfo',
-      updateTime: 'UpdateTime',
-      alertStatus: 'AlertStatus',
-      remark: 'Remark',
-      lbaWeight: 'LbaWeight',
-      addr: 'Addr',
-      createTime: 'CreateTime',
-      mode: 'Mode',
-      createTimestamp: 'CreateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTimestamp: 'number',
-      attributeInfo: 'string',
-      updateTime: 'string',
-      alertStatus: 'string',
-      remark: 'string',
-      lbaWeight: 'number',
-      addr: 'string',
-      createTime: 'string',
-      mode: 'string',
-      createTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs extends $tea.Model {
-  addr?: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr[];
-  static names(): { [key: string]: string } {
-    return {
-      addr: 'Addr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addr: { 'type': 'array', 'itemType': DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool extends $tea.Model {
-  type?: string;
-  updateTimestamp?: number;
-  monitorStatus?: string;
-  updateTime?: string;
-  createTime?: string;
-  addrPoolId?: string;
-  lbaStrategy?: string;
-  name?: string;
-  addrCount?: number;
-  monitorConfigId?: string;
-  createTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      updateTimestamp: 'UpdateTimestamp',
-      monitorStatus: 'MonitorStatus',
-      updateTime: 'UpdateTime',
-      createTime: 'CreateTime',
-      addrPoolId: 'AddrPoolId',
-      lbaStrategy: 'LbaStrategy',
-      name: 'Name',
-      addrCount: 'AddrCount',
-      monitorConfigId: 'MonitorConfigId',
-      createTimestamp: 'CreateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      updateTimestamp: 'number',
-      monitorStatus: 'string',
-      updateTime: 'string',
-      createTime: 'string',
-      addrPoolId: 'string',
-      lbaStrategy: 'string',
-      name: 'string',
-      addrCount: 'number',
-      monitorConfigId: 'string',
-      createTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools extends $tea.Model {
-  addrPool?: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool[];
-  static names(): { [key: string]: string } {
-    return {
-      addrPool: 'AddrPool',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addrPool: { 'type': 'array', 'itemType': DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig extends $tea.Model {
-  smsNotice?: string;
-  noticeType?: string;
-  emailNotice?: string;
-  static names(): { [key: string]: string } {
-    return {
-      smsNotice: 'SmsNotice',
-      noticeType: 'NoticeType',
-      emailNotice: 'EmailNotice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      smsNotice: 'string',
-      noticeType: 'string',
-      emailNotice: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.Model {
-  ttl?: number;
-  alertGroup?: string;
-  publicZoneName?: string;
-  cnameType?: string;
-  strategyMode?: string;
-  instanceName?: string;
-  publicCnameMode?: string;
-  alertConfig?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig[];
-  publicUserDomainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ttl: 'Ttl',
-      alertGroup: 'AlertGroup',
-      publicZoneName: 'PublicZoneName',
-      cnameType: 'CnameType',
-      strategyMode: 'StrategyMode',
-      instanceName: 'InstanceName',
-      publicCnameMode: 'PublicCnameMode',
-      alertConfig: 'AlertConfig',
-      publicUserDomainName: 'PublicUserDomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ttl: 'number',
-      alertGroup: 'string',
-      publicZoneName: 'string',
-      cnameType: 'string',
-      strategyMode: 'string',
-      instanceName: 'string',
-      publicCnameMode: 'string',
-      alertConfig: { 'type': 'array', 'itemType': DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig },
-      publicUserDomainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $tea.Model {
-  emailUsedCount?: number;
-  taskUsedCount?: number;
-  smsUsedCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      emailUsedCount: 'EmailUsedCount',
-      taskUsedCount: 'TaskUsedCount',
-      smsUsedCount: 'SmsUsedCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      emailUsedCount: 'number',
-      taskUsedCount: 'number',
-      smsUsedCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model {
-  paymentType?: string;
-  expireTime?: string;
-  createTime?: string;
-  smsQuota?: number;
-  instanceId?: string;
-  config?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig;
-  expireTimestamp?: number;
-  resourceGroupId?: string;
-  versionCode?: string;
-  usedQuota?: DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota;
-  taskQuota?: number;
-  createTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      paymentType: 'PaymentType',
-      expireTime: 'ExpireTime',
-      createTime: 'CreateTime',
-      smsQuota: 'SmsQuota',
-      instanceId: 'InstanceId',
-      config: 'Config',
-      expireTimestamp: 'ExpireTimestamp',
-      resourceGroupId: 'ResourceGroupId',
-      versionCode: 'VersionCode',
-      usedQuota: 'UsedQuota',
-      taskQuota: 'TaskQuota',
-      createTimestamp: 'CreateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paymentType: 'string',
-      expireTime: 'string',
-      createTime: 'string',
-      smsQuota: 'number',
-      instanceId: 'string',
-      config: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig,
-      expireTimestamp: 'number',
-      resourceGroupId: 'string',
-      versionCode: 'string',
-      usedQuota: DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota,
-      taskQuota: 'number',
-      createTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmLogsResponseBodyLogsLog extends $tea.Model {
-  operTimestamp?: number;
-  entityId?: string;
-  entityType?: string;
-  operTime?: string;
-  operAction?: string;
-  content?: string;
-  entityName?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      operTimestamp: 'OperTimestamp',
-      entityId: 'EntityId',
-      entityType: 'EntityType',
-      operTime: 'OperTime',
-      operAction: 'OperAction',
-      content: 'Content',
-      entityName: 'EntityName',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operTimestamp: 'number',
-      entityId: 'string',
-      entityType: 'string',
-      operTime: 'string',
-      operAction: 'string',
-      content: 'string',
-      entityName: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmLogsResponseBodyLogs extends $tea.Model {
-  log?: DescribeDnsGtmLogsResponseBodyLogsLog[];
-  static names(): { [key: string]: string } {
-    return {
-      log: 'Log',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      log: { 'type': 'array', 'itemType': DescribeDnsGtmLogsResponseBodyLogsLog },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
-  cityCode?: string;
-  groupName?: string;
-  ispCode?: string;
-  cityName?: string;
-  ispName?: string;
-  groupType?: string;
-  defaultSelected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      cityCode: 'CityCode',
-      groupName: 'GroupName',
-      ispCode: 'IspCode',
-      cityName: 'CityName',
-      ispName: 'IspName',
-      groupType: 'GroupType',
-      defaultSelected: 'DefaultSelected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityCode: 'string',
-      groupName: 'string',
-      ispCode: 'string',
-      cityName: 'string',
-      ispName: 'string',
-      groupType: 'string',
-      defaultSelected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes extends $tea.Model {
-  ipv4IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode[];
-  static names(): { [key: string]: string } {
-    return {
-      ipv4IspCityNode: 'Ipv4IspCityNode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipv4IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode extends $tea.Model {
-  cityCode?: string;
-  groupName?: string;
-  ispCode?: string;
-  cityName?: string;
-  ispName?: string;
-  groupType?: string;
-  defaultSelected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      cityCode: 'CityCode',
-      groupName: 'GroupName',
-      ispCode: 'IspCode',
-      cityName: 'CityName',
-      ispName: 'IspName',
-      groupType: 'GroupType',
-      defaultSelected: 'DefaultSelected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityCode: 'string',
-      groupName: 'string',
-      ispCode: 'string',
-      cityName: 'string',
-      ispName: 'string',
-      groupType: 'string',
-      defaultSelected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes extends $tea.Model {
-  domainIpv4IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode[];
-  static names(): { [key: string]: string } {
-    return {
-      domainIpv4IspCityNode: 'DomainIpv4IspCityNode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainIpv4IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode extends $tea.Model {
-  cityCode?: string;
-  groupName?: string;
-  ispCode?: string;
-  cityName?: string;
-  ispName?: string;
-  groupType?: string;
-  defaultSelected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      cityCode: 'CityCode',
-      groupName: 'GroupName',
-      ispCode: 'IspCode',
-      cityName: 'CityName',
-      ispName: 'IspName',
-      groupType: 'GroupType',
-      defaultSelected: 'DefaultSelected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityCode: 'string',
-      groupName: 'string',
-      ispCode: 'string',
-      cityName: 'string',
-      ispName: 'string',
-      groupType: 'string',
-      defaultSelected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes extends $tea.Model {
-  domainIpv6IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode[];
-  static names(): { [key: string]: string } {
-    return {
-      domainIpv6IspCityNode: 'DomainIpv6IspCityNode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainIpv6IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
-  cityCode?: string;
-  groupName?: string;
-  ispCode?: string;
-  cityName?: string;
-  ispName?: string;
-  groupType?: string;
-  defaultSelected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      cityCode: 'CityCode',
-      groupName: 'GroupName',
-      ispCode: 'IspCode',
-      cityName: 'CityName',
-      ispName: 'IspName',
-      groupType: 'GroupType',
-      defaultSelected: 'DefaultSelected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityCode: 'string',
-      groupName: 'string',
-      ispCode: 'string',
-      cityName: 'string',
-      ispName: 'string',
-      groupType: 'string',
-      defaultSelected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes extends $tea.Model {
-  ipv6IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode[];
-  static names(): { [key: string]: string } {
-    return {
-      ipv6IspCityNode: 'Ipv6IspCityNode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipv6IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
-  cityCode?: string;
-  countryName?: string;
-  ispCode?: string;
-  cityName?: string;
-  countryCode?: string;
-  ispName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cityCode: 'CityCode',
-      countryName: 'CountryName',
-      ispCode: 'IspCode',
-      cityName: 'CityName',
-      countryCode: 'CountryCode',
-      ispName: 'IspName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cityCode: 'string',
-      countryName: 'string',
-      ispCode: 'string',
-      cityName: 'string',
-      countryCode: 'string',
-      ispName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes extends $tea.Model {
-  ispCityNode?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode[];
-  static names(): { [key: string]: string } {
-    return {
-      ispCityNode: 'IspCityNode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ispCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsProductInstanceResponseBodyDnsServers extends $tea.Model {
-  dnsServer?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dnsServer: 'DnsServer',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsServer: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extends $tea.Model {
-  overseaLine?: string;
-  paymentType?: string;
-  monitorNodeCount?: number;
-  inBlackHole?: boolean;
-  bindDomainUsedCount?: number;
-  ISPRegionLines?: string;
-  TTLMinValue?: number;
-  ISPLines?: string;
-  searchEngineLines?: string;
-  endTimestamp?: number;
-  versionName?: string;
-  versionCode?: string;
-  monitorTaskCount?: number;
-  bindUsedCount?: number;
-  domain?: string;
-  monitorFrequency?: number;
-  inClean?: boolean;
-  URLForwardCount?: number;
-  startTimestamp?: number;
-  DDosDefendQuery?: number;
-  instanceId?: string;
-  DDosDefendFlow?: number;
-  bindCount?: number;
-  subDomainLevel?: number;
-  bindDomainCount?: number;
-  endTime?: string;
-  startTime?: string;
-  overseaDDosDefendFlow?: number;
-  regionLines?: boolean;
-  gslb?: boolean;
-  dnsSecurity?: string;
-  dnsSLBCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      overseaLine: 'OverseaLine',
-      paymentType: 'PaymentType',
-      monitorNodeCount: 'MonitorNodeCount',
-      inBlackHole: 'InBlackHole',
-      bindDomainUsedCount: 'BindDomainUsedCount',
-      ISPRegionLines: 'ISPRegionLines',
-      TTLMinValue: 'TTLMinValue',
-      ISPLines: 'ISPLines',
-      searchEngineLines: 'SearchEngineLines',
-      endTimestamp: 'EndTimestamp',
-      versionName: 'VersionName',
-      versionCode: 'VersionCode',
-      monitorTaskCount: 'MonitorTaskCount',
-      bindUsedCount: 'BindUsedCount',
-      domain: 'Domain',
-      monitorFrequency: 'MonitorFrequency',
-      inClean: 'InClean',
-      URLForwardCount: 'URLForwardCount',
-      startTimestamp: 'StartTimestamp',
-      DDosDefendQuery: 'DDosDefendQuery',
-      instanceId: 'InstanceId',
-      DDosDefendFlow: 'DDosDefendFlow',
-      bindCount: 'BindCount',
-      subDomainLevel: 'SubDomainLevel',
-      bindDomainCount: 'BindDomainCount',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      overseaDDosDefendFlow: 'OverseaDDosDefendFlow',
-      regionLines: 'RegionLines',
-      gslb: 'Gslb',
-      dnsSecurity: 'DnsSecurity',
-      dnsSLBCount: 'DnsSLBCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      overseaLine: 'string',
-      paymentType: 'string',
-      monitorNodeCount: 'number',
-      inBlackHole: 'boolean',
-      bindDomainUsedCount: 'number',
-      ISPRegionLines: 'string',
-      TTLMinValue: 'number',
-      ISPLines: 'string',
-      searchEngineLines: 'string',
-      endTimestamp: 'number',
-      versionName: 'string',
-      versionCode: 'string',
-      monitorTaskCount: 'number',
-      bindUsedCount: 'number',
-      domain: 'string',
-      monitorFrequency: 'number',
-      inClean: 'boolean',
-      URLForwardCount: 'number',
-      startTimestamp: 'number',
-      DDosDefendQuery: 'number',
-      instanceId: 'string',
-      DDosDefendFlow: 'number',
-      bindCount: 'number',
-      subDomainLevel: 'number',
-      bindDomainCount: 'number',
-      endTime: 'string',
-      startTime: 'string',
-      overseaDDosDefendFlow: 'number',
-      regionLines: 'boolean',
-      gslb: 'boolean',
-      dnsSecurity: 'string',
-      dnsSLBCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDnsProductInstancesResponseBodyDnsProducts extends $tea.Model {
-  dnsProduct?: DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct[];
-  static names(): { [key: string]: string } {
-    return {
-      dnsProduct: 'DnsProduct',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsProduct: { 'type': 'array', 'itemType': DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct },
     };
   }
 
@@ -13063,28 +13427,28 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAl
 }
 
 export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomain extends $tea.Model {
-  type?: string;
-  recordCount?: number;
-  open?: boolean;
-  subDomain?: string;
   lineAlgorithms?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms;
+  open?: boolean;
+  recordCount?: number;
+  subDomain?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      recordCount: 'RecordCount',
-      open: 'Open',
-      subDomain: 'SubDomain',
       lineAlgorithms: 'LineAlgorithms',
+      open: 'Open',
+      recordCount: 'RecordCount',
+      subDomain: 'SubDomain',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      recordCount: 'number',
-      open: 'boolean',
-      subDomain: 'string',
       lineAlgorithms: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms,
+      open: 'boolean',
+      recordCount: 'number',
+      subDomain: 'string',
+      type: 'string',
     };
   }
 
@@ -13112,31 +13476,1757 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomains extends $tea.Mode
   }
 }
 
+export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends $tea.Model {
+  host?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsCacheDomainsResponseBodyDomains extends $tea.Model {
+  cacheTtlMax?: number;
+  cacheTtlMin?: number;
+  createTime?: string;
+  createTimestamp?: number;
+  domainId?: string;
+  domainName?: string;
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
+  remark?: string;
+  sourceDnsServers?: DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers[];
+  sourceEdns?: string;
+  sourceProtocol?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheTtlMax: 'CacheTtlMax',
+      cacheTtlMin: 'CacheTtlMin',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      domainId: 'DomainId',
+      domainName: 'DomainName',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+      sourceDnsServers: 'SourceDnsServers',
+      sourceEdns: 'SourceEdns',
+      sourceProtocol: 'SourceProtocol',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheTtlMax: 'number',
+      cacheTtlMin: 'number',
+      createTime: 'string',
+      createTimestamp: 'number',
+      domainId: 'string',
+      domainName: 'string',
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
+      remark: 'string',
+      sourceDnsServers: { 'type': 'array', 'itemType': DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers },
+      sourceEdns: 'string',
+      sourceProtocol: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool extends $tea.Model {
+  addrCount?: number;
+  id?: string;
+  lbaWeight?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      lbaWeight: 'LbaWeight',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      lbaWeight: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools extends $tea.Model {
+  effectiveAddrPool?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      effectiveAddrPool: 'EffectiveAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effectiveAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine extends $tea.Model {
+  groupCode?: string;
+  groupName?: string;
+  lineCode?: string;
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines extends $tea.Model {
+  line?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine[];
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  effectiveAddrPoolGroupType?: string;
+  effectiveAddrPoolType?: string;
+  effectiveAddrPools?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools;
+  effectiveLbaStrategy?: string;
+  lines?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines;
+  strategyId?: string;
+  strategyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      effectiveAddrPoolGroupType: 'EffectiveAddrPoolGroupType',
+      effectiveAddrPoolType: 'EffectiveAddrPoolType',
+      effectiveAddrPools: 'EffectiveAddrPools',
+      effectiveLbaStrategy: 'EffectiveLbaStrategy',
+      lines: 'Lines',
+      strategyId: 'StrategyId',
+      strategyName: 'StrategyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      effectiveAddrPoolGroupType: 'string',
+      effectiveAddrPoolType: 'string',
+      effectiveAddrPools: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools,
+      effectiveLbaStrategy: 'string',
+      lines: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines,
+      strategyId: 'string',
+      strategyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategiesResponseBodyStrategies extends $tea.Model {
+  strategy?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy[];
+  static names(): { [key: string]: string } {
+    return {
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strategy: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool extends $tea.Model {
+  addrCount?: number;
+  id?: string;
+  lbaWeight?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      lbaWeight: 'LbaWeight',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      lbaWeight: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools extends $tea.Model {
+  defaultAddrPool?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      defaultAddrPool: 'DefaultAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool extends $tea.Model {
+  addrCount?: number;
+  id?: string;
+  lbaWeight?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      lbaWeight: 'LbaWeight',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      lbaWeight: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools extends $tea.Model {
+  failoverAddrPool?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      failoverAddrPool: 'FailoverAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failoverAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyLinesLine extends $tea.Model {
+  groupCode?: string;
+  groupName?: string;
+  lineCode?: string;
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyLines extends $tea.Model {
+  line?: DescribeDnsGtmAccessStrategyResponseBodyLinesLine[];
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyLinesLine },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool extends $tea.Model {
+  addrCount?: number;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools extends $tea.Model {
+  domainAddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      domainAddrPool: 'DomainAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool extends $tea.Model {
+  addrCount?: number;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools extends $tea.Model {
+  ipv4AddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4AddrPool: 'Ipv4AddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool extends $tea.Model {
+  addrCount?: number;
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools extends $tea.Model {
+  ipv6AddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6AddrPool: 'Ipv6AddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $tea.Model {
+  fatherCode?: string;
+  groupCode?: string;
+  groupName?: string;
+  lineCode?: string;
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fatherCode: 'FatherCode',
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fatherCode: 'string',
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines extends $tea.Model {
+  line?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine[];
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines extends $tea.Model {
+  selectedDomainLine?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedDomainLine: 'SelectedDomainLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedDomainLine: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines extends $tea.Model {
+  selectedIpv4Line?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedIpv4Line: 'SelectedIpv4Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedIpv4Line: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines extends $tea.Model {
+  selectedIpv6Line?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedIpv6Line: 'SelectedIpv6Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedIpv6Line: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo extends $tea.Model {
+  fatherCode?: string;
+  groupCode?: string;
+  groupName?: string;
+  lineCode?: string;
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fatherCode: 'FatherCode',
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fatherCode: 'string',
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr extends $tea.Model {
+  addr?: string;
+  attributeInfo?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo;
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+      attributeInfo: 'AttributeInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: 'string',
+      attributeInfo: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddr extends $tea.Model {
+  addr?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr[];
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: { 'type': 'array', 'itemType': DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo extends $tea.Model {
+  fatherCode?: string;
+  groupCode?: string;
+  groupName?: string;
+  lineCode?: string;
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fatherCode: 'FatherCode',
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fatherCode: 'string',
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos extends $tea.Model {
+  attributeInfo?: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      attributeInfo: 'AttributeInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeInfo: { 'type': 'array', 'itemType': DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig extends $tea.Model {
+  dingtalkNotice?: boolean;
+  emailNotice?: boolean;
+  noticeType?: string;
+  smsNotice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkNotice: 'DingtalkNotice',
+      emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkNotice: 'boolean',
+      emailNotice: 'boolean',
+      noticeType: 'string',
+      smsNotice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceResponseBodyConfigAlertConfig extends $tea.Model {
+  alertConfig?: DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: { 'type': 'array', 'itemType': DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceResponseBodyConfig extends $tea.Model {
+  alertConfig?: DescribeDnsGtmInstanceResponseBodyConfigAlertConfig;
+  alertGroup?: string;
+  cnameType?: string;
+  instanceName?: string;
+  pubicZoneName?: string;
+  publicCnameMode?: string;
+  publicRr?: string;
+  publicUserDomainName?: string;
+  strategyMode?: string;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      cnameType: 'CnameType',
+      instanceName: 'InstanceName',
+      pubicZoneName: 'PubicZoneName',
+      publicCnameMode: 'PublicCnameMode',
+      publicRr: 'PublicRr',
+      publicUserDomainName: 'PublicUserDomainName',
+      strategyMode: 'StrategyMode',
+      ttl: 'Ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: DescribeDnsGtmInstanceResponseBodyConfigAlertConfig,
+      alertGroup: 'string',
+      cnameType: 'string',
+      instanceName: 'string',
+      pubicZoneName: 'string',
+      publicCnameMode: 'string',
+      publicRr: 'string',
+      publicUserDomainName: 'string',
+      strategyMode: 'string',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $tea.Model {
+  dingtalkUsedCount?: number;
+  emailUsedCount?: number;
+  smsUsedCount?: number;
+  taskUsedCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkUsedCount: 'DingtalkUsedCount',
+      emailUsedCount: 'EmailUsedCount',
+      smsUsedCount: 'SmsUsedCount',
+      taskUsedCount: 'TaskUsedCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkUsedCount: 'number',
+      emailUsedCount: 'number',
+      smsUsedCount: 'number',
+      taskUsedCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr extends $tea.Model {
+  addr?: string;
+  alertStatus?: string;
+  attributeInfo?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  lbaWeight?: number;
+  mode?: string;
+  remark?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+      alertStatus: 'AlertStatus',
+      attributeInfo: 'AttributeInfo',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      lbaWeight: 'LbaWeight',
+      mode: 'Mode',
+      remark: 'Remark',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: 'string',
+      alertStatus: 'string',
+      attributeInfo: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      lbaWeight: 'number',
+      mode: 'string',
+      remark: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs extends $tea.Model {
+  addr?: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr[];
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: { 'type': 'array', 'itemType': DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool extends $tea.Model {
+  addrCount?: number;
+  addrPoolId?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  lbaStrategy?: string;
+  monitorConfigId?: string;
+  monitorStatus?: string;
+  name?: string;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      addrPoolId: 'AddrPoolId',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      lbaStrategy: 'LbaStrategy',
+      monitorConfigId: 'MonitorConfigId',
+      monitorStatus: 'MonitorStatus',
+      name: 'Name',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      addrPoolId: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      lbaStrategy: 'string',
+      monitorConfigId: 'string',
+      monitorStatus: 'string',
+      name: 'string',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools extends $tea.Model {
+  addrPool?: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      addrPool: 'AddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrPool: { 'type': 'array', 'itemType': DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig extends $tea.Model {
+  dingtalkNotice?: string;
+  emailNotice?: string;
+  noticeType?: string;
+  smsNotice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkNotice: 'DingtalkNotice',
+      emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkNotice: 'string',
+      emailNotice: 'string',
+      noticeType: 'string',
+      smsNotice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.Model {
+  alertConfig?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig[];
+  alertGroup?: string;
+  cnameType?: string;
+  instanceName?: string;
+  publicCnameMode?: string;
+  publicRr?: string;
+  publicUserDomainName?: string;
+  publicZoneName?: string;
+  strategyMode?: string;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertConfig: 'AlertConfig',
+      alertGroup: 'AlertGroup',
+      cnameType: 'CnameType',
+      instanceName: 'InstanceName',
+      publicCnameMode: 'PublicCnameMode',
+      publicRr: 'PublicRr',
+      publicUserDomainName: 'PublicUserDomainName',
+      publicZoneName: 'PublicZoneName',
+      strategyMode: 'StrategyMode',
+      ttl: 'Ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertConfig: { 'type': 'array', 'itemType': DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig },
+      alertGroup: 'string',
+      cnameType: 'string',
+      instanceName: 'string',
+      publicCnameMode: 'string',
+      publicRr: 'string',
+      publicUserDomainName: 'string',
+      publicZoneName: 'string',
+      strategyMode: 'string',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $tea.Model {
+  dingtalkUsedCount?: number;
+  emailUsedCount?: number;
+  smsUsedCount?: number;
+  taskUsedCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkUsedCount: 'DingtalkUsedCount',
+      emailUsedCount: 'EmailUsedCount',
+      smsUsedCount: 'SmsUsedCount',
+      taskUsedCount: 'TaskUsedCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkUsedCount: 'number',
+      emailUsedCount: 'number',
+      smsUsedCount: 'number',
+      taskUsedCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model {
+  config?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig;
+  createTime?: string;
+  createTimestamp?: number;
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
+  paymentType?: string;
+  resourceGroupId?: string;
+  smsQuota?: number;
+  taskQuota?: number;
+  usedQuota?: DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      paymentType: 'PaymentType',
+      resourceGroupId: 'ResourceGroupId',
+      smsQuota: 'SmsQuota',
+      taskQuota: 'TaskQuota',
+      usedQuota: 'UsedQuota',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig,
+      createTime: 'string',
+      createTimestamp: 'number',
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
+      paymentType: 'string',
+      resourceGroupId: 'string',
+      smsQuota: 'number',
+      taskQuota: 'number',
+      usedQuota: DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota,
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmLogsResponseBodyLogsLog extends $tea.Model {
+  content?: string;
+  entityId?: string;
+  entityName?: string;
+  entityType?: string;
+  id?: number;
+  operAction?: string;
+  operTime?: string;
+  operTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      entityId: 'EntityId',
+      entityName: 'EntityName',
+      entityType: 'EntityType',
+      id: 'Id',
+      operAction: 'OperAction',
+      operTime: 'OperTime',
+      operTimestamp: 'OperTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      entityId: 'string',
+      entityName: 'string',
+      entityType: 'string',
+      id: 'number',
+      operAction: 'string',
+      operTime: 'string',
+      operTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmLogsResponseBodyLogs extends $tea.Model {
+  log?: DescribeDnsGtmLogsResponseBodyLogsLog[];
+  static names(): { [key: string]: string } {
+    return {
+      log: 'Log',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      log: { 'type': 'array', 'itemType': DescribeDnsGtmLogsResponseBodyLogsLog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNodeIps extends $tea.Model {
+  ip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNodeIps;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ips: 'Ips',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ips: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNodeIps,
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes extends $tea.Model {
+  domainIpv4IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      domainIpv4IspCityNode: 'DomainIpv4IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainIpv4IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNodeIps extends $tea.Model {
+  ip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNodeIps;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ips: 'Ips',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ips: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNodeIps,
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes extends $tea.Model {
+  domainIpv6IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      domainIpv6IspCityNode: 'DomainIpv6IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainIpv6IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps extends $tea.Model {
+  ip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ips: 'Ips',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ips: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps,
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes extends $tea.Model {
+  ipv4IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4IspCityNode: 'Ipv4IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps extends $tea.Model {
+  ip?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ips: 'Ips',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ips: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps,
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes extends $tea.Model {
+  ipv6IspCityNode?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6IspCityNode: 'Ipv6IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6IspCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
+  cityCode?: string;
+  cityName?: string;
+  countryCode?: string;
+  countryName?: string;
+  ispCode?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      cityName: 'CityName',
+      countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      ispCode: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes extends $tea.Model {
+  ispCityNode?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode[];
+  static names(): { [key: string]: string } {
+    return {
+      ispCityNode: 'IspCityNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispCityNode: { 'type': 'array', 'itemType': DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsProductInstanceResponseBodyDnsServers extends $tea.Model {
+  dnsServer?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsServer: 'DnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServer: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extends $tea.Model {
+  bindCount?: number;
+  bindDomainCount?: number;
+  bindDomainUsedCount?: number;
+  bindUsedCount?: number;
+  DDosDefendFlow?: number;
+  DDosDefendQuery?: number;
+  dnsSLBCount?: number;
+  dnsSecurity?: string;
+  domain?: string;
+  endTime?: string;
+  endTimestamp?: number;
+  gslb?: boolean;
+  ISPLines?: string;
+  ISPRegionLines?: string;
+  inBlackHole?: boolean;
+  inClean?: boolean;
+  instanceId?: string;
+  monitorFrequency?: number;
+  monitorNodeCount?: number;
+  monitorTaskCount?: number;
+  overseaDDosDefendFlow?: number;
+  overseaLine?: string;
+  paymentType?: string;
+  regionLines?: boolean;
+  searchEngineLines?: string;
+  startTime?: string;
+  startTimestamp?: number;
+  subDomainLevel?: number;
+  TTLMinValue?: number;
+  URLForwardCount?: number;
+  versionCode?: string;
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindCount: 'BindCount',
+      bindDomainCount: 'BindDomainCount',
+      bindDomainUsedCount: 'BindDomainUsedCount',
+      bindUsedCount: 'BindUsedCount',
+      DDosDefendFlow: 'DDosDefendFlow',
+      DDosDefendQuery: 'DDosDefendQuery',
+      dnsSLBCount: 'DnsSLBCount',
+      dnsSecurity: 'DnsSecurity',
+      domain: 'Domain',
+      endTime: 'EndTime',
+      endTimestamp: 'EndTimestamp',
+      gslb: 'Gslb',
+      ISPLines: 'ISPLines',
+      ISPRegionLines: 'ISPRegionLines',
+      inBlackHole: 'InBlackHole',
+      inClean: 'InClean',
+      instanceId: 'InstanceId',
+      monitorFrequency: 'MonitorFrequency',
+      monitorNodeCount: 'MonitorNodeCount',
+      monitorTaskCount: 'MonitorTaskCount',
+      overseaDDosDefendFlow: 'OverseaDDosDefendFlow',
+      overseaLine: 'OverseaLine',
+      paymentType: 'PaymentType',
+      regionLines: 'RegionLines',
+      searchEngineLines: 'SearchEngineLines',
+      startTime: 'StartTime',
+      startTimestamp: 'StartTimestamp',
+      subDomainLevel: 'SubDomainLevel',
+      TTLMinValue: 'TTLMinValue',
+      URLForwardCount: 'URLForwardCount',
+      versionCode: 'VersionCode',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindCount: 'number',
+      bindDomainCount: 'number',
+      bindDomainUsedCount: 'number',
+      bindUsedCount: 'number',
+      DDosDefendFlow: 'number',
+      DDosDefendQuery: 'number',
+      dnsSLBCount: 'number',
+      dnsSecurity: 'string',
+      domain: 'string',
+      endTime: 'string',
+      endTimestamp: 'number',
+      gslb: 'boolean',
+      ISPLines: 'string',
+      ISPRegionLines: 'string',
+      inBlackHole: 'boolean',
+      inClean: 'boolean',
+      instanceId: 'string',
+      monitorFrequency: 'number',
+      monitorNodeCount: 'number',
+      monitorTaskCount: 'number',
+      overseaDDosDefendFlow: 'number',
+      overseaLine: 'string',
+      paymentType: 'string',
+      regionLines: 'boolean',
+      searchEngineLines: 'string',
+      startTime: 'string',
+      startTimestamp: 'number',
+      subDomainLevel: 'number',
+      TTLMinValue: 'number',
+      URLForwardCount: 'number',
+      versionCode: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsProductInstancesResponseBodyDnsProducts extends $tea.Model {
+  dnsProduct?: DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsProduct: 'DnsProduct',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsProduct: { 'type': 'array', 'itemType': DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDohAccountStatisticsResponseBodyStatistics extends $tea.Model {
-  v6HttpCount?: number;
-  v4HttpsCount?: number;
   timestamp?: number;
   totalCount?: number;
   v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6HttpCount?: number;
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
-      v6HttpCount: 'V6HttpCount',
-      v4HttpsCount: 'V4HttpsCount',
       timestamp: 'Timestamp',
       totalCount: 'TotalCount',
       v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6HttpCount: 'V6HttpCount',
       v6HttpsCount: 'V6HttpsCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      v6HttpCount: 'number',
-      v4HttpsCount: 'number',
       timestamp: 'number',
       totalCount: 'number',
       v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6HttpCount: 'number',
       v6HttpsCount: 'number',
     };
   }
@@ -13147,30 +15237,30 @@ export class DescribeDohAccountStatisticsResponseBodyStatistics extends $tea.Mod
 }
 
 export class DescribeDohDomainStatisticsResponseBodyStatistics extends $tea.Model {
-  v6HttpCount?: number;
-  v4HttpsCount?: number;
   timestamp?: number;
   totalCount?: number;
   v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6HttpCount?: number;
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
-      v6HttpCount: 'V6HttpCount',
-      v4HttpsCount: 'V4HttpsCount',
       timestamp: 'Timestamp',
       totalCount: 'TotalCount',
       v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6HttpCount: 'V6HttpCount',
       v6HttpsCount: 'V6HttpsCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      v6HttpCount: 'number',
-      v4HttpsCount: 'number',
       timestamp: 'number',
       totalCount: 'number',
       v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6HttpCount: 'number',
       v6HttpsCount: 'number',
     };
   }
@@ -13181,39 +15271,39 @@ export class DescribeDohDomainStatisticsResponseBodyStatistics extends $tea.Mode
 }
 
 export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $tea.Model {
-  v6HttpCount?: number;
-  v4HttpsCount?: number;
+  domainName?: string;
+  httpCount?: number;
+  httpsCount?: number;
   ipCount?: number;
   totalCount?: number;
-  httpCount?: number;
-  domainName?: string;
-  httpsCount?: number;
   v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6HttpCount?: number;
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
-      v6HttpCount: 'V6HttpCount',
-      v4HttpsCount: 'V4HttpsCount',
+      domainName: 'DomainName',
+      httpCount: 'HttpCount',
+      httpsCount: 'HttpsCount',
       ipCount: 'IpCount',
       totalCount: 'TotalCount',
-      httpCount: 'HttpCount',
-      domainName: 'DomainName',
-      httpsCount: 'HttpsCount',
       v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6HttpCount: 'V6HttpCount',
       v6HttpsCount: 'V6HttpsCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      v6HttpCount: 'number',
-      v4HttpsCount: 'number',
+      domainName: 'string',
+      httpCount: 'number',
+      httpsCount: 'number',
       ipCount: 'number',
       totalCount: 'number',
-      httpCount: 'number',
-      domainName: 'string',
-      httpsCount: 'number',
       v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6HttpCount: 'number',
       v6HttpsCount: 'number',
     };
   }
@@ -13224,30 +15314,30 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $t
 }
 
 export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $tea.Model {
-  v6HttpCount?: number;
-  v4HttpsCount?: number;
   timestamp?: number;
   totalCount?: number;
   v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6HttpCount?: number;
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
-      v6HttpCount: 'V6HttpCount',
-      v4HttpsCount: 'V4HttpsCount',
       timestamp: 'Timestamp',
       totalCount: 'TotalCount',
       v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6HttpCount: 'V6HttpCount',
       v6HttpsCount: 'V6HttpsCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      v6HttpCount: 'number',
-      v4HttpsCount: 'number',
       timestamp: 'number',
       totalCount: 'number',
       v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6HttpCount: 'number',
       v6HttpsCount: 'number',
     };
   }
@@ -13258,39 +15348,39 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $tea.M
 }
 
 export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends $tea.Model {
-  v6HttpCount?: number;
-  v4HttpsCount?: number;
+  httpCount?: number;
+  httpsCount?: number;
   ipCount?: number;
   subDomain?: string;
   totalCount?: number;
-  httpCount?: number;
-  httpsCount?: number;
   v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6HttpCount?: number;
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
-      v6HttpCount: 'V6HttpCount',
-      v4HttpsCount: 'V4HttpsCount',
+      httpCount: 'HttpCount',
+      httpsCount: 'HttpsCount',
       ipCount: 'IpCount',
       subDomain: 'SubDomain',
       totalCount: 'TotalCount',
-      httpCount: 'HttpCount',
-      httpsCount: 'HttpsCount',
       v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6HttpCount: 'V6HttpCount',
       v6HttpsCount: 'V6HttpsCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      v6HttpCount: 'number',
-      v4HttpsCount: 'number',
+      httpCount: 'number',
+      httpsCount: 'number',
       ipCount: 'number',
       subDomain: 'string',
       totalCount: 'number',
-      httpCount: 'number',
-      httpsCount: 'number',
       v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6HttpCount: 'number',
       v6HttpsCount: 'number',
     };
   }
@@ -13301,22 +15391,22 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
 }
 
 export class DescribeDomainGroupsResponseBodyDomainGroupsDomainGroup extends $tea.Model {
+  domainCount?: number;
   groupId?: string;
   groupName?: string;
-  domainCount?: number;
   static names(): { [key: string]: string } {
     return {
+      domainCount: 'DomainCount',
       groupId: 'GroupId',
       groupName: 'GroupName',
-      domainCount: 'DomainCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainCount: 'number',
       groupId: 'string',
       groupName: 'string',
-      domainCount: 'number',
     };
   }
 
@@ -13336,6 +15426,25 @@ export class DescribeDomainGroupsResponseBodyDomainGroups extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainGroup: { 'type': 'array', 'itemType': DescribeDomainGroupsResponseBodyDomainGroupsDomainGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainInfoResponseBodyAvailableTtls extends $tea.Model {
+  availableTtl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      availableTtl: 'AvailableTtl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableTtl: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -13365,14 +15474,14 @@ export class DescribeDomainInfoResponseBodyDnsServers extends $tea.Model {
 
 export class DescribeDomainInfoResponseBodyRecordLinesRecordLine extends $tea.Model {
   fatherCode?: string;
-  lineDisplayName?: string;
   lineCode?: string;
+  lineDisplayName?: string;
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
       fatherCode: 'FatherCode',
-      lineDisplayName: 'LineDisplayName',
       lineCode: 'LineCode',
+      lineDisplayName: 'LineDisplayName',
       lineName: 'LineName',
     };
   }
@@ -13380,8 +15489,8 @@ export class DescribeDomainInfoResponseBodyRecordLinesRecordLine extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       fatherCode: 'string',
-      lineDisplayName: 'string',
       lineCode: 'string',
+      lineDisplayName: 'string',
       lineName: 'string',
     };
   }
@@ -13410,54 +15519,35 @@ export class DescribeDomainInfoResponseBodyRecordLines extends $tea.Model {
   }
 }
 
-export class DescribeDomainInfoResponseBodyAvailableTtls extends $tea.Model {
-  availableTtl?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      availableTtl: 'AvailableTtl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableTtl: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDomainLogsResponseBodyDomainLogsDomainLog extends $tea.Model {
   action?: string;
-  actionTimestamp?: number;
-  zoneId?: string;
-  clientIp?: string;
-  message?: string;
   actionTime?: string;
+  actionTimestamp?: number;
+  clientIp?: string;
   domainName?: string;
+  message?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
-      actionTimestamp: 'ActionTimestamp',
-      zoneId: 'ZoneId',
-      clientIp: 'ClientIp',
-      message: 'Message',
       actionTime: 'ActionTime',
+      actionTimestamp: 'ActionTimestamp',
+      clientIp: 'ClientIp',
       domainName: 'DomainName',
+      message: 'Message',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       action: 'string',
-      actionTimestamp: 'number',
-      zoneId: 'string',
-      clientIp: 'string',
-      message: 'string',
       actionTime: 'string',
+      actionTimestamp: 'number',
+      clientIp: 'string',
       domainName: 'string',
+      message: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -13485,25 +15575,6 @@ export class DescribeDomainLogsResponseBodyDomainLogs extends $tea.Model {
   }
 }
 
-export class DescribeDomainNsResponseBodyExpectDnsServers extends $tea.Model {
-  expectDnsServer?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      expectDnsServer: 'ExpectDnsServer',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expectDnsServer: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDomainNsResponseBodyDnsServers extends $tea.Model {
   dnsServer?: string[];
   static names(): { [key: string]: string } {
@@ -13523,50 +15594,69 @@ export class DescribeDomainNsResponseBodyDnsServers extends $tea.Model {
   }
 }
 
-export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.Model {
-  status?: string;
-  type?: string;
-  remark?: string;
-  TTL?: number;
-  recordId?: string;
-  priority?: number;
-  RR?: string;
-  domainName?: string;
-  weight?: number;
-  value?: string;
-  line?: string;
-  locked?: boolean;
+export class DescribeDomainNsResponseBodyExpectDnsServers extends $tea.Model {
+  expectDnsServer?: string[];
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      type: 'Type',
-      remark: 'Remark',
-      TTL: 'TTL',
-      recordId: 'RecordId',
-      priority: 'Priority',
-      RR: 'RR',
-      domainName: 'DomainName',
-      weight: 'Weight',
-      value: 'Value',
-      line: 'Line',
-      locked: 'Locked',
+      expectDnsServer: 'ExpectDnsServer',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      type: 'string',
-      remark: 'string',
-      TTL: 'number',
-      recordId: 'string',
-      priority: 'number',
-      RR: 'string',
+      expectDnsServer: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.Model {
+  domainName?: string;
+  line?: string;
+  locked?: boolean;
+  priority?: number;
+  RR?: string;
+  recordId?: string;
+  remark?: string;
+  status?: string;
+  TTL?: number;
+  type?: string;
+  value?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      line: 'Line',
+      locked: 'Locked',
+      priority: 'Priority',
+      RR: 'RR',
+      recordId: 'RecordId',
+      remark: 'Remark',
+      status: 'Status',
+      TTL: 'TTL',
+      type: 'Type',
+      value: 'Value',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       domainName: 'string',
-      weight: 'number',
-      value: 'string',
       line: 'string',
       locked: 'boolean',
+      priority: 'number',
+      RR: 'string',
+      recordId: 'string',
+      remark: 'string',
+      status: 'string',
+      TTL: 'number',
+      type: 'string',
+      value: 'string',
+      weight: 'number',
     };
   }
 
@@ -13594,14 +15684,102 @@ export class DescribeDomainRecordsResponseBodyDomainRecords extends $tea.Model {
   }
 }
 
-export class DescribeDomainsRequestTag extends $tea.Model {
+export class DescribeDomainStatisticsResponseBodyStatisticsStatistic extends $tea.Model {
+  count?: number;
+  timestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
+      timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainStatisticsResponseBodyStatistics extends $tea.Model {
+  statistic?: DescribeDomainStatisticsResponseBodyStatisticsStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      statistic: 'Statistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statistic: { 'type': 'array', 'itemType': DescribeDomainStatisticsResponseBodyStatisticsStatistic },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic extends $tea.Model {
+  count?: number;
+  domainName?: string;
+  domainType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      domainName: 'DomainName',
+      domainType: 'DomainType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      domainName: 'string',
+      domainType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainStatisticsSummaryResponseBodyStatistics extends $tea.Model {
+  statistic?: DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      statistic: 'Statistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statistic: { 'type': 'array', 'itemType': DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainsResponseBodyDomainsDomainDnsServers extends $tea.Model {
+  dnsServer?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsServer: 'DnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServer: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -13651,93 +15829,74 @@ export class DescribeDomainsResponseBodyDomainsDomainTags extends $tea.Model {
   }
 }
 
-export class DescribeDomainsResponseBodyDomainsDomainDnsServers extends $tea.Model {
-  dnsServer?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dnsServer: 'DnsServer',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsServer: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
-  remark?: string;
-  createTime?: string;
-  recordCount?: number;
-  tags?: DescribeDomainsResponseBodyDomainsDomainTags;
-  instanceId?: string;
-  domainName?: string;
-  domainId?: string;
   aliDomain?: boolean;
+  createTime?: string;
+  createTimestamp?: number;
+  dnsServers?: DescribeDomainsResponseBodyDomainsDomainDnsServers;
+  domainId?: string;
+  domainName?: string;
   groupId?: string;
   groupName?: string;
-  resourceGroupId?: string;
   instanceEndTime?: string;
   instanceExpired?: boolean;
-  versionName?: string;
-  dnsServers?: DescribeDomainsResponseBodyDomainsDomainDnsServers;
-  versionCode?: string;
+  instanceId?: string;
   punyCode?: string;
+  recordCount?: number;
   registrantEmail?: string;
-  createTimestamp?: number;
+  remark?: string;
+  resourceGroupId?: string;
   starmark?: boolean;
+  tags?: DescribeDomainsResponseBodyDomainsDomainTags;
+  versionCode?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
-      remark: 'Remark',
-      createTime: 'CreateTime',
-      recordCount: 'RecordCount',
-      tags: 'Tags',
-      instanceId: 'InstanceId',
-      domainName: 'DomainName',
-      domainId: 'DomainId',
       aliDomain: 'AliDomain',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      dnsServers: 'DnsServers',
+      domainId: 'DomainId',
+      domainName: 'DomainName',
       groupId: 'GroupId',
       groupName: 'GroupName',
-      resourceGroupId: 'ResourceGroupId',
       instanceEndTime: 'InstanceEndTime',
       instanceExpired: 'InstanceExpired',
-      versionName: 'VersionName',
-      dnsServers: 'DnsServers',
-      versionCode: 'VersionCode',
+      instanceId: 'InstanceId',
       punyCode: 'PunyCode',
+      recordCount: 'RecordCount',
       registrantEmail: 'RegistrantEmail',
-      createTimestamp: 'CreateTimestamp',
+      remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
       starmark: 'Starmark',
+      tags: 'Tags',
+      versionCode: 'VersionCode',
+      versionName: 'VersionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      remark: 'string',
-      createTime: 'string',
-      recordCount: 'number',
-      tags: DescribeDomainsResponseBodyDomainsDomainTags,
-      instanceId: 'string',
-      domainName: 'string',
-      domainId: 'string',
       aliDomain: 'boolean',
+      createTime: 'string',
+      createTimestamp: 'number',
+      dnsServers: DescribeDomainsResponseBodyDomainsDomainDnsServers,
+      domainId: 'string',
+      domainName: 'string',
       groupId: 'string',
       groupName: 'string',
-      resourceGroupId: 'string',
       instanceEndTime: 'string',
       instanceExpired: 'boolean',
-      versionName: 'string',
-      dnsServers: DescribeDomainsResponseBodyDomainsDomainDnsServers,
-      versionCode: 'string',
+      instanceId: 'string',
       punyCode: 'string',
+      recordCount: 'number',
       registrantEmail: 'string',
-      createTimestamp: 'number',
+      remark: 'string',
+      resourceGroupId: 'string',
       starmark: 'boolean',
+      tags: DescribeDomainsResponseBodyDomainsDomainTags,
+      versionCode: 'string',
+      versionName: 'string',
     };
   }
 
@@ -13765,111 +15924,26 @@ export class DescribeDomainsResponseBodyDomains extends $tea.Model {
   }
 }
 
-export class DescribeDomainStatisticsResponseBodyStatisticsStatistic extends $tea.Model {
-  timestamp?: number;
-  count?: number;
-  static names(): { [key: string]: string } {
-    return {
-      timestamp: 'Timestamp',
-      count: 'Count',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timestamp: 'number',
-      count: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainStatisticsResponseBodyStatistics extends $tea.Model {
-  statistic?: DescribeDomainStatisticsResponseBodyStatisticsStatistic[];
-  static names(): { [key: string]: string } {
-    return {
-      statistic: 'Statistic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      statistic: { 'type': 'array', 'itemType': DescribeDomainStatisticsResponseBodyStatisticsStatistic },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic extends $tea.Model {
-  domainName?: string;
-  count?: number;
-  domainType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      count: 'Count',
-      domainType: 'DomainType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      count: 'number',
-      domainType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDomainStatisticsSummaryResponseBodyStatistics extends $tea.Model {
-  statistic?: DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic[];
-  static names(): { [key: string]: string } {
-    return {
-      statistic: 'Statistic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      statistic: { 'type': 'array', 'itemType': DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine extends $tea.Model {
+  groupCode?: string;
   groupName?: string;
   lineCode?: string;
   lineName?: string;
-  groupCode?: string;
   static names(): { [key: string]: string } {
     return {
+      groupCode: 'GroupCode',
       groupName: 'GroupName',
       lineCode: 'LineCode',
       lineName: 'LineName',
-      groupCode: 'GroupCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupCode: 'string',
       groupName: 'string',
       lineCode: 'string',
       lineName: 'string',
-      groupCode: 'string',
     };
   }
 
@@ -13899,63 +15973,63 @@ export class DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLines exte
 
 export class DescribeGtmAccessStrategiesResponseBodyStrategiesStrategy extends $tea.Model {
   accessMode?: string;
-  strategyName?: string;
-  defaultAddrPoolMonitorStatus?: string;
-  strategyMode?: string;
+  accessStatus?: string;
   createTime?: string;
+  createTimestamp?: number;
+  defaultAddrPoolId?: string;
+  defaultAddrPoolMonitorStatus?: string;
+  defaultAddrPoolName?: string;
   defaultAddrPoolStatus?: string;
+  failoverAddrPoolId?: string;
+  failoverAddrPoolMonitorStatus?: string;
+  failoverAddrPoolName?: string;
+  failoverAddrPoolStatus?: string;
   instanceId?: string;
   lines?: DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLines;
-  failoverAddrPoolId?: string;
-  defaultAddrPoolId?: string;
   strategyId?: string;
-  failoverAddrPoolStatus?: string;
-  accessStatus?: string;
-  failoverAddrPoolMonitorStatus?: string;
-  defaultAddrPoolName?: string;
-  failoverAddrPoolName?: string;
-  createTimestamp?: number;
+  strategyMode?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
       accessMode: 'AccessMode',
-      strategyName: 'StrategyName',
-      defaultAddrPoolMonitorStatus: 'DefaultAddrPoolMonitorStatus',
-      strategyMode: 'StrategyMode',
+      accessStatus: 'AccessStatus',
       createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      defaultAddrPoolId: 'DefaultAddrPoolId',
+      defaultAddrPoolMonitorStatus: 'DefaultAddrPoolMonitorStatus',
+      defaultAddrPoolName: 'DefaultAddrPoolName',
       defaultAddrPoolStatus: 'DefaultAddrPoolStatus',
+      failoverAddrPoolId: 'FailoverAddrPoolId',
+      failoverAddrPoolMonitorStatus: 'FailoverAddrPoolMonitorStatus',
+      failoverAddrPoolName: 'FailoverAddrPoolName',
+      failoverAddrPoolStatus: 'FailoverAddrPoolStatus',
       instanceId: 'InstanceId',
       lines: 'Lines',
-      failoverAddrPoolId: 'FailoverAddrPoolId',
-      defaultAddrPoolId: 'DefaultAddrPoolId',
       strategyId: 'StrategyId',
-      failoverAddrPoolStatus: 'FailoverAddrPoolStatus',
-      accessStatus: 'AccessStatus',
-      failoverAddrPoolMonitorStatus: 'FailoverAddrPoolMonitorStatus',
-      defaultAddrPoolName: 'DefaultAddrPoolName',
-      failoverAddrPoolName: 'FailoverAddrPoolName',
-      createTimestamp: 'CreateTimestamp',
+      strategyMode: 'StrategyMode',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessMode: 'string',
-      strategyName: 'string',
-      defaultAddrPoolMonitorStatus: 'string',
-      strategyMode: 'string',
+      accessStatus: 'string',
       createTime: 'string',
+      createTimestamp: 'number',
+      defaultAddrPoolId: 'string',
+      defaultAddrPoolMonitorStatus: 'string',
+      defaultAddrPoolName: 'string',
       defaultAddrPoolStatus: 'string',
+      failoverAddrPoolId: 'string',
+      failoverAddrPoolMonitorStatus: 'string',
+      failoverAddrPoolName: 'string',
+      failoverAddrPoolStatus: 'string',
       instanceId: 'string',
       lines: DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLines,
-      failoverAddrPoolId: 'string',
-      defaultAddrPoolId: 'string',
       strategyId: 'string',
-      failoverAddrPoolStatus: 'string',
-      accessStatus: 'string',
-      failoverAddrPoolMonitorStatus: 'string',
-      defaultAddrPoolName: 'string',
-      failoverAddrPoolName: 'string',
-      createTimestamp: 'number',
+      strategyMode: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -13984,25 +16058,25 @@ export class DescribeGtmAccessStrategiesResponseBodyStrategies extends $tea.Mode
 }
 
 export class DescribeGtmAccessStrategyResponseBodyLinesLine extends $tea.Model {
+  groupCode?: string;
   groupName?: string;
   lineCode?: string;
   lineName?: string;
-  groupCode?: string;
   static names(): { [key: string]: string } {
     return {
+      groupCode: 'GroupCode',
       groupName: 'GroupName',
       lineCode: 'LineCode',
       lineName: 'LineName',
-      groupCode: 'GroupCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      groupCode: 'string',
       groupName: 'string',
       lineCode: 'string',
       lineName: 'string',
-      groupCode: 'string',
     };
   }
 
@@ -14072,31 +16146,31 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools exten
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $tea.Model {
-  status?: string;
   fatherCode?: string;
-  lineCode?: string;
-  groupName?: string;
-  lineName?: string;
   groupCode?: string;
+  groupName?: string;
+  lineCode?: string;
+  lineName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       fatherCode: 'FatherCode',
-      lineCode: 'LineCode',
-      groupName: 'GroupName',
-      lineName: 'LineName',
       groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       fatherCode: 'string',
-      lineCode: 'string',
-      groupName: 'string',
-      lineName: 'string',
       groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+      status: 'string',
     };
   }
 
@@ -14125,40 +16199,40 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBodyLines extends $
 }
 
 export class DescribeGtmInstanceAddressPoolResponseBodyAddrsAddr extends $tea.Model {
-  value?: string;
-  updateTimestamp?: number;
-  updateTime?: string;
-  alertStatus?: string;
-  lbaWeight?: number;
-  createTime?: string;
   addrId?: number;
-  mode?: string;
+  alertStatus?: string;
+  createTime?: string;
   createTimestamp?: number;
+  lbaWeight?: number;
+  mode?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      updateTimestamp: 'UpdateTimestamp',
-      updateTime: 'UpdateTime',
-      alertStatus: 'AlertStatus',
-      lbaWeight: 'LbaWeight',
-      createTime: 'CreateTime',
       addrId: 'AddrId',
-      mode: 'Mode',
+      alertStatus: 'AlertStatus',
+      createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
+      lbaWeight: 'LbaWeight',
+      mode: 'Mode',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
-      updateTimestamp: 'number',
-      updateTime: 'string',
-      alertStatus: 'string',
-      lbaWeight: 'number',
-      createTime: 'string',
       addrId: 'number',
-      mode: 'string',
+      alertStatus: 'string',
+      createTime: 'string',
       createTimestamp: 'number',
+      lbaWeight: 'number',
+      mode: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
+      value: 'string',
     };
   }
 
@@ -14187,49 +16261,49 @@ export class DescribeGtmInstanceAddressPoolResponseBodyAddrs extends $tea.Model 
 }
 
 export class DescribeGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool extends $tea.Model {
-  type?: string;
-  status?: string;
-  updateTime?: string;
-  createTime?: string;
-  monitorConfigId?: string;
-  minAvailableAddrNum?: number;
-  updateTimestamp?: number;
-  monitorStatus?: string;
-  addrPoolId?: string;
-  name?: string;
   addrCount?: number;
+  addrPoolId?: string;
+  createTime?: string;
   createTimestamp?: number;
+  minAvailableAddrNum?: number;
+  monitorConfigId?: string;
+  monitorStatus?: string;
+  name?: string;
+  status?: string;
+  type?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      createTime: 'CreateTime',
-      monitorConfigId: 'MonitorConfigId',
-      minAvailableAddrNum: 'MinAvailableAddrNum',
-      updateTimestamp: 'UpdateTimestamp',
-      monitorStatus: 'MonitorStatus',
-      addrPoolId: 'AddrPoolId',
-      name: 'Name',
       addrCount: 'AddrCount',
+      addrPoolId: 'AddrPoolId',
+      createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
+      minAvailableAddrNum: 'MinAvailableAddrNum',
+      monitorConfigId: 'MonitorConfigId',
+      monitorStatus: 'MonitorStatus',
+      name: 'Name',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      status: 'string',
-      updateTime: 'string',
-      createTime: 'string',
-      monitorConfigId: 'string',
-      minAvailableAddrNum: 'number',
-      updateTimestamp: 'number',
-      monitorStatus: 'string',
-      addrPoolId: 'string',
-      name: 'string',
       addrCount: 'number',
+      addrPoolId: 'string',
+      createTime: 'string',
       createTimestamp: 'number',
+      minAvailableAddrNum: 'number',
+      monitorConfigId: 'string',
+      monitorStatus: 'string',
+      name: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
     };
   }
 
@@ -14258,58 +16332,61 @@ export class DescribeGtmInstanceAddressPoolsResponseBodyAddrPools extends $tea.M
 }
 
 export class DescribeGtmInstancesResponseBodyGtmInstancesGtmInstance extends $tea.Model {
-  expireTime?: string;
   accessStrategyNum?: number;
-  createTime?: string;
-  cnameMode?: string;
-  instanceId?: string;
-  expireTimestamp?: number;
-  ttl?: number;
-  alertGroup?: string;
   addressPoolNum?: number;
+  alertGroup?: string;
+  cname?: string;
+  cnameMode?: string;
+  createTime?: string;
+  createTimestamp?: number;
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
   instanceName?: string;
   lbaStrategy?: string;
-  cname?: string;
-  versionCode?: string;
+  resourceGroupId?: string;
+  ttl?: number;
   userDomainName?: string;
-  createTimestamp?: number;
+  versionCode?: string;
   static names(): { [key: string]: string } {
     return {
-      expireTime: 'ExpireTime',
       accessStrategyNum: 'AccessStrategyNum',
-      createTime: 'CreateTime',
-      cnameMode: 'CnameMode',
-      instanceId: 'InstanceId',
-      expireTimestamp: 'ExpireTimestamp',
-      ttl: 'Ttl',
-      alertGroup: 'AlertGroup',
       addressPoolNum: 'AddressPoolNum',
+      alertGroup: 'AlertGroup',
+      cname: 'Cname',
+      cnameMode: 'CnameMode',
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       lbaStrategy: 'LbaStrategy',
-      cname: 'Cname',
-      versionCode: 'VersionCode',
+      resourceGroupId: 'ResourceGroupId',
+      ttl: 'Ttl',
       userDomainName: 'UserDomainName',
-      createTimestamp: 'CreateTimestamp',
+      versionCode: 'VersionCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expireTime: 'string',
       accessStrategyNum: 'number',
-      createTime: 'string',
-      cnameMode: 'string',
-      instanceId: 'string',
-      expireTimestamp: 'number',
-      ttl: 'number',
-      alertGroup: 'string',
       addressPoolNum: 'number',
+      alertGroup: 'string',
+      cname: 'string',
+      cnameMode: 'string',
+      createTime: 'string',
+      createTimestamp: 'number',
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
       instanceName: 'string',
       lbaStrategy: 'string',
-      cname: 'string',
-      versionCode: 'string',
+      resourceGroupId: 'string',
+      ttl: 'number',
       userDomainName: 'string',
-      createTimestamp: 'number',
+      versionCode: 'string',
     };
   }
 
@@ -14338,40 +16415,40 @@ export class DescribeGtmInstancesResponseBodyGtmInstances extends $tea.Model {
 }
 
 export class DescribeGtmLogsResponseBodyLogsLog extends $tea.Model {
-  operTimestamp?: number;
-  entityId?: string;
-  entityType?: string;
-  operTime?: string;
-  operIp?: string;
-  operAction?: string;
   content?: string;
+  entityId?: string;
   entityName?: string;
+  entityType?: string;
   id?: number;
+  operAction?: string;
+  operIp?: string;
+  operTime?: string;
+  operTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      operTimestamp: 'OperTimestamp',
-      entityId: 'EntityId',
-      entityType: 'EntityType',
-      operTime: 'OperTime',
-      operIp: 'OperIp',
-      operAction: 'OperAction',
       content: 'Content',
+      entityId: 'EntityId',
       entityName: 'EntityName',
+      entityType: 'EntityType',
       id: 'Id',
+      operAction: 'OperAction',
+      operIp: 'OperIp',
+      operTime: 'OperTime',
+      operTimestamp: 'OperTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      operTimestamp: 'number',
-      entityId: 'string',
-      entityType: 'string',
-      operTime: 'string',
-      operIp: 'string',
-      operAction: 'string',
       content: 'string',
+      entityId: 'string',
       entityName: 'string',
+      entityType: 'string',
       id: 'number',
+      operAction: 'string',
+      operIp: 'string',
+      operTime: 'string',
+      operTimestamp: 'number',
     };
   }
 
@@ -14401,36 +16478,36 @@ export class DescribeGtmLogsResponseBodyLogs extends $tea.Model {
 
 export class DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
   cityCode?: string;
-  mainland?: boolean;
-  groupName?: string;
-  ispCode?: string;
   cityName?: string;
-  ispName?: string;
-  groupType?: string;
   defaultSelected?: boolean;
+  groupName?: string;
+  groupType?: string;
+  ispCode?: string;
+  ispName?: string;
+  mainland?: boolean;
   static names(): { [key: string]: string } {
     return {
       cityCode: 'CityCode',
-      mainland: 'Mainland',
-      groupName: 'GroupName',
-      ispCode: 'IspCode',
       cityName: 'CityName',
-      ispName: 'IspName',
-      groupType: 'GroupType',
       defaultSelected: 'DefaultSelected',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      ispCode: 'IspCode',
+      ispName: 'IspName',
+      mainland: 'Mainland',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cityCode: 'string',
-      mainland: 'boolean',
-      groupName: 'string',
-      ispCode: 'string',
       cityName: 'string',
-      ispName: 'string',
-      groupType: 'string',
       defaultSelected: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      ispCode: 'string',
+      ispName: 'string',
+      mainland: 'boolean',
     };
   }
 
@@ -14460,18 +16537,18 @@ export class DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodes extends $
 
 export class DescribeGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
   cityCode?: string;
-  countryName?: string;
-  ispCode?: string;
   cityName?: string;
   countryCode?: string;
+  countryName?: string;
+  ispCode?: string;
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
       cityCode: 'CityCode',
-      countryName: 'CountryName',
-      ispCode: 'IspCode',
       cityName: 'CityName',
       countryCode: 'CountryCode',
+      countryName: 'CountryName',
+      ispCode: 'IspCode',
       ispName: 'IspName',
     };
   }
@@ -14479,10 +16556,10 @@ export class DescribeGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends
   static types(): { [key: string]: any } {
     return {
       cityCode: 'string',
-      countryName: 'string',
-      ispCode: 'string',
       cityName: 'string',
       countryCode: 'string',
+      countryName: 'string',
+      ispCode: 'string',
       ispName: 'string',
     };
   }
@@ -14512,22 +16589,22 @@ export class DescribeGtmMonitorConfigResponseBodyIspCityNodes extends $tea.Model
 }
 
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr extends $tea.Model {
-  value?: string;
-  mode?: string;
   id?: number;
+  mode?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      mode: 'Mode',
       id: 'Id',
+      mode: 'Mode',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
-      mode: 'string',
       id: 'number',
+      mode: 'string',
+      value: 'string',
     };
   }
 
@@ -14556,25 +16633,25 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs
 }
 
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool extends $tea.Model {
-  addrs?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs;
   addrPoolId?: string;
-  instanceId?: string;
   addrPoolName?: string;
+  addrs?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      addrs: 'Addrs',
       addrPoolId: 'AddrPoolId',
-      instanceId: 'InstanceId',
       addrPoolName: 'AddrPoolName',
+      addrs: 'Addrs',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addrs: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs,
       addrPoolId: 'string',
-      instanceId: 'string',
       addrPoolName: 'string',
+      addrs: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs,
+      instanceId: 'string',
     };
   }
 
@@ -14645,21 +16722,21 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance extends $tea.Model {
   addrPools?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPools;
-  instanceName?: string;
   instanceId?: string;
+  instanceName?: string;
   static names(): { [key: string]: string } {
     return {
       addrPools: 'AddrPools',
-      instanceName: 'InstanceName',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       addrPools: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPools,
-      instanceName: 'string',
       instanceId: 'string',
+      instanceName: 'string',
     };
   }
 
@@ -14688,52 +16765,52 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances extends
 }
 
 export class DescribeGtmRecoveryPlansResponseBodyRecoveryPlansRecoveryPlan extends $tea.Model {
-  status?: string;
-  lastRollbackTimestamp?: number;
-  updateTime?: string;
-  remark?: string;
   createTime?: string;
-  recoveryPlanId?: number;
-  updateTimestamp?: number;
-  lastExecuteTimestamp?: number;
-  lastExecuteTime?: string;
-  lastRollbackTime?: string;
-  name?: string;
-  faultAddrPoolNum?: number;
   createTimestamp?: number;
+  faultAddrPoolNum?: number;
+  lastExecuteTime?: string;
+  lastExecuteTimestamp?: number;
+  lastRollbackTime?: string;
+  lastRollbackTimestamp?: number;
+  name?: string;
+  recoveryPlanId?: number;
+  remark?: string;
+  status?: string;
+  updateTime?: string;
+  updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      lastRollbackTimestamp: 'LastRollbackTimestamp',
-      updateTime: 'UpdateTime',
-      remark: 'Remark',
       createTime: 'CreateTime',
-      recoveryPlanId: 'RecoveryPlanId',
-      updateTimestamp: 'UpdateTimestamp',
-      lastExecuteTimestamp: 'LastExecuteTimestamp',
-      lastExecuteTime: 'LastExecuteTime',
-      lastRollbackTime: 'LastRollbackTime',
-      name: 'Name',
-      faultAddrPoolNum: 'FaultAddrPoolNum',
       createTimestamp: 'CreateTimestamp',
+      faultAddrPoolNum: 'FaultAddrPoolNum',
+      lastExecuteTime: 'LastExecuteTime',
+      lastExecuteTimestamp: 'LastExecuteTimestamp',
+      lastRollbackTime: 'LastRollbackTime',
+      lastRollbackTimestamp: 'LastRollbackTimestamp',
+      name: 'Name',
+      recoveryPlanId: 'RecoveryPlanId',
+      remark: 'Remark',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+      updateTimestamp: 'UpdateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      lastRollbackTimestamp: 'number',
-      updateTime: 'string',
-      remark: 'string',
       createTime: 'string',
-      recoveryPlanId: 'number',
-      updateTimestamp: 'number',
-      lastExecuteTimestamp: 'number',
-      lastExecuteTime: 'string',
-      lastRollbackTime: 'string',
-      name: 'string',
-      faultAddrPoolNum: 'number',
       createTimestamp: 'number',
+      faultAddrPoolNum: 'number',
+      lastExecuteTime: 'string',
+      lastExecuteTimestamp: 'number',
+      lastRollbackTime: 'string',
+      lastRollbackTimestamp: 'number',
+      name: 'string',
+      recoveryPlanId: 'number',
+      remark: 'string',
+      status: 'string',
+      updateTime: 'string',
+      updateTimestamp: 'number',
     };
   }
 
@@ -14763,21 +16840,642 @@ export class DescribeGtmRecoveryPlansResponseBodyRecoveryPlans extends $tea.Mode
 
 export class DescribeInstanceDomainsResponseBodyInstanceDomains extends $tea.Model {
   createTime?: string;
-  domainName?: string;
   createTimestamp?: number;
+  domainName?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
-      domainName: 'DomainName',
       createTimestamp: 'CreateTimestamp',
+      domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
-      domainName: 'string',
       createTimestamp: 'number',
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstancesQuotaInfo extends $tea.Model {
+  instanceQuota?: number;
+  instanceQuotaUsed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceQuota: 'InstanceQuota',
+      instanceQuotaUsed: 'InstanceQuotaUsed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceQuota: 'number',
+      instanceQuotaUsed: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstances extends $tea.Model {
+  expireTime?: string;
+  expireTimestamp?: number;
+  instanceId?: string;
+  instanceName?: string;
+  isp?: string;
+  quotaInfo?: DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstancesQuotaInfo;
+  status?: string;
+  versionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireTime: 'ExpireTime',
+      expireTimestamp: 'ExpireTimestamp',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      isp: 'Isp',
+      quotaInfo: 'QuotaInfo',
+      status: 'Status',
+      versionCode: 'VersionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireTime: 'string',
+      expireTimestamp: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      isp: 'string',
+      quotaInfo: DescribeIspFlushCacheInstancesResponseBodyIspFlushCacheInstancesQuotaInfo,
+      status: 'string',
+      versionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTaskResponseBodyFlushCacheResultsDnsNodesAnswers extends $tea.Model {
+  name?: string;
+  record?: string;
+  ttl?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      record: 'Record',
+      ttl: 'Ttl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      record: 'string',
+      ttl: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTaskResponseBodyFlushCacheResultsDnsNodes extends $tea.Model {
+  answers?: DescribeIspFlushCacheTaskResponseBodyFlushCacheResultsDnsNodesAnswers[];
+  nodeIp?: string;
+  spName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answers: 'Answers',
+      nodeIp: 'NodeIp',
+      spName: 'SpName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answers: { 'type': 'array', 'itemType': DescribeIspFlushCacheTaskResponseBodyFlushCacheResultsDnsNodesAnswers },
+      nodeIp: 'string',
+      spName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTaskResponseBodyFlushCacheResults extends $tea.Model {
+  dnsNodes?: DescribeIspFlushCacheTaskResponseBodyFlushCacheResultsDnsNodes[];
+  province?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dnsNodes: 'DnsNodes',
+      province: 'Province',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsNodes: { 'type': 'array', 'itemType': DescribeIspFlushCacheTaskResponseBodyFlushCacheResultsDnsNodes },
+      province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIspFlushCacheTasksResponseBodyIspFlushCacheTasks extends $tea.Model {
+  createTime?: string;
+  createTimestamp?: number;
+  domainName?: string;
+  instanceId?: string;
+  instanceName?: string;
+  isp?: string;
+  taskId?: string;
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createTimestamp: 'CreateTimestamp',
+      domainName: 'DomainName',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      isp: 'Isp',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createTimestamp: 'number',
+      domainName: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      isp: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAccountSummaryResponseBodyData extends $tea.Model {
+  domainCount?: number;
+  httpCount?: number;
+  httpsCount?: number;
+  subDomainCount?: number;
+  threatCount?: number;
+  totalCount?: number;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainCount: 'DomainCount',
+      httpCount: 'HttpCount',
+      httpsCount: 'HttpsCount',
+      subDomainCount: 'SubDomainCount',
+      threatCount: 'ThreatCount',
+      totalCount: 'TotalCount',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainCount: 'number',
+      httpCount: 'number',
+      httpsCount: 'number',
+      subDomainCount: 'number',
+      threatCount: 'number',
+      totalCount: 'number',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeyResponseBodyAppKey extends $tea.Model {
+  appKeyId?: string;
+  appKeySecret?: string;
+  createDate?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKeyId: 'AppKeyId',
+      appKeySecret: 'AppKeySecret',
+      createDate: 'CreateDate',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKeyId: 'string',
+      appKeySecret: 'string',
+      createDate: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsAppKeysResponseBodyAppKeys extends $tea.Model {
+  appKeyId?: string;
+  createDate?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKeyId: 'AppKeyId',
+      createDate: 'CreateDate',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKeyId: 'string',
+      createDate: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsOperateLogsResponseBodyLogs extends $tea.Model {
+  action?: string;
+  operateTime?: string;
+  type?: string;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      operateTime: 'OperateTime',
+      type: 'Type',
+      content: 'content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      operateTime: 'string',
+      type: 'string',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticResponseBodyData extends $tea.Model {
+  dohTotalCount?: number;
+  httpCount?: number;
+  httpsCount?: number;
+  ipCount?: number;
+  timestamp?: number;
+  totalCount?: number;
+  udpTotalCount?: number;
+  v4Count?: number;
+  v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6Count?: number;
+  v6HttpCount?: number;
+  v6HttpsCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dohTotalCount: 'DohTotalCount',
+      httpCount: 'HttpCount',
+      httpsCount: 'HttpsCount',
+      ipCount: 'IpCount',
+      timestamp: 'Timestamp',
+      totalCount: 'TotalCount',
+      udpTotalCount: 'UdpTotalCount',
+      v4Count: 'V4Count',
+      v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6Count: 'V6Count',
+      v6HttpCount: 'V6HttpCount',
+      v6HttpsCount: 'V6HttpsCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dohTotalCount: 'number',
+      httpCount: 'number',
+      httpsCount: 'number',
+      ipCount: 'number',
+      timestamp: 'number',
+      totalCount: 'number',
+      udpTotalCount: 'number',
+      v4Count: 'number',
+      v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6Count: 'number',
+      v6HttpCount: 'number',
+      v6HttpsCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticsResponseBodyDataThreatInfo extends $tea.Model {
+  threatLevel?: string;
+  threatType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      threatLevel: 'ThreatLevel',
+      threatType: 'ThreatType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      threatLevel: 'string',
+      threatType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsRequestStatisticsResponseBodyData extends $tea.Model {
+  dohTotalCount?: number;
+  domainName?: string;
+  httpCount?: number;
+  httpsCount?: number;
+  ipCount?: number;
+  maxThreatLevel?: string;
+  subDomain?: string;
+  threatCount?: number;
+  threatInfo?: DescribePdnsRequestStatisticsResponseBodyDataThreatInfo[];
+  totalCount?: number;
+  udpTotalCount?: number;
+  v4Count?: number;
+  v4HttpCount?: number;
+  v4HttpsCount?: number;
+  v6Count?: number;
+  v6HttpCount?: number;
+  v6HttpsCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dohTotalCount: 'DohTotalCount',
+      domainName: 'DomainName',
+      httpCount: 'HttpCount',
+      httpsCount: 'HttpsCount',
+      ipCount: 'IpCount',
+      maxThreatLevel: 'MaxThreatLevel',
+      subDomain: 'SubDomain',
+      threatCount: 'ThreatCount',
+      threatInfo: 'ThreatInfo',
+      totalCount: 'TotalCount',
+      udpTotalCount: 'UdpTotalCount',
+      v4Count: 'V4Count',
+      v4HttpCount: 'V4HttpCount',
+      v4HttpsCount: 'V4HttpsCount',
+      v6Count: 'V6Count',
+      v6HttpCount: 'V6HttpCount',
+      v6HttpsCount: 'V6HttpsCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dohTotalCount: 'number',
+      domainName: 'string',
+      httpCount: 'number',
+      httpsCount: 'number',
+      ipCount: 'number',
+      maxThreatLevel: 'string',
+      subDomain: 'string',
+      threatCount: 'number',
+      threatInfo: { 'type': 'array', 'itemType': DescribePdnsRequestStatisticsResponseBodyDataThreatInfo },
+      totalCount: 'number',
+      udpTotalCount: 'number',
+      v4Count: 'number',
+      v4HttpCount: 'number',
+      v4HttpsCount: 'number',
+      v6Count: 'number',
+      v6HttpCount: 'number',
+      v6HttpsCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatLogsResponseBodyLogs extends $tea.Model {
+  sourceIp?: string;
+  subDomain?: string;
+  threatLevel?: string;
+  threatTime?: string;
+  threatType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      subDomain: 'SubDomain',
+      threatLevel: 'ThreatLevel',
+      threatTime: 'ThreatTime',
+      threatType: 'ThreatType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      subDomain: 'string',
+      threatLevel: 'string',
+      threatTime: 'string',
+      threatType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticResponseBodyData extends $tea.Model {
+  dohTotalCount?: number;
+  threatLevel?: string;
+  threatType?: string;
+  timestamp?: number;
+  totalCount?: number;
+  udpTotalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dohTotalCount: 'DohTotalCount',
+      threatLevel: 'ThreatLevel',
+      threatType: 'ThreatType',
+      timestamp: 'Timestamp',
+      totalCount: 'TotalCount',
+      udpTotalCount: 'UdpTotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dohTotalCount: 'number',
+      threatLevel: 'string',
+      threatType: 'string',
+      timestamp: 'number',
+      totalCount: 'number',
+      udpTotalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsThreatStatisticsResponseBodyData extends $tea.Model {
+  dohTotalCount?: number;
+  domainCount?: number;
+  domainName?: string;
+  latestThreatTime?: number;
+  maxThreatLevel?: string;
+  sourceIp?: string;
+  subDomain?: string;
+  threatLevel?: string;
+  threatType?: string;
+  totalCount?: number;
+  udpTotalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dohTotalCount: 'DohTotalCount',
+      domainCount: 'DomainCount',
+      domainName: 'DomainName',
+      latestThreatTime: 'LatestThreatTime',
+      maxThreatLevel: 'MaxThreatLevel',
+      sourceIp: 'SourceIp',
+      subDomain: 'SubDomain',
+      threatLevel: 'ThreatLevel',
+      threatType: 'ThreatType',
+      totalCount: 'TotalCount',
+      udpTotalCount: 'UdpTotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dohTotalCount: 'number',
+      domainCount: 'number',
+      domainName: 'string',
+      latestThreatTime: 'number',
+      maxThreatLevel: 'string',
+      sourceIp: 'string',
+      subDomain: 'string',
+      threatLevel: 'string',
+      threatType: 'string',
+      totalCount: 'number',
+      udpTotalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUdpIpSegmentsResponseBodyIpSegments extends $tea.Model {
+  createDate?: string;
+  ip?: string;
+  mask?: number;
+  name?: string;
+  state?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createDate: 'CreateDate',
+      ip: 'Ip',
+      mask: 'Mask',
+      name: 'Name',
+      state: 'State',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createDate: 'string',
+      ip: 'string',
+      mask: 'number',
+      name: 'string',
+      state: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePdnsUserInfoResponseBodyUserInfo extends $tea.Model {
+  availableService?: string;
+  pdnsId?: number;
+  serviceType?: string;
+  state?: string;
+  stoppedService?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableService: 'AvailableService',
+      pdnsId: 'PdnsId',
+      serviceType: 'ServiceType',
+      state: 'State',
+      stoppedService: 'StoppedService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableService: 'string',
+      pdnsId: 'number',
+      serviceType: 'string',
+      state: 'string',
+      stoppedService: 'string',
     };
   }
 
@@ -14788,27 +17486,27 @@ export class DescribeInstanceDomainsResponseBodyInstanceDomains extends $tea.Mod
 
 export class DescribeRecordLogsResponseBodyRecordLogsRecordLog extends $tea.Model {
   action?: string;
+  actionTime?: string;
   actionTimestamp?: number;
   clientIp?: string;
   message?: string;
-  actionTime?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
+      actionTime: 'ActionTime',
       actionTimestamp: 'ActionTimestamp',
       clientIp: 'ClientIp',
       message: 'Message',
-      actionTime: 'ActionTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       action: 'string',
+      actionTime: 'string',
       actionTimestamp: 'number',
       clientIp: 'string',
       message: 'string',
-      actionTime: 'string',
     };
   }
 
@@ -14837,19 +17535,19 @@ export class DescribeRecordLogsResponseBodyRecordLogs extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsResponseBodyStatisticsStatistic extends $tea.Model {
-  timestamp?: number;
   count?: number;
+  timestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      timestamp: 'Timestamp',
       count: 'Count',
+      timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timestamp: 'number',
       count: 'number',
+      timestamp: 'number',
     };
   }
 
@@ -14878,19 +17576,19 @@ export class DescribeRecordStatisticsResponseBodyStatistics extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsSummaryResponseBodyStatisticsStatistic extends $tea.Model {
-  subDomain?: string;
   count?: number;
+  subDomain?: string;
   static names(): { [key: string]: string } {
     return {
-      subDomain: 'SubDomain',
       count: 'Count',
+      subDomain: 'SubDomain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subDomain: 'string',
       count: 'number',
+      subDomain: 'string',
     };
   }
 
@@ -14919,46 +17617,46 @@ export class DescribeRecordStatisticsSummaryResponseBodyStatistics extends $tea.
 }
 
 export class DescribeSubDomainRecordsResponseBodyDomainRecordsRecord extends $tea.Model {
-  status?: string;
-  type?: string;
-  weight?: number;
-  value?: string;
-  TTL?: number;
+  domainName?: string;
   line?: string;
-  recordId?: string;
+  locked?: boolean;
   priority?: number;
   RR?: string;
-  domainName?: string;
-  locked?: boolean;
+  recordId?: string;
+  status?: string;
+  TTL?: number;
+  type?: string;
+  value?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      type: 'Type',
-      weight: 'Weight',
-      value: 'Value',
-      TTL: 'TTL',
+      domainName: 'DomainName',
       line: 'Line',
-      recordId: 'RecordId',
+      locked: 'Locked',
       priority: 'Priority',
       RR: 'RR',
-      domainName: 'DomainName',
-      locked: 'Locked',
+      recordId: 'RecordId',
+      status: 'Status',
+      TTL: 'TTL',
+      type: 'Type',
+      value: 'Value',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      type: 'string',
-      weight: 'number',
-      value: 'string',
-      TTL: 'number',
+      domainName: 'string',
       line: 'string',
-      recordId: 'string',
+      locked: 'boolean',
       priority: 'number',
       RR: 'string',
-      domainName: 'string',
-      locked: 'boolean',
+      recordId: 'string',
+      status: 'string',
+      TTL: 'number',
+      type: 'string',
+      value: 'string',
+      weight: 'number',
     };
   }
 
@@ -14988,14 +17686,14 @@ export class DescribeSubDomainRecordsResponseBodyDomainRecords extends $tea.Mode
 
 export class DescribeSupportLinesResponseBodyRecordLinesRecordLine extends $tea.Model {
   fatherCode?: string;
-  lineDisplayName?: string;
   lineCode?: string;
+  lineDisplayName?: string;
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
       fatherCode: 'FatherCode',
-      lineDisplayName: 'LineDisplayName',
       lineCode: 'LineCode',
+      lineDisplayName: 'LineDisplayName',
       lineName: 'LineName',
     };
   }
@@ -15003,8 +17701,8 @@ export class DescribeSupportLinesResponseBodyRecordLinesRecordLine extends $tea.
   static types(): { [key: string]: any } {
     return {
       fatherCode: 'string',
-      lineDisplayName: 'string',
       lineCode: 'string',
+      lineDisplayName: 'string',
       lineName: 'string',
     };
   }
@@ -15056,31 +17754,31 @@ export class DescribeTagsResponseBodyTags extends $tea.Model {
 }
 
 export class DescribeTransferDomainsResponseBodyDomainTransfersDomainTransfer extends $tea.Model {
-  fromUserId?: number;
   createTime?: string;
-  targetUserId?: number;
-  domainName?: string;
-  id?: number;
   createTimestamp?: number;
+  domainName?: string;
+  fromUserId?: number;
+  id?: number;
+  targetUserId?: number;
   static names(): { [key: string]: string } {
     return {
-      fromUserId: 'FromUserId',
       createTime: 'CreateTime',
-      targetUserId: 'TargetUserId',
-      domainName: 'DomainName',
-      id: 'Id',
       createTimestamp: 'CreateTimestamp',
+      domainName: 'DomainName',
+      fromUserId: 'FromUserId',
+      id: 'Id',
+      targetUserId: 'TargetUserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fromUserId: 'number',
       createTime: 'string',
-      targetUserId: 'number',
-      domainName: 'string',
-      id: 'number',
       createTimestamp: 'number',
+      domainName: 'string',
+      fromUserId: 'number',
+      id: 'number',
+      targetUserId: 'number',
     };
   }
 
@@ -15131,25 +17829,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  resourceType?: string;
-  tagValue?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      tagValue: 'TagValue',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      tagValue: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -15197,43 +17895,43 @@ export class ModifyHichinaDomainDNSResponseBodyOriginalDnsServers extends $tea.M
 }
 
 export class OperateBatchDomainRequestDomainRecordInfo extends $tea.Model {
-  type?: string;
-  value?: string;
-  ttl?: number;
   domain?: string;
   line?: string;
   newRr?: string;
-  rr?: string;
-  priority?: number;
   newType?: string;
   newValue?: string;
+  priority?: number;
+  rr?: string;
+  ttl?: number;
+  type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      value: 'Value',
-      ttl: 'Ttl',
       domain: 'Domain',
       line: 'Line',
       newRr: 'NewRr',
-      rr: 'Rr',
-      priority: 'Priority',
       newType: 'NewType',
       newValue: 'NewValue',
+      priority: 'Priority',
+      rr: 'Rr',
+      ttl: 'Ttl',
+      type: 'Type',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      value: 'string',
-      ttl: 'number',
       domain: 'string',
       line: 'string',
       newRr: 'string',
-      rr: 'string',
-      priority: 'number',
       newType: 'string',
       newValue: 'string',
+      priority: 'number',
+      rr: 'string',
+      ttl: 'number',
+      type: 'string',
+      value: 'string',
     };
   }
 
@@ -15243,19 +17941,19 @@ export class OperateBatchDomainRequestDomainRecordInfo extends $tea.Model {
 }
 
 export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfosSwitchInfo extends $tea.Model {
-  strategyName?: string;
   content?: string;
+  strategyName?: string;
   static names(): { [key: string]: string } {
     return {
-      strategyName: 'StrategyName',
       content: 'Content',
+      strategyName: 'StrategyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      strategyName: 'string',
       content: 'string',
+      strategyName: 'string',
     };
   }
 
@@ -15285,14 +17983,14 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos extend
 
 export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreview extends $tea.Model {
   instanceId?: string;
-  switchInfos?: PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos;
   name?: string;
+  switchInfos?: PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos;
   userDomainName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      switchInfos: 'SwitchInfos',
       name: 'Name',
+      switchInfos: 'SwitchInfos',
       userDomainName: 'UserDomainName',
     };
   }
@@ -15300,8 +17998,8 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreview extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      switchInfos: PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos,
       name: 'string',
+      switchInfos: PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos,
       userDomainName: 'string',
     };
   }
@@ -15397,19 +18095,19 @@ export class UpdateDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
 }
 
 export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
-  lbaWeight?: number;
   id?: string;
+  lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
-      lbaWeight: 'LbaWeight',
       id: 'Id',
+      lbaWeight: 'LbaWeight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lbaWeight: 'number',
       id: 'string',
+      lbaWeight: 'number',
     };
   }
 
@@ -15419,19 +18117,19 @@ export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model
 }
 
 export class UpdateDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Model {
-  lbaWeight?: number;
   id?: string;
+  lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
-      lbaWeight: 'LbaWeight',
       id: 'Id',
+      lbaWeight: 'LbaWeight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lbaWeight: 'number',
       id: 'string',
+      lbaWeight: 'number',
     };
   }
 
@@ -15441,28 +18139,28 @@ export class UpdateDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Mode
 }
 
 export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
-  attributeInfo?: string;
-  remark?: string;
-  lbaWeight?: number;
   addr?: string;
+  attributeInfo?: string;
+  lbaWeight?: number;
   mode?: string;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
-      attributeInfo: 'AttributeInfo',
-      remark: 'Remark',
-      lbaWeight: 'LbaWeight',
       addr: 'Addr',
+      attributeInfo: 'AttributeInfo',
+      lbaWeight: 'LbaWeight',
       mode: 'Mode',
+      remark: 'Remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      attributeInfo: 'string',
-      remark: 'string',
-      lbaWeight: 'number',
       addr: 'string',
+      attributeInfo: 'string',
+      lbaWeight: 'number',
       mode: 'string',
+      remark: 'string',
     };
   }
 
@@ -15472,22 +18170,25 @@ export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
 }
 
 export class UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig extends $tea.Model {
-  smsNotice?: boolean;
-  noticeType?: string;
+  dingtalkNotice?: boolean;
   emailNotice?: boolean;
+  noticeType?: string;
+  smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
-      smsNotice: 'SmsNotice',
-      noticeType: 'NoticeType',
+      dingtalkNotice: 'DingtalkNotice',
       emailNotice: 'EmailNotice',
+      noticeType: 'NoticeType',
+      smsNotice: 'SmsNotice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      smsNotice: 'boolean',
-      noticeType: 'string',
+      dingtalkNotice: 'boolean',
       emailNotice: 'boolean',
+      noticeType: 'string',
+      smsNotice: 'boolean',
     };
   }
 
@@ -15519,22 +18220,22 @@ export class UpdateDnsGtmMonitorRequestIspCityNode extends $tea.Model {
 }
 
 export class UpdateGtmAddressPoolRequestAddr extends $tea.Model {
-  value?: string;
   lbaWeight?: number;
   mode?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       lbaWeight: 'LbaWeight',
       mode: 'Mode',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       lbaWeight: 'number',
       mode: 'string',
+      value: 'string',
     };
   }
 
@@ -15571,65 +18272,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "central";
-    this._endpointMap = {
-      'ap-northeast-1': "alidns.ap-northeast-1.aliyuncs.com",
-      'ap-northeast-2-pop': "dns.aliyuncs.com",
-      'ap-south-1': "alidns.ap-south-1.aliyuncs.com",
-      'ap-southeast-1': "alidns.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "alidns.ap-southeast-2.aliyuncs.com",
-      'ap-southeast-3': "alidns.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-5': "alidns.ap-southeast-5.aliyuncs.com",
-      'cn-beijing': "alidns.cn-beijing.aliyuncs.com",
-      'cn-beijing-finance-1': "dns.aliyuncs.com",
-      'cn-beijing-finance-pop': "dns.aliyuncs.com",
-      'cn-beijing-gov-1': "dns.aliyuncs.com",
-      'cn-beijing-nu16-b01': "dns.aliyuncs.com",
-      'cn-chengdu': "alidns.cn-chengdu.aliyuncs.com",
-      'cn-edge-1': "dns.aliyuncs.com",
-      'cn-fujian': "dns.aliyuncs.com",
-      'cn-haidian-cm12-c01': "dns.aliyuncs.com",
-      'cn-hangzhou': "alidns.cn-hangzhou.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "dns.aliyuncs.com",
-      'cn-hangzhou-finance': "alidns.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "dns.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "dns.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "dns.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "dns.aliyuncs.com",
-      'cn-hangzhou-test-306': "dns.aliyuncs.com",
-      'cn-hongkong': "alidns.cn-hongkong.aliyuncs.com",
-      'cn-hongkong-finance-pop': "dns.aliyuncs.com",
-      'cn-huhehaote': "alidns.cn-huhehaote.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "dns.aliyuncs.com",
-      'cn-north-2-gov-1': "alidns.cn-north-2-gov-1.aliyuncs.com",
-      'cn-qingdao': "dns.aliyuncs.com",
-      'cn-qingdao-nebula': "dns.aliyuncs.com",
-      'cn-shanghai': "alidns.cn-shanghai.aliyuncs.com",
-      'cn-shanghai-et15-b01': "dns.aliyuncs.com",
-      'cn-shanghai-et2-b01': "dns.aliyuncs.com",
-      'cn-shanghai-finance-1': "alidns.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai-inner': "dns.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "dns.aliyuncs.com",
-      'cn-shenzhen': "alidns.cn-shenzhen.aliyuncs.com",
-      'cn-shenzhen-finance-1': "alidns.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen-inner': "dns.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "dns.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "dns.aliyuncs.com",
-      'cn-wuhan': "dns.aliyuncs.com",
-      'cn-wulanchabu': "dns.aliyuncs.com",
-      'cn-yushanfang': "dns.aliyuncs.com",
-      'cn-zhangbei': "dns.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "dns.aliyuncs.com",
-      'cn-zhangjiakou': "alidns.cn-zhangjiakou.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "dns.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "dns.aliyuncs.com",
-      'eu-central-1': "alidns.eu-central-1.aliyuncs.com",
-      'eu-west-1': "alidns.eu-west-1.aliyuncs.com",
-      'eu-west-1-oxs': "dns.aliyuncs.com",
-      'me-east-1': "alidns.me-east-1.aliyuncs.com",
-      'rus-west-1-pop': "dns.aliyuncs.com",
-      'us-east-1': "alidns.us-east-1.aliyuncs.com",
-      'us-west-1': "alidns.us-west-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alidns", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -15649,10 +18291,38 @@ export default class Client extends OpenApi {
 
   async addCustomLineWithOptions(request: AddCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomLineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ipSegment)) {
+      query["IpSegment"] = request.ipSegment;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lineName)) {
+      query["LineName"] = request.lineName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddCustomLineResponse>(await this.doRPCRequest("AddCustomLine", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddCustomLineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddCustomLine",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCustomLineResponse>(await this.callApi(params, req, runtime), new AddCustomLineResponse({}));
   }
 
   async addCustomLine(request: AddCustomLineRequest): Promise<AddCustomLineResponse> {
@@ -15662,10 +18332,58 @@ export default class Client extends OpenApi {
 
   async addDnsCacheDomainWithOptions(request: AddDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsCacheDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cacheTtlMax)) {
+      query["CacheTtlMax"] = request.cacheTtlMax;
+    }
+
+    if (!Util.isUnset(request.cacheTtlMin)) {
+      query["CacheTtlMin"] = request.cacheTtlMin;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sourceDnsServer)) {
+      query["SourceDnsServer"] = request.sourceDnsServer;
+    }
+
+    if (!Util.isUnset(request.sourceEdns)) {
+      query["SourceEdns"] = request.sourceEdns;
+    }
+
+    if (!Util.isUnset(request.sourceProtocol)) {
+      query["SourceProtocol"] = request.sourceProtocol;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDnsCacheDomainResponse>(await this.doRPCRequest("AddDnsCacheDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDnsCacheDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDnsCacheDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new AddDnsCacheDomainResponse({}));
   }
 
   async addDnsCacheDomain(request: AddDnsCacheDomainRequest): Promise<AddDnsCacheDomainResponse> {
@@ -15675,10 +18393,90 @@ export default class Client extends OpenApi {
 
   async addDnsGtmAccessStrategyWithOptions(request: AddDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultAddrPool)) {
+      query["DefaultAddrPool"] = request.defaultAddrPool;
+    }
+
+    if (!Util.isUnset(request.defaultAddrPoolType)) {
+      query["DefaultAddrPoolType"] = request.defaultAddrPoolType;
+    }
+
+    if (!Util.isUnset(request.defaultLatencyOptimization)) {
+      query["DefaultLatencyOptimization"] = request.defaultLatencyOptimization;
+    }
+
+    if (!Util.isUnset(request.defaultLbaStrategy)) {
+      query["DefaultLbaStrategy"] = request.defaultLbaStrategy;
+    }
+
+    if (!Util.isUnset(request.defaultMaxReturnAddrNum)) {
+      query["DefaultMaxReturnAddrNum"] = request.defaultMaxReturnAddrNum;
+    }
+
+    if (!Util.isUnset(request.defaultMinAvailableAddrNum)) {
+      query["DefaultMinAvailableAddrNum"] = request.defaultMinAvailableAddrNum;
+    }
+
+    if (!Util.isUnset(request.failoverAddrPool)) {
+      query["FailoverAddrPool"] = request.failoverAddrPool;
+    }
+
+    if (!Util.isUnset(request.failoverAddrPoolType)) {
+      query["FailoverAddrPoolType"] = request.failoverAddrPoolType;
+    }
+
+    if (!Util.isUnset(request.failoverLatencyOptimization)) {
+      query["FailoverLatencyOptimization"] = request.failoverLatencyOptimization;
+    }
+
+    if (!Util.isUnset(request.failoverLbaStrategy)) {
+      query["FailoverLbaStrategy"] = request.failoverLbaStrategy;
+    }
+
+    if (!Util.isUnset(request.failoverMaxReturnAddrNum)) {
+      query["FailoverMaxReturnAddrNum"] = request.failoverMaxReturnAddrNum;
+    }
+
+    if (!Util.isUnset(request.failoverMinAvailableAddrNum)) {
+      query["FailoverMinAvailableAddrNum"] = request.failoverMinAvailableAddrNum;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lines)) {
+      query["Lines"] = request.lines;
+    }
+
+    if (!Util.isUnset(request.strategyMode)) {
+      query["StrategyMode"] = request.strategyMode;
+    }
+
+    if (!Util.isUnset(request.strategyName)) {
+      query["StrategyName"] = request.strategyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDnsGtmAccessStrategyResponse>(await this.doRPCRequest("AddDnsGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDnsGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDnsGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAccessStrategyResponse({}));
   }
 
   async addDnsGtmAccessStrategy(request: AddDnsGtmAccessStrategyRequest): Promise<AddDnsGtmAccessStrategyResponse> {
@@ -15688,10 +18486,74 @@ export default class Client extends OpenApi {
 
   async addDnsGtmAddressPoolWithOptions(request: AddDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addr)) {
+      query["Addr"] = request.addr;
+    }
+
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNode)) {
+      query["IspCityNode"] = request.ispCityNode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lbaStrategy)) {
+      query["LbaStrategy"] = request.lbaStrategy;
+    }
+
+    if (!Util.isUnset(request.monitorExtendInfo)) {
+      query["MonitorExtendInfo"] = request.monitorExtendInfo;
+    }
+
+    if (!Util.isUnset(request.monitorStatus)) {
+      query["MonitorStatus"] = request.monitorStatus;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDnsGtmAddressPoolResponse>(await this.doRPCRequest("AddDnsGtmAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDnsGtmAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDnsGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAddressPoolResponse({}));
   }
 
   async addDnsGtmAddressPool(request: AddDnsGtmAddressPoolRequest): Promise<AddDnsGtmAddressPoolResponse> {
@@ -15701,10 +18563,54 @@ export default class Client extends OpenApi {
 
   async addDnsGtmMonitorWithOptions(request: AddDnsGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmMonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNode)) {
+      query["IspCityNode"] = request.ispCityNode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorExtendInfo)) {
+      query["MonitorExtendInfo"] = request.monitorExtendInfo;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDnsGtmMonitorResponse>(await this.doRPCRequest("AddDnsGtmMonitor", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDnsGtmMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDnsGtmMonitor",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddDnsGtmMonitorResponse({}));
   }
 
   async addDnsGtmMonitor(request: AddDnsGtmMonitorRequest): Promise<AddDnsGtmMonitorResponse> {
@@ -15714,10 +18620,38 @@ export default class Client extends OpenApi {
 
   async addDomainWithOptions(request: AddDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDomainResponse>(await this.doRPCRequest("AddDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDomainResponse>(await this.callApi(params, req, runtime), new AddDomainResponse({}));
   }
 
   async addDomain(request: AddDomainRequest): Promise<AddDomainResponse> {
@@ -15727,10 +18661,34 @@ export default class Client extends OpenApi {
 
   async addDomainBackupWithOptions(request: AddDomainBackupRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainBackupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDomainBackupResponse>(await this.doRPCRequest("AddDomainBackup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDomainBackupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDomainBackup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDomainBackupResponse>(await this.callApi(params, req, runtime), new AddDomainBackupResponse({}));
   }
 
   async addDomainBackup(request: AddDomainBackupRequest): Promise<AddDomainBackupResponse> {
@@ -15740,10 +18698,30 @@ export default class Client extends OpenApi {
 
   async addDomainGroupWithOptions(request: AddDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDomainGroupResponse>(await this.doRPCRequest("AddDomainGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDomainGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDomainGroupResponse>(await this.callApi(params, req, runtime), new AddDomainGroupResponse({}));
   }
 
   async addDomainGroup(request: AddDomainGroupRequest): Promise<AddDomainGroupResponse> {
@@ -15753,10 +18731,58 @@ export default class Client extends OpenApi {
 
   async addDomainRecordWithOptions(request: AddDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.RR)) {
+      query["RR"] = request.RR;
+    }
+
+    if (!Util.isUnset(request.TTL)) {
+      query["TTL"] = request.TTL;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddDomainRecordResponse>(await this.doRPCRequest("AddDomainRecord", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDomainRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDomainRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDomainRecordResponse>(await this.callApi(params, req, runtime), new AddDomainRecordResponse({}));
   }
 
   async addDomainRecord(request: AddDomainRecordRequest): Promise<AddDomainRecordResponse> {
@@ -15766,10 +18792,46 @@ export default class Client extends OpenApi {
 
   async addGtmAccessStrategyWithOptions(request: AddGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessLines)) {
+      query["AccessLines"] = request.accessLines;
+    }
+
+    if (!Util.isUnset(request.defaultAddrPoolId)) {
+      query["DefaultAddrPoolId"] = request.defaultAddrPoolId;
+    }
+
+    if (!Util.isUnset(request.failoverAddrPoolId)) {
+      query["FailoverAddrPoolId"] = request.failoverAddrPoolId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyName)) {
+      query["StrategyName"] = request.strategyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddGtmAccessStrategyResponse>(await this.doRPCRequest("AddGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddGtmAccessStrategyResponse({}));
   }
 
   async addGtmAccessStrategy(request: AddGtmAccessStrategyRequest): Promise<AddGtmAccessStrategyResponse> {
@@ -15779,10 +18841,74 @@ export default class Client extends OpenApi {
 
   async addGtmAddressPoolWithOptions(request: AddGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addr)) {
+      query["Addr"] = request.addr;
+    }
+
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNode)) {
+      query["IspCityNode"] = request.ispCityNode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.minAvailableAddrNum)) {
+      query["MinAvailableAddrNum"] = request.minAvailableAddrNum;
+    }
+
+    if (!Util.isUnset(request.monitorExtendInfo)) {
+      query["MonitorExtendInfo"] = request.monitorExtendInfo;
+    }
+
+    if (!Util.isUnset(request.monitorStatus)) {
+      query["MonitorStatus"] = request.monitorStatus;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddGtmAddressPoolResponse>(await this.doRPCRequest("AddGtmAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddGtmAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddGtmAddressPoolResponse({}));
   }
 
   async addGtmAddressPool(request: AddGtmAddressPoolRequest): Promise<AddGtmAddressPoolResponse> {
@@ -15792,10 +18918,54 @@ export default class Client extends OpenApi {
 
   async addGtmMonitorWithOptions(request: AddGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmMonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNode)) {
+      query["IspCityNode"] = request.ispCityNode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorExtendInfo)) {
+      query["MonitorExtendInfo"] = request.monitorExtendInfo;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddGtmMonitorResponse>(await this.doRPCRequest("AddGtmMonitor", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddGtmMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddGtmMonitor",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddGtmMonitorResponse({}));
   }
 
   async addGtmMonitor(request: AddGtmMonitorRequest): Promise<AddGtmMonitorResponse> {
@@ -15805,10 +18975,38 @@ export default class Client extends OpenApi {
 
   async addGtmRecoveryPlanWithOptions(request: AddGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.faultAddrPool)) {
+      query["FaultAddrPool"] = request.faultAddrPool;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddGtmRecoveryPlanResponse>(await this.doRPCRequest("AddGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new AddGtmRecoveryPlanResponse({}));
   }
 
   async addGtmRecoveryPlan(request: AddGtmRecoveryPlanRequest): Promise<AddGtmRecoveryPlanResponse> {
@@ -15818,10 +19016,34 @@ export default class Client extends OpenApi {
 
   async bindInstanceDomainsWithOptions(request: BindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<BindInstanceDomainsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BindInstanceDomainsResponse>(await this.doRPCRequest("BindInstanceDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new BindInstanceDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindInstanceDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new BindInstanceDomainsResponse({}));
   }
 
   async bindInstanceDomains(request: BindInstanceDomainsRequest): Promise<BindInstanceDomainsResponse> {
@@ -15831,10 +19053,34 @@ export default class Client extends OpenApi {
 
   async changeDomainGroupWithOptions(request: ChangeDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChangeDomainGroupResponse>(await this.doRPCRequest("ChangeDomainGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new ChangeDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangeDomainGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeDomainGroupResponse>(await this.callApi(params, req, runtime), new ChangeDomainGroupResponse({}));
   }
 
   async changeDomainGroup(request: ChangeDomainGroupRequest): Promise<ChangeDomainGroupResponse> {
@@ -15844,10 +19090,42 @@ export default class Client extends OpenApi {
 
   async changeDomainOfDnsProductWithOptions(request: ChangeDomainOfDnsProductRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainOfDnsProductResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.newDomain)) {
+      query["NewDomain"] = request.newDomain;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChangeDomainOfDnsProductResponse>(await this.doRPCRequest("ChangeDomainOfDnsProduct", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new ChangeDomainOfDnsProductResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangeDomainOfDnsProduct",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeDomainOfDnsProductResponse>(await this.callApi(params, req, runtime), new ChangeDomainOfDnsProductResponse({}));
   }
 
   async changeDomainOfDnsProduct(request: ChangeDomainOfDnsProductRequest): Promise<ChangeDomainOfDnsProductResponse> {
@@ -15857,10 +19135,38 @@ export default class Client extends OpenApi {
 
   async copyGtmConfigWithOptions(request: CopyGtmConfigRequest, runtime: $Util.RuntimeOptions): Promise<CopyGtmConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.copyType)) {
+      query["CopyType"] = request.copyType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CopyGtmConfigResponse>(await this.doRPCRequest("CopyGtmConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new CopyGtmConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CopyGtmConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CopyGtmConfigResponse>(await this.callApi(params, req, runtime), new CopyGtmConfigResponse({}));
   }
 
   async copyGtmConfig(request: CopyGtmConfigRequest): Promise<CopyGtmConfigResponse> {
@@ -15868,12 +19174,98 @@ export default class Client extends OpenApi {
     return await this.copyGtmConfigWithOptions(request, runtime);
   }
 
+  async createPdnsAppKeyWithOptions(request: CreatePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePdnsAppKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePdnsAppKey",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new CreatePdnsAppKeyResponse({}));
+  }
+
+  async createPdnsAppKey(request: CreatePdnsAppKeyRequest): Promise<CreatePdnsAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPdnsAppKeyWithOptions(request, runtime);
+  }
+
+  async createPdnsUdpIpSegmentWithOptions(request: CreatePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<CreatePdnsUdpIpSegmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePdnsUdpIpSegment",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new CreatePdnsUdpIpSegmentResponse({}));
+  }
+
+  async createPdnsUdpIpSegment(request: CreatePdnsUdpIpSegmentRequest): Promise<CreatePdnsUdpIpSegmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPdnsUdpIpSegmentWithOptions(request, runtime);
+  }
+
   async deleteCustomLinesWithOptions(request: DeleteCustomLinesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomLinesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lineIds)) {
+      query["LineIds"] = request.lineIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCustomLinesResponse>(await this.doRPCRequest("DeleteCustomLines", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCustomLinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomLines",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomLinesResponse>(await this.callApi(params, req, runtime), new DeleteCustomLinesResponse({}));
   }
 
   async deleteCustomLines(request: DeleteCustomLinesRequest): Promise<DeleteCustomLinesResponse> {
@@ -15883,10 +19275,30 @@ export default class Client extends OpenApi {
 
   async deleteDnsCacheDomainWithOptions(request: DeleteDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsCacheDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDnsCacheDomainResponse>(await this.doRPCRequest("DeleteDnsCacheDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDnsCacheDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDnsCacheDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new DeleteDnsCacheDomainResponse({}));
   }
 
   async deleteDnsCacheDomain(request: DeleteDnsCacheDomainRequest): Promise<DeleteDnsCacheDomainResponse> {
@@ -15896,10 +19308,30 @@ export default class Client extends OpenApi {
 
   async deleteDnsGtmAccessStrategyWithOptions(request: DeleteDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDnsGtmAccessStrategyResponse>(await this.doRPCRequest("DeleteDnsGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDnsGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDnsGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAccessStrategyResponse({}));
   }
 
   async deleteDnsGtmAccessStrategy(request: DeleteDnsGtmAccessStrategyRequest): Promise<DeleteDnsGtmAccessStrategyResponse> {
@@ -15909,10 +19341,30 @@ export default class Client extends OpenApi {
 
   async deleteDnsGtmAddressPoolWithOptions(request: DeleteDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDnsGtmAddressPoolResponse>(await this.doRPCRequest("DeleteDnsGtmAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDnsGtmAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDnsGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAddressPoolResponse({}));
   }
 
   async deleteDnsGtmAddressPool(request: DeleteDnsGtmAddressPoolRequest): Promise<DeleteDnsGtmAddressPoolResponse> {
@@ -15922,10 +19374,30 @@ export default class Client extends OpenApi {
 
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDomainResponse>(await this.doRPCRequest("DeleteDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
@@ -15935,10 +19407,30 @@ export default class Client extends OpenApi {
 
   async deleteDomainGroupWithOptions(request: DeleteDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDomainGroupResponse>(await this.doRPCRequest("DeleteDomainGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDomainGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainGroupResponse>(await this.callApi(params, req, runtime), new DeleteDomainGroupResponse({}));
   }
 
   async deleteDomainGroup(request: DeleteDomainGroupRequest): Promise<DeleteDomainGroupResponse> {
@@ -15948,10 +19440,34 @@ export default class Client extends OpenApi {
 
   async deleteDomainRecordWithOptions(request: DeleteDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDomainRecordResponse>(await this.doRPCRequest("DeleteDomainRecord", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDomainRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDomainRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainRecordResponse>(await this.callApi(params, req, runtime), new DeleteDomainRecordResponse({}));
   }
 
   async deleteDomainRecord(request: DeleteDomainRecordRequest): Promise<DeleteDomainRecordResponse> {
@@ -15961,10 +19477,30 @@ export default class Client extends OpenApi {
 
   async deleteGtmAccessStrategyWithOptions(request: DeleteGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGtmAccessStrategyResponse>(await this.doRPCRequest("DeleteGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteGtmAccessStrategyResponse({}));
   }
 
   async deleteGtmAccessStrategy(request: DeleteGtmAccessStrategyRequest): Promise<DeleteGtmAccessStrategyResponse> {
@@ -15974,10 +19510,30 @@ export default class Client extends OpenApi {
 
   async deleteGtmAddressPoolWithOptions(request: DeleteGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGtmAddressPoolResponse>(await this.doRPCRequest("DeleteGtmAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGtmAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteGtmAddressPoolResponse({}));
   }
 
   async deleteGtmAddressPool(request: DeleteGtmAddressPoolRequest): Promise<DeleteGtmAddressPoolResponse> {
@@ -15987,10 +19543,30 @@ export default class Client extends OpenApi {
 
   async deleteGtmRecoveryPlanWithOptions(request: DeleteGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recoveryPlanId)) {
+      query["RecoveryPlanId"] = request.recoveryPlanId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGtmRecoveryPlanResponse>(await this.doRPCRequest("DeleteGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteGtmRecoveryPlanResponse({}));
   }
 
   async deleteGtmRecoveryPlan(request: DeleteGtmRecoveryPlanRequest): Promise<DeleteGtmRecoveryPlanResponse> {
@@ -16000,10 +19576,42 @@ export default class Client extends OpenApi {
 
   async deleteSubDomainRecordsWithOptions(request: DeleteSubDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubDomainRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.RR)) {
+      query["RR"] = request.RR;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSubDomainRecordsResponse>(await this.doRPCRequest("DeleteSubDomainRecords", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSubDomainRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSubDomainRecords",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DeleteSubDomainRecordsResponse({}));
   }
 
   async deleteSubDomainRecords(request: DeleteSubDomainRecordsRequest): Promise<DeleteSubDomainRecordsResponse> {
@@ -16013,10 +19621,34 @@ export default class Client extends OpenApi {
 
   async describeBatchResultCountWithOptions(request: DescribeBatchResultCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBatchResultCountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.batchType)) {
+      query["BatchType"] = request.batchType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBatchResultCountResponse>(await this.doRPCRequest("DescribeBatchResultCount", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBatchResultCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBatchResultCount",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBatchResultCountResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultCountResponse({}));
   }
 
   async describeBatchResultCount(request: DescribeBatchResultCountRequest): Promise<DescribeBatchResultCountResponse> {
@@ -16026,10 +19658,46 @@ export default class Client extends OpenApi {
 
   async describeBatchResultDetailWithOptions(request: DescribeBatchResultDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBatchResultDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.batchType)) {
+      query["BatchType"] = request.batchType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBatchResultDetailResponse>(await this.doRPCRequest("DescribeBatchResultDetail", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBatchResultDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBatchResultDetail",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBatchResultDetailResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultDetailResponse({}));
   }
 
   async describeBatchResultDetail(request: DescribeBatchResultDetailRequest): Promise<DescribeBatchResultDetailResponse> {
@@ -16039,10 +19707,30 @@ export default class Client extends OpenApi {
 
   async describeCustomLineWithOptions(request: DescribeCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lineId)) {
+      query["LineId"] = request.lineId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCustomLineResponse>(await this.doRPCRequest("DescribeCustomLine", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCustomLineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomLine",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomLineResponse>(await this.callApi(params, req, runtime), new DescribeCustomLineResponse({}));
   }
 
   async describeCustomLine(request: DescribeCustomLineRequest): Promise<DescribeCustomLineResponse> {
@@ -16052,10 +19740,38 @@ export default class Client extends OpenApi {
 
   async describeCustomLinesWithOptions(request: DescribeCustomLinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLinesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCustomLinesResponse>(await this.doRPCRequest("DescribeCustomLines", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCustomLinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomLines",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomLinesResponse>(await this.callApi(params, req, runtime), new DescribeCustomLinesResponse({}));
   }
 
   async describeCustomLines(request: DescribeCustomLinesRequest): Promise<DescribeCustomLinesResponse> {
@@ -16063,12 +19779,89 @@ export default class Client extends OpenApi {
     return await this.describeCustomLinesWithOptions(request, runtime);
   }
 
+  async describeDNSSLBSubDomainsWithOptions(request: DescribeDNSSLBSubDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDNSSLBSubDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDNSSLBSubDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDNSSLBSubDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDNSSLBSubDomainsResponse({}));
+  }
+
+  async describeDNSSLBSubDomains(request: DescribeDNSSLBSubDomainsRequest): Promise<DescribeDNSSLBSubDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDNSSLBSubDomainsWithOptions(request, runtime);
+  }
+
   async describeDnsCacheDomainsWithOptions(request: DescribeDnsCacheDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsCacheDomainsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.doRPCRequest("DescribeDnsCacheDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsCacheDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsCacheDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDnsCacheDomainsResponse({}));
   }
 
   async describeDnsCacheDomains(request: DescribeDnsCacheDomainsRequest): Promise<DescribeDnsCacheDomainsResponse> {
@@ -16078,10 +19871,42 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmAccessStrategiesWithOptions(request: DescribeDnsGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategiesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.strategyMode)) {
+      query["StrategyMode"] = request.strategyMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmAccessStrategiesResponse>(await this.doRPCRequest("DescribeDnsGtmAccessStrategies", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmAccessStrategiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmAccessStrategies",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategiesResponse({}));
   }
 
   async describeDnsGtmAccessStrategies(request: DescribeDnsGtmAccessStrategiesRequest): Promise<DescribeDnsGtmAccessStrategiesResponse> {
@@ -16091,10 +19916,30 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmAccessStrategyWithOptions(request: DescribeDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmAccessStrategyResponse>(await this.doRPCRequest("DescribeDnsGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyResponse({}));
   }
 
   async describeDnsGtmAccessStrategy(request: DescribeDnsGtmAccessStrategyRequest): Promise<DescribeDnsGtmAccessStrategyResponse> {
@@ -16104,10 +19949,34 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmAccessStrategyAvailableConfigWithOptions(request: DescribeDnsGtmAccessStrategyAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategyAvailableConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyMode)) {
+      query["StrategyMode"] = request.strategyMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmAccessStrategyAvailableConfigResponse>(await this.doRPCRequest("DescribeDnsGtmAccessStrategyAvailableConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmAccessStrategyAvailableConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmAccessStrategyAvailableConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyAvailableConfigResponse({}));
   }
 
   async describeDnsGtmAccessStrategyAvailableConfig(request: DescribeDnsGtmAccessStrategyAvailableConfigRequest): Promise<DescribeDnsGtmAccessStrategyAvailableConfigResponse> {
@@ -16117,10 +19986,34 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmAddrAttributeInfoWithOptions(request: DescribeDnsGtmAddrAttributeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAddrAttributeInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrs)) {
+      query["Addrs"] = request.addrs;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmAddrAttributeInfoResponse>(await this.doRPCRequest("DescribeDnsGtmAddrAttributeInfo", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmAddrAttributeInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmAddrAttributeInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmAddrAttributeInfoResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddrAttributeInfoResponse({}));
   }
 
   async describeDnsGtmAddrAttributeInfo(request: DescribeDnsGtmAddrAttributeInfoRequest): Promise<DescribeDnsGtmAddrAttributeInfoResponse> {
@@ -16130,10 +20023,30 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmAddressPoolAvailableConfigWithOptions(request: DescribeDnsGtmAddressPoolAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAddressPoolAvailableConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmAddressPoolAvailableConfigResponse>(await this.doRPCRequest("DescribeDnsGtmAddressPoolAvailableConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmAddressPoolAvailableConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmAddressPoolAvailableConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmAddressPoolAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddressPoolAvailableConfigResponse({}));
   }
 
   async describeDnsGtmAddressPoolAvailableConfig(request: DescribeDnsGtmAddressPoolAvailableConfigRequest): Promise<DescribeDnsGtmAddressPoolAvailableConfigResponse> {
@@ -16143,10 +20056,26 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmAvailableAlertGroupWithOptions(request: DescribeDnsGtmAvailableAlertGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAvailableAlertGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmAvailableAlertGroupResponse>(await this.doRPCRequest("DescribeDnsGtmAvailableAlertGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmAvailableAlertGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmAvailableAlertGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAvailableAlertGroupResponse({}));
   }
 
   async describeDnsGtmAvailableAlertGroup(request: DescribeDnsGtmAvailableAlertGroupRequest): Promise<DescribeDnsGtmAvailableAlertGroupResponse> {
@@ -16156,10 +20085,30 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmInstanceWithOptions(request: DescribeDnsGtmInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmInstanceResponse>(await this.doRPCRequest("DescribeDnsGtmInstance", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmInstance",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceResponse({}));
   }
 
   async describeDnsGtmInstance(request: DescribeDnsGtmInstanceRequest): Promise<DescribeDnsGtmInstanceResponse> {
@@ -16169,10 +20118,30 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmInstanceAddressPoolWithOptions(request: DescribeDnsGtmInstanceAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmInstanceAddressPoolResponse>(await this.doRPCRequest("DescribeDnsGtmInstanceAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmInstanceAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmInstanceAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolResponse({}));
   }
 
   async describeDnsGtmInstanceAddressPool(request: DescribeDnsGtmInstanceAddressPoolRequest): Promise<DescribeDnsGtmInstanceAddressPoolResponse> {
@@ -16182,10 +20151,38 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmInstanceAddressPoolsWithOptions(request: DescribeDnsGtmInstanceAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceAddressPoolsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmInstanceAddressPoolsResponse>(await this.doRPCRequest("DescribeDnsGtmInstanceAddressPools", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmInstanceAddressPoolsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmInstanceAddressPools",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolsResponse({}));
   }
 
   async describeDnsGtmInstanceAddressPools(request: DescribeDnsGtmInstanceAddressPoolsRequest): Promise<DescribeDnsGtmInstanceAddressPoolsResponse> {
@@ -16193,25 +20190,32 @@ export default class Client extends OpenApi {
     return await this.describeDnsGtmInstanceAddressPoolsWithOptions(request, runtime);
   }
 
-  async describeDnsGtmInstancesWithOptions(request: DescribeDnsGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstancesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeDnsGtmInstancesResponse>(await this.doRPCRequest("DescribeDnsGtmInstances", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmInstancesResponse({}));
-  }
-
-  async describeDnsGtmInstances(request: DescribeDnsGtmInstancesRequest): Promise<DescribeDnsGtmInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDnsGtmInstancesWithOptions(request, runtime);
-  }
-
   async describeDnsGtmInstanceStatusWithOptions(request: DescribeDnsGtmInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmInstanceStatusResponse>(await this.doRPCRequest("DescribeDnsGtmInstanceStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmInstanceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmInstanceStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceStatusResponse({}));
   }
 
   async describeDnsGtmInstanceStatus(request: DescribeDnsGtmInstanceStatusRequest): Promise<DescribeDnsGtmInstanceStatusResponse> {
@@ -16221,10 +20225,30 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmInstanceSystemCnameWithOptions(request: DescribeDnsGtmInstanceSystemCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceSystemCnameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmInstanceSystemCnameResponse>(await this.doRPCRequest("DescribeDnsGtmInstanceSystemCname", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmInstanceSystemCnameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmInstanceSystemCname",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceSystemCnameResponse({}));
   }
 
   async describeDnsGtmInstanceSystemCname(request: DescribeDnsGtmInstanceSystemCnameRequest): Promise<DescribeDnsGtmInstanceSystemCnameResponse> {
@@ -16232,12 +20256,97 @@ export default class Client extends OpenApi {
     return await this.describeDnsGtmInstanceSystemCnameWithOptions(request, runtime);
   }
 
+  async describeDnsGtmInstancesWithOptions(request: DescribeDnsGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmInstances",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstancesResponse({}));
+  }
+
+  async describeDnsGtmInstances(request: DescribeDnsGtmInstancesRequest): Promise<DescribeDnsGtmInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDnsGtmInstancesWithOptions(request, runtime);
+  }
+
   async describeDnsGtmLogsWithOptions(request: DescribeDnsGtmLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmLogsResponse>(await this.doRPCRequest("DescribeDnsGtmLogs", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmLogsResponse({}));
   }
 
   async describeDnsGtmLogs(request: DescribeDnsGtmLogsRequest): Promise<DescribeDnsGtmLogsResponse> {
@@ -16247,10 +20356,26 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmMonitorAvailableConfigWithOptions(request: DescribeDnsGtmMonitorAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmMonitorAvailableConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmMonitorAvailableConfigResponse>(await this.doRPCRequest("DescribeDnsGtmMonitorAvailableConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmMonitorAvailableConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmMonitorAvailableConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorAvailableConfigResponse({}));
   }
 
   async describeDnsGtmMonitorAvailableConfig(request: DescribeDnsGtmMonitorAvailableConfigRequest): Promise<DescribeDnsGtmMonitorAvailableConfigResponse> {
@@ -16260,10 +20385,30 @@ export default class Client extends OpenApi {
 
   async describeDnsGtmMonitorConfigWithOptions(request: DescribeDnsGtmMonitorConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmMonitorConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorConfigId)) {
+      query["MonitorConfigId"] = request.monitorConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsGtmMonitorConfigResponse>(await this.doRPCRequest("DescribeDnsGtmMonitorConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsGtmMonitorConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsGtmMonitorConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorConfigResponse({}));
   }
 
   async describeDnsGtmMonitorConfig(request: DescribeDnsGtmMonitorConfigRequest): Promise<DescribeDnsGtmMonitorConfigResponse> {
@@ -16273,10 +20418,34 @@ export default class Client extends OpenApi {
 
   async describeDnsProductInstanceWithOptions(request: DescribeDnsProductInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsProductInstanceResponse>(await this.doRPCRequest("DescribeDnsProductInstance", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsProductInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsProductInstance",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsProductInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstanceResponse({}));
   }
 
   async describeDnsProductInstance(request: DescribeDnsProductInstanceRequest): Promise<DescribeDnsProductInstanceResponse> {
@@ -16286,10 +20455,46 @@ export default class Client extends OpenApi {
 
   async describeDnsProductInstancesWithOptions(request: DescribeDnsProductInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainType)) {
+      query["DomainType"] = request.domainType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.versionCode)) {
+      query["VersionCode"] = request.versionCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDnsProductInstancesResponse>(await this.doRPCRequest("DescribeDnsProductInstances", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsProductInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDnsProductInstances",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDnsProductInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstancesResponse({}));
   }
 
   async describeDnsProductInstances(request: DescribeDnsProductInstancesRequest): Promise<DescribeDnsProductInstancesResponse> {
@@ -16297,25 +20502,36 @@ export default class Client extends OpenApi {
     return await this.describeDnsProductInstancesWithOptions(request, runtime);
   }
 
-  async describeDNSSLBSubDomainsWithOptions(request: DescribeDNSSLBSubDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDNSSLBSubDomainsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeDNSSLBSubDomainsResponse>(await this.doRPCRequest("DescribeDNSSLBSubDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDNSSLBSubDomainsResponse({}));
-  }
-
-  async describeDNSSLBSubDomains(request: DescribeDNSSLBSubDomainsRequest): Promise<DescribeDNSSLBSubDomainsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDNSSLBSubDomainsWithOptions(request, runtime);
-  }
-
   async describeDohAccountStatisticsWithOptions(request: DescribeDohAccountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohAccountStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDohAccountStatisticsResponse>(await this.doRPCRequest("DescribeDohAccountStatistics", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDohAccountStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDohAccountStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDohAccountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohAccountStatisticsResponse({}));
   }
 
   async describeDohAccountStatistics(request: DescribeDohAccountStatisticsRequest): Promise<DescribeDohAccountStatisticsResponse> {
@@ -16325,10 +20541,38 @@ export default class Client extends OpenApi {
 
   async describeDohDomainStatisticsWithOptions(request: DescribeDohDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohDomainStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDohDomainStatisticsResponse>(await this.doRPCRequest("DescribeDohDomainStatistics", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDohDomainStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDohDomainStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDohDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsResponse({}));
   }
 
   async describeDohDomainStatistics(request: DescribeDohDomainStatisticsRequest): Promise<DescribeDohDomainStatisticsResponse> {
@@ -16338,10 +20582,46 @@ export default class Client extends OpenApi {
 
   async describeDohDomainStatisticsSummaryWithOptions(request: DescribeDohDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDohDomainStatisticsSummaryResponse>(await this.doRPCRequest("DescribeDohDomainStatisticsSummary", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDohDomainStatisticsSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDohDomainStatisticsSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDohDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsSummaryResponse({}));
   }
 
   async describeDohDomainStatisticsSummary(request: DescribeDohDomainStatisticsSummaryRequest): Promise<DescribeDohDomainStatisticsSummaryResponse> {
@@ -16351,10 +20631,38 @@ export default class Client extends OpenApi {
 
   async describeDohSubDomainStatisticsWithOptions(request: DescribeDohSubDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohSubDomainStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDohSubDomainStatisticsResponse>(await this.doRPCRequest("DescribeDohSubDomainStatistics", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDohSubDomainStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDohSubDomainStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDohSubDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsResponse({}));
   }
 
   async describeDohSubDomainStatistics(request: DescribeDohSubDomainStatisticsRequest): Promise<DescribeDohSubDomainStatisticsResponse> {
@@ -16364,10 +20672,50 @@ export default class Client extends OpenApi {
 
   async describeDohSubDomainStatisticsSummaryWithOptions(request: DescribeDohSubDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohSubDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDohSubDomainStatisticsSummaryResponse>(await this.doRPCRequest("DescribeDohSubDomainStatisticsSummary", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDohSubDomainStatisticsSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDohSubDomainStatisticsSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDohSubDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsSummaryResponse({}));
   }
 
   async describeDohSubDomainStatisticsSummary(request: DescribeDohSubDomainStatisticsSummaryRequest): Promise<DescribeDohSubDomainStatisticsSummaryResponse> {
@@ -16377,10 +20725,34 @@ export default class Client extends OpenApi {
 
   async describeDohUserInfoWithOptions(request: DescribeDohUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohUserInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDohUserInfoResponse>(await this.doRPCRequest("DescribeDohUserInfo", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDohUserInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDohUserInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDohUserInfoResponse>(await this.callApi(params, req, runtime), new DescribeDohUserInfoResponse({}));
   }
 
   async describeDohUserInfo(request: DescribeDohUserInfoRequest): Promise<DescribeDohUserInfoResponse> {
@@ -16390,10 +20762,30 @@ export default class Client extends OpenApi {
 
   async describeDomainDnssecInfoWithOptions(request: DescribeDomainDnssecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDnssecInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainDnssecInfoResponse>(await this.doRPCRequest("DescribeDomainDnssecInfo", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainDnssecInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainDnssecInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainDnssecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainDnssecInfoResponse({}));
   }
 
   async describeDomainDnssecInfo(request: DescribeDomainDnssecInfoRequest): Promise<DescribeDomainDnssecInfoResponse> {
@@ -16403,10 +20795,38 @@ export default class Client extends OpenApi {
 
   async describeDomainGroupsWithOptions(request: DescribeDomainGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainGroupsResponse>(await this.doRPCRequest("DescribeDomainGroups", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainGroups",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDomainGroupsResponse({}));
   }
 
   async describeDomainGroups(request: DescribeDomainGroupsRequest): Promise<DescribeDomainGroupsResponse> {
@@ -16416,10 +20836,34 @@ export default class Client extends OpenApi {
 
   async describeDomainInfoWithOptions(request: DescribeDomainInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.needDetailAttributes)) {
+      query["NeedDetailAttributes"] = request.needDetailAttributes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainInfoResponse>(await this.doRPCRequest("DescribeDomainInfo", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainInfoResponse({}));
   }
 
   async describeDomainInfo(request: DescribeDomainInfoRequest): Promise<DescribeDomainInfoResponse> {
@@ -16429,10 +20873,54 @@ export default class Client extends OpenApi {
 
   async describeDomainLogsWithOptions(request: DescribeDomainLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainLogsResponse>(await this.doRPCRequest("DescribeDomainLogs", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainLogsResponse>(await this.callApi(params, req, runtime), new DescribeDomainLogsResponse({}));
   }
 
   async describeDomainLogs(request: DescribeDomainLogsRequest): Promise<DescribeDomainLogsResponse> {
@@ -16442,10 +20930,30 @@ export default class Client extends OpenApi {
 
   async describeDomainNsWithOptions(request: DescribeDomainNsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainNsResponse>(await this.doRPCRequest("DescribeDomainNs", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainNsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainNs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainNsResponse>(await this.callApi(params, req, runtime), new DescribeDomainNsResponse({}));
   }
 
   async describeDomainNs(request: DescribeDomainNsRequest): Promise<DescribeDomainNsResponse> {
@@ -16455,10 +20963,34 @@ export default class Client extends OpenApi {
 
   async describeDomainRecordInfoWithOptions(request: DescribeDomainRecordInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainRecordInfoResponse>(await this.doRPCRequest("DescribeDomainRecordInfo", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainRecordInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainRecordInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainRecordInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordInfoResponse({}));
   }
 
   async describeDomainRecordInfo(request: DescribeDomainRecordInfoRequest): Promise<DescribeDomainRecordInfoResponse> {
@@ -16468,10 +21000,82 @@ export default class Client extends OpenApi {
 
   async describeDomainRecordsWithOptions(request: DescribeDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.RRKeyWord)) {
+      query["RRKeyWord"] = request.RRKeyWord;
+    }
+
+    if (!Util.isUnset(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.typeKeyWord)) {
+      query["TypeKeyWord"] = request.typeKeyWord;
+    }
+
+    if (!Util.isUnset(request.valueKeyWord)) {
+      query["ValueKeyWord"] = request.valueKeyWord;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainRecordsResponse>(await this.doRPCRequest("DescribeDomainRecords", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainRecords",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDomainRecordsResponse({}));
   }
 
   async describeDomainRecords(request: DescribeDomainRecordsRequest): Promise<DescribeDomainRecordsResponse> {
@@ -16479,25 +21083,44 @@ export default class Client extends OpenApi {
     return await this.describeDomainRecordsWithOptions(request, runtime);
   }
 
-  async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeDomainsResponse>(await this.doRPCRequest("DescribeDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainsResponse({}));
-  }
-
-  async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDomainsWithOptions(request, runtime);
-  }
-
   async describeDomainStatisticsWithOptions(request: DescribeDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainType)) {
+      query["DomainType"] = request.domainType;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainStatisticsResponse>(await this.doRPCRequest("DescribeDomainStatistics", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsResponse({}));
   }
 
   async describeDomainStatistics(request: DescribeDomainStatisticsRequest): Promise<DescribeDomainStatisticsResponse> {
@@ -16507,10 +21130,54 @@ export default class Client extends OpenApi {
 
   async describeDomainStatisticsSummaryWithOptions(request: DescribeDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainStatisticsSummaryResponse>(await this.doRPCRequest("DescribeDomainStatisticsSummary", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainStatisticsSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainStatisticsSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsSummaryResponse({}));
   }
 
   async describeDomainStatisticsSummary(request: DescribeDomainStatisticsSummaryRequest): Promise<DescribeDomainStatisticsSummaryResponse> {
@@ -16518,12 +21185,97 @@ export default class Client extends OpenApi {
     return await this.describeDomainStatisticsSummaryWithOptions(request, runtime);
   }
 
+  async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.starmark)) {
+      query["Starmark"] = request.starmark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDomainsResponse({}));
+  }
+
+  async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainsWithOptions(request, runtime);
+  }
+
   async describeGtmAccessStrategiesWithOptions(request: DescribeGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategiesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmAccessStrategiesResponse>(await this.doRPCRequest("DescribeGtmAccessStrategies", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmAccessStrategiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmAccessStrategies",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategiesResponse({}));
   }
 
   async describeGtmAccessStrategies(request: DescribeGtmAccessStrategiesRequest): Promise<DescribeGtmAccessStrategiesResponse> {
@@ -16533,10 +21285,30 @@ export default class Client extends OpenApi {
 
   async describeGtmAccessStrategyWithOptions(request: DescribeGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmAccessStrategyResponse>(await this.doRPCRequest("DescribeGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyResponse({}));
   }
 
   async describeGtmAccessStrategy(request: DescribeGtmAccessStrategyRequest): Promise<DescribeGtmAccessStrategyResponse> {
@@ -16546,10 +21318,30 @@ export default class Client extends OpenApi {
 
   async describeGtmAccessStrategyAvailableConfigWithOptions(request: DescribeGtmAccessStrategyAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategyAvailableConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmAccessStrategyAvailableConfigResponse>(await this.doRPCRequest("DescribeGtmAccessStrategyAvailableConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmAccessStrategyAvailableConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmAccessStrategyAvailableConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyAvailableConfigResponse({}));
   }
 
   async describeGtmAccessStrategyAvailableConfig(request: DescribeGtmAccessStrategyAvailableConfigRequest): Promise<DescribeGtmAccessStrategyAvailableConfigResponse> {
@@ -16559,10 +21351,26 @@ export default class Client extends OpenApi {
 
   async describeGtmAvailableAlertGroupWithOptions(request: DescribeGtmAvailableAlertGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAvailableAlertGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmAvailableAlertGroupResponse>(await this.doRPCRequest("DescribeGtmAvailableAlertGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmAvailableAlertGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmAvailableAlertGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeGtmAvailableAlertGroupResponse({}));
   }
 
   async describeGtmAvailableAlertGroup(request: DescribeGtmAvailableAlertGroupRequest): Promise<DescribeGtmAvailableAlertGroupResponse> {
@@ -16572,10 +21380,34 @@ export default class Client extends OpenApi {
 
   async describeGtmInstanceWithOptions(request: DescribeGtmInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.needDetailAttributes)) {
+      query["NeedDetailAttributes"] = request.needDetailAttributes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmInstanceResponse>(await this.doRPCRequest("DescribeGtmInstance", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmInstance",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceResponse({}));
   }
 
   async describeGtmInstance(request: DescribeGtmInstanceRequest): Promise<DescribeGtmInstanceResponse> {
@@ -16585,10 +21417,30 @@ export default class Client extends OpenApi {
 
   async describeGtmInstanceAddressPoolWithOptions(request: DescribeGtmInstanceAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmInstanceAddressPoolResponse>(await this.doRPCRequest("DescribeGtmInstanceAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmInstanceAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmInstanceAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolResponse({}));
   }
 
   async describeGtmInstanceAddressPool(request: DescribeGtmInstanceAddressPoolRequest): Promise<DescribeGtmInstanceAddressPoolResponse> {
@@ -16598,10 +21450,38 @@ export default class Client extends OpenApi {
 
   async describeGtmInstanceAddressPoolsWithOptions(request: DescribeGtmInstanceAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceAddressPoolsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmInstanceAddressPoolsResponse>(await this.doRPCRequest("DescribeGtmInstanceAddressPools", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmInstanceAddressPoolsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmInstanceAddressPools",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolsResponse({}));
   }
 
   async describeGtmInstanceAddressPools(request: DescribeGtmInstanceAddressPoolsRequest): Promise<DescribeGtmInstanceAddressPoolsResponse> {
@@ -16609,25 +21489,32 @@ export default class Client extends OpenApi {
     return await this.describeGtmInstanceAddressPoolsWithOptions(request, runtime);
   }
 
-  async describeGtmInstancesWithOptions(request: DescribeGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstancesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeGtmInstancesResponse>(await this.doRPCRequest("DescribeGtmInstances", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmInstancesResponse({}));
-  }
-
-  async describeGtmInstances(request: DescribeGtmInstancesRequest): Promise<DescribeGtmInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeGtmInstancesWithOptions(request, runtime);
-  }
-
   async describeGtmInstanceStatusWithOptions(request: DescribeGtmInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmInstanceStatusResponse>(await this.doRPCRequest("DescribeGtmInstanceStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmInstanceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmInstanceStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceStatusResponse({}));
   }
 
   async describeGtmInstanceStatus(request: DescribeGtmInstanceStatusRequest): Promise<DescribeGtmInstanceStatusResponse> {
@@ -16637,10 +21524,30 @@ export default class Client extends OpenApi {
 
   async describeGtmInstanceSystemCnameWithOptions(request: DescribeGtmInstanceSystemCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceSystemCnameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmInstanceSystemCnameResponse>(await this.doRPCRequest("DescribeGtmInstanceSystemCname", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmInstanceSystemCnameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmInstanceSystemCname",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceSystemCnameResponse({}));
   }
 
   async describeGtmInstanceSystemCname(request: DescribeGtmInstanceSystemCnameRequest): Promise<DescribeGtmInstanceSystemCnameResponse> {
@@ -16648,12 +21555,101 @@ export default class Client extends OpenApi {
     return await this.describeGtmInstanceSystemCnameWithOptions(request, runtime);
   }
 
+  async describeGtmInstancesWithOptions(request: DescribeGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.needDetailAttributes)) {
+      query["NeedDetailAttributes"] = request.needDetailAttributes;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmInstances",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstancesResponse({}));
+  }
+
+  async describeGtmInstances(request: DescribeGtmInstancesRequest): Promise<DescribeGtmInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeGtmInstancesWithOptions(request, runtime);
+  }
+
   async describeGtmLogsWithOptions(request: DescribeGtmLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmLogsResponse>(await this.doRPCRequest("DescribeGtmLogs", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeGtmLogsResponse({}));
   }
 
   async describeGtmLogs(request: DescribeGtmLogsRequest): Promise<DescribeGtmLogsResponse> {
@@ -16663,10 +21659,26 @@ export default class Client extends OpenApi {
 
   async describeGtmMonitorAvailableConfigWithOptions(request: DescribeGtmMonitorAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmMonitorAvailableConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmMonitorAvailableConfigResponse>(await this.doRPCRequest("DescribeGtmMonitorAvailableConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmMonitorAvailableConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmMonitorAvailableConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorAvailableConfigResponse({}));
   }
 
   async describeGtmMonitorAvailableConfig(request: DescribeGtmMonitorAvailableConfigRequest): Promise<DescribeGtmMonitorAvailableConfigResponse> {
@@ -16676,10 +21688,30 @@ export default class Client extends OpenApi {
 
   async describeGtmMonitorConfigWithOptions(request: DescribeGtmMonitorConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmMonitorConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorConfigId)) {
+      query["MonitorConfigId"] = request.monitorConfigId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmMonitorConfigResponse>(await this.doRPCRequest("DescribeGtmMonitorConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmMonitorConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmMonitorConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorConfigResponse({}));
   }
 
   async describeGtmMonitorConfig(request: DescribeGtmMonitorConfigRequest): Promise<DescribeGtmMonitorConfigResponse> {
@@ -16689,10 +21721,30 @@ export default class Client extends OpenApi {
 
   async describeGtmRecoveryPlanWithOptions(request: DescribeGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recoveryPlanId)) {
+      query["RecoveryPlanId"] = request.recoveryPlanId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmRecoveryPlanResponse>(await this.doRPCRequest("DescribeGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanResponse({}));
   }
 
   async describeGtmRecoveryPlan(request: DescribeGtmRecoveryPlanRequest): Promise<DescribeGtmRecoveryPlanResponse> {
@@ -16702,10 +21754,26 @@ export default class Client extends OpenApi {
 
   async describeGtmRecoveryPlanAvailableConfigWithOptions(request: DescribeGtmRecoveryPlanAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlanAvailableConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmRecoveryPlanAvailableConfigResponse>(await this.doRPCRequest("DescribeGtmRecoveryPlanAvailableConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmRecoveryPlanAvailableConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmRecoveryPlanAvailableConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmRecoveryPlanAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanAvailableConfigResponse({}));
   }
 
   async describeGtmRecoveryPlanAvailableConfig(request: DescribeGtmRecoveryPlanAvailableConfigRequest): Promise<DescribeGtmRecoveryPlanAvailableConfigResponse> {
@@ -16715,10 +21783,38 @@ export default class Client extends OpenApi {
 
   async describeGtmRecoveryPlansWithOptions(request: DescribeGtmRecoveryPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlansResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGtmRecoveryPlansResponse>(await this.doRPCRequest("DescribeGtmRecoveryPlans", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGtmRecoveryPlansResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGtmRecoveryPlans",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGtmRecoveryPlansResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlansResponse({}));
   }
 
   async describeGtmRecoveryPlans(request: DescribeGtmRecoveryPlansRequest): Promise<DescribeGtmRecoveryPlansResponse> {
@@ -16728,10 +21824,38 @@ export default class Client extends OpenApi {
 
   async describeInstanceDomainsWithOptions(request: DescribeInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDomainsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstanceDomainsResponse>(await this.doRPCRequest("DescribeInstanceDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceDomainsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDomainsResponse({}));
   }
 
   async describeInstanceDomains(request: DescribeInstanceDomainsRequest): Promise<DescribeInstanceDomainsResponse> {
@@ -16739,12 +21863,731 @@ export default class Client extends OpenApi {
     return await this.describeInstanceDomainsWithOptions(request, runtime);
   }
 
+  async describeIspFlushCacheInstancesWithOptions(request: DescribeIspFlushCacheInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIspFlushCacheInstances",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIspFlushCacheInstancesResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheInstancesResponse({}));
+  }
+
+  async describeIspFlushCacheInstances(request: DescribeIspFlushCacheInstancesRequest): Promise<DescribeIspFlushCacheInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIspFlushCacheInstancesWithOptions(request, runtime);
+  }
+
+  async describeIspFlushCacheRemainQuotaWithOptions(request: DescribeIspFlushCacheRemainQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheRemainQuotaResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIspFlushCacheRemainQuota",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIspFlushCacheRemainQuotaResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheRemainQuotaResponse({}));
+  }
+
+  async describeIspFlushCacheRemainQuota(request: DescribeIspFlushCacheRemainQuotaRequest): Promise<DescribeIspFlushCacheRemainQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIspFlushCacheRemainQuotaWithOptions(request, runtime);
+  }
+
+  async describeIspFlushCacheTaskWithOptions(request: DescribeIspFlushCacheTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIspFlushCacheTask",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTaskResponse({}));
+  }
+
+  async describeIspFlushCacheTask(request: DescribeIspFlushCacheTaskRequest): Promise<DescribeIspFlushCacheTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIspFlushCacheTaskWithOptions(request, runtime);
+  }
+
+  async describeIspFlushCacheTasksWithOptions(request: DescribeIspFlushCacheTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIspFlushCacheTasks",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIspFlushCacheTasksResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTasksResponse({}));
+  }
+
+  async describeIspFlushCacheTasks(request: DescribeIspFlushCacheTasksRequest): Promise<DescribeIspFlushCacheTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIspFlushCacheTasksWithOptions(request, runtime);
+  }
+
+  async describePdnsAccountSummaryWithOptions(request: DescribePdnsAccountSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAccountSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsAccountSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsAccountSummaryResponse>(await this.callApi(params, req, runtime), new DescribePdnsAccountSummaryResponse({}));
+  }
+
+  async describePdnsAccountSummary(request: DescribePdnsAccountSummaryRequest): Promise<DescribePdnsAccountSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsAccountSummaryWithOptions(request, runtime);
+  }
+
+  async describePdnsAppKeyWithOptions(request: DescribePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAppKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKeyId)) {
+      query["AppKeyId"] = request.appKeyId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsAppKey",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeyResponse({}));
+  }
+
+  async describePdnsAppKey(request: DescribePdnsAppKeyRequest): Promise<DescribePdnsAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsAppKeyWithOptions(request, runtime);
+  }
+
+  async describePdnsAppKeysWithOptions(request: DescribePdnsAppKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAppKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsAppKeys",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsAppKeysResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeysResponse({}));
+  }
+
+  async describePdnsAppKeys(request: DescribePdnsAppKeysRequest): Promise<DescribePdnsAppKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsAppKeysWithOptions(request, runtime);
+  }
+
+  async describePdnsOperateLogsWithOptions(request: DescribePdnsOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsOperateLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsOperateLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsOperateLogsResponse({}));
+  }
+
+  async describePdnsOperateLogs(request: DescribePdnsOperateLogsRequest): Promise<DescribePdnsOperateLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsOperateLogsWithOptions(request, runtime);
+  }
+
+  async describePdnsRequestStatisticWithOptions(request: DescribePdnsRequestStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsRequestStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsRequestStatistic",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsRequestStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticResponse({}));
+  }
+
+  async describePdnsRequestStatistic(request: DescribePdnsRequestStatisticRequest): Promise<DescribePdnsRequestStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsRequestStatisticWithOptions(request, runtime);
+  }
+
+  async describePdnsRequestStatisticsWithOptions(request: DescribePdnsRequestStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsRequestStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsRequestStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsRequestStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticsResponse({}));
+  }
+
+  async describePdnsRequestStatistics(request: DescribePdnsRequestStatisticsRequest): Promise<DescribePdnsRequestStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsRequestStatisticsWithOptions(request, runtime);
+  }
+
+  async describePdnsThreatLogsWithOptions(request: DescribePdnsThreatLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.threatLevel)) {
+      query["ThreatLevel"] = request.threatLevel;
+    }
+
+    if (!Util.isUnset(request.threatSourceIp)) {
+      query["ThreatSourceIp"] = request.threatSourceIp;
+    }
+
+    if (!Util.isUnset(request.threatType)) {
+      query["ThreatType"] = request.threatType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsThreatLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsThreatLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatLogsResponse({}));
+  }
+
+  async describePdnsThreatLogs(request: DescribePdnsThreatLogsRequest): Promise<DescribePdnsThreatLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsThreatLogsWithOptions(request, runtime);
+  }
+
+  async describePdnsThreatStatisticWithOptions(request: DescribePdnsThreatStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.threatSourceIp)) {
+      query["ThreatSourceIp"] = request.threatSourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsThreatStatistic",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsThreatStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticResponse({}));
+  }
+
+  async describePdnsThreatStatistic(request: DescribePdnsThreatStatisticRequest): Promise<DescribePdnsThreatStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsThreatStatisticWithOptions(request, runtime);
+  }
+
+  async describePdnsThreatStatisticsWithOptions(request: DescribePdnsThreatStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
+    if (!Util.isUnset(request.threatLevel)) {
+      query["ThreatLevel"] = request.threatLevel;
+    }
+
+    if (!Util.isUnset(request.threatSourceIp)) {
+      query["ThreatSourceIp"] = request.threatSourceIp;
+    }
+
+    if (!Util.isUnset(request.threatType)) {
+      query["ThreatType"] = request.threatType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsThreatStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsThreatStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticsResponse({}));
+  }
+
+  async describePdnsThreatStatistics(request: DescribePdnsThreatStatisticsRequest): Promise<DescribePdnsThreatStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsThreatStatisticsWithOptions(request, runtime);
+  }
+
+  async describePdnsUdpIpSegmentsWithOptions(request: DescribePdnsUdpIpSegmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsUdpIpSegmentsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsUdpIpSegments",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsUdpIpSegmentsResponse>(await this.callApi(params, req, runtime), new DescribePdnsUdpIpSegmentsResponse({}));
+  }
+
+  async describePdnsUdpIpSegments(request: DescribePdnsUdpIpSegmentsRequest): Promise<DescribePdnsUdpIpSegmentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsUdpIpSegmentsWithOptions(request, runtime);
+  }
+
+  async describePdnsUserInfoWithOptions(request: DescribePdnsUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsUserInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePdnsUserInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePdnsUserInfoResponse>(await this.callApi(params, req, runtime), new DescribePdnsUserInfoResponse({}));
+  }
+
+  async describePdnsUserInfo(request: DescribePdnsUserInfoRequest): Promise<DescribePdnsUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePdnsUserInfoWithOptions(request, runtime);
+  }
+
   async describeRecordLogsWithOptions(request: DescribeRecordLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRecordLogsResponse>(await this.doRPCRequest("DescribeRecordLogs", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRecordLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRecordLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRecordLogsResponse>(await this.callApi(params, req, runtime), new DescribeRecordLogsResponse({}));
   }
 
   async describeRecordLogs(request: DescribeRecordLogsRequest): Promise<DescribeRecordLogsResponse> {
@@ -16754,10 +22597,46 @@ export default class Client extends OpenApi {
 
   async describeRecordStatisticsWithOptions(request: DescribeRecordStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainType)) {
+      query["DomainType"] = request.domainType;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRecordStatisticsResponse>(await this.doRPCRequest("DescribeRecordStatistics", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRecordStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRecordStatistics",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRecordStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsResponse({}));
   }
 
   async describeRecordStatistics(request: DescribeRecordStatisticsRequest): Promise<DescribeRecordStatisticsResponse> {
@@ -16767,10 +22646,62 @@ export default class Client extends OpenApi {
 
   async describeRecordStatisticsSummaryWithOptions(request: DescribeRecordStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordStatisticsSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainType)) {
+      query["DomainType"] = request.domainType;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchMode)) {
+      query["SearchMode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRecordStatisticsSummaryResponse>(await this.doRPCRequest("DescribeRecordStatisticsSummary", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRecordStatisticsSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRecordStatisticsSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRecordStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsSummaryResponse({}));
   }
 
   async describeRecordStatisticsSummary(request: DescribeRecordStatisticsSummaryRequest): Promise<DescribeRecordStatisticsSummaryResponse> {
@@ -16780,10 +22711,54 @@ export default class Client extends OpenApi {
 
   async describeSubDomainRecordsWithOptions(request: DescribeSubDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubDomainRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSubDomainRecordsResponse>(await this.doRPCRequest("DescribeSubDomainRecords", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSubDomainRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSubDomainRecords",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSubDomainRecordsResponse({}));
   }
 
   async describeSubDomainRecords(request: DescribeSubDomainRecordsRequest): Promise<DescribeSubDomainRecordsResponse> {
@@ -16793,10 +22768,34 @@ export default class Client extends OpenApi {
 
   async describeSupportLinesWithOptions(request: DescribeSupportLinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportLinesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSupportLinesResponse>(await this.doRPCRequest("DescribeSupportLines", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSupportLinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSupportLines",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSupportLinesResponse>(await this.callApi(params, req, runtime), new DescribeSupportLinesResponse({}));
   }
 
   async describeSupportLines(request: DescribeSupportLinesRequest): Promise<DescribeSupportLinesResponse> {
@@ -16806,10 +22805,38 @@ export default class Client extends OpenApi {
 
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTagsResponse>(await this.doRPCRequest("DescribeTags", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTags",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
@@ -16819,10 +22846,50 @@ export default class Client extends OpenApi {
 
   async describeTransferDomainsWithOptions(request: DescribeTransferDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransferDomainsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.fromUserId)) {
+      query["FromUserId"] = request.fromUserId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.targetUserId)) {
+      query["TargetUserId"] = request.targetUserId;
+    }
+
+    if (!Util.isUnset(request.transferType)) {
+      query["TransferType"] = request.transferType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTransferDomainsResponse>(await this.doRPCRequest("DescribeTransferDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTransferDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTransferDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTransferDomainsResponse>(await this.callApi(params, req, runtime), new DescribeTransferDomainsResponse({}));
   }
 
   async describeTransferDomains(request: DescribeTransferDomainsRequest): Promise<DescribeTransferDomainsResponse> {
@@ -16832,10 +22899,30 @@ export default class Client extends OpenApi {
 
   async executeGtmRecoveryPlanWithOptions(request: ExecuteGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recoveryPlanId)) {
+      query["RecoveryPlanId"] = request.recoveryPlanId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ExecuteGtmRecoveryPlanResponse>(await this.doRPCRequest("ExecuteGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new ExecuteGtmRecoveryPlanResponse({}));
   }
 
   async executeGtmRecoveryPlan(request: ExecuteGtmRecoveryPlanRequest): Promise<ExecuteGtmRecoveryPlanResponse> {
@@ -16845,10 +22932,30 @@ export default class Client extends OpenApi {
 
   async getMainDomainNameWithOptions(request: GetMainDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<GetMainDomainNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.inputString)) {
+      query["InputString"] = request.inputString;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetMainDomainNameResponse>(await this.doRPCRequest("GetMainDomainName", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetMainDomainNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetMainDomainName",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMainDomainNameResponse>(await this.callApi(params, req, runtime), new GetMainDomainNameResponse({}));
   }
 
   async getMainDomainName(request: GetMainDomainNameRequest): Promise<GetMainDomainNameResponse> {
@@ -16858,10 +22965,34 @@ export default class Client extends OpenApi {
 
   async getTxtRecordForVerifyWithOptions(request: GetTxtRecordForVerifyRequest, runtime: $Util.RuntimeOptions): Promise<GetTxtRecordForVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTxtRecordForVerifyResponse>(await this.doRPCRequest("GetTxtRecordForVerify", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetTxtRecordForVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTxtRecordForVerify",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTxtRecordForVerifyResponse>(await this.callApi(params, req, runtime), new GetTxtRecordForVerifyResponse({}));
   }
 
   async getTxtRecordForVerify(request: GetTxtRecordForVerifyRequest): Promise<GetTxtRecordForVerifyResponse> {
@@ -16871,10 +23002,42 @@ export default class Client extends OpenApi {
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -16884,10 +23047,34 @@ export default class Client extends OpenApi {
 
   async modifyHichinaDomainDNSWithOptions(request: ModifyHichinaDomainDNSRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHichinaDomainDNSResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyHichinaDomainDNSResponse>(await this.doRPCRequest("ModifyHichinaDomainDNS", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHichinaDomainDNSResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyHichinaDomainDNS",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHichinaDomainDNSResponse>(await this.callApi(params, req, runtime), new ModifyHichinaDomainDNSResponse({}));
   }
 
   async modifyHichinaDomainDNS(request: ModifyHichinaDomainDNSRequest): Promise<ModifyHichinaDomainDNSResponse> {
@@ -16897,10 +23084,34 @@ export default class Client extends OpenApi {
 
   async moveDomainResourceGroupWithOptions(request: MoveDomainResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveDomainResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<MoveDomainResourceGroupResponse>(await this.doRPCRequest("MoveDomainResourceGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new MoveDomainResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveDomainResourceGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveDomainResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveDomainResourceGroupResponse({}));
   }
 
   async moveDomainResourceGroup(request: MoveDomainResourceGroupRequest): Promise<MoveDomainResourceGroupResponse> {
@@ -16910,10 +23121,34 @@ export default class Client extends OpenApi {
 
   async moveGtmResourceGroupWithOptions(request: MoveGtmResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveGtmResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<MoveGtmResourceGroupResponse>(await this.doRPCRequest("MoveGtmResourceGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new MoveGtmResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveGtmResourceGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveGtmResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveGtmResourceGroupResponse({}));
   }
 
   async moveGtmResourceGroup(request: MoveGtmResourceGroupRequest): Promise<MoveGtmResourceGroupResponse> {
@@ -16923,10 +23158,34 @@ export default class Client extends OpenApi {
 
   async operateBatchDomainWithOptions(request: OperateBatchDomainRequest, runtime: $Util.RuntimeOptions): Promise<OperateBatchDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainRecordInfo)) {
+      query["DomainRecordInfo"] = request.domainRecordInfo;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OperateBatchDomainResponse>(await this.doRPCRequest("OperateBatchDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new OperateBatchDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OperateBatchDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateBatchDomainResponse>(await this.callApi(params, req, runtime), new OperateBatchDomainResponse({}));
   }
 
   async operateBatchDomain(request: OperateBatchDomainRequest): Promise<OperateBatchDomainResponse> {
@@ -16934,12 +23193,73 @@ export default class Client extends OpenApi {
     return await this.operateBatchDomainWithOptions(request, runtime);
   }
 
+  async pausePdnsServiceWithOptions(request: PausePdnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<PausePdnsServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PausePdnsService",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PausePdnsServiceResponse>(await this.callApi(params, req, runtime), new PausePdnsServiceResponse({}));
+  }
+
+  async pausePdnsService(request: PausePdnsServiceRequest): Promise<PausePdnsServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pausePdnsServiceWithOptions(request, runtime);
+  }
+
   async previewGtmRecoveryPlanWithOptions(request: PreviewGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<PreviewGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.recoveryPlanId)) {
+      query["RecoveryPlanId"] = request.recoveryPlanId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PreviewGtmRecoveryPlanResponse>(await this.doRPCRequest("PreviewGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new PreviewGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PreviewGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PreviewGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new PreviewGtmRecoveryPlanResponse({}));
   }
 
   async previewGtmRecoveryPlan(request: PreviewGtmRecoveryPlanRequest): Promise<PreviewGtmRecoveryPlanResponse> {
@@ -16947,12 +23267,131 @@ export default class Client extends OpenApi {
     return await this.previewGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  async removePdnsAppKeyWithOptions(request: RemovePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<RemovePdnsAppKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKeyId)) {
+      query["AppKeyId"] = request.appKeyId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemovePdnsAppKey",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemovePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new RemovePdnsAppKeyResponse({}));
+  }
+
+  async removePdnsAppKey(request: RemovePdnsAppKeyRequest): Promise<RemovePdnsAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removePdnsAppKeyWithOptions(request, runtime);
+  }
+
+  async removePdnsUdpIpSegmentWithOptions(request: RemovePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<RemovePdnsUdpIpSegmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemovePdnsUdpIpSegment",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemovePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new RemovePdnsUdpIpSegmentResponse({}));
+  }
+
+  async removePdnsUdpIpSegment(request: RemovePdnsUdpIpSegmentRequest): Promise<RemovePdnsUdpIpSegmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removePdnsUdpIpSegmentWithOptions(request, runtime);
+  }
+
+  async resumePdnsServiceWithOptions(request: ResumePdnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<ResumePdnsServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumePdnsService",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumePdnsServiceResponse>(await this.callApi(params, req, runtime), new ResumePdnsServiceResponse({}));
+  }
+
+  async resumePdnsService(request: ResumePdnsServiceRequest): Promise<ResumePdnsServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumePdnsServiceWithOptions(request, runtime);
+  }
+
   async retrieveDomainWithOptions(request: RetrieveDomainRequest, runtime: $Util.RuntimeOptions): Promise<RetrieveDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RetrieveDomainResponse>(await this.doRPCRequest("RetrieveDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new RetrieveDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RetrieveDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetrieveDomainResponse>(await this.callApi(params, req, runtime), new RetrieveDomainResponse({}));
   }
 
   async retrieveDomain(request: RetrieveDomainRequest): Promise<RetrieveDomainResponse> {
@@ -16962,10 +23401,30 @@ export default class Client extends OpenApi {
 
   async rollbackGtmRecoveryPlanWithOptions(request: RollbackGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<RollbackGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recoveryPlanId)) {
+      query["RecoveryPlanId"] = request.recoveryPlanId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RollbackGtmRecoveryPlanResponse>(await this.doRPCRequest("RollbackGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new RollbackGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RollbackGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new RollbackGtmRecoveryPlanResponse({}));
   }
 
   async rollbackGtmRecoveryPlan(request: RollbackGtmRecoveryPlanRequest): Promise<RollbackGtmRecoveryPlanResponse> {
@@ -16973,12 +23432,89 @@ export default class Client extends OpenApi {
     return await this.rollbackGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  async setDNSSLBStatusWithOptions(request: SetDNSSLBStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDNSSLBStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.open)) {
+      query["Open"] = request.open;
+    }
+
+    if (!Util.isUnset(request.subDomain)) {
+      query["SubDomain"] = request.subDomain;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDNSSLBStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDNSSLBStatusResponse>(await this.callApi(params, req, runtime), new SetDNSSLBStatusResponse({}));
+  }
+
+  async setDNSSLBStatus(request: SetDNSSLBStatusRequest): Promise<SetDNSSLBStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDNSSLBStatusWithOptions(request, runtime);
+  }
+
   async setDnsGtmAccessModeWithOptions(request: SetDnsGtmAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<SetDnsGtmAccessModeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessMode)) {
+      query["AccessMode"] = request.accessMode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDnsGtmAccessModeResponse>(await this.doRPCRequest("SetDnsGtmAccessMode", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDnsGtmAccessModeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDnsGtmAccessMode",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDnsGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetDnsGtmAccessModeResponse({}));
   }
 
   async setDnsGtmAccessMode(request: SetDnsGtmAccessModeRequest): Promise<SetDnsGtmAccessModeResponse> {
@@ -16988,10 +23524,34 @@ export default class Client extends OpenApi {
 
   async setDnsGtmMonitorStatusWithOptions(request: SetDnsGtmMonitorStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDnsGtmMonitorStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorConfigId)) {
+      query["MonitorConfigId"] = request.monitorConfigId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDnsGtmMonitorStatusResponse>(await this.doRPCRequest("SetDnsGtmMonitorStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDnsGtmMonitorStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDnsGtmMonitorStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDnsGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetDnsGtmMonitorStatusResponse({}));
   }
 
   async setDnsGtmMonitorStatus(request: SetDnsGtmMonitorStatusRequest): Promise<SetDnsGtmMonitorStatusResponse> {
@@ -16999,25 +23559,36 @@ export default class Client extends OpenApi {
     return await this.setDnsGtmMonitorStatusWithOptions(request, runtime);
   }
 
-  async setDNSSLBStatusWithOptions(request: SetDNSSLBStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDNSSLBStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SetDNSSLBStatusResponse>(await this.doRPCRequest("SetDNSSLBStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDNSSLBStatusResponse({}));
-  }
-
-  async setDNSSLBStatus(request: SetDNSSLBStatusRequest): Promise<SetDNSSLBStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setDNSSLBStatusWithOptions(request, runtime);
-  }
-
   async setDomainDnssecStatusWithOptions(request: SetDomainDnssecStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainDnssecStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDomainDnssecStatusResponse>(await this.doRPCRequest("SetDomainDnssecStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDomainDnssecStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDomainDnssecStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDomainDnssecStatusResponse>(await this.callApi(params, req, runtime), new SetDomainDnssecStatusResponse({}));
   }
 
   async setDomainDnssecStatus(request: SetDomainDnssecStatusRequest): Promise<SetDomainDnssecStatusResponse> {
@@ -17027,10 +23598,38 @@ export default class Client extends OpenApi {
 
   async setDomainRecordStatusWithOptions(request: SetDomainRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRecordStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDomainRecordStatusResponse>(await this.doRPCRequest("SetDomainRecordStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDomainRecordStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDomainRecordStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDomainRecordStatusResponse>(await this.callApi(params, req, runtime), new SetDomainRecordStatusResponse({}));
   }
 
   async setDomainRecordStatus(request: SetDomainRecordStatusRequest): Promise<SetDomainRecordStatusResponse> {
@@ -17040,10 +23639,34 @@ export default class Client extends OpenApi {
 
   async setGtmAccessModeWithOptions(request: SetGtmAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<SetGtmAccessModeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessMode)) {
+      query["AccessMode"] = request.accessMode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetGtmAccessModeResponse>(await this.doRPCRequest("SetGtmAccessMode", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetGtmAccessModeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetGtmAccessMode",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetGtmAccessModeResponse({}));
   }
 
   async setGtmAccessMode(request: SetGtmAccessModeRequest): Promise<SetGtmAccessModeResponse> {
@@ -17053,10 +23676,34 @@ export default class Client extends OpenApi {
 
   async setGtmMonitorStatusWithOptions(request: SetGtmMonitorStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetGtmMonitorStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorConfigId)) {
+      query["MonitorConfigId"] = request.monitorConfigId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetGtmMonitorStatusResponse>(await this.doRPCRequest("SetGtmMonitorStatus", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetGtmMonitorStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetGtmMonitorStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetGtmMonitorStatusResponse({}));
   }
 
   async setGtmMonitorStatus(request: SetGtmMonitorStatusRequest): Promise<SetGtmMonitorStatusResponse> {
@@ -17064,12 +23711,77 @@ export default class Client extends OpenApi {
     return await this.setGtmMonitorStatusWithOptions(request, runtime);
   }
 
+  async submitIspFlushCacheTaskWithOptions(request: SubmitIspFlushCacheTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIspFlushCacheTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitIspFlushCacheTask",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new SubmitIspFlushCacheTaskResponse({}));
+  }
+
+  async submitIspFlushCacheTask(request: SubmitIspFlushCacheTaskRequest): Promise<SubmitIspFlushCacheTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitIspFlushCacheTaskWithOptions(request, runtime);
+  }
+
   async switchDnsGtmInstanceStrategyModeWithOptions(request: SwitchDnsGtmInstanceStrategyModeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDnsGtmInstanceStrategyModeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyMode)) {
+      query["StrategyMode"] = request.strategyMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SwitchDnsGtmInstanceStrategyModeResponse>(await this.doRPCRequest("SwitchDnsGtmInstanceStrategyMode", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new SwitchDnsGtmInstanceStrategyModeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SwitchDnsGtmInstanceStrategyMode",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchDnsGtmInstanceStrategyModeResponse>(await this.callApi(params, req, runtime), new SwitchDnsGtmInstanceStrategyModeResponse({}));
   }
 
   async switchDnsGtmInstanceStrategyMode(request: SwitchDnsGtmInstanceStrategyModeRequest): Promise<SwitchDnsGtmInstanceStrategyModeResponse> {
@@ -17079,10 +23791,38 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -17092,10 +23832,38 @@ export default class Client extends OpenApi {
 
   async transferDomainWithOptions(request: TransferDomainRequest, runtime: $Util.RuntimeOptions): Promise<TransferDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.targetUserId)) {
+      query["TargetUserId"] = request.targetUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TransferDomainResponse>(await this.doRPCRequest("TransferDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new TransferDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransferDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferDomainResponse>(await this.callApi(params, req, runtime), new TransferDomainResponse({}));
   }
 
   async transferDomain(request: TransferDomainRequest): Promise<TransferDomainResponse> {
@@ -17105,10 +23873,34 @@ export default class Client extends OpenApi {
 
   async unbindInstanceDomainsWithOptions(request: UnbindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInstanceDomainsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindInstanceDomainsResponse>(await this.doRPCRequest("UnbindInstanceDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindInstanceDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindInstanceDomains",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindInstanceDomainsResponse>(await this.callApi(params, req, runtime), new UnbindInstanceDomainsResponse({}));
   }
 
   async unbindInstanceDomains(request: UnbindInstanceDomainsRequest): Promise<UnbindInstanceDomainsResponse> {
@@ -17118,10 +23910,42 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -17129,12 +23953,77 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  async updateAppKeyStateWithOptions(request: UpdateAppKeyStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppKeyStateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appKeyId)) {
+      query["AppKeyId"] = request.appKeyId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAppKeyState",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppKeyStateResponse>(await this.callApi(params, req, runtime), new UpdateAppKeyStateResponse({}));
+  }
+
+  async updateAppKeyState(request: UpdateAppKeyStateRequest): Promise<UpdateAppKeyStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAppKeyStateWithOptions(request, runtime);
+  }
+
   async updateCustomLineWithOptions(request: UpdateCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomLineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ipSegment)) {
+      query["IpSegment"] = request.ipSegment;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lineId)) {
+      query["LineId"] = request.lineId;
+    }
+
+    if (!Util.isUnset(request.lineName)) {
+      query["LineName"] = request.lineName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateCustomLineResponse>(await this.doRPCRequest("UpdateCustomLine", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCustomLineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomLine",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomLineResponse>(await this.callApi(params, req, runtime), new UpdateCustomLineResponse({}));
   }
 
   async updateCustomLine(request: UpdateCustomLineRequest): Promise<UpdateCustomLineResponse> {
@@ -17142,12 +24031,97 @@ export default class Client extends OpenApi {
     return await this.updateCustomLineWithOptions(request, runtime);
   }
 
+  async updateDNSSLBWeightWithOptions(request: UpdateDNSSLBWeightRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSSLBWeightResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDNSSLBWeight",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDNSSLBWeightResponse>(await this.callApi(params, req, runtime), new UpdateDNSSLBWeightResponse({}));
+  }
+
+  async updateDNSSLBWeight(request: UpdateDNSSLBWeightRequest): Promise<UpdateDNSSLBWeightResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDNSSLBWeightWithOptions(request, runtime);
+  }
+
   async updateDnsCacheDomainWithOptions(request: UpdateDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cacheTtlMax)) {
+      query["CacheTtlMax"] = request.cacheTtlMax;
+    }
+
+    if (!Util.isUnset(request.cacheTtlMin)) {
+      query["CacheTtlMin"] = request.cacheTtlMin;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceDnsServer)) {
+      query["SourceDnsServer"] = request.sourceDnsServer;
+    }
+
+    if (!Util.isUnset(request.sourceEdns)) {
+      query["SourceEdns"] = request.sourceEdns;
+    }
+
+    if (!Util.isUnset(request.sourceProtocol)) {
+      query["SourceProtocol"] = request.sourceProtocol;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDnsCacheDomainResponse>(await this.doRPCRequest("UpdateDnsCacheDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsCacheDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDnsCacheDomain",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainResponse({}));
   }
 
   async updateDnsCacheDomain(request: UpdateDnsCacheDomainRequest): Promise<UpdateDnsCacheDomainResponse> {
@@ -17157,10 +24131,34 @@ export default class Client extends OpenApi {
 
   async updateDnsCacheDomainRemarkWithOptions(request: UpdateDnsCacheDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainRemarkResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.doRPCRequest("UpdateDnsCacheDomainRemark", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDnsCacheDomainRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
   }
 
   async updateDnsCacheDomainRemark(request: UpdateDnsCacheDomainRemarkRequest): Promise<UpdateDnsCacheDomainRemarkResponse> {
@@ -17170,10 +24168,90 @@ export default class Client extends OpenApi {
 
   async updateDnsGtmAccessStrategyWithOptions(request: UpdateDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessMode)) {
+      query["AccessMode"] = request.accessMode;
+    }
+
+    if (!Util.isUnset(request.defaultAddrPool)) {
+      query["DefaultAddrPool"] = request.defaultAddrPool;
+    }
+
+    if (!Util.isUnset(request.defaultAddrPoolType)) {
+      query["DefaultAddrPoolType"] = request.defaultAddrPoolType;
+    }
+
+    if (!Util.isUnset(request.defaultLatencyOptimization)) {
+      query["DefaultLatencyOptimization"] = request.defaultLatencyOptimization;
+    }
+
+    if (!Util.isUnset(request.defaultLbaStrategy)) {
+      query["DefaultLbaStrategy"] = request.defaultLbaStrategy;
+    }
+
+    if (!Util.isUnset(request.defaultMaxReturnAddrNum)) {
+      query["DefaultMaxReturnAddrNum"] = request.defaultMaxReturnAddrNum;
+    }
+
+    if (!Util.isUnset(request.defaultMinAvailableAddrNum)) {
+      query["DefaultMinAvailableAddrNum"] = request.defaultMinAvailableAddrNum;
+    }
+
+    if (!Util.isUnset(request.failoverAddrPool)) {
+      query["FailoverAddrPool"] = request.failoverAddrPool;
+    }
+
+    if (!Util.isUnset(request.failoverAddrPoolType)) {
+      query["FailoverAddrPoolType"] = request.failoverAddrPoolType;
+    }
+
+    if (!Util.isUnset(request.failoverLatencyOptimization)) {
+      query["FailoverLatencyOptimization"] = request.failoverLatencyOptimization;
+    }
+
+    if (!Util.isUnset(request.failoverLbaStrategy)) {
+      query["FailoverLbaStrategy"] = request.failoverLbaStrategy;
+    }
+
+    if (!Util.isUnset(request.failoverMaxReturnAddrNum)) {
+      query["FailoverMaxReturnAddrNum"] = request.failoverMaxReturnAddrNum;
+    }
+
+    if (!Util.isUnset(request.failoverMinAvailableAddrNum)) {
+      query["FailoverMinAvailableAddrNum"] = request.failoverMinAvailableAddrNum;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lines)) {
+      query["Lines"] = request.lines;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.strategyName)) {
+      query["StrategyName"] = request.strategyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDnsGtmAccessStrategyResponse>(await this.doRPCRequest("UpdateDnsGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDnsGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAccessStrategyResponse({}));
   }
 
   async updateDnsGtmAccessStrategy(request: UpdateDnsGtmAccessStrategyRequest): Promise<UpdateDnsGtmAccessStrategyResponse> {
@@ -17183,10 +24261,42 @@ export default class Client extends OpenApi {
 
   async updateDnsGtmAddressPoolWithOptions(request: UpdateDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addr)) {
+      query["Addr"] = request.addr;
+    }
+
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lbaStrategy)) {
+      query["LbaStrategy"] = request.lbaStrategy;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDnsGtmAddressPoolResponse>(await this.doRPCRequest("UpdateDnsGtmAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsGtmAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDnsGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAddressPoolResponse({}));
   }
 
   async updateDnsGtmAddressPool(request: UpdateDnsGtmAddressPoolRequest): Promise<UpdateDnsGtmAddressPoolResponse> {
@@ -17196,10 +24306,70 @@ export default class Client extends OpenApi {
 
   async updateDnsGtmInstanceGlobalConfigWithOptions(request: UpdateDnsGtmInstanceGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmInstanceGlobalConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alertConfig)) {
+      query["AlertConfig"] = request.alertConfig;
+    }
+
+    if (!Util.isUnset(request.alertGroup)) {
+      query["AlertGroup"] = request.alertGroup;
+    }
+
+    if (!Util.isUnset(request.cnameType)) {
+      query["CnameType"] = request.cnameType;
+    }
+
+    if (!Util.isUnset(request.forceUpdate)) {
+      query["ForceUpdate"] = request.forceUpdate;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.publicCnameMode)) {
+      query["PublicCnameMode"] = request.publicCnameMode;
+    }
+
+    if (!Util.isUnset(request.publicRr)) {
+      query["PublicRr"] = request.publicRr;
+    }
+
+    if (!Util.isUnset(request.publicUserDomainName)) {
+      query["PublicUserDomainName"] = request.publicUserDomainName;
+    }
+
+    if (!Util.isUnset(request.publicZoneName)) {
+      query["PublicZoneName"] = request.publicZoneName;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDnsGtmInstanceGlobalConfigResponse>(await this.doRPCRequest("UpdateDnsGtmInstanceGlobalConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsGtmInstanceGlobalConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDnsGtmInstanceGlobalConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDnsGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmInstanceGlobalConfigResponse({}));
   }
 
   async updateDnsGtmInstanceGlobalConfig(request: UpdateDnsGtmInstanceGlobalConfigRequest): Promise<UpdateDnsGtmInstanceGlobalConfigResponse> {
@@ -17209,10 +24379,54 @@ export default class Client extends OpenApi {
 
   async updateDnsGtmMonitorWithOptions(request: UpdateDnsGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmMonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNode)) {
+      query["IspCityNode"] = request.ispCityNode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorConfigId)) {
+      query["MonitorConfigId"] = request.monitorConfigId;
+    }
+
+    if (!Util.isUnset(request.monitorExtendInfo)) {
+      query["MonitorExtendInfo"] = request.monitorExtendInfo;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDnsGtmMonitorResponse>(await this.doRPCRequest("UpdateDnsGtmMonitor", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsGtmMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDnsGtmMonitor",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmMonitorResponse({}));
   }
 
   async updateDnsGtmMonitor(request: UpdateDnsGtmMonitorRequest): Promise<UpdateDnsGtmMonitorResponse> {
@@ -17220,25 +24434,36 @@ export default class Client extends OpenApi {
     return await this.updateDnsGtmMonitorWithOptions(request, runtime);
   }
 
-  async updateDNSSLBWeightWithOptions(request: UpdateDNSSLBWeightRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSSLBWeightResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateDNSSLBWeightResponse>(await this.doRPCRequest("UpdateDNSSLBWeight", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDNSSLBWeightResponse({}));
-  }
-
-  async updateDNSSLBWeight(request: UpdateDNSSLBWeightRequest): Promise<UpdateDNSSLBWeightResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateDNSSLBWeightWithOptions(request, runtime);
-  }
-
   async updateDomainGroupWithOptions(request: UpdateDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDomainGroupResponse>(await this.doRPCRequest("UpdateDomainGroup", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDomainGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDomainGroup",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainGroupResponse>(await this.callApi(params, req, runtime), new UpdateDomainGroupResponse({}));
   }
 
   async updateDomainGroup(request: UpdateDomainGroupRequest): Promise<UpdateDomainGroupResponse> {
@@ -17248,10 +24473,58 @@ export default class Client extends OpenApi {
 
   async updateDomainRecordWithOptions(request: UpdateDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.line)) {
+      query["Line"] = request.line;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.RR)) {
+      query["RR"] = request.RR;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.TTL)) {
+      query["TTL"] = request.TTL;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDomainRecordResponse>(await this.doRPCRequest("UpdateDomainRecord", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDomainRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDomainRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainRecordResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordResponse({}));
   }
 
   async updateDomainRecord(request: UpdateDomainRecordRequest): Promise<UpdateDomainRecordResponse> {
@@ -17261,10 +24534,38 @@ export default class Client extends OpenApi {
 
   async updateDomainRecordRemarkWithOptions(request: UpdateDomainRecordRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRecordRemarkResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDomainRecordRemarkResponse>(await this.doRPCRequest("UpdateDomainRecordRemark", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDomainRecordRemarkResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDomainRecordRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainRecordRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordRemarkResponse({}));
   }
 
   async updateDomainRecordRemark(request: UpdateDomainRecordRemarkRequest): Promise<UpdateDomainRecordRemarkResponse> {
@@ -17274,10 +24575,34 @@ export default class Client extends OpenApi {
 
   async updateDomainRemarkWithOptions(request: UpdateDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRemarkResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDomainRemarkResponse>(await this.doRPCRequest("UpdateDomainRemark", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDomainRemarkResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDomainRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRemarkResponse({}));
   }
 
   async updateDomainRemark(request: UpdateDomainRemarkRequest): Promise<UpdateDomainRemarkResponse> {
@@ -17287,10 +24612,46 @@ export default class Client extends OpenApi {
 
   async updateGtmAccessStrategyWithOptions(request: UpdateGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmAccessStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessLines)) {
+      query["AccessLines"] = request.accessLines;
+    }
+
+    if (!Util.isUnset(request.defaultAddrPoolId)) {
+      query["DefaultAddrPoolId"] = request.defaultAddrPoolId;
+    }
+
+    if (!Util.isUnset(request.failoverAddrPoolId)) {
+      query["FailoverAddrPoolId"] = request.failoverAddrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.strategyName)) {
+      query["StrategyName"] = request.strategyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGtmAccessStrategyResponse>(await this.doRPCRequest("UpdateGtmAccessStrategy", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGtmAccessStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGtmAccessStrategy",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateGtmAccessStrategyResponse({}));
   }
 
   async updateGtmAccessStrategy(request: UpdateGtmAccessStrategyRequest): Promise<UpdateGtmAccessStrategyResponse> {
@@ -17300,10 +24661,46 @@ export default class Client extends OpenApi {
 
   async updateGtmAddressPoolWithOptions(request: UpdateGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmAddressPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addr)) {
+      query["Addr"] = request.addr;
+    }
+
+    if (!Util.isUnset(request.addrPoolId)) {
+      query["AddrPoolId"] = request.addrPoolId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.minAvailableAddrNum)) {
+      query["MinAvailableAddrNum"] = request.minAvailableAddrNum;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGtmAddressPoolResponse>(await this.doRPCRequest("UpdateGtmAddressPool", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGtmAddressPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGtmAddressPool",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateGtmAddressPoolResponse({}));
   }
 
   async updateGtmAddressPool(request: UpdateGtmAddressPoolRequest): Promise<UpdateGtmAddressPoolResponse> {
@@ -17313,10 +24710,58 @@ export default class Client extends OpenApi {
 
   async updateGtmInstanceGlobalConfigWithOptions(request: UpdateGtmInstanceGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmInstanceGlobalConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alertGroup)) {
+      query["AlertGroup"] = request.alertGroup;
+    }
+
+    if (!Util.isUnset(request.cnameCustomDomainName)) {
+      query["CnameCustomDomainName"] = request.cnameCustomDomainName;
+    }
+
+    if (!Util.isUnset(request.cnameMode)) {
+      query["CnameMode"] = request.cnameMode;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lbaStrategy)) {
+      query["LbaStrategy"] = request.lbaStrategy;
+    }
+
+    if (!Util.isUnset(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    if (!Util.isUnset(request.userDomainName)) {
+      query["UserDomainName"] = request.userDomainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGtmInstanceGlobalConfigResponse>(await this.doRPCRequest("UpdateGtmInstanceGlobalConfig", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGtmInstanceGlobalConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGtmInstanceGlobalConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateGtmInstanceGlobalConfigResponse({}));
   }
 
   async updateGtmInstanceGlobalConfig(request: UpdateGtmInstanceGlobalConfigRequest): Promise<UpdateGtmInstanceGlobalConfigResponse> {
@@ -17326,10 +24771,54 @@ export default class Client extends OpenApi {
 
   async updateGtmMonitorWithOptions(request: UpdateGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmMonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.evaluationCount)) {
+      query["EvaluationCount"] = request.evaluationCount;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispCityNode)) {
+      query["IspCityNode"] = request.ispCityNode;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.monitorConfigId)) {
+      query["MonitorConfigId"] = request.monitorConfigId;
+    }
+
+    if (!Util.isUnset(request.monitorExtendInfo)) {
+      query["MonitorExtendInfo"] = request.monitorExtendInfo;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGtmMonitorResponse>(await this.doRPCRequest("UpdateGtmMonitor", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGtmMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGtmMonitor",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateGtmMonitorResponse({}));
   }
 
   async updateGtmMonitor(request: UpdateGtmMonitorRequest): Promise<UpdateGtmMonitorResponse> {
@@ -17339,10 +24828,42 @@ export default class Client extends OpenApi {
 
   async updateGtmRecoveryPlanWithOptions(request: UpdateGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmRecoveryPlanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.faultAddrPool)) {
+      query["FaultAddrPool"] = request.faultAddrPool;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.recoveryPlanId)) {
+      query["RecoveryPlanId"] = request.recoveryPlanId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGtmRecoveryPlanResponse>(await this.doRPCRequest("UpdateGtmRecoveryPlan", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGtmRecoveryPlanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGtmRecoveryPlan",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new UpdateGtmRecoveryPlanResponse({}));
   }
 
   async updateGtmRecoveryPlan(request: UpdateGtmRecoveryPlanRequest): Promise<UpdateGtmRecoveryPlanResponse> {
@@ -17350,17 +24871,123 @@ export default class Client extends OpenApi {
     return await this.updateGtmRecoveryPlanWithOptions(request, runtime);
   }
 
-  async validateDnsGtmAttributeInfoWithOptions(request: ValidateDnsGtmAttributeInfoRequest, runtime: $Util.RuntimeOptions): Promise<ValidateDnsGtmAttributeInfoResponse> {
+  async updateIspFlushCacheInstanceConfigWithOptions(request: UpdateIspFlushCacheInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIspFlushCacheInstanceConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ValidateDnsGtmAttributeInfoResponse>(await this.doRPCRequest("ValidateDnsGtmAttributeInfo", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new ValidateDnsGtmAttributeInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIspFlushCacheInstanceConfig",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIspFlushCacheInstanceConfigResponse>(await this.callApi(params, req, runtime), new UpdateIspFlushCacheInstanceConfigResponse({}));
   }
 
-  async validateDnsGtmAttributeInfo(request: ValidateDnsGtmAttributeInfoRequest): Promise<ValidateDnsGtmAttributeInfoResponse> {
+  async updateIspFlushCacheInstanceConfig(request: UpdateIspFlushCacheInstanceConfigRequest): Promise<UpdateIspFlushCacheInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.validateDnsGtmAttributeInfoWithOptions(request, runtime);
+    return await this.updateIspFlushCacheInstanceConfigWithOptions(request, runtime);
+  }
+
+  async validateDnsGtmCnameRrCanUseWithOptions(request: ValidateDnsGtmCnameRrCanUseRequest, runtime: $Util.RuntimeOptions): Promise<ValidateDnsGtmCnameRrCanUseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cnameMode)) {
+      query["CnameMode"] = request.cnameMode;
+    }
+
+    if (!Util.isUnset(request.cnameRr)) {
+      query["CnameRr"] = request.cnameRr;
+    }
+
+    if (!Util.isUnset(request.cnameType)) {
+      query["CnameType"] = request.cnameType;
+    }
+
+    if (!Util.isUnset(request.cnameZone)) {
+      query["CnameZone"] = request.cnameZone;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ValidateDnsGtmCnameRrCanUse",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateDnsGtmCnameRrCanUseResponse>(await this.callApi(params, req, runtime), new ValidateDnsGtmCnameRrCanUseResponse({}));
+  }
+
+  async validateDnsGtmCnameRrCanUse(request: ValidateDnsGtmCnameRrCanUseRequest): Promise<ValidateDnsGtmCnameRrCanUseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.validateDnsGtmCnameRrCanUseWithOptions(request, runtime);
+  }
+
+  async validatePdnsUdpIpSegmentWithOptions(request: ValidatePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<ValidatePdnsUdpIpSegmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ValidatePdnsUdpIpSegment",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new ValidatePdnsUdpIpSegmentResponse({}));
+  }
+
+  async validatePdnsUdpIpSegment(request: ValidatePdnsUdpIpSegmentRequest): Promise<ValidatePdnsUdpIpSegmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.validatePdnsUdpIpSegmentWithOptions(request, runtime);
   }
 
 }
