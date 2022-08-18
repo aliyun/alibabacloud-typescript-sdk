@@ -177,10 +177,12 @@ export class CreateAuthorizationRuleRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dryRun?: boolean;
   name?: string;
   policy?: string;
+  protocol?: string;
   sourceCidr?: string;
   wirelessCloudConnectorId?: string;
   static names(): { [key: string]: string } {
@@ -188,10 +190,12 @@ export class CreateAuthorizationRuleRequest extends $tea.Model {
       clientToken: 'ClientToken',
       description: 'Description',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dryRun: 'DryRun',
       name: 'Name',
       policy: 'Policy',
+      protocol: 'Protocol',
       sourceCidr: 'SourceCidr',
       wirelessCloudConnectorId: 'WirelessCloudConnectorId',
     };
@@ -202,10 +206,12 @@ export class CreateAuthorizationRuleRequest extends $tea.Model {
       clientToken: 'string',
       description: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dryRun: 'boolean',
       name: 'string',
       policy: 'string',
+      protocol: 'string',
       sourceCidr: 'string',
       wirelessCloudConnectorId: 'string',
     };
@@ -1259,12 +1265,14 @@ export class GetWirelessCloudConnectorResponse extends $tea.Model {
 export class ListAuthorizationRulesRequest extends $tea.Model {
   authorizationRuleIds?: string[];
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dns?: boolean;
   maxResults?: number;
   names?: string[];
   nextToken?: string;
   policy?: string;
+  protocol?: string;
   statuses?: string[];
   type?: string;
   wirelessCloudConnectorId?: string;
@@ -1272,12 +1280,14 @@ export class ListAuthorizationRulesRequest extends $tea.Model {
     return {
       authorizationRuleIds: 'AuthorizationRuleIds',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dns: 'Dns',
       maxResults: 'MaxResults',
       names: 'Names',
       nextToken: 'NextToken',
       policy: 'Policy',
+      protocol: 'Protocol',
       statuses: 'Statuses',
       type: 'Type',
       wirelessCloudConnectorId: 'WirelessCloudConnectorId',
@@ -1288,12 +1298,14 @@ export class ListAuthorizationRulesRequest extends $tea.Model {
     return {
       authorizationRuleIds: { 'type': 'array', 'itemType': 'string' },
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dns: 'boolean',
       maxResults: 'number',
       names: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
       policy: 'string',
+      protocol: 'string',
       statuses: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
       wirelessCloudConnectorId: 'string',
@@ -2539,9 +2551,11 @@ export class UpdateAuthorizationRuleRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
   destination?: string;
+  destinationPort?: string;
   dryRun?: boolean;
   name?: string;
   policy?: string;
+  protocol?: string;
   sourceCidr?: string;
   wirelessCloudConnectorId?: string;
   static names(): { [key: string]: string } {
@@ -2550,9 +2564,11 @@ export class UpdateAuthorizationRuleRequest extends $tea.Model {
       clientToken: 'ClientToken',
       description: 'Description',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       dryRun: 'DryRun',
       name: 'Name',
       policy: 'Policy',
+      protocol: 'Protocol',
       sourceCidr: 'SourceCidr',
       wirelessCloudConnectorId: 'WirelessCloudConnectorId',
     };
@@ -2564,9 +2580,11 @@ export class UpdateAuthorizationRuleRequest extends $tea.Model {
       clientToken: 'string',
       description: 'string',
       destination: 'string',
+      destinationPort: 'string',
       dryRun: 'boolean',
       name: 'string',
       policy: 'string',
+      protocol: 'string',
       sourceCidr: 'string',
       wirelessCloudConnectorId: 'string',
     };
@@ -3033,10 +3051,12 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
   createTime?: string;
   description?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dns?: boolean;
   name?: string;
   policy?: string;
+  protocol?: string;
   sourceCidr?: string;
   status?: string;
   type?: string;
@@ -3046,10 +3066,12 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
       createTime: 'CreateTime',
       description: 'Description',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dns: 'Dns',
       name: 'Name',
       policy: 'Policy',
+      protocol: 'Protocol',
       sourceCidr: 'SourceCidr',
       status: 'Status',
       type: 'Type',
@@ -3062,10 +3084,12 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
       createTime: 'string',
       description: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dns: 'boolean',
       name: 'string',
       policy: 'string',
+      protocol: 'string',
       sourceCidr: 'string',
       status: 'string',
       type: 'string',
@@ -3596,6 +3620,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -3610,6 +3638,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.sourceCidr)) {
@@ -4633,6 +4665,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
@@ -4643,6 +4679,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.sourceCidr)) {
