@@ -509,6 +509,145 @@ export class ListChatappTemplateResponse extends $tea.Model {
   }
 }
 
+export class SendChatappMassMessageRequest extends $tea.Model {
+  channelType?: string;
+  custWabaId?: string;
+  fallBackContent?: string;
+  fallBackId?: string;
+  from?: string;
+  language?: string;
+  senderList?: SendChatappMassMessageRequestSenderList[];
+  taskId?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      custWabaId: 'CustWabaId',
+      fallBackContent: 'FallBackContent',
+      fallBackId: 'FallBackId',
+      from: 'From',
+      language: 'Language',
+      senderList: 'SenderList',
+      taskId: 'TaskId',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      custWabaId: 'string',
+      fallBackContent: 'string',
+      fallBackId: 'string',
+      from: 'string',
+      language: 'string',
+      senderList: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderList },
+      taskId: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageShrinkRequest extends $tea.Model {
+  channelType?: string;
+  custWabaId?: string;
+  fallBackContent?: string;
+  fallBackId?: string;
+  from?: string;
+  language?: string;
+  senderListShrink?: string;
+  taskId?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      custWabaId: 'CustWabaId',
+      fallBackContent: 'FallBackContent',
+      fallBackId: 'FallBackId',
+      from: 'From',
+      language: 'Language',
+      senderListShrink: 'SenderList',
+      taskId: 'TaskId',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      custWabaId: 'string',
+      fallBackContent: 'string',
+      fallBackId: 'string',
+      from: 'string',
+      language: 'string',
+      senderListShrink: 'string',
+      taskId: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageResponseBody extends $tea.Model {
+  code?: string;
+  groupMessageId?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      groupMessageId: 'GroupMessageId',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      groupMessageId: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SendChatappMassMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendChatappMassMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatappMessageRequest extends $tea.Model {
   channelType?: string;
   content?: string;
@@ -942,6 +1081,31 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
   }
 }
 
+export class SendChatappMassMessageRequestSenderList extends $tea.Model {
+  payload?: string[];
+  templateParams?: { [key: string]: string };
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payload: 'Payload',
+      templateParams: 'TemplateParams',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payload: { 'type': 'array', 'itemType': 'string' },
+      templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1194,6 +1358,73 @@ export default class Client extends OpenApi {
   async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatappTemplateWithOptions(request, runtime);
+  }
+
+  async sendChatappMassMessageWithOptions(tmpReq: SendChatappMassMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMassMessageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendChatappMassMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.senderList)) {
+      request.senderListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.senderList, "SenderList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channelType)) {
+      body["ChannelType"] = request.channelType;
+    }
+
+    if (!Util.isUnset(request.custWabaId)) {
+      body["CustWabaId"] = request.custWabaId;
+    }
+
+    if (!Util.isUnset(request.fallBackContent)) {
+      body["FallBackContent"] = request.fallBackContent;
+    }
+
+    if (!Util.isUnset(request.fallBackId)) {
+      body["FallBackId"] = request.fallBackId;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      body["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.senderListShrink)) {
+      body["SenderList"] = request.senderListShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      body["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendChatappMassMessage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendChatappMassMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMassMessageResponse({}));
+  }
+
+  async sendChatappMassMessage(request: SendChatappMassMessageRequest): Promise<SendChatappMassMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendChatappMassMessageWithOptions(request, runtime);
   }
 
   async sendChatappMessageWithOptions(tmpReq: SendChatappMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMessageResponse> {
