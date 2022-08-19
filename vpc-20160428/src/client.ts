@@ -15725,11 +15725,10 @@ export class DescribePublicIpAddressRequest extends $tea.Model {
 
 export class DescribePublicIpAddressResponseBody extends $tea.Model {
   code?: string;
-  ipRange?: DescribePublicIpAddressResponseBodyIpRange;
   message?: string;
   pageNumber?: number;
   pageSize?: number;
-  publicIpAddress?: string;
+  publicIpAddress?: string[];
   regionId?: string;
   requestId?: string;
   success?: boolean;
@@ -15737,7 +15736,6 @@ export class DescribePublicIpAddressResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      ipRange: 'IpRange',
       message: 'Message',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -15752,11 +15750,10 @@ export class DescribePublicIpAddressResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      ipRange: DescribePublicIpAddressResponseBodyIpRange,
       message: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      publicIpAddress: 'string',
+      publicIpAddress: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -34405,25 +34402,6 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSet extend
   static types(): { [key: string]: any } {
     return {
       physicalConnectionType: { 'type': 'array', 'itemType': DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePublicIpAddressResponseBodyIpRange extends $tea.Model {
-  ipRange?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      ipRange: 'IpRange',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipRange: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
