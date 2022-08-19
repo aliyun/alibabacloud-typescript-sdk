@@ -656,6 +656,97 @@ export class GetOrganizationalUnitResponse extends $tea.Model {
   }
 }
 
+export class GetOrganizationalUnitIdByExternalIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationalUnitIdByExternalIdRequest extends $tea.Model {
+  organizationalUnitExternalId?: string;
+  organizationalUnitSourceId?: string;
+  organizationalUnitSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationalUnitExternalId: 'organizationalUnitExternalId',
+      organizationalUnitSourceId: 'organizationalUnitSourceId',
+      organizationalUnitSourceType: 'organizationalUnitSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationalUnitExternalId: 'string',
+      organizationalUnitSourceId: 'string',
+      organizationalUnitSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationalUnitIdByExternalIdResponseBody extends $tea.Model {
+  organizationalUnitId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationalUnitId: 'organizationalUnitId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationalUnitId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationalUnitIdByExternalIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetOrganizationalUnitIdByExternalIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOrganizationalUnitIdByExternalIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   authorization?: string;
@@ -688,7 +779,6 @@ export class GetUserResponseBody extends $tea.Model {
   instanceId?: string;
   lockExpireTime?: number;
   organizationalUnits?: GetUserResponseBodyOrganizationalUnits[];
-  passwordSet?: boolean;
   phoneNumber?: string;
   phoneNumberVerified?: boolean;
   phoneRegion?: string;
@@ -712,7 +802,6 @@ export class GetUserResponseBody extends $tea.Model {
       instanceId: 'instanceId',
       lockExpireTime: 'lockExpireTime',
       organizationalUnits: 'organizationalUnits',
-      passwordSet: 'passwordSet',
       phoneNumber: 'phoneNumber',
       phoneNumberVerified: 'phoneNumberVerified',
       phoneRegion: 'phoneRegion',
@@ -739,7 +828,6 @@ export class GetUserResponseBody extends $tea.Model {
       instanceId: 'string',
       lockExpireTime: 'number',
       organizationalUnits: { 'type': 'array', 'itemType': GetUserResponseBodyOrganizationalUnits },
-      passwordSet: 'boolean',
       phoneNumber: 'string',
       phoneNumberVerified: 'boolean',
       phoneRegion: 'string',
@@ -777,6 +865,267 @@ export class GetUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByEmailHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByEmailRequest extends $tea.Model {
+  email?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'email',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByEmailResponseBody extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByEmailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserIdByEmailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserIdByEmailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByPhoneNumberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByPhoneNumberRequest extends $tea.Model {
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'phoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByPhoneNumberResponseBody extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByPhoneNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserIdByPhoneNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserIdByPhoneNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUserExternalIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUserExternalIdRequest extends $tea.Model {
+  userExternalId?: string;
+  userSourceId?: string;
+  userSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userExternalId: 'userExternalId',
+      userSourceId: 'userSourceId',
+      userSourceType: 'userSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userExternalId: 'string',
+      userSourceId: 'string',
+      userSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUserExternalIdResponseBody extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUserExternalIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserIdByUserExternalIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserIdByUserExternalIdResponseBody,
     };
   }
 
@@ -824,84 +1173,6 @@ export class GetUserInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserPasswordPolicyHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserPasswordPolicyResponseBody extends $tea.Model {
-  activeCycle?: number;
-  instanceId?: string;
-  minLength?: number;
-  passwordComplexityItem?: GetUserPasswordPolicyResponseBodyPasswordComplexityItem;
-  reservationCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      activeCycle: 'activeCycle',
-      instanceId: 'instanceId',
-      minLength: 'minLength',
-      passwordComplexityItem: 'passwordComplexityItem',
-      reservationCount: 'reservationCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activeCycle: 'number',
-      instanceId: 'string',
-      minLength: 'number',
-      passwordComplexityItem: GetUserPasswordPolicyResponseBodyPasswordComplexityItem,
-      reservationCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserPasswordPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserPasswordPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserPasswordPolicyResponseBody,
     };
   }
 
@@ -1389,46 +1660,6 @@ export class GetUserResponseBodyOrganizationalUnits extends $tea.Model {
   }
 }
 
-export class GetUserPasswordPolicyResponseBodyPasswordComplexityItem extends $tea.Model {
-  containLowerCase?: boolean;
-  containNumber?: boolean;
-  containSpecialChar?: boolean;
-  containUpperCase?: boolean;
-  displayNameCheck?: boolean;
-  emailCheck?: boolean;
-  phoneCheck?: boolean;
-  usernameCheck?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      containLowerCase: 'containLowerCase',
-      containNumber: 'containNumber',
-      containSpecialChar: 'containSpecialChar',
-      containUpperCase: 'containUpperCase',
-      displayNameCheck: 'displayNameCheck',
-      emailCheck: 'emailCheck',
-      phoneCheck: 'phoneCheck',
-      usernameCheck: 'usernameCheck',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      containLowerCase: 'boolean',
-      containNumber: 'boolean',
-      containSpecialChar: 'boolean',
-      containUpperCase: 'boolean',
-      displayNameCheck: 'boolean',
-      emailCheck: 'boolean',
-      phoneCheck: 'boolean',
-      usernameCheck: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListOrganizationalUnitsResponseBodyData extends $tea.Model {
   createTime?: number;
   description?: string;
@@ -1484,7 +1715,6 @@ export class ListUsersResponseBodyData extends $tea.Model {
   emailVerified?: boolean;
   instanceId?: string;
   lockExpireTime?: number;
-  passwordSet?: boolean;
   phoneNumber?: string;
   phoneNumberVerified?: boolean;
   phoneRegion?: string;
@@ -1506,7 +1736,6 @@ export class ListUsersResponseBodyData extends $tea.Model {
       emailVerified: 'emailVerified',
       instanceId: 'instanceId',
       lockExpireTime: 'lockExpireTime',
-      passwordSet: 'passwordSet',
       phoneNumber: 'phoneNumber',
       phoneNumberVerified: 'phoneNumberVerified',
       phoneRegion: 'phoneRegion',
@@ -1531,7 +1760,6 @@ export class ListUsersResponseBodyData extends $tea.Model {
       emailVerified: 'boolean',
       instanceId: 'string',
       lockExpireTime: 'number',
-      passwordSet: 'boolean',
       phoneNumber: 'string',
       phoneNumberVerified: 'boolean',
       phoneRegion: 'string',
@@ -1964,6 +2192,56 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrganizationalUnitResponse>(await this.callApi(params, req, runtime), new GetOrganizationalUnitResponse({}));
   }
 
+  async getOrganizationalUnitIdByExternalId(instanceId: string, applicationId: string, request: GetOrganizationalUnitIdByExternalIdRequest): Promise<GetOrganizationalUnitIdByExternalIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetOrganizationalUnitIdByExternalIdHeaders({ });
+    return await this.getOrganizationalUnitIdByExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  async getOrganizationalUnitIdByExternalIdWithOptions(instanceId: string, applicationId: string, request: GetOrganizationalUnitIdByExternalIdRequest, headers: GetOrganizationalUnitIdByExternalIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrganizationalUnitIdByExternalIdResponse> {
+    Util.validateModel(request);
+    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    applicationId = OpenApiUtil.getEncodeParam(applicationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationalUnitExternalId)) {
+      body["organizationalUnitExternalId"] = request.organizationalUnitExternalId;
+    }
+
+    if (!Util.isUnset(request.organizationalUnitSourceId)) {
+      body["organizationalUnitSourceId"] = request.organizationalUnitSourceId;
+    }
+
+    if (!Util.isUnset(request.organizationalUnitSourceType)) {
+      body["organizationalUnitSourceType"] = request.organizationalUnitSourceType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOrganizationalUnitIdByExternalId",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${instanceId}/${applicationId}/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOrganizationalUnitIdByExternalIdResponse>(await this.callApi(params, req, runtime), new GetOrganizationalUnitIdByExternalIdResponse({}));
+  }
+
   async getUser(instanceId: string, applicationId: string, userId: string): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetUserHeaders({ });
@@ -2000,6 +2278,140 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  async getUserIdByEmail(instanceId: string, applicationId: string, request: GetUserIdByEmailRequest): Promise<GetUserIdByEmailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserIdByEmailHeaders({ });
+    return await this.getUserIdByEmailWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  async getUserIdByEmailWithOptions(instanceId: string, applicationId: string, request: GetUserIdByEmailRequest, headers: GetUserIdByEmailHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByEmailResponse> {
+    Util.validateModel(request);
+    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    applicationId = OpenApiUtil.getEncodeParam(applicationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.email)) {
+      body["email"] = request.email;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserIdByEmail",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByEmail`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserIdByEmailResponse>(await this.callApi(params, req, runtime), new GetUserIdByEmailResponse({}));
+  }
+
+  async getUserIdByPhoneNumber(instanceId: string, applicationId: string, request: GetUserIdByPhoneNumberRequest): Promise<GetUserIdByPhoneNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserIdByPhoneNumberHeaders({ });
+    return await this.getUserIdByPhoneNumberWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  async getUserIdByPhoneNumberWithOptions(instanceId: string, applicationId: string, request: GetUserIdByPhoneNumberRequest, headers: GetUserIdByPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByPhoneNumberResponse> {
+    Util.validateModel(request);
+    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    applicationId = OpenApiUtil.getEncodeParam(applicationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["phoneNumber"] = request.phoneNumber;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserIdByPhoneNumber",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByPhoneNumber`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserIdByPhoneNumberResponse>(await this.callApi(params, req, runtime), new GetUserIdByPhoneNumberResponse({}));
+  }
+
+  async getUserIdByUserExternalId(instanceId: string, applicationId: string, request: GetUserIdByUserExternalIdRequest): Promise<GetUserIdByUserExternalIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserIdByUserExternalIdHeaders({ });
+    return await this.getUserIdByUserExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  async getUserIdByUserExternalIdWithOptions(instanceId: string, applicationId: string, request: GetUserIdByUserExternalIdRequest, headers: GetUserIdByUserExternalIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByUserExternalIdResponse> {
+    Util.validateModel(request);
+    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    applicationId = OpenApiUtil.getEncodeParam(applicationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userExternalId)) {
+      body["userExternalId"] = request.userExternalId;
+    }
+
+    if (!Util.isUnset(request.userSourceId)) {
+      body["userSourceId"] = request.userSourceId;
+    }
+
+    if (!Util.isUnset(request.userSourceType)) {
+      body["userSourceType"] = request.userSourceType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserIdByUserExternalId",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByExternalId`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserIdByUserExternalIdResponse>(await this.callApi(params, req, runtime), new GetUserIdByUserExternalIdResponse({}));
+  }
+
   async getUserInfo(instanceId: string, applicationId: string): Promise<GetUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetUserInfoHeaders({ });
@@ -2033,41 +2445,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetUserInfoResponse>(await this.callApi(params, req, runtime), new GetUserInfoResponse({}));
-  }
-
-  async getUserPasswordPolicy(instanceId: string, applicationId: string): Promise<GetUserPasswordPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetUserPasswordPolicyHeaders({ });
-    return await this.getUserPasswordPolicyWithOptions(instanceId, applicationId, headers, runtime);
-  }
-
-  async getUserPasswordPolicyWithOptions(instanceId: string, applicationId: string, headers: GetUserPasswordPolicyHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserPasswordPolicyResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    applicationId = OpenApiUtil.getEncodeParam(applicationId);
-    let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
-      realHeaders = headers.commonHeaders;
-    }
-
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: realHeaders,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetUserPasswordPolicy",
-      version: "2022-02-25",
-      protocol: "HTTPS",
-      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserPasswordPolicy`,
-      method: "POST",
-      authType: "Anonymous",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetUserPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetUserPasswordPolicyResponse({}));
   }
 
   async listOrganizationalUnitParentIds(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<ListOrganizationalUnitParentIdsResponse> {
