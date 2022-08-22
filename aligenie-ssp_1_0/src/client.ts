@@ -3121,6 +3121,134 @@ export class GetUserByDeviceIdResponse extends $tea.Model {
   }
 }
 
+export class GetWeatherHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherRequest extends $tea.Model {
+  deviceInfo?: GetWeatherRequestDeviceInfo;
+  payload?: GetWeatherRequestPayload;
+  userInfo?: GetWeatherRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      payload: 'Payload',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: GetWeatherRequestDeviceInfo,
+      payload: GetWeatherRequestPayload,
+      userInfo: GetWeatherRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherShrinkRequest extends $tea.Model {
+  deviceInfoShrink?: string;
+  payloadShrink?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfoShrink: 'DeviceInfo',
+      payloadShrink: 'Payload',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfoShrink: 'string',
+      payloadShrink: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: GetWeatherResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: GetWeatherResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetWeatherResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWeatherResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IndexControlPlayingListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -6157,6 +6285,134 @@ export class ReadMessageResponse extends $tea.Model {
   }
 }
 
+export class ScgSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchRequest extends $tea.Model {
+  scgFilter?: ScgSearchRequestScgFilter;
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scgFilter: 'ScgFilter',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scgFilter: ScgSearchRequestScgFilter,
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchShrinkRequest extends $tea.Model {
+  scgFilterShrink?: string;
+  topicId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scgFilterShrink: 'ScgFilter',
+      topicId: 'TopicId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scgFilterShrink: 'string',
+      topicId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ScgSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScgSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchContentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -7816,13 +8072,11 @@ export class CreateScheduleTaskRequestPayloadScheduleDTO extends $tea.Model {
 export class CreateScheduleTaskRequestPayload extends $tea.Model {
   actionDTOs?: CreateScheduleTaskRequestPayloadActionDTOs[];
   idempotentId?: string;
-  invoker?: string;
   scheduleDTO?: CreateScheduleTaskRequestPayloadScheduleDTO;
   static names(): { [key: string]: string } {
     return {
       actionDTOs: 'ActionDTOs',
       idempotentId: 'IdempotentId',
-      invoker: 'Invoker',
       scheduleDTO: 'ScheduleDTO',
     };
   }
@@ -7831,7 +8085,6 @@ export class CreateScheduleTaskRequestPayload extends $tea.Model {
     return {
       actionDTOs: { 'type': 'array', 'itemType': CreateScheduleTaskRequestPayloadActionDTOs },
       idempotentId: 'string',
-      invoker: 'string',
       scheduleDTO: CreateScheduleTaskRequestPayloadScheduleDTO,
     };
   }
@@ -7986,18 +8239,15 @@ export class DeleteScheduleTaskRequestDeviceInfo extends $tea.Model {
 
 export class DeleteScheduleTaskRequestPayload extends $tea.Model {
   id?: number;
-  invoker?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
-      invoker: 'Invoker',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       id: 'number',
-      invoker: 'string',
     };
   }
 
@@ -9515,18 +9765,15 @@ export class GetScheduleTaskRequestDeviceInfo extends $tea.Model {
 
 export class GetScheduleTaskRequestPayload extends $tea.Model {
   id?: number;
-  invoker?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
-      invoker: 'Invoker',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       id: 'number',
-      invoker: 'string',
     };
   }
 
@@ -9592,8 +9839,6 @@ export class GetScheduleTaskResponseBodyResult extends $tea.Model {
   scheduleId?: number;
   scheduleStartTime?: string;
   scheduleType?: string;
-  userId?: number;
-  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       actionTopicList: 'ActionTopicList',
@@ -9602,8 +9847,6 @@ export class GetScheduleTaskResponseBodyResult extends $tea.Model {
       scheduleId: 'ScheduleId',
       scheduleStartTime: 'ScheduleStartTime',
       scheduleType: 'ScheduleType',
-      userId: 'UserId',
-      uuid: 'Uuid',
     };
   }
 
@@ -9615,8 +9858,6 @@ export class GetScheduleTaskResponseBodyResult extends $tea.Model {
       scheduleId: 'number',
       scheduleStartTime: 'string',
       scheduleType: 'string',
-      userId: 'number',
-      uuid: 'string',
     };
   }
 
@@ -9723,6 +9964,184 @@ export class GetUserByDeviceIdResponseBodyResult extends $tea.Model {
     return {
       userOpenId: 'string',
       userUnionIds: { 'type': 'array', 'itemType': GetUserByDeviceIdResponseBodyResultUserUnionIds },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherRequestPayload extends $tea.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherResponseBodyResultCurrentMeteorologyTemperature extends $tea.Model {
+  current?: string;
+  currentDesc?: string;
+  high?: string;
+  highDesc?: string;
+  logical?: string;
+  low?: string;
+  lowDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      currentDesc: 'CurrentDesc',
+      high: 'High',
+      highDesc: 'HighDesc',
+      logical: 'Logical',
+      low: 'Low',
+      lowDesc: 'LowDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'string',
+      currentDesc: 'string',
+      high: 'string',
+      highDesc: 'string',
+      logical: 'string',
+      low: 'string',
+      lowDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherResponseBodyResultCurrentMeteorologyWeather extends $tea.Model {
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherResponseBodyResultCurrentMeteorology extends $tea.Model {
+  temperature?: GetWeatherResponseBodyResultCurrentMeteorologyTemperature;
+  weather?: GetWeatherResponseBodyResultCurrentMeteorologyWeather;
+  static names(): { [key: string]: string } {
+    return {
+      temperature: 'Temperature',
+      weather: 'Weather',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      temperature: GetWeatherResponseBodyResultCurrentMeteorologyTemperature,
+      weather: GetWeatherResponseBodyResultCurrentMeteorologyWeather,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWeatherResponseBodyResult extends $tea.Model {
+  currentMeteorology?: GetWeatherResponseBodyResultCurrentMeteorology;
+  static names(): { [key: string]: string } {
+    return {
+      currentMeteorology: 'CurrentMeteorology',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentMeteorology: GetWeatherResponseBodyResultCurrentMeteorology,
     };
   }
 
@@ -12794,6 +13213,103 @@ export class ReadMessageRequestUserInfo extends $tea.Model {
   }
 }
 
+export class ScgSearchRequestScgFilterOffSetParam extends $tea.Model {
+  limit?: number;
+  offset?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'Limit',
+      offset: 'Offset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      offset: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchRequestScgFilterPageParam extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchRequestScgFilterSortParam extends $tea.Model {
+  sortKey?: string;
+  sortOrder?: string;
+  sortText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sortKey: 'SortKey',
+      sortOrder: 'SortOrder',
+      sortText: 'SortText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sortKey: 'string',
+      sortOrder: 'string',
+      sortText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchRequestScgFilter extends $tea.Model {
+  offSetParam?: ScgSearchRequestScgFilterOffSetParam;
+  pageParam?: ScgSearchRequestScgFilterPageParam;
+  sortParam?: ScgSearchRequestScgFilterSortParam;
+  useOffSet?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      offSetParam: 'OffSetParam',
+      pageParam: 'PageParam',
+      sortParam: 'SortParam',
+      useOffSet: 'UseOffSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offSetParam: ScgSearchRequestScgFilterOffSetParam,
+      pageParam: ScgSearchRequestScgFilterPageParam,
+      sortParam: ScgSearchRequestScgFilterSortParam,
+      useOffSet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchContentRequestDeviceInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -14984,6 +15500,72 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserByDeviceIdResponse>(await this.callApi(params, req, runtime), new GetUserByDeviceIdResponse({}));
   }
 
+  async getWeather(request: GetWeatherRequest): Promise<GetWeatherResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetWeatherHeaders({ });
+    return await this.getWeatherWithOptions(request, headers, runtime);
+  }
+
+  async getWeatherWithOptions(tmpReq: GetWeatherRequest, headers: GetWeatherHeaders, runtime: $Util.RuntimeOptions): Promise<GetWeatherResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetWeatherShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.payload))) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.payload), "Payload", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      body["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    if (!Util.isUnset(request.payloadShrink)) {
+      body["Payload"] = request.payloadShrink;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      body["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWeather",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/GetWeather`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWeatherResponse>(await this.callApi(params, req, runtime), new GetWeatherResponse({}));
+  }
+
   async indexControlPlayingList(request: IndexControlPlayingListRequest): Promise<IndexControlPlayingListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IndexControlPlayingListHeaders({ });
@@ -16486,6 +17068,60 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ReadMessageResponse>(await this.callApi(params, req, runtime), new ReadMessageResponse({}));
+  }
+
+  async scgSearch(request: ScgSearchRequest): Promise<ScgSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ScgSearchHeaders({ });
+    return await this.scgSearchWithOptions(request, headers, runtime);
+  }
+
+  async scgSearchWithOptions(tmpReq: ScgSearchRequest, headers: ScgSearchHeaders, runtime: $Util.RuntimeOptions): Promise<ScgSearchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ScgSearchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.scgFilter))) {
+      request.scgFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.scgFilter), "ScgFilter", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.scgFilterShrink)) {
+      query["ScgFilter"] = request.scgFilterShrink;
+    }
+
+    if (!Util.isUnset(request.topicId)) {
+      query["TopicId"] = request.topicId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ScgSearch",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/scgSearch`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ScgSearchResponse>(await this.callApi(params, req, runtime), new ScgSearchResponse({}));
   }
 
   async searchContent(request: SearchContentRequest): Promise<SearchContentResponse> {

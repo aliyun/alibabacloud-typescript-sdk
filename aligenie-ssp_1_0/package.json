@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aligeniessp_1_0",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@alicloud/tea-typescript": "latest",
+    "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.4",
     "@alicloud/openapi-client": "^0.4.1",
     "@alicloud/openapi-util": "^0.2.9",
