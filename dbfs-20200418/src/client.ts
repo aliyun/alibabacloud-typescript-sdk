@@ -1068,15 +1068,21 @@ export class ListDbfsResponse extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
     };
   }
@@ -1089,10 +1095,12 @@ export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
 export class ListDbfsAttachableEcsInstancesResponseBody extends $tea.Model {
   ecsLabelInfo?: ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo[];
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       ecsLabelInfo: 'EcsLabelInfo',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -1100,6 +1108,7 @@ export class ListDbfsAttachableEcsInstancesResponseBody extends $tea.Model {
     return {
       ecsLabelInfo: { 'type': 'array', 'itemType': ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2847,6 +2856,14 @@ export default class Client extends OpenApi {
   async listDbfsAttachableEcsInstancesWithOptions(request: ListDbfsAttachableEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachableEcsInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
