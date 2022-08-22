@@ -1068,11 +1068,15 @@ export class ListDbfsResponse extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
+  filterKey?: string;
+  filterValue?: string;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      filterKey: 'FilterKey',
+      filterValue: 'FilterValue',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -1081,6 +1085,8 @@ export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      filterKey: 'string',
+      filterValue: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -2856,6 +2862,14 @@ export default class Client extends OpenApi {
   async listDbfsAttachableEcsInstancesWithOptions(request: ListDbfsAttachableEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachableEcsInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.filterKey)) {
+      query["FilterKey"] = request.filterKey;
+    }
+
+    if (!Util.isUnset(request.filterValue)) {
+      query["FilterValue"] = request.filterValue;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
