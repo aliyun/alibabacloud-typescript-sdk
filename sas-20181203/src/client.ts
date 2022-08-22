@@ -553,10 +553,12 @@ export class CreateFileDetectResponse extends $tea.Model {
 }
 
 export class CreateFileDetectUploadUrlRequest extends $tea.Model {
+  hashKeyContextList?: CreateFileDetectUploadUrlRequestHashKeyContextList[];
   hashKeyList?: string[];
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      hashKeyContextList: 'HashKeyContextList',
       hashKeyList: 'HashKeyList',
       type: 'Type',
     };
@@ -564,6 +566,7 @@ export class CreateFileDetectUploadUrlRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hashKeyContextList: { 'type': 'array', 'itemType': CreateFileDetectUploadUrlRequestHashKeyContextList },
       hashKeyList: { 'type': 'array', 'itemType': 'string' },
       type: 'number',
     };
@@ -17257,6 +17260,28 @@ export class CreateAntiBruteForceRuleResponseBodyCreateAntiBruteForceRule extend
   }
 }
 
+export class CreateFileDetectUploadUrlRequestHashKeyContextList extends $tea.Model {
+  fileSize?: number;
+  hashKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSize: 'FileSize',
+      hashKey: 'HashKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSize: 'number',
+      hashKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFileDetectUploadUrlResponseBodyUploadUrlListContext extends $tea.Model {
   accessId?: string;
   ossKey?: string;
@@ -17286,30 +17311,36 @@ export class CreateFileDetectUploadUrlResponseBodyUploadUrlListContext extends $
 }
 
 export class CreateFileDetectUploadUrlResponseBodyUploadUrlList extends $tea.Model {
+  code?: string;
   context?: CreateFileDetectUploadUrlResponseBodyUploadUrlListContext;
   expire?: string;
   fileExist?: boolean;
   hashKey?: string;
   internalUrl?: string;
+  message?: string;
   publicUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       context: 'Context',
       expire: 'Expire',
       fileExist: 'FileExist',
       hashKey: 'HashKey',
       internalUrl: 'InternalUrl',
+      message: 'Message',
       publicUrl: 'PublicUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       context: CreateFileDetectUploadUrlResponseBodyUploadUrlListContext,
       expire: 'string',
       fileExist: 'boolean',
       hashKey: 'string',
       internalUrl: 'string',
+      message: 'string',
       publicUrl: 'string',
     };
   }
@@ -24204,19 +24235,19 @@ export class GetCheckDetailResponseBodySolution extends $tea.Model {
 }
 
 export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
+  code?: string;
   ext?: string;
   hashKey?: string;
+  message?: string;
   result?: number;
   score?: number;
   virusType?: string;
   static names(): { [key: string]: string } {
     return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
+      code: 'Code',
       ext: 'Ext',
       hashKey: 'HashKey',
+      message: 'Message',
       result: 'Result',
       score: 'Score',
       virusType: 'VirusType',
@@ -24225,10 +24256,10 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      errorCode: 'string',
-      errorMessage: 'string',
+      code: 'string',
       ext: 'string',
       hashKey: 'string',
+      message: 'string',
       result: 'number',
       score: 'number',
       virusType: 'string',
@@ -24531,14 +24562,12 @@ export class ListHoneypotResponseBodyList extends $tea.Model {
 export class ListHoneypotResponseBodyPageInfo extends $tea.Model {
   count?: number;
   currentPage?: number;
-  lastRowKey?: string;
   pageSize?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       currentPage: 'CurrentPage',
-      lastRowKey: 'LastRowKey',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
     };
@@ -24548,7 +24577,6 @@ export class ListHoneypotResponseBodyPageInfo extends $tea.Model {
     return {
       count: 'number',
       currentPage: 'number',
-      lastRowKey: 'string',
       pageSize: 'number',
       totalCount: 'number',
     };
@@ -24728,14 +24756,12 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
 export class ListHoneypotNodeResponseBodyPageInfo extends $tea.Model {
   count?: number;
   currentPage?: number;
-  lastRowKey?: string;
   pageSize?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       currentPage: 'CurrentPage',
-      lastRowKey: 'LastRowKey',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
     };
@@ -24745,7 +24771,6 @@ export class ListHoneypotNodeResponseBodyPageInfo extends $tea.Model {
     return {
       count: 'number',
       currentPage: 'number',
-      lastRowKey: 'string',
       pageSize: 'number',
       totalCount: 'number',
     };
@@ -25483,6 +25508,10 @@ export default class Client extends OpenApi {
   async createFileDetectUploadUrlWithOptions(request: CreateFileDetectUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectUploadUrlResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.hashKeyContextList)) {
+      query["HashKeyContextList"] = request.hashKeyContextList;
+    }
+
     if (!Util.isUnset(request.hashKeyList)) {
       query["HashKeyList"] = request.hashKeyList;
     }
