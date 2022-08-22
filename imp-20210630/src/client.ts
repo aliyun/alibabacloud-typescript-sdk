@@ -1746,6 +1746,75 @@ export class DeleteLiveResponse extends $tea.Model {
   }
 }
 
+export class DeleteLiveFilesByIdRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveFilesByIdResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveFilesByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLiveFilesByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLiveFilesByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
@@ -3203,6 +3272,75 @@ export class ListConferenceUsersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListConferenceUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveFilesRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveFilesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListLiveFilesResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListLiveFilesResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListLiveFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLiveFilesResponseBody,
     };
   }
 
@@ -6006,6 +6144,47 @@ export class ListConferenceUsersResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListLiveFilesResponseBodyResultFileList extends $tea.Model {
+  fileName?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveFilesResponseBodyResult extends $tea.Model {
+  fileList?: ListLiveFilesResponseBodyResultFileList[];
+  static names(): { [key: string]: string } {
+    return {
+      fileList: 'FileList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileList: { 'type': 'array', 'itemType': ListLiveFilesResponseBodyResultFileList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLiveRoomsResponseBodyResultLiveList extends $tea.Model {
   anchorId?: string;
   anchorNick?: string;
@@ -7245,6 +7424,39 @@ export default class Client extends OpenApi {
     return await this.deleteLiveWithOptions(request, runtime);
   }
 
+  async deleteLiveFilesByIdWithOptions(request: DeleteLiveFilesByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveFilesByIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLiveFilesById",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLiveFilesByIdResponse>(await this.callApi(params, req, runtime), new DeleteLiveFilesByIdResponse({}));
+  }
+
+  async deleteLiveFilesById(request: DeleteLiveFilesByIdRequest): Promise<DeleteLiveFilesByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLiveFilesByIdWithOptions(request, runtime);
+  }
+
   async deleteLiveRoomWithOptions(request: DeleteLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveRoomResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8005,6 +8217,39 @@ export default class Client extends OpenApi {
   async listConferenceUsers(request: ListConferenceUsersRequest): Promise<ListConferenceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConferenceUsersWithOptions(request, runtime);
+  }
+
+  async listLiveFilesWithOptions(request: ListLiveFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveFilesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.liveId)) {
+      body["LiveId"] = request.liveId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListLiveFiles",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLiveFilesResponse>(await this.callApi(params, req, runtime), new ListLiveFilesResponse({}));
+  }
+
+  async listLiveFiles(request: ListLiveFilesRequest): Promise<ListLiveFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLiveFilesWithOptions(request, runtime);
   }
 
   async listLiveRoomsWithOptions(request: ListLiveRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRoomsResponse> {
