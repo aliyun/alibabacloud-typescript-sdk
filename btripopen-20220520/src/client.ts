@@ -1798,6 +1798,28 @@ export class CostCenterModifyResponse extends $tea.Model {
   }
 }
 
+export class CostCenterQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CostCenterQueryRequest extends $tea.Model {
   needOrgEntity?: boolean;
   thirdpartId?: string;
@@ -10538,11 +10560,11 @@ export default class Client extends OpenApi {
 
   async costCenterQuery(request: CostCenterQueryRequest): Promise<CostCenterQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CostCenterQueryHeaders({ });
     return await this.costCenterQueryWithOptions(request, headers, runtime);
   }
 
-  async costCenterQueryWithOptions(request: CostCenterQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CostCenterQueryResponse> {
+  async costCenterQueryWithOptions(request: CostCenterQueryRequest, headers: CostCenterQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.needOrgEntity)) {
@@ -10561,8 +10583,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
