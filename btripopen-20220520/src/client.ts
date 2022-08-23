@@ -189,6 +189,8 @@ export class ApplyAddRequest extends $tea.Model {
   hotelShare?: ApplyAddRequestHotelShare;
   internationalFlightCabins?: string;
   itineraryList?: ApplyAddRequestItineraryList[];
+  itineraryRule?: number;
+  itinerarySetList?: ApplyAddRequestItinerarySetList[];
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -219,6 +221,8 @@ export class ApplyAddRequest extends $tea.Model {
       hotelShare: 'hotel_share',
       internationalFlightCabins: 'international_flight_cabins',
       itineraryList: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
+      itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -252,6 +256,8 @@ export class ApplyAddRequest extends $tea.Model {
       hotelShare: ApplyAddRequestHotelShare,
       internationalFlightCabins: 'string',
       itineraryList: { 'type': 'array', 'itemType': ApplyAddRequestItineraryList },
+      itineraryRule: 'number',
+      itinerarySetList: { 'type': 'array', 'itemType': ApplyAddRequestItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -289,6 +295,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
   hotelShareShrink?: string;
   internationalFlightCabins?: string;
   itineraryListShrink?: string;
+  itineraryRule?: number;
+  itinerarySetListShrink?: string;
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -319,6 +327,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       hotelShareShrink: 'hotel_share',
       internationalFlightCabins: 'international_flight_cabins',
       itineraryListShrink: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
+      itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -352,6 +362,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       hotelShareShrink: 'string',
       internationalFlightCabins: 'string',
       itineraryListShrink: 'string',
+      itineraryRule: 'number',
+      itinerarySetListShrink: 'string',
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -555,6 +567,8 @@ export class ApplyModifyRequest extends $tea.Model {
   hotelBudget?: number;
   hotelShare?: ApplyModifyRequestHotelShare;
   itineraryList?: ApplyModifyRequestItineraryList[];
+  itineraryRule?: number;
+  itinerarySetList?: ApplyModifyRequestItinerarySetList[];
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -583,6 +597,8 @@ export class ApplyModifyRequest extends $tea.Model {
       hotelBudget: 'hotel_budget',
       hotelShare: 'hotel_share',
       itineraryList: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
+      itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -614,6 +630,8 @@ export class ApplyModifyRequest extends $tea.Model {
       hotelBudget: 'number',
       hotelShare: ApplyModifyRequestHotelShare,
       itineraryList: { 'type': 'array', 'itemType': ApplyModifyRequestItineraryList },
+      itineraryRule: 'number',
+      itinerarySetList: { 'type': 'array', 'itemType': ApplyModifyRequestItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -649,6 +667,8 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
   hotelBudget?: number;
   hotelShareShrink?: string;
   itineraryListShrink?: string;
+  itineraryRule?: number;
+  itinerarySetListShrink?: string;
   limitTraveler?: number;
   status?: number;
   thirdpartApplyId?: string;
@@ -677,6 +697,8 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       hotelBudget: 'hotel_budget',
       hotelShareShrink: 'hotel_share',
       itineraryListShrink: 'itinerary_list',
+      itineraryRule: 'itinerary_rule',
+      itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -708,6 +730,8 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       hotelBudget: 'number',
       hotelShareShrink: 'string',
       itineraryListShrink: 'string',
+      itineraryRule: 'number',
+      itinerarySetListShrink: 'string',
       limitTraveler: 'number',
       status: 'number',
       thirdpartApplyId: 'string',
@@ -4686,6 +4710,58 @@ export class ApplyAddRequestItineraryList extends $tea.Model {
   }
 }
 
+export class ApplyAddRequestItinerarySetList extends $tea.Model {
+  arrDate?: string;
+  cityCodeSet?: string;
+  citySet?: string;
+  costCenterId?: number;
+  depDate?: string;
+  invoiceId?: number;
+  itineraryId?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  trafficType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrDate: 'arr_date',
+      cityCodeSet: 'city_code_set',
+      citySet: 'city_set',
+      costCenterId: 'cost_center_id',
+      depDate: 'dep_date',
+      invoiceId: 'invoice_id',
+      itineraryId: 'itinerary_id',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      trafficType: 'traffic_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDate: 'string',
+      cityCodeSet: 'string',
+      citySet: 'string',
+      costCenterId: 'number',
+      depDate: 'string',
+      invoiceId: 'number',
+      itineraryId: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      trafficType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyAddRequestTravelerList extends $tea.Model {
   userId?: string;
   userName?: string;
@@ -4903,6 +4979,52 @@ export class ApplyListQueryResponseBodyModuleListItineraryList extends $tea.Mode
   }
 }
 
+export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $tea.Model {
+  arrDate?: string;
+  cityCodeSet?: string;
+  citySet?: string;
+  costCenterName?: string;
+  depDate?: string;
+  invoiceName?: string;
+  itineraryId?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  trafficType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrDate: 'arr_date',
+      cityCodeSet: 'city_code_set',
+      citySet: 'city_set',
+      costCenterName: 'cost_center_name',
+      depDate: 'dep_date',
+      invoiceName: 'invoice_name',
+      itineraryId: 'itinerary_id',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      trafficType: 'traffic_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDate: 'string',
+      cityCodeSet: 'string',
+      citySet: 'string',
+      costCenterName: 'string',
+      depDate: 'string',
+      invoiceName: 'string',
+      itineraryId: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      trafficType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyListQueryResponseBodyModuleListTravelerList extends $tea.Model {
   userId?: string;
   userName?: string;
@@ -4939,6 +5061,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
   id?: number;
   itineraryList?: ApplyListQueryResponseBodyModuleListItineraryList[];
   itineraryRule?: number;
+  itinerarySetList?: ApplyListQueryResponseBodyModuleListItinerarySetList[];
   status?: number;
   statusDesc?: string;
   thirdpartBusinessId?: string;
@@ -4966,6 +5089,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       id: 'id',
       itineraryList: 'itinerary_list',
       itineraryRule: 'itinerary_rule',
+      itinerarySetList: 'itinerary_set_list',
       status: 'status',
       statusDesc: 'status_desc',
       thirdpartBusinessId: 'thirdpart_business_id',
@@ -4996,6 +5120,7 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       id: 'number',
       itineraryList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListItineraryList },
       itineraryRule: 'number',
+      itinerarySetList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListItinerarySetList },
       status: 'number',
       statusDesc: 'string',
       thirdpartBusinessId: 'string',
@@ -5178,6 +5303,58 @@ export class ApplyModifyRequestItineraryList extends $tea.Model {
       thirdpartCostCenterId: 'string',
       trafficType: 'number',
       tripWay: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestItinerarySetList extends $tea.Model {
+  arrDate?: string;
+  cityCodeSet?: string;
+  citySet?: string;
+  costCenterId?: number;
+  depDate?: string;
+  invoiceId?: number;
+  itineraryId?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  trafficType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrDate: 'arr_date',
+      cityCodeSet: 'city_code_set',
+      citySet: 'city_set',
+      costCenterId: 'cost_center_id',
+      depDate: 'dep_date',
+      invoiceId: 'invoice_id',
+      itineraryId: 'itinerary_id',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      trafficType: 'traffic_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDate: 'string',
+      cityCodeSet: 'string',
+      citySet: 'string',
+      costCenterId: 'number',
+      depDate: 'string',
+      invoiceId: 'number',
+      itineraryId: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      trafficType: 'number',
     };
   }
 
@@ -5477,6 +5654,52 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
   }
 }
 
+export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
+  arrDate?: string;
+  cityCodeSet?: string;
+  citySet?: string;
+  costCenterName?: string;
+  depDate?: string;
+  invoiceName?: string;
+  itineraryId?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  trafficType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arrDate: 'arr_date',
+      cityCodeSet: 'city_code_set',
+      citySet: 'city_set',
+      costCenterName: 'cost_center_name',
+      depDate: 'dep_date',
+      invoiceName: 'invoice_name',
+      itineraryId: 'itinerary_id',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      trafficType: 'traffic_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDate: 'string',
+      cityCodeSet: 'string',
+      citySet: 'string',
+      costCenterName: 'string',
+      depDate: 'string',
+      invoiceName: 'string',
+      itineraryId: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      trafficType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyQueryResponseBodyModuleTravelerListHotelCitys extends $tea.Model {
   cityCode?: string;
   cityName?: string;
@@ -5563,6 +5786,7 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
   id?: number;
   itineraryList?: ApplyQueryResponseBodyModuleItineraryList[];
   itineraryRule?: number;
+  itinerarySetList?: ApplyQueryResponseBodyModuleItinerarySetList[];
   limitTraveler?: number;
   status?: number;
   statusDesc?: string;
@@ -5598,6 +5822,7 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
       id: 'id',
       itineraryList: 'itinerary_list',
       itineraryRule: 'itinerary_rule',
+      itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
       status: 'status',
       statusDesc: 'status_desc',
@@ -5636,6 +5861,7 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
       id: 'number',
       itineraryList: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleItineraryList },
       itineraryRule: 'number',
+      itinerarySetList: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleItinerarySetList },
       limitTraveler: 'number',
       status: 'number',
       statusDesc: 'string',
@@ -9644,6 +9870,10 @@ export default class Client extends OpenApi {
       request.itineraryListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itineraryList, "itinerary_list", "json");
     }
 
+    if (!Util.isUnset(tmpReq.itinerarySetList)) {
+      request.itinerarySetListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itinerarySetList, "itinerary_set_list", "json");
+    }
+
     if (!Util.isUnset(tmpReq.travelerList)) {
       request.travelerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerList, "traveler_list", "json");
     }
@@ -9700,6 +9930,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.itineraryListShrink)) {
       body["itinerary_list"] = request.itineraryListShrink;
+    }
+
+    if (!Util.isUnset(request.itineraryRule)) {
+      body["itinerary_rule"] = request.itineraryRule;
+    }
+
+    if (!Util.isUnset(request.itinerarySetListShrink)) {
+      body["itinerary_set_list"] = request.itinerarySetListShrink;
     }
 
     if (!Util.isUnset(request.limitTraveler)) {
@@ -9882,6 +10120,10 @@ export default class Client extends OpenApi {
       request.itineraryListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itineraryList, "itinerary_list", "json");
     }
 
+    if (!Util.isUnset(tmpReq.itinerarySetList)) {
+      request.itinerarySetListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itinerarySetList, "itinerary_set_list", "json");
+    }
+
     if (!Util.isUnset(tmpReq.travelerList)) {
       request.travelerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerList, "traveler_list", "json");
     }
@@ -9933,6 +10175,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.itineraryListShrink)) {
       body["itinerary_list"] = request.itineraryListShrink;
+    }
+
+    if (!Util.isUnset(request.itineraryRule)) {
+      body["itinerary_rule"] = request.itineraryRule;
+    }
+
+    if (!Util.isUnset(request.itinerarySetListShrink)) {
+      body["itinerary_set_list"] = request.itinerarySetListShrink;
     }
 
     if (!Util.isUnset(request.limitTraveler)) {
