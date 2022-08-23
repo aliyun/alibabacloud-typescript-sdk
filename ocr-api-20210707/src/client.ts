@@ -483,99 +483,6 @@ export class RecognizeBasicResponse extends $tea.Model {
   }
 }
 
-export class RecognizeBatchRecognizeRequest extends $tea.Model {
-  imageName?: string;
-  imageOp?: string;
-  imageOssKey?: string;
-  needRotate?: boolean;
-  needSortPage?: boolean;
-  outputCharInfo?: boolean;
-  outputTable?: boolean;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageName: 'ImageName',
-      imageOp: 'ImageOp',
-      imageOssKey: 'ImageOssKey',
-      needRotate: 'NeedRotate',
-      needSortPage: 'NeedSortPage',
-      outputCharInfo: 'OutputCharInfo',
-      outputTable: 'OutputTable',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageName: 'string',
-      imageOp: 'string',
-      imageOssKey: 'string',
-      needRotate: 'boolean',
-      needSortPage: 'boolean',
-      outputCharInfo: 'boolean',
-      outputTable: 'boolean',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBatchRecognizeResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBatchRecognizeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecognizeBatchRecognizeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeBatchRecognizeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeBirthCertificationRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -1407,17 +1314,47 @@ export class RecognizeCtwoMedicalDeviceManageLicenseResponse extends $tea.Model 
   }
 }
 
-export class RecognizeDeleteExcelRecordRequest extends $tea.Model {
-  id?: string;
+export class RecognizeDocumentStructureRequest extends $tea.Model {
+  needRotate?: boolean;
+  needSortPage?: boolean;
+  noStamp?: boolean;
+  outputCharInfo?: boolean;
+  outputTable?: boolean;
+  page?: boolean;
+  paragraph?: boolean;
+  row?: boolean;
+  url?: string;
+  useNewStyleOutput?: boolean;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      needRotate: 'NeedRotate',
+      needSortPage: 'NeedSortPage',
+      noStamp: 'NoStamp',
+      outputCharInfo: 'OutputCharInfo',
+      outputTable: 'OutputTable',
+      page: 'Page',
+      paragraph: 'Paragraph',
+      row: 'Row',
+      url: 'Url',
+      useNewStyleOutput: 'UseNewStyleOutput',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
+      needRotate: 'boolean',
+      needSortPage: 'boolean',
+      noStamp: 'boolean',
+      outputCharInfo: 'boolean',
+      outputTable: 'boolean',
+      page: 'boolean',
+      paragraph: 'boolean',
+      row: 'boolean',
+      url: 'string',
+      useNewStyleOutput: 'boolean',
+      body: 'Readable',
     };
   }
 
@@ -1426,7 +1363,7 @@ export class RecognizeDeleteExcelRecordRequest extends $tea.Model {
   }
 }
 
-export class RecognizeDeleteExcelRecordResponseBody extends $tea.Model {
+export class RecognizeDocumentStructureResponseBody extends $tea.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -1454,10 +1391,10 @@ export class RecognizeDeleteExcelRecordResponseBody extends $tea.Model {
   }
 }
 
-export class RecognizeDeleteExcelRecordResponse extends $tea.Model {
+export class RecognizeDocumentStructureResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: RecognizeDeleteExcelRecordResponseBody;
+  body: RecognizeDocumentStructureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1470,7 +1407,7 @@ export class RecognizeDeleteExcelRecordResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: RecognizeDeleteExcelRecordResponseBody,
+      body: RecognizeDocumentStructureResponseBody,
     };
   }
 
@@ -2179,165 +2116,6 @@ export class RecognizeEstateCertificationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RecognizeEstateCertificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExcelExportRequest extends $tea.Model {
-  fileName?: string;
-  imageOp?: string;
-  ocrImageCount?: number;
-  ocrResult?: string;
-  ocrType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      imageOp: 'ImageOp',
-      ocrImageCount: 'OcrImageCount',
-      ocrResult: 'OcrResult',
-      ocrType: 'OcrType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      imageOp: 'string',
-      ocrImageCount: 'number',
-      ocrResult: 'string',
-      ocrType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExcelExportResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExcelExportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecognizeExcelExportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeExcelExportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExcelRecordRequest extends $tea.Model {
-  currPage?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currPage: 'CurrPage',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currPage: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExcelRecordResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExcelRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecognizeExcelRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeExcelRecordResponseBody,
     };
   }
 
@@ -5867,63 +5645,6 @@ export default class Client extends OpenApi {
     return await this.recognizeBasicWithOptions(request, runtime);
   }
 
-  async recognizeBatchRecognizeWithOptions(request: RecognizeBatchRecognizeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBatchRecognizeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.imageName)) {
-      query["ImageName"] = request.imageName;
-    }
-
-    if (!Util.isUnset(request.imageOp)) {
-      query["ImageOp"] = request.imageOp;
-    }
-
-    if (!Util.isUnset(request.imageOssKey)) {
-      query["ImageOssKey"] = request.imageOssKey;
-    }
-
-    if (!Util.isUnset(request.needRotate)) {
-      query["NeedRotate"] = request.needRotate;
-    }
-
-    if (!Util.isUnset(request.needSortPage)) {
-      query["NeedSortPage"] = request.needSortPage;
-    }
-
-    if (!Util.isUnset(request.outputCharInfo)) {
-      query["OutputCharInfo"] = request.outputCharInfo;
-    }
-
-    if (!Util.isUnset(request.outputTable)) {
-      query["OutputTable"] = request.outputTable;
-    }
-
-    if (!Util.isUnset(request.url)) {
-      query["Url"] = request.url;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeBatchRecognize",
-      version: "2021-07-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeBatchRecognizeResponse>(await this.callApi(params, req, runtime), new RecognizeBatchRecognizeResponse({}));
-  }
-
-  async recognizeBatchRecognize(request: RecognizeBatchRecognizeRequest): Promise<RecognizeBatchRecognizeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeBatchRecognizeWithOptions(request, runtime);
-  }
-
   async recognizeBirthCertificationWithOptions(request: RecognizeBirthCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBirthCertificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6273,18 +5994,56 @@ export default class Client extends OpenApi {
     return await this.recognizeCtwoMedicalDeviceManageLicenseWithOptions(request, runtime);
   }
 
-  async recognizeDeleteExcelRecordWithOptions(request: RecognizeDeleteExcelRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDeleteExcelRecordResponse> {
+  async recognizeDocumentStructureWithOptions(request: RecognizeDocumentStructureRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDocumentStructureResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.needSortPage)) {
+      query["NeedSortPage"] = request.needSortPage;
+    }
+
+    if (!Util.isUnset(request.noStamp)) {
+      query["NoStamp"] = request.noStamp;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.paragraph)) {
+      query["Paragraph"] = request.paragraph;
+    }
+
+    if (!Util.isUnset(request.row)) {
+      query["Row"] = request.row;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.useNewStyleOutput)) {
+      query["UseNewStyleOutput"] = request.useNewStyleOutput;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
     });
     let params = new $OpenApi.Params({
-      action: "RecognizeDeleteExcelRecord",
+      action: "RecognizeDocumentStructure",
       version: "2021-07-07",
       protocol: "HTTPS",
       pathname: "/",
@@ -6294,12 +6053,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecognizeDeleteExcelRecordResponse>(await this.callApi(params, req, runtime), new RecognizeDeleteExcelRecordResponse({}));
+    return $tea.cast<RecognizeDocumentStructureResponse>(await this.callApi(params, req, runtime), new RecognizeDocumentStructureResponse({}));
   }
 
-  async recognizeDeleteExcelRecord(request: RecognizeDeleteExcelRecordRequest): Promise<RecognizeDeleteExcelRecordResponse> {
+  async recognizeDocumentStructure(request: RecognizeDocumentStructureRequest): Promise<RecognizeDocumentStructureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeDeleteExcelRecordWithOptions(request, runtime);
+    return await this.recognizeDocumentStructureWithOptions(request, runtime);
   }
 
   async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
@@ -6623,84 +6382,6 @@ export default class Client extends OpenApi {
   async recognizeEstateCertification(request: RecognizeEstateCertificationRequest): Promise<RecognizeEstateCertificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeEstateCertificationWithOptions(request, runtime);
-  }
-
-  async recognizeExcelExportWithOptions(request: RecognizeExcelExportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExcelExportResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.fileName)) {
-      query["FileName"] = request.fileName;
-    }
-
-    if (!Util.isUnset(request.imageOp)) {
-      query["ImageOp"] = request.imageOp;
-    }
-
-    if (!Util.isUnset(request.ocrImageCount)) {
-      query["OcrImageCount"] = request.ocrImageCount;
-    }
-
-    if (!Util.isUnset(request.ocrResult)) {
-      query["OcrResult"] = request.ocrResult;
-    }
-
-    if (!Util.isUnset(request.ocrType)) {
-      query["OcrType"] = request.ocrType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeExcelExport",
-      version: "2021-07-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeExcelExportResponse>(await this.callApi(params, req, runtime), new RecognizeExcelExportResponse({}));
-  }
-
-  async recognizeExcelExport(request: RecognizeExcelExportRequest): Promise<RecognizeExcelExportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeExcelExportWithOptions(request, runtime);
-  }
-
-  async recognizeExcelRecordWithOptions(request: RecognizeExcelRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExcelRecordResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.currPage)) {
-      query["CurrPage"] = request.currPage;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeExcelRecord",
-      version: "2021-07-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeExcelRecordResponse>(await this.callApi(params, req, runtime), new RecognizeExcelRecordResponse({}));
-  }
-
-  async recognizeExcelRecord(request: RecognizeExcelRecordRequest): Promise<RecognizeExcelRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeExcelRecordWithOptions(request, runtime);
   }
 
   async recognizeExitEntryPermitToHKWithOptions(request: RecognizeExitEntryPermitToHKRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExitEntryPermitToHKResponse> {
