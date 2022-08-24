@@ -19,6 +19,7 @@ export class AddIntlImageProductVersionRequest extends $tea.Model {
   ak?: string;
   commodityCode?: string;
   imageConstraint?: AddIntlImageProductVersionRequestImageConstraint;
+  releaseRegion?: string;
   requestId?: string;
   secret?: string;
   uid?: string;
@@ -28,6 +29,7 @@ export class AddIntlImageProductVersionRequest extends $tea.Model {
       ak: 'Ak',
       commodityCode: 'CommodityCode',
       imageConstraint: 'ImageConstraint',
+      releaseRegion: 'ReleaseRegion',
       requestId: 'RequestId',
       secret: 'Secret',
       uid: 'Uid',
@@ -40,6 +42,7 @@ export class AddIntlImageProductVersionRequest extends $tea.Model {
       ak: 'string',
       commodityCode: 'string',
       imageConstraint: AddIntlImageProductVersionRequestImageConstraint,
+      releaseRegion: 'string',
       requestId: 'string',
       secret: 'string',
       uid: 'string',
@@ -2363,12 +2366,168 @@ export class DescribeImageCommodityInfoResponseBodyDataProtocolInfo extends $tea
   }
 }
 
+export class DescribeImageCommodityInfoResponseBodyDataSaleInfoPostpaidPricePostpaidPriceList extends $tea.Model {
+  basePrice?: string;
+  currency?: string;
+  excelUrl?: string;
+  instanceType?: string;
+  priceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basePrice: 'BasePrice',
+      currency: 'Currency',
+      excelUrl: 'ExcelUrl',
+      instanceType: 'InstanceType',
+      priceType: 'PriceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basePrice: 'string',
+      currency: 'string',
+      excelUrl: 'string',
+      instanceType: 'string',
+      priceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageCommodityInfoResponseBodyDataSaleInfoPostpaidPrice extends $tea.Model {
+  hourPrice?: string;
+  postpaidPriceList?: DescribeImageCommodityInfoResponseBodyDataSaleInfoPostpaidPricePostpaidPriceList[];
+  unifiedPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      hourPrice: 'HourPrice',
+      postpaidPriceList: 'PostpaidPriceList',
+      unifiedPrice: 'UnifiedPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hourPrice: 'string',
+      postpaidPriceList: { 'type': 'array', 'itemType': DescribeImageCommodityInfoResponseBodyDataSaleInfoPostpaidPricePostpaidPriceList },
+      unifiedPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageCommodityInfoResponseBodyDataSaleInfoPrepaymentPricePrepaymentPriceList extends $tea.Model {
+  basePrice?: string;
+  currency?: string;
+  excelUrl?: string;
+  instanceType?: string;
+  priceType?: string;
+  tradeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basePrice: 'BasePrice',
+      currency: 'Currency',
+      excelUrl: 'ExcelUrl',
+      instanceType: 'InstanceType',
+      priceType: 'PriceType',
+      tradeType: 'TradeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basePrice: 'string',
+      currency: 'string',
+      excelUrl: 'string',
+      instanceType: 'string',
+      priceType: 'string',
+      tradeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageCommodityInfoResponseBodyDataSaleInfoPrepaymentPrice extends $tea.Model {
+  monthPrice?: string;
+  monthRenewPrice?: string;
+  prepaymentPriceList?: DescribeImageCommodityInfoResponseBodyDataSaleInfoPrepaymentPricePrepaymentPriceList[];
+  unifiedPrice?: boolean;
+  yearPrice?: string;
+  yearRenewPrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      monthPrice: 'MonthPrice',
+      monthRenewPrice: 'MonthRenewPrice',
+      prepaymentPriceList: 'PrepaymentPriceList',
+      unifiedPrice: 'UnifiedPrice',
+      yearPrice: 'YearPrice',
+      yearRenewPrice: 'YearRenewPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monthPrice: 'string',
+      monthRenewPrice: 'string',
+      prepaymentPriceList: { 'type': 'array', 'itemType': DescribeImageCommodityInfoResponseBodyDataSaleInfoPrepaymentPricePrepaymentPriceList },
+      unifiedPrice: 'boolean',
+      yearPrice: 'string',
+      yearRenewPrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageCommodityInfoResponseBodyDataSaleInfo extends $tea.Model {
+  billingMethods?: number;
+  commodityFrontShow?: string;
+  postpaidPrice?: DescribeImageCommodityInfoResponseBodyDataSaleInfoPostpaidPrice;
+  prepaymentPrice?: DescribeImageCommodityInfoResponseBodyDataSaleInfoPrepaymentPrice;
+  pricingPlan?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingMethods: 'BillingMethods',
+      commodityFrontShow: 'CommodityFrontShow',
+      postpaidPrice: 'PostpaidPrice',
+      prepaymentPrice: 'PrepaymentPrice',
+      pricingPlan: 'PricingPlan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingMethods: 'number',
+      commodityFrontShow: 'string',
+      postpaidPrice: DescribeImageCommodityInfoResponseBodyDataSaleInfoPostpaidPrice,
+      prepaymentPrice: DescribeImageCommodityInfoResponseBodyDataSaleInfoPrepaymentPrice,
+      pricingPlan: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageCommodityInfoResponseBodyData extends $tea.Model {
   accessInfo?: DescribeImageCommodityInfoResponseBodyDataAccessInfo;
   basicInfo?: DescribeImageCommodityInfoResponseBodyDataBasicInfo;
   bussinessInfo?: DescribeImageCommodityInfoResponseBodyDataBussinessInfo;
   commodityCode?: string;
   protocolInfo?: DescribeImageCommodityInfoResponseBodyDataProtocolInfo;
+  saleInfo?: DescribeImageCommodityInfoResponseBodyDataSaleInfo;
   trackId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2377,6 +2536,7 @@ export class DescribeImageCommodityInfoResponseBodyData extends $tea.Model {
       bussinessInfo: 'BussinessInfo',
       commodityCode: 'CommodityCode',
       protocolInfo: 'ProtocolInfo',
+      saleInfo: 'SaleInfo',
       trackId: 'TrackId',
     };
   }
@@ -2388,6 +2548,7 @@ export class DescribeImageCommodityInfoResponseBodyData extends $tea.Model {
       bussinessInfo: DescribeImageCommodityInfoResponseBodyDataBussinessInfo,
       commodityCode: 'string',
       protocolInfo: DescribeImageCommodityInfoResponseBodyDataProtocolInfo,
+      saleInfo: DescribeImageCommodityInfoResponseBodyDataSaleInfo,
       trackId: 'string',
     };
   }
@@ -2763,6 +2924,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.imageConstraint))) {
       bodyFlat["ImageConstraint"] = request.imageConstraint;
+    }
+
+    if (!Util.isUnset(request.releaseRegion)) {
+      body["ReleaseRegion"] = request.releaseRegion;
     }
 
     if (!Util.isUnset(request.requestId)) {
