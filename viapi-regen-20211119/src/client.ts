@@ -177,11 +177,15 @@ export class CreateLabelsetResponse extends $tea.Model {
 }
 
 export class CreateServiceRequest extends $tea.Model {
+  authorizationType?: string;
+  authorizedAccount?: string;
   description?: string;
   name?: string;
   trainTaskId?: number;
   static names(): { [key: string]: string } {
     return {
+      authorizationType: 'AuthorizationType',
+      authorizedAccount: 'AuthorizedAccount',
       description: 'Description',
       name: 'Name',
       trainTaskId: 'TrainTaskId',
@@ -190,6 +194,8 @@ export class CreateServiceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorizationType: 'string',
+      authorizedAccount: 'string',
       description: 'string',
       name: 'string',
       trainTaskId: 'number',
@@ -315,6 +321,7 @@ export class CreateTagTaskResponse extends $tea.Model {
 }
 
 export class CreateTrainTaskRequest extends $tea.Model {
+  advancedParameters?: string;
   datasetId?: number;
   description?: string;
   labelId?: number;
@@ -323,6 +330,7 @@ export class CreateTrainTaskRequest extends $tea.Model {
   workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
+      advancedParameters: 'AdvancedParameters',
       datasetId: 'DatasetId',
       description: 'Description',
       labelId: 'LabelId',
@@ -334,6 +342,7 @@ export class CreateTrainTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedParameters: 'string',
       datasetId: 'number',
       description: 'string',
       labelId: 'number',
@@ -1332,53 +1341,6 @@ export class DownloadLabelFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DownloadLabelFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DownloadTemplateResponseBody extends $tea.Model {
-  data?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DownloadTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DownloadTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DownloadTemplateResponseBody,
     };
   }
 
@@ -2711,15 +2673,18 @@ export class StartServiceResponse extends $tea.Model {
 }
 
 export class StartTrainTaskRequest extends $tea.Model {
+  forceStartFlag?: boolean;
   id?: number;
   static names(): { [key: string]: string } {
     return {
+      forceStartFlag: 'ForceStartFlag',
       id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      forceStartFlag: 'boolean',
       id: 'number',
     };
   }
@@ -3059,11 +3024,15 @@ export class UpdateLabelsetResponse extends $tea.Model {
 }
 
 export class UpdateServiceRequest extends $tea.Model {
+  authorizationType?: string;
+  authorizedAccount?: string;
   description?: string;
   id?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      authorizationType: 'AuthorizationType',
+      authorizedAccount: 'AuthorizedAccount',
       description: 'Description',
       id: 'Id',
       name: 'Name',
@@ -3072,6 +3041,8 @@ export class UpdateServiceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorizationType: 'string',
+      authorizedAccount: 'string',
       description: 'string',
       id: 'number',
       name: 'string',
@@ -3131,11 +3102,13 @@ export class UpdateServiceResponse extends $tea.Model {
 }
 
 export class UpdateTrainTaskRequest extends $tea.Model {
+  advancedParameters?: string;
   description?: string;
   id?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedParameters: 'AdvancedParameters',
       description: 'Description',
       id: 'Id',
       name: 'Name',
@@ -3144,6 +3117,7 @@ export class UpdateTrainTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedParameters: 'string',
       description: 'string',
       id: 'number',
       name: 'string',
@@ -3337,6 +3311,8 @@ export class CreateLabelsetResponseBodyData extends $tea.Model {
 }
 
 export class CreateServiceResponseBodyData extends $tea.Model {
+  authorizationType?: string;
+  authorizedAccount?: string;
   gmtCreate?: number;
   id?: number;
   serviceDescription?: string;
@@ -3344,6 +3320,8 @@ export class CreateServiceResponseBodyData extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      authorizationType: 'AuthorizationType',
+      authorizedAccount: 'AuthorizedAccount',
       gmtCreate: 'GmtCreate',
       id: 'Id',
       serviceDescription: 'ServiceDescription',
@@ -3354,6 +3332,8 @@ export class CreateServiceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorizationType: 'string',
+      authorizedAccount: 'string',
       gmtCreate: 'number',
       id: 'number',
       serviceDescription: 'string',
@@ -3402,6 +3382,7 @@ export class CreateTagTaskResponseBodyData extends $tea.Model {
 }
 
 export class CreateTrainTaskResponseBodyData extends $tea.Model {
+  advancedParameters?: string;
   datasetId?: number;
   datasetName?: string;
   description?: string;
@@ -3416,6 +3397,7 @@ export class CreateTrainTaskResponseBodyData extends $tea.Model {
   trainStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedParameters: 'AdvancedParameters',
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       description: 'Description',
@@ -3433,6 +3415,7 @@ export class CreateTrainTaskResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedParameters: 'string',
       datasetId: 'number',
       datasetName: 'string',
       description: 'string',
@@ -4052,7 +4035,6 @@ export class GetLabelsetResponseBodyData extends $tea.Model {
 }
 
 export class GetServiceResponseBodyData extends $tea.Model {
-  curlExample?: string;
   errorcodes?: string;
   gmtCreate?: number;
   id?: number;
@@ -4061,11 +4043,11 @@ export class GetServiceResponseBodyData extends $tea.Model {
   outputExample?: string;
   outputParams?: string;
   serviceDescription?: string;
+  serviceId?: string;
   serviceName?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      curlExample: 'CurlExample',
       errorcodes: 'Errorcodes',
       gmtCreate: 'GmtCreate',
       id: 'Id',
@@ -4074,6 +4056,7 @@ export class GetServiceResponseBodyData extends $tea.Model {
       outputExample: 'OutputExample',
       outputParams: 'OutputParams',
       serviceDescription: 'ServiceDescription',
+      serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       status: 'Status',
     };
@@ -4081,7 +4064,6 @@ export class GetServiceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      curlExample: 'string',
       errorcodes: 'string',
       gmtCreate: 'number',
       id: 'number',
@@ -4090,6 +4072,7 @@ export class GetServiceResponseBodyData extends $tea.Model {
       outputExample: 'string',
       outputParams: 'string',
       serviceDescription: 'string',
+      serviceId: 'string',
       serviceName: 'string',
       status: 'string',
     };
@@ -4572,6 +4555,7 @@ export class StartServiceResponseBodyData extends $tea.Model {
 }
 
 export class StartTrainTaskResponseBodyData extends $tea.Model {
+  checkResult?: { [key: string]: any };
   datasetId?: number;
   datasetName?: string;
   description?: string;
@@ -4586,6 +4570,7 @@ export class StartTrainTaskResponseBodyData extends $tea.Model {
   trainStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      checkResult: 'CheckResult',
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       description: 'Description',
@@ -4603,6 +4588,7 @@ export class StartTrainTaskResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkResult: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       datasetId: 'number',
       datasetName: 'string',
       description: 'string',
@@ -4763,12 +4749,16 @@ export class UpdateLabelsetResponseBodyData extends $tea.Model {
 }
 
 export class UpdateServiceResponseBodyData extends $tea.Model {
+  authorizationType?: string;
+  authorizedAccount?: string;
   gmtCreate?: number;
   id?: number;
   serviceDescription?: string;
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
+      authorizationType: 'AuthorizationType',
+      authorizedAccount: 'AuthorizedAccount',
       gmtCreate: 'GmtCreate',
       id: 'Id',
       serviceDescription: 'ServiceDescription',
@@ -4778,6 +4768,8 @@ export class UpdateServiceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorizationType: 'string',
+      authorizedAccount: 'string',
       gmtCreate: 'number',
       id: 'number',
       serviceDescription: 'string',
@@ -4791,6 +4783,7 @@ export class UpdateServiceResponseBodyData extends $tea.Model {
 }
 
 export class UpdateTrainTaskResponseBodyData extends $tea.Model {
+  advancedParameters?: string;
   datasetId?: number;
   datasetName?: string;
   description?: string;
@@ -4805,6 +4798,7 @@ export class UpdateTrainTaskResponseBodyData extends $tea.Model {
   trainStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedParameters: 'AdvancedParameters',
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       description: 'Description',
@@ -4822,6 +4816,7 @@ export class UpdateTrainTaskResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedParameters: 'string',
       datasetId: 'number',
       datasetName: 'string',
       description: 'string',
@@ -4878,7 +4873,64 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-northeast-1': "viapi-regen-daily.aliyuncs.com",
+      'ap-northeast-2-pop': "viapi-regen-daily.aliyuncs.com",
+      'ap-south-1': "viapi-regen-daily.aliyuncs.com",
+      'ap-southeast-1': "viapi-regen-daily.aliyuncs.com",
+      'ap-southeast-2': "viapi-regen-daily.aliyuncs.com",
+      'ap-southeast-3': "viapi-regen-daily.aliyuncs.com",
+      'ap-southeast-5': "viapi-regen-daily.aliyuncs.com",
+      'cn-beijing': "viapi-regen-daily.aliyuncs.com",
+      'cn-beijing-finance-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-beijing-finance-pop': "viapi-regen-daily.aliyuncs.com",
+      'cn-beijing-gov-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-beijing-nu16-b01': "viapi-regen-daily.aliyuncs.com",
+      'cn-chengdu': "viapi-regen-daily.aliyuncs.com",
+      'cn-edge-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-fujian': "viapi-regen-daily.aliyuncs.com",
+      'cn-haidian-cm12-c01': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-bj-b01': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-finance': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-internal-prod-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "viapi-regen-daily.aliyuncs.com",
+      'cn-hangzhou-test-306': "viapi-regen-daily.aliyuncs.com",
+      'cn-hongkong': "viapi-regen-daily.aliyuncs.com",
+      'cn-hongkong-finance-pop': "viapi-regen-daily.aliyuncs.com",
+      'cn-huhehaote': "viapi-regen-daily.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-north-2-gov-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-qingdao': "viapi-regen-daily.aliyuncs.com",
+      'cn-qingdao-nebula': "viapi-regen-daily.aliyuncs.com",
+      'cn-shanghai-et15-b01': "viapi-regen-daily.aliyuncs.com",
+      'cn-shanghai-et2-b01': "viapi-regen-daily.aliyuncs.com",
+      'cn-shanghai-finance-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-shanghai-inner': "viapi-regen-daily.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-shenzhen': "viapi-regen-daily.aliyuncs.com",
+      'cn-shenzhen-finance-1': "viapi-regen-daily.aliyuncs.com",
+      'cn-shenzhen-inner': "viapi-regen-daily.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "viapi-regen-daily.aliyuncs.com",
+      'cn-shenzhen-su18-b01': "viapi-regen-daily.aliyuncs.com",
+      'cn-wuhan': "viapi-regen-daily.aliyuncs.com",
+      'cn-wulanchabu': "viapi-regen-daily.aliyuncs.com",
+      'cn-yushanfang': "viapi-regen-daily.aliyuncs.com",
+      'cn-zhangbei': "viapi-regen-daily.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "viapi-regen-daily.aliyuncs.com",
+      'cn-zhangjiakou': "viapi-regen-daily.aliyuncs.com",
+      'cn-zhangjiakou-na62-a01': "viapi-regen-daily.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "viapi-regen-daily.aliyuncs.com",
+      'eu-central-1': "viapi-regen-daily.aliyuncs.com",
+      'eu-west-1': "viapi-regen-daily.aliyuncs.com",
+      'eu-west-1-oxs': "viapi-regen-daily.aliyuncs.com",
+      'me-east-1': "viapi-regen-daily.aliyuncs.com",
+      'rus-west-1-pop': "viapi-regen-daily.aliyuncs.com",
+      'us-east-1': "viapi-regen-daily.aliyuncs.com",
+      'us-west-1': "viapi-regen-daily.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("viapi-regen", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -4997,6 +5049,14 @@ export default class Client extends OpenApi {
   async createServiceWithOptions(request: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.authorizationType)) {
+      body["AuthorizationType"] = request.authorizationType;
+    }
+
+    if (!Util.isUnset(request.authorizedAccount)) {
+      body["AuthorizedAccount"] = request.authorizedAccount;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
@@ -5063,6 +5123,10 @@ export default class Client extends OpenApi {
   async createTrainTaskWithOptions(request: CreateTrainTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrainTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.advancedParameters)) {
+      body["AdvancedParameters"] = request.advancedParameters;
+    }
+
     if (!Util.isUnset(request.datasetId)) {
       body["DatasetId"] = request.datasetId;
     }
@@ -5740,27 +5804,6 @@ export default class Client extends OpenApi {
     return await this.downloadLabelFileWithOptions(request, runtime);
   }
 
-  async downloadTemplateWithOptions(runtime: $Util.RuntimeOptions): Promise<DownloadTemplateResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "DownloadTemplate",
-      version: "2021-11-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DownloadTemplateResponse>(await this.callApi(params, req, runtime), new DownloadTemplateResponse({}));
-  }
-
-  async downloadTemplate(): Promise<DownloadTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.downloadTemplateWithOptions(runtime);
-  }
-
   async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6407,6 +6450,10 @@ export default class Client extends OpenApi {
   async startTrainTaskWithOptions(request: StartTrainTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartTrainTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.forceStartFlag)) {
+      body["ForceStartFlag"] = request.forceStartFlag;
+    }
+
     if (!Util.isUnset(request.id)) {
       body["Id"] = request.id;
     }
@@ -6576,6 +6623,14 @@ export default class Client extends OpenApi {
   async updateServiceWithOptions(request: UpdateServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.authorizationType)) {
+      body["AuthorizationType"] = request.authorizationType;
+    }
+
+    if (!Util.isUnset(request.authorizedAccount)) {
+      body["AuthorizedAccount"] = request.authorizedAccount;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
@@ -6613,6 +6668,10 @@ export default class Client extends OpenApi {
   async updateTrainTaskWithOptions(request: UpdateTrainTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrainTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.advancedParameters)) {
+      body["AdvancedParameters"] = request.advancedParameters;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
     }
