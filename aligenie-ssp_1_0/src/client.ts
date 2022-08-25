@@ -6360,7 +6360,7 @@ export class ScgSearchResponseBody extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
-  result?: string;
+  result?: ScgSearchResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -6379,7 +6379,7 @@ export class ScgSearchResponseBody extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
-      result: 'string',
+      result: { 'type': 'array', 'itemType': ScgSearchResponseBodyResult },
     };
   }
 
@@ -13302,6 +13302,107 @@ export class ScgSearchRequestScgFilter extends $tea.Model {
       pageParam: ScgSearchRequestScgFilterPageParam,
       sortParam: ScgSearchRequestScgFilterSortParam,
       useOffSet: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchResponseBodyResultCover extends $tea.Model {
+  img?: string;
+  large?: string;
+  medium?: string;
+  small?: string;
+  canResize?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      img: 'Img',
+      large: 'Large',
+      medium: 'Medium',
+      small: 'Small',
+      canResize: 'canResize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      img: 'string',
+      large: 'string',
+      medium: 'string',
+      small: 'string',
+      canResize: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScgSearchResponseBodyResult extends $tea.Model {
+  album?: boolean;
+  albumRawId?: string;
+  albumType?: number;
+  alias?: string[];
+  authorIds?: number[];
+  authorNames?: string[];
+  category?: string;
+  contentType?: string;
+  cover?: ScgSearchResponseBodyResultCover;
+  isAudition?: boolean;
+  isCharge?: string;
+  needCharge?: boolean;
+  rawId?: number;
+  singers?: string;
+  source?: string;
+  supportAudition?: boolean;
+  title?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      album: 'Album',
+      albumRawId: 'AlbumRawId',
+      albumType: 'AlbumType',
+      alias: 'Alias',
+      authorIds: 'AuthorIds',
+      authorNames: 'AuthorNames',
+      category: 'Category',
+      contentType: 'ContentType',
+      cover: 'Cover',
+      isAudition: 'IsAudition',
+      isCharge: 'IsCharge',
+      needCharge: 'NeedCharge',
+      rawId: 'RawId',
+      singers: 'Singers',
+      source: 'Source',
+      supportAudition: 'SupportAudition',
+      title: 'Title',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      album: 'boolean',
+      albumRawId: 'string',
+      albumType: 'number',
+      alias: { 'type': 'array', 'itemType': 'string' },
+      authorIds: { 'type': 'array', 'itemType': 'number' },
+      authorNames: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      contentType: 'string',
+      cover: ScgSearchResponseBodyResultCover,
+      isAudition: 'boolean',
+      isCharge: 'string',
+      needCharge: 'boolean',
+      rawId: 'number',
+      singers: 'string',
+      source: 'string',
+      supportAudition: 'boolean',
+      title: 'string',
+      type: 'string',
     };
   }
 
