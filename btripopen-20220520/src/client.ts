@@ -86,6 +86,28 @@ export class AccessTokenResponse extends $tea.Model {
   }
 }
 
+export class AddressGetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddressGetRequest extends $tea.Model {
   actionType?: number;
   itineraryId?: string;
@@ -168,6 +190,131 @@ export class AddressGetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddressGetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AirportSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AirportSearchRequest extends $tea.Model {
+  keyword?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AirportSearchResponseBody extends $tea.Model {
+  module?: AirportSearchResponseBodyModule;
+  requestId?: string;
+  resultCode?: number;
+  resultMsg?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'module',
+      requestId: 'requestId',
+      resultCode: 'result_code',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: AirportSearchResponseBodyModule,
+      requestId: 'string',
+      resultCode: 'number',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AirportSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AirportSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AirportSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyAddHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -447,6 +594,143 @@ export class ApplyAddResponse extends $tea.Model {
   }
 }
 
+export class ApplyApproveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyApproveRequest extends $tea.Model {
+  applyId?: string;
+  note?: string;
+  operateTime?: string;
+  status?: number;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyId: 'apply_id',
+      note: 'note',
+      operateTime: 'operate_time',
+      status: 'status',
+      userId: 'user_id',
+      userName: 'user_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyId: 'string',
+      note: 'string',
+      operateTime: 'string',
+      status: 'number',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyApproveResponseBody extends $tea.Model {
+  module?: string;
+  requestId?: string;
+  resultCode?: number;
+  resultMsg?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'module',
+      requestId: 'request_id',
+      resultCode: 'result_code',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'trace_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: 'string',
+      requestId: 'string',
+      resultCode: 'number',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyApproveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApplyApproveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyApproveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyListQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyListQueryRequest extends $tea.Model {
   allApply?: boolean;
   departId?: string;
@@ -547,6 +831,28 @@ export class ApplyListQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ApplyListQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -814,6 +1120,28 @@ export class ApplyModifyResponse extends $tea.Model {
   }
 }
 
+export class ApplyQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyQueryRequest extends $tea.Model {
   applyId?: number;
   applyShowId?: string;
@@ -893,6 +1221,28 @@ export class ApplyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ApplyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarApplyAddHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -1021,6 +1371,28 @@ export class CarApplyAddResponse extends $tea.Model {
   }
 }
 
+export class CarApplyModifyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CarApplyModifyRequest extends $tea.Model {
   operateTime?: string;
   remark?: string;
@@ -1103,6 +1475,28 @@ export class CarApplyModifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CarApplyModifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarApplyQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -1207,6 +1601,28 @@ export class CarApplyQueryResponse extends $tea.Model {
   }
 }
 
+export class CarBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CarBillSettlementQueryRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
@@ -1286,6 +1702,28 @@ export class CarBillSettlementQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CarBillSettlementQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarOrderListQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -1405,6 +1843,128 @@ export class CarOrderListQueryResponse extends $tea.Model {
   }
 }
 
+export class CitySearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CitySearchRequest extends $tea.Model {
+  keyword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CitySearchResponseBody extends $tea.Model {
+  module?: CitySearchResponseBodyModule;
+  requestId?: string;
+  resultCode?: number;
+  resultMsg?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'module',
+      requestId: 'requestId',
+      resultCode: 'result_code',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: CitySearchResponseBodyModule,
+      requestId: 'string',
+      resultCode: 'number',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CitySearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CitySearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CitySearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonApplyQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CommonApplyQueryRequest extends $tea.Model {
   applyId?: number;
   bizCategory?: number;
@@ -1481,6 +2041,28 @@ export class CommonApplyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CommonApplyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommonApplySyncHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -1582,6 +2164,28 @@ export class CommonApplySyncResponse extends $tea.Model {
   }
 }
 
+export class CorpTokenHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripAccessToken: 'x-acs-btrip-access-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CorpTokenRequest extends $tea.Model {
   corpId?: string;
   type?: number;
@@ -1660,6 +2264,28 @@ export class CorpTokenResponse extends $tea.Model {
   }
 }
 
+export class CostCenterDeleteHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CostCenterDeleteRequest extends $tea.Model {
   thirdpartId?: string;
   static names(): { [key: string]: string } {
@@ -1727,6 +2353,28 @@ export class CostCenterDeleteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CostCenterDeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CostCenterModifyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -1934,6 +2582,28 @@ export class CostCenterQueryResponse extends $tea.Model {
   }
 }
 
+export class CostCenterSaveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CostCenterSaveRequest extends $tea.Model {
   alipayNo?: string;
   number?: string;
@@ -2016,6 +2686,28 @@ export class CostCenterSaveResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CostCenterSaveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DepartmentSaveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -2121,6 +2813,28 @@ export class DepartmentSaveResponse extends $tea.Model {
   }
 }
 
+export class EntityAddHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EntityAddRequest extends $tea.Model {
   entityDOList?: EntityAddRequestEntityDOList[];
   thirdpartId?: string;
@@ -2216,6 +2930,28 @@ export class EntityAddResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EntityAddResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EntityDeleteHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -2336,6 +3072,28 @@ export class EntityDeleteResponse extends $tea.Model {
   }
 }
 
+export class EntitySetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EntitySetRequest extends $tea.Model {
   entityDOList?: EntitySetRequestEntityDOList[];
   thirdpartId?: string;
@@ -2442,6 +3200,28 @@ export class EntitySetResponse extends $tea.Model {
   }
 }
 
+export class ExceedApplySyncHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExceedApplySyncRequest extends $tea.Model {
   applyId?: number;
   bizCategory?: number;
@@ -2527,6 +3307,28 @@ export class ExceedApplySyncResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExceedApplySyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -2622,6 +3424,28 @@ export class FlightBillSettlementQueryResponse extends $tea.Model {
   }
 }
 
+export class FlightExceedApplyQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
   static names(): { [key: string]: string } {
@@ -2692,6 +3516,28 @@ export class FlightExceedApplyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlightExceedApplyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FlightOrderListQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -2811,6 +3657,28 @@ export class FlightOrderListQueryResponse extends $tea.Model {
   }
 }
 
+export class FlightOrderQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlightOrderQueryRequest extends $tea.Model {
   orderId?: number;
   userId?: string;
@@ -2884,6 +3752,28 @@ export class FlightOrderQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FlightOrderQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -2979,6 +3869,28 @@ export class HotelBillSettlementQueryResponse extends $tea.Model {
   }
 }
 
+export class HotelExceedApplyQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
   static names(): { [key: string]: string } {
@@ -3049,6 +3961,28 @@ export class HotelExceedApplyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: HotelExceedApplyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderListQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -3168,6 +4102,140 @@ export class HotelOrderListQueryResponse extends $tea.Model {
   }
 }
 
+export class IeFlightBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IeFlightBillSettlementQueryRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  periodEnd?: string;
+  periodStart?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'page_no',
+      pageSize: 'page_size',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      periodEnd: 'string',
+      periodStart: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IeFlightBillSettlementQueryResponseBody extends $tea.Model {
+  module?: IeFlightBillSettlementQueryResponseBodyModule;
+  morePage?: boolean;
+  requestId?: string;
+  resultCode?: number;
+  resultMsg?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'module',
+      morePage: 'more_page',
+      requestId: 'requestId',
+      resultCode: 'result_code',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: IeFlightBillSettlementQueryResponseBodyModule,
+      morePage: 'boolean',
+      requestId: 'string',
+      resultCode: 'number',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IeFlightBillSettlementQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: IeFlightBillSettlementQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: IeFlightBillSettlementQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvoiceAddHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvoiceAddRequest extends $tea.Model {
   address?: string;
   bankName?: string;
@@ -3264,6 +4332,28 @@ export class InvoiceAddResponse extends $tea.Model {
   }
 }
 
+export class InvoiceDeleteHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvoiceDeleteRequest extends $tea.Model {
   thirdPartId?: string;
   static names(): { [key: string]: string } {
@@ -3331,6 +4421,28 @@ export class InvoiceDeleteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InvoiceDeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvoiceModifyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -3427,6 +4539,28 @@ export class InvoiceModifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InvoiceModifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvoiceRuleSaveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -3544,6 +4678,28 @@ export class InvoiceRuleSaveResponse extends $tea.Model {
   }
 }
 
+export class InvoiceSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvoiceSearchRequest extends $tea.Model {
   title?: string;
   userId?: string;
@@ -3617,6 +4773,28 @@ export class InvoiceSearchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InvoiceSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsvUserSaveHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -3722,6 +4900,28 @@ export class IsvUserSaveResponse extends $tea.Model {
   }
 }
 
+export class MonthBillGetHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MonthBillGetRequest extends $tea.Model {
   billMonth?: string;
   static names(): { [key: string]: string } {
@@ -3792,6 +4992,28 @@ export class MonthBillGetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MonthBillGetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProjectAddHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -3893,6 +5115,28 @@ export class ProjectAddResponse extends $tea.Model {
   }
 }
 
+export class ProjectDeleteHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ProjectDeleteRequest extends $tea.Model {
   thirdPartId?: string;
   static names(): { [key: string]: string } {
@@ -3963,6 +5207,28 @@ export class ProjectDeleteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ProjectDeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProjectModifyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -4061,6 +5327,28 @@ export class ProjectModifyResponse extends $tea.Model {
   }
 }
 
+export class TrainBillSettlementQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainBillSettlementQueryRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
@@ -4148,6 +5436,28 @@ export class TrainBillSettlementQueryResponse extends $tea.Model {
   }
 }
 
+export class TrainExceedApplyQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainExceedApplyQueryRequest extends $tea.Model {
   applyId?: number;
   static names(): { [key: string]: string } {
@@ -4218,6 +5528,28 @@ export class TrainExceedApplyQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TrainExceedApplyQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderListQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
     };
   }
 
@@ -4337,6 +5669,28 @@ export class TrainOrderListQueryResponse extends $tea.Model {
   }
 }
 
+export class TrainOrderQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainOrderQueryRequest extends $tea.Model {
   orderId?: number;
   userId?: string;
@@ -4418,12 +5772,138 @@ export class TrainOrderQueryResponse extends $tea.Model {
   }
 }
 
+export class TrainStationSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStationSearchRequest extends $tea.Model {
+  keyword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStationSearchResponseBody extends $tea.Model {
+  module?: TrainStationSearchResponseBodyModule;
+  requestId?: string;
+  resultCode?: number;
+  resultMsg?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      module: 'module',
+      requestId: 'requestId',
+      resultCode: 'result_code',
+      resultMsg: 'result_msg',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: TrainStationSearchResponseBodyModule,
+      requestId: 'string',
+      resultCode: 'number',
+      resultMsg: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStationSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TrainStationSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainStationSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UserQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripSoCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripSoCorpToken: 'x-acs-btrip-so-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripSoCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryRequest extends $tea.Model {
   modifiedTimeGreaterOrEqualThan?: string;
+  pageSize?: number;
+  pageToken?: string;
   thirdPartJobNo?: string;
   static names(): { [key: string]: string } {
     return {
       modifiedTimeGreaterOrEqualThan: 'modified_time_greater_or_equal_than',
+      pageSize: 'page_size',
+      pageToken: 'page_token',
       thirdPartJobNo: 'third_part_job_no',
     };
   }
@@ -4431,6 +5911,8 @@ export class UserQueryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       modifiedTimeGreaterOrEqualThan: 'string',
+      pageSize: 'number',
+      pageToken: 'string',
       thirdPartJobNo: 'string',
     };
   }
@@ -4532,6 +6014,56 @@ export class AddressGetResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AirportSearchResponseBodyModuleCities extends $tea.Model {
+  code?: string;
+  distance?: number;
+  name?: string;
+  travelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      distance: 'distance',
+      name: 'name',
+      travelName: 'travel_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      distance: 'number',
+      name: 'string',
+      travelName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AirportSearchResponseBodyModule extends $tea.Model {
+  cities?: AirportSearchResponseBodyModuleCities[];
+  nearby?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cities: 'cities',
+      nearby: 'nearby',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cities: { 'type': 'array', 'itemType': AirportSearchResponseBodyModuleCities },
+      nearby: 'boolean',
     };
   }
 
@@ -6505,6 +8037,50 @@ export class CarOrderListQueryResponseBodyPageInfo extends $tea.Model {
       page: 'number',
       pageSize: 'number',
       totalNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CitySearchResponseBodyModuleCities extends $tea.Model {
+  code?: string;
+  name?: string;
+  region?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      name: 'name',
+      region: 'region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      region: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CitySearchResponseBodyModule extends $tea.Model {
+  cities?: CitySearchResponseBodyModuleCities[];
+  static names(): { [key: string]: string } {
+    return {
+      cities: 'cities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cities: { 'type': 'array', 'itemType': CitySearchResponseBodyModuleCities },
     };
   }
 
@@ -8539,6 +10115,272 @@ export class HotelOrderListQueryResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
+  advanceDay?: number;
+  airlineCorpCode?: string;
+  airlineCorpName?: string;
+  alipayTradeNo?: string;
+  applyId?: string;
+  arrAirportCode?: string;
+  arrCity?: string;
+  arrDate?: string;
+  arrStation?: string;
+  arrTime?: string;
+  billRecordTime?: string;
+  bookMode?: string;
+  bookTime?: string;
+  bookerId?: string;
+  bookerJobNo?: string;
+  bookerName?: string;
+  btripCouponFee?: number;
+  cabin?: string;
+  cabinClass?: string;
+  capitalDirection?: string;
+  cascadeDepartment?: string;
+  changeFee?: number;
+  corpPayOrderFee?: number;
+  costCenter?: string;
+  costCenterNumber?: string;
+  coupon?: number;
+  depAirportCode?: string;
+  department?: string;
+  departmentId?: string;
+  deptCity?: string;
+  deptDate?: string;
+  deptStation?: string;
+  deptTime?: string;
+  discount?: string;
+  feeType?: string;
+  flightNo?: string;
+  index?: string;
+  insuranceFee?: number;
+  insuranceNumber?: string;
+  invoiceTitle?: string;
+  mostDifferenceDeptTime?: string;
+  mostDifferenceDiscount?: string;
+  mostDifferenceFlightNo?: string;
+  mostDifferencePrice?: number;
+  mostDifferenceReason?: string;
+  mostPrice?: number;
+  negotiationCouponFee?: number;
+  orderId?: string;
+  orderStatusDesc?: string;
+  overApplyId?: string;
+  primaryId?: number;
+  projectCode?: string;
+  projectName?: string;
+  refundFee?: number;
+  remark?: string;
+  repeatRefund?: string;
+  sealPrice?: number;
+  segmentType?: string;
+  serviceFee?: number;
+  settlementFee?: number;
+  settlementGrantFee?: number;
+  settlementTime?: string;
+  settlementType?: string;
+  status?: number;
+  subOrderId?: string;
+  taxFee?: number;
+  ticketId?: string;
+  trade?: string;
+  travelerId?: string;
+  travelerJobNo?: string;
+  travelerName?: string;
+  voucherType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advanceDay: 'advance_day',
+      airlineCorpCode: 'airline_corp_code',
+      airlineCorpName: 'airline_corp_name',
+      alipayTradeNo: 'alipay_trade_no',
+      applyId: 'apply_id',
+      arrAirportCode: 'arr_airport_code',
+      arrCity: 'arr_city',
+      arrDate: 'arr_date',
+      arrStation: 'arr_station',
+      arrTime: 'arr_time',
+      billRecordTime: 'bill_record_time',
+      bookMode: 'book_mode',
+      bookTime: 'book_time',
+      bookerId: 'booker_id',
+      bookerJobNo: 'booker_job_no',
+      bookerName: 'booker_name',
+      btripCouponFee: 'btrip_coupon_fee',
+      cabin: 'cabin',
+      cabinClass: 'cabin_class',
+      capitalDirection: 'capital_direction',
+      cascadeDepartment: 'cascade_department',
+      changeFee: 'change_fee',
+      corpPayOrderFee: 'corp_pay_order_fee',
+      costCenter: 'cost_center',
+      costCenterNumber: 'cost_center_number',
+      coupon: 'coupon',
+      depAirportCode: 'dep_airport_code',
+      department: 'department',
+      departmentId: 'department_id',
+      deptCity: 'dept_city',
+      deptDate: 'dept_date',
+      deptStation: 'dept_station',
+      deptTime: 'dept_time',
+      discount: 'discount',
+      feeType: 'fee_type',
+      flightNo: 'flight_no',
+      index: 'index',
+      insuranceFee: 'insurance_fee',
+      insuranceNumber: 'insurance_number',
+      invoiceTitle: 'invoice_title',
+      mostDifferenceDeptTime: 'most_difference_dept_time',
+      mostDifferenceDiscount: 'most_difference_discount',
+      mostDifferenceFlightNo: 'most_difference_flight_no',
+      mostDifferencePrice: 'most_difference_price',
+      mostDifferenceReason: 'most_difference_reason',
+      mostPrice: 'most_price',
+      negotiationCouponFee: 'negotiation_coupon_fee',
+      orderId: 'order_id',
+      orderStatusDesc: 'order_status_desc',
+      overApplyId: 'over_apply_id',
+      primaryId: 'primary_id',
+      projectCode: 'project_code',
+      projectName: 'project_name',
+      refundFee: 'refund_fee',
+      remark: 'remark',
+      repeatRefund: 'repeat_refund',
+      sealPrice: 'seal_price',
+      segmentType: 'segment_type',
+      serviceFee: 'service_fee',
+      settlementFee: 'settlement_fee',
+      settlementGrantFee: 'settlement_grant_fee',
+      settlementTime: 'settlement_time',
+      settlementType: 'settlement_type',
+      status: 'status',
+      subOrderId: 'sub_order_id',
+      taxFee: 'tax_fee',
+      ticketId: 'ticket_id',
+      trade: 'trade',
+      travelerId: 'traveler_id',
+      travelerJobNo: 'traveler_job_no',
+      travelerName: 'traveler_name',
+      voucherType: 'voucher_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceDay: 'number',
+      airlineCorpCode: 'string',
+      airlineCorpName: 'string',
+      alipayTradeNo: 'string',
+      applyId: 'string',
+      arrAirportCode: 'string',
+      arrCity: 'string',
+      arrDate: 'string',
+      arrStation: 'string',
+      arrTime: 'string',
+      billRecordTime: 'string',
+      bookMode: 'string',
+      bookTime: 'string',
+      bookerId: 'string',
+      bookerJobNo: 'string',
+      bookerName: 'string',
+      btripCouponFee: 'number',
+      cabin: 'string',
+      cabinClass: 'string',
+      capitalDirection: 'string',
+      cascadeDepartment: 'string',
+      changeFee: 'number',
+      corpPayOrderFee: 'number',
+      costCenter: 'string',
+      costCenterNumber: 'string',
+      coupon: 'number',
+      depAirportCode: 'string',
+      department: 'string',
+      departmentId: 'string',
+      deptCity: 'string',
+      deptDate: 'string',
+      deptStation: 'string',
+      deptTime: 'string',
+      discount: 'string',
+      feeType: 'string',
+      flightNo: 'string',
+      index: 'string',
+      insuranceFee: 'number',
+      insuranceNumber: 'string',
+      invoiceTitle: 'string',
+      mostDifferenceDeptTime: 'string',
+      mostDifferenceDiscount: 'string',
+      mostDifferenceFlightNo: 'string',
+      mostDifferencePrice: 'number',
+      mostDifferenceReason: 'string',
+      mostPrice: 'number',
+      negotiationCouponFee: 'number',
+      orderId: 'string',
+      orderStatusDesc: 'string',
+      overApplyId: 'string',
+      primaryId: 'number',
+      projectCode: 'string',
+      projectName: 'string',
+      refundFee: 'number',
+      remark: 'string',
+      repeatRefund: 'string',
+      sealPrice: 'number',
+      segmentType: 'string',
+      serviceFee: 'number',
+      settlementFee: 'number',
+      settlementGrantFee: 'number',
+      settlementTime: 'string',
+      settlementType: 'string',
+      status: 'number',
+      subOrderId: 'string',
+      taxFee: 'number',
+      ticketId: 'string',
+      trade: 'string',
+      travelerId: 'string',
+      travelerJobNo: 'string',
+      travelerName: 'string',
+      voucherType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IeFlightBillSettlementQueryResponseBodyModule extends $tea.Model {
+  category?: number;
+  corpId?: string;
+  dataList?: IeFlightBillSettlementQueryResponseBodyModuleDataList[];
+  periodEnd?: string;
+  periodStart?: string;
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      corpId: 'corp_id',
+      dataList: 'data_list',
+      periodEnd: 'period_end',
+      periodStart: 'period_start',
+      totalNum: 'total_num',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      corpId: 'string',
+      dataList: { 'type': 'array', 'itemType': IeFlightBillSettlementQueryResponseBodyModuleDataList },
+      periodEnd: 'string',
+      periodStart: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvoiceRuleSaveRequestEntities extends $tea.Model {
   id?: string;
   name?: string;
@@ -9685,6 +11527,47 @@ export class TrainOrderQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class TrainStationSearchResponseBodyModuleCities extends $tea.Model {
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStationSearchResponseBodyModule extends $tea.Model {
+  cities?: TrainStationSearchResponseBodyModuleCities[];
+  static names(): { [key: string]: string } {
+    return {
+      cities: 'cities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cities: { 'type': 'array', 'itemType': TrainStationSearchResponseBodyModuleCities },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryResponseBodyModuleItems extends $tea.Model {
   employeeNick?: string;
   thirdPartEmployeeId?: string;
@@ -9799,11 +11682,11 @@ export default class Client extends OpenApi {
 
   async addressGet(request: AddressGetRequest): Promise<AddressGetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new AddressGetHeaders({ });
     return await this.addressGetWithOptions(request, headers, runtime);
   }
 
-  async addressGetWithOptions(request: AddressGetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddressGetResponse> {
+  async addressGetWithOptions(request: AddressGetRequest, headers: AddressGetHeaders, runtime: $Util.RuntimeOptions): Promise<AddressGetResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.actionType)) {
@@ -9826,8 +11709,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -9844,13 +11736,57 @@ export default class Client extends OpenApi {
     return $tea.cast<AddressGetResponse>(await this.callApi(params, req, runtime), new AddressGetResponse({}));
   }
 
+  async airportSearch(request: AirportSearchRequest): Promise<AirportSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AirportSearchHeaders({ });
+    return await this.airportSearchWithOptions(request, headers, runtime);
+  }
+
+  async airportSearchWithOptions(request: AirportSearchRequest, headers: AirportSearchHeaders, runtime: $Util.RuntimeOptions): Promise<AirportSearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AirportSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/city/v1/airport`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AirportSearchResponse>(await this.callApi(params, req, runtime), new AirportSearchResponse({}));
+  }
+
   async applyAdd(request: ApplyAddRequest): Promise<ApplyAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ApplyAddHeaders({ });
     return await this.applyAddWithOptions(request, headers, runtime);
   }
 
-  async applyAddWithOptions(tmpReq: ApplyAddRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyAddResponse> {
+  async applyAddWithOptions(tmpReq: ApplyAddRequest, headers: ApplyAddHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyAddResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyAddShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -10004,8 +11940,17 @@ export default class Client extends OpenApi {
       body["vehicle_budget"] = request.vehicleBudget;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
@@ -10023,13 +11968,73 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAddResponse>(await this.callApi(params, req, runtime), new ApplyAddResponse({}));
   }
 
+  async applyApprove(request: ApplyApproveRequest): Promise<ApplyApproveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ApplyApproveHeaders({ });
+    return await this.applyApproveWithOptions(request, headers, runtime);
+  }
+
+  async applyApproveWithOptions(request: ApplyApproveRequest, headers: ApplyApproveHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyApproveResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applyId)) {
+      body["apply_id"] = request.applyId;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      body["note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.operateTime)) {
+      body["operate_time"] = request.operateTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["user_name"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyApprove",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/biz-trip/action/approve`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyApproveResponse>(await this.callApi(params, req, runtime), new ApplyApproveResponse({}));
+  }
+
   async applyListQuery(request: ApplyListQueryRequest): Promise<ApplyListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ApplyListQueryHeaders({ });
     return await this.applyListQueryWithOptions(request, headers, runtime);
   }
 
-  async applyListQueryWithOptions(request: ApplyListQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyListQueryResponse> {
+  async applyListQueryWithOptions(request: ApplyListQueryRequest, headers: ApplyListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allApply)) {
@@ -10076,8 +12081,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10096,11 +12110,11 @@ export default class Client extends OpenApi {
 
   async applyModify(request: ApplyModifyRequest): Promise<ApplyModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ApplyModifyHeaders({ });
     return await this.applyModifyWithOptions(request, headers, runtime);
   }
 
-  async applyModifyWithOptions(tmpReq: ApplyModifyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyModifyResponse> {
+  async applyModifyWithOptions(tmpReq: ApplyModifyRequest, headers: ApplyModifyHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyModifyResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyModifyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -10245,8 +12259,17 @@ export default class Client extends OpenApi {
       body["vehicle_budget"] = request.vehicleBudget;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10265,11 +12288,11 @@ export default class Client extends OpenApi {
 
   async applyQuery(request: ApplyQueryRequest): Promise<ApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ApplyQueryHeaders({ });
     return await this.applyQueryWithOptions(request, headers, runtime);
   }
 
-  async applyQueryWithOptions(request: ApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyQueryResponse> {
+  async applyQueryWithOptions(request: ApplyQueryRequest, headers: ApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
@@ -10288,8 +12311,17 @@ export default class Client extends OpenApi {
       query["type"] = request.type;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10308,11 +12340,11 @@ export default class Client extends OpenApi {
 
   async carApplyAdd(request: CarApplyAddRequest): Promise<CarApplyAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CarApplyAddHeaders({ });
     return await this.carApplyAddWithOptions(request, headers, runtime);
   }
 
-  async carApplyAddWithOptions(request: CarApplyAddRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarApplyAddResponse> {
+  async carApplyAddWithOptions(request: CarApplyAddRequest, headers: CarApplyAddHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyAddResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cause)) {
@@ -10375,8 +12407,17 @@ export default class Client extends OpenApi {
       body["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10395,11 +12436,11 @@ export default class Client extends OpenApi {
 
   async carApplyModify(request: CarApplyModifyRequest): Promise<CarApplyModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CarApplyModifyHeaders({ });
     return await this.carApplyModifyWithOptions(request, headers, runtime);
   }
 
-  async carApplyModifyWithOptions(request: CarApplyModifyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarApplyModifyResponse> {
+  async carApplyModifyWithOptions(request: CarApplyModifyRequest, headers: CarApplyModifyHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.operateTime)) {
@@ -10422,8 +12463,17 @@ export default class Client extends OpenApi {
       body["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10442,11 +12492,11 @@ export default class Client extends OpenApi {
 
   async carApplyQuery(request: CarApplyQueryRequest): Promise<CarApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CarApplyQueryHeaders({ });
     return await this.carApplyQueryWithOptions(request, headers, runtime);
   }
 
-  async carApplyQueryWithOptions(request: CarApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarApplyQueryResponse> {
+  async carApplyQueryWithOptions(request: CarApplyQueryRequest, headers: CarApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.createdEndAt)) {
@@ -10473,8 +12523,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10493,11 +12552,11 @@ export default class Client extends OpenApi {
 
   async carBillSettlementQuery(request: CarBillSettlementQueryRequest): Promise<CarBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CarBillSettlementQueryHeaders({ });
     return await this.carBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
-  async carBillSettlementQueryWithOptions(request: CarBillSettlementQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarBillSettlementQueryResponse> {
+  async carBillSettlementQueryWithOptions(request: CarBillSettlementQueryRequest, headers: CarBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNo)) {
@@ -10516,8 +12575,17 @@ export default class Client extends OpenApi {
       query["period_start"] = request.periodStart;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10536,11 +12604,11 @@ export default class Client extends OpenApi {
 
   async carOrderListQuery(request: CarOrderListQueryRequest): Promise<CarOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CarOrderListQueryHeaders({ });
     return await this.carOrderListQueryWithOptions(request, headers, runtime);
   }
 
-  async carOrderListQueryWithOptions(request: CarOrderListQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CarOrderListQueryResponse> {
+  async carOrderListQueryWithOptions(request: CarOrderListQueryRequest, headers: CarOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allApply)) {
@@ -10587,8 +12655,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10605,13 +12682,53 @@ export default class Client extends OpenApi {
     return $tea.cast<CarOrderListQueryResponse>(await this.callApi(params, req, runtime), new CarOrderListQueryResponse({}));
   }
 
+  async citySearch(request: CitySearchRequest): Promise<CitySearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CitySearchHeaders({ });
+    return await this.citySearchWithOptions(request, headers, runtime);
+  }
+
+  async citySearchWithOptions(request: CitySearchRequest, headers: CitySearchHeaders, runtime: $Util.RuntimeOptions): Promise<CitySearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CitySearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/city/v1/city`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CitySearchResponse>(await this.callApi(params, req, runtime), new CitySearchResponse({}));
+  }
+
   async commonApplyQuery(request: CommonApplyQueryRequest): Promise<CommonApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CommonApplyQueryHeaders({ });
     return await this.commonApplyQueryWithOptions(request, headers, runtime);
   }
 
-  async commonApplyQueryWithOptions(request: CommonApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommonApplyQueryResponse> {
+  async commonApplyQueryWithOptions(request: CommonApplyQueryRequest, headers: CommonApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CommonApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
@@ -10626,8 +12743,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10646,11 +12772,11 @@ export default class Client extends OpenApi {
 
   async commonApplySync(request: CommonApplySyncRequest): Promise<CommonApplySyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CommonApplySyncHeaders({ });
     return await this.commonApplySyncWithOptions(request, headers, runtime);
   }
 
-  async commonApplySyncWithOptions(request: CommonApplySyncRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommonApplySyncResponse> {
+  async commonApplySyncWithOptions(request: CommonApplySyncRequest, headers: CommonApplySyncHeaders, runtime: $Util.RuntimeOptions): Promise<CommonApplySyncResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
@@ -10677,8 +12803,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10697,11 +12832,11 @@ export default class Client extends OpenApi {
 
   async corpToken(request: CorpTokenRequest): Promise<CorpTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CorpTokenHeaders({ });
     return await this.corpTokenWithOptions(request, headers, runtime);
   }
 
-  async corpTokenWithOptions(request: CorpTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CorpTokenResponse> {
+  async corpTokenWithOptions(request: CorpTokenRequest, headers: CorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<CorpTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.corpId)) {
@@ -10712,8 +12847,17 @@ export default class Client extends OpenApi {
       query["type"] = request.type;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripAccessToken)) {
+      realHeaders["x-acs-btrip-access-token"] = Util.toJSONString(headers.xAcsBtripAccessToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10732,19 +12876,28 @@ export default class Client extends OpenApi {
 
   async costCenterDelete(request: CostCenterDeleteRequest): Promise<CostCenterDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CostCenterDeleteHeaders({ });
     return await this.costCenterDeleteWithOptions(request, headers, runtime);
   }
 
-  async costCenterDeleteWithOptions(request: CostCenterDeleteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CostCenterDeleteResponse> {
+  async costCenterDeleteWithOptions(request: CostCenterDeleteRequest, headers: CostCenterDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterDeleteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.thirdpartId)) {
       query["thirdpart_id"] = request.thirdpartId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -10763,11 +12916,11 @@ export default class Client extends OpenApi {
 
   async costCenterModify(request: CostCenterModifyRequest): Promise<CostCenterModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CostCenterModifyHeaders({ });
     return await this.costCenterModifyWithOptions(request, headers, runtime);
   }
 
-  async costCenterModifyWithOptions(request: CostCenterModifyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CostCenterModifyResponse> {
+  async costCenterModifyWithOptions(request: CostCenterModifyRequest, headers: CostCenterModifyHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alipayNo)) {
@@ -10790,8 +12943,17 @@ export default class Client extends OpenApi {
       body["title"] = request.title;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10862,11 +13024,11 @@ export default class Client extends OpenApi {
 
   async costCenterSave(request: CostCenterSaveRequest): Promise<CostCenterSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CostCenterSaveHeaders({ });
     return await this.costCenterSaveWithOptions(request, headers, runtime);
   }
 
-  async costCenterSaveWithOptions(request: CostCenterSaveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CostCenterSaveResponse> {
+  async costCenterSaveWithOptions(request: CostCenterSaveRequest, headers: CostCenterSaveHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterSaveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.alipayNo)) {
@@ -10889,8 +13051,17 @@ export default class Client extends OpenApi {
       body["title"] = request.title;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10909,11 +13080,11 @@ export default class Client extends OpenApi {
 
   async departmentSave(request: DepartmentSaveRequest): Promise<DepartmentSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DepartmentSaveHeaders({ });
     return await this.departmentSaveWithOptions(request, headers, runtime);
   }
 
-  async departmentSaveWithOptions(tmpReq: DepartmentSaveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DepartmentSaveResponse> {
+  async departmentSaveWithOptions(tmpReq: DepartmentSaveRequest, headers: DepartmentSaveHeaders, runtime: $Util.RuntimeOptions): Promise<DepartmentSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new DepartmentSaveShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -10926,8 +13097,17 @@ export default class Client extends OpenApi {
       body["depart_list"] = request.departListShrink;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10946,11 +13126,11 @@ export default class Client extends OpenApi {
 
   async entityAdd(request: EntityAddRequest): Promise<EntityAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new EntityAddHeaders({ });
     return await this.entityAddWithOptions(request, headers, runtime);
   }
 
-  async entityAddWithOptions(tmpReq: EntityAddRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EntityAddResponse> {
+  async entityAddWithOptions(tmpReq: EntityAddRequest, headers: EntityAddHeaders, runtime: $Util.RuntimeOptions): Promise<EntityAddResponse> {
     Util.validateModel(tmpReq);
     let request = new EntityAddShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -10967,8 +13147,17 @@ export default class Client extends OpenApi {
       body["thirdpart_id"] = request.thirdpartId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -10987,11 +13176,11 @@ export default class Client extends OpenApi {
 
   async entityDelete(request: EntityDeleteRequest): Promise<EntityDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new EntityDeleteHeaders({ });
     return await this.entityDeleteWithOptions(request, headers, runtime);
   }
 
-  async entityDeleteWithOptions(tmpReq: EntityDeleteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EntityDeleteResponse> {
+  async entityDeleteWithOptions(tmpReq: EntityDeleteRequest, headers: EntityDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<EntityDeleteResponse> {
     Util.validateModel(tmpReq);
     let request = new EntityDeleteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -11013,8 +13202,17 @@ export default class Client extends OpenApi {
       body["entity_d_o_list"] = request.entityDOListShrink;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
@@ -11034,11 +13232,11 @@ export default class Client extends OpenApi {
 
   async entitySet(request: EntitySetRequest): Promise<EntitySetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new EntitySetHeaders({ });
     return await this.entitySetWithOptions(request, headers, runtime);
   }
 
-  async entitySetWithOptions(tmpReq: EntitySetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EntitySetResponse> {
+  async entitySetWithOptions(tmpReq: EntitySetRequest, headers: EntitySetHeaders, runtime: $Util.RuntimeOptions): Promise<EntitySetResponse> {
     Util.validateModel(tmpReq);
     let request = new EntitySetShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -11055,8 +13253,17 @@ export default class Client extends OpenApi {
       body["thirdpart_id"] = request.thirdpartId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11075,11 +13282,11 @@ export default class Client extends OpenApi {
 
   async exceedApplySync(request: ExceedApplySyncRequest): Promise<ExceedApplySyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ExceedApplySyncHeaders({ });
     return await this.exceedApplySyncWithOptions(request, headers, runtime);
   }
 
-  async exceedApplySyncWithOptions(request: ExceedApplySyncRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExceedApplySyncResponse> {
+  async exceedApplySyncWithOptions(request: ExceedApplySyncRequest, headers: ExceedApplySyncHeaders, runtime: $Util.RuntimeOptions): Promise<ExceedApplySyncResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
@@ -11106,8 +13313,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11126,11 +13342,11 @@ export default class Client extends OpenApi {
 
   async flightBillSettlementQuery(request: FlightBillSettlementQueryRequest): Promise<FlightBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new FlightBillSettlementQueryHeaders({ });
     return await this.flightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
-  async flightBillSettlementQueryWithOptions(request: FlightBillSettlementQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FlightBillSettlementQueryResponse> {
+  async flightBillSettlementQueryWithOptions(request: FlightBillSettlementQueryRequest, headers: FlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNo)) {
@@ -11149,8 +13365,17 @@ export default class Client extends OpenApi {
       query["period_start"] = request.periodStart;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11169,19 +13394,28 @@ export default class Client extends OpenApi {
 
   async flightExceedApplyQuery(request: FlightExceedApplyQueryRequest): Promise<FlightExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new FlightExceedApplyQueryHeaders({ });
     return await this.flightExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
-  async flightExceedApplyQueryWithOptions(request: FlightExceedApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FlightExceedApplyQueryResponse> {
+  async flightExceedApplyQueryWithOptions(request: FlightExceedApplyQueryRequest, headers: FlightExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11200,11 +13434,11 @@ export default class Client extends OpenApi {
 
   async flightOrderListQuery(request: FlightOrderListQueryRequest): Promise<FlightOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new FlightOrderListQueryHeaders({ });
     return await this.flightOrderListQueryWithOptions(request, headers, runtime);
   }
 
-  async flightOrderListQueryWithOptions(request: FlightOrderListQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FlightOrderListQueryResponse> {
+  async flightOrderListQueryWithOptions(request: FlightOrderListQueryRequest, headers: FlightOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allApply)) {
@@ -11251,8 +13485,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11271,11 +13514,11 @@ export default class Client extends OpenApi {
 
   async flightOrderQuery(request: FlightOrderQueryRequest): Promise<FlightOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new FlightOrderQueryHeaders({ });
     return await this.flightOrderQueryWithOptions(request, headers, runtime);
   }
 
-  async flightOrderQueryWithOptions(request: FlightOrderQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FlightOrderQueryResponse> {
+  async flightOrderQueryWithOptions(request: FlightOrderQueryRequest, headers: FlightOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.orderId)) {
@@ -11286,8 +13529,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11306,11 +13558,11 @@ export default class Client extends OpenApi {
 
   async hotelBillSettlementQuery(request: HotelBillSettlementQueryRequest): Promise<HotelBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new HotelBillSettlementQueryHeaders({ });
     return await this.hotelBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
-  async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
+  async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNo)) {
@@ -11329,8 +13581,17 @@ export default class Client extends OpenApi {
       query["period_start"] = request.periodStart;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11349,19 +13610,28 @@ export default class Client extends OpenApi {
 
   async hotelExceedApplyQuery(request: HotelExceedApplyQueryRequest): Promise<HotelExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new HotelExceedApplyQueryHeaders({ });
     return await this.hotelExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
-  async hotelExceedApplyQueryWithOptions(request: HotelExceedApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<HotelExceedApplyQueryResponse> {
+  async hotelExceedApplyQueryWithOptions(request: HotelExceedApplyQueryRequest, headers: HotelExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11380,11 +13650,11 @@ export default class Client extends OpenApi {
 
   async hotelOrderListQuery(request: HotelOrderListQueryRequest): Promise<HotelOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new HotelOrderListQueryHeaders({ });
     return await this.hotelOrderListQueryWithOptions(request, headers, runtime);
   }
 
-  async hotelOrderListQueryWithOptions(request: HotelOrderListQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<HotelOrderListQueryResponse> {
+  async hotelOrderListQueryWithOptions(request: HotelOrderListQueryRequest, headers: HotelOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allApply)) {
@@ -11431,8 +13701,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11449,13 +13728,65 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderListQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderListQueryResponse({}));
   }
 
+  async ieFlightBillSettlementQuery(request: IeFlightBillSettlementQueryRequest): Promise<IeFlightBillSettlementQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new IeFlightBillSettlementQueryHeaders({ });
+    return await this.ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
+  }
+
+  async ieFlightBillSettlementQueryWithOptions(request: IeFlightBillSettlementQueryRequest, headers: IeFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<IeFlightBillSettlementQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["page_no"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.periodEnd)) {
+      query["period_end"] = request.periodEnd;
+    }
+
+    if (!Util.isUnset(request.periodStart)) {
+      query["period_start"] = request.periodStart;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "IeFlightBillSettlementQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/ie-flight/v1/bill-settlement`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<IeFlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new IeFlightBillSettlementQueryResponse({}));
+  }
+
   async invoiceAdd(request: InvoiceAddRequest): Promise<InvoiceAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new InvoiceAddHeaders({ });
     return await this.invoiceAddWithOptions(request, headers, runtime);
   }
 
-  async invoiceAddWithOptions(request: InvoiceAddRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvoiceAddResponse> {
+  async invoiceAddWithOptions(request: InvoiceAddRequest, headers: InvoiceAddHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceAddResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.address)) {
@@ -11490,8 +13821,17 @@ export default class Client extends OpenApi {
       body["type"] = request.type;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11510,19 +13850,28 @@ export default class Client extends OpenApi {
 
   async invoiceDelete(request: InvoiceDeleteRequest): Promise<InvoiceDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new InvoiceDeleteHeaders({ });
     return await this.invoiceDeleteWithOptions(request, headers, runtime);
   }
 
-  async invoiceDeleteWithOptions(request: InvoiceDeleteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvoiceDeleteResponse> {
+  async invoiceDeleteWithOptions(request: InvoiceDeleteRequest, headers: InvoiceDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceDeleteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.thirdPartId)) {
       query["third_part_id"] = request.thirdPartId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11541,11 +13890,11 @@ export default class Client extends OpenApi {
 
   async invoiceModify(request: InvoiceModifyRequest): Promise<InvoiceModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new InvoiceModifyHeaders({ });
     return await this.invoiceModifyWithOptions(request, headers, runtime);
   }
 
-  async invoiceModifyWithOptions(request: InvoiceModifyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvoiceModifyResponse> {
+  async invoiceModifyWithOptions(request: InvoiceModifyRequest, headers: InvoiceModifyHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.address)) {
@@ -11580,8 +13929,17 @@ export default class Client extends OpenApi {
       body["type"] = request.type;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11600,11 +13958,11 @@ export default class Client extends OpenApi {
 
   async invoiceRuleSave(request: InvoiceRuleSaveRequest): Promise<InvoiceRuleSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new InvoiceRuleSaveHeaders({ });
     return await this.invoiceRuleSaveWithOptions(request, headers, runtime);
   }
 
-  async invoiceRuleSaveWithOptions(tmpReq: InvoiceRuleSaveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvoiceRuleSaveResponse> {
+  async invoiceRuleSaveWithOptions(tmpReq: InvoiceRuleSaveRequest, headers: InvoiceRuleSaveHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceRuleSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new InvoiceRuleSaveShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -11625,8 +13983,17 @@ export default class Client extends OpenApi {
       body["third_part_id"] = request.thirdPartId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11645,11 +14012,11 @@ export default class Client extends OpenApi {
 
   async invoiceSearch(request: InvoiceSearchRequest): Promise<InvoiceSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new InvoiceSearchHeaders({ });
     return await this.invoiceSearchWithOptions(request, headers, runtime);
   }
 
-  async invoiceSearchWithOptions(request: InvoiceSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvoiceSearchResponse> {
+  async invoiceSearchWithOptions(request: InvoiceSearchRequest, headers: InvoiceSearchHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.title)) {
@@ -11660,8 +14027,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11680,11 +14056,11 @@ export default class Client extends OpenApi {
 
   async isvUserSave(request: IsvUserSaveRequest): Promise<IsvUserSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new IsvUserSaveHeaders({ });
     return await this.isvUserSaveWithOptions(request, headers, runtime);
   }
 
-  async isvUserSaveWithOptions(tmpReq: IsvUserSaveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<IsvUserSaveResponse> {
+  async isvUserSaveWithOptions(tmpReq: IsvUserSaveRequest, headers: IsvUserSaveHeaders, runtime: $Util.RuntimeOptions): Promise<IsvUserSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new IsvUserSaveShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
@@ -11697,8 +14073,17 @@ export default class Client extends OpenApi {
       body["user_list"] = request.userListShrink;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11717,19 +14102,28 @@ export default class Client extends OpenApi {
 
   async monthBillGet(request: MonthBillGetRequest): Promise<MonthBillGetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new MonthBillGetHeaders({ });
     return await this.monthBillGetWithOptions(request, headers, runtime);
   }
 
-  async monthBillGetWithOptions(request: MonthBillGetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MonthBillGetResponse> {
+  async monthBillGetWithOptions(request: MonthBillGetRequest, headers: MonthBillGetHeaders, runtime: $Util.RuntimeOptions): Promise<MonthBillGetResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.billMonth)) {
       query["bill_month"] = request.billMonth;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11748,11 +14142,11 @@ export default class Client extends OpenApi {
 
   async projectAdd(request: ProjectAddRequest): Promise<ProjectAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ProjectAddHeaders({ });
     return await this.projectAddWithOptions(request, headers, runtime);
   }
 
-  async projectAddWithOptions(request: ProjectAddRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ProjectAddResponse> {
+  async projectAddWithOptions(request: ProjectAddRequest, headers: ProjectAddHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectAddResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.code)) {
@@ -11775,8 +14169,17 @@ export default class Client extends OpenApi {
       body["third_part_invoice_id"] = request.thirdPartInvoiceId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11795,19 +14198,28 @@ export default class Client extends OpenApi {
 
   async projectDelete(request: ProjectDeleteRequest): Promise<ProjectDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ProjectDeleteHeaders({ });
     return await this.projectDeleteWithOptions(request, headers, runtime);
   }
 
-  async projectDeleteWithOptions(request: ProjectDeleteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ProjectDeleteResponse> {
+  async projectDeleteWithOptions(request: ProjectDeleteRequest, headers: ProjectDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectDeleteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.thirdPartId)) {
       query["third_part_id"] = request.thirdPartId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11826,11 +14238,11 @@ export default class Client extends OpenApi {
 
   async projectModify(request: ProjectModifyRequest): Promise<ProjectModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ProjectModifyHeaders({ });
     return await this.projectModifyWithOptions(request, headers, runtime);
   }
 
-  async projectModifyWithOptions(request: ProjectModifyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ProjectModifyResponse> {
+  async projectModifyWithOptions(request: ProjectModifyRequest, headers: ProjectModifyHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.code)) {
@@ -11853,8 +14265,17 @@ export default class Client extends OpenApi {
       body["third_part_invoice_id"] = request.thirdPartInvoiceId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -11873,11 +14294,11 @@ export default class Client extends OpenApi {
 
   async trainBillSettlementQuery(request: TrainBillSettlementQueryRequest): Promise<TrainBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new TrainBillSettlementQueryHeaders({ });
     return await this.trainBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
-  async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
+  async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: TrainBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNo)) {
@@ -11896,8 +14317,17 @@ export default class Client extends OpenApi {
       query["period_start"] = request.periodStart;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11916,19 +14346,28 @@ export default class Client extends OpenApi {
 
   async trainExceedApplyQuery(request: TrainExceedApplyQueryRequest): Promise<TrainExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new TrainExceedApplyQueryHeaders({ });
     return await this.trainExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
-  async trainExceedApplyQueryWithOptions(request: TrainExceedApplyQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrainExceedApplyQueryResponse> {
+  async trainExceedApplyQueryWithOptions(request: TrainExceedApplyQueryRequest, headers: TrainExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applyId)) {
       query["apply_id"] = request.applyId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -11947,11 +14386,11 @@ export default class Client extends OpenApi {
 
   async trainOrderListQuery(request: TrainOrderListQueryRequest): Promise<TrainOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new TrainOrderListQueryHeaders({ });
     return await this.trainOrderListQueryWithOptions(request, headers, runtime);
   }
 
-  async trainOrderListQueryWithOptions(request: TrainOrderListQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrainOrderListQueryResponse> {
+  async trainOrderListQueryWithOptions(request: TrainOrderListQueryRequest, headers: TrainOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allApply)) {
@@ -11998,8 +14437,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -12018,11 +14466,11 @@ export default class Client extends OpenApi {
 
   async trainOrderQuery(request: TrainOrderQueryRequest): Promise<TrainOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new TrainOrderQueryHeaders({ });
     return await this.trainOrderQueryWithOptions(request, headers, runtime);
   }
 
-  async trainOrderQueryWithOptions(request: TrainOrderQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrainOrderQueryResponse> {
+  async trainOrderQueryWithOptions(request: TrainOrderQueryRequest, headers: TrainOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.orderId)) {
@@ -12033,8 +14481,17 @@ export default class Client extends OpenApi {
       query["user_id"] = request.userId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
@@ -12051,25 +14508,82 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderQueryResponse({}));
   }
 
+  async trainStationSearch(request: TrainStationSearchRequest): Promise<TrainStationSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainStationSearchHeaders({ });
+    return await this.trainStationSearchWithOptions(request, headers, runtime);
+  }
+
+  async trainStationSearchWithOptions(request: TrainStationSearchRequest, headers: TrainStationSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainStationSearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainStationSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/city/v1/train`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainStationSearchResponse>(await this.callApi(params, req, runtime), new TrainStationSearchResponse({}));
+  }
+
   async userQuery(request: UserQueryRequest): Promise<UserQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new UserQueryHeaders({ });
     return await this.userQueryWithOptions(request, headers, runtime);
   }
 
-  async userQueryWithOptions(request: UserQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UserQueryResponse> {
+  async userQueryWithOptions(request: UserQueryRequest, headers: UserQueryHeaders, runtime: $Util.RuntimeOptions): Promise<UserQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.modifiedTimeGreaterOrEqualThan)) {
       query["modified_time_greater_or_equal_than"] = request.modifiedTimeGreaterOrEqualThan;
     }
 
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pageToken)) {
+      query["page_token"] = request.pageToken;
+    }
+
     if (!Util.isUnset(request.thirdPartJobNo)) {
       query["third_part_job_no"] = request.thirdPartJobNo;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = Util.toJSONString(headers.xAcsBtripSoCorpToken);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
