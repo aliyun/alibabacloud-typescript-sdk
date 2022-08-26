@@ -15202,6 +15202,7 @@ export class DescribeNatGatewaysRequest extends $tea.Model {
   resourceOwnerId?: number;
   spec?: string;
   status?: string;
+  tag?: DescribeNatGatewaysRequestTag[];
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -15222,6 +15223,7 @@ export class DescribeNatGatewaysRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       spec: 'Spec',
       status: 'Status',
+      tag: 'Tag',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -15245,6 +15247,7 @@ export class DescribeNatGatewaysRequest extends $tea.Model {
       resourceOwnerId: 'number',
       spec: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeNatGatewaysRequestTag },
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -20097,6 +20100,87 @@ export class GetDhcpOptionsSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDhcpOptionsSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowLogServiceStatusRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowLogServiceStatusResponseBody extends $tea.Model {
+  enabled?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowLogServiceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetFlowLogServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFlowLogServiceStatusResponseBody,
     };
   }
 
@@ -27614,6 +27698,84 @@ export class MoveResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class OpenFlowLogServiceRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenFlowLogServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenFlowLogServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: OpenFlowLogServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenFlowLogServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenPhysicalConnectionServiceRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -33460,6 +33622,28 @@ export class DescribeIpv6GatewaysResponseBodyIpv6Gateways extends $tea.Model {
   }
 }
 
+export class DescribeNatGatewaysRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds extends $tea.Model {
   forwardTableId?: string[];
   static names(): { [key: string]: string } {
@@ -33607,6 +33791,47 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewaySnatTableIds ex
   }
 }
 
+export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTags extends $tea.Model {
+  tag?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.Model {
   autoPay?: boolean;
   businessStatus?: string;
@@ -33634,6 +33859,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
   snatTableIds?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewaySnatTableIds;
   spec?: string;
   status?: string;
+  tags?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTags;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33663,6 +33889,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
       snatTableIds: 'SnatTableIds',
       spec: 'Spec',
       status: 'Status',
+      tags: 'Tags',
       vpcId: 'VpcId',
     };
   }
@@ -33695,6 +33922,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
       snatTableIds: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewaySnatTableIds,
       spec: 'string',
       status: 'string',
+      tags: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTags,
       vpcId: 'string',
     };
   }
@@ -50105,6 +50333,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -52956,6 +53188,59 @@ export default class Client extends OpenApi {
   async getDhcpOptionsSet(request: GetDhcpOptionsSetRequest): Promise<GetDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDhcpOptionsSetWithOptions(request, runtime);
+  }
+
+  async getFlowLogServiceStatusWithOptions(request: GetFlowLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowLogServiceStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFlowLogServiceStatus",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFlowLogServiceStatusResponse>(await this.callApi(params, req, runtime), new GetFlowLogServiceStatusResponse({}));
+  }
+
+  async getFlowLogServiceStatus(request: GetFlowLogServiceStatusRequest): Promise<GetFlowLogServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFlowLogServiceStatusWithOptions(request, runtime);
   }
 
   async getIpv4GatewayAttributeWithOptions(request: GetIpv4GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetIpv4GatewayAttributeResponse> {
@@ -58045,6 +58330,59 @@ export default class Client extends OpenApi {
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
+  }
+
+  async openFlowLogServiceWithOptions(request: OpenFlowLogServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenFlowLogServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenFlowLogService",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenFlowLogServiceResponse>(await this.callApi(params, req, runtime), new OpenFlowLogServiceResponse({}));
+  }
+
+  async openFlowLogService(request: OpenFlowLogServiceRequest): Promise<OpenFlowLogServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openFlowLogServiceWithOptions(request, runtime);
   }
 
   async openPhysicalConnectionServiceWithOptions(request: OpenPhysicalConnectionServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPhysicalConnectionServiceResponse> {
