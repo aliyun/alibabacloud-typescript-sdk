@@ -4,23 +4,24 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddUserToGroupRequest extends $tea.Model {
-  userName?: string;
   groupName?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
       groupName: 'GroupName',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
       groupName: 'string',
+      userName: 'string',
     };
   }
 
@@ -50,10 +51,12 @@ export class AddUserToGroupResponseBody extends $tea.Model {
 
 export class AddUserToGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddUserToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -61,6 +64,7 @@ export class AddUserToGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddUserToGroupResponseBody,
     };
   }
@@ -71,22 +75,22 @@ export class AddUserToGroupResponse extends $tea.Model {
 }
 
 export class AttachPolicyToGroupRequest extends $tea.Model {
-  policyType?: string;
-  policyName?: string;
   groupName?: string;
+  policyName?: string;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
-      policyName: 'PolicyName',
       groupName: 'GroupName',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
-      policyName: 'string',
       groupName: 'string',
+      policyName: 'string',
+      policyType: 'string',
     };
   }
 
@@ -116,10 +120,12 @@ export class AttachPolicyToGroupResponseBody extends $tea.Model {
 
 export class AttachPolicyToGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachPolicyToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -127,6 +133,7 @@ export class AttachPolicyToGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachPolicyToGroupResponseBody,
     };
   }
@@ -137,21 +144,21 @@ export class AttachPolicyToGroupResponse extends $tea.Model {
 }
 
 export class AttachPolicyToRoleRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
       roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
       roleName: 'string',
     };
   }
@@ -182,10 +189,12 @@ export class AttachPolicyToRoleResponseBody extends $tea.Model {
 
 export class AttachPolicyToRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachPolicyToRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -193,6 +202,7 @@ export class AttachPolicyToRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachPolicyToRoleResponseBody,
     };
   }
@@ -203,21 +213,21 @@ export class AttachPolicyToRoleResponse extends $tea.Model {
 }
 
 export class AttachPolicyToUserRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
       userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
       userName: 'string',
     };
   }
@@ -248,10 +258,12 @@ export class AttachPolicyToUserResponseBody extends $tea.Model {
 
 export class AttachPolicyToUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachPolicyToUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -259,6 +271,7 @@ export class AttachPolicyToUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachPolicyToUserResponseBody,
     };
   }
@@ -269,25 +282,25 @@ export class AttachPolicyToUserResponse extends $tea.Model {
 }
 
 export class BindMFADeviceRequest extends $tea.Model {
-  serialNumber?: string;
-  userName?: string;
   authenticationCode1?: string;
   authenticationCode2?: string;
+  serialNumber?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      userName: 'UserName',
       authenticationCode1: 'AuthenticationCode1',
       authenticationCode2: 'AuthenticationCode2',
+      serialNumber: 'SerialNumber',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      userName: 'string',
       authenticationCode1: 'string',
       authenticationCode2: 'string',
+      serialNumber: 'string',
+      userName: 'string',
     };
   }
 
@@ -317,10 +330,12 @@ export class BindMFADeviceResponseBody extends $tea.Model {
 
 export class BindMFADeviceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: BindMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -328,6 +343,7 @@ export class BindMFADeviceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BindMFADeviceResponseBody,
     };
   }
@@ -338,19 +354,19 @@ export class BindMFADeviceResponse extends $tea.Model {
 }
 
 export class ChangePasswordRequest extends $tea.Model {
-  oldPassword?: string;
   newPassword?: string;
+  oldPassword?: string;
   static names(): { [key: string]: string } {
     return {
-      oldPassword: 'OldPassword',
       newPassword: 'NewPassword',
+      oldPassword: 'OldPassword',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      oldPassword: 'string',
       newPassword: 'string',
+      oldPassword: 'string',
     };
   }
 
@@ -380,10 +396,12 @@ export class ChangePasswordResponseBody extends $tea.Model {
 
 export class ChangePasswordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ChangePasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -391,6 +409,7 @@ export class ChangePasswordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ChangePasswordResponseBody,
     };
   }
@@ -421,10 +440,12 @@ export class ClearAccountAliasResponseBody extends $tea.Model {
 
 export class ClearAccountAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ClearAccountAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -432,6 +453,7 @@ export class ClearAccountAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ClearAccountAliasResponseBody,
     };
   }
@@ -461,19 +483,19 @@ export class CreateAccessKeyRequest extends $tea.Model {
 }
 
 export class CreateAccessKeyResponseBody extends $tea.Model {
-  requestId?: string;
   accessKey?: CreateAccessKeyResponseBodyAccessKey;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accessKey: 'AccessKey',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accessKey: CreateAccessKeyResponseBodyAccessKey,
+      requestId: 'string',
     };
   }
 
@@ -484,10 +506,12 @@ export class CreateAccessKeyResponseBody extends $tea.Model {
 
 export class CreateAccessKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccessKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -495,6 +519,7 @@ export class CreateAccessKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessKeyResponseBody,
     };
   }
@@ -505,19 +530,19 @@ export class CreateAccessKeyResponse extends $tea.Model {
 }
 
 export class CreateGroupRequest extends $tea.Model {
-  groupName?: string;
   comments?: string;
+  groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
       comments: 'Comments',
+      groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
       comments: 'string',
+      groupName: 'string',
     };
   }
 
@@ -550,10 +575,12 @@ export class CreateGroupResponseBody extends $tea.Model {
 
 export class CreateGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -561,6 +588,7 @@ export class CreateGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGroupResponseBody,
     };
   }
@@ -571,25 +599,25 @@ export class CreateGroupResponse extends $tea.Model {
 }
 
 export class CreateLoginProfileRequest extends $tea.Model {
-  userName?: string;
+  MFABindRequired?: boolean;
   password?: string;
   passwordResetRequired?: boolean;
-  MFABindRequired?: boolean;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
+      MFABindRequired: 'MFABindRequired',
       password: 'Password',
       passwordResetRequired: 'PasswordResetRequired',
-      MFABindRequired: 'MFABindRequired',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
+      MFABindRequired: 'boolean',
       password: 'string',
       passwordResetRequired: 'boolean',
-      MFABindRequired: 'boolean',
+      userName: 'string',
     };
   }
 
@@ -599,19 +627,19 @@ export class CreateLoginProfileRequest extends $tea.Model {
 }
 
 export class CreateLoginProfileResponseBody extends $tea.Model {
-  requestId?: string;
   loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loginProfile: CreateLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
     };
   }
 
@@ -622,10 +650,12 @@ export class CreateLoginProfileResponseBody extends $tea.Model {
 
 export class CreateLoginProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -633,6 +663,7 @@ export class CreateLoginProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateLoginProfileResponseBody,
     };
   }
@@ -643,22 +674,22 @@ export class CreateLoginProfileResponse extends $tea.Model {
 }
 
 export class CreatePolicyRequest extends $tea.Model {
-  policyName?: string;
   description?: string;
   policyDocument?: string;
+  policyName?: string;
   static names(): { [key: string]: string } {
     return {
-      policyName: 'PolicyName',
       description: 'Description',
       policyDocument: 'PolicyDocument',
+      policyName: 'PolicyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyName: 'string',
       description: 'string',
       policyDocument: 'string',
+      policyName: 'string',
     };
   }
 
@@ -691,10 +722,12 @@ export class CreatePolicyResponseBody extends $tea.Model {
 
 export class CreatePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreatePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -702,6 +735,7 @@ export class CreatePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreatePolicyResponseBody,
     };
   }
@@ -712,25 +746,25 @@ export class CreatePolicyResponse extends $tea.Model {
 }
 
 export class CreatePolicyVersionRequest extends $tea.Model {
-  policyName?: string;
   policyDocument?: string;
-  setAsDefault?: boolean;
+  policyName?: string;
   rotateStrategy?: string;
+  setAsDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
-      policyName: 'PolicyName',
       policyDocument: 'PolicyDocument',
-      setAsDefault: 'SetAsDefault',
+      policyName: 'PolicyName',
       rotateStrategy: 'RotateStrategy',
+      setAsDefault: 'SetAsDefault',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyName: 'string',
       policyDocument: 'string',
-      setAsDefault: 'boolean',
+      policyName: 'string',
       rotateStrategy: 'string',
+      setAsDefault: 'boolean',
     };
   }
 
@@ -763,10 +797,12 @@ export class CreatePolicyVersionResponseBody extends $tea.Model {
 
 export class CreatePolicyVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreatePolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -774,6 +810,7 @@ export class CreatePolicyVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreatePolicyVersionResponseBody,
     };
   }
@@ -784,25 +821,25 @@ export class CreatePolicyVersionResponse extends $tea.Model {
 }
 
 export class CreateRoleRequest extends $tea.Model {
-  roleName?: string;
-  description?: string;
   assumeRolePolicyDocument?: string;
+  description?: string;
   maxSessionDuration?: number;
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      roleName: 'RoleName',
-      description: 'Description',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
+      description: 'Description',
       maxSessionDuration: 'MaxSessionDuration',
+      roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      roleName: 'string',
-      description: 'string',
       assumeRolePolicyDocument: 'string',
+      description: 'string',
       maxSessionDuration: 'number',
+      roleName: 'string',
     };
   }
 
@@ -812,19 +849,19 @@ export class CreateRoleRequest extends $tea.Model {
 }
 
 export class CreateRoleResponseBody extends $tea.Model {
-  role?: CreateRoleResponseBodyRole;
   requestId?: string;
+  role?: CreateRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
-      role: 'Role',
       requestId: 'RequestId',
+      role: 'Role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      role: CreateRoleResponseBodyRole,
       requestId: 'string',
+      role: CreateRoleResponseBodyRole,
     };
   }
 
@@ -835,10 +872,12 @@ export class CreateRoleResponseBody extends $tea.Model {
 
 export class CreateRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -846,6 +885,7 @@ export class CreateRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRoleResponseBody,
     };
   }
@@ -856,28 +896,28 @@ export class CreateRoleResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
-  userName?: string;
-  displayName?: string;
-  mobilePhone?: string;
-  email?: string;
   comments?: string;
+  displayName?: string;
+  email?: string;
+  mobilePhone?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
-      displayName: 'DisplayName',
-      mobilePhone: 'MobilePhone',
-      email: 'Email',
       comments: 'Comments',
+      displayName: 'DisplayName',
+      email: 'Email',
+      mobilePhone: 'MobilePhone',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
-      displayName: 'string',
-      mobilePhone: 'string',
-      email: 'string',
       comments: 'string',
+      displayName: 'string',
+      email: 'string',
+      mobilePhone: 'string',
+      userName: 'string',
     };
   }
 
@@ -887,19 +927,19 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
-  user?: CreateUserResponseBodyUser;
   requestId?: string;
+  user?: CreateUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: CreateUserResponseBodyUser,
       requestId: 'string',
+      user: CreateUserResponseBodyUser,
     };
   }
 
@@ -910,10 +950,12 @@ export class CreateUserResponseBody extends $tea.Model {
 
 export class CreateUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -921,6 +963,7 @@ export class CreateUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateUserResponseBody,
     };
   }
@@ -950,19 +993,19 @@ export class CreateVirtualMFADeviceRequest extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponseBody extends $tea.Model {
-  virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
   requestId?: string;
+  virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
   static names(): { [key: string]: string } {
     return {
-      virtualMFADevice: 'VirtualMFADevice',
       requestId: 'RequestId',
+      virtualMFADevice: 'VirtualMFADevice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      virtualMFADevice: CreateVirtualMFADeviceResponseBodyVirtualMFADevice,
       requestId: 'string',
+      virtualMFADevice: CreateVirtualMFADeviceResponseBodyVirtualMFADevice,
     };
   }
 
@@ -973,10 +1016,12 @@ export class CreateVirtualMFADeviceResponseBody extends $tea.Model {
 
 export class CreateVirtualMFADeviceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateVirtualMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -984,6 +1029,7 @@ export class CreateVirtualMFADeviceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateVirtualMFADeviceResponseBody,
     };
   }
@@ -994,19 +1040,19 @@ export class CreateVirtualMFADeviceResponse extends $tea.Model {
 }
 
 export class DeleteAccessKeyRequest extends $tea.Model {
-  userName?: string;
   userAccessKeyId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
       userAccessKeyId: 'UserAccessKeyId',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
       userAccessKeyId: 'string',
+      userName: 'string',
     };
   }
 
@@ -1036,10 +1082,12 @@ export class DeleteAccessKeyResponseBody extends $tea.Model {
 
 export class DeleteAccessKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccessKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1047,6 +1095,7 @@ export class DeleteAccessKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessKeyResponseBody,
     };
   }
@@ -1096,10 +1145,12 @@ export class DeleteGroupResponseBody extends $tea.Model {
 
 export class DeleteGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1107,6 +1158,7 @@ export class DeleteGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGroupResponseBody,
     };
   }
@@ -1156,10 +1208,12 @@ export class DeleteLoginProfileResponseBody extends $tea.Model {
 
 export class DeleteLoginProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1167,6 +1221,7 @@ export class DeleteLoginProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteLoginProfileResponseBody,
     };
   }
@@ -1216,10 +1271,12 @@ export class DeletePolicyResponseBody extends $tea.Model {
 
 export class DeletePolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1227,6 +1284,7 @@ export class DeletePolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePolicyResponseBody,
     };
   }
@@ -1279,10 +1337,12 @@ export class DeletePolicyVersionResponseBody extends $tea.Model {
 
 export class DeletePolicyVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeletePolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1290,6 +1350,7 @@ export class DeletePolicyVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeletePolicyVersionResponseBody,
     };
   }
@@ -1339,10 +1400,12 @@ export class DeleteRoleResponseBody extends $tea.Model {
 
 export class DeleteRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1350,6 +1413,7 @@ export class DeleteRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRoleResponseBody,
     };
   }
@@ -1399,10 +1463,12 @@ export class DeleteUserResponseBody extends $tea.Model {
 
 export class DeleteUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1410,6 +1476,7 @@ export class DeleteUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteUserResponseBody,
     };
   }
@@ -1459,10 +1526,12 @@ export class DeleteVirtualMFADeviceResponseBody extends $tea.Model {
 
 export class DeleteVirtualMFADeviceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteVirtualMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1470,6 +1539,7 @@ export class DeleteVirtualMFADeviceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteVirtualMFADeviceResponseBody,
     };
   }
@@ -1480,22 +1550,22 @@ export class DeleteVirtualMFADeviceResponse extends $tea.Model {
 }
 
 export class DetachPolicyFromGroupRequest extends $tea.Model {
-  policyType?: string;
-  policyName?: string;
   groupName?: string;
+  policyName?: string;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
-      policyName: 'PolicyName',
       groupName: 'GroupName',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
-      policyName: 'string',
       groupName: 'string',
+      policyName: 'string',
+      policyType: 'string',
     };
   }
 
@@ -1525,10 +1595,12 @@ export class DetachPolicyFromGroupResponseBody extends $tea.Model {
 
 export class DetachPolicyFromGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachPolicyFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1536,6 +1608,7 @@ export class DetachPolicyFromGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachPolicyFromGroupResponseBody,
     };
   }
@@ -1546,21 +1619,21 @@ export class DetachPolicyFromGroupResponse extends $tea.Model {
 }
 
 export class DetachPolicyFromRoleRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
       roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
       roleName: 'string',
     };
   }
@@ -1591,10 +1664,12 @@ export class DetachPolicyFromRoleResponseBody extends $tea.Model {
 
 export class DetachPolicyFromRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachPolicyFromRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1602,6 +1677,7 @@ export class DetachPolicyFromRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachPolicyFromRoleResponseBody,
     };
   }
@@ -1612,21 +1688,21 @@ export class DetachPolicyFromRoleResponse extends $tea.Model {
 }
 
 export class DetachPolicyFromUserRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
       userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
       userName: 'string',
     };
   }
@@ -1657,10 +1733,12 @@ export class DetachPolicyFromUserResponseBody extends $tea.Model {
 
 export class DetachPolicyFromUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachPolicyFromUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1668,6 +1746,7 @@ export class DetachPolicyFromUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachPolicyFromUserResponseBody,
     };
   }
@@ -1678,19 +1757,19 @@ export class DetachPolicyFromUserResponse extends $tea.Model {
 }
 
 export class GetAccessKeyLastUsedRequest extends $tea.Model {
-  userName?: string;
   userAccessKeyId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
       userAccessKeyId: 'UserAccessKeyId',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
       userAccessKeyId: 'string',
+      userName: 'string',
     };
   }
 
@@ -1723,10 +1802,12 @@ export class GetAccessKeyLastUsedResponseBody extends $tea.Model {
 
 export class GetAccessKeyLastUsedResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAccessKeyLastUsedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1734,6 +1815,7 @@ export class GetAccessKeyLastUsedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccessKeyLastUsedResponseBody,
     };
   }
@@ -1744,19 +1826,19 @@ export class GetAccessKeyLastUsedResponse extends $tea.Model {
 }
 
 export class GetAccountAliasResponseBody extends $tea.Model {
-  requestId?: string;
   accountAlias?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accountAlias: 'AccountAlias',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accountAlias: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1767,10 +1849,12 @@ export class GetAccountAliasResponseBody extends $tea.Model {
 
 export class GetAccountAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAccountAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1778,6 +1862,7 @@ export class GetAccountAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccountAliasResponseBody,
     };
   }
@@ -1830,10 +1915,12 @@ export class GetGroupResponseBody extends $tea.Model {
 
 export class GetGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1841,6 +1928,7 @@ export class GetGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetGroupResponseBody,
     };
   }
@@ -1870,19 +1958,19 @@ export class GetLoginProfileRequest extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBody extends $tea.Model {
-  requestId?: string;
   loginProfile?: GetLoginProfileResponseBodyLoginProfile;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loginProfile: GetLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
     };
   }
 
@@ -1893,10 +1981,12 @@ export class GetLoginProfileResponseBody extends $tea.Model {
 
 export class GetLoginProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1904,6 +1994,7 @@ export class GetLoginProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetLoginProfileResponseBody,
     };
   }
@@ -1914,19 +2005,19 @@ export class GetLoginProfileResponse extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       passwordPolicy: 'PasswordPolicy',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       passwordPolicy: GetPasswordPolicyResponseBodyPasswordPolicy,
+      requestId: 'string',
     };
   }
 
@@ -1937,10 +2028,12 @@ export class GetPasswordPolicyResponseBody extends $tea.Model {
 
 export class GetPasswordPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPasswordPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1948,6 +2041,7 @@ export class GetPasswordPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPasswordPolicyResponseBody,
     };
   }
@@ -1958,19 +2052,19 @@ export class GetPasswordPolicyResponse extends $tea.Model {
 }
 
 export class GetPolicyRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
     };
   }
 
@@ -1980,22 +2074,22 @@ export class GetPolicyRequest extends $tea.Model {
 }
 
 export class GetPolicyResponseBody extends $tea.Model {
+  defaultPolicyVersion?: GetPolicyResponseBodyDefaultPolicyVersion;
   policy?: GetPolicyResponseBodyPolicy;
   requestId?: string;
-  defaultPolicyVersion?: GetPolicyResponseBodyDefaultPolicyVersion;
   static names(): { [key: string]: string } {
     return {
+      defaultPolicyVersion: 'DefaultPolicyVersion',
       policy: 'Policy',
       requestId: 'RequestId',
-      defaultPolicyVersion: 'DefaultPolicyVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      defaultPolicyVersion: GetPolicyResponseBodyDefaultPolicyVersion,
       policy: GetPolicyResponseBodyPolicy,
       requestId: 'string',
-      defaultPolicyVersion: GetPolicyResponseBodyDefaultPolicyVersion,
     };
   }
 
@@ -2006,10 +2100,12 @@ export class GetPolicyResponseBody extends $tea.Model {
 
 export class GetPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2017,6 +2113,7 @@ export class GetPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPolicyResponseBody,
     };
   }
@@ -2027,21 +2124,21 @@ export class GetPolicyResponse extends $tea.Model {
 }
 
 export class GetPolicyVersionRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
       versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
       versionId: 'string',
     };
   }
@@ -2075,10 +2172,12 @@ export class GetPolicyVersionResponseBody extends $tea.Model {
 
 export class GetPolicyVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2086,6 +2185,7 @@ export class GetPolicyVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPolicyVersionResponseBody,
     };
   }
@@ -2115,19 +2215,19 @@ export class GetRoleRequest extends $tea.Model {
 }
 
 export class GetRoleResponseBody extends $tea.Model {
-  role?: GetRoleResponseBodyRole;
   requestId?: string;
+  role?: GetRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
-      role: 'Role',
       requestId: 'RequestId',
+      role: 'Role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      role: GetRoleResponseBodyRole,
       requestId: 'string',
+      role: GetRoleResponseBodyRole,
     };
   }
 
@@ -2138,10 +2238,12 @@ export class GetRoleResponseBody extends $tea.Model {
 
 export class GetRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2149,6 +2251,7 @@ export class GetRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetRoleResponseBody,
     };
   }
@@ -2159,19 +2262,19 @@ export class GetRoleResponse extends $tea.Model {
 }
 
 export class GetSecurityPreferenceResponseBody extends $tea.Model {
-  securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
   requestId?: string;
+  securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {
     return {
-      securityPreference: 'SecurityPreference',
       requestId: 'RequestId',
+      securityPreference: 'SecurityPreference',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityPreference: GetSecurityPreferenceResponseBodySecurityPreference,
       requestId: 'string',
+      securityPreference: GetSecurityPreferenceResponseBodySecurityPreference,
     };
   }
 
@@ -2182,10 +2285,12 @@ export class GetSecurityPreferenceResponseBody extends $tea.Model {
 
 export class GetSecurityPreferenceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSecurityPreferenceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2193,6 +2298,7 @@ export class GetSecurityPreferenceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSecurityPreferenceResponseBody,
     };
   }
@@ -2222,19 +2328,19 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
-  user?: GetUserResponseBodyUser;
   requestId?: string;
+  user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: GetUserResponseBodyUser,
       requestId: 'string',
+      user: GetUserResponseBodyUser,
     };
   }
 
@@ -2245,10 +2351,12 @@ export class GetUserResponseBody extends $tea.Model {
 
 export class GetUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2256,6 +2364,7 @@ export class GetUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetUserResponseBody,
     };
   }
@@ -2308,10 +2417,12 @@ export class GetUserMFAInfoResponseBody extends $tea.Model {
 
 export class GetUserMFAInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetUserMFAInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2319,6 +2430,7 @@ export class GetUserMFAInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetUserMFAInfoResponseBody,
     };
   }
@@ -2371,10 +2483,12 @@ export class ListAccessKeysResponseBody extends $tea.Model {
 
 export class ListAccessKeysResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAccessKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2382,6 +2496,7 @@ export class ListAccessKeysResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessKeysResponseBody,
     };
   }
@@ -2392,19 +2507,19 @@ export class ListAccessKeysResponse extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
     };
   }
 
@@ -2414,14 +2529,14 @@ export class ListEntitiesForPolicyRequest extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   groups?: ListEntitiesForPolicyResponseBodyGroups;
+  requestId?: string;
   roles?: ListEntitiesForPolicyResponseBodyRoles;
   users?: ListEntitiesForPolicyResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       groups: 'Groups',
+      requestId: 'RequestId',
       roles: 'Roles',
       users: 'Users',
     };
@@ -2429,8 +2544,8 @@ export class ListEntitiesForPolicyResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       groups: ListEntitiesForPolicyResponseBodyGroups,
+      requestId: 'string',
       roles: ListEntitiesForPolicyResponseBodyRoles,
       users: ListEntitiesForPolicyResponseBodyUsers,
     };
@@ -2443,10 +2558,12 @@ export class ListEntitiesForPolicyResponseBody extends $tea.Model {
 
 export class ListEntitiesForPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListEntitiesForPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2454,6 +2571,7 @@ export class ListEntitiesForPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListEntitiesForPolicyResponseBody,
     };
   }
@@ -2486,25 +2604,25 @@ export class ListGroupsRequest extends $tea.Model {
 }
 
 export class ListGroupsResponseBody extends $tea.Model {
-  requestId?: string;
   groups?: ListGroupsResponseBodyGroups;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       groups: 'Groups',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       groups: ListGroupsResponseBodyGroups,
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2515,10 +2633,12 @@ export class ListGroupsResponseBody extends $tea.Model {
 
 export class ListGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2526,6 +2646,7 @@ export class ListGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGroupsResponseBody,
     };
   }
@@ -2555,19 +2676,19 @@ export class ListGroupsForUserRequest extends $tea.Model {
 }
 
 export class ListGroupsForUserResponseBody extends $tea.Model {
-  requestId?: string;
   groups?: ListGroupsForUserResponseBodyGroups;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       groups: 'Groups',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       groups: ListGroupsForUserResponseBodyGroups,
+      requestId: 'string',
     };
   }
 
@@ -2578,10 +2699,12 @@ export class ListGroupsForUserResponseBody extends $tea.Model {
 
 export class ListGroupsForUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGroupsForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2589,6 +2712,7 @@ export class ListGroupsForUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGroupsForUserResponseBody,
     };
   }
@@ -2599,22 +2723,22 @@ export class ListGroupsForUserResponse extends $tea.Model {
 }
 
 export class ListPoliciesRequest extends $tea.Model {
-  policyType?: string;
   marker?: string;
   maxItems?: number;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       marker: 'Marker',
       maxItems: 'MaxItems',
+      policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       marker: 'string',
       maxItems: 'number',
+      policyType: 'string',
     };
   }
 
@@ -2624,25 +2748,25 @@ export class ListPoliciesRequest extends $tea.Model {
 }
 
 export class ListPoliciesResponseBody extends $tea.Model {
-  policies?: ListPoliciesResponseBodyPolicies;
-  requestId?: string;
   isTruncated?: boolean;
   marker?: string;
+  policies?: ListPoliciesResponseBodyPolicies;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      policies: 'Policies',
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      policies: 'Policies',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policies: ListPoliciesResponseBodyPolicies,
-      requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
+      policies: ListPoliciesResponseBodyPolicies,
+      requestId: 'string',
     };
   }
 
@@ -2653,10 +2777,12 @@ export class ListPoliciesResponseBody extends $tea.Model {
 
 export class ListPoliciesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2664,6 +2790,7 @@ export class ListPoliciesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPoliciesResponseBody,
     };
   }
@@ -2716,10 +2843,12 @@ export class ListPoliciesForGroupResponseBody extends $tea.Model {
 
 export class ListPoliciesForGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPoliciesForGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2727,6 +2856,7 @@ export class ListPoliciesForGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPoliciesForGroupResponseBody,
     };
   }
@@ -2779,10 +2909,12 @@ export class ListPoliciesForRoleResponseBody extends $tea.Model {
 
 export class ListPoliciesForRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPoliciesForRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2790,6 +2922,7 @@ export class ListPoliciesForRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPoliciesForRoleResponseBody,
     };
   }
@@ -2842,10 +2975,12 @@ export class ListPoliciesForUserResponseBody extends $tea.Model {
 
 export class ListPoliciesForUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPoliciesForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2853,6 +2988,7 @@ export class ListPoliciesForUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPoliciesForUserResponseBody,
     };
   }
@@ -2863,19 +2999,19 @@ export class ListPoliciesForUserResponse extends $tea.Model {
 }
 
 export class ListPolicyVersionsRequest extends $tea.Model {
-  policyType?: string;
   policyName?: string;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
-      policyType: 'PolicyType',
       policyName: 'PolicyName',
+      policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyType: 'string',
       policyName: 'string',
+      policyType: 'string',
     };
   }
 
@@ -2885,19 +3021,19 @@ export class ListPolicyVersionsRequest extends $tea.Model {
 }
 
 export class ListPolicyVersionsResponseBody extends $tea.Model {
-  requestId?: string;
   policyVersions?: ListPolicyVersionsResponseBodyPolicyVersions;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       policyVersions: 'PolicyVersions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       policyVersions: ListPolicyVersionsResponseBodyPolicyVersions,
+      requestId: 'string',
     };
   }
 
@@ -2908,10 +3044,12 @@ export class ListPolicyVersionsResponseBody extends $tea.Model {
 
 export class ListPolicyVersionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPolicyVersionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2919,6 +3057,7 @@ export class ListPolicyVersionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPolicyVersionsResponseBody,
     };
   }
@@ -2951,25 +3090,25 @@ export class ListRolesRequest extends $tea.Model {
 }
 
 export class ListRolesResponseBody extends $tea.Model {
-  requestId?: string;
   isTruncated?: boolean;
-  roles?: ListRolesResponseBodyRoles;
   marker?: string;
+  requestId?: string;
+  roles?: ListRolesResponseBodyRoles;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
-      roles: 'Roles',
       marker: 'Marker',
+      requestId: 'RequestId',
+      roles: 'Roles',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isTruncated: 'boolean',
-      roles: ListRolesResponseBodyRoles,
       marker: 'string',
+      requestId: 'string',
+      roles: ListRolesResponseBodyRoles,
     };
   }
 
@@ -2980,10 +3119,12 @@ export class ListRolesResponseBody extends $tea.Model {
 
 export class ListRolesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRolesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2991,6 +3132,7 @@ export class ListRolesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRolesResponseBody,
     };
   }
@@ -3023,24 +3165,24 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
-  requestId?: string;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
   users?: ListUsersResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
       users: ListUsersResponseBodyUsers,
     };
   }
@@ -3052,10 +3194,12 @@ export class ListUsersResponseBody extends $tea.Model {
 
 export class ListUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3063,6 +3207,7 @@ export class ListUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUsersResponseBody,
     };
   }
@@ -3098,24 +3243,24 @@ export class ListUsersForGroupRequest extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBody extends $tea.Model {
-  requestId?: string;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
   users?: ListUsersForGroupResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
       users: ListUsersForGroupResponseBodyUsers,
     };
   }
@@ -3127,10 +3272,12 @@ export class ListUsersForGroupResponseBody extends $tea.Model {
 
 export class ListUsersForGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUsersForGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3138,6 +3285,7 @@ export class ListUsersForGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUsersForGroupResponseBody,
     };
   }
@@ -3148,19 +3296,19 @@ export class ListUsersForGroupResponse extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponseBody extends $tea.Model {
-  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
   requestId?: string;
+  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
   static names(): { [key: string]: string } {
     return {
-      virtualMFADevices: 'VirtualMFADevices',
       requestId: 'RequestId',
+      virtualMFADevices: 'VirtualMFADevices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
       requestId: 'string',
+      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
     };
   }
 
@@ -3171,10 +3319,12 @@ export class ListVirtualMFADevicesResponseBody extends $tea.Model {
 
 export class ListVirtualMFADevicesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVirtualMFADevicesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3182,6 +3332,7 @@ export class ListVirtualMFADevicesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVirtualMFADevicesResponseBody,
     };
   }
@@ -3192,19 +3343,19 @@ export class ListVirtualMFADevicesResponse extends $tea.Model {
 }
 
 export class RemoveUserFromGroupRequest extends $tea.Model {
-  userName?: string;
   groupName?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
       groupName: 'GroupName',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
       groupName: 'string',
+      userName: 'string',
     };
   }
 
@@ -3234,10 +3385,12 @@ export class RemoveUserFromGroupResponseBody extends $tea.Model {
 
 export class RemoveUserFromGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveUserFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3245,6 +3398,7 @@ export class RemoveUserFromGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveUserFromGroupResponseBody,
     };
   }
@@ -3294,10 +3448,12 @@ export class SetAccountAliasResponseBody extends $tea.Model {
 
 export class SetAccountAliasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetAccountAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3305,6 +3461,7 @@ export class SetAccountAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetAccountAliasResponseBody,
     };
   }
@@ -3357,10 +3514,12 @@ export class SetDefaultPolicyVersionResponseBody extends $tea.Model {
 
 export class SetDefaultPolicyVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetDefaultPolicyVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3368,6 +3527,7 @@ export class SetDefaultPolicyVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetDefaultPolicyVersionResponseBody,
     };
   }
@@ -3378,40 +3538,40 @@ export class SetDefaultPolicyVersionResponse extends $tea.Model {
 }
 
 export class SetPasswordPolicyRequest extends $tea.Model {
+  hardExpiry?: boolean;
+  maxLoginAttemps?: number;
+  maxPasswordAge?: number;
   minimumPasswordLength?: number;
+  passwordReusePrevention?: number;
   requireLowercaseCharacters?: boolean;
-  requireUppercaseCharacters?: boolean;
   requireNumbers?: boolean;
   requireSymbols?: boolean;
-  hardExpiry?: boolean;
-  maxPasswordAge?: number;
-  passwordReusePrevention?: number;
-  maxLoginAttemps?: number;
+  requireUppercaseCharacters?: boolean;
   static names(): { [key: string]: string } {
     return {
+      hardExpiry: 'HardExpiry',
+      maxLoginAttemps: 'MaxLoginAttemps',
+      maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordLength: 'MinimumPasswordLength',
+      passwordReusePrevention: 'PasswordReusePrevention',
       requireLowercaseCharacters: 'RequireLowercaseCharacters',
-      requireUppercaseCharacters: 'RequireUppercaseCharacters',
       requireNumbers: 'RequireNumbers',
       requireSymbols: 'RequireSymbols',
-      hardExpiry: 'HardExpiry',
-      maxPasswordAge: 'MaxPasswordAge',
-      passwordReusePrevention: 'PasswordReusePrevention',
-      maxLoginAttemps: 'MaxLoginAttemps',
+      requireUppercaseCharacters: 'RequireUppercaseCharacters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hardExpiry: 'boolean',
+      maxLoginAttemps: 'number',
+      maxPasswordAge: 'number',
       minimumPasswordLength: 'number',
+      passwordReusePrevention: 'number',
       requireLowercaseCharacters: 'boolean',
-      requireUppercaseCharacters: 'boolean',
       requireNumbers: 'boolean',
       requireSymbols: 'boolean',
-      hardExpiry: 'boolean',
-      maxPasswordAge: 'number',
-      passwordReusePrevention: 'number',
-      maxLoginAttemps: 'number',
+      requireUppercaseCharacters: 'boolean',
     };
   }
 
@@ -3421,19 +3581,19 @@ export class SetPasswordPolicyRequest extends $tea.Model {
 }
 
 export class SetPasswordPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       passwordPolicy: 'PasswordPolicy',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       passwordPolicy: SetPasswordPolicyResponseBodyPasswordPolicy,
+      requestId: 'string',
     };
   }
 
@@ -3444,10 +3604,12 @@ export class SetPasswordPolicyResponseBody extends $tea.Model {
 
 export class SetPasswordPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetPasswordPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3455,6 +3617,7 @@ export class SetPasswordPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetPasswordPolicyResponseBody,
     };
   }
@@ -3465,34 +3628,34 @@ export class SetPasswordPolicyResponse extends $tea.Model {
 }
 
 export class SetSecurityPreferenceRequest extends $tea.Model {
-  enableSaveMFATicket?: boolean;
   allowUserToChangePassword?: boolean;
   allowUserToManageAccessKeys?: boolean;
-  allowUserToManagePublicKeys?: boolean;
   allowUserToManageMFADevices?: boolean;
-  loginSessionDuration?: number;
+  allowUserToManagePublicKeys?: boolean;
+  enableSaveMFATicket?: boolean;
   loginNetworkMasks?: string;
+  loginSessionDuration?: number;
   static names(): { [key: string]: string } {
     return {
-      enableSaveMFATicket: 'EnableSaveMFATicket',
       allowUserToChangePassword: 'AllowUserToChangePassword',
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
-      allowUserToManagePublicKeys: 'AllowUserToManagePublicKeys',
       allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
-      loginSessionDuration: 'LoginSessionDuration',
+      allowUserToManagePublicKeys: 'AllowUserToManagePublicKeys',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
       loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableSaveMFATicket: 'boolean',
       allowUserToChangePassword: 'boolean',
       allowUserToManageAccessKeys: 'boolean',
-      allowUserToManagePublicKeys: 'boolean',
       allowUserToManageMFADevices: 'boolean',
-      loginSessionDuration: 'number',
+      allowUserToManagePublicKeys: 'boolean',
+      enableSaveMFATicket: 'boolean',
       loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
     };
   }
 
@@ -3502,19 +3665,19 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
 }
 
 export class SetSecurityPreferenceResponseBody extends $tea.Model {
-  securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
   requestId?: string;
+  securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {
     return {
-      securityPreference: 'SecurityPreference',
       requestId: 'RequestId',
+      securityPreference: 'SecurityPreference',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityPreference: SetSecurityPreferenceResponseBodySecurityPreference,
       requestId: 'string',
+      securityPreference: SetSecurityPreferenceResponseBodySecurityPreference,
     };
   }
 
@@ -3525,10 +3688,12 @@ export class SetSecurityPreferenceResponseBody extends $tea.Model {
 
 export class SetSecurityPreferenceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetSecurityPreferenceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3536,6 +3701,7 @@ export class SetSecurityPreferenceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetSecurityPreferenceResponseBody,
     };
   }
@@ -3588,10 +3754,12 @@ export class UnbindMFADeviceResponseBody extends $tea.Model {
 
 export class UnbindMFADeviceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UnbindMFADeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3599,6 +3767,7 @@ export class UnbindMFADeviceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UnbindMFADeviceResponseBody,
     };
   }
@@ -3609,22 +3778,22 @@ export class UnbindMFADeviceResponse extends $tea.Model {
 }
 
 export class UpdateAccessKeyRequest extends $tea.Model {
-  userName?: string;
-  userAccessKeyId?: string;
   status?: string;
+  userAccessKeyId?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
-      userAccessKeyId: 'UserAccessKeyId',
       status: 'Status',
+      userAccessKeyId: 'UserAccessKeyId',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
-      userAccessKeyId: 'string',
       status: 'string',
+      userAccessKeyId: 'string',
+      userName: 'string',
     };
   }
 
@@ -3654,10 +3823,12 @@ export class UpdateAccessKeyResponseBody extends $tea.Model {
 
 export class UpdateAccessKeyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAccessKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3665,6 +3836,7 @@ export class UpdateAccessKeyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAccessKeyResponseBody,
     };
   }
@@ -3676,21 +3848,21 @@ export class UpdateAccessKeyResponse extends $tea.Model {
 
 export class UpdateGroupRequest extends $tea.Model {
   groupName?: string;
-  newGroupName?: string;
   newComments?: string;
+  newGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
-      newGroupName: 'NewGroupName',
       newComments: 'NewComments',
+      newGroupName: 'NewGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupName: 'string',
-      newGroupName: 'string',
       newComments: 'string',
+      newGroupName: 'string',
     };
   }
 
@@ -3723,10 +3895,12 @@ export class UpdateGroupResponseBody extends $tea.Model {
 
 export class UpdateGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3734,6 +3908,7 @@ export class UpdateGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGroupResponseBody,
     };
   }
@@ -3744,25 +3919,25 @@ export class UpdateGroupResponse extends $tea.Model {
 }
 
 export class UpdateLoginProfileRequest extends $tea.Model {
-  userName?: string;
+  MFABindRequired?: boolean;
   password?: string;
   passwordResetRequired?: boolean;
-  MFABindRequired?: boolean;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
+      MFABindRequired: 'MFABindRequired',
       password: 'Password',
       passwordResetRequired: 'PasswordResetRequired',
-      MFABindRequired: 'MFABindRequired',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
+      MFABindRequired: 'boolean',
       password: 'string',
       passwordResetRequired: 'boolean',
-      MFABindRequired: 'boolean',
+      userName: 'string',
     };
   }
 
@@ -3792,10 +3967,12 @@ export class UpdateLoginProfileResponseBody extends $tea.Model {
 
 export class UpdateLoginProfileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateLoginProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3803,6 +3980,7 @@ export class UpdateLoginProfileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateLoginProfileResponseBody,
     };
   }
@@ -3812,23 +3990,95 @@ export class UpdateLoginProfileResponse extends $tea.Model {
   }
 }
 
-export class UpdateRoleRequest extends $tea.Model {
-  roleName?: string;
-  newAssumeRolePolicyDocument?: string;
-  newMaxSessionDuration?: number;
+export class UpdatePolicyDescriptionRequest extends $tea.Model {
+  newDescription?: string;
+  policyName?: string;
   static names(): { [key: string]: string } {
     return {
-      roleName: 'RoleName',
-      newAssumeRolePolicyDocument: 'NewAssumeRolePolicyDocument',
-      newMaxSessionDuration: 'NewMaxSessionDuration',
+      newDescription: 'NewDescription',
+      policyName: 'PolicyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      roleName: 'string',
+      newDescription: 'string',
+      policyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolicyDescriptionResponseBody extends $tea.Model {
+  policy?: UpdatePolicyDescriptionResponseBodyPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: UpdatePolicyDescriptionResponseBodyPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolicyDescriptionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePolicyDescriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePolicyDescriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoleRequest extends $tea.Model {
+  newAssumeRolePolicyDocument?: string;
+  newDescription?: string;
+  newMaxSessionDuration?: number;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newAssumeRolePolicyDocument: 'NewAssumeRolePolicyDocument',
+      newDescription: 'NewDescription',
+      newMaxSessionDuration: 'NewMaxSessionDuration',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       newAssumeRolePolicyDocument: 'string',
+      newDescription: 'string',
       newMaxSessionDuration: 'number',
+      roleName: 'string',
     };
   }
 
@@ -3838,19 +4088,19 @@ export class UpdateRoleRequest extends $tea.Model {
 }
 
 export class UpdateRoleResponseBody extends $tea.Model {
-  role?: UpdateRoleResponseBodyRole;
   requestId?: string;
+  role?: UpdateRoleResponseBodyRole;
   static names(): { [key: string]: string } {
     return {
-      role: 'Role',
       requestId: 'RequestId',
+      role: 'Role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      role: UpdateRoleResponseBodyRole,
       requestId: 'string',
+      role: UpdateRoleResponseBodyRole,
     };
   }
 
@@ -3861,10 +4111,12 @@ export class UpdateRoleResponseBody extends $tea.Model {
 
 export class UpdateRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3872,6 +4124,7 @@ export class UpdateRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateRoleResponseBody,
     };
   }
@@ -3882,31 +4135,31 @@ export class UpdateRoleResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
-  userName?: string;
-  newUserName?: string;
-  newDisplayName?: string;
-  newMobilePhone?: string;
-  newEmail?: string;
   newComments?: string;
+  newDisplayName?: string;
+  newEmail?: string;
+  newMobilePhone?: string;
+  newUserName?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
-      newUserName: 'NewUserName',
-      newDisplayName: 'NewDisplayName',
-      newMobilePhone: 'NewMobilePhone',
-      newEmail: 'NewEmail',
       newComments: 'NewComments',
+      newDisplayName: 'NewDisplayName',
+      newEmail: 'NewEmail',
+      newMobilePhone: 'NewMobilePhone',
+      newUserName: 'NewUserName',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
-      newUserName: 'string',
-      newDisplayName: 'string',
-      newMobilePhone: 'string',
-      newEmail: 'string',
       newComments: 'string',
+      newDisplayName: 'string',
+      newEmail: 'string',
+      newMobilePhone: 'string',
+      newUserName: 'string',
+      userName: 'string',
     };
   }
 
@@ -3916,19 +4169,19 @@ export class UpdateUserRequest extends $tea.Model {
 }
 
 export class UpdateUserResponseBody extends $tea.Model {
-  user?: UpdateUserResponseBodyUser;
   requestId?: string;
+  user?: UpdateUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: UpdateUserResponseBodyUser,
       requestId: 'string',
+      user: UpdateUserResponseBodyUser,
     };
   }
 
@@ -3939,10 +4192,12 @@ export class UpdateUserResponseBody extends $tea.Model {
 
 export class UpdateUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3950,6 +4205,7 @@ export class UpdateUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateUserResponseBody,
     };
   }
@@ -3960,25 +4216,25 @@ export class UpdateUserResponse extends $tea.Model {
 }
 
 export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
-  status?: string;
+  accessKeyId?: string;
   accessKeySecret?: string;
   createDate?: string;
-  accessKeyId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      accessKeyId: 'AccessKeyId',
       accessKeySecret: 'AccessKeySecret',
       createDate: 'CreateDate',
-      accessKeyId: 'AccessKeyId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      accessKeyId: 'string',
       accessKeySecret: 'string',
       createDate: 'string',
-      accessKeyId: 'string',
+      status: 'string',
     };
   }
 
@@ -3988,25 +4244,25 @@ export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
 }
 
 export class CreateGroupResponseBodyGroup extends $tea.Model {
-  groupId?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  groupId?: string;
+  groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      groupId: 'string',
+      groupName: 'string',
     };
   }
 
@@ -4016,25 +4272,25 @@ export class CreateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
-  passwordResetRequired?: boolean;
   createDate?: string;
-  userName?: string;
   MFABindRequired?: boolean;
+  passwordResetRequired?: boolean;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      passwordResetRequired: 'PasswordResetRequired',
       createDate: 'CreateDate',
-      userName: 'UserName',
       MFABindRequired: 'MFABindRequired',
+      passwordResetRequired: 'PasswordResetRequired',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      passwordResetRequired: 'boolean',
       createDate: 'string',
-      userName: 'string',
       MFABindRequired: 'boolean',
+      passwordResetRequired: 'boolean',
+      userName: 'string',
     };
   }
 
@@ -4044,27 +4300,27 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class CreatePolicyResponseBodyPolicy extends $tea.Model {
+  createDate?: string;
   defaultVersion?: string;
   description?: string;
   policyName?: string;
-  createDate?: string;
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
+      createDate: 'CreateDate',
       defaultVersion: 'DefaultVersion',
       description: 'Description',
       policyName: 'PolicyName',
-      createDate: 'CreateDate',
       policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createDate: 'string',
       defaultVersion: 'string',
       description: 'string',
       policyName: 'string',
-      createDate: 'string',
       policyType: 'string',
     };
   }
@@ -4075,25 +4331,25 @@ export class CreatePolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class CreatePolicyVersionResponseBodyPolicyVersion extends $tea.Model {
+  createDate?: string;
   isDefaultVersion?: boolean;
   policyDocument?: string;
   versionId?: string;
-  createDate?: string;
   static names(): { [key: string]: string } {
     return {
+      createDate: 'CreateDate',
       isDefaultVersion: 'IsDefaultVersion',
       policyDocument: 'PolicyDocument',
       versionId: 'VersionId',
-      createDate: 'CreateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createDate: 'string',
       isDefaultVersion: 'boolean',
       policyDocument: 'string',
       versionId: 'string',
-      createDate: 'string',
     };
   }
 
@@ -4103,34 +4359,34 @@ export class CreatePolicyVersionResponseBodyPolicyVersion extends $tea.Model {
 }
 
 export class CreateRoleResponseBodyRole extends $tea.Model {
+  arn?: string;
   assumeRolePolicyDocument?: string;
+  createDate?: string;
   description?: string;
   maxSessionDuration?: number;
-  roleName?: string;
-  createDate?: string;
   roleId?: string;
-  arn?: string;
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
+      arn: 'Arn',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
+      createDate: 'CreateDate',
       description: 'Description',
       maxSessionDuration: 'MaxSessionDuration',
-      roleName: 'RoleName',
-      createDate: 'CreateDate',
       roleId: 'RoleId',
-      arn: 'Arn',
+      roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arn: 'string',
       assumeRolePolicyDocument: 'string',
+      createDate: 'string',
       description: 'string',
       maxSessionDuration: 'number',
-      roleName: 'string',
-      createDate: 'string',
       roleId: 'string',
-      arn: 'string',
+      roleName: 'string',
     };
   }
 
@@ -4140,33 +4396,33 @@ export class CreateRoleResponseBodyRole extends $tea.Model {
 }
 
 export class CreateUserResponseBodyUser extends $tea.Model {
+  comments?: string;
+  createDate?: string;
   displayName?: string;
   email?: string;
   mobilePhone?: string;
   userId?: string;
-  comments?: string;
-  createDate?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      comments: 'Comments',
+      createDate: 'CreateDate',
       displayName: 'DisplayName',
       email: 'Email',
       mobilePhone: 'MobilePhone',
       userId: 'UserId',
-      comments: 'Comments',
-      createDate: 'CreateDate',
       userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      comments: 'string',
+      createDate: 'string',
       displayName: 'string',
       email: 'string',
       mobilePhone: 'string',
       userId: 'string',
-      comments: 'string',
-      createDate: 'string',
       userName: 'string',
     };
   }
@@ -4177,22 +4433,22 @@ export class CreateUserResponseBodyUser extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Model {
-  serialNumber?: string;
-  QRCodePNG?: string;
   base32StringSeed?: string;
+  QRCodePNG?: string;
+  serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      QRCodePNG: 'QRCodePNG',
       base32StringSeed: 'Base32StringSeed',
+      QRCodePNG: 'QRCodePNG',
+      serialNumber: 'SerialNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      QRCodePNG: 'string',
       base32StringSeed: 'string',
+      QRCodePNG: 'string',
+      serialNumber: 'string',
     };
   }
 
@@ -4221,28 +4477,28 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Mode
 }
 
 export class GetGroupResponseBodyGroup extends $tea.Model {
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4252,25 +4508,25 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
-  passwordResetRequired?: boolean;
   createDate?: string;
-  userName?: string;
   MFABindRequired?: boolean;
+  passwordResetRequired?: boolean;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      passwordResetRequired: 'PasswordResetRequired',
       createDate: 'CreateDate',
-      userName: 'UserName',
       MFABindRequired: 'MFABindRequired',
+      passwordResetRequired: 'PasswordResetRequired',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      passwordResetRequired: 'boolean',
       createDate: 'string',
-      userName: 'string',
       MFABindRequired: 'boolean',
+      passwordResetRequired: 'boolean',
+      userName: 'string',
     };
   }
 
@@ -4280,80 +4536,40 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
-  requireNumbers?: boolean;
-  requireLowercaseCharacters?: boolean;
   hardExpiry?: boolean;
-  passwordReusePrevention?: number;
-  requireSymbols?: boolean;
+  maxLoginAttemps?: number;
   maxPasswordAge?: number;
   minimumPasswordLength?: number;
+  passwordReusePrevention?: number;
+  requireLowercaseCharacters?: boolean;
+  requireNumbers?: boolean;
+  requireSymbols?: boolean;
   requireUppercaseCharacters?: boolean;
-  maxLoginAttemps?: number;
   static names(): { [key: string]: string } {
     return {
-      requireNumbers: 'RequireNumbers',
-      requireLowercaseCharacters: 'RequireLowercaseCharacters',
       hardExpiry: 'HardExpiry',
-      passwordReusePrevention: 'PasswordReusePrevention',
-      requireSymbols: 'RequireSymbols',
+      maxLoginAttemps: 'MaxLoginAttemps',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordLength: 'MinimumPasswordLength',
+      passwordReusePrevention: 'PasswordReusePrevention',
+      requireLowercaseCharacters: 'RequireLowercaseCharacters',
+      requireNumbers: 'RequireNumbers',
+      requireSymbols: 'RequireSymbols',
       requireUppercaseCharacters: 'RequireUppercaseCharacters',
-      maxLoginAttemps: 'MaxLoginAttemps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requireNumbers: 'boolean',
-      requireLowercaseCharacters: 'boolean',
       hardExpiry: 'boolean',
-      passwordReusePrevention: 'number',
-      requireSymbols: 'boolean',
+      maxLoginAttemps: 'number',
       maxPasswordAge: 'number',
       minimumPasswordLength: 'number',
+      passwordReusePrevention: 'number',
+      requireLowercaseCharacters: 'boolean',
+      requireNumbers: 'boolean',
+      requireSymbols: 'boolean',
       requireUppercaseCharacters: 'boolean',
-      maxLoginAttemps: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponseBodyPolicy extends $tea.Model {
-  defaultVersion?: string;
-  updateDate?: string;
-  description?: string;
-  policyDocument?: string;
-  attachmentCount?: number;
-  policyName?: string;
-  createDate?: string;
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultVersion: 'DefaultVersion',
-      updateDate: 'UpdateDate',
-      description: 'Description',
-      policyDocument: 'PolicyDocument',
-      attachmentCount: 'AttachmentCount',
-      policyName: 'PolicyName',
-      createDate: 'CreateDate',
-      policyType: 'PolicyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultVersion: 'string',
-      updateDate: 'string',
-      description: 'string',
-      policyDocument: 'string',
-      attachmentCount: 'number',
-      policyName: 'string',
-      createDate: 'string',
-      policyType: 'string',
     };
   }
 
@@ -4363,25 +4579,65 @@ export class GetPolicyResponseBodyPolicy extends $tea.Model {
 }
 
 export class GetPolicyResponseBodyDefaultPolicyVersion extends $tea.Model {
+  createDate?: string;
   isDefaultVersion?: boolean;
   policyDocument?: string;
   versionId?: string;
-  createDate?: string;
   static names(): { [key: string]: string } {
     return {
+      createDate: 'CreateDate',
       isDefaultVersion: 'IsDefaultVersion',
       policyDocument: 'PolicyDocument',
       versionId: 'VersionId',
-      createDate: 'CreateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createDate: 'string',
       isDefaultVersion: 'boolean',
       policyDocument: 'string',
       versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyResponseBodyPolicy extends $tea.Model {
+  attachmentCount?: number;
+  createDate?: string;
+  defaultVersion?: string;
+  description?: string;
+  policyDocument?: string;
+  policyName?: string;
+  policyType?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentCount: 'AttachmentCount',
+      createDate: 'CreateDate',
+      defaultVersion: 'DefaultVersion',
+      description: 'Description',
+      policyDocument: 'PolicyDocument',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentCount: 'number',
       createDate: 'string',
+      defaultVersion: 'string',
+      description: 'string',
+      policyDocument: 'string',
+      policyName: 'string',
+      policyType: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4391,25 +4647,25 @@ export class GetPolicyResponseBodyDefaultPolicyVersion extends $tea.Model {
 }
 
 export class GetPolicyVersionResponseBodyPolicyVersion extends $tea.Model {
+  createDate?: string;
   isDefaultVersion?: boolean;
   policyDocument?: string;
   versionId?: string;
-  createDate?: string;
   static names(): { [key: string]: string } {
     return {
+      createDate: 'CreateDate',
       isDefaultVersion: 'IsDefaultVersion',
       policyDocument: 'PolicyDocument',
       versionId: 'VersionId',
-      createDate: 'CreateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createDate: 'string',
       isDefaultVersion: 'boolean',
       policyDocument: 'string',
       versionId: 'string',
-      createDate: 'string',
     };
   }
 
@@ -4419,37 +4675,37 @@ export class GetPolicyVersionResponseBodyPolicyVersion extends $tea.Model {
 }
 
 export class GetRoleResponseBodyRole extends $tea.Model {
+  arn?: string;
   assumeRolePolicyDocument?: string;
-  updateDate?: string;
+  createDate?: string;
   description?: string;
   maxSessionDuration?: number;
-  roleName?: string;
-  createDate?: string;
   roleId?: string;
-  arn?: string;
+  roleName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      arn: 'Arn',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
-      updateDate: 'UpdateDate',
+      createDate: 'CreateDate',
       description: 'Description',
       maxSessionDuration: 'MaxSessionDuration',
-      roleName: 'RoleName',
-      createDate: 'CreateDate',
       roleId: 'RoleId',
-      arn: 'Arn',
+      roleName: 'RoleName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arn: 'string',
       assumeRolePolicyDocument: 'string',
-      updateDate: 'string',
+      createDate: 'string',
       description: 'string',
       maxSessionDuration: 'number',
-      roleName: 'string',
-      createDate: 'string',
       roleId: 'string',
-      arn: 'string',
+      roleName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4477,6 +4733,34 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
   }
 }
 
+export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
+  allowUserToChangePassword?: boolean;
+  enableSaveMFATicket?: boolean;
+  loginNetworkMasks?: string;
+  loginSessionDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowUserToChangePassword: 'AllowUserToChangePassword',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUserToChangePassword: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $tea.Model {
   allowUserToManageMFADevices?: boolean;
   static names(): { [key: string]: string } {
@@ -4488,34 +4772,6 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   static types(): { [key: string]: any } {
     return {
       allowUserToManageMFADevices: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
-  enableSaveMFATicket?: boolean;
-  loginSessionDuration?: number;
-  loginNetworkMasks?: string;
-  allowUserToChangePassword?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      loginSessionDuration: 'LoginSessionDuration',
-      loginNetworkMasks: 'LoginNetworkMasks',
-      allowUserToChangePassword: 'AllowUserToChangePassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableSaveMFATicket: 'boolean',
-      loginSessionDuration: 'number',
-      loginNetworkMasks: 'string',
-      allowUserToChangePassword: 'boolean',
     };
   }
 
@@ -4545,14 +4801,14 @@ export class GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPrefere
 
 export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
   accessKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
-  MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   loginProfilePreference?: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
+  MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   publicKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
-      MFAPreference: 'MFAPreference',
       loginProfilePreference: 'LoginProfilePreference',
+      MFAPreference: 'MFAPreference',
       publicKeyPreference: 'PublicKeyPreference',
     };
   }
@@ -4560,8 +4816,8 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       accessKeyPreference: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
-      MFAPreference: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
       loginProfilePreference: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
+      MFAPreference: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
       publicKeyPreference: GetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference,
     };
   }
@@ -4572,39 +4828,39 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
 }
 
 export class GetUserResponseBodyUser extends $tea.Model {
+  comments?: string;
+  createDate?: string;
   displayName?: string;
   email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
-  comments?: string;
   lastLoginDate?: string;
-  createDate?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      comments: 'Comments',
+      createDate: 'CreateDate',
       displayName: 'DisplayName',
       email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
-      comments: 'Comments',
       lastLoginDate: 'LastLoginDate',
-      createDate: 'CreateDate',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
       userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      comments: 'string',
+      createDate: 'string',
       displayName: 'string',
       email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
-      comments: 'string',
       lastLoginDate: 'string',
-      createDate: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
       userName: 'string',
     };
   }
@@ -4616,15 +4872,18 @@ export class GetUserResponseBodyUser extends $tea.Model {
 
 export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
   serialNumber?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       serialNumber: 'SerialNumber',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serialNumber: 'string',
+      type: 'string',
     };
   }
 
@@ -4634,22 +4893,22 @@ export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
 }
 
 export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $tea.Model {
-  status?: string;
   accessKeyId?: string;
   createDate?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       accessKeyId: 'AccessKeyId',
       createDate: 'CreateDate',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       accessKeyId: 'string',
       createDate: 'string',
+      status: 'string',
     };
   }
 
@@ -4678,22 +4937,22 @@ export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBodyGroupsGroup extends $tea.Model {
-  groupName?: string;
-  comments?: string;
   attachDate?: string;
+  comments?: string;
+  groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
-      comments: 'Comments',
       attachDate: 'AttachDate',
+      comments: 'Comments',
+      groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
-      comments: 'string',
       attachDate: 'string',
+      comments: 'string',
+      groupName: 'string',
     };
   }
 
@@ -4722,28 +4981,28 @@ export class ListEntitiesForPolicyResponseBodyGroups extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBodyRolesRole extends $tea.Model {
-  description?: string;
-  roleName?: string;
-  attachDate?: string;
   arn?: string;
+  attachDate?: string;
+  description?: string;
   roleId?: string;
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      roleName: 'RoleName',
-      attachDate: 'AttachDate',
       arn: 'Arn',
+      attachDate: 'AttachDate',
+      description: 'Description',
       roleId: 'RoleId',
+      roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      roleName: 'string',
-      attachDate: 'string',
       arn: 'string',
+      attachDate: 'string',
+      description: 'string',
       roleId: 'string',
+      roleName: 'string',
     };
   }
 
@@ -4772,25 +5031,25 @@ export class ListEntitiesForPolicyResponseBodyRoles extends $tea.Model {
 }
 
 export class ListEntitiesForPolicyResponseBodyUsersUser extends $tea.Model {
+  attachDate?: string;
   displayName?: string;
   userId?: string;
   userName?: string;
-  attachDate?: string;
   static names(): { [key: string]: string } {
     return {
+      attachDate: 'AttachDate',
       displayName: 'DisplayName',
       userId: 'UserId',
       userName: 'UserName',
-      attachDate: 'AttachDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachDate: 'string',
       displayName: 'string',
       userId: 'string',
       userName: 'string',
-      attachDate: 'string',
     };
   }
 
@@ -4819,28 +5078,28 @@ export class ListEntitiesForPolicyResponseBodyUsers extends $tea.Model {
 }
 
 export class ListGroupsResponseBodyGroupsGroup extends $tea.Model {
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4869,24 +5128,24 @@ export class ListGroupsResponseBodyGroups extends $tea.Model {
 }
 
 export class ListGroupsForUserResponseBodyGroupsGroup extends $tea.Model {
+  comments?: string;
   groupId?: string;
   groupName?: string;
-  comments?: string;
   joinDate?: string;
   static names(): { [key: string]: string } {
     return {
+      comments: 'Comments',
       groupId: 'GroupId',
       groupName: 'GroupName',
-      comments: 'Comments',
       joinDate: 'JoinDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      comments: 'string',
       groupId: 'string',
       groupName: 'string',
-      comments: 'string',
       joinDate: 'string',
     };
   }
@@ -4916,34 +5175,34 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
 }
 
 export class ListPoliciesResponseBodyPoliciesPolicy extends $tea.Model {
+  attachmentCount?: number;
+  createDate?: string;
   defaultVersion?: string;
   description?: string;
-  updateDate?: string;
-  attachmentCount?: number;
   policyName?: string;
-  createDate?: string;
   policyType?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      attachmentCount: 'AttachmentCount',
+      createDate: 'CreateDate',
       defaultVersion: 'DefaultVersion',
       description: 'Description',
-      updateDate: 'UpdateDate',
-      attachmentCount: 'AttachmentCount',
       policyName: 'PolicyName',
-      createDate: 'CreateDate',
       policyType: 'PolicyType',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachmentCount: 'number',
+      createDate: 'string',
       defaultVersion: 'string',
       description: 'string',
-      updateDate: 'string',
-      attachmentCount: 'number',
       policyName: 'string',
-      createDate: 'string',
       policyType: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4972,27 +5231,27 @@ export class ListPoliciesResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForGroupResponseBodyPoliciesPolicy extends $tea.Model {
+  attachDate?: string;
   defaultVersion?: string;
   description?: string;
   policyName?: string;
-  attachDate?: string;
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
+      attachDate: 'AttachDate',
       defaultVersion: 'DefaultVersion',
       description: 'Description',
       policyName: 'PolicyName',
-      attachDate: 'AttachDate',
       policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachDate: 'string',
       defaultVersion: 'string',
       description: 'string',
       policyName: 'string',
-      attachDate: 'string',
       policyType: 'string',
     };
   }
@@ -5022,27 +5281,27 @@ export class ListPoliciesForGroupResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForRoleResponseBodyPoliciesPolicy extends $tea.Model {
+  attachDate?: string;
   defaultVersion?: string;
   description?: string;
   policyName?: string;
-  attachDate?: string;
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
+      attachDate: 'AttachDate',
       defaultVersion: 'DefaultVersion',
       description: 'Description',
       policyName: 'PolicyName',
-      attachDate: 'AttachDate',
       policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachDate: 'string',
       defaultVersion: 'string',
       description: 'string',
       policyName: 'string',
-      attachDate: 'string',
       policyType: 'string',
     };
   }
@@ -5072,27 +5331,27 @@ export class ListPoliciesForRoleResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForUserResponseBodyPoliciesPolicy extends $tea.Model {
+  attachDate?: string;
   defaultVersion?: string;
   description?: string;
   policyName?: string;
-  attachDate?: string;
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
+      attachDate: 'AttachDate',
       defaultVersion: 'DefaultVersion',
       description: 'Description',
       policyName: 'PolicyName',
-      attachDate: 'AttachDate',
       policyType: 'PolicyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachDate: 'string',
       defaultVersion: 'string',
       description: 'string',
       policyName: 'string',
-      attachDate: 'string',
       policyType: 'string',
     };
   }
@@ -5122,25 +5381,25 @@ export class ListPoliciesForUserResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion extends $tea.Model {
+  createDate?: string;
   isDefaultVersion?: boolean;
   policyDocument?: string;
   versionId?: string;
-  createDate?: string;
   static names(): { [key: string]: string } {
     return {
+      createDate: 'CreateDate',
       isDefaultVersion: 'IsDefaultVersion',
       policyDocument: 'PolicyDocument',
       versionId: 'VersionId',
-      createDate: 'CreateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createDate: 'string',
       isDefaultVersion: 'boolean',
       policyDocument: 'string',
       versionId: 'string',
-      createDate: 'string',
     };
   }
 
@@ -5169,34 +5428,34 @@ export class ListPolicyVersionsResponseBodyPolicyVersions extends $tea.Model {
 }
 
 export class ListRolesResponseBodyRolesRole extends $tea.Model {
-  description?: string;
-  updateDate?: string;
-  maxSessionDuration?: number;
-  roleName?: string;
-  createDate?: string;
-  roleId?: string;
   arn?: string;
+  createDate?: string;
+  description?: string;
+  maxSessionDuration?: number;
+  roleId?: string;
+  roleName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      updateDate: 'UpdateDate',
-      maxSessionDuration: 'MaxSessionDuration',
-      roleName: 'RoleName',
-      createDate: 'CreateDate',
-      roleId: 'RoleId',
       arn: 'Arn',
+      createDate: 'CreateDate',
+      description: 'Description',
+      maxSessionDuration: 'MaxSessionDuration',
+      roleId: 'RoleId',
+      roleName: 'RoleName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      updateDate: 'string',
-      maxSessionDuration: 'number',
-      roleName: 'string',
-      createDate: 'string',
-      roleId: 'string',
       arn: 'string',
+      createDate: 'string',
+      description: 'string',
+      maxSessionDuration: 'number',
+      roleId: 'string',
+      roleName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5225,36 +5484,36 @@ export class ListRolesResponseBodyRoles extends $tea.Model {
 }
 
 export class ListUsersResponseBodyUsersUser extends $tea.Model {
-  displayName?: string;
-  email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
   comments?: string;
   createDate?: string;
+  displayName?: string;
+  email?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
       comments: 'Comments',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      email: 'Email',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
       userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
       comments: 'string',
       createDate: 'string',
+      displayName: 'string',
+      email: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
       userName: 'string',
     };
   }
@@ -5353,22 +5612,22 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceU
 }
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $tea.Model {
+  activateDate?: string;
   serialNumber?: string;
   user?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser;
-  activateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      activateDate: 'ActivateDate',
       serialNumber: 'SerialNumber',
       user: 'User',
-      activateDate: 'ActivateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activateDate: 'string',
       serialNumber: 'string',
       user: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser,
-      activateDate: 'string',
     };
   }
 
@@ -5397,40 +5656,40 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Mod
 }
 
 export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
-  requireNumbers?: boolean;
-  requireLowercaseCharacters?: boolean;
   hardExpiry?: boolean;
-  passwordReusePrevention?: number;
-  requireSymbols?: boolean;
+  maxLoginAttemps?: number;
   maxPasswordAge?: number;
   minimumPasswordLength?: number;
+  passwordReusePrevention?: number;
+  requireLowercaseCharacters?: boolean;
+  requireNumbers?: boolean;
+  requireSymbols?: boolean;
   requireUppercaseCharacters?: boolean;
-  maxLoginAttemps?: number;
   static names(): { [key: string]: string } {
     return {
-      requireNumbers: 'RequireNumbers',
-      requireLowercaseCharacters: 'RequireLowercaseCharacters',
       hardExpiry: 'HardExpiry',
-      passwordReusePrevention: 'PasswordReusePrevention',
-      requireSymbols: 'RequireSymbols',
+      maxLoginAttemps: 'MaxLoginAttemps',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordLength: 'MinimumPasswordLength',
+      passwordReusePrevention: 'PasswordReusePrevention',
+      requireLowercaseCharacters: 'RequireLowercaseCharacters',
+      requireNumbers: 'RequireNumbers',
+      requireSymbols: 'RequireSymbols',
       requireUppercaseCharacters: 'RequireUppercaseCharacters',
-      maxLoginAttemps: 'MaxLoginAttemps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requireNumbers: 'boolean',
-      requireLowercaseCharacters: 'boolean',
       hardExpiry: 'boolean',
-      passwordReusePrevention: 'number',
-      requireSymbols: 'boolean',
+      maxLoginAttemps: 'number',
       maxPasswordAge: 'number',
       minimumPasswordLength: 'number',
+      passwordReusePrevention: 'number',
+      requireLowercaseCharacters: 'boolean',
+      requireNumbers: 'boolean',
+      requireSymbols: 'boolean',
       requireUppercaseCharacters: 'boolean',
-      maxLoginAttemps: 'number',
     };
   }
 
@@ -5458,6 +5717,34 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
   }
 }
 
+export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
+  allowUserToChangePassword?: boolean;
+  enableSaveMFATicket?: boolean;
+  loginNetworkMasks?: string;
+  loginSessionDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      allowUserToChangePassword: 'AllowUserToChangePassword',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUserToChangePassword: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference extends $tea.Model {
   allowUserToManageMFADevices?: boolean;
   static names(): { [key: string]: string } {
@@ -5469,34 +5756,6 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   static types(): { [key: string]: any } {
     return {
       allowUserToManageMFADevices: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
-  enableSaveMFATicket?: boolean;
-  loginSessionDuration?: number;
-  loginNetworkMasks?: string;
-  allowUserToChangePassword?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      loginSessionDuration: 'LoginSessionDuration',
-      loginNetworkMasks: 'LoginNetworkMasks',
-      allowUserToChangePassword: 'AllowUserToChangePassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableSaveMFATicket: 'boolean',
-      loginSessionDuration: 'number',
-      loginNetworkMasks: 'string',
-      allowUserToChangePassword: 'boolean',
     };
   }
 
@@ -5526,14 +5785,14 @@ export class SetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPrefere
 
 export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
   accessKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
-  MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   loginProfilePreference?: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
+  MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
   publicKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
-      MFAPreference: 'MFAPreference',
       loginProfilePreference: 'LoginProfilePreference',
+      MFAPreference: 'MFAPreference',
       publicKeyPreference: 'PublicKeyPreference',
     };
   }
@@ -5541,8 +5800,8 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       accessKeyPreference: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
-      MFAPreference: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
       loginProfilePreference: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
+      MFAPreference: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
       publicKeyPreference: SetSecurityPreferenceResponseBodySecurityPreferencePublicKeyPreference,
     };
   }
@@ -5572,28 +5831,62 @@ export class UnbindMFADeviceResponseBodyMFADevice extends $tea.Model {
 }
 
 export class UpdateGroupResponseBodyGroup extends $tea.Model {
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolicyDescriptionResponseBodyPolicy extends $tea.Model {
+  createDate?: string;
+  defaultVersion?: string;
+  description?: string;
+  policyName?: string;
+  policyType?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createDate: 'CreateDate',
+      defaultVersion: 'DefaultVersion',
+      description: 'Description',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createDate: 'string',
+      defaultVersion: 'string',
+      description: 'string',
+      policyName: 'string',
+      policyType: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5603,37 +5896,37 @@ export class UpdateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class UpdateRoleResponseBodyRole extends $tea.Model {
+  arn?: string;
   assumeRolePolicyDocument?: string;
-  updateDate?: string;
+  createDate?: string;
   description?: string;
   maxSessionDuration?: number;
-  roleName?: string;
-  createDate?: string;
   roleId?: string;
-  arn?: string;
+  roleName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      arn: 'Arn',
       assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
-      updateDate: 'UpdateDate',
+      createDate: 'CreateDate',
       description: 'Description',
       maxSessionDuration: 'MaxSessionDuration',
-      roleName: 'RoleName',
-      createDate: 'CreateDate',
       roleId: 'RoleId',
-      arn: 'Arn',
+      roleName: 'RoleName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      arn: 'string',
       assumeRolePolicyDocument: 'string',
-      updateDate: 'string',
+      createDate: 'string',
       description: 'string',
       maxSessionDuration: 'number',
-      roleName: 'string',
-      createDate: 'string',
       roleId: 'string',
-      arn: 'string',
+      roleName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5643,36 +5936,36 @@ export class UpdateRoleResponseBodyRole extends $tea.Model {
 }
 
 export class UpdateUserResponseBodyUser extends $tea.Model {
-  displayName?: string;
-  email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
   comments?: string;
   createDate?: string;
+  displayName?: string;
+  email?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
       comments: 'Comments',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      email: 'Email',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
       userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
       comments: 'string',
       createDate: 'string',
+      displayName: 'string',
+      email: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
       userName: 'string',
     };
   }
@@ -5707,10 +6000,30 @@ export default class Client extends OpenApi {
 
   async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddUserToGroupResponse>(await this.doRPCRequest("AddUserToGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddUserToGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddUserToGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
   }
 
   async addUserToGroup(request: AddUserToGroupRequest): Promise<AddUserToGroupResponse> {
@@ -5720,10 +6033,34 @@ export default class Client extends OpenApi {
 
   async attachPolicyToGroupWithOptions(request: AttachPolicyToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachPolicyToGroupResponse>(await this.doRPCRequest("AttachPolicyToGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new AttachPolicyToGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachPolicyToGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachPolicyToGroupResponse>(await this.callApi(params, req, runtime), new AttachPolicyToGroupResponse({}));
   }
 
   async attachPolicyToGroup(request: AttachPolicyToGroupRequest): Promise<AttachPolicyToGroupResponse> {
@@ -5733,10 +6070,34 @@ export default class Client extends OpenApi {
 
   async attachPolicyToRoleWithOptions(request: AttachPolicyToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachPolicyToRoleResponse>(await this.doRPCRequest("AttachPolicyToRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new AttachPolicyToRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachPolicyToRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachPolicyToRoleResponse>(await this.callApi(params, req, runtime), new AttachPolicyToRoleResponse({}));
   }
 
   async attachPolicyToRole(request: AttachPolicyToRoleRequest): Promise<AttachPolicyToRoleResponse> {
@@ -5746,10 +6107,34 @@ export default class Client extends OpenApi {
 
   async attachPolicyToUserWithOptions(request: AttachPolicyToUserRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyToUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachPolicyToUserResponse>(await this.doRPCRequest("AttachPolicyToUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new AttachPolicyToUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachPolicyToUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachPolicyToUserResponse>(await this.callApi(params, req, runtime), new AttachPolicyToUserResponse({}));
   }
 
   async attachPolicyToUser(request: AttachPolicyToUserRequest): Promise<AttachPolicyToUserResponse> {
@@ -5759,10 +6144,38 @@ export default class Client extends OpenApi {
 
   async bindMFADeviceWithOptions(request: BindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authenticationCode1)) {
+      query["AuthenticationCode1"] = request.authenticationCode1;
+    }
+
+    if (!Util.isUnset(request.authenticationCode2)) {
+      query["AuthenticationCode2"] = request.authenticationCode2;
+    }
+
+    if (!Util.isUnset(request.serialNumber)) {
+      query["SerialNumber"] = request.serialNumber;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BindMFADeviceResponse>(await this.doRPCRequest("BindMFADevice", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new BindMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindMFADevice",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
   }
 
   async bindMFADevice(request: BindMFADeviceRequest): Promise<BindMFADeviceResponse> {
@@ -5772,10 +6185,30 @@ export default class Client extends OpenApi {
 
   async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newPassword)) {
+      query["NewPassword"] = request.newPassword;
+    }
+
+    if (!Util.isUnset(request.oldPassword)) {
+      query["OldPassword"] = request.oldPassword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChangePasswordResponse>(await this.doRPCRequest("ChangePassword", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ChangePasswordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangePassword",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
@@ -5785,7 +6218,18 @@ export default class Client extends OpenApi {
 
   async clearAccountAliasWithOptions(runtime: $Util.RuntimeOptions): Promise<ClearAccountAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ClearAccountAliasResponse>(await this.doRPCRequest("ClearAccountAlias", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ClearAccountAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ClearAccountAlias",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClearAccountAliasResponse>(await this.callApi(params, req, runtime), new ClearAccountAliasResponse({}));
   }
 
   async clearAccountAlias(): Promise<ClearAccountAliasResponse> {
@@ -5795,10 +6239,26 @@ export default class Client extends OpenApi {
 
   async createAccessKeyWithOptions(request: CreateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAccessKeyResponse>(await this.doRPCRequest("CreateAccessKey", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAccessKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccessKey",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
   }
 
   async createAccessKey(request: CreateAccessKeyRequest): Promise<CreateAccessKeyResponse> {
@@ -5808,10 +6268,30 @@ export default class Client extends OpenApi {
 
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comments)) {
+      query["Comments"] = request.comments;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateGroupResponse>(await this.doRPCRequest("CreateGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
   }
 
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
@@ -5821,10 +6301,38 @@ export default class Client extends OpenApi {
 
   async createLoginProfileWithOptions(request: CreateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.MFABindRequired)) {
+      query["MFABindRequired"] = request.MFABindRequired;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.passwordResetRequired)) {
+      query["PasswordResetRequired"] = request.passwordResetRequired;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoginProfileResponse>(await this.doRPCRequest("CreateLoginProfile", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoginProfile",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
   }
 
   async createLoginProfile(request: CreateLoginProfileRequest): Promise<CreateLoginProfileResponse> {
@@ -5834,10 +6342,34 @@ export default class Client extends OpenApi {
 
   async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreatePolicyResponse>(await this.doRPCRequest("CreatePolicy", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePolicy",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
   }
 
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
@@ -5847,10 +6379,38 @@ export default class Client extends OpenApi {
 
   async createPolicyVersionWithOptions(request: CreatePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.rotateStrategy)) {
+      query["RotateStrategy"] = request.rotateStrategy;
+    }
+
+    if (!Util.isUnset(request.setAsDefault)) {
+      query["SetAsDefault"] = request.setAsDefault;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreatePolicyVersionResponse>(await this.doRPCRequest("CreatePolicyVersion", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePolicyVersion",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePolicyVersionResponse>(await this.callApi(params, req, runtime), new CreatePolicyVersionResponse({}));
   }
 
   async createPolicyVersion(request: CreatePolicyVersionRequest): Promise<CreatePolicyVersionResponse> {
@@ -5860,10 +6420,38 @@ export default class Client extends OpenApi {
 
   async createRoleWithOptions(request: CreateRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assumeRolePolicyDocument)) {
+      query["AssumeRolePolicyDocument"] = request.assumeRolePolicyDocument;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.maxSessionDuration)) {
+      query["MaxSessionDuration"] = request.maxSessionDuration;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRoleResponse>(await this.doRPCRequest("CreateRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRoleResponse>(await this.callApi(params, req, runtime), new CreateRoleResponse({}));
   }
 
   async createRole(request: CreateRoleRequest): Promise<CreateRoleResponse> {
@@ -5873,10 +6461,42 @@ export default class Client extends OpenApi {
 
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comments)) {
+      query["Comments"] = request.comments;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.mobilePhone)) {
+      query["MobilePhone"] = request.mobilePhone;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateUserResponse>(await this.doRPCRequest("CreateUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
@@ -5886,10 +6506,26 @@ export default class Client extends OpenApi {
 
   async createVirtualMFADeviceWithOptions(request: CreateVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.virtualMFADeviceName)) {
+      query["VirtualMFADeviceName"] = request.virtualMFADeviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVirtualMFADeviceResponse>(await this.doRPCRequest("CreateVirtualMFADevice", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVirtualMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVirtualMFADevice",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
   }
 
   async createVirtualMFADevice(request: CreateVirtualMFADeviceRequest): Promise<CreateVirtualMFADeviceResponse> {
@@ -5899,10 +6535,30 @@ export default class Client extends OpenApi {
 
   async deleteAccessKeyWithOptions(request: DeleteAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAccessKeyResponse>(await this.doRPCRequest("DeleteAccessKey", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccessKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessKey",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
   }
 
   async deleteAccessKey(request: DeleteAccessKeyRequest): Promise<DeleteAccessKeyResponse> {
@@ -5912,10 +6568,26 @@ export default class Client extends OpenApi {
 
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGroupResponse>(await this.doRPCRequest("DeleteGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
@@ -5925,10 +6597,26 @@ export default class Client extends OpenApi {
 
   async deleteLoginProfileWithOptions(request: DeleteLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLoginProfileResponse>(await this.doRPCRequest("DeleteLoginProfile", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLoginProfile",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
   }
 
   async deleteLoginProfile(request: DeleteLoginProfileRequest): Promise<DeleteLoginProfileResponse> {
@@ -5938,10 +6626,26 @@ export default class Client extends OpenApi {
 
   async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeletePolicyResponse>(await this.doRPCRequest("DeletePolicy", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePolicy",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
   }
 
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
@@ -5951,10 +6655,30 @@ export default class Client extends OpenApi {
 
   async deletePolicyVersionWithOptions(request: DeletePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeletePolicyVersionResponse>(await this.doRPCRequest("DeletePolicyVersion", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePolicyVersion",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyVersionResponse>(await this.callApi(params, req, runtime), new DeletePolicyVersionResponse({}));
   }
 
   async deletePolicyVersion(request: DeletePolicyVersionRequest): Promise<DeletePolicyVersionResponse> {
@@ -5964,10 +6688,26 @@ export default class Client extends OpenApi {
 
   async deleteRoleWithOptions(request: DeleteRoleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteRoleResponse>(await this.doRPCRequest("DeleteRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoleResponse>(await this.callApi(params, req, runtime), new DeleteRoleResponse({}));
   }
 
   async deleteRole(request: DeleteRoleRequest): Promise<DeleteRoleResponse> {
@@ -5977,10 +6717,26 @@ export default class Client extends OpenApi {
 
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteUserResponse>(await this.doRPCRequest("DeleteUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
@@ -5990,10 +6746,26 @@ export default class Client extends OpenApi {
 
   async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.serialNumber)) {
+      query["SerialNumber"] = request.serialNumber;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVirtualMFADeviceResponse>(await this.doRPCRequest("DeleteVirtualMFADevice", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVirtualMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVirtualMFADevice",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
   }
 
   async deleteVirtualMFADevice(request: DeleteVirtualMFADeviceRequest): Promise<DeleteVirtualMFADeviceResponse> {
@@ -6003,10 +6775,34 @@ export default class Client extends OpenApi {
 
   async detachPolicyFromGroupWithOptions(request: DetachPolicyFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachPolicyFromGroupResponse>(await this.doRPCRequest("DetachPolicyFromGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetachPolicyFromGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachPolicyFromGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachPolicyFromGroupResponse>(await this.callApi(params, req, runtime), new DetachPolicyFromGroupResponse({}));
   }
 
   async detachPolicyFromGroup(request: DetachPolicyFromGroupRequest): Promise<DetachPolicyFromGroupResponse> {
@@ -6016,10 +6812,34 @@ export default class Client extends OpenApi {
 
   async detachPolicyFromRoleWithOptions(request: DetachPolicyFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachPolicyFromRoleResponse>(await this.doRPCRequest("DetachPolicyFromRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetachPolicyFromRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachPolicyFromRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachPolicyFromRoleResponse>(await this.callApi(params, req, runtime), new DetachPolicyFromRoleResponse({}));
   }
 
   async detachPolicyFromRole(request: DetachPolicyFromRoleRequest): Promise<DetachPolicyFromRoleResponse> {
@@ -6029,10 +6849,34 @@ export default class Client extends OpenApi {
 
   async detachPolicyFromUserWithOptions(request: DetachPolicyFromUserRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyFromUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachPolicyFromUserResponse>(await this.doRPCRequest("DetachPolicyFromUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetachPolicyFromUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachPolicyFromUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachPolicyFromUserResponse>(await this.callApi(params, req, runtime), new DetachPolicyFromUserResponse({}));
   }
 
   async detachPolicyFromUser(request: DetachPolicyFromUserRequest): Promise<DetachPolicyFromUserResponse> {
@@ -6042,10 +6886,30 @@ export default class Client extends OpenApi {
 
   async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAccessKeyLastUsedResponse>(await this.doRPCRequest("GetAccessKeyLastUsed", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccessKeyLastUsedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsed",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
   }
 
   async getAccessKeyLastUsed(request: GetAccessKeyLastUsedRequest): Promise<GetAccessKeyLastUsedResponse> {
@@ -6055,7 +6919,18 @@ export default class Client extends OpenApi {
 
   async getAccountAliasWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetAccountAliasResponse>(await this.doRPCRequest("GetAccountAlias", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccountAlias",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountAliasResponse>(await this.callApi(params, req, runtime), new GetAccountAliasResponse({}));
   }
 
   async getAccountAlias(): Promise<GetAccountAliasResponse> {
@@ -6065,10 +6940,26 @@ export default class Client extends OpenApi {
 
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetGroupResponse>(await this.doRPCRequest("GetGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
   }
 
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
@@ -6078,10 +6969,26 @@ export default class Client extends OpenApi {
 
   async getLoginProfileWithOptions(request: GetLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetLoginProfileResponse>(await this.doRPCRequest("GetLoginProfile", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLoginProfile",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
   }
 
   async getLoginProfile(request: GetLoginProfileRequest): Promise<GetLoginProfileResponse> {
@@ -6091,7 +6998,18 @@ export default class Client extends OpenApi {
 
   async getPasswordPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetPasswordPolicyResponse>(await this.doRPCRequest("GetPasswordPolicy", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPasswordPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPasswordPolicy",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
   }
 
   async getPasswordPolicy(): Promise<GetPasswordPolicyResponse> {
@@ -6101,10 +7019,30 @@ export default class Client extends OpenApi {
 
   async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPolicyResponse>(await this.doRPCRequest("GetPolicy", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPolicy",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
   }
 
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
@@ -6114,10 +7052,34 @@ export default class Client extends OpenApi {
 
   async getPolicyVersionWithOptions(request: GetPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPolicyVersionResponse>(await this.doRPCRequest("GetPolicyVersion", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPolicyVersion",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPolicyVersionResponse>(await this.callApi(params, req, runtime), new GetPolicyVersionResponse({}));
   }
 
   async getPolicyVersion(request: GetPolicyVersionRequest): Promise<GetPolicyVersionResponse> {
@@ -6127,10 +7089,26 @@ export default class Client extends OpenApi {
 
   async getRoleWithOptions(request: GetRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRoleResponse>(await this.doRPCRequest("GetRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoleResponse>(await this.callApi(params, req, runtime), new GetRoleResponse({}));
   }
 
   async getRole(request: GetRoleRequest): Promise<GetRoleResponse> {
@@ -6140,7 +7118,18 @@ export default class Client extends OpenApi {
 
   async getSecurityPreferenceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetSecurityPreferenceResponse>(await this.doRPCRequest("GetSecurityPreference", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecurityPreferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSecurityPreference",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
   }
 
   async getSecurityPreference(): Promise<GetSecurityPreferenceResponse> {
@@ -6150,10 +7139,26 @@ export default class Client extends OpenApi {
 
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetUserResponse>(await this.doRPCRequest("GetUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
@@ -6163,10 +7168,26 @@ export default class Client extends OpenApi {
 
   async getUserMFAInfoWithOptions(request: GetUserMFAInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserMFAInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetUserMFAInfoResponse>(await this.doRPCRequest("GetUserMFAInfo", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserMFAInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUserMFAInfo",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
   }
 
   async getUserMFAInfo(request: GetUserMFAInfoRequest): Promise<GetUserMFAInfoResponse> {
@@ -6176,10 +7197,26 @@ export default class Client extends OpenApi {
 
   async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessKeysResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAccessKeysResponse>(await this.doRPCRequest("ListAccessKeys", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListAccessKeysResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccessKeys",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
   }
 
   async listAccessKeys(request: ListAccessKeysRequest): Promise<ListAccessKeysResponse> {
@@ -6189,10 +7226,30 @@ export default class Client extends OpenApi {
 
   async listEntitiesForPolicyWithOptions(request: ListEntitiesForPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListEntitiesForPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListEntitiesForPolicyResponse>(await this.doRPCRequest("ListEntitiesForPolicy", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListEntitiesForPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEntitiesForPolicy",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEntitiesForPolicyResponse>(await this.callApi(params, req, runtime), new ListEntitiesForPolicyResponse({}));
   }
 
   async listEntitiesForPolicy(request: ListEntitiesForPolicyRequest): Promise<ListEntitiesForPolicyResponse> {
@@ -6202,10 +7259,30 @@ export default class Client extends OpenApi {
 
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListGroupsResponse>(await this.doRPCRequest("ListGroups", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListGroups",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
@@ -6215,10 +7292,26 @@ export default class Client extends OpenApi {
 
   async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListGroupsForUserResponse>(await this.doRPCRequest("ListGroupsForUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListGroupsForUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListGroupsForUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
   }
 
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
@@ -6228,10 +7321,34 @@ export default class Client extends OpenApi {
 
   async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPoliciesResponse>(await this.doRPCRequest("ListPolicies", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPolicies",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
   }
 
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
@@ -6241,10 +7358,26 @@ export default class Client extends OpenApi {
 
   async listPoliciesForGroupWithOptions(request: ListPoliciesForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPoliciesForGroupResponse>(await this.doRPCRequest("ListPoliciesForGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPoliciesForGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPoliciesForGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoliciesForGroupResponse>(await this.callApi(params, req, runtime), new ListPoliciesForGroupResponse({}));
   }
 
   async listPoliciesForGroup(request: ListPoliciesForGroupRequest): Promise<ListPoliciesForGroupResponse> {
@@ -6254,10 +7387,26 @@ export default class Client extends OpenApi {
 
   async listPoliciesForRoleWithOptions(request: ListPoliciesForRoleRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPoliciesForRoleResponse>(await this.doRPCRequest("ListPoliciesForRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPoliciesForRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPoliciesForRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoliciesForRoleResponse>(await this.callApi(params, req, runtime), new ListPoliciesForRoleResponse({}));
   }
 
   async listPoliciesForRole(request: ListPoliciesForRoleRequest): Promise<ListPoliciesForRoleResponse> {
@@ -6267,10 +7416,26 @@ export default class Client extends OpenApi {
 
   async listPoliciesForUserWithOptions(request: ListPoliciesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPoliciesForUserResponse>(await this.doRPCRequest("ListPoliciesForUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPoliciesForUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPoliciesForUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoliciesForUserResponse>(await this.callApi(params, req, runtime), new ListPoliciesForUserResponse({}));
   }
 
   async listPoliciesForUser(request: ListPoliciesForUserRequest): Promise<ListPoliciesForUserResponse> {
@@ -6280,10 +7445,30 @@ export default class Client extends OpenApi {
 
   async listPolicyVersionsWithOptions(request: ListPolicyVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyVersionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPolicyVersionsResponse>(await this.doRPCRequest("ListPolicyVersions", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListPolicyVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPolicyVersions",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPolicyVersionsResponse>(await this.callApi(params, req, runtime), new ListPolicyVersionsResponse({}));
   }
 
   async listPolicyVersions(request: ListPolicyVersionsRequest): Promise<ListPolicyVersionsResponse> {
@@ -6293,10 +7478,30 @@ export default class Client extends OpenApi {
 
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListRolesResponse>(await this.doRPCRequest("ListRoles", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRolesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRoles",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
   }
 
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
@@ -6306,10 +7511,30 @@ export default class Client extends OpenApi {
 
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUsersResponse>(await this.doRPCRequest("ListUsers", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUsers",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
@@ -6319,10 +7544,34 @@ export default class Client extends OpenApi {
 
   async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUsersForGroupResponse>(await this.doRPCRequest("ListUsersForGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListUsersForGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUsersForGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
   }
 
   async listUsersForGroup(request: ListUsersForGroupRequest): Promise<ListUsersForGroupResponse> {
@@ -6332,7 +7581,18 @@ export default class Client extends OpenApi {
 
   async listVirtualMFADevicesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListVirtualMFADevicesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ListVirtualMFADevicesResponse>(await this.doRPCRequest("ListVirtualMFADevices", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListVirtualMFADevicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVirtualMFADevices",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
   }
 
   async listVirtualMFADevices(): Promise<ListVirtualMFADevicesResponse> {
@@ -6342,10 +7602,30 @@ export default class Client extends OpenApi {
 
   async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveUserFromGroupResponse>(await this.doRPCRequest("RemoveUserFromGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveUserFromGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveUserFromGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
   }
 
   async removeUserFromGroup(request: RemoveUserFromGroupRequest): Promise<RemoveUserFromGroupResponse> {
@@ -6355,10 +7635,26 @@ export default class Client extends OpenApi {
 
   async setAccountAliasWithOptions(request: SetAccountAliasRequest, runtime: $Util.RuntimeOptions): Promise<SetAccountAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountAlias)) {
+      query["AccountAlias"] = request.accountAlias;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetAccountAliasResponse>(await this.doRPCRequest("SetAccountAlias", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SetAccountAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetAccountAlias",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAccountAliasResponse>(await this.callApi(params, req, runtime), new SetAccountAliasResponse({}));
   }
 
   async setAccountAlias(request: SetAccountAliasRequest): Promise<SetAccountAliasResponse> {
@@ -6368,10 +7664,30 @@ export default class Client extends OpenApi {
 
   async setDefaultPolicyVersionWithOptions(request: SetDefaultPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultPolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDefaultPolicyVersionResponse>(await this.doRPCRequest("SetDefaultPolicyVersion", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultPolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDefaultPolicyVersion",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDefaultPolicyVersionResponse>(await this.callApi(params, req, runtime), new SetDefaultPolicyVersionResponse({}));
   }
 
   async setDefaultPolicyVersion(request: SetDefaultPolicyVersionRequest): Promise<SetDefaultPolicyVersionResponse> {
@@ -6381,10 +7697,58 @@ export default class Client extends OpenApi {
 
   async setPasswordPolicyWithOptions(request: SetPasswordPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hardExpiry)) {
+      query["HardExpiry"] = request.hardExpiry;
+    }
+
+    if (!Util.isUnset(request.maxLoginAttemps)) {
+      query["MaxLoginAttemps"] = request.maxLoginAttemps;
+    }
+
+    if (!Util.isUnset(request.maxPasswordAge)) {
+      query["MaxPasswordAge"] = request.maxPasswordAge;
+    }
+
+    if (!Util.isUnset(request.minimumPasswordLength)) {
+      query["MinimumPasswordLength"] = request.minimumPasswordLength;
+    }
+
+    if (!Util.isUnset(request.passwordReusePrevention)) {
+      query["PasswordReusePrevention"] = request.passwordReusePrevention;
+    }
+
+    if (!Util.isUnset(request.requireLowercaseCharacters)) {
+      query["RequireLowercaseCharacters"] = request.requireLowercaseCharacters;
+    }
+
+    if (!Util.isUnset(request.requireNumbers)) {
+      query["RequireNumbers"] = request.requireNumbers;
+    }
+
+    if (!Util.isUnset(request.requireSymbols)) {
+      query["RequireSymbols"] = request.requireSymbols;
+    }
+
+    if (!Util.isUnset(request.requireUppercaseCharacters)) {
+      query["RequireUppercaseCharacters"] = request.requireUppercaseCharacters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetPasswordPolicyResponse>(await this.doRPCRequest("SetPasswordPolicy", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SetPasswordPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetPasswordPolicy",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
   }
 
   async setPasswordPolicy(request: SetPasswordPolicyRequest): Promise<SetPasswordPolicyResponse> {
@@ -6394,10 +7758,50 @@ export default class Client extends OpenApi {
 
   async setSecurityPreferenceWithOptions(request: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowUserToChangePassword)) {
+      query["AllowUserToChangePassword"] = request.allowUserToChangePassword;
+    }
+
+    if (!Util.isUnset(request.allowUserToManageAccessKeys)) {
+      query["AllowUserToManageAccessKeys"] = request.allowUserToManageAccessKeys;
+    }
+
+    if (!Util.isUnset(request.allowUserToManageMFADevices)) {
+      query["AllowUserToManageMFADevices"] = request.allowUserToManageMFADevices;
+    }
+
+    if (!Util.isUnset(request.allowUserToManagePublicKeys)) {
+      query["AllowUserToManagePublicKeys"] = request.allowUserToManagePublicKeys;
+    }
+
+    if (!Util.isUnset(request.enableSaveMFATicket)) {
+      query["EnableSaveMFATicket"] = request.enableSaveMFATicket;
+    }
+
+    if (!Util.isUnset(request.loginNetworkMasks)) {
+      query["LoginNetworkMasks"] = request.loginNetworkMasks;
+    }
+
+    if (!Util.isUnset(request.loginSessionDuration)) {
+      query["LoginSessionDuration"] = request.loginSessionDuration;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetSecurityPreferenceResponse>(await this.doRPCRequest("SetSecurityPreference", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SetSecurityPreferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetSecurityPreference",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
   }
 
   async setSecurityPreference(request: SetSecurityPreferenceRequest): Promise<SetSecurityPreferenceResponse> {
@@ -6407,10 +7811,26 @@ export default class Client extends OpenApi {
 
   async unbindMFADeviceWithOptions(request: UnbindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindMFADeviceResponse>(await this.doRPCRequest("UnbindMFADevice", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindMFADevice",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
   }
 
   async unbindMFADevice(request: UnbindMFADeviceRequest): Promise<UnbindMFADeviceResponse> {
@@ -6420,10 +7840,34 @@ export default class Client extends OpenApi {
 
   async updateAccessKeyWithOptions(request: UpdateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAccessKeyResponse>(await this.doRPCRequest("UpdateAccessKey", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAccessKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAccessKey",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
   }
 
   async updateAccessKey(request: UpdateAccessKeyRequest): Promise<UpdateAccessKeyResponse> {
@@ -6433,10 +7877,34 @@ export default class Client extends OpenApi {
 
   async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.newComments)) {
+      query["NewComments"] = request.newComments;
+    }
+
+    if (!Util.isUnset(request.newGroupName)) {
+      query["NewGroupName"] = request.newGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGroupResponse>(await this.doRPCRequest("UpdateGroup", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGroup",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
   }
 
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
@@ -6446,10 +7914,38 @@ export default class Client extends OpenApi {
 
   async updateLoginProfileWithOptions(request: UpdateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.MFABindRequired)) {
+      query["MFABindRequired"] = request.MFABindRequired;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.passwordResetRequired)) {
+      query["PasswordResetRequired"] = request.passwordResetRequired;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateLoginProfileResponse>(await this.doRPCRequest("UpdateLoginProfile", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateLoginProfile",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
   }
 
   async updateLoginProfile(request: UpdateLoginProfileRequest): Promise<UpdateLoginProfileResponse> {
@@ -6457,12 +7953,73 @@ export default class Client extends OpenApi {
     return await this.updateLoginProfileWithOptions(request, runtime);
   }
 
+  async updatePolicyDescriptionWithOptions(request: UpdatePolicyDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolicyDescriptionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePolicyDescription",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePolicyDescriptionResponse>(await this.callApi(params, req, runtime), new UpdatePolicyDescriptionResponse({}));
+  }
+
+  async updatePolicyDescription(request: UpdatePolicyDescriptionRequest): Promise<UpdatePolicyDescriptionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePolicyDescriptionWithOptions(request, runtime);
+  }
+
   async updateRoleWithOptions(request: UpdateRoleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newAssumeRolePolicyDocument)) {
+      query["NewAssumeRolePolicyDocument"] = request.newAssumeRolePolicyDocument;
+    }
+
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newMaxSessionDuration)) {
+      query["NewMaxSessionDuration"] = request.newMaxSessionDuration;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateRoleResponse>(await this.doRPCRequest("UpdateRole", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRole",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRoleResponse>(await this.callApi(params, req, runtime), new UpdateRoleResponse({}));
   }
 
   async updateRole(request: UpdateRoleRequest): Promise<UpdateRoleResponse> {
@@ -6472,10 +8029,46 @@ export default class Client extends OpenApi {
 
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newComments)) {
+      query["NewComments"] = request.newComments;
+    }
+
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
+    if (!Util.isUnset(request.newEmail)) {
+      query["NewEmail"] = request.newEmail;
+    }
+
+    if (!Util.isUnset(request.newMobilePhone)) {
+      query["NewMobilePhone"] = request.newMobilePhone;
+    }
+
+    if (!Util.isUnset(request.newUserName)) {
+      query["NewUserName"] = request.newUserName;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateUserResponse>(await this.doRPCRequest("UpdateUser", "2015-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateUser",
+      version: "2015-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
