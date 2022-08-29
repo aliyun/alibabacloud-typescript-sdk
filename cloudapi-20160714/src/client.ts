@@ -3829,6 +3829,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
   basePath?: string;
   billingStatus?: string;
   classicVpcSubDomain?: string;
+  cloudMarketCommodity?: boolean;
   cmsMonitorGroup?: string;
   compatibleFlags?: string;
   createdTime?: string;
@@ -3862,6 +3863,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       basePath: 'BasePath',
       billingStatus: 'BillingStatus',
       classicVpcSubDomain: 'ClassicVpcSubDomain',
+      cloudMarketCommodity: 'CloudMarketCommodity',
       cmsMonitorGroup: 'CmsMonitorGroup',
       compatibleFlags: 'CompatibleFlags',
       createdTime: 'CreatedTime',
@@ -3898,6 +3900,7 @@ export class DescribeApiGroupResponseBody extends $tea.Model {
       basePath: 'string',
       billingStatus: 'string',
       classicVpcSubDomain: 'string',
+      cloudMarketCommodity: 'boolean',
       cmsMonitorGroup: 'string',
       compatibleFlags: 'string',
       createdTime: 'string',
@@ -4996,7 +4999,9 @@ export class DescribeApiTrafficDataResponse extends $tea.Model {
 
 export class DescribeApisRequest extends $tea.Model {
   apiId?: string;
+  apiMethod?: string;
   apiName?: string;
+  apiPath?: string;
   catalogId?: string;
   enableTagAuth?: boolean;
   groupId?: string;
@@ -5004,11 +5009,14 @@ export class DescribeApisRequest extends $tea.Model {
   pageSize?: number;
   securityToken?: string;
   tag?: DescribeApisRequestTag[];
+  unDeployed?: boolean;
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
+      apiMethod: 'ApiMethod',
       apiName: 'ApiName',
+      apiPath: 'ApiPath',
       catalogId: 'CatalogId',
       enableTagAuth: 'EnableTagAuth',
       groupId: 'GroupId',
@@ -5016,6 +5024,7 @@ export class DescribeApisRequest extends $tea.Model {
       pageSize: 'PageSize',
       securityToken: 'SecurityToken',
       tag: 'Tag',
+      unDeployed: 'UnDeployed',
       visibility: 'Visibility',
     };
   }
@@ -5023,7 +5032,9 @@ export class DescribeApisRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       apiId: 'string',
+      apiMethod: 'string',
       apiName: 'string',
+      apiPath: 'string',
       catalogId: 'string',
       enableTagAuth: 'boolean',
       groupId: 'string',
@@ -5031,6 +5042,7 @@ export class DescribeApisRequest extends $tea.Model {
       pageSize: 'number',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': DescribeApisRequestTag },
+      unDeployed: 'boolean',
       visibility: 'string',
     };
   }
@@ -6454,7 +6466,9 @@ export class DescribeDeployedApiResponse extends $tea.Model {
 
 export class DescribeDeployedApisRequest extends $tea.Model {
   apiId?: string;
+  apiMethod?: string;
   apiName?: string;
+  apiPath?: string;
   enableTagAuth?: boolean;
   groupId?: string;
   pageNumber?: number;
@@ -6465,7 +6479,9 @@ export class DescribeDeployedApisRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
+      apiMethod: 'ApiMethod',
       apiName: 'ApiName',
+      apiPath: 'ApiPath',
       enableTagAuth: 'EnableTagAuth',
       groupId: 'GroupId',
       pageNumber: 'PageNumber',
@@ -6479,7 +6495,9 @@ export class DescribeDeployedApisRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       apiId: 'string',
+      apiMethod: 'string',
       apiName: 'string',
+      apiPath: 'string',
       enableTagAuth: 'boolean',
       groupId: 'string',
       pageNumber: 'number',
@@ -8216,13 +8234,11 @@ export class DescribeTrafficControlsResponse extends $tea.Model {
 export class DescribeTrafficControlsByApiRequest extends $tea.Model {
   apiId?: string;
   groupId?: string;
-  securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
   }
@@ -8231,7 +8247,6 @@ export class DescribeTrafficControlsByApiRequest extends $tea.Model {
     return {
       apiId: 'string',
       groupId: 'string',
-      securityToken: 'string',
       stageName: 'string',
     };
   }
@@ -8290,18 +8305,15 @@ export class DescribeTrafficControlsByApiResponse extends $tea.Model {
 
 export class DescribeUpdateBackendTaskRequest extends $tea.Model {
   operationUid?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       operationUid: 'OperationUid',
-      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       operationUid: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -8359,18 +8371,15 @@ export class DescribeUpdateBackendTaskResponse extends $tea.Model {
 
 export class DescribeUpdateVpcInfoTaskRequest extends $tea.Model {
   operationUid?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       operationUid: 'OperationUid',
-      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       operationUid: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -8669,12 +8678,10 @@ export class DetachPluginResponse extends $tea.Model {
 export class DisableInstanceAccessControlRequest extends $tea.Model {
   aclId?: string;
   instanceId?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       instanceId: 'InstanceId',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -8682,7 +8689,6 @@ export class DisableInstanceAccessControlRequest extends $tea.Model {
     return {
       aclId: 'string',
       instanceId: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -8866,13 +8872,11 @@ export class EnableInstanceAccessControlRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   instanceId?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       aclType: 'AclType',
       instanceId: 'InstanceId',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -8881,7 +8885,6 @@ export class EnableInstanceAccessControlRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       instanceId: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -9568,6 +9571,87 @@ export class ModifyApiGroupResponse extends $tea.Model {
   }
 }
 
+export class ModifyApiGroupNetworkPolicyRequest extends $tea.Model {
+  groupId?: string;
+  httpsPolicy?: string;
+  internetEnable?: boolean;
+  internetIPV6Enable?: boolean;
+  securityToken?: string;
+  vpcIntranetEnable?: boolean;
+  vpcSlbIntranetEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      httpsPolicy: 'HttpsPolicy',
+      internetEnable: 'InternetEnable',
+      internetIPV6Enable: 'InternetIPV6Enable',
+      securityToken: 'SecurityToken',
+      vpcIntranetEnable: 'VpcIntranetEnable',
+      vpcSlbIntranetEnable: 'VpcSlbIntranetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      httpsPolicy: 'string',
+      internetEnable: 'boolean',
+      internetIPV6Enable: 'boolean',
+      securityToken: 'string',
+      vpcIntranetEnable: 'boolean',
+      vpcSlbIntranetEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiGroupNetworkPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApiGroupNetworkPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyApiGroupNetworkPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApiGroupNetworkPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyApiGroupVpcWhitelistRequest extends $tea.Model {
   groupId?: string;
   securityToken?: string;
@@ -9876,6 +9960,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   instanceId?: string;
   instanceSpec?: string;
   modifyAction?: string;
+  skipWaitSwitch?: boolean;
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9883,6 +9968,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       instanceId: 'InstanceId',
       instanceSpec: 'InstanceSpec',
       modifyAction: 'ModifyAction',
+      skipWaitSwitch: 'SkipWaitSwitch',
       token: 'Token',
     };
   }
@@ -9893,6 +9979,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       instanceId: 'string',
       instanceSpec: 'string',
       modifyAction: 'string',
+      skipWaitSwitch: 'boolean',
       token: 'string',
     };
   }
@@ -9950,13 +10037,11 @@ export class ModifyIpControlRequest extends $tea.Model {
   description?: string;
   ipControlId?: string;
   ipControlName?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       ipControlId: 'IpControlId',
       ipControlName: 'IpControlName',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -9965,7 +10050,6 @@ export class ModifyIpControlRequest extends $tea.Model {
       description: 'string',
       ipControlId: 'string',
       ipControlName: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -10319,14 +10403,12 @@ export class ModifyPluginResponse extends $tea.Model {
 }
 
 export class ModifySignatureRequest extends $tea.Model {
-  securityToken?: string;
   signatureId?: string;
   signatureKey?: string;
   signatureName?: string;
   signatureSecret?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
       signatureId: 'SignatureId',
       signatureKey: 'SignatureKey',
       signatureName: 'SignatureName',
@@ -10336,7 +10418,6 @@ export class ModifySignatureRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
       signatureId: 'string',
       signatureKey: 'string',
       signatureName: 'string',
@@ -10403,7 +10484,6 @@ export class ModifyTrafficControlRequest extends $tea.Model {
   apiDefault?: number;
   appDefault?: number;
   description?: string;
-  securityToken?: string;
   trafficControlId?: string;
   trafficControlName?: string;
   trafficControlUnit?: string;
@@ -10413,7 +10493,6 @@ export class ModifyTrafficControlRequest extends $tea.Model {
       apiDefault: 'ApiDefault',
       appDefault: 'AppDefault',
       description: 'Description',
-      securityToken: 'SecurityToken',
       trafficControlId: 'TrafficControlId',
       trafficControlName: 'TrafficControlName',
       trafficControlUnit: 'TrafficControlUnit',
@@ -10426,7 +10505,6 @@ export class ModifyTrafficControlRequest extends $tea.Model {
       apiDefault: 'number',
       appDefault: 'number',
       description: 'string',
-      securityToken: 'string',
       trafficControlId: 'string',
       trafficControlName: 'string',
       trafficControlUnit: 'string',
@@ -10533,12 +10611,10 @@ export class OpenApiGatewayServiceResponse extends $tea.Model {
 export class ReactivateDomainRequest extends $tea.Model {
   domainName?: string;
   groupId?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -10546,7 +10622,6 @@ export class ReactivateDomainRequest extends $tea.Model {
     return {
       domainName: 'string',
       groupId: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -10602,12 +10677,10 @@ export class ReactivateDomainResponse extends $tea.Model {
 export class RemoveAccessControlListEntryRequest extends $tea.Model {
   aclEntrys?: string;
   aclId?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       aclEntrys: 'AclEntrys',
       aclId: 'AclId',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -10615,7 +10688,6 @@ export class RemoveAccessControlListEntryRequest extends $tea.Model {
     return {
       aclEntrys: 'string',
       aclId: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -10673,7 +10745,6 @@ export class RemoveApisAuthoritiesRequest extends $tea.Model {
   appId?: number;
   description?: string;
   groupId?: string;
-  securityToken?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10681,7 +10752,6 @@ export class RemoveApisAuthoritiesRequest extends $tea.Model {
       appId: 'AppId',
       description: 'Description',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       stageName: 'StageName',
     };
   }
@@ -10692,7 +10762,6 @@ export class RemoveApisAuthoritiesRequest extends $tea.Model {
       appId: 'number',
       description: 'string',
       groupId: 'string',
-      securityToken: 'string',
       stageName: 'string',
     };
   }
@@ -10899,12 +10968,10 @@ export class RemoveIpControlApisResponse extends $tea.Model {
 export class RemoveIpControlPolicyItemRequest extends $tea.Model {
   ipControlId?: string;
   policyItemIds?: string;
-  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       ipControlId: 'IpControlId',
       policyItemIds: 'PolicyItemIds',
-      securityToken: 'SecurityToken',
     };
   }
 
@@ -10912,7 +10979,6 @@ export class RemoveIpControlPolicyItemRequest extends $tea.Model {
     return {
       ipControlId: 'string',
       policyItemIds: 'string',
-      securityToken: 'string',
     };
   }
 
@@ -10968,14 +11034,12 @@ export class RemoveIpControlPolicyItemResponse extends $tea.Model {
 export class RemoveSignatureApisRequest extends $tea.Model {
   apiIds?: string;
   groupId?: string;
-  securityToken?: string;
   signatureId?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiIds: 'ApiIds',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       signatureId: 'SignatureId',
       stageName: 'StageName',
     };
@@ -10985,7 +11049,6 @@ export class RemoveSignatureApisRequest extends $tea.Model {
     return {
       apiIds: 'string',
       groupId: 'string',
-      securityToken: 'string',
       signatureId: 'string',
       stageName: 'string',
     };
@@ -11043,14 +11106,12 @@ export class RemoveSignatureApisResponse extends $tea.Model {
 export class RemoveTrafficControlApisRequest extends $tea.Model {
   apiIds?: string;
   groupId?: string;
-  securityToken?: string;
   stageName?: string;
   trafficControlId?: string;
   static names(): { [key: string]: string } {
     return {
       apiIds: 'ApiIds',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       stageName: 'StageName',
       trafficControlId: 'TrafficControlId',
     };
@@ -11060,7 +11121,6 @@ export class RemoveTrafficControlApisRequest extends $tea.Model {
     return {
       apiIds: 'string',
       groupId: 'string',
-      securityToken: 'string',
       stageName: 'string',
       trafficControlId: 'string',
     };
@@ -12189,14 +12249,12 @@ export class SetIpControlApisResponse extends $tea.Model {
 export class SetSignatureApisRequest extends $tea.Model {
   apiIds?: string;
   groupId?: string;
-  securityToken?: string;
   signatureId?: string;
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
       apiIds: 'ApiIds',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       signatureId: 'SignatureId',
       stageName: 'StageName',
     };
@@ -12206,7 +12264,6 @@ export class SetSignatureApisRequest extends $tea.Model {
     return {
       apiIds: 'string',
       groupId: 'string',
-      securityToken: 'string',
       signatureId: 'string',
       stageName: 'string',
     };
@@ -12264,14 +12321,12 @@ export class SetSignatureApisResponse extends $tea.Model {
 export class SetTrafficControlApisRequest extends $tea.Model {
   apiIds?: string;
   groupId?: string;
-  securityToken?: string;
   stageName?: string;
   trafficControlId?: string;
   static names(): { [key: string]: string } {
     return {
       apiIds: 'ApiIds',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       stageName: 'StageName',
       trafficControlId: 'TrafficControlId',
     };
@@ -12281,7 +12336,6 @@ export class SetTrafficControlApisRequest extends $tea.Model {
     return {
       apiIds: 'string',
       groupId: 'string',
-      securityToken: 'string',
       stageName: 'string',
       trafficControlId: 'string',
     };
@@ -12420,13 +12474,11 @@ export class SetVpcAccessResponse extends $tea.Model {
 export class SetWildcardDomainPatternsRequest extends $tea.Model {
   domainName?: string;
   groupId?: string;
-  securityToken?: string;
   wildcardDomainPatterns?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
       groupId: 'GroupId',
-      securityToken: 'SecurityToken',
       wildcardDomainPatterns: 'WildcardDomainPatterns',
     };
   }
@@ -12435,7 +12487,6 @@ export class SetWildcardDomainPatternsRequest extends $tea.Model {
     return {
       domainName: 'string',
       groupId: 'string',
-      securityToken: 'string',
       wildcardDomainPatterns: 'string',
     };
   }
@@ -15591,7 +15642,9 @@ export class DescribeApisRequestTag extends $tea.Model {
 
 export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
   apiId?: string;
+  apiMethod?: string;
   apiName?: string;
+  apiPath?: string;
   createdTime?: string;
   description?: string;
   groupId?: string;
@@ -15602,7 +15655,9 @@ export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
+      apiMethod: 'ApiMethod',
       apiName: 'ApiName',
+      apiPath: 'ApiPath',
       createdTime: 'CreatedTime',
       description: 'Description',
       groupId: 'GroupId',
@@ -15616,7 +15671,9 @@ export class DescribeApisResponseBodyApiSummarysApiSummary extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       apiId: 'string',
+      apiMethod: 'string',
       apiName: 'string',
+      apiPath: 'string',
       createdTime: 'string',
       description: 'string',
       groupId: 'string',
@@ -16373,6 +16430,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   vpcAccessId?: string;
   vpcId?: string;
   vpcScheme?: string;
+  vpcTargetHostName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -16381,6 +16439,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
       vpcAccessId: 'VpcAccessId',
       vpcId: 'VpcId',
       vpcScheme: 'VpcScheme',
+      vpcTargetHostName: 'VpcTargetHostName',
     };
   }
 
@@ -16392,6 +16451,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
       vpcAccessId: 'string',
       vpcId: 'string',
       vpcScheme: 'string',
+      vpcTargetHostName: 'string',
     };
   }
 
@@ -17278,7 +17338,9 @@ export class DescribeDeployedApisRequestTag extends $tea.Model {
 
 export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends $tea.Model {
   apiId?: string;
+  apiMethod?: string;
   apiName?: string;
+  apiPath?: string;
   deployedTime?: string;
   description?: string;
   groupId?: string;
@@ -17289,7 +17351,9 @@ export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends
   static names(): { [key: string]: string } {
     return {
       apiId: 'ApiId',
+      apiMethod: 'ApiMethod',
       apiName: 'ApiName',
+      apiPath: 'ApiPath',
       deployedTime: 'DeployedTime',
       description: 'Description',
       groupId: 'GroupId',
@@ -17303,7 +17367,9 @@ export class DescribeDeployedApisResponseBodyDeployedApisDeployedApiItem extends
   static types(): { [key: string]: any } {
     return {
       apiId: 'string',
+      apiMethod: 'string',
       apiName: 'string',
+      apiPath: 'string',
       deployedTime: 'string',
       description: 'string',
       groupId: 'string',
@@ -17473,6 +17539,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   aclType?: string;
   classicEgressAddress?: string;
   createdTime?: string;
+  egressAddressChangeNotify?: boolean;
   egressIpv6Enable?: boolean;
   expiredTime?: string;
   httpsPolicies?: string;
@@ -17504,6 +17571,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       aclType: 'AclType',
       classicEgressAddress: 'ClassicEgressAddress',
       createdTime: 'CreatedTime',
+      egressAddressChangeNotify: 'EgressAddressChangeNotify',
       egressIpv6Enable: 'EgressIpv6Enable',
       expiredTime: 'ExpiredTime',
       httpsPolicies: 'HttpsPolicies',
@@ -17538,6 +17606,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       aclType: 'string',
       classicEgressAddress: 'string',
       createdTime: 'string',
+      egressAddressChangeNotify: 'boolean',
       egressIpv6Enable: 'boolean',
       expiredTime: 'string',
       httpsPolicies: 'string',
@@ -22069,8 +22138,16 @@ export default class Client extends OpenApi {
       query["ApiId"] = request.apiId;
     }
 
+    if (!Util.isUnset(request.apiMethod)) {
+      query["ApiMethod"] = request.apiMethod;
+    }
+
     if (!Util.isUnset(request.apiName)) {
       query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.apiPath)) {
+      query["ApiPath"] = request.apiPath;
     }
 
     if (!Util.isUnset(request.catalogId)) {
@@ -22099,6 +22176,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.unDeployed)) {
+      query["UnDeployed"] = request.unDeployed;
     }
 
     if (!Util.isUnset(request.visibility)) {
@@ -22797,8 +22878,16 @@ export default class Client extends OpenApi {
       query["ApiId"] = request.apiId;
     }
 
+    if (!Util.isUnset(request.apiMethod)) {
+      query["ApiMethod"] = request.apiMethod;
+    }
+
     if (!Util.isUnset(request.apiName)) {
       query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.apiPath)) {
+      query["ApiPath"] = request.apiPath;
     }
 
     if (!Util.isUnset(request.enableTagAuth)) {
@@ -23698,10 +23787,6 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     if (!Util.isUnset(request.stageName)) {
       query["StageName"] = request.stageName;
     }
@@ -23735,10 +23820,6 @@ export default class Client extends OpenApi {
       query["OperationUid"] = request.operationUid;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23766,10 +23847,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.operationUid)) {
       query["OperationUid"] = request.operationUid;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23940,10 +24017,6 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24036,10 +24109,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24549,6 +24618,59 @@ export default class Client extends OpenApi {
     return await this.modifyApiGroupWithOptions(request, runtime);
   }
 
+  async modifyApiGroupNetworkPolicyWithOptions(request: ModifyApiGroupNetworkPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupNetworkPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.httpsPolicy)) {
+      query["HttpsPolicy"] = request.httpsPolicy;
+    }
+
+    if (!Util.isUnset(request.internetEnable)) {
+      query["InternetEnable"] = request.internetEnable;
+    }
+
+    if (!Util.isUnset(request.internetIPV6Enable)) {
+      query["InternetIPV6Enable"] = request.internetIPV6Enable;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcIntranetEnable)) {
+      query["VpcIntranetEnable"] = request.vpcIntranetEnable;
+    }
+
+    if (!Util.isUnset(request.vpcSlbIntranetEnable)) {
+      query["VpcSlbIntranetEnable"] = request.vpcSlbIntranetEnable;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApiGroupNetworkPolicy",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApiGroupNetworkPolicyResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupNetworkPolicyResponse({}));
+  }
+
+  async modifyApiGroupNetworkPolicy(request: ModifyApiGroupNetworkPolicyRequest): Promise<ModifyApiGroupNetworkPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApiGroupNetworkPolicyWithOptions(request, runtime);
+  }
+
   async modifyApiGroupVpcWhitelistWithOptions(request: ModifyApiGroupVpcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupVpcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24748,6 +24870,10 @@ export default class Client extends OpenApi {
       query["ModifyAction"] = request.modifyAction;
     }
 
+    if (!Util.isUnset(request.skipWaitSwitch)) {
+      query["SkipWaitSwitch"] = request.skipWaitSwitch;
+    }
+
     if (!Util.isUnset(request.token)) {
       query["Token"] = request.token;
     }
@@ -24787,10 +24913,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ipControlName)) {
       query["IpControlName"] = request.ipControlName;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24998,10 +25120,6 @@ export default class Client extends OpenApi {
   async modifySignatureWithOptions(request: ModifySignatureRequest, runtime: $Util.RuntimeOptions): Promise<ModifySignatureResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     if (!Util.isUnset(request.signatureId)) {
       query["SignatureId"] = request.signatureId;
     }
@@ -25053,10 +25171,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.trafficControlId)) {
@@ -25129,10 +25243,6 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25164,10 +25274,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.aclId)) {
       query["AclId"] = request.aclId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25209,10 +25315,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.stageName)) {
@@ -25342,10 +25444,6 @@ export default class Client extends OpenApi {
       query["PolicyItemIds"] = request.policyItemIds;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25377,10 +25475,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.signatureId)) {
@@ -25422,10 +25516,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.stageName)) {
@@ -26079,10 +26169,6 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
     if (!Util.isUnset(request.signatureId)) {
       query["SignatureId"] = request.signatureId;
     }
@@ -26122,10 +26208,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.stageName)) {
@@ -26220,10 +26302,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
     }
 
     if (!Util.isUnset(request.wildcardDomainPatterns)) {
