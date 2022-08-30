@@ -3496,7 +3496,13 @@ export class DescribePolicyInstancesStatusResponse extends $tea.Model {
 export class DescribeTaskInfoResponseBody extends $tea.Model {
   clusterId?: string;
   created?: string;
+  currentStage?: string;
+  error?: DescribeTaskInfoResponseBodyError;
+  events?: DescribeTaskInfoResponseBodyEvents[];
+  parameters?: { [key: string]: any };
+  stages?: DescribeTaskInfoResponseBodyStages[];
   state?: string;
+  target?: DescribeTaskInfoResponseBodyTarget;
   taskId?: string;
   taskResult?: DescribeTaskInfoResponseBodyTaskResult[];
   taskType?: string;
@@ -3505,7 +3511,13 @@ export class DescribeTaskInfoResponseBody extends $tea.Model {
     return {
       clusterId: 'cluster_id',
       created: 'created',
+      currentStage: 'current_stage',
+      error: 'error',
+      events: 'events',
+      parameters: 'parameters',
+      stages: 'stages',
       state: 'state',
+      target: 'target',
       taskId: 'task_id',
       taskResult: 'task_result',
       taskType: 'task_type',
@@ -3517,7 +3529,13 @@ export class DescribeTaskInfoResponseBody extends $tea.Model {
     return {
       clusterId: 'string',
       created: 'string',
+      currentStage: 'string',
+      error: DescribeTaskInfoResponseBodyError,
+      events: { 'type': 'array', 'itemType': DescribeTaskInfoResponseBodyEvents },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      stages: { 'type': 'array', 'itemType': DescribeTaskInfoResponseBodyStages },
       state: 'string',
+      target: DescribeTaskInfoResponseBodyTarget,
       taskId: 'string',
       taskResult: { 'type': 'array', 'itemType': DescribeTaskInfoResponseBodyTaskResult },
       taskType: 'string',
@@ -4544,7 +4562,6 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
   autoScaling?: ModifyClusterNodePoolRequestAutoScaling;
   kubernetesConfig?: ModifyClusterNodePoolRequestKubernetesConfig;
   management?: ModifyClusterNodePoolRequestManagement;
-  nodeConfig?: ModifyClusterNodePoolRequestNodeConfig;
   nodepoolInfo?: ModifyClusterNodePoolRequestNodepoolInfo;
   scalingGroup?: ModifyClusterNodePoolRequestScalingGroup;
   teeConfig?: ModifyClusterNodePoolRequestTeeConfig;
@@ -4554,7 +4571,6 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
       autoScaling: 'auto_scaling',
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
-      nodeConfig: 'node_config',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
       teeConfig: 'tee_config',
@@ -4567,7 +4583,6 @@ export class ModifyClusterNodePoolRequest extends $tea.Model {
       autoScaling: ModifyClusterNodePoolRequestAutoScaling,
       kubernetesConfig: ModifyClusterNodePoolRequestKubernetesConfig,
       management: ModifyClusterNodePoolRequestManagement,
-      nodeConfig: ModifyClusterNodePoolRequestNodeConfig,
       nodepoolInfo: ModifyClusterNodePoolRequestNodepoolInfo,
       scalingGroup: ModifyClusterNodePoolRequestScalingGroup,
       teeConfig: ModifyClusterNodePoolRequestTeeConfig,
@@ -4660,6 +4675,78 @@ export class ModifyClusterTagsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolNodeConfigRequest extends $tea.Model {
+  kubeletConfig?: ModifyNodePoolNodeConfigRequestKubeletConfig;
+  rollingPolicy?: ModifyNodePoolNodeConfigRequestRollingPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      kubeletConfig: 'kubelet_config',
+      rollingPolicy: 'rolling_policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kubeletConfig: ModifyNodePoolNodeConfigRequestKubeletConfig,
+      rollingPolicy: ModifyNodePoolNodeConfigRequestRollingPolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolNodeConfigResponseBody extends $tea.Model {
+  nodepoolId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodepoolId: 'nodepool_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodepoolId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolNodeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyNodePoolNodeConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNodePoolNodeConfigResponseBody,
     };
   }
 
@@ -8449,6 +8536,115 @@ export class DescribePolicyInstancesStatusResponseBodyPolicyInstances extends $t
   }
 }
 
+export class DescribeTaskInfoResponseBodyError extends $tea.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyEvents extends $tea.Model {
+  action?: string;
+  level?: string;
+  message?: string;
+  reason?: string;
+  source?: string;
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      level: 'level',
+      message: 'message',
+      reason: 'reason',
+      source: 'source',
+      timestamp: 'timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      level: 'string',
+      message: 'string',
+      reason: 'string',
+      source: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyStages extends $tea.Model {
+  endTime?: string;
+  message?: string;
+  outputs?: { [key: string]: any };
+  startTime?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'end_time',
+      message: 'message',
+      outputs: 'outputs',
+      startTime: 'start_time',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      message: 'string',
+      outputs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      startTime: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyTarget extends $tea.Model {
+  id?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTaskInfoResponseBodyTaskResult extends $tea.Model {
   data?: string;
   status?: string;
@@ -9039,102 +9235,6 @@ export class ModifyClusterNodePoolRequestManagement extends $tea.Model {
   }
 }
 
-export class ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration extends $tea.Model {
-  cpuManagerPolicy?: string;
-  eventBurst?: number;
-  eventRecordQPS?: number;
-  evictionHard?: { [key: string]: any };
-  evictionSoft?: { [key: string]: any };
-  evictionSoftGracePeriod?: { [key: string]: any };
-  kubeAPIBurst?: number;
-  kubeAPIQPS?: number;
-  kubeReserved?: { [key: string]: any };
-  registryBurst?: number;
-  registryPullQPS?: number;
-  serializeImagePulls?: boolean;
-  systemReserved?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      cpuManagerPolicy: 'cpuManagerPolicy',
-      eventBurst: 'eventBurst',
-      eventRecordQPS: 'eventRecordQPS',
-      evictionHard: 'evictionHard',
-      evictionSoft: 'evictionSoft',
-      evictionSoftGracePeriod: 'evictionSoftGracePeriod',
-      kubeAPIBurst: 'kubeAPIBurst',
-      kubeAPIQPS: 'kubeAPIQPS',
-      kubeReserved: 'kubeReserved',
-      registryBurst: 'registryBurst',
-      registryPullQPS: 'registryPullQPS',
-      serializeImagePulls: 'serializeImagePulls',
-      systemReserved: 'systemReserved',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuManagerPolicy: 'string',
-      eventBurst: 'number',
-      eventRecordQPS: 'number',
-      evictionHard: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      evictionSoft: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      evictionSoftGracePeriod: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      kubeAPIBurst: 'number',
-      kubeAPIQPS: 'number',
-      kubeReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      registryBurst: 'number',
-      registryPullQPS: 'number',
-      serializeImagePulls: 'boolean',
-      systemReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyClusterNodePoolRequestNodeConfigRolloutPolicy extends $tea.Model {
-  maxUnavailable?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxUnavailable: 'max_unavailable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxUnavailable: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyClusterNodePoolRequestNodeConfig extends $tea.Model {
-  kubeletConfiguration?: ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration;
-  rolloutPolicy?: ModifyClusterNodePoolRequestNodeConfigRolloutPolicy;
-  static names(): { [key: string]: string } {
-    return {
-      kubeletConfiguration: 'kubelet_configuration',
-      rolloutPolicy: 'rollout_policy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      kubeletConfiguration: ModifyClusterNodePoolRequestNodeConfigKubeletConfiguration,
-      rolloutPolicy: ModifyClusterNodePoolRequestNodeConfigRolloutPolicy,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyClusterNodePoolRequestNodepoolInfo extends $tea.Model {
   name?: string;
   resourceGroupId?: string;
@@ -9293,6 +9393,80 @@ export class ModifyClusterNodePoolRequestTeeConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       teeEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolNodeConfigRequestKubeletConfig extends $tea.Model {
+  cpuManagerPolicy?: string;
+  eventBurst?: number;
+  eventRecordQPS?: number;
+  evictionHard?: { [key: string]: any };
+  evictionSoft?: { [key: string]: any };
+  evictionSoftGracePeriod?: { [key: string]: any };
+  kubeAPIBurst?: number;
+  kubeAPIQPS?: number;
+  kubeReserved?: { [key: string]: any };
+  registryBurst?: number;
+  registryPullQPS?: number;
+  serializeImagePulls?: boolean;
+  systemReserved?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      cpuManagerPolicy: 'cpuManagerPolicy',
+      eventBurst: 'eventBurst',
+      eventRecordQPS: 'eventRecordQPS',
+      evictionHard: 'evictionHard',
+      evictionSoft: 'evictionSoft',
+      evictionSoftGracePeriod: 'evictionSoftGracePeriod',
+      kubeAPIBurst: 'kubeAPIBurst',
+      kubeAPIQPS: 'kubeAPIQPS',
+      kubeReserved: 'kubeReserved',
+      registryBurst: 'registryBurst',
+      registryPullQPS: 'registryPullQPS',
+      serializeImagePulls: 'serializeImagePulls',
+      systemReserved: 'systemReserved',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuManagerPolicy: 'string',
+      eventBurst: 'number',
+      eventRecordQPS: 'number',
+      evictionHard: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      evictionSoft: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      evictionSoftGracePeriod: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      kubeAPIBurst: 'number',
+      kubeAPIQPS: 'number',
+      kubeReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      registryBurst: 'number',
+      registryPullQPS: 'number',
+      serializeImagePulls: 'boolean',
+      systemReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $tea.Model {
+  maxParallelism?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxParallelism: 'max_parallelism',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxParallelism: 'number',
     };
   }
 
@@ -12410,10 +12584,6 @@ export default class Client extends OpenApi {
       body["management"] = request.management;
     }
 
-    if (!Util.isUnset($tea.toMap(request.nodeConfig))) {
-      body["node_config"] = request.nodeConfig;
-    }
-
     if (!Util.isUnset($tea.toMap(request.nodepoolInfo))) {
       body["nodepool_info"] = request.nodepoolInfo;
     }
@@ -12473,6 +12643,43 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<ModifyClusterTagsResponse>(await this.callApi(params, req, runtime), new ModifyClusterTagsResponse({}));
+  }
+
+  async modifyNodePoolNodeConfig(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest): Promise<ModifyNodePoolNodeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyNodePoolNodeConfigWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+  }
+
+  async modifyNodePoolNodeConfigWithOptions(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolNodeConfigResponse> {
+    Util.validateModel(request);
+    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
+    NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.kubeletConfig))) {
+      body["kubelet_config"] = request.kubeletConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.rollingPolicy))) {
+      body["rolling_policy"] = request.rollingPolicy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyNodePoolNodeConfig",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}/node_config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyNodePoolNodeConfigResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolNodeConfigResponse({}));
   }
 
   async modifyPolicyInstance(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest): Promise<ModifyPolicyInstanceResponse> {
