@@ -1568,6 +1568,78 @@ export class DeleteFCTriggerResponse extends $tea.Model {
   }
 }
 
+export class DeleteRealTimeLogLogstoreRequest extends $tea.Model {
+  logstore?: string;
+  ownerId?: number;
+  project?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'Logstore',
+      ownerId: 'OwnerId',
+      project: 'Project',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      ownerId: 'number',
+      project: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRealTimeLogLogstoreResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRealTimeLogLogstoreResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteRealTimeLogLogstoreResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRealTimeLogLogstoreResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRealtimeLogDeliveryRequest extends $tea.Model {
   domain?: string;
   logstore?: string;
@@ -2714,10 +2786,12 @@ export class DescribeCdnDomainStagingConfigRequest extends $tea.Model {
 
 export class DescribeCdnDomainStagingConfigResponseBody extends $tea.Model {
   domainConfigs?: DescribeCdnDomainStagingConfigResponseBodyDomainConfigs[];
+  domainName?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       domainConfigs: 'DomainConfigs',
+      domainName: 'DomainName',
       requestId: 'RequestId',
     };
   }
@@ -2725,6 +2799,7 @@ export class DescribeCdnDomainStagingConfigResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainConfigs: { 'type': 'array', 'itemType': DescribeCdnDomainStagingConfigResponseBodyDomainConfigs },
+      domainName: 'string',
       requestId: 'string',
     };
   }
@@ -7851,7 +7926,6 @@ export class DescribeDomainTopReferVisitRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
   ownerId?: number;
-  percent?: string;
   sortBy?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -7859,7 +7933,6 @@ export class DescribeDomainTopReferVisitRequest extends $tea.Model {
       domainName: 'DomainName',
       endTime: 'EndTime',
       ownerId: 'OwnerId',
-      percent: 'Percent',
       sortBy: 'SortBy',
       startTime: 'StartTime',
     };
@@ -7870,7 +7943,6 @@ export class DescribeDomainTopReferVisitRequest extends $tea.Model {
       domainName: 'string',
       endTime: 'string',
       ownerId: 'number',
-      percent: 'string',
       sortBy: 'string',
       startTime: 'string',
     };
@@ -9159,6 +9231,72 @@ export class DescribeRealtimeDeliveryAccResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRealtimeDeliveryAccResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRealtimeLogAuthorizedRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRealtimeLogAuthorizedResponseBody extends $tea.Model {
+  authorizedStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizedStatus: 'AuthorizedStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizedStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRealtimeLogAuthorizedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeRealtimeLogAuthorizedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRealtimeLogAuthorizedResponseBody,
     };
   }
 
@@ -10991,75 +11129,6 @@ export class ModifyRealtimeLogDeliveryResponse extends $tea.Model {
   }
 }
 
-export class ModifyUserCustomLogConfigRequest extends $tea.Model {
-  configId?: string;
-  ownerId?: number;
-  tag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      ownerId: 'OwnerId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'string',
-      ownerId: 'number',
-      tag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyUserCustomLogConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyUserCustomLogConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyUserCustomLogConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyUserCustomLogConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OpenCdnServiceRequest extends $tea.Model {
   internetChargeType?: string;
   ownerId?: number;
@@ -11631,7 +11700,6 @@ export class SetConfigOfVersionRequest extends $tea.Model {
   configId?: string;
   functionArgs?: string;
   functionId?: number;
-  functionMatches?: string;
   functionName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11642,7 +11710,6 @@ export class SetConfigOfVersionRequest extends $tea.Model {
       configId: 'ConfigId',
       functionArgs: 'FunctionArgs',
       functionId: 'FunctionId',
-      functionMatches: 'FunctionMatches',
       functionName: 'FunctionName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -11656,7 +11723,6 @@ export class SetConfigOfVersionRequest extends $tea.Model {
       configId: 'string',
       functionArgs: 'string',
       functionId: 'number',
-      functionMatches: 'string',
       functionName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11706,75 +11772,6 @@ export class SetConfigOfVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetConfigOfVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDomainGreenManagerConfigRequest extends $tea.Model {
-  domainName?: string;
-  enable?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      enable: 'Enable',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      enable: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDomainGreenManagerConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDomainGreenManagerConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDomainGreenManagerConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetDomainGreenManagerConfigResponseBody,
     };
   }
 
@@ -11870,156 +11867,6 @@ export class SetDomainServerCertificateResponse extends $tea.Model {
   }
 }
 
-export class SetErrorPageConfigRequest extends $tea.Model {
-  customPageUrl?: string;
-  domainName?: string;
-  ownerId?: number;
-  pageType?: string;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customPageUrl: 'CustomPageUrl',
-      domainName: 'DomainName',
-      ownerId: 'OwnerId',
-      pageType: 'PageType',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customPageUrl: 'string',
-      domainName: 'string',
-      ownerId: 'number',
-      pageType: 'string',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetErrorPageConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetErrorPageConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetErrorPageConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetErrorPageConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetHttpErrorPageConfigRequest extends $tea.Model {
-  configId?: number;
-  domainName?: string;
-  errorCode?: string;
-  ownerId?: number;
-  pageUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      domainName: 'DomainName',
-      errorCode: 'ErrorCode',
-      ownerId: 'OwnerId',
-      pageUrl: 'PageUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      domainName: 'string',
-      errorCode: 'string',
-      ownerId: 'number',
-      pageUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetHttpErrorPageConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetHttpErrorPageConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetHttpErrorPageConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetHttpErrorPageConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetReqHeaderConfigRequest extends $tea.Model {
   configId?: number;
   domainName?: string;
@@ -12090,78 +11937,6 @@ export class SetReqHeaderConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetReqHeaderConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetUserGreenManagerConfigRequest extends $tea.Model {
-  ownerId?: number;
-  quota?: string;
-  ratio?: string;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      quota: 'Quota',
-      ratio: 'Ratio',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      quota: 'string',
-      ratio: 'string',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetUserGreenManagerConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetUserGreenManagerConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetUserGreenManagerConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetUserGreenManagerConfigResponseBody,
     };
   }
 
@@ -13452,12 +13227,14 @@ export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigs extends $te
   configId?: string;
   functionArgs?: DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs[];
   functionName?: string;
+  parentId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
       functionArgs: 'FunctionArgs',
       functionName: 'FunctionName',
+      parentId: 'ParentId',
       status: 'Status',
     };
   }
@@ -13467,6 +13244,7 @@ export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigs extends $te
       configId: 'string',
       functionArgs: { 'type': 'array', 'itemType': DescribeCdnDomainStagingConfigResponseBodyDomainConfigsFunctionArgs },
       functionName: 'string',
+      parentId: 'string',
       status: 'string',
     };
   }
@@ -17600,6 +17378,7 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
   cname?: string;
   coverage?: string;
   description?: string;
+  domainId?: number;
   domainName?: string;
   domainStatus?: string;
   gmtCreated?: string;
@@ -17614,6 +17393,7 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
       cname: 'Cname',
       coverage: 'Coverage',
       description: 'Description',
+      domainId: 'DomainId',
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
       gmtCreated: 'GmtCreated',
@@ -17631,6 +17411,7 @@ export class DescribeUserDomainsResponseBodyDomainsPageData extends $tea.Model {
       cname: 'string',
       coverage: 'string',
       description: 'string',
+      domainId: 'number',
       domainName: 'string',
       domainStatus: 'string',
       gmtCreated: 'string',
@@ -19050,6 +18831,31 @@ export default class Client extends OpenApi {
   async deleteFCTrigger(request: DeleteFCTriggerRequest): Promise<DeleteFCTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFCTriggerWithOptions(request, runtime);
+  }
+
+  async deleteRealTimeLogLogstoreWithOptions(request: DeleteRealTimeLogLogstoreRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRealTimeLogLogstoreResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRealTimeLogLogstore",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRealTimeLogLogstoreResponse>(await this.callApi(params, req, runtime), new DeleteRealTimeLogLogstoreResponse({}));
+  }
+
+  async deleteRealTimeLogLogstore(request: DeleteRealTimeLogLogstoreRequest): Promise<DeleteRealTimeLogLogstoreResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRealTimeLogLogstoreWithOptions(request, runtime);
   }
 
   async deleteRealtimeLogDeliveryWithOptions(request: DeleteRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRealtimeLogDeliveryResponse> {
@@ -22071,10 +21877,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.percent)) {
-      query["Percent"] = request.percent;
-    }
-
     if (!Util.isUnset(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -22718,6 +22520,31 @@ export default class Client extends OpenApi {
   async describeRealtimeDeliveryAcc(request: DescribeRealtimeDeliveryAccRequest): Promise<DescribeRealtimeDeliveryAccResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRealtimeDeliveryAccWithOptions(request, runtime);
+  }
+
+  async describeRealtimeLogAuthorizedWithOptions(request: DescribeRealtimeLogAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRealtimeLogAuthorizedResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRealtimeLogAuthorized",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRealtimeLogAuthorizedResponse>(await this.callApi(params, req, runtime), new DescribeRealtimeLogAuthorizedResponse({}));
+  }
+
+  async describeRealtimeLogAuthorized(request: DescribeRealtimeLogAuthorizedRequest): Promise<DescribeRealtimeLogAuthorizedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRealtimeLogAuthorizedWithOptions(request, runtime);
   }
 
   async describeRefreshQuotaWithOptions(request: DescribeRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshQuotaResponse> {
@@ -23568,31 +23395,6 @@ export default class Client extends OpenApi {
     return await this.modifyRealtimeLogDeliveryWithOptions(request, runtime);
   }
 
-  async modifyUserCustomLogConfigWithOptions(request: ModifyUserCustomLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserCustomLogConfigResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyUserCustomLogConfig",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyUserCustomLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyUserCustomLogConfigResponse({}));
-  }
-
-  async modifyUserCustomLogConfig(request: ModifyUserCustomLogConfigRequest): Promise<ModifyUserCustomLogConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyUserCustomLogConfigWithOptions(request, runtime);
-  }
-
   async openCdnServiceWithOptions(request: OpenCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23916,10 +23718,6 @@ export default class Client extends OpenApi {
       query["FunctionId"] = request.functionId;
     }
 
-    if (!Util.isUnset(request.functionMatches)) {
-      query["FunctionMatches"] = request.functionMatches;
-    }
-
     if (!Util.isUnset(request.functionName)) {
       query["FunctionName"] = request.functionName;
     }
@@ -23960,43 +23758,6 @@ export default class Client extends OpenApi {
   async setConfigOfVersion(request: SetConfigOfVersionRequest): Promise<SetConfigOfVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setConfigOfVersionWithOptions(request, runtime);
-  }
-
-  async setDomainGreenManagerConfigWithOptions(request: SetDomainGreenManagerConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainGreenManagerConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.domainName)) {
-      query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.enable)) {
-      query["Enable"] = request.enable;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetDomainGreenManagerConfig",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetDomainGreenManagerConfigResponse>(await this.callApi(params, req, runtime), new SetDomainGreenManagerConfigResponse({}));
-  }
-
-  async setDomainGreenManagerConfig(request: SetDomainGreenManagerConfigRequest): Promise<SetDomainGreenManagerConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setDomainGreenManagerConfigWithOptions(request, runtime);
   }
 
   async setDomainServerCertificateWithOptions(request: SetDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainServerCertificateResponse> {
@@ -24060,96 +23821,6 @@ export default class Client extends OpenApi {
     return await this.setDomainServerCertificateWithOptions(request, runtime);
   }
 
-  async setErrorPageConfigWithOptions(request: SetErrorPageConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetErrorPageConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.customPageUrl)) {
-      query["CustomPageUrl"] = request.customPageUrl;
-    }
-
-    if (!Util.isUnset(request.domainName)) {
-      query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageType)) {
-      query["PageType"] = request.pageType;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetErrorPageConfig",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetErrorPageConfigResponse>(await this.callApi(params, req, runtime), new SetErrorPageConfigResponse({}));
-  }
-
-  async setErrorPageConfig(request: SetErrorPageConfigRequest): Promise<SetErrorPageConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setErrorPageConfigWithOptions(request, runtime);
-  }
-
-  async setHttpErrorPageConfigWithOptions(request: SetHttpErrorPageConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetHttpErrorPageConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.configId)) {
-      query["ConfigId"] = request.configId;
-    }
-
-    if (!Util.isUnset(request.domainName)) {
-      query["DomainName"] = request.domainName;
-    }
-
-    if (!Util.isUnset(request.errorCode)) {
-      query["ErrorCode"] = request.errorCode;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageUrl)) {
-      query["PageUrl"] = request.pageUrl;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetHttpErrorPageConfig",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetHttpErrorPageConfigResponse>(await this.callApi(params, req, runtime), new SetHttpErrorPageConfigResponse({}));
-  }
-
-  async setHttpErrorPageConfig(request: SetHttpErrorPageConfigRequest): Promise<SetHttpErrorPageConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setHttpErrorPageConfigWithOptions(request, runtime);
-  }
-
   async setReqHeaderConfigWithOptions(request: SetReqHeaderConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetReqHeaderConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24197,47 +23868,6 @@ export default class Client extends OpenApi {
   async setReqHeaderConfig(request: SetReqHeaderConfigRequest): Promise<SetReqHeaderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setReqHeaderConfigWithOptions(request, runtime);
-  }
-
-  async setUserGreenManagerConfigWithOptions(request: SetUserGreenManagerConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetUserGreenManagerConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.quota)) {
-      query["Quota"] = request.quota;
-    }
-
-    if (!Util.isUnset(request.ratio)) {
-      query["Ratio"] = request.ratio;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetUserGreenManagerConfig",
-      version: "2018-05-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetUserGreenManagerConfigResponse>(await this.callApi(params, req, runtime), new SetUserGreenManagerConfigResponse({}));
-  }
-
-  async setUserGreenManagerConfig(request: SetUserGreenManagerConfigRequest): Promise<SetUserGreenManagerConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setUserGreenManagerConfigWithOptions(request, runtime);
   }
 
   async setWaitingRoomConfigWithOptions(request: SetWaitingRoomConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetWaitingRoomConfigResponse> {
