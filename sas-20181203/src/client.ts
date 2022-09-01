@@ -284,6 +284,87 @@ export class CheckSecurityEventIdResponse extends $tea.Model {
   }
 }
 
+export class CheckUserHasEcsRequest extends $tea.Model {
+  currentPage?: number;
+  lang?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lang: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserHasEcsResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserHasEcsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CheckUserHasEcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckUserHasEcsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAntiBruteForceRuleRequest extends $tea.Model {
   defaultRule?: boolean;
   failCount?: number;
@@ -23126,6 +23207,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   dataSource?: string;
   desc?: string;
   details?: DescribeSuspEventsResponseBodySuspEventsDetails[];
+  displaySandboxResult?: boolean;
   eventNotes?: DescribeSuspEventsResponseBodySuspEventsEventNotes[];
   eventStatus?: number;
   eventSubType?: string;
@@ -23177,6 +23259,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       dataSource: 'DataSource',
       desc: 'Desc',
       details: 'Details',
+      displaySandboxResult: 'DisplaySandboxResult',
       eventNotes: 'EventNotes',
       eventStatus: 'EventStatus',
       eventSubType: 'EventSubType',
@@ -23231,6 +23314,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       dataSource: 'string',
       desc: 'string',
       details: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsDetails },
+      displaySandboxResult: 'boolean',
       eventNotes: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsEventNotes },
       eventStatus: 'number',
       eventSubType: 'string',
@@ -25354,6 +25438,43 @@ export default class Client extends OpenApi {
   async checkSecurityEventId(request: CheckSecurityEventIdRequest): Promise<CheckSecurityEventIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkSecurityEventIdWithOptions(request, runtime);
+  }
+
+  async checkUserHasEcsWithOptions(request: CheckUserHasEcsRequest, runtime: $Util.RuntimeOptions): Promise<CheckUserHasEcsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckUserHasEcs",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckUserHasEcsResponse>(await this.callApi(params, req, runtime), new CheckUserHasEcsResponse({}));
+  }
+
+  async checkUserHasEcs(request: CheckUserHasEcsRequest): Promise<CheckUserHasEcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkUserHasEcsWithOptions(request, runtime);
   }
 
   async createAntiBruteForceRuleWithOptions(request: CreateAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntiBruteForceRuleResponse> {
