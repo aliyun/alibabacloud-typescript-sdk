@@ -23129,99 +23129,6 @@ export class ModifyCommonBandwidthPackageAttributeResponse extends $tea.Model {
   }
 }
 
-export class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends $tea.Model {
-  autoPay?: boolean;
-  bandwidth?: number;
-  bandwidthPackageId?: string;
-  instanceChargeType?: string;
-  internetChargeType?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  ratio?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      bandwidth: 'Bandwidth',
-      bandwidthPackageId: 'BandwidthPackageId',
-      instanceChargeType: 'InstanceChargeType',
-      internetChargeType: 'InternetChargeType',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      ratio: 'Ratio',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      bandwidth: 'number',
-      bandwidthPackageId: 'string',
-      instanceChargeType: 'string',
-      internetChargeType: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      ratio: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyCommonBandwidthPackageInternetChargeTypeResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyCommonBandwidthPackageInternetChargeTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyCommonBandwidthPackageInternetChargeTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyCommonBandwidthPackageInternetChargeTypeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyCommonBandwidthPackageIpBandwidthRequest extends $tea.Model {
   bandwidth?: string;
   bandwidthPackageId?: string;
@@ -27733,15 +27640,21 @@ export class OpenFlowLogServiceRequest extends $tea.Model {
 }
 
 export class OpenFlowLogServiceResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -32305,13 +32218,19 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddressSecurityProte
 }
 
 export class DescribeEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -33839,6 +33758,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
   deletionProtection?: boolean;
   description?: string;
   ecsMetricEnabled?: boolean;
+  eipBindMode?: string;
   expiredTime?: string;
   forwardTableIds?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds;
   fullNatTableIds?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayFullNatTableIds;
@@ -33869,6 +33789,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
       deletionProtection: 'DeletionProtection',
       description: 'Description',
       ecsMetricEnabled: 'EcsMetricEnabled',
+      eipBindMode: 'EipBindMode',
       expiredTime: 'ExpiredTime',
       forwardTableIds: 'ForwardTableIds',
       fullNatTableIds: 'FullNatTableIds',
@@ -33902,6 +33823,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
       deletionProtection: 'boolean',
       description: 'string',
       ecsMetricEnabled: 'boolean',
+      eipBindMode: 'string',
       expiredTime: 'string',
       forwardTableIds: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds,
       fullNatTableIds: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayFullNatTableIds,
@@ -55095,75 +55017,6 @@ export default class Client extends OpenApi {
   async modifyCommonBandwidthPackageAttribute(request: ModifyCommonBandwidthPackageAttributeRequest): Promise<ModifyCommonBandwidthPackageAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCommonBandwidthPackageAttributeWithOptions(request, runtime);
-  }
-
-  async modifyCommonBandwidthPackageInternetChargeTypeWithOptions(request: ModifyCommonBandwidthPackageInternetChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageInternetChargeTypeResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.autoPay)) {
-      query["AutoPay"] = request.autoPay;
-    }
-
-    if (!Util.isUnset(request.bandwidth)) {
-      query["Bandwidth"] = request.bandwidth;
-    }
-
-    if (!Util.isUnset(request.bandwidthPackageId)) {
-      query["BandwidthPackageId"] = request.bandwidthPackageId;
-    }
-
-    if (!Util.isUnset(request.instanceChargeType)) {
-      query["InstanceChargeType"] = request.instanceChargeType;
-    }
-
-    if (!Util.isUnset(request.internetChargeType)) {
-      query["InternetChargeType"] = request.internetChargeType;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.ratio)) {
-      query["Ratio"] = request.ratio;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyCommonBandwidthPackageInternetChargeType",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCommonBandwidthPackageInternetChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageInternetChargeTypeResponse({}));
-  }
-
-  async modifyCommonBandwidthPackageInternetChargeType(request: ModifyCommonBandwidthPackageInternetChargeTypeRequest): Promise<ModifyCommonBandwidthPackageInternetChargeTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyCommonBandwidthPackageInternetChargeTypeWithOptions(request, runtime);
   }
 
   async modifyCommonBandwidthPackageIpBandwidthWithOptions(request: ModifyCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
