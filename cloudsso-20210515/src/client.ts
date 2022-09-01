@@ -54,10 +54,12 @@ export class AddExternalSAMLIdPCertificateResponseBody extends $tea.Model {
 
 export class AddExternalSAMLIdPCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddExternalSAMLIdPCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -65,6 +67,7 @@ export class AddExternalSAMLIdPCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddExternalSAMLIdPCertificateResponseBody,
     };
   }
@@ -126,10 +129,12 @@ export class AddPermissionPolicyToAccessConfigurationResponseBody extends $tea.M
 
 export class AddPermissionPolicyToAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddPermissionPolicyToAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -137,6 +142,7 @@ export class AddPermissionPolicyToAccessConfigurationResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddPermissionPolicyToAccessConfigurationResponseBody,
     };
   }
@@ -192,10 +198,12 @@ export class AddUserToGroupResponseBody extends $tea.Model {
 
 export class AddUserToGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddUserToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -203,6 +211,7 @@ export class AddUserToGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddUserToGroupResponseBody,
     };
   }
@@ -252,10 +261,12 @@ export class ClearExternalSAMLIdentityProviderResponseBody extends $tea.Model {
 
 export class ClearExternalSAMLIdentityProviderResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ClearExternalSAMLIdentityProviderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -263,6 +274,7 @@ export class ClearExternalSAMLIdentityProviderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ClearExternalSAMLIdentityProviderResponseBody,
     };
   }
@@ -330,10 +342,12 @@ export class CreateAccessAssignmentResponseBody extends $tea.Model {
 
 export class CreateAccessAssignmentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccessAssignmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -341,6 +355,7 @@ export class CreateAccessAssignmentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessAssignmentResponseBody,
     };
   }
@@ -405,10 +420,12 @@ export class CreateAccessConfigurationResponseBody extends $tea.Model {
 
 export class CreateAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -416,6 +433,7 @@ export class CreateAccessConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessConfigurationResponseBody,
     };
   }
@@ -468,10 +486,12 @@ export class CreateDirectoryResponseBody extends $tea.Model {
 
 export class CreateDirectoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateDirectoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -479,6 +499,7 @@ export class CreateDirectoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateDirectoryResponseBody,
     };
   }
@@ -537,10 +558,12 @@ export class CreateGroupResponseBody extends $tea.Model {
 
 export class CreateGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -548,6 +571,7 @@ export class CreateGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGroupResponseBody,
     };
   }
@@ -600,10 +624,12 @@ export class CreateSCIMServerCredentialResponseBody extends $tea.Model {
 
 export class CreateSCIMServerCredentialResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateSCIMServerCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -611,6 +637,7 @@ export class CreateSCIMServerCredentialResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateSCIMServerCredentialResponseBody,
     };
   }
@@ -684,10 +711,12 @@ export class CreateUserResponseBody extends $tea.Model {
 
 export class CreateUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -695,6 +724,7 @@ export class CreateUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateUserResponseBody,
     };
   }
@@ -765,10 +795,12 @@ export class DeleteAccessAssignmentResponseBody extends $tea.Model {
 
 export class DeleteAccessAssignmentResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccessAssignmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -776,6 +808,7 @@ export class DeleteAccessAssignmentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessAssignmentResponseBody,
     };
   }
@@ -831,10 +864,12 @@ export class DeleteAccessConfigurationResponseBody extends $tea.Model {
 
 export class DeleteAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -842,6 +877,7 @@ export class DeleteAccessConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessConfigurationResponseBody,
     };
   }
@@ -891,10 +927,12 @@ export class DeleteDirectoryResponseBody extends $tea.Model {
 
 export class DeleteDirectoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteDirectoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -902,6 +940,7 @@ export class DeleteDirectoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteDirectoryResponseBody,
     };
   }
@@ -954,10 +993,12 @@ export class DeleteGroupResponseBody extends $tea.Model {
 
 export class DeleteGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -965,6 +1006,7 @@ export class DeleteGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGroupResponseBody,
     };
   }
@@ -1020,10 +1062,12 @@ export class DeleteMFADeviceForUserResponseBody extends $tea.Model {
 
 export class DeleteMFADeviceForUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteMFADeviceForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1031,6 +1075,7 @@ export class DeleteMFADeviceForUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteMFADeviceForUserResponseBody,
     };
   }
@@ -1083,10 +1128,12 @@ export class DeleteSCIMServerCredentialResponseBody extends $tea.Model {
 
 export class DeleteSCIMServerCredentialResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSCIMServerCredentialResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1094,6 +1141,7 @@ export class DeleteSCIMServerCredentialResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSCIMServerCredentialResponseBody,
     };
   }
@@ -1146,10 +1194,12 @@ export class DeleteUserResponseBody extends $tea.Model {
 
 export class DeleteUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1157,6 +1207,7 @@ export class DeleteUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteUserResponseBody,
     };
   }
@@ -1218,10 +1269,12 @@ export class DeprovisionAccessConfigurationResponseBody extends $tea.Model {
 
 export class DeprovisionAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeprovisionAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1229,6 +1282,7 @@ export class DeprovisionAccessConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeprovisionAccessConfigurationResponseBody,
     };
   }
@@ -1259,10 +1313,12 @@ export class DisableServiceResponseBody extends $tea.Model {
 
 export class DisableServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DisableServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1270,6 +1326,7 @@ export class DisableServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DisableServiceResponseBody,
     };
   }
@@ -1300,10 +1357,12 @@ export class EnableServiceResponseBody extends $tea.Model {
 
 export class EnableServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EnableServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1311,6 +1370,7 @@ export class EnableServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EnableServiceResponseBody,
     };
   }
@@ -1366,10 +1426,12 @@ export class GetAccessConfigurationResponseBody extends $tea.Model {
 
 export class GetAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1377,6 +1439,7 @@ export class GetAccessConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccessConfigurationResponseBody,
     };
   }
@@ -1429,10 +1492,12 @@ export class GetDirectoryResponseBody extends $tea.Model {
 
 export class GetDirectoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDirectoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1440,6 +1505,7 @@ export class GetDirectoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDirectoryResponseBody,
     };
   }
@@ -1492,10 +1558,12 @@ export class GetDirectorySAMLServiceProviderInfoResponseBody extends $tea.Model 
 
 export class GetDirectorySAMLServiceProviderInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDirectorySAMLServiceProviderInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1503,6 +1571,7 @@ export class GetDirectorySAMLServiceProviderInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDirectorySAMLServiceProviderInfoResponseBody,
     };
   }
@@ -1555,10 +1624,12 @@ export class GetDirectoryStatisticsResponseBody extends $tea.Model {
 
 export class GetDirectoryStatisticsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetDirectoryStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1566,6 +1637,7 @@ export class GetDirectoryStatisticsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetDirectoryStatisticsResponseBody,
     };
   }
@@ -1618,10 +1690,12 @@ export class GetExternalSAMLIdentityProviderResponseBody extends $tea.Model {
 
 export class GetExternalSAMLIdentityProviderResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetExternalSAMLIdentityProviderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1629,6 +1703,7 @@ export class GetExternalSAMLIdentityProviderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetExternalSAMLIdentityProviderResponseBody,
     };
   }
@@ -1684,10 +1759,12 @@ export class GetGroupResponseBody extends $tea.Model {
 
 export class GetGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1695,7 +1772,74 @@ export class GetGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMFAAuthenticationSettingsRequest extends $tea.Model {
+  directoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMFAAuthenticationSettingsResponseBody extends $tea.Model {
+  MFAAuthenticationAdvanceSettings?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      MFAAuthenticationAdvanceSettings: 'MFAAuthenticationAdvanceSettings',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      MFAAuthenticationAdvanceSettings: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMFAAuthenticationSettingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetMFAAuthenticationSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMFAAuthenticationSettingsResponseBody,
     };
   }
 
@@ -1747,10 +1891,12 @@ export class GetMFAAuthenticationStatusResponseBody extends $tea.Model {
 
 export class GetMFAAuthenticationStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetMFAAuthenticationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1758,6 +1904,7 @@ export class GetMFAAuthenticationStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetMFAAuthenticationStatusResponseBody,
     };
   }
@@ -1810,10 +1957,12 @@ export class GetSCIMSynchronizationStatusResponseBody extends $tea.Model {
 
 export class GetSCIMSynchronizationStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSCIMSynchronizationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1821,6 +1970,7 @@ export class GetSCIMSynchronizationStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSCIMSynchronizationStatusResponseBody,
     };
   }
@@ -1854,10 +2004,12 @@ export class GetServiceStatusResponseBody extends $tea.Model {
 
 export class GetServiceStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1865,6 +2017,7 @@ export class GetServiceStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetServiceStatusResponseBody,
     };
   }
@@ -1920,10 +2073,12 @@ export class GetTaskResponseBody extends $tea.Model {
 
 export class GetTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1931,6 +2086,7 @@ export class GetTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTaskResponseBody,
     };
   }
@@ -1986,10 +2142,12 @@ export class GetTaskStatusResponseBody extends $tea.Model {
 
 export class GetTaskStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetTaskStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1997,6 +2155,7 @@ export class GetTaskStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTaskStatusResponseBody,
     };
   }
@@ -2052,10 +2211,12 @@ export class GetUserResponseBody extends $tea.Model {
 
 export class GetUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2063,7 +2224,77 @@ export class GetUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserMFAAuthenticationSettingsRequest extends $tea.Model {
+  directoryId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserMFAAuthenticationSettingsResponseBody extends $tea.Model {
+  requestId?: string;
+  userMFAAuthenticationSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userMFAAuthenticationSettings: 'UserMFAAuthenticationSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userMFAAuthenticationSettings: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserMFAAuthenticationSettingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserMFAAuthenticationSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserMFAAuthenticationSettingsResponseBody,
     };
   }
 
@@ -2148,10 +2379,12 @@ export class ListAccessAssignmentsResponseBody extends $tea.Model {
 
 export class ListAccessAssignmentsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAccessAssignmentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2159,6 +2392,7 @@ export class ListAccessAssignmentsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessAssignmentsResponseBody,
     };
   }
@@ -2241,10 +2475,12 @@ export class ListAccessConfigurationProvisioningsResponseBody extends $tea.Model
 
 export class ListAccessConfigurationProvisioningsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAccessConfigurationProvisioningsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2252,6 +2488,7 @@ export class ListAccessConfigurationProvisioningsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessConfigurationProvisioningsResponseBody,
     };
   }
@@ -2328,10 +2565,12 @@ export class ListAccessConfigurationsResponseBody extends $tea.Model {
 
 export class ListAccessConfigurationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAccessConfigurationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2339,6 +2578,7 @@ export class ListAccessConfigurationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessConfigurationsResponseBody,
     };
   }
@@ -2375,10 +2615,12 @@ export class ListDirectoriesResponseBody extends $tea.Model {
 
 export class ListDirectoriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDirectoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2386,6 +2628,7 @@ export class ListDirectoriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDirectoriesResponseBody,
     };
   }
@@ -2441,10 +2684,12 @@ export class ListExternalSAMLIdPCertificatesResponseBody extends $tea.Model {
 
 export class ListExternalSAMLIdPCertificatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListExternalSAMLIdPCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2452,6 +2697,7 @@ export class ListExternalSAMLIdPCertificatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListExternalSAMLIdPCertificatesResponseBody,
     };
   }
@@ -2525,10 +2771,12 @@ export class ListGroupMembersResponseBody extends $tea.Model {
 
 export class ListGroupMembersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGroupMembersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2536,6 +2784,7 @@ export class ListGroupMembersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGroupMembersResponseBody,
     };
   }
@@ -2612,10 +2861,12 @@ export class ListGroupsResponseBody extends $tea.Model {
 
 export class ListGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2623,6 +2874,7 @@ export class ListGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListGroupsResponseBody,
     };
   }
@@ -2696,10 +2948,12 @@ export class ListJoinedGroupsForUserResponseBody extends $tea.Model {
 
 export class ListJoinedGroupsForUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListJoinedGroupsForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2707,6 +2961,7 @@ export class ListJoinedGroupsForUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListJoinedGroupsForUserResponseBody,
     };
   }
@@ -2765,10 +3020,12 @@ export class ListMFADevicesForUserResponseBody extends $tea.Model {
 
 export class ListMFADevicesForUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListMFADevicesForUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2776,6 +3033,7 @@ export class ListMFADevicesForUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListMFADevicesForUserResponseBody,
     };
   }
@@ -2837,10 +3095,12 @@ export class ListPermissionPoliciesInAccessConfigurationResponseBody extends $te
 
 export class ListPermissionPoliciesInAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPermissionPoliciesInAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2848,6 +3108,7 @@ export class ListPermissionPoliciesInAccessConfigurationResponse extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPermissionPoliciesInAccessConfigurationResponseBody,
     };
   }
@@ -2903,10 +3164,12 @@ export class ListSCIMServerCredentialsResponseBody extends $tea.Model {
 
 export class ListSCIMServerCredentialsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSCIMServerCredentialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2914,6 +3177,7 @@ export class ListSCIMServerCredentialsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSCIMServerCredentialsResponseBody,
     };
   }
@@ -3008,10 +3272,12 @@ export class ListTasksResponseBody extends $tea.Model {
 
 export class ListTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3019,6 +3285,7 @@ export class ListTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTasksResponseBody,
     };
   }
@@ -3098,10 +3365,12 @@ export class ListUsersResponseBody extends $tea.Model {
 
 export class ListUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3109,6 +3378,7 @@ export class ListUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUsersResponseBody,
     };
   }
@@ -3170,10 +3440,12 @@ export class ProvisionAccessConfigurationResponseBody extends $tea.Model {
 
 export class ProvisionAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ProvisionAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3181,6 +3453,7 @@ export class ProvisionAccessConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ProvisionAccessConfigurationResponseBody,
     };
   }
@@ -3233,10 +3506,12 @@ export class RemoveExternalSAMLIdPCertificateResponseBody extends $tea.Model {
 
 export class RemoveExternalSAMLIdPCertificateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveExternalSAMLIdPCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3244,6 +3519,7 @@ export class RemoveExternalSAMLIdPCertificateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveExternalSAMLIdPCertificateResponseBody,
     };
   }
@@ -3302,10 +3578,12 @@ export class RemovePermissionPolicyFromAccessConfigurationResponseBody extends $
 
 export class RemovePermissionPolicyFromAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemovePermissionPolicyFromAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3313,6 +3591,7 @@ export class RemovePermissionPolicyFromAccessConfigurationResponse extends $tea.
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemovePermissionPolicyFromAccessConfigurationResponseBody,
     };
   }
@@ -3368,10 +3647,12 @@ export class RemoveUserFromGroupResponseBody extends $tea.Model {
 
 export class RemoveUserFromGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RemoveUserFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3379,6 +3660,7 @@ export class RemoveUserFromGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RemoveUserFromGroupResponseBody,
     };
   }
@@ -3443,10 +3725,12 @@ export class ResetUserPasswordResponseBody extends $tea.Model {
 
 export class ResetUserPasswordResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResetUserPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3454,6 +3738,7 @@ export class ResetUserPasswordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResetUserPasswordResponseBody,
     };
   }
@@ -3524,10 +3809,12 @@ export class SetExternalSAMLIdentityProviderResponseBody extends $tea.Model {
 
 export class SetExternalSAMLIdentityProviderResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetExternalSAMLIdentityProviderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3535,6 +3822,7 @@ export class SetExternalSAMLIdentityProviderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetExternalSAMLIdentityProviderResponseBody,
     };
   }
@@ -3587,10 +3875,12 @@ export class SetMFAAuthenticationStatusResponseBody extends $tea.Model {
 
 export class SetMFAAuthenticationStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetMFAAuthenticationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3598,6 +3888,7 @@ export class SetMFAAuthenticationStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetMFAAuthenticationStatusResponseBody,
     };
   }
@@ -3650,10 +3941,12 @@ export class SetSCIMSynchronizationStatusResponseBody extends $tea.Model {
 
 export class SetSCIMSynchronizationStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetSCIMSynchronizationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3661,6 +3954,7 @@ export class SetSCIMSynchronizationStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetSCIMSynchronizationStatusResponseBody,
     };
   }
@@ -3725,10 +4019,12 @@ export class UpdateAccessConfigurationResponseBody extends $tea.Model {
 
 export class UpdateAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3736,6 +4032,7 @@ export class UpdateAccessConfigurationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateAccessConfigurationResponseBody,
     };
   }
@@ -3791,10 +4088,12 @@ export class UpdateDirectoryResponseBody extends $tea.Model {
 
 export class UpdateDirectoryResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateDirectoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3802,6 +4101,7 @@ export class UpdateDirectoryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateDirectoryResponseBody,
     };
   }
@@ -3863,10 +4163,12 @@ export class UpdateGroupResponseBody extends $tea.Model {
 
 export class UpdateGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3874,6 +4176,7 @@ export class UpdateGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateGroupResponseBody,
     };
   }
@@ -3932,10 +4235,12 @@ export class UpdateInlinePolicyForAccessConfigurationResponseBody extends $tea.M
 
 export class UpdateInlinePolicyForAccessConfigurationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateInlinePolicyForAccessConfigurationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3943,7 +4248,74 @@ export class UpdateInlinePolicyForAccessConfigurationResponse extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateInlinePolicyForAccessConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMFAAuthenticationSettingsRequest extends $tea.Model {
+  directoryId?: string;
+  MFAAuthenticationSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      MFAAuthenticationSettings: 'MFAAuthenticationSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      MFAAuthenticationSettings: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMFAAuthenticationSettingsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMFAAuthenticationSettingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateMFAAuthenticationSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMFAAuthenticationSettingsResponseBody,
     };
   }
 
@@ -4001,10 +4373,12 @@ export class UpdateSCIMServerCredentialStatusResponseBody extends $tea.Model {
 
 export class UpdateSCIMServerCredentialStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateSCIMServerCredentialStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4012,6 +4386,7 @@ export class UpdateSCIMServerCredentialStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateSCIMServerCredentialStatusResponseBody,
     };
   }
@@ -4082,10 +4457,12 @@ export class UpdateUserResponseBody extends $tea.Model {
 
 export class UpdateUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4093,7 +4470,77 @@ export class UpdateUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserMFAAuthenticationSettingsRequest extends $tea.Model {
+  directoryId?: string;
+  userId?: string;
+  userMFAAuthenticationSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      userId: 'UserId',
+      userMFAAuthenticationSettings: 'UserMFAAuthenticationSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: 'string',
+      userId: 'string',
+      userMFAAuthenticationSettings: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserMFAAuthenticationSettingsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserMFAAuthenticationSettingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateUserMFAAuthenticationSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserMFAAuthenticationSettingsResponseBody,
     };
   }
 
@@ -4148,10 +4595,12 @@ export class UpdateUserStatusResponseBody extends $tea.Model {
 
 export class UpdateUserStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateUserStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4159,6 +4608,7 @@ export class UpdateUserStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateUserStatusResponseBody,
     };
   }
@@ -5765,11 +6215,16 @@ export default class Client extends OpenApi {
   async addExternalSAMLIdPCertificateWithOptions(request: AddExternalSAMLIdPCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AddExternalSAMLIdPCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["X509Certificate"] = request.x509Certificate;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.x509Certificate)) {
+      query["X509Certificate"] = request.x509Certificate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddExternalSAMLIdPCertificate",
@@ -5779,7 +6234,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddExternalSAMLIdPCertificateResponse>(await this.callApi(params, req, runtime), new AddExternalSAMLIdPCertificateResponse({}));
@@ -5793,14 +6248,28 @@ export default class Client extends OpenApi {
   async addPermissionPolicyToAccessConfigurationWithOptions(request: AddPermissionPolicyToAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<AddPermissionPolicyToAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["InlinePolicyDocument"] = request.inlinePolicyDocument;
-    query["PermissionPolicyName"] = request.permissionPolicyName;
-    query["PermissionPolicyType"] = request.permissionPolicyType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.inlinePolicyDocument)) {
+      query["InlinePolicyDocument"] = request.inlinePolicyDocument;
+    }
+
+    if (!Util.isUnset(request.permissionPolicyName)) {
+      query["PermissionPolicyName"] = request.permissionPolicyName;
+    }
+
+    if (!Util.isUnset(request.permissionPolicyType)) {
+      query["PermissionPolicyType"] = request.permissionPolicyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddPermissionPolicyToAccessConfiguration",
@@ -5810,7 +6279,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddPermissionPolicyToAccessConfigurationResponse>(await this.callApi(params, req, runtime), new AddPermissionPolicyToAccessConfigurationResponse({}));
@@ -5824,12 +6293,20 @@ export default class Client extends OpenApi {
   async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GroupId"] = request.groupId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddUserToGroup",
@@ -5839,7 +6316,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
@@ -5853,10 +6330,12 @@ export default class Client extends OpenApi {
   async clearExternalSAMLIdentityProviderWithOptions(request: ClearExternalSAMLIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<ClearExternalSAMLIdentityProviderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ClearExternalSAMLIdentityProvider",
@@ -5866,7 +6345,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ClearExternalSAMLIdentityProviderResponse>(await this.callApi(params, req, runtime), new ClearExternalSAMLIdentityProviderResponse({}));
@@ -5880,15 +6359,32 @@ export default class Client extends OpenApi {
   async createAccessAssignmentWithOptions(request: CreateAccessAssignmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessAssignmentResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["PrincipalId"] = request.principalId;
-    query["PrincipalType"] = request.principalType;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.principalId)) {
+      query["PrincipalId"] = request.principalId;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateAccessAssignment",
@@ -5898,7 +6394,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateAccessAssignmentResponse>(await this.callApi(params, req, runtime), new CreateAccessAssignmentResponse({}));
@@ -5912,14 +6408,28 @@ export default class Client extends OpenApi {
   async createAccessConfigurationWithOptions(request: CreateAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationName"] = request.accessConfigurationName;
-    query["Description"] = request.description;
-    query["DirectoryId"] = request.directoryId;
-    query["RelayState"] = request.relayState;
-    query["SessionDuration"] = request.sessionDuration;
+    if (!Util.isUnset(request.accessConfigurationName)) {
+      query["AccessConfigurationName"] = request.accessConfigurationName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.relayState)) {
+      query["RelayState"] = request.relayState;
+    }
+
+    if (!Util.isUnset(request.sessionDuration)) {
+      query["SessionDuration"] = request.sessionDuration;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateAccessConfiguration",
@@ -5929,7 +6439,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateAccessConfigurationResponse>(await this.callApi(params, req, runtime), new CreateAccessConfigurationResponse({}));
@@ -5943,10 +6453,12 @@ export default class Client extends OpenApi {
   async createDirectoryWithOptions(request: CreateDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryName"] = request.directoryName;
+    if (!Util.isUnset(request.directoryName)) {
+      query["DirectoryName"] = request.directoryName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDirectory",
@@ -5956,7 +6468,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDirectoryResponse>(await this.callApi(params, req, runtime), new CreateDirectoryResponse({}));
@@ -5970,12 +6482,20 @@ export default class Client extends OpenApi {
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["DirectoryId"] = request.directoryId;
-    query["GroupName"] = request.groupName;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateGroup",
@@ -5985,7 +6505,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
@@ -5999,10 +6519,12 @@ export default class Client extends OpenApi {
   async createSCIMServerCredentialWithOptions(request: CreateSCIMServerCredentialRequest, runtime: $Util.RuntimeOptions): Promise<CreateSCIMServerCredentialResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateSCIMServerCredential",
@@ -6012,7 +6534,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSCIMServerCredentialResponse>(await this.callApi(params, req, runtime), new CreateSCIMServerCredentialResponse({}));
@@ -6026,17 +6548,40 @@ export default class Client extends OpenApi {
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["DirectoryId"] = request.directoryId;
-    query["DisplayName"] = request.displayName;
-    query["Email"] = request.email;
-    query["FirstName"] = request.firstName;
-    query["LastName"] = request.lastName;
-    query["Status"] = request.status;
-    query["UserName"] = request.userName;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.firstName)) {
+      query["FirstName"] = request.firstName;
+    }
+
+    if (!Util.isUnset(request.lastName)) {
+      query["LastName"] = request.lastName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateUser",
@@ -6046,7 +6591,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
@@ -6060,16 +6605,36 @@ export default class Client extends OpenApi {
   async deleteAccessAssignmentWithOptions(request: DeleteAccessAssignmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessAssignmentResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DeprovisionStrategy"] = request.deprovisionStrategy;
-    query["DirectoryId"] = request.directoryId;
-    query["PrincipalId"] = request.principalId;
-    query["PrincipalType"] = request.principalType;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.deprovisionStrategy)) {
+      query["DeprovisionStrategy"] = request.deprovisionStrategy;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.principalId)) {
+      query["PrincipalId"] = request.principalId;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAccessAssignment",
@@ -6079,7 +6644,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAccessAssignmentResponse>(await this.callApi(params, req, runtime), new DeleteAccessAssignmentResponse({}));
@@ -6093,12 +6658,20 @@ export default class Client extends OpenApi {
   async deleteAccessConfigurationWithOptions(request: DeleteAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["ForceRemovePermissionPolicies"] = request.forceRemovePermissionPolicies;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.forceRemovePermissionPolicies)) {
+      query["ForceRemovePermissionPolicies"] = request.forceRemovePermissionPolicies;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAccessConfiguration",
@@ -6108,7 +6681,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAccessConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteAccessConfigurationResponse({}));
@@ -6122,10 +6695,12 @@ export default class Client extends OpenApi {
   async deleteDirectoryWithOptions(request: DeleteDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDirectory",
@@ -6135,7 +6710,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDirectoryResponse>(await this.callApi(params, req, runtime), new DeleteDirectoryResponse({}));
@@ -6149,11 +6724,16 @@ export default class Client extends OpenApi {
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GroupId"] = request.groupId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteGroup",
@@ -6163,7 +6743,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
@@ -6177,12 +6757,20 @@ export default class Client extends OpenApi {
   async deleteMFADeviceForUserWithOptions(request: DeleteMFADeviceForUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMFADeviceForUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["MFADeviceId"] = request.MFADeviceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.MFADeviceId)) {
+      query["MFADeviceId"] = request.MFADeviceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteMFADeviceForUser",
@@ -6192,7 +6780,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteMFADeviceForUserResponse>(await this.callApi(params, req, runtime), new DeleteMFADeviceForUserResponse({}));
@@ -6206,11 +6794,16 @@ export default class Client extends OpenApi {
   async deleteSCIMServerCredentialWithOptions(request: DeleteSCIMServerCredentialRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSCIMServerCredentialResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CredentialId"] = request.credentialId;
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSCIMServerCredential",
@@ -6220,7 +6813,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSCIMServerCredentialResponse>(await this.callApi(params, req, runtime), new DeleteSCIMServerCredentialResponse({}));
@@ -6234,11 +6827,16 @@ export default class Client extends OpenApi {
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteUser",
@@ -6248,7 +6846,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
@@ -6262,13 +6860,24 @@ export default class Client extends OpenApi {
   async deprovisionAccessConfigurationWithOptions(request: DeprovisionAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DeprovisionAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeprovisionAccessConfiguration",
@@ -6278,7 +6887,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeprovisionAccessConfigurationResponse>(await this.callApi(params, req, runtime), new DeprovisionAccessConfigurationResponse({}));
@@ -6299,7 +6908,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DisableServiceResponse>(await this.callApi(params, req, runtime), new DisableServiceResponse({}));
@@ -6320,7 +6929,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<EnableServiceResponse>(await this.callApi(params, req, runtime), new EnableServiceResponse({}));
@@ -6334,11 +6943,16 @@ export default class Client extends OpenApi {
   async getAccessConfigurationWithOptions(request: GetAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetAccessConfiguration",
@@ -6348,7 +6962,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetAccessConfigurationResponse>(await this.callApi(params, req, runtime), new GetAccessConfigurationResponse({}));
@@ -6362,10 +6976,12 @@ export default class Client extends OpenApi {
   async getDirectoryWithOptions(request: GetDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDirectory",
@@ -6375,7 +6991,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDirectoryResponse>(await this.callApi(params, req, runtime), new GetDirectoryResponse({}));
@@ -6389,10 +7005,12 @@ export default class Client extends OpenApi {
   async getDirectorySAMLServiceProviderInfoWithOptions(request: GetDirectorySAMLServiceProviderInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectorySAMLServiceProviderInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDirectorySAMLServiceProviderInfo",
@@ -6402,7 +7020,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDirectorySAMLServiceProviderInfoResponse>(await this.callApi(params, req, runtime), new GetDirectorySAMLServiceProviderInfoResponse({}));
@@ -6416,10 +7034,12 @@ export default class Client extends OpenApi {
   async getDirectoryStatisticsWithOptions(request: GetDirectoryStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDirectoryStatistics",
@@ -6429,7 +7049,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDirectoryStatisticsResponse>(await this.callApi(params, req, runtime), new GetDirectoryStatisticsResponse({}));
@@ -6443,10 +7063,12 @@ export default class Client extends OpenApi {
   async getExternalSAMLIdentityProviderWithOptions(request: GetExternalSAMLIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetExternalSAMLIdentityProviderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetExternalSAMLIdentityProvider",
@@ -6456,7 +7078,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetExternalSAMLIdentityProviderResponse>(await this.callApi(params, req, runtime), new GetExternalSAMLIdentityProviderResponse({}));
@@ -6470,11 +7092,16 @@ export default class Client extends OpenApi {
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GroupId"] = request.groupId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetGroup",
@@ -6484,7 +7111,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
@@ -6495,13 +7122,44 @@ export default class Client extends OpenApi {
     return await this.getGroupWithOptions(request, runtime);
   }
 
+  async getMFAAuthenticationSettingsWithOptions(request: GetMFAAuthenticationSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetMFAAuthenticationSettingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMFAAuthenticationSettings",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMFAAuthenticationSettingsResponse>(await this.callApi(params, req, runtime), new GetMFAAuthenticationSettingsResponse({}));
+  }
+
+  async getMFAAuthenticationSettings(request: GetMFAAuthenticationSettingsRequest): Promise<GetMFAAuthenticationSettingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMFAAuthenticationSettingsWithOptions(request, runtime);
+  }
+
   async getMFAAuthenticationStatusWithOptions(request: GetMFAAuthenticationStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMFAAuthenticationStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMFAAuthenticationStatus",
@@ -6511,7 +7169,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMFAAuthenticationStatusResponse>(await this.callApi(params, req, runtime), new GetMFAAuthenticationStatusResponse({}));
@@ -6525,10 +7183,12 @@ export default class Client extends OpenApi {
   async getSCIMSynchronizationStatusWithOptions(request: GetSCIMSynchronizationStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSCIMSynchronizationStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetSCIMSynchronizationStatus",
@@ -6538,7 +7198,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSCIMSynchronizationStatusResponse>(await this.callApi(params, req, runtime), new GetSCIMSynchronizationStatusResponse({}));
@@ -6559,7 +7219,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetServiceStatusResponse>(await this.callApi(params, req, runtime), new GetServiceStatusResponse({}));
@@ -6573,11 +7233,16 @@ export default class Client extends OpenApi {
   async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTask",
@@ -6587,7 +7252,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
@@ -6601,11 +7266,16 @@ export default class Client extends OpenApi {
   async getTaskStatusWithOptions(request: GetTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTaskStatus",
@@ -6615,7 +7285,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTaskStatusResponse>(await this.callApi(params, req, runtime), new GetTaskStatusResponse({}));
@@ -6629,11 +7299,16 @@ export default class Client extends OpenApi {
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetUser",
@@ -6643,7 +7318,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
@@ -6654,20 +7329,76 @@ export default class Client extends OpenApi {
     return await this.getUserWithOptions(request, runtime);
   }
 
+  async getUserMFAAuthenticationSettingsWithOptions(request: GetUserMFAAuthenticationSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetUserMFAAuthenticationSettingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserMFAAuthenticationSettings",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserMFAAuthenticationSettingsResponse>(await this.callApi(params, req, runtime), new GetUserMFAAuthenticationSettingsResponse({}));
+  }
+
+  async getUserMFAAuthenticationSettings(request: GetUserMFAAuthenticationSettingsRequest): Promise<GetUserMFAAuthenticationSettingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserMFAAuthenticationSettingsWithOptions(request, runtime);
+  }
+
   async listAccessAssignmentsWithOptions(request: ListAccessAssignmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessAssignmentsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["PrincipalId"] = request.principalId;
-    query["PrincipalType"] = request.principalType;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.principalId)) {
+      query["PrincipalId"] = request.principalId;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListAccessAssignments",
@@ -6677,7 +7408,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAccessAssignmentsResponse>(await this.callApi(params, req, runtime), new ListAccessAssignmentsResponse({}));
@@ -6691,16 +7422,36 @@ export default class Client extends OpenApi {
   async listAccessConfigurationProvisioningsWithOptions(request: ListAccessConfigurationProvisioningsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessConfigurationProvisioningsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProvisioningStatus"] = request.provisioningStatus;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.provisioningStatus)) {
+      query["ProvisioningStatus"] = request.provisioningStatus;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListAccessConfigurationProvisionings",
@@ -6710,7 +7461,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAccessConfigurationProvisioningsResponse>(await this.callApi(params, req, runtime), new ListAccessConfigurationProvisioningsResponse({}));
@@ -6724,14 +7475,28 @@ export default class Client extends OpenApi {
   async listAccessConfigurationsWithOptions(request: ListAccessConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessConfigurationsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["Filter"] = request.filter;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["StatusNotifications"] = request.statusNotifications;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.statusNotifications)) {
+      query["StatusNotifications"] = request.statusNotifications;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListAccessConfigurations",
@@ -6741,7 +7506,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAccessConfigurationsResponse>(await this.callApi(params, req, runtime), new ListAccessConfigurationsResponse({}));
@@ -6762,7 +7527,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDirectoriesResponse>(await this.callApi(params, req, runtime), new ListDirectoriesResponse({}));
@@ -6776,10 +7541,12 @@ export default class Client extends OpenApi {
   async listExternalSAMLIdPCertificatesWithOptions(request: ListExternalSAMLIdPCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListExternalSAMLIdPCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListExternalSAMLIdPCertificates",
@@ -6789,7 +7556,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListExternalSAMLIdPCertificatesResponse>(await this.callApi(params, req, runtime), new ListExternalSAMLIdPCertificatesResponse({}));
@@ -6803,13 +7570,24 @@ export default class Client extends OpenApi {
   async listGroupMembersWithOptions(request: ListGroupMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupMembersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GroupId"] = request.groupId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListGroupMembers",
@@ -6819,7 +7597,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListGroupMembersResponse>(await this.callApi(params, req, runtime), new ListGroupMembersResponse({}));
@@ -6833,14 +7611,28 @@ export default class Client extends OpenApi {
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["Filter"] = request.filter;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProvisionType"] = request.provisionType;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.provisionType)) {
+      query["ProvisionType"] = request.provisionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListGroups",
@@ -6850,7 +7642,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
@@ -6864,13 +7656,24 @@ export default class Client extends OpenApi {
   async listJoinedGroupsForUserWithOptions(request: ListJoinedGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListJoinedGroupsForUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListJoinedGroupsForUser",
@@ -6880,7 +7683,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListJoinedGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListJoinedGroupsForUserResponse({}));
@@ -6894,11 +7697,16 @@ export default class Client extends OpenApi {
   async listMFADevicesForUserWithOptions(request: ListMFADevicesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListMFADevicesForUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListMFADevicesForUser",
@@ -6908,7 +7716,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListMFADevicesForUserResponse>(await this.callApi(params, req, runtime), new ListMFADevicesForUserResponse({}));
@@ -6922,12 +7730,20 @@ export default class Client extends OpenApi {
   async listPermissionPoliciesInAccessConfigurationWithOptions(request: ListPermissionPoliciesInAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ListPermissionPoliciesInAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["PermissionPolicyType"] = request.permissionPolicyType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.permissionPolicyType)) {
+      query["PermissionPolicyType"] = request.permissionPolicyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListPermissionPoliciesInAccessConfiguration",
@@ -6937,7 +7753,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPermissionPoliciesInAccessConfigurationResponse>(await this.callApi(params, req, runtime), new ListPermissionPoliciesInAccessConfigurationResponse({}));
@@ -6951,10 +7767,12 @@ export default class Client extends OpenApi {
   async listSCIMServerCredentialsWithOptions(request: ListSCIMServerCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<ListSCIMServerCredentialsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListSCIMServerCredentials",
@@ -6964,7 +7782,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSCIMServerCredentialsResponse>(await this.callApi(params, req, runtime), new ListSCIMServerCredentialsResponse({}));
@@ -6978,20 +7796,52 @@ export default class Client extends OpenApi {
   async listTasksWithOptions(request: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["Filter"] = request.filter;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["PrincipalId"] = request.principalId;
-    query["PrincipalType"] = request.principalType;
-    query["Status"] = request.status;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.principalId)) {
+      query["PrincipalId"] = request.principalId;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTasks",
@@ -7001,7 +7851,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
@@ -7015,15 +7865,32 @@ export default class Client extends OpenApi {
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["Filter"] = request.filter;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProvisionType"] = request.provisionType;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.provisionType)) {
+      query["ProvisionType"] = request.provisionType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListUsers",
@@ -7033,7 +7900,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
@@ -7047,13 +7914,24 @@ export default class Client extends OpenApi {
   async provisionAccessConfigurationWithOptions(request: ProvisionAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ProvisionAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["TargetId"] = request.targetId;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ProvisionAccessConfiguration",
@@ -7063,7 +7941,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ProvisionAccessConfigurationResponse>(await this.callApi(params, req, runtime), new ProvisionAccessConfigurationResponse({}));
@@ -7077,11 +7955,16 @@ export default class Client extends OpenApi {
   async removeExternalSAMLIdPCertificateWithOptions(request: RemoveExternalSAMLIdPCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RemoveExternalSAMLIdPCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertificateId"] = request.certificateId;
-    query["DirectoryId"] = request.directoryId;
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveExternalSAMLIdPCertificate",
@@ -7091,7 +7974,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveExternalSAMLIdPCertificateResponse>(await this.callApi(params, req, runtime), new RemoveExternalSAMLIdPCertificateResponse({}));
@@ -7105,13 +7988,24 @@ export default class Client extends OpenApi {
   async removePermissionPolicyFromAccessConfigurationWithOptions(request: RemovePermissionPolicyFromAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<RemovePermissionPolicyFromAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["PermissionPolicyName"] = request.permissionPolicyName;
-    query["PermissionPolicyType"] = request.permissionPolicyType;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.permissionPolicyName)) {
+      query["PermissionPolicyName"] = request.permissionPolicyName;
+    }
+
+    if (!Util.isUnset(request.permissionPolicyType)) {
+      query["PermissionPolicyType"] = request.permissionPolicyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemovePermissionPolicyFromAccessConfiguration",
@@ -7121,7 +8015,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemovePermissionPolicyFromAccessConfigurationResponse>(await this.callApi(params, req, runtime), new RemovePermissionPolicyFromAccessConfigurationResponse({}));
@@ -7135,12 +8029,20 @@ export default class Client extends OpenApi {
   async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GroupId"] = request.groupId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveUserFromGroup",
@@ -7150,7 +8052,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
@@ -7164,14 +8066,28 @@ export default class Client extends OpenApi {
   async resetUserPasswordWithOptions(request: ResetUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetUserPasswordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GenerateRandomPassword"] = request.generateRandomPassword;
-    query["Password"] = request.password;
-    query["RequirePasswordResetForNextLogin"] = request.requirePasswordResetForNextLogin;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.generateRandomPassword)) {
+      query["GenerateRandomPassword"] = request.generateRandomPassword;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.requirePasswordResetForNextLogin)) {
+      query["RequirePasswordResetForNextLogin"] = request.requirePasswordResetForNextLogin;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResetUserPassword",
@@ -7181,7 +8097,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResetUserPasswordResponse>(await this.callApi(params, req, runtime), new ResetUserPasswordResponse({}));
@@ -7195,16 +8111,36 @@ export default class Client extends OpenApi {
   async setExternalSAMLIdentityProviderWithOptions(request: SetExternalSAMLIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<SetExternalSAMLIdentityProviderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["EncodedMetadataDocument"] = request.encodedMetadataDocument;
-    query["EntityId"] = request.entityId;
-    query["LoginUrl"] = request.loginUrl;
-    query["SSOStatus"] = request.SSOStatus;
-    query["WantRequestSigned"] = request.wantRequestSigned;
-    query["X509Certificate"] = request.x509Certificate;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.encodedMetadataDocument)) {
+      query["EncodedMetadataDocument"] = request.encodedMetadataDocument;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.loginUrl)) {
+      query["LoginUrl"] = request.loginUrl;
+    }
+
+    if (!Util.isUnset(request.SSOStatus)) {
+      query["SSOStatus"] = request.SSOStatus;
+    }
+
+    if (!Util.isUnset(request.wantRequestSigned)) {
+      query["WantRequestSigned"] = request.wantRequestSigned;
+    }
+
+    if (!Util.isUnset(request.x509Certificate)) {
+      query["X509Certificate"] = request.x509Certificate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetExternalSAMLIdentityProvider",
@@ -7214,7 +8150,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetExternalSAMLIdentityProviderResponse>(await this.callApi(params, req, runtime), new SetExternalSAMLIdentityProviderResponse({}));
@@ -7228,11 +8164,16 @@ export default class Client extends OpenApi {
   async setMFAAuthenticationStatusWithOptions(request: SetMFAAuthenticationStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetMFAAuthenticationStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["MFAAuthenticationStatus"] = request.MFAAuthenticationStatus;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.MFAAuthenticationStatus)) {
+      query["MFAAuthenticationStatus"] = request.MFAAuthenticationStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetMFAAuthenticationStatus",
@@ -7242,7 +8183,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetMFAAuthenticationStatusResponse>(await this.callApi(params, req, runtime), new SetMFAAuthenticationStatusResponse({}));
@@ -7256,11 +8197,16 @@ export default class Client extends OpenApi {
   async setSCIMSynchronizationStatusWithOptions(request: SetSCIMSynchronizationStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetSCIMSynchronizationStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["SCIMSynchronizationStatus"] = request.SCIMSynchronizationStatus;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.SCIMSynchronizationStatus)) {
+      query["SCIMSynchronizationStatus"] = request.SCIMSynchronizationStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetSCIMSynchronizationStatus",
@@ -7270,7 +8216,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetSCIMSynchronizationStatusResponse>(await this.callApi(params, req, runtime), new SetSCIMSynchronizationStatusResponse({}));
@@ -7284,14 +8230,28 @@ export default class Client extends OpenApi {
   async updateAccessConfigurationWithOptions(request: UpdateAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["NewDescription"] = request.newDescription;
-    query["NewRelayState"] = request.newRelayState;
-    query["NewSessionDuration"] = request.newSessionDuration;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newRelayState)) {
+      query["NewRelayState"] = request.newRelayState;
+    }
+
+    if (!Util.isUnset(request.newSessionDuration)) {
+      query["NewSessionDuration"] = request.newSessionDuration;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAccessConfiguration",
@@ -7301,7 +8261,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateAccessConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateAccessConfigurationResponse({}));
@@ -7315,11 +8275,16 @@ export default class Client extends OpenApi {
   async updateDirectoryWithOptions(request: UpdateDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["NewDirectoryName"] = request.newDirectoryName;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.newDirectoryName)) {
+      query["NewDirectoryName"] = request.newDirectoryName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDirectory",
@@ -7329,7 +8294,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDirectoryResponse>(await this.callApi(params, req, runtime), new UpdateDirectoryResponse({}));
@@ -7343,13 +8308,24 @@ export default class Client extends OpenApi {
   async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["GroupId"] = request.groupId;
-    query["NewDescription"] = request.newDescription;
-    query["NewGroupName"] = request.newGroupName;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newGroupName)) {
+      query["NewGroupName"] = request.newGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateGroup",
@@ -7359,7 +8335,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
@@ -7373,13 +8349,24 @@ export default class Client extends OpenApi {
   async updateInlinePolicyForAccessConfigurationWithOptions(request: UpdateInlinePolicyForAccessConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInlinePolicyForAccessConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessConfigurationId"] = request.accessConfigurationId;
-    query["DirectoryId"] = request.directoryId;
-    query["InlinePolicyName"] = request.inlinePolicyName;
-    query["NewInlinePolicyDocument"] = request.newInlinePolicyDocument;
+    if (!Util.isUnset(request.accessConfigurationId)) {
+      query["AccessConfigurationId"] = request.accessConfigurationId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.inlinePolicyName)) {
+      query["InlinePolicyName"] = request.inlinePolicyName;
+    }
+
+    if (!Util.isUnset(request.newInlinePolicyDocument)) {
+      query["NewInlinePolicyDocument"] = request.newInlinePolicyDocument;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateInlinePolicyForAccessConfiguration",
@@ -7389,7 +8376,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateInlinePolicyForAccessConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateInlinePolicyForAccessConfigurationResponse({}));
@@ -7400,15 +8387,56 @@ export default class Client extends OpenApi {
     return await this.updateInlinePolicyForAccessConfigurationWithOptions(request, runtime);
   }
 
+  async updateMFAAuthenticationSettingsWithOptions(request: UpdateMFAAuthenticationSettingsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMFAAuthenticationSettingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.MFAAuthenticationSettings)) {
+      query["MFAAuthenticationSettings"] = request.MFAAuthenticationSettings;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMFAAuthenticationSettings",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMFAAuthenticationSettingsResponse>(await this.callApi(params, req, runtime), new UpdateMFAAuthenticationSettingsResponse({}));
+  }
+
+  async updateMFAAuthenticationSettings(request: UpdateMFAAuthenticationSettingsRequest): Promise<UpdateMFAAuthenticationSettingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMFAAuthenticationSettingsWithOptions(request, runtime);
+  }
+
   async updateSCIMServerCredentialStatusWithOptions(request: UpdateSCIMServerCredentialStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSCIMServerCredentialStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CredentialId"] = request.credentialId;
-    query["DirectoryId"] = request.directoryId;
-    query["NewStatus"] = request.newStatus;
+    if (!Util.isUnset(request.credentialId)) {
+      query["CredentialId"] = request.credentialId;
+    }
+
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.newStatus)) {
+      query["NewStatus"] = request.newStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateSCIMServerCredentialStatus",
@@ -7418,7 +8446,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateSCIMServerCredentialStatusResponse>(await this.callApi(params, req, runtime), new UpdateSCIMServerCredentialStatusResponse({}));
@@ -7432,16 +8460,36 @@ export default class Client extends OpenApi {
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["NewDescription"] = request.newDescription;
-    query["NewDisplayName"] = request.newDisplayName;
-    query["NewEmail"] = request.newEmail;
-    query["NewFirstName"] = request.newFirstName;
-    query["NewLastName"] = request.newLastName;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
+    if (!Util.isUnset(request.newEmail)) {
+      query["NewEmail"] = request.newEmail;
+    }
+
+    if (!Util.isUnset(request.newFirstName)) {
+      query["NewFirstName"] = request.newFirstName;
+    }
+
+    if (!Util.isUnset(request.newLastName)) {
+      query["NewLastName"] = request.newLastName;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateUser",
@@ -7451,7 +8499,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
@@ -7462,15 +8510,60 @@ export default class Client extends OpenApi {
     return await this.updateUserWithOptions(request, runtime);
   }
 
+  async updateUserMFAAuthenticationSettingsWithOptions(request: UpdateUserMFAAuthenticationSettingsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserMFAAuthenticationSettingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userMFAAuthenticationSettings)) {
+      query["UserMFAAuthenticationSettings"] = request.userMFAAuthenticationSettings;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserMFAAuthenticationSettings",
+      version: "2021-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserMFAAuthenticationSettingsResponse>(await this.callApi(params, req, runtime), new UpdateUserMFAAuthenticationSettingsResponse({}));
+  }
+
+  async updateUserMFAAuthenticationSettings(request: UpdateUserMFAAuthenticationSettingsRequest): Promise<UpdateUserMFAAuthenticationSettingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserMFAAuthenticationSettingsWithOptions(request, runtime);
+  }
+
   async updateUserStatusWithOptions(request: UpdateUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DirectoryId"] = request.directoryId;
-    query["NewStatus"] = request.newStatus;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!Util.isUnset(request.newStatus)) {
+      query["NewStatus"] = request.newStatus;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateUserStatus",
@@ -7480,7 +8573,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateUserStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserStatusResponse({}));
