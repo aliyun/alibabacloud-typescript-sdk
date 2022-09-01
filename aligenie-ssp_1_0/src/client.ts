@@ -267,6 +267,452 @@ export class AddSubResponse extends $tea.Model {
   }
 }
 
+export class AuthLoginWithAligenieUserInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoRequest extends $tea.Model {
+  encryptedAligenieUserIdentifier?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptedAligenieUserIdentifier: 'EncryptedAligenieUserIdentifier',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptedAligenieUserIdentifier: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: AuthLoginWithAligenieUserInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: AuthLoginWithAligenieUserInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AuthLoginWithAligenieUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AuthLoginWithAligenieUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest extends $tea.Model {
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithTaobaoUserInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithTaobaoUserInfoRequest extends $tea.Model {
+  encryptedTaobaoUserIdentifier?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptedTaobaoUserIdentifier: 'EncryptedTaobaoUserIdentifier',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptedTaobaoUserIdentifier: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithTaobaoUserInfoResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: AuthLoginWithTaobaoUserInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: AuthLoginWithTaobaoUserInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithTaobaoUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AuthLoginWithTaobaoUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AuthLoginWithTaobaoUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoRequest extends $tea.Model {
+  extInfo?: { [key: string]: any };
+  sceneCode?: string;
+  thirdUserIdentifier?: string;
+  thirdUserType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extInfo: 'ExtInfo',
+      sceneCode: 'SceneCode',
+      thirdUserIdentifier: 'ThirdUserIdentifier',
+      thirdUserType: 'ThirdUserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      sceneCode: 'string',
+      thirdUserIdentifier: 'string',
+      thirdUserType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoShrinkRequest extends $tea.Model {
+  extInfoShrink?: string;
+  sceneCode?: string;
+  thirdUserIdentifier?: string;
+  thirdUserType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extInfoShrink: 'ExtInfo',
+      sceneCode: 'SceneCode',
+      thirdUserIdentifier: 'ThirdUserIdentifier',
+      thirdUserType: 'ThirdUserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extInfoShrink: 'string',
+      sceneCode: 'string',
+      thirdUserIdentifier: 'string',
+      thirdUserType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoResponseBody extends $tea.Model {
+  code?: number;
+  dataObj?: AuthLoginWithThirdUserInfoResponseBodyDataObj;
+  message?: string;
+  requestId?: string;
+  result?: AuthLoginWithThirdUserInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataObj: 'DataObj',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      dataObj: AuthLoginWithThirdUserInfoResponseBodyDataObj,
+      message: 'string',
+      requestId: 'string',
+      result: AuthLoginWithThirdUserInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AuthLoginWithThirdUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AuthLoginWithThirdUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckAuthCodeBindForExtHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -1255,6 +1701,330 @@ export class DeviceControlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeviceControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessAuthenticateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessAuthenticateRequest extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessAuthenticateResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: EcologyOpennessAuthenticateResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: EcologyOpennessAuthenticateResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessAuthenticateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EcologyOpennessAuthenticateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EcologyOpennessAuthenticateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessSendVerificationCodeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessSendVerificationCodeRequest extends $tea.Model {
+  phoneNumber?: string;
+  region?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      region: 'Region',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      region: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessSendVerificationCodeResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: EcologyOpennessSendVerificationCodeResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: EcologyOpennessSendVerificationCodeResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessSendVerificationCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EcologyOpennessSendVerificationCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EcologyOpennessSendVerificationCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberRequest extends $tea.Model {
+  code?: string;
+  phoneNumber?: string;
+  region?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      phoneNumber: 'PhoneNumber',
+      region: 'Region',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      phoneNumber: 'string',
+      region: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberResponseBody extends $tea.Model {
+  code?: number;
+  dataObj?: FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj;
+  message?: string;
+  requestId?: string;
+  result?: FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataObj: 'DataObj',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      dataObj: FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj,
+      message: 'string',
+      requestId: 'string',
+      result: FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: FindUserlistToAuthLoginWithPhoneNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FindUserlistToAuthLoginWithPhoneNumberResponseBody,
     };
   }
 
@@ -7361,6 +8131,113 @@ export class AddSubResponseBodyResult extends $tea.Model {
   }
 }
 
+export class AuthLoginWithAligenieUserInfoResponseBodyResult extends $tea.Model {
+  expiredTimeLong?: number;
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTimeLong: 'ExpiredTimeLong',
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTimeLong: 'number',
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponseBodyResult extends $tea.Model {
+  expiredTimeLong?: number;
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTimeLong: 'ExpiredTimeLong',
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTimeLong: 'number',
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithTaobaoUserInfoResponseBodyResult extends $tea.Model {
+  expiredTimeLong?: number;
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTimeLong: 'ExpiredTimeLong',
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTimeLong: 'number',
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoResponseBodyDataObj extends $tea.Model {
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthLoginWithThirdUserInfoResponseBodyResult extends $tea.Model {
+  expiredTimeLong?: number;
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTimeLong: 'ExpiredTimeLong',
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTimeLong: 'number',
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckAuthCodeBindForExtRequestUserInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -8332,6 +9209,131 @@ export class DeviceControlRequestDeviceInfo extends $tea.Model {
       id: 'string',
       idType: 'string',
       organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessAuthenticateResponseBodyResult extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  sceneCode?: string;
+  thirdUserIdentifier?: string;
+  thirdUserType?: string;
+  userOpenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      sceneCode: 'SceneCode',
+      thirdUserIdentifier: 'ThirdUserIdentifier',
+      thirdUserType: 'ThirdUserType',
+      userOpenId: 'UserOpenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      sceneCode: 'string',
+      thirdUserIdentifier: 'string',
+      thirdUserType: 'string',
+      userOpenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EcologyOpennessSendVerificationCodeResponseBodyResult extends $tea.Model {
+  expireIn?: number;
+  repeatInterval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expireIn: 'ExpireIn',
+      repeatInterval: 'RepeatInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireIn: 'number',
+      repeatInterval: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj extends $tea.Model {
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin extends $tea.Model {
+  avatar?: string;
+  encryptedUserIdentifier?: string;
+  findingType?: string;
+  nickname?: string;
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'Avatar',
+      encryptedUserIdentifier: 'EncryptedUserIdentifier',
+      findingType: 'FindingType',
+      nickname: 'Nickname',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      encryptedUserIdentifier: 'string',
+      findingType: 'string',
+      nickname: 'string',
+      userType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult extends $tea.Model {
+  userListToAuthLogin?: FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin[];
+  static names(): { [key: string]: string } {
+    return {
+      userListToAuthLogin: 'UserListToAuthLogin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userListToAuthLogin: { 'type': 'array', 'itemType': FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin },
     };
   }
 
@@ -14221,6 +15223,208 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSubResponse>(await this.callApi(params, req, runtime), new AddSubResponse({}));
   }
 
+  async authLoginWithAligenieUserInfo(request: AuthLoginWithAligenieUserInfoRequest): Promise<AuthLoginWithAligenieUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AuthLoginWithAligenieUserInfoHeaders({ });
+    return await this.authLoginWithAligenieUserInfoWithOptions(request, headers, runtime);
+  }
+
+  async authLoginWithAligenieUserInfoWithOptions(request: AuthLoginWithAligenieUserInfoRequest, headers: AuthLoginWithAligenieUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithAligenieUserInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.encryptedAligenieUserIdentifier)) {
+      body["EncryptedAligenieUserIdentifier"] = request.encryptedAligenieUserIdentifier;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AuthLoginWithAligenieUserInfo",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/authLoginWithAligenieUserInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AuthLoginWithAligenieUserInfoResponse>(await this.callApi(params, req, runtime), new AuthLoginWithAligenieUserInfoResponse({}));
+  }
+
+  async authLoginWithAligenieUserInfoGeneratedByPhoneNumber(request: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest): Promise<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders({ });
+    return await this.authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(request, headers, runtime);
+  }
+
+  async authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(request: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest, headers: AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AuthLoginWithAligenieUserInfoGeneratedByPhoneNumber",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/authLoginWithAligenieUserInfoGeneratedByPhoneNumber`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse>(await this.callApi(params, req, runtime), new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse({}));
+  }
+
+  async authLoginWithTaobaoUserInfo(request: AuthLoginWithTaobaoUserInfoRequest): Promise<AuthLoginWithTaobaoUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AuthLoginWithTaobaoUserInfoHeaders({ });
+    return await this.authLoginWithTaobaoUserInfoWithOptions(request, headers, runtime);
+  }
+
+  async authLoginWithTaobaoUserInfoWithOptions(request: AuthLoginWithTaobaoUserInfoRequest, headers: AuthLoginWithTaobaoUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithTaobaoUserInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.encryptedTaobaoUserIdentifier)) {
+      body["EncryptedTaobaoUserIdentifier"] = request.encryptedTaobaoUserIdentifier;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AuthLoginWithTaobaoUserInfo",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/authLoginWithTaobaoUserInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AuthLoginWithTaobaoUserInfoResponse>(await this.callApi(params, req, runtime), new AuthLoginWithTaobaoUserInfoResponse({}));
+  }
+
+  async authLoginWithThirdUserInfo(request: AuthLoginWithThirdUserInfoRequest): Promise<AuthLoginWithThirdUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AuthLoginWithThirdUserInfoHeaders({ });
+    return await this.authLoginWithThirdUserInfoWithOptions(request, headers, runtime);
+  }
+
+  async authLoginWithThirdUserInfoWithOptions(tmpReq: AuthLoginWithThirdUserInfoRequest, headers: AuthLoginWithThirdUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<AuthLoginWithThirdUserInfoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AuthLoginWithThirdUserInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extInfo)) {
+      request.extInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extInfo, "ExtInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extInfoShrink)) {
+      body["ExtInfo"] = request.extInfoShrink;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    if (!Util.isUnset(request.thirdUserIdentifier)) {
+      body["ThirdUserIdentifier"] = request.thirdUserIdentifier;
+    }
+
+    if (!Util.isUnset(request.thirdUserType)) {
+      body["ThirdUserType"] = request.thirdUserType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AuthLoginWithThirdUserInfo",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/authLoginWithThirdUserInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AuthLoginWithThirdUserInfoResponse>(await this.callApi(params, req, runtime), new AuthLoginWithThirdUserInfoResponse({}));
+  }
+
   async checkAuthCodeBindForExt(request: CheckAuthCodeBindForExtRequest): Promise<CheckAuthCodeBindForExtResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CheckAuthCodeBindForExtHeaders({ });
@@ -14717,6 +15921,166 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<DeviceControlResponse>(await this.callApi(params, req, runtime), new DeviceControlResponse({}));
+  }
+
+  async ecologyOpennessAuthenticate(request: EcologyOpennessAuthenticateRequest): Promise<EcologyOpennessAuthenticateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new EcologyOpennessAuthenticateHeaders({ });
+    return await this.ecologyOpennessAuthenticateWithOptions(request, headers, runtime);
+  }
+
+  async ecologyOpennessAuthenticateWithOptions(request: EcologyOpennessAuthenticateRequest, headers: EcologyOpennessAuthenticateHeaders, runtime: $Util.RuntimeOptions): Promise<EcologyOpennessAuthenticateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.encodeKey)) {
+      body["EncodeKey"] = request.encodeKey;
+    }
+
+    if (!Util.isUnset(request.encodeType)) {
+      body["EncodeType"] = request.encodeType;
+    }
+
+    if (!Util.isUnset(request.loginStateAccessToken)) {
+      body["LoginStateAccessToken"] = request.loginStateAccessToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EcologyOpennessAuthenticate",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/ecologyOpennessAuthenticate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EcologyOpennessAuthenticateResponse>(await this.callApi(params, req, runtime), new EcologyOpennessAuthenticateResponse({}));
+  }
+
+  async ecologyOpennessSendVerificationCode(request: EcologyOpennessSendVerificationCodeRequest): Promise<EcologyOpennessSendVerificationCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new EcologyOpennessSendVerificationCodeHeaders({ });
+    return await this.ecologyOpennessSendVerificationCodeWithOptions(request, headers, runtime);
+  }
+
+  async ecologyOpennessSendVerificationCodeWithOptions(request: EcologyOpennessSendVerificationCodeRequest, headers: EcologyOpennessSendVerificationCodeHeaders, runtime: $Util.RuntimeOptions): Promise<EcologyOpennessSendVerificationCodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.phoneNumber)) {
+      body["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      body["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EcologyOpennessSendVerificationCode",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/ecologyOpennessSendVerificationCode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EcologyOpennessSendVerificationCodeResponse>(await this.callApi(params, req, runtime), new EcologyOpennessSendVerificationCodeResponse({}));
+  }
+
+  async findUserlistToAuthLoginWithPhoneNumber(request: FindUserlistToAuthLoginWithPhoneNumberRequest): Promise<FindUserlistToAuthLoginWithPhoneNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new FindUserlistToAuthLoginWithPhoneNumberHeaders({ });
+    return await this.findUserlistToAuthLoginWithPhoneNumberWithOptions(request, headers, runtime);
+  }
+
+  async findUserlistToAuthLoginWithPhoneNumberWithOptions(request: FindUserlistToAuthLoginWithPhoneNumberRequest, headers: FindUserlistToAuthLoginWithPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<FindUserlistToAuthLoginWithPhoneNumberResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FindUserlistToAuthLoginWithPhoneNumber",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/findUserlistToAuthLoginWithPhoneNumber`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FindUserlistToAuthLoginWithPhoneNumberResponse>(await this.callApi(params, req, runtime), new FindUserlistToAuthLoginWithPhoneNumberResponse({}));
   }
 
   async getAlarm(request: GetAlarmRequest): Promise<GetAlarmResponse> {
