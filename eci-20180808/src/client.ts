@@ -4,185 +4,207 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateContainerGroupRequest extends $tea.Model {
   dnsConfig?: CreateContainerGroupRequestDnsConfig;
+  hostSecurityContext?: CreateContainerGroupRequestHostSecurityContext;
   securityContext?: CreateContainerGroupRequestSecurityContext;
+  acrRegistryInfo?: CreateContainerGroupRequestAcrRegistryInfo[];
+  activeDeadlineSeconds?: number;
+  arn?: CreateContainerGroupRequestArn[];
+  autoCreateEip?: boolean;
+  autoMatchImageCache?: boolean;
+  clientToken?: string;
+  container?: CreateContainerGroupRequestContainer[];
+  containerGroupName?: string;
+  corePattern?: string;
+  cpu?: number;
+  cpuOptionsCore?: number;
+  cpuOptionsNuma?: string;
+  cpuOptionsThreadsPerCore?: number;
+  dnsPolicy?: string;
+  egressBandwidth?: number;
+  eipBandwidth?: number;
+  eipCommonBandwidthPackage?: string;
+  eipISP?: string;
+  eipInstanceId?: string;
+  ephemeralStorage?: number;
+  hostAliase?: CreateContainerGroupRequestHostAliase[];
+  hostName?: string;
+  imageAccelerateMode?: string;
+  imageRegistryCredential?: CreateContainerGroupRequestImageRegistryCredential[];
+  imageSnapshotId?: string;
+  ingressBandwidth?: number;
+  initContainer?: CreateContainerGroupRequestInitContainer[];
+  insecureRegistry?: string;
+  instanceType?: string;
+  ipv6AddressCount?: number;
+  ipv6GatewayBandwidth?: string;
+  ipv6GatewayBandwidthEnable?: boolean;
+  memory?: number;
+  ntpServer?: string[];
+  ownerAccount?: string;
   ownerId?: number;
+  plainHttpRegistry?: string;
+  productOnEciMode?: string;
+  ramRoleName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  zoneId?: string;
-  securityGroupId?: string;
-  vSwitchId?: string;
-  containerGroupName?: string;
   restartPolicy?: string;
-  eipInstanceId?: string;
-  cpu?: number;
-  memory?: number;
-  resourceGroupId?: string;
-  dnsPolicy?: string;
-  clientToken?: string;
-  instanceType?: string;
-  slsEnable?: boolean;
-  imageSnapshotId?: string;
-  ramRoleName?: string;
-  terminationGracePeriodSeconds?: number;
-  autoMatchImageCache?: boolean;
-  vkClientVersion?: string;
-  ipv6AddressCount?: number;
-  activeDeadlineSeconds?: number;
-  spotStrategy?: string;
-  spotPriceLimit?: number;
   scheduleStrategy?: string;
-  tenantVSwitchId?: string;
-  tenantSecurityGroupId?: string;
-  corePattern?: string;
-  shareProcessNamespace?: boolean;
-  productOnEciMode?: string;
   secondaryENIPolicy?: string;
-  autoCreateEip?: boolean;
-  eipBandwidth?: number;
-  eipISP?: string;
-  eipCommonBandwidthPackage?: string;
-  hostName?: string;
-  ingressBandwidth?: number;
-  egressBandwidth?: number;
-  cpuOptionsCore?: number;
-  cpuOptionsThreadsPerCore?: number;
-  cpuOptionsNuma?: string;
-  ephemeralStorage?: number;
+  securityGroupId?: string;
+  shareProcessNamespace?: boolean;
+  slsEnable?: boolean;
+  spotDuration?: number;
+  spotPriceLimit?: number;
+  spotStrategy?: string;
+  strictSpot?: boolean;
   tag?: CreateContainerGroupRequestTag[];
-  imageRegistryCredential?: CreateContainerGroupRequestImageRegistryCredential[];
-  container?: CreateContainerGroupRequestContainer[];
+  tenantSecurityGroupId?: string;
+  tenantVSwitchId?: string;
+  terminationGracePeriodSeconds?: number;
+  vSwitchId?: string;
   volume?: CreateContainerGroupRequestVolume[];
-  initContainer?: CreateContainerGroupRequestInitContainer[];
-  hostAliase?: CreateContainerGroupRequestHostAliase[];
-  arn?: CreateContainerGroupRequestArn[];
-  ntpServer?: string[];
-  acrRegistryInfo?: CreateContainerGroupRequestAcrRegistryInfo[];
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       dnsConfig: 'DnsConfig',
+      hostSecurityContext: 'HostSecurityContext',
       securityContext: 'SecurityContext',
+      acrRegistryInfo: 'AcrRegistryInfo',
+      activeDeadlineSeconds: 'ActiveDeadlineSeconds',
+      arn: 'Arn',
+      autoCreateEip: 'AutoCreateEip',
+      autoMatchImageCache: 'AutoMatchImageCache',
+      clientToken: 'ClientToken',
+      container: 'Container',
+      containerGroupName: 'ContainerGroupName',
+      corePattern: 'CorePattern',
+      cpu: 'Cpu',
+      cpuOptionsCore: 'CpuOptionsCore',
+      cpuOptionsNuma: 'CpuOptionsNuma',
+      cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
+      dnsPolicy: 'DnsPolicy',
+      egressBandwidth: 'EgressBandwidth',
+      eipBandwidth: 'EipBandwidth',
+      eipCommonBandwidthPackage: 'EipCommonBandwidthPackage',
+      eipISP: 'EipISP',
+      eipInstanceId: 'EipInstanceId',
+      ephemeralStorage: 'EphemeralStorage',
+      hostAliase: 'HostAliase',
+      hostName: 'HostName',
+      imageAccelerateMode: 'ImageAccelerateMode',
+      imageRegistryCredential: 'ImageRegistryCredential',
+      imageSnapshotId: 'ImageSnapshotId',
+      ingressBandwidth: 'IngressBandwidth',
+      initContainer: 'InitContainer',
+      insecureRegistry: 'InsecureRegistry',
+      instanceType: 'InstanceType',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      ipv6GatewayBandwidth: 'Ipv6GatewayBandwidth',
+      ipv6GatewayBandwidthEnable: 'Ipv6GatewayBandwidthEnable',
+      memory: 'Memory',
+      ntpServer: 'NtpServer',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      plainHttpRegistry: 'PlainHttpRegistry',
+      productOnEciMode: 'ProductOnEciMode',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      containerGroupName: 'ContainerGroupName',
       restartPolicy: 'RestartPolicy',
-      eipInstanceId: 'EipInstanceId',
-      cpu: 'Cpu',
-      memory: 'Memory',
-      resourceGroupId: 'ResourceGroupId',
-      dnsPolicy: 'DnsPolicy',
-      clientToken: 'ClientToken',
-      instanceType: 'InstanceType',
-      slsEnable: 'SlsEnable',
-      imageSnapshotId: 'ImageSnapshotId',
-      ramRoleName: 'RamRoleName',
-      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
-      autoMatchImageCache: 'AutoMatchImageCache',
-      vkClientVersion: 'VkClientVersion',
-      ipv6AddressCount: 'Ipv6AddressCount',
-      activeDeadlineSeconds: 'ActiveDeadlineSeconds',
-      spotStrategy: 'SpotStrategy',
-      spotPriceLimit: 'SpotPriceLimit',
       scheduleStrategy: 'ScheduleStrategy',
-      tenantVSwitchId: 'TenantVSwitchId',
-      tenantSecurityGroupId: 'TenantSecurityGroupId',
-      corePattern: 'CorePattern',
-      shareProcessNamespace: 'ShareProcessNamespace',
-      productOnEciMode: 'ProductOnEciMode',
       secondaryENIPolicy: 'SecondaryENIPolicy',
-      autoCreateEip: 'AutoCreateEip',
-      eipBandwidth: 'EipBandwidth',
-      eipISP: 'EipISP',
-      eipCommonBandwidthPackage: 'EipCommonBandwidthPackage',
-      hostName: 'HostName',
-      ingressBandwidth: 'IngressBandwidth',
-      egressBandwidth: 'EgressBandwidth',
-      cpuOptionsCore: 'CpuOptionsCore',
-      cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
-      cpuOptionsNuma: 'CpuOptionsNuma',
-      ephemeralStorage: 'EphemeralStorage',
+      securityGroupId: 'SecurityGroupId',
+      shareProcessNamespace: 'ShareProcessNamespace',
+      slsEnable: 'SlsEnable',
+      spotDuration: 'SpotDuration',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+      strictSpot: 'StrictSpot',
       tag: 'Tag',
-      imageRegistryCredential: 'ImageRegistryCredential',
-      container: 'Container',
+      tenantSecurityGroupId: 'TenantSecurityGroupId',
+      tenantVSwitchId: 'TenantVSwitchId',
+      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
+      vSwitchId: 'VSwitchId',
       volume: 'Volume',
-      initContainer: 'InitContainer',
-      hostAliase: 'HostAliase',
-      arn: 'Arn',
-      ntpServer: 'NtpServer',
-      acrRegistryInfo: 'AcrRegistryInfo',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dnsConfig: CreateContainerGroupRequestDnsConfig,
+      hostSecurityContext: CreateContainerGroupRequestHostSecurityContext,
       securityContext: CreateContainerGroupRequestSecurityContext,
+      acrRegistryInfo: { 'type': 'array', 'itemType': CreateContainerGroupRequestAcrRegistryInfo },
+      activeDeadlineSeconds: 'number',
+      arn: { 'type': 'array', 'itemType': CreateContainerGroupRequestArn },
+      autoCreateEip: 'boolean',
+      autoMatchImageCache: 'boolean',
+      clientToken: 'string',
+      container: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainer },
+      containerGroupName: 'string',
+      corePattern: 'string',
+      cpu: 'number',
+      cpuOptionsCore: 'number',
+      cpuOptionsNuma: 'string',
+      cpuOptionsThreadsPerCore: 'number',
+      dnsPolicy: 'string',
+      egressBandwidth: 'number',
+      eipBandwidth: 'number',
+      eipCommonBandwidthPackage: 'string',
+      eipISP: 'string',
+      eipInstanceId: 'string',
+      ephemeralStorage: 'number',
+      hostAliase: { 'type': 'array', 'itemType': CreateContainerGroupRequestHostAliase },
+      hostName: 'string',
+      imageAccelerateMode: 'string',
+      imageRegistryCredential: { 'type': 'array', 'itemType': CreateContainerGroupRequestImageRegistryCredential },
+      imageSnapshotId: 'string',
+      ingressBandwidth: 'number',
+      initContainer: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainer },
+      insecureRegistry: 'string',
+      instanceType: 'string',
+      ipv6AddressCount: 'number',
+      ipv6GatewayBandwidth: 'string',
+      ipv6GatewayBandwidthEnable: 'boolean',
+      memory: 'number',
+      ntpServer: { 'type': 'array', 'itemType': 'string' },
+      ownerAccount: 'string',
       ownerId: 'number',
+      plainHttpRegistry: 'string',
+      productOnEciMode: 'string',
+      ramRoleName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      containerGroupName: 'string',
       restartPolicy: 'string',
-      eipInstanceId: 'string',
-      cpu: 'number',
-      memory: 'number',
-      resourceGroupId: 'string',
-      dnsPolicy: 'string',
-      clientToken: 'string',
-      instanceType: 'string',
-      slsEnable: 'boolean',
-      imageSnapshotId: 'string',
-      ramRoleName: 'string',
-      terminationGracePeriodSeconds: 'number',
-      autoMatchImageCache: 'boolean',
-      vkClientVersion: 'string',
-      ipv6AddressCount: 'number',
-      activeDeadlineSeconds: 'number',
-      spotStrategy: 'string',
-      spotPriceLimit: 'number',
       scheduleStrategy: 'string',
-      tenantVSwitchId: 'string',
-      tenantSecurityGroupId: 'string',
-      corePattern: 'string',
-      shareProcessNamespace: 'boolean',
-      productOnEciMode: 'string',
       secondaryENIPolicy: 'string',
-      autoCreateEip: 'boolean',
-      eipBandwidth: 'number',
-      eipISP: 'string',
-      eipCommonBandwidthPackage: 'string',
-      hostName: 'string',
-      ingressBandwidth: 'number',
-      egressBandwidth: 'number',
-      cpuOptionsCore: 'number',
-      cpuOptionsThreadsPerCore: 'number',
-      cpuOptionsNuma: 'string',
-      ephemeralStorage: 'number',
+      securityGroupId: 'string',
+      shareProcessNamespace: 'boolean',
+      slsEnable: 'boolean',
+      spotDuration: 'number',
+      spotPriceLimit: 'number',
+      spotStrategy: 'string',
+      strictSpot: 'boolean',
       tag: { 'type': 'array', 'itemType': CreateContainerGroupRequestTag },
-      imageRegistryCredential: { 'type': 'array', 'itemType': CreateContainerGroupRequestImageRegistryCredential },
-      container: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainer },
+      tenantSecurityGroupId: 'string',
+      tenantVSwitchId: 'string',
+      terminationGracePeriodSeconds: 'number',
+      vSwitchId: 'string',
       volume: { 'type': 'array', 'itemType': CreateContainerGroupRequestVolume },
-      initContainer: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainer },
-      hostAliase: { 'type': 'array', 'itemType': CreateContainerGroupRequestHostAliase },
-      arn: { 'type': 'array', 'itemType': CreateContainerGroupRequestArn },
-      ntpServer: { 'type': 'array', 'itemType': 'string' },
-      acrRegistryInfo: { 'type': 'array', 'itemType': CreateContainerGroupRequestAcrRegistryInfo },
+      zoneId: 'string',
     };
   }
 
@@ -192,19 +214,19 @@ export class CreateContainerGroupRequest extends $tea.Model {
 }
 
 export class CreateContainerGroupResponseBody extends $tea.Model {
-  requestId?: string;
   containerGroupId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       containerGroupId: 'ContainerGroupId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       containerGroupId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -215,10 +237,12 @@ export class CreateContainerGroupResponseBody extends $tea.Model {
 
 export class CreateContainerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -226,6 +250,7 @@ export class CreateContainerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateContainerGroupResponseBody,
     };
   }
@@ -236,70 +261,91 @@ export class CreateContainerGroupResponse extends $tea.Model {
 }
 
 export class CreateImageCacheRequest extends $tea.Model {
+  acrRegistryInfo?: CreateImageCacheRequestAcrRegistryInfo[];
+  annotations?: string;
+  autoMatchImageCache?: boolean;
+  clientToken?: string;
+  eipInstanceId?: string;
+  eliminationStrategy?: string;
+  flash?: boolean;
+  flashCopyCount?: number;
+  image?: string[];
+  imageCacheName?: string;
+  imageCacheSize?: number;
+  imageRegistryCredential?: CreateImageCacheRequestImageRegistryCredential[];
+  insecureRegistry?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  plainHttpRegistry?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  zoneId?: string;
-  securityGroupId?: string;
-  vSwitchId?: string;
-  imageCacheName?: string;
-  eipInstanceId?: string;
-  resourceGroupId?: string;
-  clientToken?: string;
-  imageCacheSize?: number;
-  vkClientVersion?: string;
   retentionDays?: number;
-  autoMatchImageCache?: boolean;
-  imageRegistryCredential?: CreateImageCacheRequestImageRegistryCredential[];
-  image?: string[];
+  securityGroupId?: string;
+  standardCopyCount?: number;
   tag?: CreateImageCacheRequestTag[];
+  vSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      acrRegistryInfo: 'AcrRegistryInfo',
+      annotations: 'Annotations',
+      autoMatchImageCache: 'AutoMatchImageCache',
+      clientToken: 'ClientToken',
+      eipInstanceId: 'EipInstanceId',
+      eliminationStrategy: 'EliminationStrategy',
+      flash: 'Flash',
+      flashCopyCount: 'FlashCopyCount',
+      image: 'Image',
+      imageCacheName: 'ImageCacheName',
+      imageCacheSize: 'ImageCacheSize',
+      imageRegistryCredential: 'ImageRegistryCredential',
+      insecureRegistry: 'InsecureRegistry',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      plainHttpRegistry: 'PlainHttpRegistry',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      imageCacheName: 'ImageCacheName',
-      eipInstanceId: 'EipInstanceId',
-      resourceGroupId: 'ResourceGroupId',
-      clientToken: 'ClientToken',
-      imageCacheSize: 'ImageCacheSize',
-      vkClientVersion: 'VkClientVersion',
       retentionDays: 'RetentionDays',
-      autoMatchImageCache: 'AutoMatchImageCache',
-      imageRegistryCredential: 'ImageRegistryCredential',
-      image: 'Image',
+      securityGroupId: 'SecurityGroupId',
+      standardCopyCount: 'StandardCopyCount',
       tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acrRegistryInfo: { 'type': 'array', 'itemType': CreateImageCacheRequestAcrRegistryInfo },
+      annotations: 'string',
+      autoMatchImageCache: 'boolean',
+      clientToken: 'string',
+      eipInstanceId: 'string',
+      eliminationStrategy: 'string',
+      flash: 'boolean',
+      flashCopyCount: 'number',
+      image: { 'type': 'array', 'itemType': 'string' },
+      imageCacheName: 'string',
+      imageCacheSize: 'number',
+      imageRegistryCredential: { 'type': 'array', 'itemType': CreateImageCacheRequestImageRegistryCredential },
+      insecureRegistry: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      plainHttpRegistry: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      imageCacheName: 'string',
-      eipInstanceId: 'string',
-      resourceGroupId: 'string',
-      clientToken: 'string',
-      imageCacheSize: 'number',
-      vkClientVersion: 'string',
       retentionDays: 'number',
-      autoMatchImageCache: 'boolean',
-      imageRegistryCredential: { 'type': 'array', 'itemType': CreateImageCacheRequestImageRegistryCredential },
-      image: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      standardCopyCount: 'number',
       tag: { 'type': 'array', 'itemType': CreateImageCacheRequestTag },
+      vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -309,22 +355,22 @@ export class CreateImageCacheRequest extends $tea.Model {
 }
 
 export class CreateImageCacheResponseBody extends $tea.Model {
-  requestId?: string;
-  imageCacheId?: string;
   containerGroupId?: string;
+  imageCacheId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      imageCacheId: 'ImageCacheId',
       containerGroupId: 'ContainerGroupId',
+      imageCacheId: 'ImageCacheId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      imageCacheId: 'string',
       containerGroupId: 'string',
+      imageCacheId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -335,10 +381,12 @@ export class CreateImageCacheResponseBody extends $tea.Model {
 
 export class CreateImageCacheResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateImageCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -346,6 +394,7 @@ export class CreateImageCacheResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateImageCacheResponseBody,
     };
   }
@@ -355,38 +404,239 @@ export class CreateImageCacheResponse extends $tea.Model {
   }
 }
 
-export class DeleteContainerGroupRequest extends $tea.Model {
+export class CreateInstanceOpsTaskRequest extends $tea.Model {
+  containerGroupId?: string;
+  opsType?: string;
+  opsValue?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  containerGroupId?: string;
-  clientToken?: string;
-  vkClientVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      containerGroupId: 'ContainerGroupId',
+      opsType: 'OpsType',
+      opsValue: 'OpsValue',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      containerGroupId: 'ContainerGroupId',
-      clientToken: 'ClientToken',
-      vkClientVersion: 'VkClientVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      containerGroupId: 'string',
+      opsType: 'string',
+      opsValue: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      containerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceOpsTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceOpsTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateInstanceOpsTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceOpsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualNodeRequest extends $tea.Model {
+  clientToken?: string;
+  eipInstanceId?: string;
+  enablePublicNetwork?: boolean;
+  kubeConfig?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  rotateCertificateEnabled?: boolean;
+  securityGroupId?: string;
+  tag?: CreateVirtualNodeRequestTag[];
+  taint?: CreateVirtualNodeRequestTaint[];
+  tlsBootstrapEnabled?: boolean;
+  vSwitchId?: string;
+  virtualNodeName?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      eipInstanceId: 'EipInstanceId',
+      enablePublicNetwork: 'EnablePublicNetwork',
+      kubeConfig: 'KubeConfig',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      rotateCertificateEnabled: 'RotateCertificateEnabled',
+      securityGroupId: 'SecurityGroupId',
+      tag: 'Tag',
+      taint: 'Taint',
+      tlsBootstrapEnabled: 'TlsBootstrapEnabled',
+      vSwitchId: 'VSwitchId',
+      virtualNodeName: 'VirtualNodeName',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       clientToken: 'string',
-      vkClientVersion: 'string',
+      eipInstanceId: 'string',
+      enablePublicNetwork: 'boolean',
+      kubeConfig: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      rotateCertificateEnabled: 'boolean',
+      securityGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVirtualNodeRequestTag },
+      taint: { 'type': 'array', 'itemType': CreateVirtualNodeRequestTaint },
+      tlsBootstrapEnabled: 'boolean',
+      vSwitchId: 'string',
+      virtualNodeName: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  virtualNodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      virtualNodeId: 'VirtualNodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      virtualNodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateVirtualNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVirtualNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteContainerGroupRequest extends $tea.Model {
+  clientToken?: string;
+  containerGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      containerGroupId: 'ContainerGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      containerGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -416,10 +666,12 @@ export class DeleteContainerGroupResponseBody extends $tea.Model {
 
 export class DeleteContainerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -427,6 +679,7 @@ export class DeleteContainerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteContainerGroupResponseBody,
     };
   }
@@ -437,37 +690,34 @@ export class DeleteContainerGroupResponse extends $tea.Model {
 }
 
 export class DeleteImageCacheRequest extends $tea.Model {
+  clientToken?: string;
+  imageCacheId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  imageCacheId?: string;
-  clientToken?: string;
-  vkClientVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      imageCacheId: 'ImageCacheId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      imageCacheId: 'ImageCacheId',
-      clientToken: 'ClientToken',
-      vkClientVersion: 'VkClientVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      imageCacheId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      imageCacheId: 'string',
-      clientToken: 'string',
-      vkClientVersion: 'string',
     };
   }
 
@@ -497,10 +747,12 @@ export class DeleteImageCacheResponseBody extends $tea.Model {
 
 export class DeleteImageCacheResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteImageCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -508,6 +760,7 @@ export class DeleteImageCacheResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteImageCacheResponseBody,
     };
   }
@@ -517,44 +770,308 @@ export class DeleteImageCacheResponse extends $tea.Model {
   }
 }
 
-export class DescribeContainerGroupMetricRequest extends $tea.Model {
+export class DeleteVirtualNodeRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  containerGroupId?: string;
-  startTime?: string;
-  endTime?: string;
-  period?: string;
-  vkClientVersion?: string;
+  virtualNodeId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      containerGroupId: 'ContainerGroupId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      period: 'Period',
-      vkClientVersion: 'VkClientVersion',
+      virtualNodeId: 'VirtualNodeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      virtualNodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVirtualNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteVirtualNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVirtualNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceRequest extends $tea.Model {
+  destinationResource?: DescribeAvailableResourceRequestDestinationResource;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  spotResource?: DescribeAvailableResourceRequestSpotResource;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationResource: 'DestinationResource',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      spotResource: 'SpotResource',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationResource: DescribeAvailableResourceRequestDestinationResource,
       ownerAccount: 'string',
+      ownerId: 'number',
       regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      spotResource: DescribeAvailableResourceRequestSpotResource,
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBody extends $tea.Model {
+  availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableZones: 'AvailableZones',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableZones: DescribeAvailableResourceResponseBodyAvailableZones,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeAvailableResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAvailableResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsRequest extends $tea.Model {
+  condition?: DescribeContainerGroupEventsRequestCondition[];
+  containerGroupIds?: string;
+  eventSource?: string;
+  limit?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  sinceSecond?: number;
+  tag?: DescribeContainerGroupEventsRequestTag[];
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      containerGroupIds: 'ContainerGroupIds',
+      eventSource: 'EventSource',
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sinceSecond: 'SinceSecond',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: { 'type': 'array', 'itemType': DescribeContainerGroupEventsRequestCondition },
+      containerGroupIds: 'string',
+      eventSource: 'string',
+      limit: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sinceSecond: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeContainerGroupEventsRequestTag },
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponseBody extends $tea.Model {
+  data?: DescribeContainerGroupEventsResponseBodyData[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeContainerGroupEventsResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeContainerGroupEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeContainerGroupEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupMetricRequest extends $tea.Model {
+  containerGroupId?: string;
+  endTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  period?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerGroupId: 'ContainerGroupId',
+      endTime: 'EndTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      period: 'Period',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       containerGroupId: 'string',
-      startTime: 'string',
       endTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
       period: 'string',
-      vkClientVersion: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      startTime: 'string',
     };
   }
 
@@ -564,22 +1081,22 @@ export class DescribeContainerGroupMetricRequest extends $tea.Model {
 }
 
 export class DescribeContainerGroupMetricResponseBody extends $tea.Model {
-  requestId?: string;
   containerGroupId?: string;
   records?: DescribeContainerGroupMetricResponseBodyRecords[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       containerGroupId: 'ContainerGroupId',
       records: 'Records',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       containerGroupId: 'string',
       records: { 'type': 'array', 'itemType': DescribeContainerGroupMetricResponseBodyRecords },
+      requestId: 'string',
     };
   }
 
@@ -590,10 +1107,12 @@ export class DescribeContainerGroupMetricResponseBody extends $tea.Model {
 
 export class DescribeContainerGroupMetricResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeContainerGroupMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -601,6 +1120,7 @@ export class DescribeContainerGroupMetricResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeContainerGroupMetricResponseBody,
     };
   }
@@ -611,46 +1131,49 @@ export class DescribeContainerGroupMetricResponse extends $tea.Model {
 }
 
 export class DescribeContainerGroupPriceRequest extends $tea.Model {
+  cpu?: number;
+  ephemeralStorage?: number;
+  instanceType?: string;
+  memory?: number;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  cpu?: number;
-  memory?: number;
-  instanceType?: string;
+  spotPriceLimit?: number;
   spotStrategy?: string;
   zoneId?: string;
-  spotPriceLimit?: number;
   static names(): { [key: string]: string } {
     return {
+      cpu: 'Cpu',
+      ephemeralStorage: 'EphemeralStorage',
+      instanceType: 'InstanceType',
+      memory: 'Memory',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      cpu: 'Cpu',
-      memory: 'Memory',
-      instanceType: 'InstanceType',
+      spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
       zoneId: 'ZoneId',
-      spotPriceLimit: 'SpotPriceLimit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cpu: 'number',
+      ephemeralStorage: 'number',
+      instanceType: 'string',
+      memory: 'number',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      cpu: 'number',
-      memory: 'number',
-      instanceType: 'string',
+      spotPriceLimit: 'number',
       spotStrategy: 'string',
       zoneId: 'string',
-      spotPriceLimit: 'number',
     };
   }
 
@@ -660,19 +1183,19 @@ export class DescribeContainerGroupPriceRequest extends $tea.Model {
 }
 
 export class DescribeContainerGroupPriceResponseBody extends $tea.Model {
-  requestId?: string;
   priceInfo?: DescribeContainerGroupPriceResponseBodyPriceInfo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       priceInfo: DescribeContainerGroupPriceResponseBodyPriceInfo,
+      requestId: 'string',
     };
   }
 
@@ -683,10 +1206,12 @@ export class DescribeContainerGroupPriceResponseBody extends $tea.Model {
 
 export class DescribeContainerGroupPriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeContainerGroupPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -694,6 +1219,7 @@ export class DescribeContainerGroupPriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeContainerGroupPriceResponseBody,
     };
   }
@@ -703,62 +1229,158 @@ export class DescribeContainerGroupPriceResponse extends $tea.Model {
   }
 }
 
-export class DescribeContainerGroupsRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  zoneId?: string;
-  vSwitchId?: string;
-  nextToken?: string;
-  limit?: number;
+export class DescribeContainerGroupStatusRequest extends $tea.Model {
+  condition?: DescribeContainerGroupStatusRequestCondition[];
   containerGroupIds?: string;
-  containerGroupName?: string;
-  status?: string;
-  vkClientVersion?: string;
+  limit?: number;
+  nextToken?: string;
+  regionId?: string;
   resourceGroupId?: string;
-  withEvent?: boolean;
-  tag?: DescribeContainerGroupsRequestTag[];
+  sinceSecond?: number;
+  tag?: DescribeContainerGroupStatusRequestTag[];
+  vSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
-      vSwitchId: 'VSwitchId',
-      nextToken: 'NextToken',
-      limit: 'Limit',
+      condition: 'Condition',
       containerGroupIds: 'ContainerGroupIds',
-      containerGroupName: 'ContainerGroupName',
-      status: 'Status',
-      vkClientVersion: 'VkClientVersion',
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      withEvent: 'WithEvent',
+      sinceSecond: 'SinceSecond',
       tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-      vSwitchId: 'string',
-      nextToken: 'string',
+      condition: { 'type': 'array', 'itemType': DescribeContainerGroupStatusRequestCondition },
+      containerGroupIds: 'string',
       limit: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sinceSecond: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeContainerGroupStatusRequestTag },
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBody extends $tea.Model {
+  data?: DescribeContainerGroupStatusResponseBodyData[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeContainerGroupStatusResponseBodyData },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeContainerGroupStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeContainerGroupStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsRequest extends $tea.Model {
+  containerGroupIds?: string;
+  containerGroupName?: string;
+  limit?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  status?: string;
+  tag?: DescribeContainerGroupsRequestTag[];
+  vSwitchId?: string;
+  withEvent?: boolean;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerGroupIds: 'ContainerGroupIds',
+      containerGroupName: 'ContainerGroupName',
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      status: 'Status',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      withEvent: 'WithEvent',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       containerGroupIds: 'string',
       containerGroupName: 'string',
-      status: 'string',
-      vkClientVersion: 'string',
+      limit: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
-      withEvent: 'boolean',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeContainerGroupsRequestTag },
+      vSwitchId: 'string',
+      withEvent: 'boolean',
+      zoneId: 'string',
     };
   }
 
@@ -768,25 +1390,25 @@ export class DescribeContainerGroupsRequest extends $tea.Model {
 }
 
 export class DescribeContainerGroupsResponseBody extends $tea.Model {
-  totalCount?: number;
+  containerGroups?: DescribeContainerGroupsResponseBodyContainerGroups[];
   nextToken?: string;
   requestId?: string;
-  containerGroups?: DescribeContainerGroupsResponseBodyContainerGroups[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      containerGroups: 'ContainerGroups',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      containerGroups: 'ContainerGroups',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      containerGroups: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroups },
       nextToken: 'string',
       requestId: 'string',
-      containerGroups: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroups },
+      totalCount: 'number',
     };
   }
 
@@ -797,10 +1419,12 @@ export class DescribeContainerGroupsResponseBody extends $tea.Model {
 
 export class DescribeContainerGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeContainerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -808,6 +1432,7 @@ export class DescribeContainerGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeContainerGroupsResponseBody,
     };
   }
@@ -818,51 +1443,51 @@ export class DescribeContainerGroupsResponse extends $tea.Model {
 }
 
 export class DescribeContainerLogRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   containerGroupId?: string;
   containerName?: string;
+  lastTime?: boolean;
+  limitBytes?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sinceSeconds?: number;
   startTime?: string;
   tail?: number;
-  lastTime?: boolean;
-  sinceSeconds?: number;
-  limitBytes?: number;
   timestamps?: boolean;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       containerGroupId: 'ContainerGroupId',
       containerName: 'ContainerName',
+      lastTime: 'LastTime',
+      limitBytes: 'LimitBytes',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sinceSeconds: 'SinceSeconds',
       startTime: 'StartTime',
       tail: 'Tail',
-      lastTime: 'LastTime',
-      sinceSeconds: 'SinceSeconds',
-      limitBytes: 'LimitBytes',
       timestamps: 'Timestamps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       containerGroupId: 'string',
       containerName: 'string',
+      lastTime: 'boolean',
+      limitBytes: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sinceSeconds: 'number',
       startTime: 'string',
       tail: 'number',
-      lastTime: 'boolean',
-      sinceSeconds: 'number',
-      limitBytes: 'number',
       timestamps: 'boolean',
     };
   }
@@ -873,22 +1498,22 @@ export class DescribeContainerLogRequest extends $tea.Model {
 }
 
 export class DescribeContainerLogResponseBody extends $tea.Model {
-  requestId?: string;
   containerName?: string;
   content?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       containerName: 'ContainerName',
       content: 'Content',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       containerName: 'string',
       content: 'string',
+      requestId: 'string',
     };
   }
 
@@ -899,10 +1524,12 @@ export class DescribeContainerLogResponseBody extends $tea.Model {
 
 export class DescribeContainerLogResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeContainerLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -910,6 +1537,7 @@ export class DescribeContainerLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeContainerLogResponseBody,
     };
   }
@@ -920,45 +1548,48 @@ export class DescribeContainerLogResponse extends $tea.Model {
 }
 
 export class DescribeImageCachesRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
+  image?: string;
   imageCacheId?: string;
   imageCacheName?: string;
-  snapshotId?: string;
-  image?: string;
+  matchImage?: string[];
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
   resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  snapshotId?: string;
   tag?: DescribeImageCachesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
+      image: 'Image',
       imageCacheId: 'ImageCacheId',
       imageCacheName: 'ImageCacheName',
-      snapshotId: 'SnapshotId',
-      image: 'Image',
+      matchImage: 'MatchImage',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      snapshotId: 'SnapshotId',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
+      image: 'string',
       imageCacheId: 'string',
       imageCacheName: 'string',
-      snapshotId: 'string',
-      image: 'string',
+      matchImage: { 'type': 'array', 'itemType': 'string' },
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      snapshotId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeImageCachesRequestTag },
     };
   }
@@ -969,19 +1600,19 @@ export class DescribeImageCachesRequest extends $tea.Model {
 }
 
 export class DescribeImageCachesResponseBody extends $tea.Model {
-  requestId?: string;
   imageCaches?: DescribeImageCachesResponseBodyImageCaches[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       imageCaches: 'ImageCaches',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       imageCaches: { 'type': 'array', 'itemType': DescribeImageCachesResponseBodyImageCaches },
+      requestId: 'string',
     };
   }
 
@@ -992,10 +1623,12 @@ export class DescribeImageCachesResponseBody extends $tea.Model {
 
 export class DescribeImageCachesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeImageCachesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1003,6 +1636,7 @@ export class DescribeImageCachesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeImageCachesResponseBody,
     };
   }
@@ -1012,38 +1646,122 @@ export class DescribeImageCachesResponse extends $tea.Model {
   }
 }
 
-export class DescribeMultiContainerGroupMetricRequest extends $tea.Model {
+export class DescribeInstanceOpsRecordsRequest extends $tea.Model {
+  containerGroupId?: string;
+  opsType?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  containerGroupIds?: string;
-  resourceGroupId?: string;
-  metricType?: string;
   static names(): { [key: string]: string } {
     return {
+      containerGroupId: 'ContainerGroupId',
+      opsType: 'OpsType',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      containerGroupIds: 'ContainerGroupIds',
-      resourceGroupId: 'ResourceGroupId',
-      metricType: 'MetricType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      containerGroupId: 'string',
+      opsType: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceOpsRecordsResponseBody extends $tea.Model {
+  records?: DescribeInstanceOpsRecordsResponseBodyRecords[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      records: 'Records',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': DescribeInstanceOpsRecordsResponseBodyRecords },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceOpsRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeInstanceOpsRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceOpsRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricRequest extends $tea.Model {
+  containerGroupIds?: string;
+  metricType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      containerGroupIds: 'ContainerGroupIds',
+      metricType: 'MetricType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       containerGroupIds: 'string',
-      resourceGroupId: 'string',
       metricType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -1053,19 +1771,19 @@ export class DescribeMultiContainerGroupMetricRequest extends $tea.Model {
 }
 
 export class DescribeMultiContainerGroupMetricResponseBody extends $tea.Model {
-  requestId?: string;
   monitorDatas?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatas[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       monitorDatas: 'MonitorDatas',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       monitorDatas: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatas },
+      requestId: 'string',
     };
   }
 
@@ -1076,10 +1794,12 @@ export class DescribeMultiContainerGroupMetricResponseBody extends $tea.Model {
 
 export class DescribeMultiContainerGroupMetricResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeMultiContainerGroupMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1087,6 +1807,7 @@ export class DescribeMultiContainerGroupMetricResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeMultiContainerGroupMetricResponseBody,
     };
   }
@@ -1097,28 +1818,28 @@ export class DescribeMultiContainerGroupMetricResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1128,19 +1849,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -1151,10 +1872,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1162,6 +1885,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -1171,44 +1895,164 @@ export class DescribeRegionsResponse extends $tea.Model {
   }
 }
 
-export class ExecContainerCommandRequest extends $tea.Model {
+export class DescribeVirtualNodesRequest extends $tea.Model {
+  clientToken?: string;
+  limit?: number;
+  nextToken?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  containerGroupId?: string;
-  containerName?: string;
-  command?: string;
-  TTY?: boolean;
-  stdin?: boolean;
+  securityGroupId?: string;
+  status?: string;
+  tag?: DescribeVirtualNodesRequestTag[];
+  vSwitchId?: string;
+  virtualNodeIds?: string;
+  virtualNodeName?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      containerGroupId: 'ContainerGroupId',
-      containerName: 'ContainerName',
-      command: 'Command',
-      TTY: 'TTY',
-      stdin: 'Stdin',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      virtualNodeIds: 'VirtualNodeIds',
+      virtualNodeName: 'VirtualNodeName',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      limit: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeVirtualNodesRequestTag },
+      vSwitchId: 'string',
+      virtualNodeIds: 'string',
+      virtualNodeName: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVirtualNodesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  virtualNodes?: DescribeVirtualNodesResponseBodyVirtualNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      virtualNodes: 'VirtualNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      virtualNodes: { 'type': 'array', 'itemType': DescribeVirtualNodesResponseBodyVirtualNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVirtualNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVirtualNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVirtualNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecContainerCommandRequest extends $tea.Model {
+  command?: string;
+  containerGroupId?: string;
+  containerName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  stdin?: boolean;
+  sync?: boolean;
+  TTY?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      containerGroupId: 'ContainerGroupId',
+      containerName: 'ContainerName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      stdin: 'Stdin',
+      sync: 'Sync',
+      TTY: 'TTY',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
       containerGroupId: 'string',
       containerName: 'string',
-      command: 'string',
-      TTY: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       stdin: 'boolean',
+      sync: 'boolean',
+      TTY: 'boolean',
     };
   }
 
@@ -1218,18 +2062,24 @@ export class ExecContainerCommandRequest extends $tea.Model {
 }
 
 export class ExecContainerCommandResponseBody extends $tea.Model {
+  httpUrl?: string;
   requestId?: string;
+  syncResponse?: string;
   webSocketUri?: string;
   static names(): { [key: string]: string } {
     return {
+      httpUrl: 'HttpUrl',
       requestId: 'RequestId',
+      syncResponse: 'SyncResponse',
       webSocketUri: 'WebSocketUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      httpUrl: 'string',
       requestId: 'string',
+      syncResponse: 'string',
       webSocketUri: 'string',
     };
   }
@@ -1241,10 +2091,12 @@ export class ExecContainerCommandResponseBody extends $tea.Model {
 
 export class ExecContainerCommandResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ExecContainerCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1252,6 +2104,7 @@ export class ExecContainerCommandResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ExecContainerCommandResponseBody,
     };
   }
@@ -1262,28 +2115,28 @@ export class ExecContainerCommandResponse extends $tea.Model {
 }
 
 export class ListUsageRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1293,19 +2146,19 @@ export class ListUsageRequest extends $tea.Model {
 }
 
 export class ListUsageResponseBody extends $tea.Model {
-  requestId?: string;
   attributes?: { [key: string]: any };
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       attributes: 'Attributes',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
     };
   }
 
@@ -1316,10 +2169,12 @@ export class ListUsageResponseBody extends $tea.Model {
 
 export class ListUsageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUsageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1327,6 +2182,7 @@ export class ListUsageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUsageResponseBody,
     };
   }
@@ -1336,38 +2192,122 @@ export class ListUsageResponse extends $tea.Model {
   }
 }
 
-export class RestartContainerGroupRequest extends $tea.Model {
+export class ResizeContainerGroupVolumeRequest extends $tea.Model {
+  clientToken?: string;
+  containerGroupId?: string;
+  newSize?: number;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  containerGroupId?: string;
-  clientToken?: string;
-  vkClientVersion?: string;
+  volumeName?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      containerGroupId: 'ContainerGroupId',
+      newSize: 'NewSize',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      containerGroupId: 'ContainerGroupId',
-      clientToken: 'ClientToken',
-      vkClientVersion: 'VkClientVersion',
+      volumeName: 'VolumeName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      containerGroupId: 'string',
+      newSize: 'number',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      containerGroupId: 'string',
+      volumeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeContainerGroupVolumeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeContainerGroupVolumeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResizeContainerGroupVolumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResizeContainerGroupVolumeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartContainerGroupRequest extends $tea.Model {
+  clientToken?: string;
+  containerGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      containerGroupId: 'ContainerGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       clientToken: 'string',
-      vkClientVersion: 'string',
+      containerGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -1397,10 +2337,12 @@ export class RestartContainerGroupResponseBody extends $tea.Model {
 
 export class RestartContainerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RestartContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1408,6 +2350,7 @@ export class RestartContainerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RestartContainerGroupResponseBody,
     };
   }
@@ -1419,63 +2362,66 @@ export class RestartContainerGroupResponse extends $tea.Model {
 
 export class UpdateContainerGroupRequest extends $tea.Model {
   dnsConfig?: UpdateContainerGroupRequestDnsConfig;
+  clientToken?: string;
+  container?: UpdateContainerGroupRequestContainer[];
+  containerGroupId?: string;
+  cpu?: number;
+  imageRegistryCredential?: UpdateContainerGroupRequestImageRegistryCredential[];
+  initContainer?: UpdateContainerGroupRequestInitContainer[];
+  memory?: number;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  containerGroupId?: string;
   restartPolicy?: string;
-  clientToken?: string;
-  cpu?: number;
-  memory?: number;
-  resourceGroupId?: string;
   tag?: UpdateContainerGroupRequestTag[];
+  updateType?: string;
   volume?: UpdateContainerGroupRequestVolume[];
-  container?: UpdateContainerGroupRequestContainer[];
-  initContainer?: UpdateContainerGroupRequestInitContainer[];
-  imageRegistryCredential?: UpdateContainerGroupRequestImageRegistryCredential[];
   static names(): { [key: string]: string } {
     return {
       dnsConfig: 'DnsConfig',
+      clientToken: 'ClientToken',
+      container: 'Container',
+      containerGroupId: 'ContainerGroupId',
+      cpu: 'Cpu',
+      imageRegistryCredential: 'ImageRegistryCredential',
+      initContainer: 'InitContainer',
+      memory: 'Memory',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      containerGroupId: 'ContainerGroupId',
       restartPolicy: 'RestartPolicy',
-      clientToken: 'ClientToken',
-      cpu: 'Cpu',
-      memory: 'Memory',
-      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      updateType: 'UpdateType',
       volume: 'Volume',
-      container: 'Container',
-      initContainer: 'InitContainer',
-      imageRegistryCredential: 'ImageRegistryCredential',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dnsConfig: UpdateContainerGroupRequestDnsConfig,
+      clientToken: 'string',
+      container: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainer },
+      containerGroupId: 'string',
+      cpu: 'number',
+      imageRegistryCredential: { 'type': 'array', 'itemType': UpdateContainerGroupRequestImageRegistryCredential },
+      initContainer: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainer },
+      memory: 'number',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      containerGroupId: 'string',
       restartPolicy: 'string',
-      clientToken: 'string',
-      cpu: 'number',
-      memory: 'number',
-      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': UpdateContainerGroupRequestTag },
+      updateType: 'string',
       volume: { 'type': 'array', 'itemType': UpdateContainerGroupRequestVolume },
-      container: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainer },
-      initContainer: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainer },
-      imageRegistryCredential: { 'type': 'array', 'itemType': UpdateContainerGroupRequestImageRegistryCredential },
     };
   }
 
@@ -1505,10 +2451,12 @@ export class UpdateContainerGroupResponseBody extends $tea.Model {
 
 export class UpdateContainerGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1516,6 +2464,7 @@ export class UpdateContainerGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateContainerGroupResponseBody,
     };
   }
@@ -1525,20 +2474,245 @@ export class UpdateContainerGroupResponse extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestDnsConfigOption extends $tea.Model {
-  value?: string;
-  name?: string;
+export class UpdateImageCacheRequest extends $tea.Model {
+  acrRegistryInfo?: UpdateImageCacheRequestAcrRegistryInfo[];
+  autoMatchImageCache?: boolean;
+  clientToken?: string;
+  eipInstanceId?: string;
+  eliminationStrategy?: string;
+  flash?: boolean;
+  flashCopyCount?: number;
+  image?: string[];
+  imageCacheId?: string;
+  imageCacheName?: string;
+  imageCacheSize?: number;
+  imageRegistryCredential?: UpdateImageCacheRequestImageRegistryCredential[];
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  retentionDays?: number;
+  securityGroupId?: string;
+  standardCopyCount?: number;
+  tag?: UpdateImageCacheRequestTag[];
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      name: 'Name',
+      acrRegistryInfo: 'AcrRegistryInfo',
+      autoMatchImageCache: 'AutoMatchImageCache',
+      clientToken: 'ClientToken',
+      eipInstanceId: 'EipInstanceId',
+      eliminationStrategy: 'EliminationStrategy',
+      flash: 'Flash',
+      flashCopyCount: 'FlashCopyCount',
+      image: 'Image',
+      imageCacheId: 'ImageCacheId',
+      imageCacheName: 'ImageCacheName',
+      imageCacheSize: 'ImageCacheSize',
+      imageRegistryCredential: 'ImageRegistryCredential',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      retentionDays: 'RetentionDays',
+      securityGroupId: 'SecurityGroupId',
+      standardCopyCount: 'StandardCopyCount',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
+      acrRegistryInfo: { 'type': 'array', 'itemType': UpdateImageCacheRequestAcrRegistryInfo },
+      autoMatchImageCache: 'boolean',
+      clientToken: 'string',
+      eipInstanceId: 'string',
+      eliminationStrategy: 'string',
+      flash: 'boolean',
+      flashCopyCount: 'number',
+      image: { 'type': 'array', 'itemType': 'string' },
+      imageCacheId: 'string',
+      imageCacheName: 'string',
+      imageCacheSize: 'number',
+      imageRegistryCredential: { 'type': 'array', 'itemType': UpdateImageCacheRequestImageRegistryCredential },
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      retentionDays: 'number',
+      securityGroupId: 'string',
+      standardCopyCount: 'number',
+      tag: { 'type': 'array', 'itemType': UpdateImageCacheRequestTag },
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageCacheResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageCacheResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateImageCacheResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateImageCacheResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualNodeRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityGroupId?: string;
+  tag?: UpdateVirtualNodeRequestTag[];
+  vSwitchId?: string;
+  virtualNodeId?: string;
+  virtualNodeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityGroupId: 'SecurityGroupId',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      virtualNodeId: 'VirtualNodeId',
+      virtualNodeName: 'VirtualNodeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': UpdateVirtualNodeRequestTag },
+      vSwitchId: 'string',
+      virtualNodeId: 'string',
+      virtualNodeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateVirtualNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVirtualNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestDnsConfigOption extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -1549,21 +2723,62 @@ export class CreateContainerGroupRequestDnsConfigOption extends $tea.Model {
 
 export class CreateContainerGroupRequestDnsConfig extends $tea.Model {
   nameServer?: string[];
-  search?: string[];
   option?: CreateContainerGroupRequestDnsConfigOption[];
+  search?: string[];
   static names(): { [key: string]: string } {
     return {
       nameServer: 'NameServer',
-      search: 'Search',
       option: 'Option',
+      search: 'Search',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       nameServer: { 'type': 'array', 'itemType': 'string' },
-      search: { 'type': 'array', 'itemType': 'string' },
       option: { 'type': 'array', 'itemType': CreateContainerGroupRequestDnsConfigOption },
+      search: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestHostSecurityContextSysctl extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestHostSecurityContext extends $tea.Model {
+  sysctl?: CreateContainerGroupRequestHostSecurityContextSysctl[];
+  static names(): { [key: string]: string } {
+    return {
+      sysctl: 'Sysctl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sysctl: { 'type': 'array', 'itemType': CreateContainerGroupRequestHostSecurityContextSysctl },
     };
   }
 
@@ -1573,19 +2788,19 @@ export class CreateContainerGroupRequestDnsConfig extends $tea.Model {
 }
 
 export class CreateContainerGroupRequestSecurityContextSysctl extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -1613,20 +2828,26 @@ export class CreateContainerGroupRequestSecurityContext extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
+export class CreateContainerGroupRequestAcrRegistryInfo extends $tea.Model {
+  domain?: string[];
+  instanceId?: string;
+  instanceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      domain: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      instanceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1635,23 +2856,23 @@ export class CreateContainerGroupRequestTag extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestImageRegistryCredential extends $tea.Model {
-  password?: string;
-  server?: string;
-  userName?: string;
+export class CreateContainerGroupRequestArn extends $tea.Model {
+  assumeRoleFor?: string;
+  roleArn?: string;
+  roleType?: string;
   static names(): { [key: string]: string } {
     return {
-      password: 'Password',
-      server: 'Server',
-      userName: 'UserName',
+      assumeRoleFor: 'AssumeRoleFor',
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      password: 'string',
-      server: 'string',
-      userName: 'string',
+      assumeRoleFor: 'string',
+      roleArn: 'string',
+      roleType: 'string',
     };
   }
 
@@ -1660,17 +2881,17 @@ export class CreateContainerGroupRequestImageRegistryCredential extends $tea.Mod
   }
 }
 
-export class CreateContainerGroupRequestContainerReadinessProbeTcpSocket extends $tea.Model {
-  port?: number;
+export class CreateContainerGroupRequestContainerLivenessProbeExec extends $tea.Model {
+  command?: string[];
   static names(): { [key: string]: string } {
     return {
-      port: 'Port',
+      command: 'Command',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      port: 'number',
+      command: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1679,23 +2900,82 @@ export class CreateContainerGroupRequestContainerReadinessProbeTcpSocket extends
   }
 }
 
-export class CreateContainerGroupRequestContainerReadinessProbeHttpGet extends $tea.Model {
-  scheme?: string;
+export class CreateContainerGroupRequestContainerLivenessProbeHttpGet extends $tea.Model {
   path?: string;
   port?: number;
+  scheme?: string;
   static names(): { [key: string]: string } {
     return {
-      scheme: 'Scheme',
       path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestContainerLivenessProbeTcpSocket extends $tea.Model {
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
       port: 'Port',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      scheme: 'string',
-      path: 'string',
       port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestContainerLivenessProbe extends $tea.Model {
+  exec: CreateContainerGroupRequestContainerLivenessProbeExec;
+  failureThreshold?: number;
+  httpGet: CreateContainerGroupRequestContainerLivenessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket: CreateContainerGroupRequestContainerLivenessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: CreateContainerGroupRequestContainerLivenessProbeExec,
+      failureThreshold: 'number',
+      httpGet: CreateContainerGroupRequestContainerLivenessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: CreateContainerGroupRequestContainerLivenessProbeTcpSocket,
+      timeoutSeconds: 'number',
     };
   }
 
@@ -1723,38 +3003,82 @@ export class CreateContainerGroupRequestContainerReadinessProbeExec extends $tea
   }
 }
 
-export class CreateContainerGroupRequestContainerReadinessProbe extends $tea.Model {
-  timeoutSeconds?: number;
-  successThreshold?: number;
-  tcpSocket: CreateContainerGroupRequestContainerReadinessProbeTcpSocket;
-  httpGet: CreateContainerGroupRequestContainerReadinessProbeHttpGet;
-  periodSeconds?: number;
-  initialDelaySeconds?: number;
-  exec: CreateContainerGroupRequestContainerReadinessProbeExec;
-  failureThreshold?: number;
+export class CreateContainerGroupRequestContainerReadinessProbeHttpGet extends $tea.Model {
+  path?: string;
+  port?: number;
+  scheme?: string;
   static names(): { [key: string]: string } {
     return {
-      timeoutSeconds: 'TimeoutSeconds',
-      successThreshold: 'SuccessThreshold',
-      tcpSocket: 'TcpSocket',
-      httpGet: 'HttpGet',
-      periodSeconds: 'PeriodSeconds',
-      initialDelaySeconds: 'InitialDelaySeconds',
-      exec: 'Exec',
-      failureThreshold: 'FailureThreshold',
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeoutSeconds: 'number',
-      successThreshold: 'number',
-      tcpSocket: CreateContainerGroupRequestContainerReadinessProbeTcpSocket,
-      httpGet: CreateContainerGroupRequestContainerReadinessProbeHttpGet,
-      periodSeconds: 'number',
-      initialDelaySeconds: 'number',
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestContainerReadinessProbeTcpSocket extends $tea.Model {
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestContainerReadinessProbe extends $tea.Model {
+  exec: CreateContainerGroupRequestContainerReadinessProbeExec;
+  failureThreshold?: number;
+  httpGet: CreateContainerGroupRequestContainerReadinessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket: CreateContainerGroupRequestContainerReadinessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       exec: CreateContainerGroupRequestContainerReadinessProbeExec,
       failureThreshold: 'number',
+      httpGet: CreateContainerGroupRequestContainerReadinessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: CreateContainerGroupRequestContainerReadinessProbeTcpSocket,
+      timeoutSeconds: 'number',
     };
   }
 
@@ -1807,109 +3131,6 @@ export class CreateContainerGroupRequestContainerSecurityContext extends $tea.Mo
   }
 }
 
-export class CreateContainerGroupRequestContainerLivenessProbeTcpSocket extends $tea.Model {
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestContainerLivenessProbeExec extends $tea.Model {
-  command?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestContainerLivenessProbeHttpGet extends $tea.Model {
-  scheme?: string;
-  port?: number;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      scheme: 'Scheme',
-      port: 'Port',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scheme: 'string',
-      port: 'number',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestContainerLivenessProbe extends $tea.Model {
-  periodSeconds?: number;
-  tcpSocket: CreateContainerGroupRequestContainerLivenessProbeTcpSocket;
-  initialDelaySeconds?: number;
-  successThreshold?: number;
-  exec: CreateContainerGroupRequestContainerLivenessProbeExec;
-  httpGet: CreateContainerGroupRequestContainerLivenessProbeHttpGet;
-  failureThreshold?: number;
-  timeoutSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      periodSeconds: 'PeriodSeconds',
-      tcpSocket: 'TcpSocket',
-      initialDelaySeconds: 'InitialDelaySeconds',
-      successThreshold: 'SuccessThreshold',
-      exec: 'Exec',
-      httpGet: 'HttpGet',
-      failureThreshold: 'FailureThreshold',
-      timeoutSeconds: 'TimeoutSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      periodSeconds: 'number',
-      tcpSocket: CreateContainerGroupRequestContainerLivenessProbeTcpSocket,
-      initialDelaySeconds: 'number',
-      successThreshold: 'number',
-      exec: CreateContainerGroupRequestContainerLivenessProbeExec,
-      httpGet: CreateContainerGroupRequestContainerLivenessProbeHttpGet,
-      failureThreshold: 'number',
-      timeoutSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateContainerGroupRequestContainerEnvironmentVarFieldRef extends $tea.Model {
   fieldPath?: string;
   static names(): { [key: string]: string } {
@@ -1954,48 +3175,20 @@ export class CreateContainerGroupRequestContainerEnvironmentVar extends $tea.Mod
   }
 }
 
-export class CreateContainerGroupRequestContainerVolumeMount extends $tea.Model {
-  mountPath?: string;
-  readOnly?: boolean;
-  subPath?: string;
+export class CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeader extends $tea.Model {
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      mountPath: 'MountPath',
-      readOnly: 'ReadOnly',
-      subPath: 'SubPath',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mountPath: 'string',
-      readOnly: 'boolean',
-      subPath: 'string',
       name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestContainerPort extends $tea.Model {
-  protocol?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: 'string',
-      port: 'number',
+      value: 'string',
     };
   }
 
@@ -2005,19 +3198,19 @@ export class CreateContainerGroupRequestContainerPort extends $tea.Model {
 }
 
 export class CreateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -2026,20 +3219,51 @@ export class CreateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetH
   }
 }
 
-export class CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeader extends $tea.Model {
-  value?: string;
-  name?: string;
+export class CreateContainerGroupRequestContainerPort extends $tea.Model {
+  port?: number;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      name: 'Name',
+      port: 'Port',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestContainerVolumeMount extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
       name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
     };
   }
 
@@ -2049,121 +3273,121 @@ export class CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGe
 }
 
 export class CreateContainerGroupRequestContainer extends $tea.Model {
+  livenessProbe: CreateContainerGroupRequestContainerLivenessProbe;
   readinessProbe: CreateContainerGroupRequestContainerReadinessProbe;
   securityContext: CreateContainerGroupRequestContainerSecurityContext;
-  livenessProbe: CreateContainerGroupRequestContainerLivenessProbe;
-  environmentVar?: CreateContainerGroupRequestContainerEnvironmentVar[];
-  tty?: boolean;
-  workingDir?: string;
   arg?: string[];
-  stdin?: boolean;
-  volumeMount?: CreateContainerGroupRequestContainerVolumeMount[];
-  imagePullPolicy?: string;
-  stdinOnce?: boolean;
-  lifecyclePreStopHandlerTcpSocketPort?: number;
-  lifecyclePostStartHandlerHttpGetScheme?: string;
   command?: string[];
-  lifecyclePostStartHandlerHttpGetHost?: string;
-  terminationMessagePolicy?: string;
-  lifecyclePostStartHandlerTcpSocketPort?: number;
-  lifecyclePostStartHandlerHttpGetPath?: string;
-  lifecyclePostStartHandlerExec?: string[];
-  lifecyclePreStopHandlerHttpGetPath?: string;
-  port?: CreateContainerGroupRequestContainerPort[];
-  terminationMessagePath?: string;
-  lifecyclePreStopHandlerHttpGetScheme?: string;
-  lifecyclePostStartHandlerTcpSocketHost?: string;
+  cpu?: number;
+  environmentVar?: CreateContainerGroupRequestContainerEnvironmentVar[];
   gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
+  lifecyclePostStartHandlerExec?: string[];
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  lifecyclePostStartHandlerHttpGetHttpHeader?: CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeader[];
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  lifecyclePostStartHandlerTcpSocketPort?: number;
   lifecyclePreStopHandlerExec?: string[];
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  lifecyclePreStopHandlerHttpGetHttpHeader?: CreateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader[];
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  lifecyclePreStopHandlerTcpSocketPort?: number;
   memory?: number;
   name?: string;
-  lifecyclePreStopHandlerHttpGetHost?: string;
-  lifecyclePreStopHandlerTcpSocketHost?: string;
-  image?: string;
-  lifecyclePreStopHandlerHttpGetPort?: number;
-  lifecyclePreStopHandlerHttpGetHttpHeader?: CreateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader[];
-  cpu?: number;
-  lifecyclePostStartHandlerHttpGetPort?: number;
-  lifecyclePostStartHandlerHttpGetHttpHeader?: CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeader[];
+  port?: CreateContainerGroupRequestContainerPort[];
+  stdin?: boolean;
+  stdinOnce?: boolean;
+  terminationMessagePath?: string;
+  terminationMessagePolicy?: string;
+  tty?: boolean;
+  volumeMount?: CreateContainerGroupRequestContainerVolumeMount[];
+  workingDir?: string;
   static names(): { [key: string]: string } {
     return {
+      livenessProbe: 'LivenessProbe',
       readinessProbe: 'ReadinessProbe',
       securityContext: 'SecurityContext',
-      livenessProbe: 'LivenessProbe',
-      environmentVar: 'EnvironmentVar',
-      tty: 'Tty',
-      workingDir: 'WorkingDir',
       arg: 'Arg',
-      stdin: 'Stdin',
-      volumeMount: 'VolumeMount',
-      imagePullPolicy: 'ImagePullPolicy',
-      stdinOnce: 'StdinOnce',
-      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
-      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
       command: 'Command',
-      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
-      terminationMessagePolicy: 'TerminationMessagePolicy',
-      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
-      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
-      lifecyclePostStartHandlerExec: 'LifecyclePostStartHandlerExec',
-      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
-      port: 'Port',
-      terminationMessagePath: 'TerminationMessagePath',
-      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
-      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      cpu: 'Cpu',
+      environmentVar: 'EnvironmentVar',
       gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExec: 'LifecyclePostStartHandlerExec',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetHttpHeader: 'LifecyclePostStartHandlerHttpGetHttpHeader',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
       lifecyclePreStopHandlerExec: 'LifecyclePreStopHandlerExec',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetHttpHeader: 'LifecyclePreStopHandlerHttpGetHttpHeader',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
       memory: 'Memory',
       name: 'Name',
-      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
-      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
-      image: 'Image',
-      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
-      lifecyclePreStopHandlerHttpGetHttpHeader: 'LifecyclePreStopHandlerHttpGetHttpHeader',
-      cpu: 'Cpu',
-      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
-      lifecyclePostStartHandlerHttpGetHttpHeader: 'LifecyclePostStartHandlerHttpGetHttpHeader',
+      port: 'Port',
+      stdin: 'Stdin',
+      stdinOnce: 'StdinOnce',
+      terminationMessagePath: 'TerminationMessagePath',
+      terminationMessagePolicy: 'TerminationMessagePolicy',
+      tty: 'Tty',
+      volumeMount: 'VolumeMount',
+      workingDir: 'WorkingDir',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      livenessProbe: CreateContainerGroupRequestContainerLivenessProbe,
       readinessProbe: CreateContainerGroupRequestContainerReadinessProbe,
       securityContext: CreateContainerGroupRequestContainerSecurityContext,
-      livenessProbe: CreateContainerGroupRequestContainerLivenessProbe,
-      environmentVar: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerEnvironmentVar },
-      tty: 'boolean',
-      workingDir: 'string',
       arg: { 'type': 'array', 'itemType': 'string' },
-      stdin: 'boolean',
-      volumeMount: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerVolumeMount },
-      imagePullPolicy: 'string',
-      stdinOnce: 'boolean',
-      lifecyclePreStopHandlerTcpSocketPort: 'number',
-      lifecyclePostStartHandlerHttpGetScheme: 'string',
       command: { 'type': 'array', 'itemType': 'string' },
-      lifecyclePostStartHandlerHttpGetHost: 'string',
-      terminationMessagePolicy: 'string',
-      lifecyclePostStartHandlerTcpSocketPort: 'number',
-      lifecyclePostStartHandlerHttpGetPath: 'string',
-      lifecyclePostStartHandlerExec: { 'type': 'array', 'itemType': 'string' },
-      lifecyclePreStopHandlerHttpGetPath: 'string',
-      port: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerPort },
-      terminationMessagePath: 'string',
-      lifecyclePreStopHandlerHttpGetScheme: 'string',
-      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      cpu: 'number',
+      environmentVar: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerEnvironmentVar },
       gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExec: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetHttpHeader: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeader },
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
       lifecyclePreStopHandlerExec: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetHttpHeader: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader },
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
       memory: 'number',
       name: 'string',
-      lifecyclePreStopHandlerHttpGetHost: 'string',
-      lifecyclePreStopHandlerTcpSocketHost: 'string',
-      image: 'string',
-      lifecyclePreStopHandlerHttpGetPort: 'number',
-      lifecyclePreStopHandlerHttpGetHttpHeader: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader },
-      cpu: 'number',
-      lifecyclePostStartHandlerHttpGetPort: 'number',
-      lifecyclePostStartHandlerHttpGetHttpHeader: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeader },
+      port: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerPort },
+      stdin: 'boolean',
+      stdinOnce: 'boolean',
+      terminationMessagePath: 'string',
+      terminationMessagePolicy: 'string',
+      tty: 'boolean',
+      volumeMount: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainerVolumeMount },
+      workingDir: 'string',
     };
   }
 
@@ -2172,23 +3396,20 @@ export class CreateContainerGroupRequestContainer extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestVolumeDiskVolume extends $tea.Model {
-  diskSize?: number;
-  fsType?: string;
-  diskId?: string;
+export class CreateContainerGroupRequestHostAliase extends $tea.Model {
+  hostname?: string[];
+  ip?: string;
   static names(): { [key: string]: string } {
     return {
-      diskSize: 'DiskSize',
-      fsType: 'FsType',
-      diskId: 'DiskId',
+      hostname: 'Hostname',
+      ip: 'Ip',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      diskSize: 'number',
-      fsType: 'string',
-      diskId: 'string',
+      hostname: { 'type': 'array', 'itemType': 'string' },
+      ip: 'string',
     };
   }
 
@@ -2197,176 +3418,23 @@ export class CreateContainerGroupRequestVolumeDiskVolume extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestVolumeNFSVolume extends $tea.Model {
-  path?: string;
-  readOnly?: boolean;
+export class CreateContainerGroupRequestImageRegistryCredential extends $tea.Model {
+  password?: string;
   server?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      path: 'Path',
-      readOnly: 'ReadOnly',
+      password: 'Password',
       server: 'Server',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      path: 'string',
-      readOnly: 'boolean',
+      password: 'string',
       server: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestVolumeFlexVolume extends $tea.Model {
-  fsType?: string;
-  options?: string;
-  driver?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fsType: 'FsType',
-      options: 'Options',
-      driver: 'Driver',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fsType: 'string',
-      options: 'string',
-      driver: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestVolumeHostPathVolume extends $tea.Model {
-  type?: string;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath extends $tea.Model {
-  path?: string;
-  mode?: number;
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      path: 'Path',
-      mode: 'Mode',
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      path: 'string',
-      mode: 'number',
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestVolumeConfigFileVolume extends $tea.Model {
-  defaultMode?: number;
-  configFileToPath?: CreateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath[];
-  static names(): { [key: string]: string } {
-    return {
-      defaultMode: 'DefaultMode',
-      configFileToPath: 'ConfigFileToPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultMode: 'number',
-      configFileToPath: { 'type': 'array', 'itemType': CreateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestVolumeEmptyDirVolume extends $tea.Model {
-  medium?: string;
-  static names(): { [key: string]: string } {
-    return {
-      medium: 'Medium',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      medium: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestVolume extends $tea.Model {
-  diskVolume: CreateContainerGroupRequestVolumeDiskVolume;
-  NFSVolume: CreateContainerGroupRequestVolumeNFSVolume;
-  flexVolume: CreateContainerGroupRequestVolumeFlexVolume;
-  hostPathVolume: CreateContainerGroupRequestVolumeHostPathVolume;
-  configFileVolume: CreateContainerGroupRequestVolumeConfigFileVolume;
-  emptyDirVolume: CreateContainerGroupRequestVolumeEmptyDirVolume;
-  type?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskVolume: 'DiskVolume',
-      NFSVolume: 'NFSVolume',
-      flexVolume: 'FlexVolume',
-      hostPathVolume: 'HostPathVolume',
-      configFileVolume: 'ConfigFileVolume',
-      emptyDirVolume: 'EmptyDirVolume',
-      type: 'Type',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskVolume: CreateContainerGroupRequestVolumeDiskVolume,
-      NFSVolume: CreateContainerGroupRequestVolumeNFSVolume,
-      flexVolume: CreateContainerGroupRequestVolumeFlexVolume,
-      hostPathVolume: CreateContainerGroupRequestVolumeHostPathVolume,
-      configFileVolume: CreateContainerGroupRequestVolumeConfigFileVolume,
-      emptyDirVolume: CreateContainerGroupRequestVolumeEmptyDirVolume,
-      type: 'string',
-      name: 'string',
+      userName: 'string',
     };
   }
 
@@ -2419,56 +3487,6 @@ export class CreateContainerGroupRequestInitContainerSecurityContext extends $te
   }
 }
 
-export class CreateContainerGroupRequestInitContainerVolumeMount extends $tea.Model {
-  mountPath?: string;
-  readOnly?: boolean;
-  subPath?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPath: 'MountPath',
-      readOnly: 'ReadOnly',
-      subPath: 'SubPath',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPath: 'string',
-      readOnly: 'boolean',
-      subPath: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateContainerGroupRequestInitContainerPort extends $tea.Model {
-  protocol?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateContainerGroupRequestInitContainerEnvironmentVarFieldRef extends $tea.Model {
   fieldPath?: string;
   static names(): { [key: string]: string } {
@@ -2513,59 +3531,112 @@ export class CreateContainerGroupRequestInitContainerEnvironmentVar extends $tea
   }
 }
 
+export class CreateContainerGroupRequestInitContainerPort extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestInitContainerVolumeMount extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateContainerGroupRequestInitContainer extends $tea.Model {
   securityContext: CreateContainerGroupRequestInitContainerSecurityContext;
-  image?: string;
-  volumeMount?: CreateContainerGroupRequestInitContainerVolumeMount[];
-  port?: CreateContainerGroupRequestInitContainerPort[];
-  terminationMessagePath?: string;
-  environmentVar?: CreateContainerGroupRequestInitContainerEnvironmentVar[];
-  imagePullPolicy?: string;
-  workingDir?: string;
-  cpu?: number;
   arg?: string[];
   command?: string[];
+  cpu?: number;
+  environmentVar?: CreateContainerGroupRequestInitContainerEnvironmentVar[];
   gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
   memory?: number;
-  terminationMessagePolicy?: string;
   name?: string;
+  port?: CreateContainerGroupRequestInitContainerPort[];
+  terminationMessagePath?: string;
+  terminationMessagePolicy?: string;
+  volumeMount?: CreateContainerGroupRequestInitContainerVolumeMount[];
+  workingDir?: string;
   static names(): { [key: string]: string } {
     return {
       securityContext: 'SecurityContext',
-      image: 'Image',
-      volumeMount: 'VolumeMount',
-      port: 'Port',
-      terminationMessagePath: 'TerminationMessagePath',
-      environmentVar: 'EnvironmentVar',
-      imagePullPolicy: 'ImagePullPolicy',
-      workingDir: 'WorkingDir',
-      cpu: 'Cpu',
       arg: 'Arg',
       command: 'Command',
+      cpu: 'Cpu',
+      environmentVar: 'EnvironmentVar',
       gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
       memory: 'Memory',
-      terminationMessagePolicy: 'TerminationMessagePolicy',
       name: 'Name',
+      port: 'Port',
+      terminationMessagePath: 'TerminationMessagePath',
+      terminationMessagePolicy: 'TerminationMessagePolicy',
+      volumeMount: 'VolumeMount',
+      workingDir: 'WorkingDir',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       securityContext: CreateContainerGroupRequestInitContainerSecurityContext,
-      image: 'string',
-      volumeMount: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerVolumeMount },
-      port: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerPort },
-      terminationMessagePath: 'string',
-      environmentVar: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerEnvironmentVar },
-      imagePullPolicy: 'string',
-      workingDir: 'string',
-      cpu: 'number',
       arg: { 'type': 'array', 'itemType': 'string' },
       command: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      environmentVar: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerEnvironmentVar },
       gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
       memory: 'number',
-      terminationMessagePolicy: 'string',
       name: 'string',
+      port: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerPort },
+      terminationMessagePath: 'string',
+      terminationMessagePolicy: 'string',
+      volumeMount: { 'type': 'array', 'itemType': CreateContainerGroupRequestInitContainerVolumeMount },
+      workingDir: 'string',
     };
   }
 
@@ -2574,20 +3645,20 @@ export class CreateContainerGroupRequestInitContainer extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestHostAliase extends $tea.Model {
-  ip?: string;
-  hostname?: string[];
+export class CreateContainerGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      ip: 'Ip',
-      hostname: 'Hostname',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ip: 'string',
-      hostname: { 'type': 'array', 'itemType': 'string' },
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2596,23 +3667,23 @@ export class CreateContainerGroupRequestHostAliase extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestArn extends $tea.Model {
-  roleArn?: string;
-  roleType?: string;
-  assumeRoleFor?: string;
+export class CreateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath extends $tea.Model {
+  content?: string;
+  mode?: number;
+  path?: string;
   static names(): { [key: string]: string } {
     return {
-      roleArn: 'RoleArn',
-      roleType: 'RoleType',
-      assumeRoleFor: 'AssumeRoleFor',
+      content: 'Content',
+      mode: 'Mode',
+      path: 'Path',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      roleArn: 'string',
-      roleType: 'string',
-      assumeRoleFor: 'string',
+      content: 'string',
+      mode: 'number',
+      path: 'string',
     };
   }
 
@@ -2621,16 +3692,197 @@ export class CreateContainerGroupRequestArn extends $tea.Model {
   }
 }
 
-export class CreateContainerGroupRequestAcrRegistryInfo extends $tea.Model {
+export class CreateContainerGroupRequestVolumeConfigFileVolume extends $tea.Model {
+  configFileToPath?: CreateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath[];
+  defaultMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configFileToPath: 'ConfigFileToPath',
+      defaultMode: 'DefaultMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileToPath: { 'type': 'array', 'itemType': CreateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath },
+      defaultMode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestVolumeDiskVolume extends $tea.Model {
+  diskId?: string;
+  diskSize?: number;
+  fsType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      diskSize: 'DiskSize',
+      fsType: 'FsType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      diskSize: 'number',
+      fsType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestVolumeEmptyDirVolume extends $tea.Model {
+  medium?: string;
+  sizeLimit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      medium: 'Medium',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      medium: 'string',
+      sizeLimit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestVolumeFlexVolume extends $tea.Model {
+  driver?: string;
+  fsType?: string;
+  options?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driver: 'Driver',
+      fsType: 'FsType',
+      options: 'Options',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driver: 'string',
+      fsType: 'string',
+      options: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestVolumeHostPathVolume extends $tea.Model {
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestVolumeNFSVolume extends $tea.Model {
+  path?: string;
+  readOnly?: boolean;
+  server?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      readOnly: 'ReadOnly',
+      server: 'Server',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      readOnly: 'boolean',
+      server: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateContainerGroupRequestVolume extends $tea.Model {
+  configFileVolume: CreateContainerGroupRequestVolumeConfigFileVolume;
+  diskVolume: CreateContainerGroupRequestVolumeDiskVolume;
+  emptyDirVolume: CreateContainerGroupRequestVolumeEmptyDirVolume;
+  flexVolume: CreateContainerGroupRequestVolumeFlexVolume;
+  hostPathVolume: CreateContainerGroupRequestVolumeHostPathVolume;
+  NFSVolume: CreateContainerGroupRequestVolumeNFSVolume;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configFileVolume: 'ConfigFileVolume',
+      diskVolume: 'DiskVolume',
+      emptyDirVolume: 'EmptyDirVolume',
+      flexVolume: 'FlexVolume',
+      hostPathVolume: 'HostPathVolume',
+      NFSVolume: 'NFSVolume',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileVolume: CreateContainerGroupRequestVolumeConfigFileVolume,
+      diskVolume: CreateContainerGroupRequestVolumeDiskVolume,
+      emptyDirVolume: CreateContainerGroupRequestVolumeEmptyDirVolume,
+      flexVolume: CreateContainerGroupRequestVolumeFlexVolume,
+      hostPathVolume: CreateContainerGroupRequestVolumeHostPathVolume,
+      NFSVolume: CreateContainerGroupRequestVolumeNFSVolume,
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageCacheRequestAcrRegistryInfo extends $tea.Model {
   domain?: string[];
-  instanceName?: string;
   instanceId?: string;
+  instanceName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
-      instanceName: 'InstanceName',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
   }
@@ -2638,8 +3890,8 @@ export class CreateContainerGroupRequestAcrRegistryInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domain: { 'type': 'array', 'itemType': 'string' },
-      instanceName: 'string',
       instanceId: 'string',
+      instanceName: 'string',
       regionId: 'string',
     };
   }
@@ -2696,29 +3948,20 @@ export class CreateImageCacheRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces extends $tea.Model {
-  rxErrors?: number;
-  txBytes?: number;
-  name?: string;
-  txErrors?: number;
-  rxBytes?: number;
+export class CreateVirtualNodeRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      rxErrors: 'RxErrors',
-      txBytes: 'TxBytes',
-      name: 'Name',
-      txErrors: 'TxErrors',
-      rxBytes: 'RxBytes',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rxErrors: 'number',
-      txBytes: 'number',
-      name: 'string',
-      txErrors: 'number',
-      rxBytes: 'number',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -2727,17 +3970,392 @@ export class DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces ex
   }
 }
 
-export class DescribeContainerGroupMetricResponseBodyRecordsNetwork extends $tea.Model {
-  interfaces?: DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces[];
+export class CreateVirtualNodeRequestTaint extends $tea.Model {
+  effect?: string;
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      interfaces: 'Interfaces',
+      effect: 'Effect',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      interfaces: { 'type': 'array', 'itemType': DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces },
+      effect: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceRequestDestinationResource extends $tea.Model {
+  category?: string;
+  cores?: number;
+  memory?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      cores: 'Cores',
+      memory: 'Memory',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      cores: 'number',
+      memory: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceRequestSpotResource extends $tea.Model {
+  spotDuration?: number;
+  spotPriceLimit?: number;
+  spotStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spotDuration: 'SpotDuration',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spotDuration: 'number',
+      spotPriceLimit: 'number',
+      spotStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResourcesSupportedResource extends $tea.Model {
+  statusCategory?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      statusCategory: 'StatusCategory',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statusCategory: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResources extends $tea.Model {
+  supportedResource?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResourcesSupportedResource[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResource: 'SupportedResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResourcesSupportedResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResource extends $tea.Model {
+  supportedResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResources;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      supportedResources: 'SupportedResources',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResources: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResources,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResources extends $tea.Model {
+  availableResource?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResource[];
+  static names(): { [key: string]: string } {
+    return {
+      availableResource: 'AvailableResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $tea.Model {
+  availableResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResources;
+  regionId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableResources: 'AvailableResources',
+      regionId: 'RegionId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableResources: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResources,
+      regionId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZones extends $tea.Model {
+  availableZone?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone[];
+  static names(): { [key: string]: string } {
+    return {
+      availableZone: 'AvailableZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableZone: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsRequestCondition extends $tea.Model {
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponseBodyDataEventsMetadata extends $tea.Model {
+  name?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponseBodyDataEventsSource extends $tea.Model {
+  component?: string;
+  host?: string;
+  static names(): { [key: string]: string } {
+    return {
+      component: 'Component',
+      host: 'Host',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      component: 'string',
+      host: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponseBodyDataEventsInvolvedObject extends $tea.Model {
+  apiVersion?: string;
+  kind?: string;
+  name?: string;
+  namespace?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiVersion: 'ApiVersion',
+      kind: 'Kind',
+      name: 'Name',
+      namespace: 'Namespace',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiVersion: 'string',
+      kind: 'string',
+      name: 'string',
+      namespace: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponseBodyDataEvents extends $tea.Model {
+  count?: number;
+  firstTimestamp?: string;
+  lastTimestamp?: string;
+  message?: string;
+  metadata?: DescribeContainerGroupEventsResponseBodyDataEventsMetadata;
+  reason?: string;
+  reportingComponent?: string;
+  reportingInstance?: string;
+  source?: DescribeContainerGroupEventsResponseBodyDataEventsSource;
+  type?: string;
+  involvedObject?: DescribeContainerGroupEventsResponseBodyDataEventsInvolvedObject;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      firstTimestamp: 'FirstTimestamp',
+      lastTimestamp: 'LastTimestamp',
+      message: 'Message',
+      metadata: 'Metadata',
+      reason: 'Reason',
+      reportingComponent: 'ReportingComponent',
+      reportingInstance: 'ReportingInstance',
+      source: 'Source',
+      type: 'Type',
+      involvedObject: 'involvedObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      firstTimestamp: 'string',
+      lastTimestamp: 'string',
+      message: 'string',
+      metadata: DescribeContainerGroupEventsResponseBodyDataEventsMetadata,
+      reason: 'string',
+      reportingComponent: 'string',
+      reportingInstance: 'string',
+      source: DescribeContainerGroupEventsResponseBodyDataEventsSource,
+      type: 'string',
+      involvedObject: DescribeContainerGroupEventsResponseBodyDataEventsInvolvedObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupEventsResponseBodyData extends $tea.Model {
+  containerGroupId?: string;
+  events?: DescribeContainerGroupEventsResponseBodyDataEvents[];
+  static names(): { [key: string]: string } {
+    return {
+      containerGroupId: 'ContainerGroupId',
+      events: 'Events',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerGroupId: 'string',
+      events: { 'type': 'array', 'itemType': DescribeContainerGroupEventsResponseBodyDataEvents },
     };
   }
 
@@ -2747,56 +4365,25 @@ export class DescribeContainerGroupMetricResponseBodyRecordsNetwork extends $tea
 }
 
 export class DescribeContainerGroupMetricResponseBodyRecordsCPU extends $tea.Model {
-  usageNanoCores?: number;
   limit?: number;
-  usageCoreNanoSeconds?: number;
   load?: number;
+  usageCoreNanoSeconds?: number;
+  usageNanoCores?: number;
   static names(): { [key: string]: string } {
     return {
-      usageNanoCores: 'UsageNanoCores',
       limit: 'Limit',
-      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
       load: 'Load',
+      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
+      usageNanoCores: 'UsageNanoCores',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usageNanoCores: 'number',
       limit: 'number',
-      usageCoreNanoSeconds: 'number',
       load: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupMetricResponseBodyRecordsMemory extends $tea.Model {
-  rss?: number;
-  usageBytes?: number;
-  workingSet?: number;
-  availableBytes?: number;
-  cache?: number;
-  static names(): { [key: string]: string } {
-    return {
-      rss: 'Rss',
-      usageBytes: 'UsageBytes',
-      workingSet: 'WorkingSet',
-      availableBytes: 'AvailableBytes',
-      cache: 'Cache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rss: 'number',
-      usageBytes: 'number',
-      workingSet: 'number',
-      availableBytes: 'number',
-      cache: 'number',
+      usageCoreNanoSeconds: 'number',
+      usageNanoCores: 'number',
     };
   }
 
@@ -2806,25 +4393,25 @@ export class DescribeContainerGroupMetricResponseBodyRecordsMemory extends $tea.
 }
 
 export class DescribeContainerGroupMetricResponseBodyRecordsContainersCPU extends $tea.Model {
-  usageNanoCores?: number;
   limit?: number;
-  usageCoreNanoSeconds?: number;
   load?: number;
+  usageCoreNanoSeconds?: number;
+  usageNanoCores?: number;
   static names(): { [key: string]: string } {
     return {
-      usageNanoCores: 'UsageNanoCores',
       limit: 'Limit',
-      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
       load: 'Load',
+      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
+      usageNanoCores: 'UsageNanoCores',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usageNanoCores: 'number',
       limit: 'number',
-      usageCoreNanoSeconds: 'number',
       load: 'number',
+      usageCoreNanoSeconds: 'number',
+      usageNanoCores: 'number',
     };
   }
 
@@ -2834,28 +4421,28 @@ export class DescribeContainerGroupMetricResponseBodyRecordsContainersCPU extend
 }
 
 export class DescribeContainerGroupMetricResponseBodyRecordsContainersMemory extends $tea.Model {
+  availableBytes?: number;
+  cache?: number;
   rss?: number;
   usageBytes?: number;
   workingSet?: number;
-  availableBytes?: number;
-  cache?: number;
   static names(): { [key: string]: string } {
     return {
+      availableBytes: 'AvailableBytes',
+      cache: 'Cache',
       rss: 'Rss',
       usageBytes: 'UsageBytes',
       workingSet: 'WorkingSet',
-      availableBytes: 'AvailableBytes',
-      cache: 'Cache',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      availableBytes: 'number',
+      cache: 'number',
       rss: 'number',
       usageBytes: 'number',
       workingSet: 'number',
-      availableBytes: 'number',
-      cache: 'number',
     };
   }
 
@@ -2889,76 +4476,190 @@ export class DescribeContainerGroupMetricResponseBodyRecordsContainers extends $
   }
 }
 
+export class DescribeContainerGroupMetricResponseBodyRecordsDisk extends $tea.Model {
+  device?: string;
+  readBytes?: number;
+  readIO?: number;
+  writeBytes?: number;
+  writeIO?: number;
+  static names(): { [key: string]: string } {
+    return {
+      device: 'Device',
+      readBytes: 'ReadBytes',
+      readIO: 'ReadIO',
+      writeBytes: 'WriteBytes',
+      writeIO: 'WriteIO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      device: 'string',
+      readBytes: 'number',
+      readIO: 'number',
+      writeBytes: 'number',
+      writeIO: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupMetricResponseBodyRecordsFilesystem extends $tea.Model {
+  available?: number;
+  capacity?: number;
+  category?: string;
+  fsName?: string;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      capacity: 'Capacity',
+      category: 'Category',
+      fsName: 'FsName',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'number',
+      capacity: 'number',
+      category: 'string',
+      fsName: 'string',
+      usage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupMetricResponseBodyRecordsMemory extends $tea.Model {
+  availableBytes?: number;
+  cache?: number;
+  rss?: number;
+  usageBytes?: number;
+  workingSet?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableBytes: 'AvailableBytes',
+      cache: 'Cache',
+      rss: 'Rss',
+      usageBytes: 'UsageBytes',
+      workingSet: 'WorkingSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableBytes: 'number',
+      cache: 'number',
+      rss: 'number',
+      usageBytes: 'number',
+      workingSet: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces extends $tea.Model {
+  name?: string;
+  rxBytes?: number;
+  rxDrops?: number;
+  rxErrors?: number;
+  rxPackets?: number;
+  txBytes?: number;
+  txDrops?: number;
+  txErrors?: number;
+  txPackets?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      rxBytes: 'RxBytes',
+      rxDrops: 'RxDrops',
+      rxErrors: 'RxErrors',
+      rxPackets: 'RxPackets',
+      txBytes: 'TxBytes',
+      txDrops: 'TxDrops',
+      txErrors: 'TxErrors',
+      txPackets: 'TxPackets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      rxBytes: 'number',
+      rxDrops: 'number',
+      rxErrors: 'number',
+      rxPackets: 'number',
+      txBytes: 'number',
+      txDrops: 'number',
+      txErrors: 'number',
+      txPackets: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupMetricResponseBodyRecordsNetwork extends $tea.Model {
+  interfaces?: DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces[];
+  static names(): { [key: string]: string } {
+    return {
+      interfaces: 'Interfaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interfaces: { 'type': 'array', 'itemType': DescribeContainerGroupMetricResponseBodyRecordsNetworkInterfaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerGroupMetricResponseBodyRecords extends $tea.Model {
-  network?: DescribeContainerGroupMetricResponseBodyRecordsNetwork;
   CPU?: DescribeContainerGroupMetricResponseBodyRecordsCPU;
-  timestamp?: string;
-  memory?: DescribeContainerGroupMetricResponseBodyRecordsMemory;
   containers?: DescribeContainerGroupMetricResponseBodyRecordsContainers[];
+  disk?: DescribeContainerGroupMetricResponseBodyRecordsDisk[];
+  filesystem?: DescribeContainerGroupMetricResponseBodyRecordsFilesystem[];
+  memory?: DescribeContainerGroupMetricResponseBodyRecordsMemory;
+  network?: DescribeContainerGroupMetricResponseBodyRecordsNetwork;
+  timestamp?: string;
   static names(): { [key: string]: string } {
     return {
-      network: 'Network',
       CPU: 'CPU',
-      timestamp: 'Timestamp',
-      memory: 'Memory',
       containers: 'Containers',
+      disk: 'Disk',
+      filesystem: 'Filesystem',
+      memory: 'Memory',
+      network: 'Network',
+      timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      network: DescribeContainerGroupMetricResponseBodyRecordsNetwork,
       CPU: DescribeContainerGroupMetricResponseBodyRecordsCPU,
-      timestamp: 'string',
-      memory: DescribeContainerGroupMetricResponseBodyRecordsMemory,
       containers: { 'type': 'array', 'itemType': DescribeContainerGroupMetricResponseBodyRecordsContainers },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupPriceResponseBodyPriceInfoSpotPricesSpotPrice extends $tea.Model {
-  zoneId?: string;
-  spotPrice?: number;
-  instanceType?: string;
-  originPrice?: number;
-  static names(): { [key: string]: string } {
-    return {
-      zoneId: 'ZoneId',
-      spotPrice: 'SpotPrice',
-      instanceType: 'InstanceType',
-      originPrice: 'OriginPrice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      zoneId: 'string',
-      spotPrice: 'number',
-      instanceType: 'string',
-      originPrice: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupPriceResponseBodyPriceInfoSpotPrices extends $tea.Model {
-  spotPrice?: DescribeContainerGroupPriceResponseBodyPriceInfoSpotPricesSpotPrice[];
-  static names(): { [key: string]: string } {
-    return {
-      spotPrice: 'SpotPrice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spotPrice: { 'type': 'array', 'itemType': DescribeContainerGroupPriceResponseBodyPriceInfoSpotPricesSpotPrice },
+      disk: { 'type': 'array', 'itemType': DescribeContainerGroupMetricResponseBodyRecordsDisk },
+      filesystem: { 'type': 'array', 'itemType': DescribeContainerGroupMetricResponseBodyRecordsFilesystem },
+      memory: DescribeContainerGroupMetricResponseBodyRecordsMemory,
+      network: DescribeContainerGroupMetricResponseBodyRecordsNetwork,
+      timestamp: 'string',
     };
   }
 
@@ -3009,28 +4710,28 @@ export class DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfosDet
 }
 
 export class DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfosDetailInfo extends $tea.Model {
-  resource?: string;
   discountPrice?: number;
-  tradePrice?: number;
   originalPrice?: number;
+  resource?: string;
   rules?: DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoRules;
+  tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
-      resource: 'Resource',
       discountPrice: 'DiscountPrice',
-      tradePrice: 'TradePrice',
       originalPrice: 'OriginalPrice',
+      resource: 'Resource',
       rules: 'Rules',
+      tradePrice: 'TradePrice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resource: 'string',
       discountPrice: 'number',
-      tradePrice: 'number',
       originalPrice: 'number',
+      resource: 'string',
       rules: DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoRules,
+      tradePrice: 'number',
     };
   }
 
@@ -3059,28 +4760,28 @@ export class DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfos ex
 }
 
 export class DescribeContainerGroupPriceResponseBodyPriceInfoPrice extends $tea.Model {
-  discountPrice?: number;
-  tradePrice?: number;
-  originalPrice?: number;
-  detailInfos?: DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfos;
   currency?: string;
+  detailInfos?: DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfos;
+  discountPrice?: number;
+  originalPrice?: number;
+  tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
-      discountPrice: 'DiscountPrice',
-      tradePrice: 'TradePrice',
-      originalPrice: 'OriginalPrice',
-      detailInfos: 'DetailInfos',
       currency: 'Currency',
+      detailInfos: 'DetailInfos',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      discountPrice: 'number',
-      tradePrice: 'number',
-      originalPrice: 'number',
-      detailInfos: DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfos,
       currency: 'string',
+      detailInfos: DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfos,
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
     };
   }
 
@@ -3130,23 +4831,484 @@ export class DescribeContainerGroupPriceResponseBodyPriceInfoRules extends $tea.
   }
 }
 
-export class DescribeContainerGroupPriceResponseBodyPriceInfo extends $tea.Model {
-  spotPrices?: DescribeContainerGroupPriceResponseBodyPriceInfoSpotPrices;
-  price?: DescribeContainerGroupPriceResponseBodyPriceInfoPrice;
-  rules?: DescribeContainerGroupPriceResponseBodyPriceInfoRules;
+export class DescribeContainerGroupPriceResponseBodyPriceInfoSpotPricesSpotPrice extends $tea.Model {
+  instanceType?: string;
+  originPrice?: number;
+  spotPrice?: number;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      spotPrices: 'SpotPrices',
-      price: 'Price',
-      rules: 'Rules',
+      instanceType: 'InstanceType',
+      originPrice: 'OriginPrice',
+      spotPrice: 'SpotPrice',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spotPrices: DescribeContainerGroupPriceResponseBodyPriceInfoSpotPrices,
+      instanceType: 'string',
+      originPrice: 'number',
+      spotPrice: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupPriceResponseBodyPriceInfoSpotPrices extends $tea.Model {
+  spotPrice?: DescribeContainerGroupPriceResponseBodyPriceInfoSpotPricesSpotPrice[];
+  static names(): { [key: string]: string } {
+    return {
+      spotPrice: 'SpotPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spotPrice: { 'type': 'array', 'itemType': DescribeContainerGroupPriceResponseBodyPriceInfoSpotPricesSpotPrice },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupPriceResponseBodyPriceInfo extends $tea.Model {
+  price?: DescribeContainerGroupPriceResponseBodyPriceInfoPrice;
+  rules?: DescribeContainerGroupPriceResponseBodyPriceInfoRules;
+  spotPrices?: DescribeContainerGroupPriceResponseBodyPriceInfoSpotPrices;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+      rules: 'Rules',
+      spotPrices: 'SpotPrices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       price: DescribeContainerGroupPriceResponseBodyPriceInfoPrice,
       rules: DescribeContainerGroupPriceResponseBodyPriceInfoRules,
+      spotPrices: DescribeContainerGroupPriceResponseBodyPriceInfoSpotPrices,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusRequestCondition extends $tea.Model {
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusConditions extends $tea.Model {
+  message?: string;
+  reason?: string;
+  lastTransitionTime?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+      lastTransitionTime: 'lastTransitionTime',
+      status: 'status',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+      lastTransitionTime: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateRunning extends $tea.Model {
+  startedAtstartedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      startedAtstartedAt: 'StartedAtstartedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startedAtstartedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateTerminated extends $tea.Model {
+  containerID?: string;
+  exitCode?: number;
+  finishedAt?: string;
+  message?: string;
+  reason?: string;
+  signal?: number;
+  startedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerID: 'ContainerID',
+      exitCode: 'ExitCode',
+      finishedAt: 'FinishedAt',
+      message: 'Message',
+      reason: 'Reason',
+      signal: 'Signal',
+      startedAt: 'StartedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerID: 'string',
+      exitCode: 'number',
+      finishedAt: 'string',
+      message: 'string',
+      reason: 'string',
+      signal: 'number',
+      startedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateWaiting extends $tea.Model {
+  message?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastState extends $tea.Model {
+  running?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateRunning;
+  terminated?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateTerminated;
+  waiting?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateWaiting;
+  static names(): { [key: string]: string } {
+    return {
+      running: 'Running',
+      terminated: 'Terminated',
+      waiting: 'Waiting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      running: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateRunning,
+      terminated: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateTerminated,
+      waiting: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastStateWaiting,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateRunning extends $tea.Model {
+  startedAtstartedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      startedAtstartedAt: 'StartedAtstartedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startedAtstartedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateTerminated extends $tea.Model {
+  containerID?: string;
+  exitCode?: number;
+  finishedAt?: string;
+  message?: string;
+  reason?: string;
+  signal?: number;
+  startedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerID: 'ContainerID',
+      exitCode: 'ExitCode',
+      finishedAt: 'FinishedAt',
+      message: 'Message',
+      reason: 'Reason',
+      signal: 'Signal',
+      startedAt: 'StartedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerID: 'string',
+      exitCode: 'number',
+      finishedAt: 'string',
+      message: 'string',
+      reason: 'string',
+      signal: 'number',
+      startedAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateWaiting extends $tea.Model {
+  message?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesState extends $tea.Model {
+  running?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateRunning;
+  terminated?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateTerminated;
+  waiting?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateWaiting;
+  static names(): { [key: string]: string } {
+    return {
+      running: 'Running',
+      terminated: 'Terminated',
+      waiting: 'Waiting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      running: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateRunning,
+      terminated: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateTerminated,
+      waiting: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesStateWaiting,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatuses extends $tea.Model {
+  image?: string;
+  imageID?: string;
+  lastState?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastState;
+  name?: string;
+  ready?: boolean;
+  restartCount?: number;
+  started?: boolean;
+  state?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesState;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      imageID: 'ImageID',
+      lastState: 'LastState',
+      name: 'Name',
+      ready: 'Ready',
+      restartCount: 'RestartCount',
+      started: 'Started',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      imageID: 'string',
+      lastState: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesLastState,
+      name: 'string',
+      ready: 'boolean',
+      restartCount: 'number',
+      started: 'boolean',
+      state: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatusesState,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatusPodIps extends $tea.Model {
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyDataPodStatus extends $tea.Model {
+  conditions?: DescribeContainerGroupStatusResponseBodyDataPodStatusConditions[];
+  containerStatuses?: DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatuses[];
+  hostIp?: string;
+  phase?: string;
+  podIp?: string;
+  podIps?: DescribeContainerGroupStatusResponseBodyDataPodStatusPodIps[];
+  qosClass?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      containerStatuses: 'ContainerStatuses',
+      hostIp: 'HostIp',
+      phase: 'Phase',
+      podIp: 'PodIp',
+      podIps: 'PodIps',
+      qosClass: 'QosClass',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeContainerGroupStatusResponseBodyDataPodStatusConditions },
+      containerStatuses: { 'type': 'array', 'itemType': DescribeContainerGroupStatusResponseBodyDataPodStatusContainerStatuses },
+      hostIp: 'string',
+      phase: 'string',
+      podIp: 'string',
+      podIps: { 'type': 'array', 'itemType': DescribeContainerGroupStatusResponseBodyDataPodStatusPodIps },
+      qosClass: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupStatusResponseBodyData extends $tea.Model {
+  containerGroupId?: string;
+  name?: string;
+  namespace?: string;
+  podStatus?: DescribeContainerGroupStatusResponseBodyDataPodStatus;
+  status?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerGroupId: 'ContainerGroupId',
+      name: 'Name',
+      namespace: 'Namespace',
+      podStatus: 'PodStatus',
+      status: 'Status',
+      uuid: 'uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerGroupId: 'string',
+      name: 'string',
+      namespace: 'string',
+      podStatus: DescribeContainerGroupStatusResponseBodyDataPodStatus,
+      status: 'string',
+      uuid: 'string',
     };
   }
 
@@ -3177,337 +5339,38 @@ export class DescribeContainerGroupsRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeContainerGroupsResponseBodyContainerGroupsHostAliases extends $tea.Model {
-  hostnames?: string[];
-  ip?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hostnames: 'Hostnames',
-      ip: 'Ip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hostnames: { 'type': 'array', 'itemType': 'string' },
-      ip: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsEvents extends $tea.Model {
-  type?: string;
-  lastTimestamp?: string;
-  message?: string;
-  name?: string;
-  reason?: string;
-  count?: number;
-  firstTimestamp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      lastTimestamp: 'LastTimestamp',
-      message: 'Message',
-      name: 'Name',
-      reason: 'Reason',
-      count: 'Count',
-      firstTimestamp: 'FirstTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      lastTimestamp: 'string',
-      message: 'string',
-      name: 'string',
-      reason: 'string',
-      count: 'number',
-      firstTimestamp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeTcpSocket extends $tea.Model {
-  host?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      host: 'Host',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      host: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeHttpGet extends $tea.Model {
-  scheme?: string;
-  path?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      scheme: 'Scheme',
-      path: 'Path',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scheme: 'string',
-      path: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbe extends $tea.Model {
-  successThreshold?: number;
-  initialDelaySeconds?: number;
-  failureThreshold?: number;
-  timeoutSeconds?: number;
-  tcpSocket?: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeTcpSocket;
-  execs?: string[];
-  httpGet?: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeHttpGet;
-  periodSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      successThreshold: 'SuccessThreshold',
-      initialDelaySeconds: 'InitialDelaySeconds',
-      failureThreshold: 'FailureThreshold',
-      timeoutSeconds: 'TimeoutSeconds',
-      tcpSocket: 'TcpSocket',
-      execs: 'Execs',
-      httpGet: 'HttpGet',
-      periodSeconds: 'PeriodSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      successThreshold: 'number',
-      initialDelaySeconds: 'number',
-      failureThreshold: 'number',
-      timeoutSeconds: 'number',
-      tcpSocket: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeTcpSocket,
-      execs: { 'type': 'array', 'itemType': 'string' },
-      httpGet: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeHttpGet,
-      periodSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeMounts extends $tea.Model {
-  mountPath?: string;
-  readOnly?: boolean;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPath: 'MountPath',
-      readOnly: 'ReadOnly',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPath: 'string',
-      readOnly: 'boolean',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersPorts extends $tea.Model {
-  protocol?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersPreviousState extends $tea.Model {
-  startTime?: string;
-  finishTime?: string;
-  detailStatus?: string;
-  state?: string;
-  message?: string;
-  signal?: number;
-  exitCode?: number;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      finishTime: 'FinishTime',
-      detailStatus: 'DetailStatus',
-      state: 'State',
-      message: 'Message',
-      signal: 'Signal',
-      exitCode: 'ExitCode',
-      reason: 'Reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      finishTime: 'string',
-      detailStatus: 'string',
-      state: 'string',
-      message: 'string',
-      signal: 'number',
-      exitCode: 'number',
-      reason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeContainerGroupsResponseBodyContainerGroupsContainersCurrentState extends $tea.Model {
-  startTime?: string;
-  finishTime?: string;
   detailStatus?: string;
-  state?: string;
-  message?: string;
-  signal?: number;
   exitCode?: number;
+  finishTime?: string;
+  message?: string;
   reason?: string;
+  signal?: number;
+  startTime?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      startTime: 'StartTime',
-      finishTime: 'FinishTime',
       detailStatus: 'DetailStatus',
-      state: 'State',
-      message: 'Message',
-      signal: 'Signal',
       exitCode: 'ExitCode',
+      finishTime: 'FinishTime',
+      message: 'Message',
       reason: 'Reason',
+      signal: 'Signal',
+      startTime: 'StartTime',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      startTime: 'string',
-      finishTime: 'string',
       detailStatus: 'string',
-      state: 'string',
-      message: 'string',
-      signal: 'number',
       exitCode: 'number',
+      finishTime: 'string',
+      message: 'string',
       reason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContextCapability extends $tea.Model {
-  adds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      adds: 'Adds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContext extends $tea.Model {
-  readOnlyRootFilesystem?: boolean;
-  runAsUser?: number;
-  capability?: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContextCapability;
-  static names(): { [key: string]: string } {
-    return {
-      readOnlyRootFilesystem: 'ReadOnlyRootFilesystem',
-      runAsUser: 'RunAsUser',
-      capability: 'Capability',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      readOnlyRootFilesystem: 'boolean',
-      runAsUser: 'number',
-      capability: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContextCapability,
+      signal: 'number',
+      startTime: 'string',
+      state: 'string',
     };
   }
 
@@ -3579,6 +5442,180 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsContainersEnviron
   }
 }
 
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeHttpGet extends $tea.Model {
+  path?: string;
+  port?: number;
+  scheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeTcpSocket extends $tea.Model {
+  host?: string;
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbe extends $tea.Model {
+  execs?: string[];
+  failureThreshold?: number;
+  httpGet?: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket?: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      execs: 'Execs',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      execs: { 'type': 'array', 'itemType': 'string' },
+      failureThreshold: 'number',
+      httpGet: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbeTcpSocket,
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersPorts extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersPreviousState extends $tea.Model {
+  detailStatus?: string;
+  exitCode?: number;
+  finishTime?: string;
+  message?: string;
+  reason?: string;
+  signal?: number;
+  startTime?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailStatus: 'DetailStatus',
+      exitCode: 'ExitCode',
+      finishTime: 'FinishTime',
+      message: 'Message',
+      reason: 'Reason',
+      signal: 'Signal',
+      startTime: 'StartTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailStatus: 'string',
+      exitCode: 'number',
+      finishTime: 'string',
+      message: 'string',
+      reason: 'string',
+      signal: 'number',
+      startTime: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeHttpGet extends $tea.Model {
+  path?: string;
+  port?: number;
+  scheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeTcpSocket extends $tea.Model {
   host?: string;
   port?: number;
@@ -3601,63 +5638,38 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsContainersReadine
   }
 }
 
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeHttpGet extends $tea.Model {
-  scheme?: string;
-  path?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      scheme: 'Scheme',
-      path: 'Path',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scheme: 'string',
-      path: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbe extends $tea.Model {
-  successThreshold?: number;
-  initialDelaySeconds?: number;
-  failureThreshold?: number;
-  timeoutSeconds?: number;
-  tcpSocket?: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeTcpSocket;
   execs?: string[];
+  failureThreshold?: number;
   httpGet?: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeHttpGet;
+  initialDelaySeconds?: number;
   periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket?: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeTcpSocket;
+  timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
-      successThreshold: 'SuccessThreshold',
-      initialDelaySeconds: 'InitialDelaySeconds',
-      failureThreshold: 'FailureThreshold',
-      timeoutSeconds: 'TimeoutSeconds',
-      tcpSocket: 'TcpSocket',
       execs: 'Execs',
+      failureThreshold: 'FailureThreshold',
       httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
       periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      successThreshold: 'number',
-      initialDelaySeconds: 'number',
-      failureThreshold: 'number',
-      timeoutSeconds: 'number',
-      tcpSocket: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeTcpSocket,
       execs: { 'type': 'array', 'itemType': 'string' },
+      failureThreshold: 'number',
       httpGet: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeHttpGet,
+      initialDelaySeconds: 'number',
       periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbeTcpSocket,
+      timeoutSeconds: 'number',
     };
   }
 
@@ -3666,216 +5678,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsContainersReadine
   }
 }
 
-export class DescribeContainerGroupsResponseBodyContainerGroupsContainers extends $tea.Model {
-  livenessProbe?: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbe;
-  commands?: string[];
-  volumeMounts?: DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeMounts[];
-  args?: string[];
-  image?: string;
-  ports?: DescribeContainerGroupsResponseBodyContainerGroupsContainersPorts[];
-  restartCount?: number;
-  imagePullPolicy?: string;
-  stdinOnce?: boolean;
-  cpu?: number;
-  previousState?: DescribeContainerGroupsResponseBodyContainerGroupsContainersPreviousState;
-  tty?: boolean;
-  workingDir?: string;
-  currentState?: DescribeContainerGroupsResponseBodyContainerGroupsContainersCurrentState;
-  ready?: boolean;
-  gpu?: number;
-  securityContext?: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContext;
-  memory?: number;
-  stdin?: boolean;
-  name?: string;
-  environmentVars?: DescribeContainerGroupsResponseBodyContainerGroupsContainersEnvironmentVars[];
-  readinessProbe?: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbe;
-  static names(): { [key: string]: string } {
-    return {
-      livenessProbe: 'LivenessProbe',
-      commands: 'Commands',
-      volumeMounts: 'VolumeMounts',
-      args: 'Args',
-      image: 'Image',
-      ports: 'Ports',
-      restartCount: 'RestartCount',
-      imagePullPolicy: 'ImagePullPolicy',
-      stdinOnce: 'StdinOnce',
-      cpu: 'Cpu',
-      previousState: 'PreviousState',
-      tty: 'Tty',
-      workingDir: 'WorkingDir',
-      currentState: 'CurrentState',
-      ready: 'Ready',
-      gpu: 'Gpu',
-      securityContext: 'SecurityContext',
-      memory: 'Memory',
-      stdin: 'Stdin',
-      name: 'Name',
-      environmentVars: 'EnvironmentVars',
-      readinessProbe: 'ReadinessProbe',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      livenessProbe: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbe,
-      commands: { 'type': 'array', 'itemType': 'string' },
-      volumeMounts: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeMounts },
-      args: { 'type': 'array', 'itemType': 'string' },
-      image: 'string',
-      ports: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainersPorts },
-      restartCount: 'number',
-      imagePullPolicy: 'string',
-      stdinOnce: 'boolean',
-      cpu: 'number',
-      previousState: DescribeContainerGroupsResponseBodyContainerGroupsContainersPreviousState,
-      tty: 'boolean',
-      workingDir: 'string',
-      currentState: DescribeContainerGroupsResponseBodyContainerGroupsContainersCurrentState,
-      ready: 'boolean',
-      gpu: 'number',
-      securityContext: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContext,
-      memory: 'number',
-      stdin: 'boolean',
-      name: 'string',
-      environmentVars: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainersEnvironmentVars },
-      readinessProbe: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbe,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersVolumeMounts extends $tea.Model {
-  mountPath?: string;
-  readOnly?: boolean;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPath: 'MountPath',
-      readOnly: 'ReadOnly',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPath: 'string',
-      readOnly: 'boolean',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPorts extends $tea.Model {
-  protocol?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPreviousState extends $tea.Model {
-  startTime?: string;
-  finishTime?: string;
-  detailStatus?: string;
-  state?: string;
-  message?: string;
-  signal?: number;
-  exitCode?: number;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      finishTime: 'FinishTime',
-      detailStatus: 'DetailStatus',
-      state: 'State',
-      message: 'Message',
-      signal: 'Signal',
-      exitCode: 'ExitCode',
-      reason: 'Reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      finishTime: 'string',
-      detailStatus: 'string',
-      state: 'string',
-      message: 'string',
-      signal: 'number',
-      exitCode: 'number',
-      reason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersCurrentState extends $tea.Model {
-  startTime?: string;
-  finishTime?: string;
-  detailStatus?: string;
-  state?: string;
-  message?: string;
-  signal?: number;
-  exitCode?: number;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      finishTime: 'FinishTime',
-      detailStatus: 'DetailStatus',
-      state: 'State',
-      message: 'Message',
-      signal: 'Signal',
-      exitCode: 'ExitCode',
-      reason: 'Reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      finishTime: 'string',
-      detailStatus: 'string',
-      state: 'string',
-      message: 'string',
-      signal: 'number',
-      exitCode: 'number',
-      reason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContextCapability extends $tea.Model {
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContextCapability extends $tea.Model {
   adds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3894,23 +5697,320 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSec
   }
 }
 
-export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContext extends $tea.Model {
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContext extends $tea.Model {
+  capability?: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContextCapability;
   readOnlyRootFilesystem?: boolean;
   runAsUser?: number;
-  capability?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContextCapability;
   static names(): { [key: string]: string } {
     return {
+      capability: 'Capability',
       readOnlyRootFilesystem: 'ReadOnlyRootFilesystem',
       runAsUser: 'RunAsUser',
-      capability: 'Capability',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      capability: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContextCapability,
       readOnlyRootFilesystem: 'boolean',
       runAsUser: 'number',
-      capability: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContextCapability,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeMounts extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsContainers extends $tea.Model {
+  args?: string[];
+  commands?: string[];
+  cpu?: number;
+  currentState?: DescribeContainerGroupsResponseBodyContainerGroupsContainersCurrentState;
+  environmentVars?: DescribeContainerGroupsResponseBodyContainerGroupsContainersEnvironmentVars[];
+  gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
+  livenessProbe?: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbe;
+  memory?: number;
+  name?: string;
+  ports?: DescribeContainerGroupsResponseBodyContainerGroupsContainersPorts[];
+  previousState?: DescribeContainerGroupsResponseBodyContainerGroupsContainersPreviousState;
+  readinessProbe?: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbe;
+  ready?: boolean;
+  restartCount?: number;
+  securityContext?: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContext;
+  stdin?: boolean;
+  stdinOnce?: boolean;
+  tty?: boolean;
+  volumeMounts?: DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeMounts[];
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      commands: 'Commands',
+      cpu: 'Cpu',
+      currentState: 'CurrentState',
+      environmentVars: 'EnvironmentVars',
+      gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      livenessProbe: 'LivenessProbe',
+      memory: 'Memory',
+      name: 'Name',
+      ports: 'Ports',
+      previousState: 'PreviousState',
+      readinessProbe: 'ReadinessProbe',
+      ready: 'Ready',
+      restartCount: 'RestartCount',
+      securityContext: 'SecurityContext',
+      stdin: 'Stdin',
+      stdinOnce: 'StdinOnce',
+      tty: 'Tty',
+      volumeMounts: 'VolumeMounts',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      currentState: DescribeContainerGroupsResponseBodyContainerGroupsContainersCurrentState,
+      environmentVars: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainersEnvironmentVars },
+      gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      livenessProbe: DescribeContainerGroupsResponseBodyContainerGroupsContainersLivenessProbe,
+      memory: 'number',
+      name: 'string',
+      ports: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainersPorts },
+      previousState: DescribeContainerGroupsResponseBodyContainerGroupsContainersPreviousState,
+      readinessProbe: DescribeContainerGroupsResponseBodyContainerGroupsContainersReadinessProbe,
+      ready: 'boolean',
+      restartCount: 'number',
+      securityContext: DescribeContainerGroupsResponseBodyContainerGroupsContainersSecurityContext,
+      stdin: 'boolean',
+      stdinOnce: 'boolean',
+      tty: 'boolean',
+      volumeMounts: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainersVolumeMounts },
+      workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsDnsConfigOptions extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig extends $tea.Model {
+  nameServers?: string[];
+  options?: DescribeContainerGroupsResponseBodyContainerGroupsDnsConfigOptions[];
+  searches?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nameServers: 'NameServers',
+      options: 'Options',
+      searches: 'Searches',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameServers: { 'type': 'array', 'itemType': 'string' },
+      options: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsDnsConfigOptions },
+      searches: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContextSysctls extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContext extends $tea.Model {
+  sysctls?: DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContextSysctls[];
+  static names(): { [key: string]: string } {
+    return {
+      sysctls: 'Sysctls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sysctls: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContextSysctls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsEvents extends $tea.Model {
+  count?: number;
+  firstTimestamp?: string;
+  lastTimestamp?: string;
+  message?: string;
+  name?: string;
+  reason?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      firstTimestamp: 'FirstTimestamp',
+      lastTimestamp: 'LastTimestamp',
+      message: 'Message',
+      name: 'Name',
+      reason: 'Reason',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      firstTimestamp: 'string',
+      lastTimestamp: 'string',
+      message: 'string',
+      name: 'string',
+      reason: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsHostAliases extends $tea.Model {
+  hostnames?: string[];
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      ip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersCurrentState extends $tea.Model {
+  detailStatus?: string;
+  exitCode?: number;
+  finishTime?: string;
+  message?: string;
+  reason?: string;
+  signal?: number;
+  startTime?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailStatus: 'DetailStatus',
+      exitCode: 'ExitCode',
+      finishTime: 'FinishTime',
+      message: 'Message',
+      reason: 'Reason',
+      signal: 'Signal',
+      startTime: 'StartTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailStatus: 'string',
+      exitCode: 'number',
+      finishTime: 'string',
+      message: 'string',
+      reason: 'string',
+      signal: 'number',
+      startTime: 'string',
+      state: 'string',
     };
   }
 
@@ -3982,65 +6082,199 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersEnv
   }
 }
 
+export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPorts extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPreviousState extends $tea.Model {
+  detailStatus?: string;
+  exitCode?: number;
+  finishTime?: string;
+  message?: string;
+  reason?: string;
+  signal?: number;
+  startTime?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailStatus: 'DetailStatus',
+      exitCode: 'ExitCode',
+      finishTime: 'FinishTime',
+      message: 'Message',
+      reason: 'Reason',
+      signal: 'Signal',
+      startTime: 'StartTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailStatus: 'string',
+      exitCode: 'number',
+      finishTime: 'string',
+      message: 'string',
+      reason: 'string',
+      signal: 'number',
+      startTime: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContextCapability extends $tea.Model {
+  adds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      adds: 'Adds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContext extends $tea.Model {
+  capability?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContextCapability;
+  readOnlyRootFilesystem?: boolean;
+  runAsUser?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capability: 'Capability',
+      readOnlyRootFilesystem: 'ReadOnlyRootFilesystem',
+      runAsUser: 'RunAsUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capability: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContextCapability,
+      readOnlyRootFilesystem: 'boolean',
+      runAsUser: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainersVolumeMounts extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainers extends $tea.Model {
-  volumeMounts?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersVolumeMounts[];
   args?: string[];
-  image?: string;
-  ports?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPorts[];
-  restartCount?: number;
-  imagePullPolicy?: string;
-  previousState?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPreviousState;
-  workingDir?: string;
+  command?: string[];
   cpu?: number;
   currentState?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersCurrentState;
-  command?: string[];
-  ready?: boolean;
+  environmentVars?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersEnvironmentVars[];
   gpu?: number;
-  securityContext?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContext;
+  image?: string;
+  imagePullPolicy?: string;
   memory?: number;
   name?: string;
-  environmentVars?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersEnvironmentVars[];
+  ports?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPorts[];
+  previousState?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPreviousState;
+  ready?: boolean;
+  restartCount?: number;
+  securityContext?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContext;
+  volumeMounts?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersVolumeMounts[];
+  workingDir?: string;
   static names(): { [key: string]: string } {
     return {
-      volumeMounts: 'VolumeMounts',
       args: 'Args',
-      image: 'Image',
-      ports: 'Ports',
-      restartCount: 'RestartCount',
-      imagePullPolicy: 'ImagePullPolicy',
-      previousState: 'PreviousState',
-      workingDir: 'WorkingDir',
+      command: 'Command',
       cpu: 'Cpu',
       currentState: 'CurrentState',
-      command: 'Command',
-      ready: 'Ready',
+      environmentVars: 'EnvironmentVars',
       gpu: 'Gpu',
-      securityContext: 'SecurityContext',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
       memory: 'Memory',
       name: 'Name',
-      environmentVars: 'EnvironmentVars',
+      ports: 'Ports',
+      previousState: 'PreviousState',
+      ready: 'Ready',
+      restartCount: 'RestartCount',
+      securityContext: 'SecurityContext',
+      volumeMounts: 'VolumeMounts',
+      workingDir: 'WorkingDir',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      volumeMounts: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainersVolumeMounts },
       args: { 'type': 'array', 'itemType': 'string' },
-      image: 'string',
-      ports: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPorts },
-      restartCount: 'number',
-      imagePullPolicy: 'string',
-      previousState: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPreviousState,
-      workingDir: 'string',
+      command: { 'type': 'array', 'itemType': 'string' },
       cpu: 'number',
       currentState: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersCurrentState,
-      command: { 'type': 'array', 'itemType': 'string' },
-      ready: 'boolean',
+      environmentVars: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainersEnvironmentVars },
       gpu: 'number',
-      securityContext: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContext,
+      image: 'string',
+      imagePullPolicy: 'string',
       memory: 'number',
       name: 'string',
-      environmentVars: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainersEnvironmentVars },
+      ports: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPorts },
+      previousState: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersPreviousState,
+      ready: 'boolean',
+      restartCount: 'number',
+      securityContext: DescribeContainerGroupsResponseBodyContainerGroupsInitContainersSecurityContext,
+      volumeMounts: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainersVolumeMounts },
+      workingDir: 'string',
     };
   }
 
@@ -4049,45 +6283,20 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsInitContainers ex
   }
 }
 
-export class DescribeContainerGroupsResponseBodyContainerGroupsDnsConfigOptions extends $tea.Model {
+export class DescribeContainerGroupsResponseBodyContainerGroupsTags extends $tea.Model {
+  key?: string;
   value?: string;
-  name?: string;
   static names(): { [key: string]: string } {
     return {
+      key: 'Key',
       value: 'Value',
-      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      key: 'string',
       value: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig extends $tea.Model {
-  searches?: string[];
-  options?: DescribeContainerGroupsResponseBodyContainerGroupsDnsConfigOptions[];
-  nameServers?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      searches: 'Searches',
-      options: 'Options',
-      nameServers: 'NameServers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      searches: { 'type': 'array', 'itemType': 'string' },
-      options: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsDnsConfigOptions },
-      nameServers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4097,19 +6306,19 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig extends
 }
 
 export class DescribeContainerGroupsResponseBodyContainerGroupsVolumesConfigFileVolumeConfigFileToPaths extends $tea.Model {
-  path?: string;
   content?: string;
+  path?: string;
   static names(): { [key: string]: string } {
     return {
-      path: 'Path',
       content: 'Content',
+      path: 'Path',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      path: 'string',
       content: 'string',
+      path: 'string',
     };
   }
 
@@ -4119,87 +6328,46 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsVolumesConfigFile
 }
 
 export class DescribeContainerGroupsResponseBodyContainerGroupsVolumes extends $tea.Model {
-  type?: string;
-  diskVolumeDiskId?: string;
-  NFSVolumeReadOnly?: boolean;
   configFileVolumeConfigFileToPaths?: DescribeContainerGroupsResponseBodyContainerGroupsVolumesConfigFileVolumeConfigFileToPaths[];
-  flexVolumeFsType?: string;
-  flexVolumeDriver?: string;
+  diskVolumeDiskId?: string;
   diskVolumeFsType?: string;
+  flexVolumeDriver?: string;
+  flexVolumeFsType?: string;
   flexVolumeOptions?: string;
-  NFSVolumeServer?: string;
   NFSVolumePath?: string;
+  NFSVolumeReadOnly?: boolean;
+  NFSVolumeServer?: string;
   name?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      diskVolumeDiskId: 'DiskVolumeDiskId',
-      NFSVolumeReadOnly: 'NFSVolumeReadOnly',
       configFileVolumeConfigFileToPaths: 'ConfigFileVolumeConfigFileToPaths',
-      flexVolumeFsType: 'FlexVolumeFsType',
-      flexVolumeDriver: 'FlexVolumeDriver',
+      diskVolumeDiskId: 'DiskVolumeDiskId',
       diskVolumeFsType: 'DiskVolumeFsType',
+      flexVolumeDriver: 'FlexVolumeDriver',
+      flexVolumeFsType: 'FlexVolumeFsType',
       flexVolumeOptions: 'FlexVolumeOptions',
-      NFSVolumeServer: 'NFSVolumeServer',
       NFSVolumePath: 'NFSVolumePath',
+      NFSVolumeReadOnly: 'NFSVolumeReadOnly',
+      NFSVolumeServer: 'NFSVolumeServer',
       name: 'Name',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      diskVolumeDiskId: 'string',
-      NFSVolumeReadOnly: 'boolean',
       configFileVolumeConfigFileToPaths: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsVolumesConfigFileVolumeConfigFileToPaths },
-      flexVolumeFsType: 'string',
-      flexVolumeDriver: 'string',
+      diskVolumeDiskId: 'string',
       diskVolumeFsType: 'string',
+      flexVolumeDriver: 'string',
+      flexVolumeFsType: 'string',
       flexVolumeOptions: 'string',
-      NFSVolumeServer: 'string',
       NFSVolumePath: 'string',
+      NFSVolumeReadOnly: 'boolean',
+      NFSVolumeServer: 'string',
       name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContextSysctls extends $tea.Model {
-  value?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContext extends $tea.Model {
-  sysctls?: DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContextSysctls[];
-  static names(): { [key: string]: string } {
-    return {
-      sysctls: 'Sysctls',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sysctls: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContextSysctls },
+      type: 'string',
     };
   }
 
@@ -4209,121 +6377,127 @@ export class DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContex
 }
 
 export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Model {
-  status?: string;
-  creationTime?: string;
-  vpcId?: string;
-  internetIp?: string;
-  tenantSecurityGroupId?: string;
-  securityGroupId?: string;
-  hostAliases?: DescribeContainerGroupsResponseBodyContainerGroupsHostAliases[];
-  tags?: DescribeContainerGroupsResponseBodyContainerGroupsTags[];
-  events?: DescribeContainerGroupsResponseBodyContainerGroupsEvents[];
-  succeededTime?: string;
-  spotStrategy?: string;
-  ephemeralStorage?: number;
-  tenantEniInstanceId?: string;
-  discount?: number;
-  restartPolicy?: string;
-  memory?: number;
-  tenantVSwitchId?: string;
-  containers?: DescribeContainerGroupsResponseBodyContainerGroupsContainers[];
-  eniInstanceId?: string;
-  initContainers?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainers[];
   containerGroupId?: string;
-  instanceType?: string;
-  ipv6Address?: string;
-  intranetIp?: string;
-  regionId?: string;
-  dnsConfig?: DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig;
-  volumes?: DescribeContainerGroupsResponseBodyContainerGroupsVolumes[];
-  ramRoleName?: string;
-  vSwitchId?: string;
-  cpu?: number;
-  expiredTime?: string;
-  resourceGroupId?: string;
-  zoneId?: string;
   containerGroupName?: string;
+  containers?: DescribeContainerGroupsResponseBodyContainerGroupsContainers[];
+  cpu?: number;
+  creationTime?: string;
+  discount?: number;
+  dnsConfig?: DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig;
   eciSecurityContext?: DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContext;
+  eniInstanceId?: string;
+  ephemeralStorage?: number;
+  events?: DescribeContainerGroupsResponseBodyContainerGroupsEvents[];
+  expiredTime?: string;
   failedTime?: string;
+  hostAliases?: DescribeContainerGroupsResponseBodyContainerGroupsHostAliases[];
+  initContainers?: DescribeContainerGroupsResponseBodyContainerGroupsInitContainers[];
+  instanceType?: string;
+  internetIp?: string;
+  intranetIp?: string;
+  ipv6Address?: string;
+  memory?: number;
+  ramRoleName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  restartPolicy?: string;
+  securityGroupId?: string;
+  spotPriceLimit?: number;
+  spotStrategy?: string;
+  status?: string;
+  succeededTime?: string;
+  tags?: DescribeContainerGroupsResponseBodyContainerGroupsTags[];
+  tenantEniInstanceId?: string;
+  tenantEniIp?: string;
+  tenantSecurityGroupId?: string;
+  tenantVSwitchId?: string;
+  vSwitchId?: string;
+  volumes?: DescribeContainerGroupsResponseBodyContainerGroupsVolumes[];
+  vpcId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      creationTime: 'CreationTime',
-      vpcId: 'VpcId',
-      internetIp: 'InternetIp',
-      tenantSecurityGroupId: 'TenantSecurityGroupId',
-      securityGroupId: 'SecurityGroupId',
-      hostAliases: 'HostAliases',
-      tags: 'Tags',
-      events: 'Events',
-      succeededTime: 'SucceededTime',
-      spotStrategy: 'SpotStrategy',
-      ephemeralStorage: 'EphemeralStorage',
-      tenantEniInstanceId: 'TenantEniInstanceId',
-      discount: 'Discount',
-      restartPolicy: 'RestartPolicy',
-      memory: 'Memory',
-      tenantVSwitchId: 'TenantVSwitchId',
-      containers: 'Containers',
-      eniInstanceId: 'EniInstanceId',
-      initContainers: 'InitContainers',
       containerGroupId: 'ContainerGroupId',
-      instanceType: 'InstanceType',
-      ipv6Address: 'Ipv6Address',
-      intranetIp: 'IntranetIp',
-      regionId: 'RegionId',
-      dnsConfig: 'DnsConfig',
-      volumes: 'Volumes',
-      ramRoleName: 'RamRoleName',
-      vSwitchId: 'VSwitchId',
-      cpu: 'Cpu',
-      expiredTime: 'ExpiredTime',
-      resourceGroupId: 'ResourceGroupId',
-      zoneId: 'ZoneId',
       containerGroupName: 'ContainerGroupName',
+      containers: 'Containers',
+      cpu: 'Cpu',
+      creationTime: 'CreationTime',
+      discount: 'Discount',
+      dnsConfig: 'DnsConfig',
       eciSecurityContext: 'EciSecurityContext',
+      eniInstanceId: 'EniInstanceId',
+      ephemeralStorage: 'EphemeralStorage',
+      events: 'Events',
+      expiredTime: 'ExpiredTime',
       failedTime: 'FailedTime',
+      hostAliases: 'HostAliases',
+      initContainers: 'InitContainers',
+      instanceType: 'InstanceType',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      ipv6Address: 'Ipv6Address',
+      memory: 'Memory',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      restartPolicy: 'RestartPolicy',
+      securityGroupId: 'SecurityGroupId',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+      status: 'Status',
+      succeededTime: 'SucceededTime',
+      tags: 'Tags',
+      tenantEniInstanceId: 'TenantEniInstanceId',
+      tenantEniIp: 'TenantEniIp',
+      tenantSecurityGroupId: 'TenantSecurityGroupId',
+      tenantVSwitchId: 'TenantVSwitchId',
+      vSwitchId: 'VSwitchId',
+      volumes: 'Volumes',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      creationTime: 'string',
-      vpcId: 'string',
-      internetIp: 'string',
-      tenantSecurityGroupId: 'string',
-      securityGroupId: 'string',
-      hostAliases: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsHostAliases },
-      tags: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsTags },
-      events: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsEvents },
-      succeededTime: 'string',
-      spotStrategy: 'string',
-      ephemeralStorage: 'number',
-      tenantEniInstanceId: 'string',
-      discount: 'number',
-      restartPolicy: 'string',
-      memory: 'number',
-      tenantVSwitchId: 'string',
-      containers: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainers },
-      eniInstanceId: 'string',
-      initContainers: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainers },
       containerGroupId: 'string',
-      instanceType: 'string',
-      ipv6Address: 'string',
-      intranetIp: 'string',
-      regionId: 'string',
-      dnsConfig: DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig,
-      volumes: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsVolumes },
-      ramRoleName: 'string',
-      vSwitchId: 'string',
-      cpu: 'number',
-      expiredTime: 'string',
-      resourceGroupId: 'string',
-      zoneId: 'string',
       containerGroupName: 'string',
+      containers: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsContainers },
+      cpu: 'number',
+      creationTime: 'string',
+      discount: 'number',
+      dnsConfig: DescribeContainerGroupsResponseBodyContainerGroupsDnsConfig,
       eciSecurityContext: DescribeContainerGroupsResponseBodyContainerGroupsEciSecurityContext,
+      eniInstanceId: 'string',
+      ephemeralStorage: 'number',
+      events: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsEvents },
+      expiredTime: 'string',
       failedTime: 'string',
+      hostAliases: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsHostAliases },
+      initContainers: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsInitContainers },
+      instanceType: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
+      ipv6Address: 'string',
+      memory: 'number',
+      ramRoleName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      restartPolicy: 'string',
+      securityGroupId: 'string',
+      spotPriceLimit: 'number',
+      spotStrategy: 'string',
+      status: 'string',
+      succeededTime: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsTags },
+      tenantEniInstanceId: 'string',
+      tenantEniIp: 'string',
+      tenantSecurityGroupId: 'string',
+      tenantVSwitchId: 'string',
+      vSwitchId: 'string',
+      volumes: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsVolumes },
+      vpcId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -4354,6 +6528,40 @@ export class DescribeImageCachesRequestTag extends $tea.Model {
   }
 }
 
+export class DescribeImageCachesResponseBodyImageCachesEvents extends $tea.Model {
+  count?: number;
+  firstTimestamp?: string;
+  lastTimestamp?: string;
+  message?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      firstTimestamp: 'FirstTimestamp',
+      lastTimestamp: 'LastTimestamp',
+      message: 'Message',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      firstTimestamp: 'string',
+      lastTimestamp: 'string',
+      message: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageCachesResponseBodyImageCachesTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -4376,87 +6584,65 @@ export class DescribeImageCachesResponseBodyImageCachesTags extends $tea.Model {
   }
 }
 
-export class DescribeImageCachesResponseBodyImageCachesEvents extends $tea.Model {
-  type?: string;
-  lastTimestamp?: string;
-  message?: string;
-  name?: string;
-  count?: number;
-  firstTimestamp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      lastTimestamp: 'LastTimestamp',
-      message: 'Message',
-      name: 'Name',
-      count: 'Count',
-      firstTimestamp: 'FirstTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      lastTimestamp: 'string',
-      message: 'string',
-      name: 'string',
-      count: 'number',
-      firstTimestamp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeImageCachesResponseBodyImageCaches extends $tea.Model {
-  images?: string[];
-  creationTime?: string;
-  status?: string;
-  progress?: string;
-  expireDateTime?: string;
   containerGroupId?: string;
-  tags?: DescribeImageCachesResponseBodyImageCachesTags[];
+  creationTime?: string;
+  eliminationStrategy?: string;
   events?: DescribeImageCachesResponseBodyImageCachesEvents[];
+  expireDateTime?: string;
+  flashSnapshotId?: string;
   imageCacheId?: string;
-  regionId?: string;
-  snapshotId?: string;
-  resourceGroupId?: string;
   imageCacheName?: string;
+  imageCacheSize?: number;
+  images?: string[];
+  lastMatchedTime?: string;
+  progress?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  snapshotId?: string;
+  status?: string;
+  tags?: DescribeImageCachesResponseBodyImageCachesTags[];
   static names(): { [key: string]: string } {
     return {
-      images: 'Images',
-      creationTime: 'CreationTime',
-      status: 'Status',
-      progress: 'Progress',
-      expireDateTime: 'ExpireDateTime',
       containerGroupId: 'ContainerGroupId',
-      tags: 'Tags',
+      creationTime: 'CreationTime',
+      eliminationStrategy: 'EliminationStrategy',
       events: 'Events',
+      expireDateTime: 'ExpireDateTime',
+      flashSnapshotId: 'FlashSnapshotId',
       imageCacheId: 'ImageCacheId',
-      regionId: 'RegionId',
-      snapshotId: 'SnapshotId',
-      resourceGroupId: 'ResourceGroupId',
       imageCacheName: 'ImageCacheName',
+      imageCacheSize: 'ImageCacheSize',
+      images: 'Images',
+      lastMatchedTime: 'LastMatchedTime',
+      progress: 'Progress',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      snapshotId: 'SnapshotId',
+      status: 'Status',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      images: { 'type': 'array', 'itemType': 'string' },
-      creationTime: 'string',
-      status: 'string',
-      progress: 'string',
-      expireDateTime: 'string',
       containerGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeImageCachesResponseBodyImageCachesTags },
+      creationTime: 'string',
+      eliminationStrategy: 'string',
       events: { 'type': 'array', 'itemType': DescribeImageCachesResponseBodyImageCachesEvents },
+      expireDateTime: 'string',
+      flashSnapshotId: 'string',
       imageCacheId: 'string',
-      regionId: 'string',
-      snapshotId: 'string',
-      resourceGroupId: 'string',
       imageCacheName: 'string',
+      imageCacheSize: 'number',
+      images: { 'type': 'array', 'itemType': 'string' },
+      lastMatchedTime: 'string',
+      progress: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      snapshotId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeImageCachesResponseBodyImageCachesTags },
     };
   }
 
@@ -4465,48 +6651,32 @@ export class DescribeImageCachesResponseBodyImageCaches extends $tea.Model {
   }
 }
 
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetworkInterfaces extends $tea.Model {
-  rxErrors?: number;
-  txBytes?: number;
-  name?: string;
-  txErrors?: number;
-  rxBytes?: number;
+export class DescribeInstanceOpsRecordsResponseBodyRecords extends $tea.Model {
+  createTime?: string;
+  expireTime?: string;
+  opsStatus?: string;
+  opsType?: string;
+  resultContent?: string;
+  resultType?: string;
   static names(): { [key: string]: string } {
     return {
-      rxErrors: 'RxErrors',
-      txBytes: 'TxBytes',
-      name: 'Name',
-      txErrors: 'TxErrors',
-      rxBytes: 'RxBytes',
+      createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      opsStatus: 'OpsStatus',
+      opsType: 'OpsType',
+      resultContent: 'ResultContent',
+      resultType: 'ResultType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rxErrors: 'number',
-      txBytes: 'number',
-      name: 'string',
-      txErrors: 'number',
-      rxBytes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetwork extends $tea.Model {
-  interfaces?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetworkInterfaces[];
-  static names(): { [key: string]: string } {
-    return {
-      interfaces: 'Interfaces',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      interfaces: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetworkInterfaces },
+      createTime: 'string',
+      expireTime: 'string',
+      opsStatus: 'string',
+      opsType: 'string',
+      resultContent: 'string',
+      resultType: 'string',
     };
   }
 
@@ -4516,56 +6686,25 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNet
 }
 
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCPU extends $tea.Model {
-  usageNanoCores?: number;
   limit?: number;
-  usageCoreNanoSeconds?: number;
   load?: number;
+  usageCoreNanoSeconds?: number;
+  usageNanoCores?: number;
   static names(): { [key: string]: string } {
     return {
-      usageNanoCores: 'UsageNanoCores',
       limit: 'Limit',
-      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
       load: 'Load',
+      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
+      usageNanoCores: 'UsageNanoCores',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usageNanoCores: 'number',
       limit: 'number',
-      usageCoreNanoSeconds: 'number',
       load: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMemory extends $tea.Model {
-  rss?: number;
-  usageBytes?: number;
-  workingSet?: number;
-  availableBytes?: number;
-  cache?: number;
-  static names(): { [key: string]: string } {
-    return {
-      rss: 'Rss',
-      usageBytes: 'UsageBytes',
-      workingSet: 'WorkingSet',
-      availableBytes: 'AvailableBytes',
-      cache: 'Cache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rss: 'number',
-      usageBytes: 'number',
-      workingSet: 'number',
-      availableBytes: 'number',
-      cache: 'number',
+      usageCoreNanoSeconds: 'number',
+      usageNanoCores: 'number',
     };
   }
 
@@ -4575,25 +6714,25 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMem
 }
 
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsContainersCPU extends $tea.Model {
-  usageNanoCores?: number;
   limit?: number;
-  usageCoreNanoSeconds?: number;
   load?: number;
+  usageCoreNanoSeconds?: number;
+  usageNanoCores?: number;
   static names(): { [key: string]: string } {
     return {
-      usageNanoCores: 'UsageNanoCores',
       limit: 'Limit',
-      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
       load: 'Load',
+      usageCoreNanoSeconds: 'UsageCoreNanoSeconds',
+      usageNanoCores: 'UsageNanoCores',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usageNanoCores: 'number',
       limit: 'number',
-      usageCoreNanoSeconds: 'number',
       load: 'number',
+      usageCoreNanoSeconds: 'number',
+      usageNanoCores: 'number',
     };
   }
 
@@ -4603,28 +6742,28 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCon
 }
 
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsContainersMemory extends $tea.Model {
+  availableBytes?: number;
+  cache?: number;
   rss?: number;
   usageBytes?: number;
   workingSet?: number;
-  availableBytes?: number;
-  cache?: number;
   static names(): { [key: string]: string } {
     return {
+      availableBytes: 'AvailableBytes',
+      cache: 'Cache',
       rss: 'Rss',
       usageBytes: 'UsageBytes',
       workingSet: 'WorkingSet',
-      availableBytes: 'AvailableBytes',
-      cache: 'Cache',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      availableBytes: 'number',
+      cache: 'number',
       rss: 'number',
       usageBytes: 'number',
       workingSet: 'number',
-      availableBytes: 'number',
-      cache: 'number',
     };
   }
 
@@ -4658,29 +6797,29 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCon
   }
 }
 
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords extends $tea.Model {
-  network?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetwork;
-  CPU?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCPU;
-  timestamp?: string;
-  memory?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMemory;
-  containers?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsContainers[];
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsDisk extends $tea.Model {
+  device?: string;
+  readBytes?: number;
+  readIo?: number;
+  writeBytes?: number;
+  writeIo?: number;
   static names(): { [key: string]: string } {
     return {
-      network: 'Network',
-      CPU: 'CPU',
-      timestamp: 'Timestamp',
-      memory: 'Memory',
-      containers: 'Containers',
+      device: 'Device',
+      readBytes: 'ReadBytes',
+      readIo: 'ReadIo',
+      writeBytes: 'WriteBytes',
+      writeIo: 'WriteIo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      network: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetwork,
-      CPU: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCPU,
-      timestamp: 'string',
-      memory: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMemory,
-      containers: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsContainers },
+      device: 'string',
+      readBytes: 'number',
+      readIo: 'number',
+      writeBytes: 'number',
+      writeIo: 'number',
     };
   }
 
@@ -4689,437 +6828,26 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords ex
   }
 }
 
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpecContainerMemory extends $tea.Model {
-  limit?: number;
-  swapLimit?: number;
-  reservation?: number;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'Limit',
-      swapLimit: 'SwapLimit',
-      reservation: 'Reservation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: 'number',
-      swapLimit: 'number',
-      reservation: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpecContainerCpu extends $tea.Model {
-  quota?: number;
-  mask?: string;
-  limit?: number;
-  maxLimit?: number;
-  period?: number;
-  static names(): { [key: string]: string } {
-    return {
-      quota: 'Quota',
-      mask: 'Mask',
-      limit: 'Limit',
-      maxLimit: 'MaxLimit',
-      period: 'Period',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      quota: 'number',
-      mask: 'string',
-      limit: 'number',
-      maxLimit: 'number',
-      period: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpec extends $tea.Model {
-  creationTime?: string;
-  image?: string;
-  labels?: string;
-  hasCustomMetrics?: boolean;
-  hasCpu?: boolean;
-  envs?: string;
-  hasDiskIo?: boolean;
-  hasFilesystem?: boolean;
-  hasNetwork?: boolean;
-  containerMemory?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpecContainerMemory;
-  hasMemory?: boolean;
-  containerCpu?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpecContainerCpu;
-  static names(): { [key: string]: string } {
-    return {
-      creationTime: 'CreationTime',
-      image: 'Image',
-      labels: 'Labels',
-      hasCustomMetrics: 'HasCustomMetrics',
-      hasCpu: 'HasCpu',
-      envs: 'Envs',
-      hasDiskIo: 'HasDiskIo',
-      hasFilesystem: 'HasFilesystem',
-      hasNetwork: 'HasNetwork',
-      containerMemory: 'ContainerMemory',
-      hasMemory: 'HasMemory',
-      containerCpu: 'ContainerCpu',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creationTime: 'string',
-      image: 'string',
-      labels: 'string',
-      hasCustomMetrics: 'boolean',
-      hasCpu: 'boolean',
-      envs: 'string',
-      hasDiskIo: 'boolean',
-      hasFilesystem: 'boolean',
-      hasNetwork: 'boolean',
-      containerMemory: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpecContainerMemory,
-      hasMemory: 'boolean',
-      containerCpu: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpecContainerCpu,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsTcp extends $tea.Model {
-  closeWait?: number;
-  finWait2?: number;
-  lastAck?: number;
-  closing?: number;
-  listen?: number;
-  timeWait?: number;
-  established?: number;
-  finWait1?: number;
-  close?: number;
-  synRecv?: number;
-  synSent?: number;
-  static names(): { [key: string]: string } {
-    return {
-      closeWait: 'CloseWait',
-      finWait2: 'FinWait2',
-      lastAck: 'LastAck',
-      closing: 'Closing',
-      listen: 'Listen',
-      timeWait: 'TimeWait',
-      established: 'Established',
-      finWait1: 'FinWait1',
-      close: 'Close',
-      synRecv: 'SynRecv',
-      synSent: 'SynSent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      closeWait: 'number',
-      finWait2: 'number',
-      lastAck: 'number',
-      closing: 'number',
-      listen: 'number',
-      timeWait: 'number',
-      established: 'number',
-      finWait1: 'number',
-      close: 'number',
-      synRecv: 'number',
-      synSent: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsInterfaceStats extends $tea.Model {
-  rxErrors?: number;
-  rxDropped?: number;
-  txDropped?: number;
-  txBytes?: number;
-  rxPackets?: number;
-  txErrors?: number;
-  txPackets?: number;
-  rxBytes?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rxErrors: 'RxErrors',
-      rxDropped: 'RxDropped',
-      txDropped: 'TxDropped',
-      txBytes: 'TxBytes',
-      rxPackets: 'RxPackets',
-      txErrors: 'TxErrors',
-      txPackets: 'TxPackets',
-      rxBytes: 'RxBytes',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rxErrors: 'number',
-      rxDropped: 'number',
-      txDropped: 'number',
-      txBytes: 'number',
-      rxPackets: 'number',
-      txErrors: 'number',
-      txPackets: 'number',
-      rxBytes: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsTcp6 extends $tea.Model {
-  closeWait?: number;
-  finWait2?: number;
-  lastAck?: number;
-  closing?: number;
-  listen?: number;
-  timeWait?: number;
-  established?: number;
-  finWait1?: number;
-  close?: number;
-  synRecv?: number;
-  synSent?: number;
-  static names(): { [key: string]: string } {
-    return {
-      closeWait: 'CloseWait',
-      finWait2: 'FinWait2',
-      lastAck: 'LastAck',
-      closing: 'Closing',
-      listen: 'Listen',
-      timeWait: 'TimeWait',
-      established: 'Established',
-      finWait1: 'FinWait1',
-      close: 'Close',
-      synRecv: 'SynRecv',
-      synSent: 'SynSent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      closeWait: 'number',
-      finWait2: 'number',
-      lastAck: 'number',
-      closing: 'number',
-      listen: 'number',
-      timeWait: 'number',
-      established: 'number',
-      finWait1: 'number',
-      close: 'number',
-      synRecv: 'number',
-      synSent: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsUdp extends $tea.Model {
-  txQueued?: number;
-  listen?: number;
-  dropped?: number;
-  rxQueued?: number;
-  static names(): { [key: string]: string } {
-    return {
-      txQueued: 'TxQueued',
-      listen: 'Listen',
-      dropped: 'Dropped',
-      rxQueued: 'RxQueued',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      txQueued: 'number',
-      listen: 'number',
-      dropped: 'number',
-      rxQueued: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsUdp6 extends $tea.Model {
-  txQueued?: number;
-  listen?: number;
-  dropped?: number;
-  rxQueued?: number;
-  static names(): { [key: string]: string } {
-    return {
-      txQueued: 'TxQueued',
-      listen: 'Listen',
-      dropped: 'Dropped',
-      rxQueued: 'RxQueued',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      txQueued: 'number',
-      listen: 'number',
-      dropped: 'number',
-      rxQueued: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStats extends $tea.Model {
-  rxDropped?: number;
-  tcp?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsTcp;
-  txErrors?: number;
-  rxErrors?: number;
-  interfaceStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsInterfaceStats[];
-  tcp6?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsTcp6;
-  txDropped?: number;
-  udp?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsUdp;
-  txBytes?: number;
-  udp6?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsUdp6;
-  rxPackets?: number;
-  name?: string;
-  rxBytes?: number;
-  txPackets?: number;
-  static names(): { [key: string]: string } {
-    return {
-      rxDropped: 'RxDropped',
-      tcp: 'Tcp',
-      txErrors: 'TxErrors',
-      rxErrors: 'RxErrors',
-      interfaceStats: 'InterfaceStats',
-      tcp6: 'Tcp6',
-      txDropped: 'TxDropped',
-      udp: 'Udp',
-      txBytes: 'TxBytes',
-      udp6: 'Udp6',
-      rxPackets: 'RxPackets',
-      name: 'Name',
-      rxBytes: 'RxBytes',
-      txPackets: 'TxPackets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rxDropped: 'number',
-      tcp: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsTcp,
-      txErrors: 'number',
-      rxErrors: 'number',
-      interfaceStats: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsInterfaceStats },
-      tcp6: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsTcp6,
-      txDropped: 'number',
-      udp: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsUdp,
-      txBytes: 'number',
-      udp6: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStatsUdp6,
-      rxPackets: 'number',
-      name: 'string',
-      rxBytes: 'number',
-      txPackets: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsFsStats extends $tea.Model {
-  type?: string;
-  readsMerged?: number;
-  hasInodes?: boolean;
-  readsCompleted?: number;
-  writesMerged?: number;
-  inodesFree?: number;
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsFilesystem extends $tea.Model {
   available?: number;
+  capacity?: number;
+  fsName?: string;
   usage?: number;
-  inodes?: number;
-  baseUsage?: number;
-  sectorsRead?: number;
-  writeTime?: number;
-  sectorsWritten?: number;
-  readTime?: number;
-  limit?: number;
-  device?: string;
-  writesCompleted?: number;
-  ioTime?: number;
-  weightedIoTime?: number;
-  ioInProgress?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      readsMerged: 'ReadsMerged',
-      hasInodes: 'HasInodes',
-      readsCompleted: 'ReadsCompleted',
-      writesMerged: 'WritesMerged',
-      inodesFree: 'InodesFree',
       available: 'Available',
+      capacity: 'Capacity',
+      fsName: 'FsName',
       usage: 'Usage',
-      inodes: 'Inodes',
-      baseUsage: 'BaseUsage',
-      sectorsRead: 'SectorsRead',
-      writeTime: 'WriteTime',
-      sectorsWritten: 'SectorsWritten',
-      readTime: 'ReadTime',
-      limit: 'Limit',
-      device: 'Device',
-      writesCompleted: 'WritesCompleted',
-      ioTime: 'IoTime',
-      weightedIoTime: 'WeightedIoTime',
-      ioInProgress: 'IoInProgress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      readsMerged: 'number',
-      hasInodes: 'boolean',
-      readsCompleted: 'number',
-      writesMerged: 'number',
-      inodesFree: 'number',
       available: 'number',
+      capacity: 'number',
+      fsName: 'string',
       usage: 'number',
-      inodes: 'number',
-      baseUsage: 'number',
-      sectorsRead: 'number',
-      writeTime: 'number',
-      sectorsWritten: 'number',
-      readTime: 'number',
-      limit: 'number',
-      device: 'string',
-      writesCompleted: 'number',
-      ioTime: 'number',
-      weightedIoTime: 'number',
-      ioInProgress: 'number',
     };
   }
 
@@ -5128,206 +6856,29 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
   }
 }
 
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsAcceleratorStats extends $tea.Model {
-  model?: string;
-  minor?: number;
-  temperature?: number;
-  powerUsage?: number;
-  memoryTotal?: number;
-  make?: string;
-  dutyCycle?: number;
-  memoryUsed?: number;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      model: 'Model',
-      minor: 'Minor',
-      temperature: 'Temperature',
-      powerUsage: 'PowerUsage',
-      memoryTotal: 'MemoryTotal',
-      make: 'Make',
-      dutyCycle: 'DutyCycle',
-      memoryUsed: 'MemoryUsed',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      model: 'string',
-      minor: 'number',
-      temperature: 'number',
-      powerUsage: 'number',
-      memoryTotal: 'number',
-      make: 'string',
-      dutyCycle: 'number',
-      memoryUsed: 'number',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStatsCpuUsage extends $tea.Model {
-  user?: number;
-  perCpuUsages?: number[];
-  total?: number;
-  system?: number;
-  static names(): { [key: string]: string } {
-    return {
-      user: 'User',
-      perCpuUsages: 'PerCpuUsages',
-      total: 'Total',
-      system: 'System',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      user: 'number',
-      perCpuUsages: { 'type': 'array', 'itemType': 'number' },
-      total: 'number',
-      system: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStatsCpuCFS extends $tea.Model {
-  throttledTime?: number;
-  periods?: number;
-  throttledPeriods?: number;
-  static names(): { [key: string]: string } {
-    return {
-      throttledTime: 'ThrottledTime',
-      periods: 'Periods',
-      throttledPeriods: 'ThrottledPeriods',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      throttledTime: 'number',
-      periods: 'number',
-      throttledPeriods: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStats extends $tea.Model {
-  cpuUsage?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStatsCpuUsage;
-  loadAverage?: number;
-  cpuCFS?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStatsCpuCFS;
-  static names(): { [key: string]: string } {
-    return {
-      cpuUsage: 'CpuUsage',
-      loadAverage: 'LoadAverage',
-      cpuCFS: 'CpuCFS',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuUsage: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStatsCpuUsage,
-      loadAverage: 'number',
-      cpuCFS: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStatsCpuCFS,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStatsHierarchicalData extends $tea.Model {
-  pgmajFault?: number;
-  pgFault?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pgmajFault: 'PgmajFault',
-      pgFault: 'PgFault',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pgmajFault: 'number',
-      pgFault: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStatsContainerData extends $tea.Model {
-  pgmajFault?: number;
-  pgFault?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pgmajFault: 'PgmajFault',
-      pgFault: 'PgFault',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pgmajFault: 'number',
-      pgFault: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStats extends $tea.Model {
-  failCnt?: number;
-  maxUsage?: number;
-  hierarchicalData?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStatsHierarchicalData;
-  rss?: number;
-  containerData?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStatsContainerData;
-  workingSet?: number;
-  swap?: number;
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMemory extends $tea.Model {
+  availableBytes?: number;
   cache?: number;
-  usage?: number;
+  rss?: number;
+  usageBytes?: number;
+  workingSet?: number;
   static names(): { [key: string]: string } {
     return {
-      failCnt: 'FailCnt',
-      maxUsage: 'MaxUsage',
-      hierarchicalData: 'HierarchicalData',
-      rss: 'Rss',
-      containerData: 'ContainerData',
-      workingSet: 'WorkingSet',
-      swap: 'Swap',
+      availableBytes: 'AvailableBytes',
       cache: 'Cache',
-      usage: 'Usage',
+      rss: 'Rss',
+      usageBytes: 'UsageBytes',
+      workingSet: 'WorkingSet',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failCnt: 'number',
-      maxUsage: 'number',
-      hierarchicalData: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStatsHierarchicalData,
-      rss: 'number',
-      containerData: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStatsContainerData,
-      workingSet: 'number',
-      swap: 'number',
+      availableBytes: 'number',
       cache: 'number',
-      usage: 'number',
+      rss: 'number',
+      usageBytes: 'number',
+      workingSet: 'number',
     };
   }
 
@@ -5336,370 +6887,97 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
   }
 }
 
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsTaskStats extends $tea.Model {
-  nrUninterruptible?: number;
-  nrRunning?: number;
-  nrSleeping?: number;
-  nrIoWait?: number;
-  nrStopped?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nrUninterruptible: 'NrUninterruptible',
-      nrRunning: 'NrRunning',
-      nrSleeping: 'NrSleeping',
-      nrIoWait: 'NrIoWait',
-      nrStopped: 'NrStopped',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nrUninterruptible: 'number',
-      nrRunning: 'number',
-      nrSleeping: 'number',
-      nrIoWait: 'number',
-      nrStopped: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiced extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceTime extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceBytes extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoMerged extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsSectors extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoQueued extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoTime extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoWaitTime extends $tea.Model {
-  stats?: string;
-  minor?: number;
-  major?: number;
-  device?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stats: 'Stats',
-      minor: 'Minor',
-      major: 'Major',
-      device: 'Device',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stats: 'string',
-      minor: 'number',
-      major: 'number',
-      device: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStats extends $tea.Model {
-  ioServiced?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiced[];
-  ioServiceTime?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceTime[];
-  ioServiceBytes?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceBytes[];
-  ioMerged?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoMerged[];
-  sectors?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsSectors[];
-  ioQueued?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoQueued[];
-  ioTime?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoTime[];
-  ioWaitTime?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoWaitTime[];
-  static names(): { [key: string]: string } {
-    return {
-      ioServiced: 'IoServiced',
-      ioServiceTime: 'IoServiceTime',
-      ioServiceBytes: 'IoServiceBytes',
-      ioMerged: 'IoMerged',
-      sectors: 'Sectors',
-      ioQueued: 'IoQueued',
-      ioTime: 'IoTime',
-      ioWaitTime: 'IoWaitTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ioServiced: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiced },
-      ioServiceTime: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceTime },
-      ioServiceBytes: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceBytes },
-      ioMerged: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoMerged },
-      sectors: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsSectors },
-      ioQueued: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoQueued },
-      ioTime: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoTime },
-      ioWaitTime: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoWaitTime },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStats extends $tea.Model {
-  networkStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStats;
-  fsStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsFsStats[];
-  acceleratorStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsAcceleratorStats[];
-  cpuStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStats;
-  timestamp?: string;
-  memoryStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStats;
-  taskStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsTaskStats;
-  diskIoStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStats;
-  static names(): { [key: string]: string } {
-    return {
-      networkStats: 'NetworkStats',
-      fsStats: 'FsStats',
-      acceleratorStats: 'AcceleratorStats',
-      cpuStats: 'CpuStats',
-      timestamp: 'Timestamp',
-      memoryStats: 'MemoryStats',
-      taskStats: 'TaskStats',
-      diskIoStats: 'DiskIoStats',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      networkStats: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsNetworkStats,
-      fsStats: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsFsStats },
-      acceleratorStats: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsAcceleratorStats },
-      cpuStats: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsCpuStats,
-      timestamp: 'string',
-      memoryStats: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsMemoryStats,
-      taskStats: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsTaskStats,
-      diskIoStats: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStats,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfos extends $tea.Model {
-  aliases?: string[];
-  containerSpec?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpec;
-  containerStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStats[];
-  labels?: string;
-  namespace?: string;
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetworkInterfaces extends $tea.Model {
   name?: string;
-  id?: string;
+  rxBytes?: number;
+  rxDrops?: number;
+  rxErrors?: number;
+  rxPackets?: number;
+  txBytes?: number;
+  txDrops?: number;
+  txErrors?: number;
+  txPackets?: number;
   static names(): { [key: string]: string } {
     return {
-      aliases: 'Aliases',
-      containerSpec: 'ContainerSpec',
-      containerStats: 'ContainerStats',
-      labels: 'Labels',
-      namespace: 'Namespace',
       name: 'Name',
-      id: 'Id',
+      rxBytes: 'RxBytes',
+      rxDrops: 'RxDrops',
+      rxErrors: 'RxErrors',
+      rxPackets: 'RxPackets',
+      txBytes: 'TxBytes',
+      txDrops: 'TxDrops',
+      txErrors: 'TxErrors',
+      txPackets: 'TxPackets',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aliases: { 'type': 'array', 'itemType': 'string' },
-      containerSpec: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpec,
-      containerStats: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStats },
-      labels: 'string',
-      namespace: 'string',
       name: 'string',
-      id: 'string',
+      rxBytes: 'number',
+      rxDrops: 'number',
+      rxErrors: 'number',
+      rxPackets: 'number',
+      txBytes: 'number',
+      txDrops: 'number',
+      txErrors: 'number',
+      txPackets: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetwork extends $tea.Model {
+  interfaces?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetworkInterfaces[];
+  static names(): { [key: string]: string } {
+    return {
+      interfaces: 'Interfaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interfaces: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetworkInterfaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords extends $tea.Model {
+  CPU?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCPU;
+  containers?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsContainers[];
+  disk?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsDisk[];
+  filesystem?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsFilesystem[];
+  memory?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMemory;
+  network?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetwork;
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      containers: 'Containers',
+      disk: 'Disk',
+      filesystem: 'Filesystem',
+      memory: 'Memory',
+      network: 'Network',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsCPU,
+      containers: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsContainers },
+      disk: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsDisk },
+      filesystem: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsFilesystem },
+      memory: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsMemory,
+      network: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecordsNetwork,
+      timestamp: 'string',
     };
   }
 
@@ -5709,22 +6987,19 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
 }
 
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatas extends $tea.Model {
-  records?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords[];
-  containerInfos?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfos[];
   containerGroupId?: string;
+  records?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords[];
   static names(): { [key: string]: string } {
     return {
-      records: 'Records',
-      containerInfos: 'ContainerInfos',
       containerGroupId: 'ContainerGroupId',
+      records: 'Records',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords },
-      containerInfos: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfos },
       containerGroupId: 'string',
+      records: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords },
     };
   }
 
@@ -5734,25 +7009,25 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatas extends $
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  zones?: string[];
   recommendZones?: string[];
   regionEndpoint?: string;
   regionId?: string;
+  zones?: string[];
   static names(): { [key: string]: string } {
     return {
-      zones: 'Zones',
       recommendZones: 'RecommendZones',
       regionEndpoint: 'RegionEndpoint',
       regionId: 'RegionId',
+      zones: 'Zones',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zones: { 'type': 'array', 'itemType': 'string' },
       recommendZones: { 'type': 'array', 'itemType': 'string' },
       regionEndpoint: 'string',
       regionId: 'string',
+      zones: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5761,54 +7036,7 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class UpdateContainerGroupRequestDnsConfigOption extends $tea.Model {
-  value?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestDnsConfig extends $tea.Model {
-  nameServer?: string[];
-  search?: string[];
-  option?: UpdateContainerGroupRequestDnsConfigOption[];
-  static names(): { [key: string]: string } {
-    return {
-      nameServer: 'NameServer',
-      search: 'Search',
-      option: 'Option',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nameServer: { 'type': 'array', 'itemType': 'string' },
-      search: { 'type': 'array', 'itemType': 'string' },
-      option: { 'type': 'array', 'itemType': UpdateContainerGroupRequestDnsConfigOption },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestTag extends $tea.Model {
+export class DescribeVirtualNodesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -5830,114 +7058,35 @@ export class UpdateContainerGroupRequestTag extends $tea.Model {
   }
 }
 
-export class UpdateContainerGroupRequestVolumeNFSVolume extends $tea.Model {
-  path?: string;
-  server?: string;
-  readOnly?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      path: 'Path',
-      server: 'Server',
-      readOnly: 'ReadOnly',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      path: 'string',
-      server: 'string',
-      readOnly: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath extends $tea.Model {
-  path?: string;
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      path: 'Path',
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      path: 'string',
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestVolumeConfigFileVolume extends $tea.Model {
-  configFileToPath?: UpdateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath[];
-  static names(): { [key: string]: string } {
-    return {
-      configFileToPath: 'ConfigFileToPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configFileToPath: { 'type': 'array', 'itemType': UpdateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestVolumeEmptyDirVolume extends $tea.Model {
-  medium?: string;
-  static names(): { [key: string]: string } {
-    return {
-      medium: 'Medium',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      medium: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestVolume extends $tea.Model {
-  NFSVolume: UpdateContainerGroupRequestVolumeNFSVolume;
-  configFileVolume: UpdateContainerGroupRequestVolumeConfigFileVolume;
-  emptyDirVolume: UpdateContainerGroupRequestVolumeEmptyDirVolume;
-  type?: string;
+export class DescribeVirtualNodesResponseBodyVirtualNodesEvents extends $tea.Model {
+  count?: number;
+  firstTimestamp?: string;
+  lastTimestamp?: string;
+  message?: string;
   name?: string;
+  reason?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      NFSVolume: 'NFSVolume',
-      configFileVolume: 'ConfigFileVolume',
-      emptyDirVolume: 'EmptyDirVolume',
-      type: 'Type',
+      count: 'Count',
+      firstTimestamp: 'FirstTimestamp',
+      lastTimestamp: 'LastTimestamp',
+      message: 'Message',
       name: 'Name',
+      reason: 'Reason',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      NFSVolume: UpdateContainerGroupRequestVolumeNFSVolume,
-      configFileVolume: UpdateContainerGroupRequestVolumeConfigFileVolume,
-      emptyDirVolume: UpdateContainerGroupRequestVolumeEmptyDirVolume,
-      type: 'string',
+      count: 'number',
+      firstTimestamp: 'string',
+      lastTimestamp: 'string',
+      message: 'string',
       name: 'string',
+      reason: 'string',
+      type: 'string',
     };
   }
 
@@ -5946,17 +7095,20 @@ export class UpdateContainerGroupRequestVolume extends $tea.Model {
   }
 }
 
-export class UpdateContainerGroupRequestContainerReadinessProbeTcpSocket extends $tea.Model {
-  port?: number;
+export class DescribeVirtualNodesResponseBodyVirtualNodesTags extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      port: 'Port',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      port: 'number',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5965,23 +7117,221 @@ export class UpdateContainerGroupRequestContainerReadinessProbeTcpSocket extends
   }
 }
 
-export class UpdateContainerGroupRequestContainerReadinessProbeHttpGet extends $tea.Model {
-  scheme?: string;
+export class DescribeVirtualNodesResponseBodyVirtualNodes extends $tea.Model {
+  clusterId?: string;
+  cpu?: number;
+  creationTime?: string;
+  eniInstanceId?: string;
+  events?: DescribeVirtualNodesResponseBodyVirtualNodesEvents[];
+  internetIp?: string;
+  intranetIp?: string;
+  memory?: number;
+  ramRoleName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  status?: string;
+  tags?: DescribeVirtualNodesResponseBodyVirtualNodesTags[];
+  vSwitchId?: string;
+  virtualNodeId?: string;
+  virtualNodeName?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      cpu: 'Cpu',
+      creationTime: 'CreationTime',
+      eniInstanceId: 'EniInstanceId',
+      events: 'Events',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
+      memory: 'Memory',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      virtualNodeId: 'VirtualNodeId',
+      virtualNodeName: 'VirtualNodeName',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      cpu: 'number',
+      creationTime: 'string',
+      eniInstanceId: 'string',
+      events: { 'type': 'array', 'itemType': DescribeVirtualNodesResponseBodyVirtualNodesEvents },
+      internetIp: 'string',
+      intranetIp: 'string',
+      memory: 'number',
+      ramRoleName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeVirtualNodesResponseBodyVirtualNodesTags },
+      vSwitchId: 'string',
+      virtualNodeId: 'string',
+      virtualNodeName: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestDnsConfigOption extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestDnsConfig extends $tea.Model {
+  nameServer?: string[];
+  option?: UpdateContainerGroupRequestDnsConfigOption[];
+  search?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nameServer: 'NameServer',
+      option: 'Option',
+      search: 'Search',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameServer: { 'type': 'array', 'itemType': 'string' },
+      option: { 'type': 'array', 'itemType': UpdateContainerGroupRequestDnsConfigOption },
+      search: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerLivenessProbeExec extends $tea.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerLivenessProbeHttpGet extends $tea.Model {
   path?: string;
   port?: number;
+  scheme?: string;
   static names(): { [key: string]: string } {
     return {
-      scheme: 'Scheme',
       path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerLivenessProbeTcpSocket extends $tea.Model {
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
       port: 'Port',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      scheme: 'string',
-      path: 'string',
       port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerLivenessProbe extends $tea.Model {
+  exec: UpdateContainerGroupRequestContainerLivenessProbeExec;
+  failureThreshold?: number;
+  httpGet: UpdateContainerGroupRequestContainerLivenessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket: UpdateContainerGroupRequestContainerLivenessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: UpdateContainerGroupRequestContainerLivenessProbeExec,
+      failureThreshold: 'number',
+      httpGet: UpdateContainerGroupRequestContainerLivenessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: UpdateContainerGroupRequestContainerLivenessProbeTcpSocket,
+      timeoutSeconds: 'number',
     };
   }
 
@@ -6009,38 +7359,82 @@ export class UpdateContainerGroupRequestContainerReadinessProbeExec extends $tea
   }
 }
 
-export class UpdateContainerGroupRequestContainerReadinessProbe extends $tea.Model {
-  timeoutSeconds?: number;
-  successThreshold?: number;
-  tcpSocket: UpdateContainerGroupRequestContainerReadinessProbeTcpSocket;
-  httpGet: UpdateContainerGroupRequestContainerReadinessProbeHttpGet;
-  periodSeconds?: number;
-  initialDelaySeconds?: number;
-  exec: UpdateContainerGroupRequestContainerReadinessProbeExec;
-  failureThreshold?: number;
+export class UpdateContainerGroupRequestContainerReadinessProbeHttpGet extends $tea.Model {
+  path?: string;
+  port?: number;
+  scheme?: string;
   static names(): { [key: string]: string } {
     return {
-      timeoutSeconds: 'TimeoutSeconds',
-      successThreshold: 'SuccessThreshold',
-      tcpSocket: 'TcpSocket',
-      httpGet: 'HttpGet',
-      periodSeconds: 'PeriodSeconds',
-      initialDelaySeconds: 'InitialDelaySeconds',
-      exec: 'Exec',
-      failureThreshold: 'FailureThreshold',
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeoutSeconds: 'number',
-      successThreshold: 'number',
-      tcpSocket: UpdateContainerGroupRequestContainerReadinessProbeTcpSocket,
-      httpGet: UpdateContainerGroupRequestContainerReadinessProbeHttpGet,
-      periodSeconds: 'number',
-      initialDelaySeconds: 'number',
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerReadinessProbeTcpSocket extends $tea.Model {
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerReadinessProbe extends $tea.Model {
+  exec: UpdateContainerGroupRequestContainerReadinessProbeExec;
+  failureThreshold?: number;
+  httpGet: UpdateContainerGroupRequestContainerReadinessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket: UpdateContainerGroupRequestContainerReadinessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       exec: UpdateContainerGroupRequestContainerReadinessProbeExec,
       failureThreshold: 'number',
+      httpGet: UpdateContainerGroupRequestContainerReadinessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: UpdateContainerGroupRequestContainerReadinessProbeTcpSocket,
+      timeoutSeconds: 'number',
     };
   }
 
@@ -6093,109 +7487,6 @@ export class UpdateContainerGroupRequestContainerSecurityContext extends $tea.Mo
   }
 }
 
-export class UpdateContainerGroupRequestContainerLivenessProbeTcpSocket extends $tea.Model {
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestContainerLivenessProbeExec extends $tea.Model {
-  command?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestContainerLivenessProbeHttpGet extends $tea.Model {
-  scheme?: string;
-  port?: number;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      scheme: 'Scheme',
-      port: 'Port',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scheme: 'string',
-      port: 'number',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestContainerLivenessProbe extends $tea.Model {
-  periodSeconds?: number;
-  tcpSocket: UpdateContainerGroupRequestContainerLivenessProbeTcpSocket;
-  initialDelaySeconds?: number;
-  successThreshold?: number;
-  exec: UpdateContainerGroupRequestContainerLivenessProbeExec;
-  httpGet: UpdateContainerGroupRequestContainerLivenessProbeHttpGet;
-  failureThreshold?: number;
-  timeoutSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      periodSeconds: 'PeriodSeconds',
-      tcpSocket: 'TcpSocket',
-      initialDelaySeconds: 'InitialDelaySeconds',
-      successThreshold: 'SuccessThreshold',
-      exec: 'Exec',
-      httpGet: 'HttpGet',
-      failureThreshold: 'FailureThreshold',
-      timeoutSeconds: 'TimeoutSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      periodSeconds: 'number',
-      tcpSocket: UpdateContainerGroupRequestContainerLivenessProbeTcpSocket,
-      initialDelaySeconds: 'number',
-      successThreshold: 'number',
-      exec: UpdateContainerGroupRequestContainerLivenessProbeExec,
-      httpGet: UpdateContainerGroupRequestContainerLivenessProbeHttpGet,
-      failureThreshold: 'number',
-      timeoutSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateContainerGroupRequestContainerEnvironmentVarFieldRef extends $tea.Model {
   fieldPath?: string;
   static names(): { [key: string]: string } {
@@ -6240,70 +7531,20 @@ export class UpdateContainerGroupRequestContainerEnvironmentVar extends $tea.Mod
   }
 }
 
-export class UpdateContainerGroupRequestContainerVolumeMount extends $tea.Model {
-  mountPath?: string;
-  readOnly?: boolean;
-  subPath?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPath: 'MountPath',
-      readOnly: 'ReadOnly',
-      subPath: 'SubPath',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPath: 'string',
-      readOnly: 'boolean',
-      subPath: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestContainerPort extends $tea.Model {
-  protocol?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeaders extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
     };
   }
 
@@ -6313,19 +7554,72 @@ export class UpdateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGe
 }
 
 export class UpdateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader extends $tea.Model {
-  value?: string;
   name?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       name: 'Name',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerPort extends $tea.Model {
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestContainerVolumeMount extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
     };
   }
 
@@ -6335,115 +7629,140 @@ export class UpdateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetH
 }
 
 export class UpdateContainerGroupRequestContainer extends $tea.Model {
+  livenessProbe: UpdateContainerGroupRequestContainerLivenessProbe;
   readinessProbe: UpdateContainerGroupRequestContainerReadinessProbe;
   securityContext: UpdateContainerGroupRequestContainerSecurityContext;
-  livenessProbe: UpdateContainerGroupRequestContainerLivenessProbe;
-  environmentVar?: UpdateContainerGroupRequestContainerEnvironmentVar[];
-  tty?: boolean;
-  workingDir?: string;
   arg?: string[];
-  stdin?: boolean;
-  volumeMount?: UpdateContainerGroupRequestContainerVolumeMount[];
-  imagePullPolicy?: string;
-  stdinOnce?: boolean;
-  lifecyclePreStopHandlerTcpSocketPort?: number;
-  lifecyclePostStartHandlerHttpGetScheme?: string;
   command?: string[];
-  lifecyclePostStartHandlerHttpGetHost?: string;
-  lifecyclePostStartHandlerTcpSocketPort?: number;
-  lifecyclePostStartHandlerHttpGetPath?: string;
-  lifecyclePostStartHandlerExec?: string[];
-  lifecyclePreStopHandlerHttpGetPath?: string;
-  port?: UpdateContainerGroupRequestContainerPort[];
-  lifecyclePreStopHandlerHttpGetScheme?: string;
-  lifecyclePostStartHandlerHttpGetHttpHeaders?: UpdateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeaders[];
-  lifecyclePostStartHandlerTcpSocketHost?: string;
+  cpu?: number;
+  environmentVar?: UpdateContainerGroupRequestContainerEnvironmentVar[];
   gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
+  lifecyclePostStartHandlerExec?: string[];
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  lifecyclePostStartHandlerHttpGetHttpHeaders?: UpdateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeaders[];
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  lifecyclePostStartHandlerTcpSocketPort?: number;
   lifecyclePreStopHandlerExec?: string[];
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  lifecyclePreStopHandlerHttpGetHttpHeader?: UpdateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader[];
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  lifecyclePreStopHandlerTcpSocketPort?: number;
   memory?: number;
   name?: string;
-  lifecyclePreStopHandlerHttpGetHost?: string;
-  lifecyclePreStopHandlerTcpSocketHost?: string;
-  image?: string;
-  lifecyclePreStopHandlerHttpGetPort?: number;
-  lifecyclePreStopHandlerHttpGetHttpHeader?: UpdateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader[];
-  cpu?: number;
-  lifecyclePostStartHandlerHttpGetPort?: number;
+  port?: UpdateContainerGroupRequestContainerPort[];
+  stdin?: boolean;
+  stdinOnce?: boolean;
+  tty?: boolean;
+  volumeMount?: UpdateContainerGroupRequestContainerVolumeMount[];
+  workingDir?: string;
   static names(): { [key: string]: string } {
     return {
+      livenessProbe: 'LivenessProbe',
       readinessProbe: 'ReadinessProbe',
       securityContext: 'SecurityContext',
-      livenessProbe: 'LivenessProbe',
-      environmentVar: 'EnvironmentVar',
-      tty: 'Tty',
-      workingDir: 'WorkingDir',
       arg: 'Arg',
-      stdin: 'Stdin',
-      volumeMount: 'VolumeMount',
-      imagePullPolicy: 'ImagePullPolicy',
-      stdinOnce: 'StdinOnce',
-      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
-      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
       command: 'Command',
-      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
-      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
-      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
-      lifecyclePostStartHandlerExec: 'LifecyclePostStartHandlerExec',
-      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
-      port: 'Port',
-      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
-      lifecyclePostStartHandlerHttpGetHttpHeaders: 'LifecyclePostStartHandlerHttpGetHttpHeaders',
-      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      cpu: 'Cpu',
+      environmentVar: 'EnvironmentVar',
       gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExec: 'LifecyclePostStartHandlerExec',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetHttpHeaders: 'LifecyclePostStartHandlerHttpGetHttpHeaders',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
       lifecyclePreStopHandlerExec: 'LifecyclePreStopHandlerExec',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetHttpHeader: 'LifecyclePreStopHandlerHttpGetHttpHeader',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
       memory: 'Memory',
       name: 'Name',
-      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
-      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
-      image: 'Image',
-      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
-      lifecyclePreStopHandlerHttpGetHttpHeader: 'LifecyclePreStopHandlerHttpGetHttpHeader',
-      cpu: 'Cpu',
-      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      port: 'Port',
+      stdin: 'Stdin',
+      stdinOnce: 'StdinOnce',
+      tty: 'Tty',
+      volumeMount: 'VolumeMount',
+      workingDir: 'WorkingDir',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      livenessProbe: UpdateContainerGroupRequestContainerLivenessProbe,
       readinessProbe: UpdateContainerGroupRequestContainerReadinessProbe,
       securityContext: UpdateContainerGroupRequestContainerSecurityContext,
-      livenessProbe: UpdateContainerGroupRequestContainerLivenessProbe,
-      environmentVar: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerEnvironmentVar },
-      tty: 'boolean',
-      workingDir: 'string',
       arg: { 'type': 'array', 'itemType': 'string' },
-      stdin: 'boolean',
-      volumeMount: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerVolumeMount },
-      imagePullPolicy: 'string',
-      stdinOnce: 'boolean',
-      lifecyclePreStopHandlerTcpSocketPort: 'number',
-      lifecyclePostStartHandlerHttpGetScheme: 'string',
       command: { 'type': 'array', 'itemType': 'string' },
-      lifecyclePostStartHandlerHttpGetHost: 'string',
-      lifecyclePostStartHandlerTcpSocketPort: 'number',
-      lifecyclePostStartHandlerHttpGetPath: 'string',
-      lifecyclePostStartHandlerExec: { 'type': 'array', 'itemType': 'string' },
-      lifecyclePreStopHandlerHttpGetPath: 'string',
-      port: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerPort },
-      lifecyclePreStopHandlerHttpGetScheme: 'string',
-      lifecyclePostStartHandlerHttpGetHttpHeaders: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeaders },
-      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      cpu: 'number',
+      environmentVar: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerEnvironmentVar },
       gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExec: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetHttpHeaders: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerLifecyclePostStartHandlerHttpGetHttpHeaders },
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
       lifecyclePreStopHandlerExec: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetHttpHeader: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader },
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
       memory: 'number',
       name: 'string',
-      lifecyclePreStopHandlerHttpGetHost: 'string',
-      lifecyclePreStopHandlerTcpSocketHost: 'string',
-      image: 'string',
-      lifecyclePreStopHandlerHttpGetPort: 'number',
-      lifecyclePreStopHandlerHttpGetHttpHeader: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerLifecyclePreStopHandlerHttpGetHttpHeader },
-      cpu: 'number',
-      lifecyclePostStartHandlerHttpGetPort: 'number',
+      port: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerPort },
+      stdin: 'boolean',
+      stdinOnce: 'boolean',
+      tty: 'boolean',
+      volumeMount: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainerVolumeMount },
+      workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestImageRegistryCredential extends $tea.Model {
+  password?: string;
+  server?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'Password',
+      server: 'Server',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      server: 'string',
+      userName: 'string',
     };
   }
 
@@ -6496,56 +7815,6 @@ export class UpdateContainerGroupRequestInitContainerSecurityContext extends $te
   }
 }
 
-export class UpdateContainerGroupRequestInitContainerVolumeMount extends $tea.Model {
-  mountPath?: string;
-  readOnly?: boolean;
-  subPath?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPath: 'MountPath',
-      readOnly: 'ReadOnly',
-      subPath: 'SubPath',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPath: 'string',
-      readOnly: 'boolean',
-      subPath: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContainerGroupRequestInitContainerPort extends $tea.Model {
-  protocol?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protocol: 'Protocol',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocol: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateContainerGroupRequestInitContainerEnvironmentVarFieldRef extends $tea.Model {
   fieldPath?: string;
   static names(): { [key: string]: string } {
@@ -6590,62 +7859,20 @@ export class UpdateContainerGroupRequestInitContainerEnvironmentVar extends $tea
   }
 }
 
-export class UpdateContainerGroupRequestInitContainer extends $tea.Model {
-  securityContext: UpdateContainerGroupRequestInitContainerSecurityContext;
-  image?: string;
-  volumeMount?: UpdateContainerGroupRequestInitContainerVolumeMount[];
-  port?: UpdateContainerGroupRequestInitContainerPort[];
-  environmentVar?: UpdateContainerGroupRequestInitContainerEnvironmentVar[];
-  imagePullPolicy?: string;
-  stdinOnce?: boolean;
-  cpu?: number;
-  tty?: boolean;
-  workingDir?: string;
-  command?: string[];
-  arg?: string[];
-  gpu?: number;
-  memory?: number;
-  stdin?: boolean;
-  name?: string;
+export class UpdateContainerGroupRequestInitContainerPort extends $tea.Model {
+  port?: number;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      securityContext: 'SecurityContext',
-      image: 'Image',
-      volumeMount: 'VolumeMount',
       port: 'Port',
-      environmentVar: 'EnvironmentVar',
-      imagePullPolicy: 'ImagePullPolicy',
-      stdinOnce: 'StdinOnce',
-      cpu: 'Cpu',
-      tty: 'Tty',
-      workingDir: 'WorkingDir',
-      command: 'Command',
-      arg: 'Arg',
-      gpu: 'Gpu',
-      memory: 'Memory',
-      stdin: 'Stdin',
-      name: 'Name',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityContext: UpdateContainerGroupRequestInitContainerSecurityContext,
-      image: 'string',
-      volumeMount: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainerVolumeMount },
-      port: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainerPort },
-      environmentVar: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainerEnvironmentVar },
-      imagePullPolicy: 'string',
-      stdinOnce: 'boolean',
-      cpu: 'number',
-      tty: 'boolean',
-      workingDir: 'string',
-      command: { 'type': 'array', 'itemType': 'string' },
-      arg: { 'type': 'array', 'itemType': 'string' },
-      gpu: 'number',
-      memory: 'number',
-      stdin: 'boolean',
-      name: 'string',
+      port: 'number',
+      protocol: 'string',
     };
   }
 
@@ -6654,7 +7881,324 @@ export class UpdateContainerGroupRequestInitContainer extends $tea.Model {
   }
 }
 
-export class UpdateContainerGroupRequestImageRegistryCredential extends $tea.Model {
+export class UpdateContainerGroupRequestInitContainerVolumeMount extends $tea.Model {
+  mountPath?: string;
+  mountPropagation?: string;
+  name?: string;
+  readOnly?: boolean;
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestInitContainer extends $tea.Model {
+  securityContext: UpdateContainerGroupRequestInitContainerSecurityContext;
+  arg?: string[];
+  command?: string[];
+  cpu?: number;
+  environmentVar?: UpdateContainerGroupRequestInitContainerEnvironmentVar[];
+  gpu?: number;
+  image?: string;
+  imagePullPolicy?: string;
+  memory?: number;
+  name?: string;
+  port?: UpdateContainerGroupRequestInitContainerPort[];
+  stdin?: boolean;
+  stdinOnce?: boolean;
+  tty?: boolean;
+  volumeMount?: UpdateContainerGroupRequestInitContainerVolumeMount[];
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityContext: 'SecurityContext',
+      arg: 'Arg',
+      command: 'Command',
+      cpu: 'Cpu',
+      environmentVar: 'EnvironmentVar',
+      gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      memory: 'Memory',
+      name: 'Name',
+      port: 'Port',
+      stdin: 'Stdin',
+      stdinOnce: 'StdinOnce',
+      tty: 'Tty',
+      volumeMount: 'VolumeMount',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityContext: UpdateContainerGroupRequestInitContainerSecurityContext,
+      arg: { 'type': 'array', 'itemType': 'string' },
+      command: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      environmentVar: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainerEnvironmentVar },
+      gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      memory: 'number',
+      name: 'string',
+      port: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainerPort },
+      stdin: 'boolean',
+      stdinOnce: 'boolean',
+      tty: 'boolean',
+      volumeMount: { 'type': 'array', 'itemType': UpdateContainerGroupRequestInitContainerVolumeMount },
+      workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath extends $tea.Model {
+  content?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolumeConfigFileVolume extends $tea.Model {
+  configFileToPath?: UpdateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath[];
+  static names(): { [key: string]: string } {
+    return {
+      configFileToPath: 'ConfigFileToPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileToPath: { 'type': 'array', 'itemType': UpdateContainerGroupRequestVolumeConfigFileVolumeConfigFileToPath },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolumeEmptyDirVolume extends $tea.Model {
+  medium?: string;
+  sizeLimit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      medium: 'Medium',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      medium: 'string',
+      sizeLimit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolumeFlexVolume extends $tea.Model {
+  driver?: string;
+  fsType?: string;
+  options?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driver: 'Driver',
+      fsType: 'FsType',
+      options: 'Options',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driver: 'string',
+      fsType: 'string',
+      options: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolumeHostPathVolume extends $tea.Model {
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolumeNFSVolume extends $tea.Model {
+  path?: string;
+  readOnly?: boolean;
+  server?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      readOnly: 'ReadOnly',
+      server: 'Server',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      readOnly: 'boolean',
+      server: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContainerGroupRequestVolume extends $tea.Model {
+  configFileVolume: UpdateContainerGroupRequestVolumeConfigFileVolume;
+  emptyDirVolume: UpdateContainerGroupRequestVolumeEmptyDirVolume;
+  flexVolume: UpdateContainerGroupRequestVolumeFlexVolume;
+  hostPathVolume: UpdateContainerGroupRequestVolumeHostPathVolume;
+  NFSVolume: UpdateContainerGroupRequestVolumeNFSVolume;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configFileVolume: 'ConfigFileVolume',
+      emptyDirVolume: 'EmptyDirVolume',
+      flexVolume: 'FlexVolume',
+      hostPathVolume: 'HostPathVolume',
+      NFSVolume: 'NFSVolume',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileVolume: UpdateContainerGroupRequestVolumeConfigFileVolume,
+      emptyDirVolume: UpdateContainerGroupRequestVolumeEmptyDirVolume,
+      flexVolume: UpdateContainerGroupRequestVolumeFlexVolume,
+      hostPathVolume: UpdateContainerGroupRequestVolumeHostPathVolume,
+      NFSVolume: UpdateContainerGroupRequestVolumeNFSVolume,
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageCacheRequestAcrRegistryInfo extends $tea.Model {
+  domain?: string[];
+  instanceId?: string;
+  instanceName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      instanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageCacheRequestImageRegistryCredential extends $tea.Model {
   password?: string;
   server?: string;
   userName?: string;
@@ -6671,6 +8215,50 @@ export class UpdateContainerGroupRequestImageRegistryCredential extends $tea.Mod
       password: 'string',
       server: 'string',
       userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageCacheRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualNodeRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -6704,10 +8292,278 @@ export default class Client extends OpenApi {
 
   async createContainerGroupWithOptions(request: CreateContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateContainerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acrRegistryInfo)) {
+      query["AcrRegistryInfo"] = request.acrRegistryInfo;
+    }
+
+    if (!Util.isUnset(request.activeDeadlineSeconds)) {
+      query["ActiveDeadlineSeconds"] = request.activeDeadlineSeconds;
+    }
+
+    if (!Util.isUnset(request.arn)) {
+      query["Arn"] = request.arn;
+    }
+
+    if (!Util.isUnset(request.autoCreateEip)) {
+      query["AutoCreateEip"] = request.autoCreateEip;
+    }
+
+    if (!Util.isUnset(request.autoMatchImageCache)) {
+      query["AutoMatchImageCache"] = request.autoMatchImageCache;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.container)) {
+      query["Container"] = request.container;
+    }
+
+    if (!Util.isUnset(request.containerGroupName)) {
+      query["ContainerGroupName"] = request.containerGroupName;
+    }
+
+    if (!Util.isUnset(request.corePattern)) {
+      query["CorePattern"] = request.corePattern;
+    }
+
+    if (!Util.isUnset(request.cpu)) {
+      query["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.cpuOptionsCore)) {
+      query["CpuOptionsCore"] = request.cpuOptionsCore;
+    }
+
+    if (!Util.isUnset(request.cpuOptionsNuma)) {
+      query["CpuOptionsNuma"] = request.cpuOptionsNuma;
+    }
+
+    if (!Util.isUnset(request.cpuOptionsThreadsPerCore)) {
+      query["CpuOptionsThreadsPerCore"] = request.cpuOptionsThreadsPerCore;
+    }
+
+    if (!Util.isUnset(request.dnsPolicy)) {
+      query["DnsPolicy"] = request.dnsPolicy;
+    }
+
+    if (!Util.isUnset(request.egressBandwidth)) {
+      query["EgressBandwidth"] = request.egressBandwidth;
+    }
+
+    if (!Util.isUnset(request.eipBandwidth)) {
+      query["EipBandwidth"] = request.eipBandwidth;
+    }
+
+    if (!Util.isUnset(request.eipCommonBandwidthPackage)) {
+      query["EipCommonBandwidthPackage"] = request.eipCommonBandwidthPackage;
+    }
+
+    if (!Util.isUnset(request.eipISP)) {
+      query["EipISP"] = request.eipISP;
+    }
+
+    if (!Util.isUnset(request.eipInstanceId)) {
+      query["EipInstanceId"] = request.eipInstanceId;
+    }
+
+    if (!Util.isUnset(request.ephemeralStorage)) {
+      query["EphemeralStorage"] = request.ephemeralStorage;
+    }
+
+    if (!Util.isUnset(request.hostAliase)) {
+      query["HostAliase"] = request.hostAliase;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.imageAccelerateMode)) {
+      query["ImageAccelerateMode"] = request.imageAccelerateMode;
+    }
+
+    if (!Util.isUnset(request.imageRegistryCredential)) {
+      query["ImageRegistryCredential"] = request.imageRegistryCredential;
+    }
+
+    if (!Util.isUnset(request.imageSnapshotId)) {
+      query["ImageSnapshotId"] = request.imageSnapshotId;
+    }
+
+    if (!Util.isUnset(request.ingressBandwidth)) {
+      query["IngressBandwidth"] = request.ingressBandwidth;
+    }
+
+    if (!Util.isUnset(request.initContainer)) {
+      query["InitContainer"] = request.initContainer;
+    }
+
+    if (!Util.isUnset(request.insecureRegistry)) {
+      query["InsecureRegistry"] = request.insecureRegistry;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.ipv6AddressCount)) {
+      query["Ipv6AddressCount"] = request.ipv6AddressCount;
+    }
+
+    if (!Util.isUnset(request.ipv6GatewayBandwidth)) {
+      query["Ipv6GatewayBandwidth"] = request.ipv6GatewayBandwidth;
+    }
+
+    if (!Util.isUnset(request.ipv6GatewayBandwidthEnable)) {
+      query["Ipv6GatewayBandwidthEnable"] = request.ipv6GatewayBandwidthEnable;
+    }
+
+    if (!Util.isUnset(request.memory)) {
+      query["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.ntpServer)) {
+      query["NtpServer"] = request.ntpServer;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.plainHttpRegistry)) {
+      query["PlainHttpRegistry"] = request.plainHttpRegistry;
+    }
+
+    if (!Util.isUnset(request.productOnEciMode)) {
+      query["ProductOnEciMode"] = request.productOnEciMode;
+    }
+
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.restartPolicy)) {
+      query["RestartPolicy"] = request.restartPolicy;
+    }
+
+    if (!Util.isUnset(request.scheduleStrategy)) {
+      query["ScheduleStrategy"] = request.scheduleStrategy;
+    }
+
+    if (!Util.isUnset(request.secondaryENIPolicy)) {
+      query["SecondaryENIPolicy"] = request.secondaryENIPolicy;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.shareProcessNamespace)) {
+      query["ShareProcessNamespace"] = request.shareProcessNamespace;
+    }
+
+    if (!Util.isUnset(request.slsEnable)) {
+      query["SlsEnable"] = request.slsEnable;
+    }
+
+    if (!Util.isUnset(request.spotDuration)) {
+      query["SpotDuration"] = request.spotDuration;
+    }
+
+    if (!Util.isUnset(request.spotPriceLimit)) {
+      query["SpotPriceLimit"] = request.spotPriceLimit;
+    }
+
+    if (!Util.isUnset(request.spotStrategy)) {
+      query["SpotStrategy"] = request.spotStrategy;
+    }
+
+    if (!Util.isUnset(request.strictSpot)) {
+      query["StrictSpot"] = request.strictSpot;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.tenantSecurityGroupId)) {
+      query["TenantSecurityGroupId"] = request.tenantSecurityGroupId;
+    }
+
+    if (!Util.isUnset(request.tenantVSwitchId)) {
+      query["TenantVSwitchId"] = request.tenantVSwitchId;
+    }
+
+    if (!Util.isUnset(request.terminationGracePeriodSeconds)) {
+      query["TerminationGracePeriodSeconds"] = request.terminationGracePeriodSeconds;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      query["Volume"] = request.volume;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.dnsConfig))) {
+      query["DnsConfig"] = request.dnsConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.hostSecurityContext))) {
+      query["HostSecurityContext"] = request.hostSecurityContext;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.securityContext))) {
+      query["SecurityContext"] = request.securityContext;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateContainerGroupResponse>(await this.doRPCRequest("CreateContainerGroup", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new CreateContainerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateContainerGroup",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateContainerGroupResponse>(await this.callApi(params, req, runtime), new CreateContainerGroupResponse({}));
   }
 
   async createContainerGroup(request: CreateContainerGroupRequest): Promise<CreateContainerGroupResponse> {
@@ -6717,10 +8573,130 @@ export default class Client extends OpenApi {
 
   async createImageCacheWithOptions(request: CreateImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageCacheResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acrRegistryInfo)) {
+      query["AcrRegistryInfo"] = request.acrRegistryInfo;
+    }
+
+    if (!Util.isUnset(request.annotations)) {
+      query["Annotations"] = request.annotations;
+    }
+
+    if (!Util.isUnset(request.autoMatchImageCache)) {
+      query["AutoMatchImageCache"] = request.autoMatchImageCache;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.eipInstanceId)) {
+      query["EipInstanceId"] = request.eipInstanceId;
+    }
+
+    if (!Util.isUnset(request.eliminationStrategy)) {
+      query["EliminationStrategy"] = request.eliminationStrategy;
+    }
+
+    if (!Util.isUnset(request.flash)) {
+      query["Flash"] = request.flash;
+    }
+
+    if (!Util.isUnset(request.flashCopyCount)) {
+      query["FlashCopyCount"] = request.flashCopyCount;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
+    if (!Util.isUnset(request.imageCacheName)) {
+      query["ImageCacheName"] = request.imageCacheName;
+    }
+
+    if (!Util.isUnset(request.imageCacheSize)) {
+      query["ImageCacheSize"] = request.imageCacheSize;
+    }
+
+    if (!Util.isUnset(request.imageRegistryCredential)) {
+      query["ImageRegistryCredential"] = request.imageRegistryCredential;
+    }
+
+    if (!Util.isUnset(request.insecureRegistry)) {
+      query["InsecureRegistry"] = request.insecureRegistry;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.plainHttpRegistry)) {
+      query["PlainHttpRegistry"] = request.plainHttpRegistry;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.standardCopyCount)) {
+      query["StandardCopyCount"] = request.standardCopyCount;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateImageCacheResponse>(await this.doRPCRequest("CreateImageCache", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new CreateImageCacheResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateImageCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageCacheResponse>(await this.callApi(params, req, runtime), new CreateImageCacheResponse({}));
   }
 
   async createImageCache(request: CreateImageCacheRequest): Promise<CreateImageCacheResponse> {
@@ -6728,12 +8704,218 @@ export default class Client extends OpenApi {
     return await this.createImageCacheWithOptions(request, runtime);
   }
 
+  async createInstanceOpsTaskWithOptions(request: CreateInstanceOpsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceOpsTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.opsType)) {
+      query["OpsType"] = request.opsType;
+    }
+
+    if (!Util.isUnset(request.opsValue)) {
+      query["OpsValue"] = request.opsValue;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceOpsTask",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceOpsTaskResponse>(await this.callApi(params, req, runtime), new CreateInstanceOpsTaskResponse({}));
+  }
+
+  async createInstanceOpsTask(request: CreateInstanceOpsTaskRequest): Promise<CreateInstanceOpsTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createInstanceOpsTaskWithOptions(request, runtime);
+  }
+
+  async createVirtualNodeWithOptions(request: CreateVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualNodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.eipInstanceId)) {
+      query["EipInstanceId"] = request.eipInstanceId;
+    }
+
+    if (!Util.isUnset(request.enablePublicNetwork)) {
+      query["EnablePublicNetwork"] = request.enablePublicNetwork;
+    }
+
+    if (!Util.isUnset(request.kubeConfig)) {
+      query["KubeConfig"] = request.kubeConfig;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.rotateCertificateEnabled)) {
+      query["RotateCertificateEnabled"] = request.rotateCertificateEnabled;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.taint)) {
+      query["Taint"] = request.taint;
+    }
+
+    if (!Util.isUnset(request.tlsBootstrapEnabled)) {
+      query["TlsBootstrapEnabled"] = request.tlsBootstrapEnabled;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.virtualNodeName)) {
+      query["VirtualNodeName"] = request.virtualNodeName;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVirtualNode",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVirtualNodeResponse>(await this.callApi(params, req, runtime), new CreateVirtualNodeResponse({}));
+  }
+
+  async createVirtualNode(request: CreateVirtualNodeRequest): Promise<CreateVirtualNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVirtualNodeWithOptions(request, runtime);
+  }
+
   async deleteContainerGroupWithOptions(request: DeleteContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContainerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteContainerGroupResponse>(await this.doRPCRequest("DeleteContainerGroup", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteContainerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteContainerGroup",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteContainerGroupResponse>(await this.callApi(params, req, runtime), new DeleteContainerGroupResponse({}));
   }
 
   async deleteContainerGroup(request: DeleteContainerGroupRequest): Promise<DeleteContainerGroupResponse> {
@@ -6743,10 +8925,54 @@ export default class Client extends OpenApi {
 
   async deleteImageCacheWithOptions(request: DeleteImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageCacheResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.imageCacheId)) {
+      query["ImageCacheId"] = request.imageCacheId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteImageCacheResponse>(await this.doRPCRequest("DeleteImageCache", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteImageCacheResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteImageCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteImageCacheResponse>(await this.callApi(params, req, runtime), new DeleteImageCacheResponse({}));
   }
 
   async deleteImageCache(request: DeleteImageCacheRequest): Promise<DeleteImageCacheResponse> {
@@ -6754,12 +8980,247 @@ export default class Client extends OpenApi {
     return await this.deleteImageCacheWithOptions(request, runtime);
   }
 
+  async deleteVirtualNodeWithOptions(request: DeleteVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualNodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.virtualNodeId)) {
+      query["VirtualNodeId"] = request.virtualNodeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVirtualNode",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVirtualNodeResponse>(await this.callApi(params, req, runtime), new DeleteVirtualNodeResponse({}));
+  }
+
+  async deleteVirtualNode(request: DeleteVirtualNodeRequest): Promise<DeleteVirtualNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVirtualNodeWithOptions(request, runtime);
+  }
+
+  async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset($tea.toMap(request.destinationResource))) {
+      query["DestinationResource"] = request.destinationResource;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.spotResource))) {
+      query["SpotResource"] = request.spotResource;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableResource",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
+  }
+
+  async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAvailableResourceWithOptions(request, runtime);
+  }
+
+  async describeContainerGroupEventsWithOptions(request: DescribeContainerGroupEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.condition)) {
+      query["Condition"] = request.condition;
+    }
+
+    if (!Util.isUnset(request.containerGroupIds)) {
+      query["ContainerGroupIds"] = request.containerGroupIds;
+    }
+
+    if (!Util.isUnset(request.eventSource)) {
+      query["EventSource"] = request.eventSource;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sinceSecond)) {
+      query["SinceSecond"] = request.sinceSecond;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerGroupEvents",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerGroupEventsResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupEventsResponse({}));
+  }
+
+  async describeContainerGroupEvents(request: DescribeContainerGroupEventsRequest): Promise<DescribeContainerGroupEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeContainerGroupEventsWithOptions(request, runtime);
+  }
+
   async describeContainerGroupMetricWithOptions(request: DescribeContainerGroupMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupMetricResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeContainerGroupMetricResponse>(await this.doRPCRequest("DescribeContainerGroupMetric", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeContainerGroupMetricResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerGroupMetric",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerGroupMetricResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupMetricResponse({}));
   }
 
   async describeContainerGroupMetric(request: DescribeContainerGroupMetricRequest): Promise<DescribeContainerGroupMetricResponse> {
@@ -6769,10 +9230,74 @@ export default class Client extends OpenApi {
 
   async describeContainerGroupPriceWithOptions(request: DescribeContainerGroupPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupPriceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cpu)) {
+      query["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.ephemeralStorage)) {
+      query["EphemeralStorage"] = request.ephemeralStorage;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.memory)) {
+      query["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.spotPriceLimit)) {
+      query["SpotPriceLimit"] = request.spotPriceLimit;
+    }
+
+    if (!Util.isUnset(request.spotStrategy)) {
+      query["SpotStrategy"] = request.spotStrategy;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeContainerGroupPriceResponse>(await this.doRPCRequest("DescribeContainerGroupPrice", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeContainerGroupPriceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerGroupPrice",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerGroupPriceResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupPriceResponse({}));
   }
 
   async describeContainerGroupPrice(request: DescribeContainerGroupPriceRequest): Promise<DescribeContainerGroupPriceResponse> {
@@ -6780,12 +9305,153 @@ export default class Client extends OpenApi {
     return await this.describeContainerGroupPriceWithOptions(request, runtime);
   }
 
+  async describeContainerGroupStatusWithOptions(request: DescribeContainerGroupStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.condition)) {
+      query["Condition"] = request.condition;
+    }
+
+    if (!Util.isUnset(request.containerGroupIds)) {
+      query["ContainerGroupIds"] = request.containerGroupIds;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sinceSecond)) {
+      query["SinceSecond"] = request.sinceSecond;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerGroupStatus",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerGroupStatusResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupStatusResponse({}));
+  }
+
+  async describeContainerGroupStatus(request: DescribeContainerGroupStatusRequest): Promise<DescribeContainerGroupStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeContainerGroupStatusWithOptions(request, runtime);
+  }
+
   async describeContainerGroupsWithOptions(request: DescribeContainerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupIds)) {
+      query["ContainerGroupIds"] = request.containerGroupIds;
+    }
+
+    if (!Util.isUnset(request.containerGroupName)) {
+      query["ContainerGroupName"] = request.containerGroupName;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.withEvent)) {
+      query["WithEvent"] = request.withEvent;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeContainerGroupsResponse>(await this.doRPCRequest("DescribeContainerGroups", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeContainerGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerGroups",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerGroupsResponse>(await this.callApi(params, req, runtime), new DescribeContainerGroupsResponse({}));
   }
 
   async describeContainerGroups(request: DescribeContainerGroupsRequest): Promise<DescribeContainerGroupsResponse> {
@@ -6795,10 +9461,74 @@ export default class Client extends OpenApi {
 
   async describeContainerLogWithOptions(request: DescribeContainerLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
+    if (!Util.isUnset(request.lastTime)) {
+      query["LastTime"] = request.lastTime;
+    }
+
+    if (!Util.isUnset(request.limitBytes)) {
+      query["LimitBytes"] = request.limitBytes;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sinceSeconds)) {
+      query["SinceSeconds"] = request.sinceSeconds;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tail)) {
+      query["Tail"] = request.tail;
+    }
+
+    if (!Util.isUnset(request.timestamps)) {
+      query["Timestamps"] = request.timestamps;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeContainerLogResponse>(await this.doRPCRequest("DescribeContainerLog", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeContainerLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerLog",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerLogResponse>(await this.callApi(params, req, runtime), new DescribeContainerLogResponse({}));
   }
 
   async describeContainerLog(request: DescribeContainerLogRequest): Promise<DescribeContainerLogResponse> {
@@ -6808,10 +9538,74 @@ export default class Client extends OpenApi {
 
   async describeImageCachesWithOptions(request: DescribeImageCachesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageCachesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
+    if (!Util.isUnset(request.imageCacheId)) {
+      query["ImageCacheId"] = request.imageCacheId;
+    }
+
+    if (!Util.isUnset(request.imageCacheName)) {
+      query["ImageCacheName"] = request.imageCacheName;
+    }
+
+    if (!Util.isUnset(request.matchImage)) {
+      query["MatchImage"] = request.matchImage;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeImageCachesResponse>(await this.doRPCRequest("DescribeImageCaches", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageCachesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImageCaches",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageCachesResponse>(await this.callApi(params, req, runtime), new DescribeImageCachesResponse({}));
   }
 
   async describeImageCaches(request: DescribeImageCachesRequest): Promise<DescribeImageCachesResponse> {
@@ -6819,12 +9613,113 @@ export default class Client extends OpenApi {
     return await this.describeImageCachesWithOptions(request, runtime);
   }
 
+  async describeInstanceOpsRecordsWithOptions(request: DescribeInstanceOpsRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceOpsRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.opsType)) {
+      query["OpsType"] = request.opsType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceOpsRecords",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceOpsRecordsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceOpsRecordsResponse({}));
+  }
+
+  async describeInstanceOpsRecords(request: DescribeInstanceOpsRecordsRequest): Promise<DescribeInstanceOpsRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceOpsRecordsWithOptions(request, runtime);
+  }
+
   async describeMultiContainerGroupMetricWithOptions(request: DescribeMultiContainerGroupMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiContainerGroupMetricResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.containerGroupIds)) {
+      query["ContainerGroupIds"] = request.containerGroupIds;
+    }
+
+    if (!Util.isUnset(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeMultiContainerGroupMetricResponse>(await this.doRPCRequest("DescribeMultiContainerGroupMetric", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMultiContainerGroupMetricResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMultiContainerGroupMetric",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMultiContainerGroupMetricResponse>(await this.callApi(params, req, runtime), new DescribeMultiContainerGroupMetricResponse({}));
   }
 
   async describeMultiContainerGroupMetric(request: DescribeMultiContainerGroupMetricRequest): Promise<DescribeMultiContainerGroupMetricResponse> {
@@ -6834,10 +9729,46 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -6845,12 +9776,165 @@ export default class Client extends OpenApi {
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  async describeVirtualNodesWithOptions(request: DescribeVirtualNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualNodesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.virtualNodeIds)) {
+      query["VirtualNodeIds"] = request.virtualNodeIds;
+    }
+
+    if (!Util.isUnset(request.virtualNodeName)) {
+      query["VirtualNodeName"] = request.virtualNodeName;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVirtualNodes",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVirtualNodesResponse>(await this.callApi(params, req, runtime), new DescribeVirtualNodesResponse({}));
+  }
+
+  async describeVirtualNodes(request: DescribeVirtualNodesRequest): Promise<DescribeVirtualNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVirtualNodesWithOptions(request, runtime);
+  }
+
   async execContainerCommandWithOptions(request: ExecContainerCommandRequest, runtime: $Util.RuntimeOptions): Promise<ExecContainerCommandResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.command)) {
+      query["Command"] = request.command;
+    }
+
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.stdin)) {
+      query["Stdin"] = request.stdin;
+    }
+
+    if (!Util.isUnset(request.sync)) {
+      query["Sync"] = request.sync;
+    }
+
+    if (!Util.isUnset(request.TTY)) {
+      query["TTY"] = request.TTY;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ExecContainerCommandResponse>(await this.doRPCRequest("ExecContainerCommand", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new ExecContainerCommandResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecContainerCommand",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecContainerCommandResponse>(await this.callApi(params, req, runtime), new ExecContainerCommandResponse({}));
   }
 
   async execContainerCommand(request: ExecContainerCommandRequest): Promise<ExecContainerCommandResponse> {
@@ -6860,10 +9944,46 @@ export default class Client extends OpenApi {
 
   async listUsageWithOptions(request: ListUsageRequest, runtime: $Util.RuntimeOptions): Promise<ListUsageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUsageResponse>(await this.doRPCRequest("ListUsage", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new ListUsageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUsage",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsageResponse>(await this.callApi(params, req, runtime), new ListUsageResponse({}));
   }
 
   async listUsage(request: ListUsageRequest): Promise<ListUsageResponse> {
@@ -6871,12 +9991,121 @@ export default class Client extends OpenApi {
     return await this.listUsageWithOptions(request, runtime);
   }
 
+  async resizeContainerGroupVolumeWithOptions(request: ResizeContainerGroupVolumeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeContainerGroupVolumeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.newSize)) {
+      query["NewSize"] = request.newSize;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.volumeName)) {
+      query["VolumeName"] = request.volumeName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResizeContainerGroupVolume",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResizeContainerGroupVolumeResponse>(await this.callApi(params, req, runtime), new ResizeContainerGroupVolumeResponse({}));
+  }
+
+  async resizeContainerGroupVolume(request: ResizeContainerGroupVolumeRequest): Promise<ResizeContainerGroupVolumeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resizeContainerGroupVolumeWithOptions(request, runtime);
+  }
+
   async restartContainerGroupWithOptions(request: RestartContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<RestartContainerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RestartContainerGroupResponse>(await this.doRPCRequest("RestartContainerGroup", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new RestartContainerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestartContainerGroup",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartContainerGroupResponse>(await this.callApi(params, req, runtime), new RestartContainerGroupResponse({}));
   }
 
   async restartContainerGroup(request: RestartContainerGroupRequest): Promise<RestartContainerGroupResponse> {
@@ -6886,15 +10115,301 @@ export default class Client extends OpenApi {
 
   async updateContainerGroupWithOptions(request: UpdateContainerGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateContainerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.container)) {
+      query["Container"] = request.container;
+    }
+
+    if (!Util.isUnset(request.containerGroupId)) {
+      query["ContainerGroupId"] = request.containerGroupId;
+    }
+
+    if (!Util.isUnset(request.cpu)) {
+      query["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.imageRegistryCredential)) {
+      query["ImageRegistryCredential"] = request.imageRegistryCredential;
+    }
+
+    if (!Util.isUnset(request.initContainer)) {
+      query["InitContainer"] = request.initContainer;
+    }
+
+    if (!Util.isUnset(request.memory)) {
+      query["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.restartPolicy)) {
+      query["RestartPolicy"] = request.restartPolicy;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.updateType)) {
+      query["UpdateType"] = request.updateType;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      query["Volume"] = request.volume;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.dnsConfig))) {
+      query["DnsConfig"] = request.dnsConfig;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateContainerGroupResponse>(await this.doRPCRequest("UpdateContainerGroup", "2018-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateContainerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateContainerGroup",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateContainerGroupResponse>(await this.callApi(params, req, runtime), new UpdateContainerGroupResponse({}));
   }
 
   async updateContainerGroup(request: UpdateContainerGroupRequest): Promise<UpdateContainerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateContainerGroupWithOptions(request, runtime);
+  }
+
+  async updateImageCacheWithOptions(request: UpdateImageCacheRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageCacheResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acrRegistryInfo)) {
+      query["AcrRegistryInfo"] = request.acrRegistryInfo;
+    }
+
+    if (!Util.isUnset(request.autoMatchImageCache)) {
+      query["AutoMatchImageCache"] = request.autoMatchImageCache;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.eipInstanceId)) {
+      query["EipInstanceId"] = request.eipInstanceId;
+    }
+
+    if (!Util.isUnset(request.eliminationStrategy)) {
+      query["EliminationStrategy"] = request.eliminationStrategy;
+    }
+
+    if (!Util.isUnset(request.flash)) {
+      query["Flash"] = request.flash;
+    }
+
+    if (!Util.isUnset(request.flashCopyCount)) {
+      query["FlashCopyCount"] = request.flashCopyCount;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
+    if (!Util.isUnset(request.imageCacheId)) {
+      query["ImageCacheId"] = request.imageCacheId;
+    }
+
+    if (!Util.isUnset(request.imageCacheName)) {
+      query["ImageCacheName"] = request.imageCacheName;
+    }
+
+    if (!Util.isUnset(request.imageCacheSize)) {
+      query["ImageCacheSize"] = request.imageCacheSize;
+    }
+
+    if (!Util.isUnset(request.imageRegistryCredential)) {
+      query["ImageRegistryCredential"] = request.imageRegistryCredential;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.standardCopyCount)) {
+      query["StandardCopyCount"] = request.standardCopyCount;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateImageCache",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateImageCacheResponse>(await this.callApi(params, req, runtime), new UpdateImageCacheResponse({}));
+  }
+
+  async updateImageCache(request: UpdateImageCacheRequest): Promise<UpdateImageCacheResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateImageCacheWithOptions(request, runtime);
+  }
+
+  async updateVirtualNodeWithOptions(request: UpdateVirtualNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualNodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.virtualNodeId)) {
+      query["VirtualNodeId"] = request.virtualNodeId;
+    }
+
+    if (!Util.isUnset(request.virtualNodeName)) {
+      query["VirtualNodeName"] = request.virtualNodeName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateVirtualNode",
+      version: "2018-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVirtualNodeResponse>(await this.callApi(params, req, runtime), new UpdateVirtualNodeResponse({}));
+  }
+
+  async updateVirtualNode(request: UpdateVirtualNodeRequest): Promise<UpdateVirtualNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateVirtualNodeWithOptions(request, runtime);
   }
 
 }
