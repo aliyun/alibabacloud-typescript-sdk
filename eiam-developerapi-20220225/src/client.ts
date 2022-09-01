@@ -1134,6 +1134,91 @@ export class GetUserIdByUserExternalIdResponse extends $tea.Model {
   }
 }
 
+export class GetUserIdByUsernameHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUsernameRequest extends $tea.Model {
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUsernameResponseBody extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserIdByUsernameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserIdByUsernameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserIdByUsernameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserInfoHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   authorization?: string;
@@ -2410,6 +2495,48 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetUserIdByUserExternalIdResponse>(await this.callApi(params, req, runtime), new GetUserIdByUserExternalIdResponse({}));
+  }
+
+  async getUserIdByUsername(instanceId: string, applicationId: string, request: GetUserIdByUsernameRequest): Promise<GetUserIdByUsernameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserIdByUsernameHeaders({ });
+    return await this.getUserIdByUsernameWithOptions(instanceId, applicationId, request, headers, runtime);
+  }
+
+  async getUserIdByUsernameWithOptions(instanceId: string, applicationId: string, request: GetUserIdByUsernameRequest, headers: GetUserIdByUsernameHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserIdByUsernameResponse> {
+    Util.validateModel(request);
+    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    applicationId = OpenApiUtil.getEncodeParam(applicationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.username)) {
+      body["username"] = request.username;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserIdByUsername",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${instanceId}/${applicationId}/users/_/actions/getUserIdByUsername`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserIdByUsernameResponse>(await this.callApi(params, req, runtime), new GetUserIdByUsernameResponse({}));
   }
 
   async getUserInfo(instanceId: string, applicationId: string): Promise<GetUserInfoResponse> {
