@@ -77,81 +77,6 @@ export class CancelReserveTaskResponse extends $tea.Model {
   }
 }
 
-export class CancelUploadTaskRequest extends $tea.Model {
-  appId?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelUploadTaskResponseBody extends $tea.Model {
-  code?: string;
-  data?: boolean;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelUploadTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelUploadTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelUploadTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateAdaptationRequest extends $tea.Model {
   adaptTarget?: CreateAdaptationRequestAdaptTarget;
   appVersionId?: string;
@@ -512,24 +437,28 @@ export class CreateAppSessionBatchSyncResponse extends $tea.Model {
 }
 
 export class CreateAppSessionSyncRequest extends $tea.Model {
+  adapterFileId?: string;
   appId?: string;
   appVersion?: string;
   clientIp?: string;
   customSessionId?: string;
   customUserId?: string;
   districtId?: string;
+  matchRules?: CreateAppSessionSyncRequestMatchRules[];
   projectId?: string;
   startParameters?: CreateAppSessionSyncRequestStartParameters[];
   systemInfo?: CreateAppSessionSyncRequestSystemInfo[];
   tags?: CreateAppSessionSyncRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      adapterFileId: 'AdapterFileId',
       appId: 'AppId',
       appVersion: 'AppVersion',
       clientIp: 'ClientIp',
       customSessionId: 'CustomSessionId',
       customUserId: 'CustomUserId',
       districtId: 'DistrictId',
+      matchRules: 'MatchRules',
       projectId: 'ProjectId',
       startParameters: 'StartParameters',
       systemInfo: 'SystemInfo',
@@ -539,12 +468,14 @@ export class CreateAppSessionSyncRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adapterFileId: 'string',
       appId: 'string',
       appVersion: 'string',
       clientIp: 'string',
       customSessionId: 'string',
       customUserId: 'string',
       districtId: 'string',
+      matchRules: { 'type': 'array', 'itemType': CreateAppSessionSyncRequestMatchRules },
       projectId: 'string',
       startParameters: { 'type': 'array', 'itemType': CreateAppSessionSyncRequestStartParameters },
       systemInfo: { 'type': 'array', 'itemType': CreateAppSessionSyncRequestSystemInfo },
@@ -1966,81 +1897,6 @@ export class ModifyAppVersionResponse extends $tea.Model {
   }
 }
 
-export class QueryOfflineTaskProgressRequest extends $tea.Model {
-  appId?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOfflineTaskProgressResponseBody extends $tea.Model {
-  code?: string;
-  data?: QueryOfflineTaskProgressResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: QueryOfflineTaskProgressResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOfflineTaskProgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOfflineTaskProgressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryOfflineTaskProgressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ReleaseCapacityRequest extends $tea.Model {
   appId?: string;
   appVersion?: string;
@@ -2346,87 +2202,6 @@ export class StopAppSessionBatchResponse extends $tea.Model {
   }
 }
 
-export class SubmitOfflineTaskRequest extends $tea.Model {
-  appId?: string;
-  appType?: string;
-  uri?: string;
-  versionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appType: 'AppType',
-      uri: 'Uri',
-      versionId: 'VersionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appType: 'string',
-      uri: 'string',
-      versionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOfflineTaskResponseBody extends $tea.Model {
-  code?: string;
-  data?: boolean;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOfflineTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitOfflineTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitOfflineTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateAdaptationRequestAdaptTarget extends $tea.Model {
   bitRate?: number;
   frameRate?: number;
@@ -2491,6 +2266,31 @@ export class CreateAppSessionRequestSystemInfo extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchSyncRequestAppInfosMatchRules extends $tea.Model {
+  key?: string;
+  type?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      type: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2566,24 +2366,28 @@ export class CreateAppSessionBatchSyncRequestAppInfosTags extends $tea.Model {
 }
 
 export class CreateAppSessionBatchSyncRequestAppInfos extends $tea.Model {
+  adapterFileId?: string;
   appId?: string;
   appVersion?: string;
   clientIp?: string;
   customUserId?: string;
   customerSessionId?: string;
   districtId?: string;
+  matchRules?: CreateAppSessionBatchSyncRequestAppInfosMatchRules[];
   projectId?: string;
   startParameters?: CreateAppSessionBatchSyncRequestAppInfosStartParameters[];
   systemInfo?: CreateAppSessionBatchSyncRequestAppInfosSystemInfo[];
   tags?: CreateAppSessionBatchSyncRequestAppInfosTags[];
   static names(): { [key: string]: string } {
     return {
+      adapterFileId: 'AdapterFileId',
       appId: 'AppId',
       appVersion: 'AppVersion',
       clientIp: 'ClientIp',
       customUserId: 'CustomUserId',
       customerSessionId: 'CustomerSessionId',
       districtId: 'DistrictId',
+      matchRules: 'MatchRules',
       projectId: 'ProjectId',
       startParameters: 'StartParameters',
       systemInfo: 'SystemInfo',
@@ -2593,12 +2397,14 @@ export class CreateAppSessionBatchSyncRequestAppInfos extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adapterFileId: 'string',
       appId: 'string',
       appVersion: 'string',
       clientIp: 'string',
       customUserId: 'string',
       customerSessionId: 'string',
       districtId: 'string',
+      matchRules: { 'type': 'array', 'itemType': CreateAppSessionBatchSyncRequestAppInfosMatchRules },
       projectId: 'string',
       startParameters: { 'type': 'array', 'itemType': CreateAppSessionBatchSyncRequestAppInfosStartParameters },
       systemInfo: { 'type': 'array', 'itemType': CreateAppSessionBatchSyncRequestAppInfosSystemInfo },
@@ -2737,6 +2543,31 @@ export class CreateAppSessionBatchSyncResponseBodyResultList extends $tea.Model 
       bizInfo: CreateAppSessionBatchSyncResponseBodyResultListBizInfo,
       customSessionId: 'string',
       platformSessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionSyncRequestMatchRules extends $tea.Model {
+  key?: string;
+  type?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      type: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3140,34 +2971,6 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
   }
 }
 
-export class QueryOfflineTaskProgressResponseBodyData extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  progress?: number;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      progress: 'Progress',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      progress: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StopAppSessionRequestStopParam extends $tea.Model {
   key?: string;
   value?: any;
@@ -3310,39 +3113,6 @@ export default class Client extends OpenApi {
   async cancelReserveTask(request: CancelReserveTaskRequest): Promise<CancelReserveTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelReserveTaskWithOptions(request, runtime);
-  }
-
-  async cancelUploadTaskWithOptions(request: CancelUploadTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelUploadTaskResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.versionId)) {
-      body["VersionId"] = request.versionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CancelUploadTask",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelUploadTaskResponse>(await this.callApi(params, req, runtime), new CancelUploadTaskResponse({}));
-  }
-
-  async cancelUploadTask(request: CancelUploadTaskRequest): Promise<CancelUploadTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelUploadTaskWithOptions(request, runtime);
   }
 
   async createAdaptationWithOptions(tmpReq: CreateAdaptationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdaptationResponse> {
@@ -3524,6 +3294,10 @@ export default class Client extends OpenApi {
   async createAppSessionSyncWithOptions(request: CreateAppSessionSyncRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionSyncResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.adapterFileId)) {
+      query["AdapterFileId"] = request.adapterFileId;
+    }
+
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -3546,6 +3320,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.districtId)) {
       query["DistrictId"] = request.districtId;
+    }
+
+    if (!Util.isUnset(request.matchRules)) {
+      query["MatchRules"] = request.matchRules;
     }
 
     if (!Util.isUnset(request.projectId)) {
@@ -4179,39 +3957,6 @@ export default class Client extends OpenApi {
     return await this.modifyAppVersionWithOptions(request, runtime);
   }
 
-  async queryOfflineTaskProgressWithOptions(request: QueryOfflineTaskProgressRequest, runtime: $Util.RuntimeOptions): Promise<QueryOfflineTaskProgressResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.versionId)) {
-      body["VersionId"] = request.versionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryOfflineTaskProgress",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryOfflineTaskProgressResponse>(await this.callApi(params, req, runtime), new QueryOfflineTaskProgressResponse({}));
-  }
-
-  async queryOfflineTaskProgress(request: QueryOfflineTaskProgressRequest): Promise<QueryOfflineTaskProgressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryOfflineTaskProgressWithOptions(request, runtime);
-  }
-
   async releaseCapacityWithOptions(request: ReleaseCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCapacityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4353,47 +4098,6 @@ export default class Client extends OpenApi {
   async stopAppSessionBatch(request: StopAppSessionBatchRequest): Promise<StopAppSessionBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAppSessionBatchWithOptions(request, runtime);
-  }
-
-  async submitOfflineTaskWithOptions(request: SubmitOfflineTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOfflineTaskResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.appType)) {
-      body["AppType"] = request.appType;
-    }
-
-    if (!Util.isUnset(request.uri)) {
-      body["Uri"] = request.uri;
-    }
-
-    if (!Util.isUnset(request.versionId)) {
-      body["VersionId"] = request.versionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "SubmitOfflineTask",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SubmitOfflineTaskResponse>(await this.callApi(params, req, runtime), new SubmitOfflineTaskResponse({}));
-  }
-
-  async submitOfflineTask(request: SubmitOfflineTaskRequest): Promise<SubmitOfflineTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitOfflineTaskWithOptions(request, runtime);
   }
 
 }
