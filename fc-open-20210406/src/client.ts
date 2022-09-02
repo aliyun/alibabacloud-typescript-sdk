@@ -239,6 +239,40 @@ export class CustomDNS extends $tea.Model {
   }
 }
 
+export class CustomHealthCheckConfig extends $tea.Model {
+  failureThreshold?: number;
+  httpGetUrl?: string;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failureThreshold: 'failureThreshold',
+      httpGetUrl: 'httpGetUrl',
+      initialDelaySeconds: 'initialDelaySeconds',
+      periodSeconds: 'periodSeconds',
+      successThreshold: 'successThreshold',
+      timeoutSeconds: 'timeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureThreshold: 'number',
+      httpGetUrl: 'string',
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      timeoutSeconds: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CustomRuntimeConfig extends $tea.Model {
   args?: string[];
   command?: string[];
@@ -775,6 +809,25 @@ export class NASConfig extends $tea.Model {
       groupId: 'number',
       mountPoints: { 'type': 'array', 'itemType': NASConfigMountPoints },
       userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSMountConfig extends $tea.Model {
+  mountPoints?: OSSMountConfigMountPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      mountPoints: 'mountPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPoints: { 'type': 'array', 'itemType': OSSMountConfigMountPoints },
     };
   }
 
@@ -1500,6 +1553,127 @@ export class VendorConfig extends $tea.Model {
   }
 }
 
+export class ClaimGPUInstanceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcDate?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcDate: 'X-Fc-Date',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcDate: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimGPUInstanceRequest extends $tea.Model {
+  diskPerformanceLevel?: string;
+  diskSizeGigabytes?: string;
+  imageId?: string;
+  instanceType?: string;
+  internetBandwidthOut?: string;
+  password?: string;
+  sourceCidrIp?: string;
+  tcpPortRange?: string[];
+  udpPortRange?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      diskPerformanceLevel: 'diskPerformanceLevel',
+      diskSizeGigabytes: 'diskSizeGigabytes',
+      imageId: 'imageId',
+      instanceType: 'instanceType',
+      internetBandwidthOut: 'internetBandwidthOut',
+      password: 'password',
+      sourceCidrIp: 'sourceCidrIp',
+      tcpPortRange: 'tcpPortRange',
+      udpPortRange: 'udpPortRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskPerformanceLevel: 'string',
+      diskSizeGigabytes: 'string',
+      imageId: 'string',
+      instanceType: 'string',
+      internetBandwidthOut: 'string',
+      password: 'string',
+      sourceCidrIp: 'string',
+      tcpPortRange: { 'type': 'array', 'itemType': 'string' },
+      udpPortRange: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimGPUInstanceResponseBody extends $tea.Model {
+  createdTime?: string;
+  instanceId?: string;
+  publicIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      instanceId: 'instanceId',
+      publicIp: 'publicIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      instanceId: 'string',
+      publicIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClaimGPUInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ClaimGPUInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClaimGPUInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
@@ -1784,6 +1958,7 @@ export class CreateFunctionRequest extends $tea.Model {
   code?: Code;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
+  customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   environmentVariables?: { [key: string]: string };
@@ -1805,6 +1980,7 @@ export class CreateFunctionRequest extends $tea.Model {
       code: 'code',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
+      customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       environmentVariables: 'environmentVariables',
@@ -1829,6 +2005,7 @@ export class CreateFunctionRequest extends $tea.Model {
       code: Code,
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
+      customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -1859,6 +2036,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
+  customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   environmentVariables?: { [key: string]: string };
@@ -1884,6 +2062,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
+      customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       environmentVariables: 'environmentVariables',
@@ -1912,6 +2091,7 @@ export class CreateFunctionResponseBody extends $tea.Model {
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
+      customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -2119,6 +2299,7 @@ export class CreateServiceRequest extends $tea.Model {
   internetAccess?: boolean;
   logConfig?: LogConfig;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   role?: string;
   serviceName?: string;
   tracingConfig?: TracingConfig;
@@ -2129,6 +2310,7 @@ export class CreateServiceRequest extends $tea.Model {
       internetAccess: 'internetAccess',
       logConfig: 'logConfig',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       role: 'role',
       serviceName: 'serviceName',
       tracingConfig: 'tracingConfig',
@@ -2142,6 +2324,7 @@ export class CreateServiceRequest extends $tea.Model {
       internetAccess: 'boolean',
       logConfig: LogConfig,
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       role: 'string',
       serviceName: 'string',
       tracingConfig: TracingConfig,
@@ -2161,6 +2344,7 @@ export class CreateServiceResponseBody extends $tea.Model {
   lastModifiedTime?: string;
   logConfig?: LogConfig;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   role?: string;
   serviceId?: string;
   serviceName?: string;
@@ -2174,6 +2358,7 @@ export class CreateServiceResponseBody extends $tea.Model {
       lastModifiedTime: 'lastModifiedTime',
       logConfig: 'logConfig',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       role: 'role',
       serviceId: 'serviceId',
       serviceName: 'serviceName',
@@ -2190,6 +2375,7 @@ export class CreateServiceResponseBody extends $tea.Model {
       lastModifiedTime: 'string',
       logConfig: LogConfig,
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       role: 'string',
       serviceId: 'string',
       serviceName: 'string',
@@ -3382,6 +3568,7 @@ export class GetFunctionResponseBody extends $tea.Model {
   createdTime?: string;
   customContainerConfig?: CustomContainerConfigInfo;
   customDNS?: CustomDNS;
+  customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   environmentVariables?: { [key: string]: string };
@@ -3407,6 +3594,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
+      customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       environmentVariables: 'environmentVariables',
@@ -3435,6 +3623,7 @@ export class GetFunctionResponseBody extends $tea.Model {
       createdTime: 'string',
       customContainerConfig: CustomContainerConfigInfo,
       customDNS: CustomDNS,
+      customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -4098,6 +4287,7 @@ export class GetServiceResponseBody extends $tea.Model {
   lastModifiedTime?: string;
   logConfig?: LogConfig;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   role?: string;
   serviceId?: string;
   serviceName?: string;
@@ -4111,6 +4301,7 @@ export class GetServiceResponseBody extends $tea.Model {
       lastModifiedTime: 'lastModifiedTime',
       logConfig: 'logConfig',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       role: 'role',
       serviceId: 'serviceId',
       serviceName: 'serviceName',
@@ -4127,6 +4318,7 @@ export class GetServiceResponseBody extends $tea.Model {
       lastModifiedTime: 'string',
       logConfig: LogConfig,
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       role: 'string',
       serviceId: 'string',
       serviceName: 'string',
@@ -6869,6 +7061,56 @@ export class RegisterEventSourceResponse extends $tea.Model {
   }
 }
 
+export class ReleaseGPUInstanceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcDate?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcDate: 'X-Fc-Date',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcDate: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseGPUInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopStatefulAsyncInvocationHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
@@ -7370,6 +7612,7 @@ export class UpdateFunctionRequest extends $tea.Model {
   code?: Code;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
+  customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   environmentVariables?: { [key: string]: string };
@@ -7390,6 +7633,7 @@ export class UpdateFunctionRequest extends $tea.Model {
       code: 'code',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
+      customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       environmentVariables: 'environmentVariables',
@@ -7413,6 +7657,7 @@ export class UpdateFunctionRequest extends $tea.Model {
       code: Code,
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
+      customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -7441,6 +7686,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
   customDNS?: CustomDNS;
+  customHealthCheckConfig?: CustomHealthCheckConfig;
   customRuntimeConfig?: CustomRuntimeConfig;
   description?: string;
   environmentVariables?: { [key: string]: string };
@@ -7465,6 +7711,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
       customDNS: 'customDNS',
+      customHealthCheckConfig: 'customHealthCheckConfig',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
       environmentVariables: 'environmentVariables',
@@ -7492,6 +7739,7 @@ export class UpdateFunctionResponseBody extends $tea.Model {
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
       customDNS: CustomDNS,
+      customHealthCheckConfig: CustomHealthCheckConfig,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -7577,6 +7825,7 @@ export class UpdateServiceRequest extends $tea.Model {
   internetAccess?: boolean;
   logConfig?: LogConfig;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   role?: string;
   tracingConfig?: TracingConfig;
   vpcConfig?: VPCConfig;
@@ -7586,6 +7835,7 @@ export class UpdateServiceRequest extends $tea.Model {
       internetAccess: 'internetAccess',
       logConfig: 'logConfig',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       role: 'role',
       tracingConfig: 'tracingConfig',
       vpcConfig: 'vpcConfig',
@@ -7598,6 +7848,7 @@ export class UpdateServiceRequest extends $tea.Model {
       internetAccess: 'boolean',
       logConfig: LogConfig,
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       role: 'string',
       tracingConfig: TracingConfig,
       vpcConfig: VPCConfig,
@@ -7616,6 +7867,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
   lastModifiedTime?: string;
   logConfig?: LogConfig;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   role?: string;
   serviceId?: string;
   serviceName?: string;
@@ -7629,6 +7881,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
       lastModifiedTime: 'lastModifiedTime',
       logConfig: 'logConfig',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       role: 'role',
       serviceId: 'serviceId',
       serviceName: 'serviceName',
@@ -7645,6 +7898,7 @@ export class UpdateServiceResponseBody extends $tea.Model {
       lastModifiedTime: 'string',
       logConfig: LogConfig,
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       role: 'string',
       serviceId: 'string',
       serviceName: 'string',
@@ -7844,6 +8098,34 @@ export class NASConfigMountPoints extends $tea.Model {
   }
 }
 
+export class OSSMountConfigMountPoints extends $tea.Model {
+  bucketName?: string;
+  endpoint?: string;
+  mountDir?: string;
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'bucketName',
+      endpoint: 'endpoint',
+      mountDir: 'mountDir',
+      readOnly: 'readOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      endpoint: 'string',
+      mountDir: 'string',
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAliasesResponseBodyAliases extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
   aliasName?: string;
@@ -7998,6 +8280,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
   codeSize?: number;
   createdTime?: string;
   customContainerConfig?: CustomContainerConfig;
+  customHealthCheckConfig?: CustomHealthCheckConfig;
   description?: string;
   environmentVariables?: { [key: string]: string };
   functionId?: string;
@@ -8021,6 +8304,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       codeSize: 'codeSize',
       createdTime: 'createdTime',
       customContainerConfig: 'customContainerConfig',
+      customHealthCheckConfig: 'customHealthCheckConfig',
       description: 'description',
       environmentVariables: 'environmentVariables',
       functionId: 'functionId',
@@ -8047,6 +8331,7 @@ export class ListFunctionsResponseBodyFunctions extends $tea.Model {
       codeSize: 'number',
       createdTime: 'string',
       customContainerConfig: CustomContainerConfig,
+      customHealthCheckConfig: CustomHealthCheckConfig,
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionId: 'string',
@@ -8165,6 +8450,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   lastModifiedTime?: string;
   logConfig?: LogConfig;
   nasConfig?: NASConfig;
+  ossMountConfig?: OSSMountConfig;
   role?: string;
   serviceId?: string;
   serviceName?: string;
@@ -8178,6 +8464,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       lastModifiedTime: 'lastModifiedTime',
       logConfig: 'logConfig',
       nasConfig: 'nasConfig',
+      ossMountConfig: 'ossMountConfig',
       role: 'role',
       serviceId: 'serviceId',
       serviceName: 'serviceName',
@@ -8194,6 +8481,7 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       lastModifiedTime: 'string',
       logConfig: LogConfig,
       nasConfig: NASConfig,
+      ossMountConfig: OSSMountConfig,
       role: 'string',
       serviceId: 'string',
       serviceName: 'string',
@@ -8306,6 +8594,86 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async claimGPUInstance(request: ClaimGPUInstanceRequest): Promise<ClaimGPUInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ClaimGPUInstanceHeaders({ });
+    return await this.claimGPUInstanceWithOptions(request, headers, runtime);
+  }
+
+  async claimGPUInstanceWithOptions(request: ClaimGPUInstanceRequest, headers: ClaimGPUInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<ClaimGPUInstanceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.diskPerformanceLevel)) {
+      body["diskPerformanceLevel"] = request.diskPerformanceLevel;
+    }
+
+    if (!Util.isUnset(request.diskSizeGigabytes)) {
+      body["diskSizeGigabytes"] = request.diskSizeGigabytes;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      body["imageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["instanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetBandwidthOut)) {
+      body["internetBandwidthOut"] = request.internetBandwidthOut;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.sourceCidrIp)) {
+      body["sourceCidrIp"] = request.sourceCidrIp;
+    }
+
+    if (!Util.isUnset(request.tcpPortRange)) {
+      body["tcpPortRange"] = request.tcpPortRange;
+    }
+
+    if (!Util.isUnset(request.udpPortRange)) {
+      body["udpPortRange"] = request.udpPortRange;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClaimGPUInstance",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/gpuInstances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ClaimGPUInstanceResponse>(await this.callApi(params, req, runtime), new ClaimGPUInstanceResponse({}));
   }
 
   async createAlias(serviceName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
@@ -8465,6 +8833,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.customDNS))) {
       body["customDNS"] = request.customDNS;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.customHealthCheckConfig))) {
+      body["customHealthCheckConfig"] = request.customHealthCheckConfig;
     }
 
     if (!Util.isUnset($tea.toMap(request.customRuntimeConfig))) {
@@ -8646,6 +9018,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.nasConfig))) {
       body["nasConfig"] = request.nasConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.ossMountConfig))) {
+      body["ossMountConfig"] = request.ossMountConfig;
     }
 
     if (!Util.isUnset(request.role)) {
@@ -11449,6 +11825,48 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterEventSourceResponse>(await this.callApi(params, req, runtime), new RegisterEventSourceResponse({}));
   }
 
+  async releaseGPUInstance(instanceId: string): Promise<ReleaseGPUInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ReleaseGPUInstanceHeaders({ });
+    return await this.releaseGPUInstanceWithOptions(instanceId, headers, runtime);
+  }
+
+  async releaseGPUInstanceWithOptions(instanceId: string, headers: ReleaseGPUInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<ReleaseGPUInstanceResponse> {
+    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseGPUInstance",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/gpuInstances/${instanceId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ReleaseGPUInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseGPUInstanceResponse({}));
+  }
+
   async stopStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest): Promise<StopStatefulAsyncInvocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new StopStatefulAsyncInvocationHeaders({ });
@@ -11770,6 +12188,10 @@ export default class Client extends OpenApi {
       body["customDNS"] = request.customDNS;
     }
 
+    if (!Util.isUnset($tea.toMap(request.customHealthCheckConfig))) {
+      body["customHealthCheckConfig"] = request.customHealthCheckConfig;
+    }
+
     if (!Util.isUnset($tea.toMap(request.customRuntimeConfig))) {
       body["customRuntimeConfig"] = request.customRuntimeConfig;
     }
@@ -11889,6 +12311,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset($tea.toMap(request.nasConfig))) {
       body["nasConfig"] = request.nasConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.ossMountConfig))) {
+      body["ossMountConfig"] = request.ossMountConfig;
     }
 
     if (!Util.isUnset(request.role)) {
