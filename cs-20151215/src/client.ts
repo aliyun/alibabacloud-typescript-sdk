@@ -3214,15 +3214,18 @@ export class DescribeKubernetesVersionMetadataResponse extends $tea.Model {
 
 export class DescribeNodePoolVulsResponseBody extends $tea.Model {
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
+  vulsFixServicePurchased?: boolean;
   static names(): { [key: string]: string } {
     return {
       vulRecords: 'vul_records',
+      vulsFixServicePurchased: 'vuls_fix_service_purchased',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       vulRecords: { 'type': 'array', 'itemType': DescribeNodePoolVulsResponseBodyVulRecords },
+      vulsFixServicePurchased: 'boolean',
     };
   }
 
@@ -9624,10 +9627,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "cs.aliyuncs.com",
-      'cn-beijing-finance-1': "cs.aliyuncs.com",
       'cn-beijing-finance-pop': "cs.aliyuncs.com",
       'cn-beijing-gov-1': "cs.aliyuncs.com",
       'cn-beijing-nu16-b01': "cs.aliyuncs.com",
@@ -9635,21 +9638,17 @@ export default class Client extends OpenApi {
       'cn-fujian': "cs.aliyuncs.com",
       'cn-haidian-cm12-c01': "cs.aliyuncs.com",
       'cn-hangzhou-bj-b01': "cs.aliyuncs.com",
-      'cn-hangzhou-finance': "cs-vpc.cn-hangzhou-finance.aliyuncs.com",
       'cn-hangzhou-internal-prod-1': "cs.aliyuncs.com",
       'cn-hangzhou-internal-test-1': "cs.aliyuncs.com",
       'cn-hangzhou-internal-test-2': "cs.aliyuncs.com",
       'cn-hangzhou-internal-test-3': "cs.aliyuncs.com",
       'cn-hangzhou-test-306': "cs.aliyuncs.com",
       'cn-hongkong-finance-pop': "cs.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "cs.aliyuncs.com",
       'cn-qingdao-nebula': "cs.aliyuncs.com",
       'cn-shanghai-et15-b01': "cs.aliyuncs.com",
       'cn-shanghai-et2-b01': "cs.aliyuncs.com",
-      'cn-shanghai-finance-1': "cs-vpc.cn-shanghai-finance-1.aliyuncs.com",
       'cn-shanghai-inner': "cs.aliyuncs.com",
       'cn-shanghai-internal-test-1': "cs.aliyuncs.com",
-      'cn-shenzhen-finance-1': "cs-vpc.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-shenzhen-inner': "cs.aliyuncs.com",
       'cn-shenzhen-st4-d01': "cs.aliyuncs.com",
       'cn-shenzhen-su18-b01': "cs.aliyuncs.com",
