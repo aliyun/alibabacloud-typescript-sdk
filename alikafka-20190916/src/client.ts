@@ -348,6 +348,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
   eipMax?: number;
   ioMax?: number;
   ioMaxSpec?: string;
+  partitionNum?: number;
   regionId?: string;
   resourceGroupId?: string;
   specType?: string;
@@ -360,6 +361,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
       eipMax: 'EipMax',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       specType: 'SpecType',
@@ -375,6 +377,7 @@ export class CreatePostPayOrderRequest extends $tea.Model {
       eipMax: 'number',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      partitionNum: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       specType: 'string',
@@ -450,6 +453,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
   eipMax?: number;
   ioMax?: number;
   ioMaxSpec?: string;
+  partitionNum?: number;
   regionId?: string;
   resourceGroupId?: string;
   specType?: string;
@@ -462,6 +466,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       eipMax: 'EipMax',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       specType: 'SpecType',
@@ -477,6 +482,7 @@ export class CreatePrePayOrderRequest extends $tea.Model {
       eipMax: 'number',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      partitionNum: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       specType: 'string',
@@ -2926,6 +2932,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
   instanceId?: string;
   ioMax?: number;
   ioMaxSpec?: string;
+  partitionNum?: number;
   regionId?: string;
   specType?: string;
   topicQuota?: number;
@@ -2937,6 +2944,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       specType: 'SpecType',
       topicQuota: 'TopicQuota',
@@ -2951,6 +2959,7 @@ export class UpgradePostPayOrderRequest extends $tea.Model {
       instanceId: 'string',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      partitionNum: 'number',
       regionId: 'string',
       specType: 'string',
       topicQuota: 'number',
@@ -3022,6 +3031,7 @@ export class UpgradePrePayOrderRequest extends $tea.Model {
   instanceId?: string;
   ioMax?: number;
   ioMaxSpec?: string;
+  partitionNum?: number;
   regionId?: string;
   specType?: string;
   topicQuota?: number;
@@ -3033,6 +3043,7 @@ export class UpgradePrePayOrderRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       specType: 'SpecType',
       topicQuota: 'TopicQuota',
@@ -3047,6 +3058,7 @@ export class UpgradePrePayOrderRequest extends $tea.Model {
       instanceId: 'string',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      partitionNum: 'number',
       regionId: 'string',
       specType: 'string',
       topicQuota: 'number',
@@ -3600,6 +3612,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   expiredTime?: number;
   instanceId?: string;
   ioMax?: number;
+  kmsKeyId?: string;
   msgRetain?: number;
   name?: string;
   paidType?: number;
@@ -3633,6 +3646,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       expiredTime: 'ExpiredTime',
       instanceId: 'InstanceId',
       ioMax: 'IoMax',
+      kmsKeyId: 'KmsKeyId',
       msgRetain: 'MsgRetain',
       name: 'Name',
       paidType: 'PaidType',
@@ -3669,6 +3683,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       expiredTime: 'number',
       instanceId: 'string',
       ioMax: 'number',
+      kmsKeyId: 'string',
       msgRetain: 'number',
       name: 'string',
       paidType: 'number',
@@ -4246,6 +4261,10 @@ export default class Client extends OpenApi {
       query["IoMaxSpec"] = request.ioMaxSpec;
     }
 
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -4309,6 +4328,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioMaxSpec)) {
       query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -5586,6 +5609,10 @@ export default class Client extends OpenApi {
       query["IoMaxSpec"] = request.ioMaxSpec;
     }
 
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -5645,6 +5672,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioMaxSpec)) {
       query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!Util.isUnset(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
     }
 
     if (!Util.isUnset(request.regionId)) {
