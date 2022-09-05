@@ -5138,6 +5138,7 @@ export class PreviewStackRequest extends $tea.Model {
   parallelism?: number;
   parameters?: PreviewStackRequestParameters[];
   regionId?: string;
+  resourceConfigRules?: PreviewStackRequestResourceConfigRules[];
   stackId?: string;
   stackName?: string;
   stackPolicyBody?: string;
@@ -5156,6 +5157,7 @@ export class PreviewStackRequest extends $tea.Model {
       parallelism: 'Parallelism',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      resourceConfigRules: 'ResourceConfigRules',
       stackId: 'StackId',
       stackName: 'StackName',
       stackPolicyBody: 'StackPolicyBody',
@@ -5177,6 +5179,74 @@ export class PreviewStackRequest extends $tea.Model {
       parallelism: 'number',
       parameters: { 'type': 'array', 'itemType': PreviewStackRequestParameters },
       regionId: 'string',
+      resourceConfigRules: { 'type': 'array', 'itemType': PreviewStackRequestResourceConfigRules },
+      stackId: 'string',
+      stackName: 'string',
+      stackPolicyBody: 'string',
+      stackPolicyURL: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateScratchId: 'string',
+      templateScratchRegionId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+      timeoutInMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  disableRollback?: boolean;
+  parallelism?: number;
+  parameters?: PreviewStackShrinkRequestParameters[];
+  regionId?: string;
+  resourceConfigRulesShrink?: string;
+  stackId?: string;
+  stackName?: string;
+  stackPolicyBody?: string;
+  stackPolicyURL?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateScratchId?: string;
+  templateScratchRegionId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  timeoutInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      disableRollback: 'DisableRollback',
+      parallelism: 'Parallelism',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      resourceConfigRulesShrink: 'ResourceConfigRules',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      stackPolicyBody: 'StackPolicyBody',
+      stackPolicyURL: 'StackPolicyURL',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateScratchId: 'TemplateScratchId',
+      templateScratchRegionId: 'TemplateScratchRegionId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+      timeoutInMinutes: 'TimeoutInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      disableRollback: 'boolean',
+      parallelism: 'number',
+      parameters: { 'type': 'array', 'itemType': PreviewStackShrinkRequestParameters },
+      regionId: 'string',
+      resourceConfigRulesShrink: 'string',
       stackId: 'string',
       stackName: 'string',
       stackPolicyBody: 'string',
@@ -9318,6 +9388,53 @@ export class PreviewStackRequestParameters extends $tea.Model {
   }
 }
 
+export class PreviewStackRequestResourceConfigRules extends $tea.Model {
+  identifier?: string;
+  inputParameters?: { [key: string]: any };
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+      inputParameters: 'InputParameters',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackShrinkRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewStackResponseBodyStackLogTerraformLogs extends $tea.Model {
   command?: string;
   content?: string;
@@ -9384,8 +9501,37 @@ export class PreviewStackResponseBodyStackParameters extends $tea.Model {
   }
 }
 
+export class PreviewStackResponseBodyStackResourcesConfigRuleEvaluations extends $tea.Model {
+  annotation?: string;
+  complianceType?: string;
+  helpUrl?: string;
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotation: 'Annotation',
+      complianceType: 'ComplianceType',
+      helpUrl: 'HelpUrl',
+      identifier: 'Identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotation: 'string',
+      complianceType: 'string',
+      helpUrl: 'string',
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewStackResponseBodyStackResources extends $tea.Model {
   action?: string;
+  configRuleEvaluations?: PreviewStackResponseBodyStackResourcesConfigRuleEvaluations[];
   description?: string;
   logicalResourceId?: string;
   properties?: { [key: string]: any };
@@ -9396,6 +9542,7 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
+      configRuleEvaluations: 'ConfigRuleEvaluations',
       description: 'Description',
       logicalResourceId: 'LogicalResourceId',
       properties: 'Properties',
@@ -9409,6 +9556,7 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       action: 'string',
+      configRuleEvaluations: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResourcesConfigRuleEvaluations },
       description: 'string',
       logicalResourceId: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -12577,8 +12725,14 @@ export default class Client extends OpenApi {
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
-  async previewStackWithOptions(request: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
-    Util.validateModel(request);
+  async previewStackWithOptions(tmpReq: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PreviewStackShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceConfigRules)) {
+      request.resourceConfigRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceConfigRules, "ResourceConfigRules", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -12598,6 +12752,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceConfigRulesShrink)) {
+      query["ResourceConfigRules"] = request.resourceConfigRulesShrink;
     }
 
     if (!Util.isUnset(request.stackId)) {
