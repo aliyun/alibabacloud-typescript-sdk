@@ -221,6 +221,96 @@ export class CreateOrUpdateIntlImageResponse extends $tea.Model {
   }
 }
 
+export class CreateOrUpdateIntlImageByTemplateRequest extends $tea.Model {
+  ak?: string;
+  createOrUpdateIntlImageJson?: string;
+  requestId?: string;
+  secret?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ak: 'Ak',
+      createOrUpdateIntlImageJson: 'CreateOrUpdateIntlImageJson',
+      requestId: 'RequestId',
+      secret: 'Secret',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ak: 'string',
+      createOrUpdateIntlImageJson: 'string',
+      requestId: 'string',
+      secret: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageByTemplateResponseBody extends $tea.Model {
+  code?: number;
+  data?: CreateOrUpdateIntlImageByTemplateResponseBodyData;
+  errorCode?: string;
+  msg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateOrUpdateIntlImageByTemplateResponseBodyData,
+      errorCode: 'string',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageByTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateOrUpdateIntlImageByTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrUpdateIntlImageByTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessibleRegionsRequest extends $tea.Model {
   ak?: string;
   requestId?: string;
@@ -1237,18 +1327,18 @@ export class UploadFileRequest extends $tea.Model {
 }
 
 export class UploadFileAdvanceRequest extends $tea.Model {
-  fileUrlObject: Readable;
   ak?: string;
   fileName?: string;
+  fileUrlObject?: Readable;
   requestId?: string;
   secret?: string;
   type?: string;
   uid?: string;
   static names(): { [key: string]: string } {
     return {
-      fileUrlObject: 'FileUrlObject',
       ak: 'Ak',
       fileName: 'FileName',
+      fileUrlObject: 'FileUrl',
       requestId: 'RequestId',
       secret: 'Secret',
       type: 'Type',
@@ -1258,9 +1348,9 @@ export class UploadFileAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      fileUrlObject: 'Readable',
       ak: 'string',
       fileName: 'string',
+      fileUrlObject: 'Readable',
       requestId: 'string',
       secret: 'string',
       type: 'string',
@@ -1907,6 +1997,28 @@ export class CreateOrUpdateIntlImageRequestSaleInfo extends $tea.Model {
 }
 
 export class CreateOrUpdateIntlImageResponseBodyData extends $tea.Model {
+  code?: string;
+  trackId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      trackId: 'TrackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      trackId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageByTemplateResponseBodyData extends $tea.Model {
   code?: string;
   trackId?: string;
   static names(): { [key: string]: string } {
@@ -3040,6 +3152,51 @@ export default class Client extends OpenApi {
   async createOrUpdateIntlImage(request: CreateOrUpdateIntlImageRequest): Promise<CreateOrUpdateIntlImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateIntlImageWithOptions(request, runtime);
+  }
+
+  async createOrUpdateIntlImageByTemplateWithOptions(request: CreateOrUpdateIntlImageByTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateIntlImageByTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ak)) {
+      body["Ak"] = request.ak;
+    }
+
+    if (!Util.isUnset(request.createOrUpdateIntlImageJson)) {
+      body["CreateOrUpdateIntlImageJson"] = request.createOrUpdateIntlImageJson;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      body["Uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrUpdateIntlImageByTemplate",
+      version: "2022-07-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrUpdateIntlImageByTemplateResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateIntlImageByTemplateResponse({}));
+  }
+
+  async createOrUpdateIntlImageByTemplate(request: CreateOrUpdateIntlImageByTemplateRequest): Promise<CreateOrUpdateIntlImageByTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOrUpdateIntlImageByTemplateWithOptions(request, runtime);
   }
 
   async describeAccessibleRegionsWithOptions(request: DescribeAccessibleRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessibleRegionsResponse> {
