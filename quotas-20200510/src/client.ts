@@ -4,38 +4,42 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateQuotaAlarmRequest extends $tea.Model {
+  alarmName?: string;
   productCode?: string;
   quotaActionCode?: string;
-  alarmName?: string;
+  quotaDimensions?: CreateQuotaAlarmRequestQuotaDimensions[];
   threshold?: number;
   thresholdPercent?: number;
+  thresholdType?: string;
   webHook?: string;
-  quotaDimensions?: CreateQuotaAlarmRequestQuotaDimensions[];
   static names(): { [key: string]: string } {
     return {
+      alarmName: 'AlarmName',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
-      alarmName: 'AlarmName',
+      quotaDimensions: 'QuotaDimensions',
       threshold: 'Threshold',
       thresholdPercent: 'ThresholdPercent',
+      thresholdType: 'ThresholdType',
       webHook: 'WebHook',
-      quotaDimensions: 'QuotaDimensions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      alarmName: 'string',
       productCode: 'string',
       quotaActionCode: 'string',
-      alarmName: 'string',
+      quotaDimensions: { 'type': 'array', 'itemType': CreateQuotaAlarmRequestQuotaDimensions },
       threshold: 'number',
       thresholdPercent: 'number',
+      thresholdType: 'string',
       webHook: 'string',
-      quotaDimensions: { 'type': 'array', 'itemType': CreateQuotaAlarmRequestQuotaDimensions },
     };
   }
 
@@ -68,10 +72,12 @@ export class CreateQuotaAlarmResponseBody extends $tea.Model {
 
 export class CreateQuotaAlarmResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -79,6 +85,7 @@ export class CreateQuotaAlarmResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateQuotaAlarmResponseBody,
     };
   }
@@ -89,31 +96,40 @@ export class CreateQuotaAlarmResponse extends $tea.Model {
 }
 
 export class CreateQuotaApplicationRequest extends $tea.Model {
+  auditMode?: string;
+  desireValue?: number;
+  dimensions?: CreateQuotaApplicationRequestDimensions[];
+  envLanguage?: string;
+  noticeType?: number;
   productCode?: string;
   quotaActionCode?: string;
-  desireValue?: number;
+  quotaCategory?: string;
   reason?: string;
-  noticeType?: number;
-  dimensions?: CreateQuotaApplicationRequestDimensions[];
   static names(): { [key: string]: string } {
     return {
+      auditMode: 'AuditMode',
+      desireValue: 'DesireValue',
+      dimensions: 'Dimensions',
+      envLanguage: 'EnvLanguage',
+      noticeType: 'NoticeType',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
-      desireValue: 'DesireValue',
+      quotaCategory: 'QuotaCategory',
       reason: 'Reason',
-      noticeType: 'NoticeType',
-      dimensions: 'Dimensions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      auditMode: 'string',
+      desireValue: 'number',
+      dimensions: { 'type': 'array', 'itemType': CreateQuotaApplicationRequestDimensions },
+      envLanguage: 'string',
+      noticeType: 'number',
       productCode: 'string',
       quotaActionCode: 'string',
-      desireValue: 'number',
+      quotaCategory: 'string',
       reason: 'string',
-      noticeType: 'number',
-      dimensions: { 'type': 'array', 'itemType': CreateQuotaApplicationRequestDimensions },
     };
   }
 
@@ -123,19 +139,67 @@ export class CreateQuotaApplicationRequest extends $tea.Model {
 }
 
 export class CreateQuotaApplicationResponseBody extends $tea.Model {
-  requestId?: string;
   applicationId?: string;
+  applyTime?: string;
+  approveValue?: number;
+  auditReason?: string;
+  desireValue?: number;
+  dimension?: { [key: string]: any };
+  effectiveTime?: string;
+  expireTime?: string;
+  noticeType?: number;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaArn?: string;
+  quotaDescription?: string;
+  quotaName?: string;
+  quotaUnit?: string;
+  reason?: string;
+  requestId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       applicationId: 'ApplicationId',
+      applyTime: 'ApplyTime',
+      approveValue: 'ApproveValue',
+      auditReason: 'AuditReason',
+      desireValue: 'DesireValue',
+      dimension: 'Dimension',
+      effectiveTime: 'EffectiveTime',
+      expireTime: 'ExpireTime',
+      noticeType: 'NoticeType',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaArn: 'QuotaArn',
+      quotaDescription: 'QuotaDescription',
+      quotaName: 'QuotaName',
+      quotaUnit: 'QuotaUnit',
+      reason: 'Reason',
+      requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       applicationId: 'string',
+      applyTime: 'string',
+      approveValue: 'number',
+      auditReason: 'string',
+      desireValue: 'number',
+      dimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      effectiveTime: 'string',
+      expireTime: 'string',
+      noticeType: 'number',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaArn: 'string',
+      quotaDescription: 'string',
+      quotaName: 'string',
+      quotaUnit: 'string',
+      reason: 'string',
+      requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -146,10 +210,12 @@ export class CreateQuotaApplicationResponseBody extends $tea.Model {
 
 export class CreateQuotaApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateQuotaApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -157,7 +223,89 @@ export class CreateQuotaApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateQuotaApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateQuotaItemRequest extends $tea.Model {
+  desireValue?: number;
+  dimensions?: CreateTemplateQuotaItemRequestDimensions[];
+  envLanguage?: string;
+  noticeType?: number;
+  productCode?: string;
+  quotaActionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desireValue: 'DesireValue',
+      dimensions: 'Dimensions',
+      envLanguage: 'EnvLanguage',
+      noticeType: 'NoticeType',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desireValue: 'number',
+      dimensions: { 'type': 'array', 'itemType': CreateTemplateQuotaItemRequestDimensions },
+      envLanguage: 'string',
+      noticeType: 'number',
+      productCode: 'string',
+      quotaActionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateQuotaItemResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateQuotaItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateTemplateQuotaItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTemplateQuotaItemResponseBody,
     };
   }
 
@@ -206,10 +354,12 @@ export class DeleteQuotaAlarmResponseBody extends $tea.Model {
 
 export class DeleteQuotaAlarmResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -217,6 +367,7 @@ export class DeleteQuotaAlarmResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteQuotaAlarmResponseBody,
     };
   }
@@ -226,23 +377,89 @@ export class DeleteQuotaAlarmResponse extends $tea.Model {
   }
 }
 
-export class GetProductQuotaRequest extends $tea.Model {
-  productCode?: string;
-  quotaActionCode?: string;
-  dimensions?: GetProductQuotaRequestDimensions[];
+export class DeleteTemplateQuotaItemRequest extends $tea.Model {
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
-      quotaActionCode: 'QuotaActionCode',
-      dimensions: 'Dimensions',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateQuotaItemResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateQuotaItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteTemplateQuotaItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTemplateQuotaItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductQuotaRequest extends $tea.Model {
+  dimensions?: GetProductQuotaRequestDimensions[];
+  productCode?: string;
+  quotaActionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensions: { 'type': 'array', 'itemType': GetProductQuotaRequestDimensions },
       productCode: 'string',
       quotaActionCode: 'string',
-      dimensions: { 'type': 'array', 'itemType': GetProductQuotaRequestDimensions },
     };
   }
 
@@ -252,19 +469,19 @@ export class GetProductQuotaRequest extends $tea.Model {
 }
 
 export class GetProductQuotaResponseBody extends $tea.Model {
-  requestId?: string;
   quota?: GetProductQuotaResponseBodyQuota;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       quota: 'Quota',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       quota: GetProductQuotaResponseBodyQuota,
+      requestId: 'string',
     };
   }
 
@@ -275,10 +492,12 @@ export class GetProductQuotaResponseBody extends $tea.Model {
 
 export class GetProductQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetProductQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -286,6 +505,7 @@ export class GetProductQuotaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetProductQuotaResponseBody,
     };
   }
@@ -296,22 +516,22 @@ export class GetProductQuotaResponse extends $tea.Model {
 }
 
 export class GetProductQuotaDimensionRequest extends $tea.Model {
-  productCode?: string;
-  dimensionKey?: string;
   dependentDimensions?: GetProductQuotaDimensionRequestDependentDimensions[];
+  dimensionKey?: string;
+  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      productCode: 'ProductCode',
-      dimensionKey: 'DimensionKey',
       dependentDimensions: 'DependentDimensions',
+      dimensionKey: 'DimensionKey',
+      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productCode: 'string',
-      dimensionKey: 'string',
       dependentDimensions: { 'type': 'array', 'itemType': GetProductQuotaDimensionRequestDependentDimensions },
+      dimensionKey: 'string',
+      productCode: 'string',
     };
   }
 
@@ -321,19 +541,19 @@ export class GetProductQuotaDimensionRequest extends $tea.Model {
 }
 
 export class GetProductQuotaDimensionResponseBody extends $tea.Model {
-  requestId?: string;
   quotaDimension?: GetProductQuotaDimensionResponseBodyQuotaDimension;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       quotaDimension: 'QuotaDimension',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       quotaDimension: GetProductQuotaDimensionResponseBodyQuotaDimension,
+      requestId: 'string',
     };
   }
 
@@ -344,10 +564,12 @@ export class GetProductQuotaDimensionResponseBody extends $tea.Model {
 
 export class GetProductQuotaDimensionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetProductQuotaDimensionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -355,6 +577,7 @@ export class GetProductQuotaDimensionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetProductQuotaDimensionResponseBody,
     };
   }
@@ -384,19 +607,19 @@ export class GetQuotaAlarmRequest extends $tea.Model {
 }
 
 export class GetQuotaAlarmResponseBody extends $tea.Model {
-  requestId?: string;
   quotaAlarm?: GetQuotaAlarmResponseBodyQuotaAlarm;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       quotaAlarm: 'QuotaAlarm',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       quotaAlarm: GetQuotaAlarmResponseBodyQuotaAlarm,
+      requestId: 'string',
     };
   }
 
@@ -407,10 +630,12 @@ export class GetQuotaAlarmResponseBody extends $tea.Model {
 
 export class GetQuotaAlarmResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -418,6 +643,7 @@ export class GetQuotaAlarmResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetQuotaAlarmResponseBody,
     };
   }
@@ -447,19 +673,19 @@ export class GetQuotaApplicationRequest extends $tea.Model {
 }
 
 export class GetQuotaApplicationResponseBody extends $tea.Model {
-  requestId?: string;
   quotaApplication?: GetQuotaApplicationResponseBodyQuotaApplication;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       quotaApplication: 'QuotaApplication',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       quotaApplication: GetQuotaApplicationResponseBodyQuotaApplication,
+      requestId: 'string',
     };
   }
 
@@ -470,10 +696,12 @@ export class GetQuotaApplicationResponseBody extends $tea.Model {
 
 export class GetQuotaApplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetQuotaApplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -481,6 +709,7 @@ export class GetQuotaApplicationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetQuotaApplicationResponseBody,
     };
   }
@@ -490,32 +719,98 @@ export class GetQuotaApplicationResponse extends $tea.Model {
   }
 }
 
-export class ListAlarmHistoriesRequest extends $tea.Model {
-  nextToken?: string;
-  maxResults?: number;
-  keyword?: string;
-  startTime?: number;
-  endTime?: number;
-  productCode?: string;
+export class GetQuotaTemplateServiceStatusRequest extends $tea.Model {
+  resourceDirectoryId?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      keyword: 'Keyword',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      productCode: 'ProductCode',
+      resourceDirectoryId: 'ResourceDirectoryId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      maxResults: 'number',
-      keyword: 'string',
-      startTime: 'number',
+      resourceDirectoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTemplateServiceStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  templateServiceStatus?: GetQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateServiceStatus: 'TemplateServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateServiceStatus: GetQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTemplateServiceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetQuotaTemplateServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQuotaTemplateServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlarmHistoriesRequest extends $tea.Model {
+  endTime?: number;
+  keyword?: string;
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      keyword: 'Keyword',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       endTime: 'number',
+      keyword: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       productCode: 'string',
+      startTime: 'number',
     };
   }
 
@@ -525,28 +820,28 @@ export class ListAlarmHistoriesRequest extends $tea.Model {
 }
 
 export class ListAlarmHistoriesResponseBody extends $tea.Model {
-  totalCount?: number;
+  alarmHistories?: ListAlarmHistoriesResponseBodyAlarmHistories[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
-  alarmHistories?: ListAlarmHistoriesResponseBodyAlarmHistories[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      alarmHistories: 'AlarmHistories',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
-      alarmHistories: 'AlarmHistories',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      alarmHistories: { 'type': 'array', 'itemType': ListAlarmHistoriesResponseBodyAlarmHistories },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      maxResults: 'number',
-      alarmHistories: { 'type': 'array', 'itemType': ListAlarmHistoriesResponseBodyAlarmHistories },
+      totalCount: 'number',
     };
   }
 
@@ -557,10 +852,12 @@ export class ListAlarmHistoriesResponseBody extends $tea.Model {
 
 export class ListAlarmHistoriesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAlarmHistoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -568,6 +865,7 @@ export class ListAlarmHistoriesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAlarmHistoriesResponseBody,
     };
   }
@@ -600,19 +898,19 @@ export class ListDependentQuotasRequest extends $tea.Model {
 }
 
 export class ListDependentQuotasResponseBody extends $tea.Model {
-  requestId?: string;
   quotas?: ListDependentQuotasResponseBodyQuotas[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       quotas: 'Quotas',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       quotas: { 'type': 'array', 'itemType': ListDependentQuotasResponseBodyQuotas },
+      requestId: 'string',
     };
   }
 
@@ -623,10 +921,12 @@ export class ListDependentQuotasResponseBody extends $tea.Model {
 
 export class ListDependentQuotasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListDependentQuotasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -634,6 +934,7 @@ export class ListDependentQuotasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListDependentQuotasResponseBody,
     };
   }
@@ -643,22 +944,22 @@ export class ListDependentQuotasResponse extends $tea.Model {
   }
 }
 
-export class ListProductQuotaDimensionsRequest extends $tea.Model {
-  nextToken?: string;
+export class ListProductDimensionGroupsRequest extends $tea.Model {
   maxResults?: number;
+  nextToken?: string;
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
       productCode: 'string',
     };
   }
@@ -668,29 +969,113 @@ export class ListProductQuotaDimensionsRequest extends $tea.Model {
   }
 }
 
-export class ListProductQuotaDimensionsResponseBody extends $tea.Model {
-  quotaDimensions?: ListProductQuotaDimensionsResponseBodyQuotaDimensions[];
-  totalCount?: number;
+export class ListProductDimensionGroupsResponseBody extends $tea.Model {
+  dimensionGroups?: ListProductDimensionGroupsResponseBodyDimensionGroups[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  maxResults?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      quotaDimensions: 'QuotaDimensions',
-      totalCount: 'TotalCount',
+      dimensionGroups: 'DimensionGroups',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      maxResults: 'MaxResults',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaDimensions: { 'type': 'array', 'itemType': ListProductQuotaDimensionsResponseBodyQuotaDimensions },
-      totalCount: 'number',
+      dimensionGroups: { 'type': 'array', 'itemType': ListProductDimensionGroupsResponseBodyDimensionGroups },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductDimensionGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListProductDimensionGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProductDimensionGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductQuotaDimensionsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
+  quotaCategory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
+      quotaCategory: 'QuotaCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       maxResults: 'number',
+      nextToken: 'string',
+      productCode: 'string',
+      quotaCategory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductQuotaDimensionsResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  quotaDimensions?: ListProductQuotaDimensionsResponseBodyQuotaDimensions[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotaDimensions: 'QuotaDimensions',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      quotaDimensions: { 'type': 'array', 'itemType': ListProductQuotaDimensionsResponseBodyQuotaDimensions },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -701,10 +1086,12 @@ export class ListProductQuotaDimensionsResponseBody extends $tea.Model {
 
 export class ListProductQuotaDimensionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListProductQuotaDimensionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -712,6 +1099,7 @@ export class ListProductQuotaDimensionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListProductQuotaDimensionsResponseBody,
     };
   }
@@ -722,37 +1110,43 @@ export class ListProductQuotaDimensionsResponse extends $tea.Model {
 }
 
 export class ListProductQuotasRequest extends $tea.Model {
-  nextToken?: string;
+  dimensions?: ListProductQuotasRequestDimensions[];
+  groupCode?: string;
+  keyWord?: string;
   maxResults?: number;
+  nextToken?: string;
   productCode?: string;
   quotaActionCode?: string;
-  keyWord?: string;
+  quotaCategory?: string;
   sortField?: string;
   sortOrder?: string;
-  dimensions?: ListProductQuotasRequestDimensions[];
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
+      dimensions: 'Dimensions',
+      groupCode: 'GroupCode',
+      keyWord: 'KeyWord',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
-      keyWord: 'KeyWord',
+      quotaCategory: 'QuotaCategory',
       sortField: 'SortField',
       sortOrder: 'SortOrder',
-      dimensions: 'Dimensions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
+      dimensions: { 'type': 'array', 'itemType': ListProductQuotasRequestDimensions },
+      groupCode: 'string',
+      keyWord: 'string',
       maxResults: 'number',
+      nextToken: 'string',
       productCode: 'string',
       quotaActionCode: 'string',
-      keyWord: 'string',
+      quotaCategory: 'string',
       sortField: 'string',
       sortOrder: 'string',
-      dimensions: { 'type': 'array', 'itemType': ListProductQuotasRequestDimensions },
     };
   }
 
@@ -762,28 +1156,28 @@ export class ListProductQuotasRequest extends $tea.Model {
 }
 
 export class ListProductQuotasResponseBody extends $tea.Model {
-  totalCount?: number;
-  nextToken?: string;
-  requestId?: string;
-  quotas?: ListProductQuotasResponseBodyQuotas[];
   maxResults?: number;
+  nextToken?: string;
+  quotas?: ListProductQuotasResponseBodyQuotas[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      quotas: 'Quotas',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotas: 'Quotas',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      quotas: { 'type': 'array', 'itemType': ListProductQuotasResponseBodyQuotas },
       maxResults: 'number',
+      nextToken: 'string',
+      quotas: { 'type': 'array', 'itemType': ListProductQuotasResponseBodyQuotas },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -794,10 +1188,12 @@ export class ListProductQuotasResponseBody extends $tea.Model {
 
 export class ListProductQuotasResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListProductQuotasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -805,6 +1201,7 @@ export class ListProductQuotasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListProductQuotasResponseBody,
     };
   }
@@ -815,19 +1212,19 @@ export class ListProductQuotasResponse extends $tea.Model {
 }
 
 export class ListProductsRequest extends $tea.Model {
-  nextToken?: string;
   maxResults?: number;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
     };
   }
 
@@ -837,28 +1234,28 @@ export class ListProductsRequest extends $tea.Model {
 }
 
 export class ListProductsResponseBody extends $tea.Model {
-  productInfo?: ListProductsResponseBodyProductInfo[];
-  totalCount?: number;
-  nextToken?: string;
-  requestId?: string;
   maxResults?: number;
+  nextToken?: string;
+  productInfo?: ListProductsResponseBodyProductInfo[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      productInfo: 'ProductInfo',
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productInfo: 'ProductInfo',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productInfo: { 'type': 'array', 'itemType': ListProductsResponseBodyProductInfo },
-      totalCount: 'number',
-      nextToken: 'string',
-      requestId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      productInfo: { 'type': 'array', 'itemType': ListProductsResponseBodyProductInfo },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -869,10 +1266,12 @@ export class ListProductsResponseBody extends $tea.Model {
 
 export class ListProductsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListProductsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -880,6 +1279,7 @@ export class ListProductsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListProductsResponseBody,
     };
   }
@@ -890,18 +1290,18 @@ export class ListProductsResponse extends $tea.Model {
 }
 
 export class ListQuotaAlarmsRequest extends $tea.Model {
-  nextToken?: string;
-  maxResults?: number;
-  productCode?: string;
   alarmName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
   quotaActionCode?: string;
   quotaDimensions?: ListQuotaAlarmsRequestQuotaDimensions[];
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      productCode: 'ProductCode',
       alarmName: 'AlarmName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
       quotaDimensions: 'QuotaDimensions',
     };
@@ -909,10 +1309,10 @@ export class ListQuotaAlarmsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      maxResults: 'number',
-      productCode: 'string',
       alarmName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      productCode: 'string',
       quotaActionCode: 'string',
       quotaDimensions: { 'type': 'array', 'itemType': ListQuotaAlarmsRequestQuotaDimensions },
     };
@@ -924,28 +1324,28 @@ export class ListQuotaAlarmsRequest extends $tea.Model {
 }
 
 export class ListQuotaAlarmsResponseBody extends $tea.Model {
-  totalCount?: number;
-  quotaAlarms?: ListQuotaAlarmsResponseBodyQuotaAlarms[];
-  nextToken?: string;
-  requestId?: string;
   maxResults?: number;
+  nextToken?: string;
+  quotaAlarms?: ListQuotaAlarmsResponseBodyQuotaAlarms[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      quotaAlarms: 'QuotaAlarms',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotaAlarms: 'QuotaAlarms',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      quotaAlarms: { 'type': 'array', 'itemType': ListQuotaAlarmsResponseBodyQuotaAlarms },
-      nextToken: 'string',
-      requestId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      quotaAlarms: { 'type': 'array', 'itemType': ListQuotaAlarmsResponseBodyQuotaAlarms },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -956,10 +1356,12 @@ export class ListQuotaAlarmsResponseBody extends $tea.Model {
 
 export class ListQuotaAlarmsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListQuotaAlarmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -967,6 +1369,7 @@ export class ListQuotaAlarmsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListQuotaAlarmsResponseBody,
     };
   }
@@ -976,35 +1379,125 @@ export class ListQuotaAlarmsResponse extends $tea.Model {
   }
 }
 
-export class ListQuotaApplicationsRequest extends $tea.Model {
-  nextToken?: string;
+export class ListQuotaApplicationTemplatesRequest extends $tea.Model {
+  dimensions?: ListQuotaApplicationTemplatesRequestDimensions[];
   maxResults?: number;
+  nextToken?: string;
   productCode?: string;
   quotaActionCode?: string;
-  status?: string;
-  keyWord?: string;
-  dimensions?: ListQuotaApplicationsRequestDimensions[];
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
+      dimensions: 'Dimensions',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       productCode: 'ProductCode',
       quotaActionCode: 'QuotaActionCode',
-      status: 'Status',
-      keyWord: 'KeyWord',
-      dimensions: 'Dimensions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
+      dimensions: { 'type': 'array', 'itemType': ListQuotaApplicationTemplatesRequestDimensions },
       maxResults: 'number',
+      nextToken: 'string',
       productCode: 'string',
       quotaActionCode: 'string',
-      status: 'string',
-      keyWord: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationTemplatesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  quotaApplicationTemplates?: ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotaApplicationTemplates: 'QuotaApplicationTemplates',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      quotaApplicationTemplates: { 'type': 'array', 'itemType': ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListQuotaApplicationTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListQuotaApplicationTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsRequest extends $tea.Model {
+  dimensions?: ListQuotaApplicationsRequestDimensions[];
+  keyWord?: string;
+  maxResults?: number;
+  nextToken?: string;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaCategory?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      keyWord: 'KeyWord',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaCategory: 'QuotaCategory',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       dimensions: { 'type': 'array', 'itemType': ListQuotaApplicationsRequestDimensions },
+      keyWord: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaCategory: 'string',
+      status: 'string',
     };
   }
 
@@ -1014,28 +1507,28 @@ export class ListQuotaApplicationsRequest extends $tea.Model {
 }
 
 export class ListQuotaApplicationsResponseBody extends $tea.Model {
-  totalCount?: number;
-  quotaApplications?: ListQuotaApplicationsResponseBodyQuotaApplications[];
-  nextToken?: string;
-  requestId?: string;
   maxResults?: number;
+  nextToken?: string;
+  quotaApplications?: ListQuotaApplicationsResponseBodyQuotaApplications[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      quotaApplications: 'QuotaApplications',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      quotaApplications: 'QuotaApplications',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      quotaApplications: { 'type': 'array', 'itemType': ListQuotaApplicationsResponseBodyQuotaApplications },
-      nextToken: 'string',
-      requestId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      quotaApplications: { 'type': 'array', 'itemType': ListQuotaApplicationsResponseBodyQuotaApplications },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1046,10 +1539,12 @@ export class ListQuotaApplicationsResponseBody extends $tea.Model {
 
 export class ListQuotaApplicationsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListQuotaApplicationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1057,7 +1552,158 @@ export class ListQuotaApplicationsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListQuotaApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyQuotaTemplateServiceStatusRequest extends $tea.Model {
+  serviceStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyQuotaTemplateServiceStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  templateServiceStatus?: ModifyQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateServiceStatus: 'TemplateServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateServiceStatus: ModifyQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyQuotaTemplateServiceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyQuotaTemplateServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyQuotaTemplateServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTemplateQuotaItemRequest extends $tea.Model {
+  desireValue?: number;
+  dimensions?: ModifyTemplateQuotaItemRequestDimensions[];
+  envLanguage?: string;
+  id?: string;
+  noticeType?: number;
+  productCode?: string;
+  quotaActionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desireValue: 'DesireValue',
+      dimensions: 'Dimensions',
+      envLanguage: 'EnvLanguage',
+      id: 'Id',
+      noticeType: 'NoticeType',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desireValue: 'number',
+      dimensions: { 'type': 'array', 'itemType': ModifyTemplateQuotaItemRequestDimensions },
+      envLanguage: 'string',
+      id: 'string',
+      noticeType: 'number',
+      productCode: 'string',
+      quotaActionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTemplateQuotaItemResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTemplateQuotaItemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyTemplateQuotaItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTemplateQuotaItemResponseBody,
     };
   }
 
@@ -1071,6 +1717,7 @@ export class UpdateQuotaAlarmRequest extends $tea.Model {
   alarmName?: string;
   threshold?: number;
   thresholdPercent?: number;
+  thresholdType?: string;
   webHook?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1078,6 +1725,7 @@ export class UpdateQuotaAlarmRequest extends $tea.Model {
       alarmName: 'AlarmName',
       threshold: 'Threshold',
       thresholdPercent: 'ThresholdPercent',
+      thresholdType: 'ThresholdType',
       webHook: 'WebHook',
     };
   }
@@ -1088,6 +1736,7 @@ export class UpdateQuotaAlarmRequest extends $tea.Model {
       alarmName: 'string',
       threshold: 'number',
       thresholdPercent: 'number',
+      thresholdType: 'string',
       webHook: 'string',
     };
   }
@@ -1118,10 +1767,12 @@ export class UpdateQuotaAlarmResponseBody extends $tea.Model {
 
 export class UpdateQuotaAlarmResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateQuotaAlarmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1129,6 +1780,7 @@ export class UpdateQuotaAlarmResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateQuotaAlarmResponseBody,
     };
   }
@@ -1182,6 +1834,28 @@ export class CreateQuotaApplicationRequestDimensions extends $tea.Model {
   }
 }
 
+export class CreateTemplateQuotaItemRequestDimensions extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProductQuotaRequestDimensions extends $tea.Model {
   key?: string;
   value?: string;
@@ -1205,19 +1879,19 @@ export class GetProductQuotaRequestDimensions extends $tea.Model {
 }
 
 export class GetProductQuotaResponseBodyQuotaPeriod extends $tea.Model {
-  periodValue?: number;
   periodUnit?: string;
+  periodValue?: number;
   static names(): { [key: string]: string } {
     return {
-      periodValue: 'PeriodValue',
       periodUnit: 'PeriodUnit',
+      periodValue: 'PeriodValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      periodValue: 'number',
       periodUnit: 'string',
+      periodValue: 'number',
     };
   }
 
@@ -1227,24 +1901,24 @@ export class GetProductQuotaResponseBodyQuotaPeriod extends $tea.Model {
 }
 
 export class GetProductQuotaResponseBodyQuotaQuotaItems extends $tea.Model {
-  type?: string;
   quota?: string;
   quotaUnit?: string;
+  type?: string;
   usage?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       quota: 'Quota',
       quotaUnit: 'QuotaUnit',
+      type: 'Type',
       usage: 'Usage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       quota: 'string',
       quotaUnit: 'string',
+      type: 'string',
       usage: 'string',
     };
   }
@@ -1255,64 +1929,64 @@ export class GetProductQuotaResponseBodyQuotaQuotaItems extends $tea.Model {
 }
 
 export class GetProductQuotaResponseBodyQuota extends $tea.Model {
-  quotaUnit?: string;
-  quotaActionCode?: string;
-  totalUsage?: number;
-  applicableRange?: number[];
-  quotaType?: string;
-  quotaDescription?: string;
-  period?: GetProductQuotaResponseBodyQuotaPeriod;
-  quotaArn?: string;
-  applicableType?: string;
-  quotaItems?: GetProductQuotaResponseBodyQuotaQuotaItems[];
-  dimensions?: { [key: string]: any };
   adjustable?: boolean;
-  quotaName?: string;
-  unadjustableDetail?: string;
+  applicableRange?: number[];
+  applicableType?: string;
   consumable?: boolean;
-  totalQuota?: number;
+  dimensions?: { [key: string]: any };
+  period?: GetProductQuotaResponseBodyQuotaPeriod;
   productCode?: string;
+  quotaActionCode?: string;
+  quotaArn?: string;
+  quotaDescription?: string;
+  quotaItems?: GetProductQuotaResponseBodyQuotaQuotaItems[];
+  quotaName?: string;
+  quotaType?: string;
+  quotaUnit?: string;
+  totalQuota?: number;
+  totalUsage?: number;
+  unadjustableDetail?: string;
   static names(): { [key: string]: string } {
     return {
-      quotaUnit: 'QuotaUnit',
-      quotaActionCode: 'QuotaActionCode',
-      totalUsage: 'TotalUsage',
-      applicableRange: 'ApplicableRange',
-      quotaType: 'QuotaType',
-      quotaDescription: 'QuotaDescription',
-      period: 'Period',
-      quotaArn: 'QuotaArn',
-      applicableType: 'ApplicableType',
-      quotaItems: 'QuotaItems',
-      dimensions: 'Dimensions',
       adjustable: 'Adjustable',
-      quotaName: 'QuotaName',
-      unadjustableDetail: 'UnadjustableDetail',
+      applicableRange: 'ApplicableRange',
+      applicableType: 'ApplicableType',
       consumable: 'Consumable',
-      totalQuota: 'TotalQuota',
+      dimensions: 'Dimensions',
+      period: 'Period',
       productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaArn: 'QuotaArn',
+      quotaDescription: 'QuotaDescription',
+      quotaItems: 'QuotaItems',
+      quotaName: 'QuotaName',
+      quotaType: 'QuotaType',
+      quotaUnit: 'QuotaUnit',
+      totalQuota: 'TotalQuota',
+      totalUsage: 'TotalUsage',
+      unadjustableDetail: 'UnadjustableDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaUnit: 'string',
-      quotaActionCode: 'string',
-      totalUsage: 'number',
-      applicableRange: { 'type': 'array', 'itemType': 'number' },
-      quotaType: 'string',
-      quotaDescription: 'string',
-      period: GetProductQuotaResponseBodyQuotaPeriod,
-      quotaArn: 'string',
-      applicableType: 'string',
-      quotaItems: { 'type': 'array', 'itemType': GetProductQuotaResponseBodyQuotaQuotaItems },
-      dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       adjustable: 'boolean',
-      quotaName: 'string',
-      unadjustableDetail: 'string',
+      applicableRange: { 'type': 'array', 'itemType': 'number' },
+      applicableType: 'string',
       consumable: 'boolean',
-      totalQuota: 'number',
+      dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      period: GetProductQuotaResponseBodyQuotaPeriod,
       productCode: 'string',
+      quotaActionCode: 'string',
+      quotaArn: 'string',
+      quotaDescription: 'string',
+      quotaItems: { 'type': 'array', 'itemType': GetProductQuotaResponseBodyQuotaQuotaItems },
+      quotaName: 'string',
+      quotaType: 'string',
+      quotaUnit: 'string',
+      totalQuota: 'number',
+      totalUsage: 'number',
+      unadjustableDetail: 'string',
     };
   }
 
@@ -1343,15 +2017,39 @@ export class GetProductQuotaDimensionRequestDependentDimensions extends $tea.Mod
   }
 }
 
+export class GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDetail extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProductQuotaDimensionResponseBodyQuotaDimension extends $tea.Model {
-  dimensionKey?: string;
   dependentDimensions?: string[];
+  dimensionKey?: string;
+  dimensionValueDetail?: GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDetail[];
   dimensionValues?: string[];
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      dimensionKey: 'DimensionKey',
       dependentDimensions: 'DependentDimensions',
+      dimensionKey: 'DimensionKey',
+      dimensionValueDetail: 'DimensionValueDetail',
       dimensionValues: 'DimensionValues',
       name: 'Name',
     };
@@ -1359,8 +2057,9 @@ export class GetProductQuotaDimensionResponseBodyQuotaDimension extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
-      dimensionKey: 'string',
       dependentDimensions: { 'type': 'array', 'itemType': 'string' },
+      dimensionKey: 'string',
+      dimensionValueDetail: { 'type': 'array', 'itemType': GetProductQuotaDimensionResponseBodyQuotaDimensionDimensionValueDetail },
       dimensionValues: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
     };
@@ -1372,49 +2071,52 @@ export class GetProductQuotaDimensionResponseBodyQuotaDimension extends $tea.Mod
 }
 
 export class GetQuotaAlarmResponseBodyQuotaAlarm extends $tea.Model {
-  thresholdPercent?: number;
-  quotaDimension?: { [key: string]: any };
-  createTime?: string;
-  quotaActionCode?: string;
+  alarmId?: string;
   alarmName?: string;
-  notifyTarget?: string;
+  createTime?: string;
   notifyChannels?: string[];
+  notifyTarget?: string;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaDimension?: { [key: string]: any };
   quotaUsage?: number;
   quotaValue?: number;
-  alarmId?: string;
   threshold?: number;
-  productCode?: string;
+  thresholdPercent?: number;
+  thresholdType?: string;
   static names(): { [key: string]: string } {
     return {
-      thresholdPercent: 'ThresholdPercent',
-      quotaDimension: 'QuotaDimension',
-      createTime: 'CreateTime',
-      quotaActionCode: 'QuotaActionCode',
+      alarmId: 'AlarmId',
       alarmName: 'AlarmName',
-      notifyTarget: 'NotifyTarget',
+      createTime: 'CreateTime',
       notifyChannels: 'NotifyChannels',
+      notifyTarget: 'NotifyTarget',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaDimension: 'QuotaDimension',
       quotaUsage: 'QuotaUsage',
       quotaValue: 'QuotaValue',
-      alarmId: 'AlarmId',
       threshold: 'Threshold',
-      productCode: 'ProductCode',
+      thresholdPercent: 'ThresholdPercent',
+      thresholdType: 'ThresholdType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      thresholdPercent: 'number',
-      quotaDimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      createTime: 'string',
-      quotaActionCode: 'string',
+      alarmId: 'string',
       alarmName: 'string',
-      notifyTarget: 'string',
+      createTime: 'string',
       notifyChannels: { 'type': 'array', 'itemType': 'string' },
+      notifyTarget: 'string',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaDimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       quotaUsage: 'number',
       quotaValue: 'number',
-      alarmId: 'string',
       threshold: 'number',
-      productCode: 'string',
+      thresholdPercent: 'number',
+      thresholdType: 'string',
     };
   }
 
@@ -1424,46 +2126,86 @@ export class GetQuotaAlarmResponseBodyQuotaAlarm extends $tea.Model {
 }
 
 export class GetQuotaApplicationResponseBodyQuotaApplication extends $tea.Model {
-  status?: string;
-  desireValue?: number;
-  quotaActionCode?: string;
-  quotaName?: string;
   applicationId?: string;
-  reason?: string;
-  auditReason?: string;
-  quotaDescription?: string;
-  productCode?: string;
-  quotaArn?: string;
   applyTime?: string;
+  approveValue?: number;
+  auditReason?: string;
+  desireValue?: number;
+  dimension?: { [key: string]: any };
+  effectiveTime?: string;
+  expireTime?: string;
+  noticeType?: number;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaArn?: string;
+  quotaDescription?: string;
+  quotaName?: string;
+  quotaUnit?: string;
+  reason?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      desireValue: 'DesireValue',
-      quotaActionCode: 'QuotaActionCode',
-      quotaName: 'QuotaName',
       applicationId: 'ApplicationId',
-      reason: 'Reason',
-      auditReason: 'AuditReason',
-      quotaDescription: 'QuotaDescription',
-      productCode: 'ProductCode',
-      quotaArn: 'QuotaArn',
       applyTime: 'ApplyTime',
+      approveValue: 'ApproveValue',
+      auditReason: 'AuditReason',
+      desireValue: 'DesireValue',
+      dimension: 'Dimension',
+      effectiveTime: 'EffectiveTime',
+      expireTime: 'ExpireTime',
+      noticeType: 'NoticeType',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaArn: 'QuotaArn',
+      quotaDescription: 'QuotaDescription',
+      quotaName: 'QuotaName',
+      quotaUnit: 'QuotaUnit',
+      reason: 'Reason',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      desireValue: 'number',
-      quotaActionCode: 'string',
-      quotaName: 'string',
       applicationId: 'string',
-      reason: 'string',
-      auditReason: 'string',
-      quotaDescription: 'string',
-      productCode: 'string',
-      quotaArn: 'string',
       applyTime: 'string',
+      approveValue: 'number',
+      auditReason: 'string',
+      desireValue: 'number',
+      dimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      effectiveTime: 'string',
+      expireTime: 'string',
+      noticeType: 'number',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaArn: 'string',
+      quotaDescription: 'string',
+      quotaName: 'string',
+      quotaUnit: 'string',
+      reason: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus extends $tea.Model {
+  resourceDirectoryId?: string;
+  serviceStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceDirectoryId: 'ResourceDirectoryId',
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceDirectoryId: 'string',
+      serviceStatus: 'number',
     };
   }
 
@@ -1473,40 +2215,40 @@ export class GetQuotaApplicationResponseBodyQuotaApplication extends $tea.Model 
 }
 
 export class ListAlarmHistoriesResponseBodyAlarmHistories extends $tea.Model {
-  quotaUsage?: number;
-  thresholdPercent?: number;
-  createTime?: string;
-  quotaActionCode?: string;
   alarmName?: string;
-  notifyTarget?: string;
+  createTime?: string;
   notifyChannels?: string[];
-  threshold?: number;
+  notifyTarget?: string;
   productCode?: string;
+  quotaActionCode?: string;
+  quotaUsage?: number;
+  threshold?: number;
+  thresholdPercent?: number;
   static names(): { [key: string]: string } {
     return {
-      quotaUsage: 'QuotaUsage',
-      thresholdPercent: 'ThresholdPercent',
-      createTime: 'CreateTime',
-      quotaActionCode: 'QuotaActionCode',
       alarmName: 'AlarmName',
-      notifyTarget: 'NotifyTarget',
+      createTime: 'CreateTime',
       notifyChannels: 'NotifyChannels',
-      threshold: 'Threshold',
+      notifyTarget: 'NotifyTarget',
       productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaUsage: 'QuotaUsage',
+      threshold: 'Threshold',
+      thresholdPercent: 'ThresholdPercent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaUsage: 'number',
-      thresholdPercent: 'number',
-      createTime: 'string',
-      quotaActionCode: 'string',
       alarmName: 'string',
-      notifyTarget: 'string',
+      createTime: 'string',
       notifyChannels: { 'type': 'array', 'itemType': 'string' },
-      threshold: 'number',
+      notifyTarget: 'string',
       productCode: 'string',
+      quotaActionCode: 'string',
+      quotaUsage: 'number',
+      threshold: 'number',
+      thresholdPercent: 'number',
     };
   }
 
@@ -1516,21 +2258,21 @@ export class ListAlarmHistoriesResponseBodyAlarmHistories extends $tea.Model {
 }
 
 export class ListDependentQuotasResponseBodyQuotasDimensions extends $tea.Model {
-  dimensionKey?: string;
   dependentDimension?: string[];
+  dimensionKey?: string;
   dimensionValues?: string[];
   static names(): { [key: string]: string } {
     return {
-      dimensionKey: 'DimensionKey',
       dependentDimension: 'DependentDimension',
+      dimensionKey: 'DimensionKey',
       dimensionValues: 'DimensionValues',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dimensionKey: 'string',
       dependentDimension: { 'type': 'array', 'itemType': 'string' },
+      dimensionKey: 'string',
       dimensionValues: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1541,24 +2283,24 @@ export class ListDependentQuotasResponseBodyQuotasDimensions extends $tea.Model 
 }
 
 export class ListDependentQuotasResponseBodyQuotas extends $tea.Model {
-  quotaActionCode?: string;
   dimensions?: ListDependentQuotasResponseBodyQuotasDimensions[];
   productCode?: string;
+  quotaActionCode?: string;
   scale?: number;
   static names(): { [key: string]: string } {
     return {
-      quotaActionCode: 'QuotaActionCode',
       dimensions: 'Dimensions',
       productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
       scale: 'Scale',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaActionCode: 'string',
       dimensions: { 'type': 'array', 'itemType': ListDependentQuotasResponseBodyQuotasDimensions },
       productCode: 'string',
+      quotaActionCode: 'string',
       scale: 'number',
     };
   }
@@ -1568,29 +2310,82 @@ export class ListDependentQuotasResponseBodyQuotas extends $tea.Model {
   }
 }
 
-export class ListProductQuotaDimensionsResponseBodyQuotaDimensions extends $tea.Model {
-  requisite?: boolean;
-  dimensionKey?: string;
-  dependentDimensions?: string[];
-  dimensionValues?: string[];
-  name?: string;
+export class ListProductDimensionGroupsResponseBodyDimensionGroups extends $tea.Model {
+  dimensionKeys?: string[];
+  groupCode?: string;
+  groupName?: string;
+  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requisite: 'Requisite',
-      dimensionKey: 'DimensionKey',
-      dependentDimensions: 'DependentDimensions',
-      dimensionValues: 'DimensionValues',
-      name: 'Name',
+      dimensionKeys: 'DimensionKeys',
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requisite: 'boolean',
-      dimensionKey: 'string',
+      dimensionKeys: { 'type': 'array', 'itemType': 'string' },
+      groupCode: 'string',
+      groupName: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductQuotaDimensionsResponseBodyQuotaDimensions extends $tea.Model {
+  dependentDimensions?: string[];
+  dimensionKey?: string;
+  dimensionValueDetail?: ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail[];
+  dimensionValues?: string[];
+  name?: string;
+  requisite?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dependentDimensions: 'DependentDimensions',
+      dimensionKey: 'DimensionKey',
+      dimensionValueDetail: 'DimensionValueDetail',
+      dimensionValues: 'DimensionValues',
+      name: 'Name',
+      requisite: 'Requisite',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       dependentDimensions: { 'type': 'array', 'itemType': 'string' },
+      dimensionKey: 'string',
+      dimensionValueDetail: { 'type': 'array', 'itemType': ListProductQuotaDimensionsResponseBodyQuotaDimensionsDimensionValueDetail },
       dimensionValues: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      requisite: 'boolean',
     };
   }
 
@@ -1622,19 +2417,19 @@ export class ListProductQuotasRequestDimensions extends $tea.Model {
 }
 
 export class ListProductQuotasResponseBodyQuotasPeriod extends $tea.Model {
-  periodValue?: number;
   periodUnit?: string;
+  periodValue?: number;
   static names(): { [key: string]: string } {
     return {
-      periodValue: 'PeriodValue',
       periodUnit: 'PeriodUnit',
+      periodValue: 'PeriodValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      periodValue: 'number',
       periodUnit: 'string',
+      periodValue: 'number',
     };
   }
 
@@ -1644,24 +2439,24 @@ export class ListProductQuotasResponseBodyQuotasPeriod extends $tea.Model {
 }
 
 export class ListProductQuotasResponseBodyQuotasQuotaItems extends $tea.Model {
-  type?: string;
   quota?: string;
   quotaUnit?: string;
+  type?: string;
   usage?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       quota: 'Quota',
       quotaUnit: 'QuotaUnit',
+      type: 'Type',
       usage: 'Usage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       quota: 'string',
       quotaUnit: 'string',
+      type: 'string',
       usage: 'string',
     };
   }
@@ -1672,64 +2467,64 @@ export class ListProductQuotasResponseBodyQuotasQuotaItems extends $tea.Model {
 }
 
 export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
-  quotaUnit?: string;
-  quotaActionCode?: string;
-  totalUsage?: number;
-  applicableRange?: number[];
-  quotaType?: string;
-  quotaDescription?: string;
-  period?: ListProductQuotasResponseBodyQuotasPeriod;
-  quotaArn?: string;
-  applicableType?: string;
-  quotaItems?: ListProductQuotasResponseBodyQuotasQuotaItems[];
-  dimensions?: { [key: string]: any };
   adjustable?: boolean;
-  quotaName?: string;
-  unadjustableDetail?: string;
+  applicableRange?: number[];
+  applicableType?: string;
   consumable?: boolean;
-  totalQuota?: number;
+  dimensions?: { [key: string]: any };
+  period?: ListProductQuotasResponseBodyQuotasPeriod;
   productCode?: string;
+  quotaActionCode?: string;
+  quotaArn?: string;
+  quotaDescription?: string;
+  quotaItems?: ListProductQuotasResponseBodyQuotasQuotaItems[];
+  quotaName?: string;
+  quotaType?: string;
+  quotaUnit?: string;
+  totalQuota?: number;
+  totalUsage?: number;
+  unadjustableDetail?: string;
   static names(): { [key: string]: string } {
     return {
-      quotaUnit: 'QuotaUnit',
-      quotaActionCode: 'QuotaActionCode',
-      totalUsage: 'TotalUsage',
-      applicableRange: 'ApplicableRange',
-      quotaType: 'QuotaType',
-      quotaDescription: 'QuotaDescription',
-      period: 'Period',
-      quotaArn: 'QuotaArn',
-      applicableType: 'ApplicableType',
-      quotaItems: 'QuotaItems',
-      dimensions: 'Dimensions',
       adjustable: 'Adjustable',
-      quotaName: 'QuotaName',
-      unadjustableDetail: 'UnadjustableDetail',
+      applicableRange: 'ApplicableRange',
+      applicableType: 'ApplicableType',
       consumable: 'Consumable',
-      totalQuota: 'TotalQuota',
+      dimensions: 'Dimensions',
+      period: 'Period',
       productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaArn: 'QuotaArn',
+      quotaDescription: 'QuotaDescription',
+      quotaItems: 'QuotaItems',
+      quotaName: 'QuotaName',
+      quotaType: 'QuotaType',
+      quotaUnit: 'QuotaUnit',
+      totalQuota: 'TotalQuota',
+      totalUsage: 'TotalUsage',
+      unadjustableDetail: 'UnadjustableDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      quotaUnit: 'string',
-      quotaActionCode: 'string',
-      totalUsage: 'number',
-      applicableRange: { 'type': 'array', 'itemType': 'number' },
-      quotaType: 'string',
-      quotaDescription: 'string',
-      period: ListProductQuotasResponseBodyQuotasPeriod,
-      quotaArn: 'string',
-      applicableType: 'string',
-      quotaItems: { 'type': 'array', 'itemType': ListProductQuotasResponseBodyQuotasQuotaItems },
-      dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       adjustable: 'boolean',
-      quotaName: 'string',
-      unadjustableDetail: 'string',
+      applicableRange: { 'type': 'array', 'itemType': 'number' },
+      applicableType: 'string',
       consumable: 'boolean',
-      totalQuota: 'number',
+      dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      period: ListProductQuotasResponseBodyQuotasPeriod,
       productCode: 'string',
+      quotaActionCode: 'string',
+      quotaArn: 'string',
+      quotaDescription: 'string',
+      quotaItems: { 'type': 'array', 'itemType': ListProductQuotasResponseBodyQuotasQuotaItems },
+      quotaName: 'string',
+      quotaType: 'string',
+      quotaUnit: 'string',
+      totalQuota: 'number',
+      totalUsage: 'number',
+      unadjustableDetail: 'string',
     };
   }
 
@@ -1739,34 +2534,40 @@ export class ListProductQuotasResponseBodyQuotas extends $tea.Model {
 }
 
 export class ListProductsResponseBodyProductInfo extends $tea.Model {
-  productName?: string;
-  secondCategoryId?: number;
-  productNameEn?: string;
+  commonQuotaSupport?: string;
   dynamic?: boolean;
-  secondCategoryNameEn?: string;
-  secondCategoryName?: string;
+  flowControlSupport?: string;
   productCode?: string;
+  productName?: string;
+  productNameEn?: string;
+  secondCategoryId?: number;
+  secondCategoryName?: string;
+  secondCategoryNameEn?: string;
   static names(): { [key: string]: string } {
     return {
-      productName: 'ProductName',
-      secondCategoryId: 'SecondCategoryId',
-      productNameEn: 'ProductNameEn',
+      commonQuotaSupport: 'CommonQuotaSupport',
       dynamic: 'Dynamic',
-      secondCategoryNameEn: 'SecondCategoryNameEn',
-      secondCategoryName: 'SecondCategoryName',
+      flowControlSupport: 'FlowControlSupport',
       productCode: 'ProductCode',
+      productName: 'ProductName',
+      productNameEn: 'ProductNameEn',
+      secondCategoryId: 'SecondCategoryId',
+      secondCategoryName: 'SecondCategoryName',
+      secondCategoryNameEn: 'SecondCategoryNameEn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      productName: 'string',
-      secondCategoryId: 'number',
-      productNameEn: 'string',
+      commonQuotaSupport: 'string',
       dynamic: 'boolean',
-      secondCategoryNameEn: 'string',
-      secondCategoryName: 'string',
+      flowControlSupport: 'string',
       productCode: 'string',
+      productName: 'string',
+      productNameEn: 'string',
+      secondCategoryId: 'number',
+      secondCategoryName: 'string',
+      secondCategoryNameEn: 'string',
     };
   }
 
@@ -1798,55 +2599,129 @@ export class ListQuotaAlarmsRequestQuotaDimensions extends $tea.Model {
 }
 
 export class ListQuotaAlarmsResponseBodyQuotaAlarms extends $tea.Model {
-  thresholdPercent?: number;
-  quotaDimensions?: { [key: string]: any };
-  createTime?: string;
-  quotaActionCode?: string;
+  alarmId?: string;
   alarmName?: string;
-  notifyTarget?: string;
+  createTime?: string;
+  exceedThreshold?: boolean;
   notifyChannels?: string[];
+  notifyTarget?: string;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaDimensions?: { [key: string]: any };
   quotaUsage?: number;
   quotaValue?: number;
-  alarmId?: string;
   threshold?: number;
-  productCode?: string;
+  thresholdPercent?: number;
+  thresholdType?: string;
   webHook?: string;
-  exceedThreshold?: boolean;
   static names(): { [key: string]: string } {
     return {
-      thresholdPercent: 'ThresholdPercent',
-      quotaDimensions: 'QuotaDimensions',
-      createTime: 'CreateTime',
-      quotaActionCode: 'QuotaActionCode',
+      alarmId: 'AlarmId',
       alarmName: 'AlarmName',
-      notifyTarget: 'NotifyTarget',
+      createTime: 'CreateTime',
+      exceedThreshold: 'ExceedThreshold',
       notifyChannels: 'NotifyChannels',
+      notifyTarget: 'NotifyTarget',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaDimensions: 'QuotaDimensions',
       quotaUsage: 'QuotaUsage',
       quotaValue: 'QuotaValue',
-      alarmId: 'AlarmId',
       threshold: 'Threshold',
-      productCode: 'ProductCode',
+      thresholdPercent: 'ThresholdPercent',
+      thresholdType: 'ThresholdType',
       webHook: 'WebHook',
-      exceedThreshold: 'ExceedThreshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      thresholdPercent: 'number',
-      quotaDimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      createTime: 'string',
-      quotaActionCode: 'string',
+      alarmId: 'string',
       alarmName: 'string',
-      notifyTarget: 'string',
+      createTime: 'string',
+      exceedThreshold: 'boolean',
       notifyChannels: { 'type': 'array', 'itemType': 'string' },
+      notifyTarget: 'string',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaDimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       quotaUsage: 'number',
       quotaValue: 'number',
-      alarmId: 'string',
       threshold: 'number',
-      productCode: 'string',
+      thresholdPercent: 'number',
+      thresholdType: 'string',
       webHook: 'string',
-      exceedThreshold: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationTemplatesRequestDimensions extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationTemplatesResponseBodyQuotaApplicationTemplates extends $tea.Model {
+  applicableRange?: number[];
+  applicableType?: string;
+  desireValue?: number;
+  dimensions?: { [key: string]: any };
+  envLanguage?: string;
+  id?: string;
+  noticeType?: number;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaDescription?: string;
+  quotaName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicableRange: 'ApplicableRange',
+      applicableType: 'ApplicableType',
+      desireValue: 'DesireValue',
+      dimensions: 'Dimensions',
+      envLanguage: 'EnvLanguage',
+      id: 'Id',
+      noticeType: 'NoticeType',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaDescription: 'QuotaDescription',
+      quotaName: 'QuotaName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicableRange: { 'type': 'array', 'itemType': 'number' },
+      applicableType: 'string',
+      desireValue: 'number',
+      dimensions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      envLanguage: 'string',
+      id: 'string',
+      noticeType: 'number',
+      productCode: 'string',
+      quotaActionCode: 'string',
+      quotaDescription: 'string',
+      quotaName: 'string',
     };
   }
 
@@ -1877,68 +2752,137 @@ export class ListQuotaApplicationsRequestDimensions extends $tea.Model {
   }
 }
 
-export class ListQuotaApplicationsResponseBodyQuotaApplications extends $tea.Model {
-  status?: string;
-  comment?: string;
-  expireTime?: string;
-  quotaUnit?: string;
-  desireValue?: number;
-  noticeType?: number;
-  quotaActionCode?: string;
-  dimension?: { [key: string]: any };
-  quotaDescription?: string;
-  quotaArn?: string;
-  effectiveTime?: string;
-  approveValue?: number;
-  quotaName?: string;
-  applicationId?: string;
-  auditReason?: string;
-  reason?: string;
-  applyTime?: string;
-  productCode?: string;
+export class ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod extends $tea.Model {
+  periodUnit?: string;
+  periodValue?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      comment: 'Comment',
-      expireTime: 'ExpireTime',
-      quotaUnit: 'QuotaUnit',
-      desireValue: 'DesireValue',
-      noticeType: 'NoticeType',
-      quotaActionCode: 'QuotaActionCode',
-      dimension: 'Dimension',
-      quotaDescription: 'QuotaDescription',
-      quotaArn: 'QuotaArn',
-      effectiveTime: 'EffectiveTime',
-      approveValue: 'ApproveValue',
-      quotaName: 'QuotaName',
-      applicationId: 'ApplicationId',
-      auditReason: 'AuditReason',
-      reason: 'Reason',
-      applyTime: 'ApplyTime',
-      productCode: 'ProductCode',
+      periodUnit: 'PeriodUnit',
+      periodValue: 'PeriodValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      comment: 'string',
-      expireTime: 'string',
-      quotaUnit: 'string',
-      desireValue: 'number',
-      noticeType: 'number',
-      quotaActionCode: 'string',
-      dimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      quotaDescription: 'string',
-      quotaArn: 'string',
-      effectiveTime: 'string',
-      approveValue: 'number',
-      quotaName: 'string',
+      periodUnit: 'string',
+      periodValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaApplicationsResponseBodyQuotaApplications extends $tea.Model {
+  applicationId?: string;
+  applyTime?: string;
+  approveValue?: number;
+  auditReason?: string;
+  comment?: string;
+  desireValue?: number;
+  dimension?: { [key: string]: any };
+  effectiveTime?: string;
+  expireTime?: string;
+  noticeType?: number;
+  period?: ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod;
+  productCode?: string;
+  quotaActionCode?: string;
+  quotaArn?: string;
+  quotaDescription?: string;
+  quotaName?: string;
+  quotaUnit?: string;
+  reason?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      applyTime: 'ApplyTime',
+      approveValue: 'ApproveValue',
+      auditReason: 'AuditReason',
+      comment: 'Comment',
+      desireValue: 'DesireValue',
+      dimension: 'Dimension',
+      effectiveTime: 'EffectiveTime',
+      expireTime: 'ExpireTime',
+      noticeType: 'NoticeType',
+      period: 'Period',
+      productCode: 'ProductCode',
+      quotaActionCode: 'QuotaActionCode',
+      quotaArn: 'QuotaArn',
+      quotaDescription: 'QuotaDescription',
+      quotaName: 'QuotaName',
+      quotaUnit: 'QuotaUnit',
+      reason: 'Reason',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       applicationId: 'string',
-      auditReason: 'string',
-      reason: 'string',
       applyTime: 'string',
+      approveValue: 'number',
+      auditReason: 'string',
+      comment: 'string',
+      desireValue: 'number',
+      dimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      effectiveTime: 'string',
+      expireTime: 'string',
+      noticeType: 'number',
+      period: ListQuotaApplicationsResponseBodyQuotaApplicationsPeriod,
       productCode: 'string',
+      quotaActionCode: 'string',
+      quotaArn: 'string',
+      quotaDescription: 'string',
+      quotaName: 'string',
+      quotaUnit: 'string',
+      reason: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyQuotaTemplateServiceStatusResponseBodyTemplateServiceStatus extends $tea.Model {
+  resourceDirectoryId?: string;
+  serviceStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceDirectoryId: 'ResourceDirectoryId',
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceDirectoryId: 'string',
+      serviceStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTemplateQuotaItemRequestDimensions extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1952,7 +2896,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("quotas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1972,10 +2916,54 @@ export default class Client extends OpenApi {
 
   async createQuotaAlarmWithOptions(request: CreateQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<CreateQuotaAlarmResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmName)) {
+      body["AlarmName"] = request.alarmName;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaDimensions)) {
+      body["QuotaDimensions"] = request.quotaDimensions;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      body["Threshold"] = request.threshold;
+    }
+
+    if (!Util.isUnset(request.thresholdPercent)) {
+      body["ThresholdPercent"] = request.thresholdPercent;
+    }
+
+    if (!Util.isUnset(request.thresholdType)) {
+      body["ThresholdType"] = request.thresholdType;
+    }
+
+    if (!Util.isUnset(request.webHook)) {
+      body["WebHook"] = request.webHook;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateQuotaAlarmResponse>(await this.doRPCRequest("CreateQuotaAlarm", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateQuotaAlarmResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateQuotaAlarm",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateQuotaAlarmResponse>(await this.callApi(params, req, runtime), new CreateQuotaAlarmResponse({}));
   }
 
   async createQuotaAlarm(request: CreateQuotaAlarmRequest): Promise<CreateQuotaAlarmResponse> {
@@ -1985,10 +2973,58 @@ export default class Client extends OpenApi {
 
   async createQuotaApplicationWithOptions(request: CreateQuotaApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateQuotaApplicationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.auditMode)) {
+      body["AuditMode"] = request.auditMode;
+    }
+
+    if (!Util.isUnset(request.desireValue)) {
+      body["DesireValue"] = request.desireValue;
+    }
+
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.envLanguage)) {
+      body["EnvLanguage"] = request.envLanguage;
+    }
+
+    if (!Util.isUnset(request.noticeType)) {
+      body["NoticeType"] = request.noticeType;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateQuotaApplicationResponse>(await this.doRPCRequest("CreateQuotaApplication", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateQuotaApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateQuotaApplication",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateQuotaApplicationResponse>(await this.callApi(params, req, runtime), new CreateQuotaApplicationResponse({}));
   }
 
   async createQuotaApplication(request: CreateQuotaApplicationRequest): Promise<CreateQuotaApplicationResponse> {
@@ -1996,12 +3032,77 @@ export default class Client extends OpenApi {
     return await this.createQuotaApplicationWithOptions(request, runtime);
   }
 
+  async createTemplateQuotaItemWithOptions(request: CreateTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateQuotaItemResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desireValue)) {
+      body["DesireValue"] = request.desireValue;
+    }
+
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.envLanguage)) {
+      body["EnvLanguage"] = request.envLanguage;
+    }
+
+    if (!Util.isUnset(request.noticeType)) {
+      body["NoticeType"] = request.noticeType;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTemplateQuotaItem",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTemplateQuotaItemResponse>(await this.callApi(params, req, runtime), new CreateTemplateQuotaItemResponse({}));
+  }
+
+  async createTemplateQuotaItem(request: CreateTemplateQuotaItemRequest): Promise<CreateTemplateQuotaItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTemplateQuotaItemWithOptions(request, runtime);
+  }
+
   async deleteQuotaAlarmWithOptions(request: DeleteQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQuotaAlarmResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmId)) {
+      body["AlarmId"] = request.alarmId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteQuotaAlarmResponse>(await this.doRPCRequest("DeleteQuotaAlarm", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteQuotaAlarmResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteQuotaAlarm",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteQuotaAlarmResponse>(await this.callApi(params, req, runtime), new DeleteQuotaAlarmResponse({}));
   }
 
   async deleteQuotaAlarm(request: DeleteQuotaAlarmRequest): Promise<DeleteQuotaAlarmResponse> {
@@ -2009,12 +3110,65 @@ export default class Client extends OpenApi {
     return await this.deleteQuotaAlarmWithOptions(request, runtime);
   }
 
+  async deleteTemplateQuotaItemWithOptions(request: DeleteTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateQuotaItemResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplateQuotaItem",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplateQuotaItemResponse>(await this.callApi(params, req, runtime), new DeleteTemplateQuotaItemResponse({}));
+  }
+
+  async deleteTemplateQuotaItem(request: DeleteTemplateQuotaItemRequest): Promise<DeleteTemplateQuotaItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTemplateQuotaItemWithOptions(request, runtime);
+  }
+
   async getProductQuotaWithOptions(request: GetProductQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetProductQuotaResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetProductQuotaResponse>(await this.doRPCRequest("GetProductQuota", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetProductQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetProductQuota",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProductQuotaResponse>(await this.callApi(params, req, runtime), new GetProductQuotaResponse({}));
   }
 
   async getProductQuota(request: GetProductQuotaRequest): Promise<GetProductQuotaResponse> {
@@ -2024,10 +3178,34 @@ export default class Client extends OpenApi {
 
   async getProductQuotaDimensionWithOptions(request: GetProductQuotaDimensionRequest, runtime: $Util.RuntimeOptions): Promise<GetProductQuotaDimensionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dependentDimensions)) {
+      body["DependentDimensions"] = request.dependentDimensions;
+    }
+
+    if (!Util.isUnset(request.dimensionKey)) {
+      body["DimensionKey"] = request.dimensionKey;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetProductQuotaDimensionResponse>(await this.doRPCRequest("GetProductQuotaDimension", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetProductQuotaDimensionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetProductQuotaDimension",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProductQuotaDimensionResponse>(await this.callApi(params, req, runtime), new GetProductQuotaDimensionResponse({}));
   }
 
   async getProductQuotaDimension(request: GetProductQuotaDimensionRequest): Promise<GetProductQuotaDimensionResponse> {
@@ -2037,10 +3215,26 @@ export default class Client extends OpenApi {
 
   async getQuotaAlarmWithOptions(request: GetQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaAlarmResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmId)) {
+      body["AlarmId"] = request.alarmId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetQuotaAlarmResponse>(await this.doRPCRequest("GetQuotaAlarm", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetQuotaAlarmResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetQuotaAlarm",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQuotaAlarmResponse>(await this.callApi(params, req, runtime), new GetQuotaAlarmResponse({}));
   }
 
   async getQuotaAlarm(request: GetQuotaAlarmRequest): Promise<GetQuotaAlarmResponse> {
@@ -2050,10 +3244,26 @@ export default class Client extends OpenApi {
 
   async getQuotaApplicationWithOptions(request: GetQuotaApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaApplicationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetQuotaApplicationResponse>(await this.doRPCRequest("GetQuotaApplication", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetQuotaApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetQuotaApplication",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQuotaApplicationResponse>(await this.callApi(params, req, runtime), new GetQuotaApplicationResponse({}));
   }
 
   async getQuotaApplication(request: GetQuotaApplicationRequest): Promise<GetQuotaApplicationResponse> {
@@ -2061,12 +3271,77 @@ export default class Client extends OpenApi {
     return await this.getQuotaApplicationWithOptions(request, runtime);
   }
 
+  async getQuotaTemplateServiceStatusWithOptions(request: GetQuotaTemplateServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaTemplateServiceStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resourceDirectoryId)) {
+      body["ResourceDirectoryId"] = request.resourceDirectoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetQuotaTemplateServiceStatus",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetQuotaTemplateServiceStatusResponse>(await this.callApi(params, req, runtime), new GetQuotaTemplateServiceStatusResponse({}));
+  }
+
+  async getQuotaTemplateServiceStatus(request: GetQuotaTemplateServiceStatusRequest): Promise<GetQuotaTemplateServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getQuotaTemplateServiceStatusWithOptions(request, runtime);
+  }
+
   async listAlarmHistoriesWithOptions(request: ListAlarmHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlarmHistoriesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListAlarmHistoriesResponse>(await this.doRPCRequest("ListAlarmHistories", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListAlarmHistoriesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAlarmHistories",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAlarmHistoriesResponse>(await this.callApi(params, req, runtime), new ListAlarmHistoriesResponse({}));
   }
 
   async listAlarmHistories(request: ListAlarmHistoriesRequest): Promise<ListAlarmHistoriesResponse> {
@@ -2076,10 +3351,30 @@ export default class Client extends OpenApi {
 
   async listDependentQuotasWithOptions(request: ListDependentQuotasRequest, runtime: $Util.RuntimeOptions): Promise<ListDependentQuotasResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListDependentQuotasResponse>(await this.doRPCRequest("ListDependentQuotas", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListDependentQuotasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDependentQuotas",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDependentQuotasResponse>(await this.callApi(params, req, runtime), new ListDependentQuotasResponse({}));
   }
 
   async listDependentQuotas(request: ListDependentQuotasRequest): Promise<ListDependentQuotasResponse> {
@@ -2087,12 +3382,77 @@ export default class Client extends OpenApi {
     return await this.listDependentQuotasWithOptions(request, runtime);
   }
 
+  async listProductDimensionGroupsWithOptions(request: ListProductDimensionGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductDimensionGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProductDimensionGroups",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProductDimensionGroupsResponse>(await this.callApi(params, req, runtime), new ListProductDimensionGroupsResponse({}));
+  }
+
+  async listProductDimensionGroups(request: ListProductDimensionGroupsRequest): Promise<ListProductDimensionGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProductDimensionGroupsWithOptions(request, runtime);
+  }
+
   async listProductQuotaDimensionsWithOptions(request: ListProductQuotaDimensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductQuotaDimensionsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListProductQuotaDimensionsResponse>(await this.doRPCRequest("ListProductQuotaDimensions", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListProductQuotaDimensionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListProductQuotaDimensions",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProductQuotaDimensionsResponse>(await this.callApi(params, req, runtime), new ListProductQuotaDimensionsResponse({}));
   }
 
   async listProductQuotaDimensions(request: ListProductQuotaDimensionsRequest): Promise<ListProductQuotaDimensionsResponse> {
@@ -2102,10 +3462,62 @@ export default class Client extends OpenApi {
 
   async listProductQuotasWithOptions(request: ListProductQuotasRequest, runtime: $Util.RuntimeOptions): Promise<ListProductQuotasResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.groupCode)) {
+      body["GroupCode"] = request.groupCode;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      body["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    if (!Util.isUnset(request.sortField)) {
+      body["SortField"] = request.sortField;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListProductQuotasResponse>(await this.doRPCRequest("ListProductQuotas", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListProductQuotasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListProductQuotas",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProductQuotasResponse>(await this.callApi(params, req, runtime), new ListProductQuotasResponse({}));
   }
 
   async listProductQuotas(request: ListProductQuotasRequest): Promise<ListProductQuotasResponse> {
@@ -2115,10 +3527,30 @@ export default class Client extends OpenApi {
 
   async listProductsWithOptions(request: ListProductsRequest, runtime: $Util.RuntimeOptions): Promise<ListProductsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListProductsResponse>(await this.doRPCRequest("ListProducts", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListProductsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListProducts",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProductsResponse>(await this.callApi(params, req, runtime), new ListProductsResponse({}));
   }
 
   async listProducts(request: ListProductsRequest): Promise<ListProductsResponse> {
@@ -2128,10 +3560,46 @@ export default class Client extends OpenApi {
 
   async listQuotaAlarmsWithOptions(request: ListQuotaAlarmsRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaAlarmsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmName)) {
+      body["AlarmName"] = request.alarmName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaDimensions)) {
+      body["QuotaDimensions"] = request.quotaDimensions;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListQuotaAlarmsResponse>(await this.doRPCRequest("ListQuotaAlarms", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListQuotaAlarmsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListQuotaAlarms",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListQuotaAlarmsResponse>(await this.callApi(params, req, runtime), new ListQuotaAlarmsResponse({}));
   }
 
   async listQuotaAlarms(request: ListQuotaAlarmsRequest): Promise<ListQuotaAlarmsResponse> {
@@ -2139,12 +3607,103 @@ export default class Client extends OpenApi {
     return await this.listQuotaAlarmsWithOptions(request, runtime);
   }
 
+  async listQuotaApplicationTemplatesWithOptions(request: ListQuotaApplicationTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationTemplatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListQuotaApplicationTemplates",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListQuotaApplicationTemplatesResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationTemplatesResponse({}));
+  }
+
+  async listQuotaApplicationTemplates(request: ListQuotaApplicationTemplatesRequest): Promise<ListQuotaApplicationTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listQuotaApplicationTemplatesWithOptions(request, runtime);
+  }
+
   async listQuotaApplicationsWithOptions(request: ListQuotaApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListQuotaApplicationsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      body["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    if (!Util.isUnset(request.quotaCategory)) {
+      body["QuotaCategory"] = request.quotaCategory;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListQuotaApplicationsResponse>(await this.doRPCRequest("ListQuotaApplications", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListQuotaApplicationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListQuotaApplications",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListQuotaApplicationsResponse>(await this.callApi(params, req, runtime), new ListQuotaApplicationsResponse({}));
   }
 
   async listQuotaApplications(request: ListQuotaApplicationsRequest): Promise<ListQuotaApplicationsResponse> {
@@ -2152,12 +3711,130 @@ export default class Client extends OpenApi {
     return await this.listQuotaApplicationsWithOptions(request, runtime);
   }
 
+  async modifyQuotaTemplateServiceStatusWithOptions(request: ModifyQuotaTemplateServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyQuotaTemplateServiceStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceStatus)) {
+      body["ServiceStatus"] = request.serviceStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyQuotaTemplateServiceStatus",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyQuotaTemplateServiceStatusResponse>(await this.callApi(params, req, runtime), new ModifyQuotaTemplateServiceStatusResponse({}));
+  }
+
+  async modifyQuotaTemplateServiceStatus(request: ModifyQuotaTemplateServiceStatusRequest): Promise<ModifyQuotaTemplateServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyQuotaTemplateServiceStatusWithOptions(request, runtime);
+  }
+
+  async modifyTemplateQuotaItemWithOptions(request: ModifyTemplateQuotaItemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTemplateQuotaItemResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desireValue)) {
+      body["DesireValue"] = request.desireValue;
+    }
+
+    if (!Util.isUnset(request.dimensions)) {
+      body["Dimensions"] = request.dimensions;
+    }
+
+    if (!Util.isUnset(request.envLanguage)) {
+      body["EnvLanguage"] = request.envLanguage;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.noticeType)) {
+      body["NoticeType"] = request.noticeType;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.quotaActionCode)) {
+      body["QuotaActionCode"] = request.quotaActionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTemplateQuotaItem",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTemplateQuotaItemResponse>(await this.callApi(params, req, runtime), new ModifyTemplateQuotaItemResponse({}));
+  }
+
+  async modifyTemplateQuotaItem(request: ModifyTemplateQuotaItemRequest): Promise<ModifyTemplateQuotaItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTemplateQuotaItemWithOptions(request, runtime);
+  }
+
   async updateQuotaAlarmWithOptions(request: UpdateQuotaAlarmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQuotaAlarmResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmId)) {
+      body["AlarmId"] = request.alarmId;
+    }
+
+    if (!Util.isUnset(request.alarmName)) {
+      body["AlarmName"] = request.alarmName;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      body["Threshold"] = request.threshold;
+    }
+
+    if (!Util.isUnset(request.thresholdPercent)) {
+      body["ThresholdPercent"] = request.thresholdPercent;
+    }
+
+    if (!Util.isUnset(request.thresholdType)) {
+      body["ThresholdType"] = request.thresholdType;
+    }
+
+    if (!Util.isUnset(request.webHook)) {
+      body["WebHook"] = request.webHook;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateQuotaAlarmResponse>(await this.doRPCRequest("UpdateQuotaAlarm", "2020-05-10", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateQuotaAlarmResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateQuotaAlarm",
+      version: "2020-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateQuotaAlarmResponse>(await this.callApi(params, req, runtime), new UpdateQuotaAlarmResponse({}));
   }
 
   async updateQuotaAlarm(request: UpdateQuotaAlarmRequest): Promise<UpdateQuotaAlarmResponse> {
