@@ -63,10 +63,12 @@ export class AssumeRoleResponseBody extends $tea.Model {
 
 export class AssumeRoleResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssumeRoleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -74,6 +76,7 @@ export class AssumeRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssumeRoleResponseBody,
     };
   }
@@ -147,10 +150,12 @@ export class AssumeRoleWithOIDCResponseBody extends $tea.Model {
 
 export class AssumeRoleWithOIDCResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssumeRoleWithOIDCResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -158,6 +163,7 @@ export class AssumeRoleWithOIDCResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssumeRoleWithOIDCResponseBody,
     };
   }
@@ -228,10 +234,12 @@ export class AssumeRoleWithSAMLResponseBody extends $tea.Model {
 
 export class AssumeRoleWithSAMLResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AssumeRoleWithSAMLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -239,6 +247,7 @@ export class AssumeRoleWithSAMLResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AssumeRoleWithSAMLResponseBody,
     };
   }
@@ -287,10 +296,12 @@ export class GetCallerIdentityResponseBody extends $tea.Model {
 
 export class GetCallerIdentityResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCallerIdentityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -298,6 +309,7 @@ export class GetCallerIdentityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCallerIdentityResponseBody,
     };
   }
@@ -515,6 +527,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "sts.aliyuncs.com",
