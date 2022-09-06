@@ -89,6 +89,90 @@ export class AddDataForApiSourceResponse extends $tea.Model {
   }
 }
 
+export class AddShareTaskDeviceRequest extends $tea.Model {
+  iotIdList?: string[];
+  iotInstanceId?: string;
+  productKey?: string;
+  shareTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotIdList: 'IotIdList',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      shareTaskId: 'ShareTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotIdList: { 'type': 'array', 'itemType': 'string' },
+      iotInstanceId: 'string',
+      productKey: 'string',
+      shareTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddShareTaskDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddShareTaskDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddShareTaskDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddShareTaskDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AddShareTaskDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddShareTaskDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachDestinationRequest extends $tea.Model {
   destinationId?: number;
   iotInstanceId?: string;
@@ -3136,12 +3220,14 @@ export class BindGatewayToEdgeInstanceResponse extends $tea.Model {
 }
 
 export class BindLicenseDeviceRequest extends $tea.Model {
+  deviceNameList?: string[];
   iotIdList?: string[];
   iotInstanceId?: string;
   licenseCode?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
+      deviceNameList: 'DeviceNameList',
       iotIdList: 'IotIdList',
       iotInstanceId: 'IotInstanceId',
       licenseCode: 'LicenseCode',
@@ -3151,6 +3237,7 @@ export class BindLicenseDeviceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deviceNameList: { 'type': 'array', 'itemType': 'string' },
       iotIdList: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       licenseCode: 'string',
@@ -5098,6 +5185,136 @@ export class CreateDeviceTunnelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDeviceTunnelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobRequest extends $tea.Model {
+  context?: { [key: string]: any };
+  downloadDataType?: string;
+  endTime?: number;
+  fileConfig?: { [key: string]: any };
+  iotInstanceId?: string;
+  startTime?: number;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'Context',
+      downloadDataType: 'DownloadDataType',
+      endTime: 'EndTime',
+      fileConfig: 'FileConfig',
+      iotInstanceId: 'IotInstanceId',
+      startTime: 'StartTime',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      downloadDataType: 'string',
+      endTime: 'number',
+      fileConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      iotInstanceId: 'string',
+      startTime: 'number',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobShrinkRequest extends $tea.Model {
+  contextShrink?: string;
+  downloadDataType?: string;
+  endTime?: number;
+  fileConfigShrink?: string;
+  iotInstanceId?: string;
+  startTime?: number;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contextShrink: 'Context',
+      downloadDataType: 'DownloadDataType',
+      endTime: 'EndTime',
+      fileConfigShrink: 'FileConfig',
+      iotInstanceId: 'IotInstanceId',
+      startTime: 'StartTime',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contextShrink: 'string',
+      downloadDataType: 'string',
+      endTime: 'number',
+      fileConfigShrink: 'string',
+      iotInstanceId: 'string',
+      startTime: 'number',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateDownloadDataJobResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateDownloadDataJobResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateDownloadDataJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDownloadDataJobResponseBody,
     };
   }
 
@@ -10508,6 +10725,87 @@ export class DeleteSchedulePeriodResponse extends $tea.Model {
   }
 }
 
+export class DeleteShareTaskDeviceRequest extends $tea.Model {
+  iotIdList?: string[];
+  iotInstanceId?: string;
+  shareTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotIdList: 'IotIdList',
+      iotInstanceId: 'IotInstanceId',
+      shareTaskId: 'ShareTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotIdList: { 'type': 'array', 'itemType': 'string' },
+      iotInstanceId: 'string',
+      shareTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteShareTaskDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteShareTaskDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteShareTaskDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteShareTaskDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteShareTaskDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteShareTaskDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSoundCodeRequest extends $tea.Model {
   iotInstanceId?: string;
   soundCode?: string;
@@ -12644,6 +12942,112 @@ export class GetDeviceTunnelStatusResponse extends $tea.Model {
   }
 }
 
+export class GetDownloadFileRequest extends $tea.Model {
+  context?: { [key: string]: any };
+  iotInstanceId?: string;
+  longJobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'Context',
+      iotInstanceId: 'IotInstanceId',
+      longJobId: 'LongJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      iotInstanceId: 'string',
+      longJobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileShrinkRequest extends $tea.Model {
+  contextShrink?: string;
+  iotInstanceId?: string;
+  longJobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contextShrink: 'Context',
+      iotInstanceId: 'IotInstanceId',
+      longJobId: 'LongJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contextShrink: 'string',
+      iotInstanceId: 'string',
+      longJobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetDownloadFileResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDownloadFileResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetDownloadFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDownloadFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEdgeDriverVersionRequest extends $tea.Model {
   driverId?: string;
   driverVersion?: string;
@@ -13529,6 +13933,90 @@ export class GetSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class GetShareTaskByDeviceOpenRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShareTaskByDeviceOpenResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetShareTaskByDeviceOpenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetShareTaskByDeviceOpenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetShareTaskByDeviceOpenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSoundCodeAudioRequest extends $tea.Model {
   iotInstanceId?: string;
   soundCodeList?: string[];
@@ -13755,6 +14243,81 @@ export class GetSpeechDeviceDetailResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSpeechDeviceDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechLicenseDeviceStatisticsRequest extends $tea.Model {
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechLicenseDeviceStatisticsResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSpeechLicenseDeviceStatisticsResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSpeechLicenseDeviceStatisticsResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechLicenseDeviceStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetSpeechLicenseDeviceStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSpeechLicenseDeviceStatisticsResponseBody,
     };
   }
 
@@ -17343,6 +17906,102 @@ export class PackageSoundCodeLabelBatchAudioResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PackageSoundCodeLabelBatchAudioResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySharedSpeechOpenRequest extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  productKey?: string;
+  shareTaskCode?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+      shareTaskCode: 'ShareTaskCode',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      productKey: 'string',
+      shareTaskCode: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySharedSpeechOpenResponseBody extends $tea.Model {
+  code?: string;
+  data?: PageQuerySharedSpeechOpenResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PageQuerySharedSpeechOpenResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySharedSpeechOpenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PageQuerySharedSpeechOpenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PageQuerySharedSpeechOpenResponseBody,
     };
   }
 
@@ -21305,6 +21964,87 @@ export class QueryDeviceStatisticsResponse extends $tea.Model {
   }
 }
 
+export class QueryDeviceSubTopicRequest extends $tea.Model {
+  deviceName?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceSubTopicResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  topicList?: QueryDeviceSubTopicResponseBodyTopicList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      topicList: 'TopicList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      topicList: { 'type': 'array', 'itemType': QueryDeviceSubTopicResponseBodyTopicList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceSubTopicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryDeviceSubTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDeviceSubTopicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceTunnelRequest extends $tea.Model {
   iotInstanceId?: string;
   tunnelId?: string;
@@ -23519,6 +24259,93 @@ export class QueryProductTopicResponse extends $tea.Model {
   }
 }
 
+export class QueryProjectShareDeviceListRequest extends $tea.Model {
+  deviceName?: string;
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryProjectShareDeviceListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryProjectShareDeviceListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryProjectShareDeviceListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryProjectShareDeviceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryProjectShareDeviceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryProjectShareDeviceListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySceneRuleRequest extends $tea.Model {
   currentPage?: number;
   iotInstanceId?: string;
@@ -23679,6 +24506,93 @@ export class QuerySchedulePeriodListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QuerySchedulePeriodListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareTaskDeviceListRequest extends $tea.Model {
+  deviceName?: string;
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  shareTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      shareTaskId: 'ShareTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      shareTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareTaskDeviceListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryShareTaskDeviceListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryShareTaskDeviceListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareTaskDeviceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QueryShareTaskDeviceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryShareTaskDeviceListResponseBody,
     };
   }
 
@@ -24345,6 +25259,99 @@ export class QuerySpeechDeviceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QuerySpeechDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseDeviceListRequest extends $tea.Model {
+  checkGroupId?: string;
+  deviceName?: string;
+  iotInstanceId?: string;
+  licenseStatusList?: string[];
+  pageId?: number;
+  pageSize?: number;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkGroupId: 'CheckGroupId',
+      deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
+      licenseStatusList: 'LicenseStatusList',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkGroupId: 'string',
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      licenseStatusList: { 'type': 'array', 'itemType': 'string' },
+      pageId: 'number',
+      pageSize: 'number',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseDeviceListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySpeechLicenseDeviceListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySpeechLicenseDeviceListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseDeviceListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: QuerySpeechLicenseDeviceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySpeechLicenseDeviceListResponseBody,
     };
   }
 
@@ -26019,6 +27026,90 @@ export class RRpcResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RRpcResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReBindLicenseDeviceRequest extends $tea.Model {
+  deviceNameList?: string[];
+  iotInstanceId?: string;
+  licenseCode?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceNameList: 'DeviceNameList',
+      iotInstanceId: 'IotInstanceId',
+      licenseCode: 'LicenseCode',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceNameList: { 'type': 'array', 'itemType': 'string' },
+      iotInstanceId: 'string',
+      licenseCode: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReBindLicenseDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: ReBindLicenseDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ReBindLicenseDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReBindLicenseDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReBindLicenseDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReBindLicenseDeviceResponseBody,
     };
   }
 
@@ -27965,7 +29056,7 @@ export class SetupStudioAppAuthModeOpenResponse extends $tea.Model {
   }
 }
 
-export class SpeechByCombinationRequest extends $tea.Model {
+export class ShareSpeechByCombinationRequest extends $tea.Model {
   audioFormat?: string;
   combinationList?: string[];
   deviceName?: string;
@@ -27990,6 +29081,99 @@ export class SpeechByCombinationRequest extends $tea.Model {
       audioFormat: 'string',
       combinationList: { 'type': 'array', 'itemType': 'string' },
       deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      speechId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShareSpeechByCombinationResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ShareSpeechByCombinationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ShareSpeechByCombinationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ShareSpeechByCombinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SpeechByCombinationRequest extends $tea.Model {
+  audioFormat?: string;
+  combinationList?: string[];
+  deviceName?: string;
+  enforceFlag?: boolean;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  speechId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      combinationList: 'CombinationList',
+      deviceName: 'DeviceName',
+      enforceFlag: 'EnforceFlag',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      speechId: 'SpeechId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      combinationList: { 'type': 'array', 'itemType': 'string' },
+      deviceName: 'string',
+      enforceFlag: 'boolean',
       iotId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -28146,87 +29330,6 @@ export class SpeechBySynthesisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SpeechBySynthesisResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartCpuRequest extends $tea.Model {
-  iotId?: string;
-  iotInstanceId?: string;
-  targetValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      iotId: 'IotId',
-      iotInstanceId: 'IotInstanceId',
-      targetValue: 'TargetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      iotId: 'string',
-      iotInstanceId: 'string',
-      targetValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartCpuResponseBody extends $tea.Model {
-  code?: string;
-  data?: StartCpuResponseBodyData;
-  errorMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: StartCpuResponseBodyData,
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartCpuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartCpuResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartCpuResponseBody,
     };
   }
 
@@ -28620,6 +29723,7 @@ export class SyncSpeechByCombinationRequest extends $tea.Model {
   audioFormat?: string;
   combinationList?: string[];
   deviceName?: string;
+  enforceFlag?: boolean;
   iotId?: string;
   iotInstanceId?: string;
   productKey?: string;
@@ -28629,6 +29733,7 @@ export class SyncSpeechByCombinationRequest extends $tea.Model {
       audioFormat: 'AudioFormat',
       combinationList: 'CombinationList',
       deviceName: 'DeviceName',
+      enforceFlag: 'EnforceFlag',
       iotId: 'IotId',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -28641,6 +29746,7 @@ export class SyncSpeechByCombinationRequest extends $tea.Model {
       audioFormat: 'string',
       combinationList: { 'type': 'array', 'itemType': 'string' },
       deviceName: 'string',
+      enforceFlag: 'boolean',
       iotId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -31817,6 +32923,28 @@ export class UpdateThingScriptResponse extends $tea.Model {
   }
 }
 
+export class AddShareTaskDeviceResponseBodyData extends $tea.Model {
+  progress?: number;
+  progressId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      progressId: 'ProgressId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      progressId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchAddDeviceGroupRelationsRequestDevice extends $tea.Model {
   deviceName?: string;
   productKey?: string;
@@ -33007,6 +34135,185 @@ export class CreateDeviceTunnelResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateDownloadDataJobResponseBodyDataHeader extends $tea.Model {
+  alias?: string;
+  dataPrecision?: string;
+  dimDateClass?: string;
+  fieldName?: string;
+  fieldType?: string;
+  geoClass?: string;
+  timeClass?: string;
+  typeClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      dataPrecision: 'DataPrecision',
+      dimDateClass: 'DimDateClass',
+      fieldName: 'FieldName',
+      fieldType: 'FieldType',
+      geoClass: 'GeoClass',
+      timeClass: 'TimeClass',
+      typeClass: 'TypeClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      dataPrecision: 'string',
+      dimDateClass: 'string',
+      fieldName: 'string',
+      fieldType: 'string',
+      geoClass: 'string',
+      timeClass: 'string',
+      typeClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr extends $tea.Model {
+  expr?: string;
+  exprType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expr: 'Expr',
+      exprType: 'ExprType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expr: 'string',
+      exprType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders extends $tea.Model {
+  alias?: string;
+  dimDateClass?: string;
+  fieldName?: string;
+  fieldType?: string;
+  geoClass?: string;
+  timeClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      dimDateClass: 'DimDateClass',
+      fieldName: 'FieldName',
+      fieldType: 'FieldType',
+      geoClass: 'GeoClass',
+      timeClass: 'TimeClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      dimDateClass: 'string',
+      fieldName: 'string',
+      fieldType: 'string',
+      geoClass: 'string',
+      timeClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobResponseBodyDataQuerySetting extends $tea.Model {
+  astExpr?: CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr[];
+  selectedHeaders?: CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders[];
+  static names(): { [key: string]: string } {
+    return {
+      astExpr: 'AstExpr',
+      selectedHeaders: 'SelectedHeaders',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      astExpr: { 'type': 'array', 'itemType': CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr },
+      selectedHeaders: { 'type': 'array', 'itemType': CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDownloadDataJobResponseBodyData extends $tea.Model {
+  asyncExecute?: boolean;
+  beginTime?: number;
+  csvFileName?: string;
+  csvUrl?: string;
+  datasetId?: string;
+  endTime?: number;
+  header?: CreateDownloadDataJobResponseBodyDataHeader[];
+  longJobId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  previewSize?: number;
+  querySetting?: CreateDownloadDataJobResponseBodyDataQuerySetting;
+  resultDataInString?: string;
+  status?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asyncExecute: 'AsyncExecute',
+      beginTime: 'BeginTime',
+      csvFileName: 'CsvFileName',
+      csvUrl: 'CsvUrl',
+      datasetId: 'DatasetId',
+      endTime: 'EndTime',
+      header: 'Header',
+      longJobId: 'LongJobId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      previewSize: 'PreviewSize',
+      querySetting: 'QuerySetting',
+      resultDataInString: 'ResultDataInString',
+      status: 'Status',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncExecute: 'boolean',
+      beginTime: 'number',
+      csvFileName: 'string',
+      csvUrl: 'string',
+      datasetId: 'string',
+      endTime: 'number',
+      header: { 'type': 'array', 'itemType': CreateDownloadDataJobResponseBodyDataHeader },
+      longJobId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      previewSize: 'number',
+      querySetting: CreateDownloadDataJobResponseBodyDataQuerySetting,
+      resultDataInString: 'string',
+      status: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEdgeInstanceChannelRequestConfigs extends $tea.Model {
   content?: string;
   format?: string;
@@ -33476,6 +34783,28 @@ export class DeleteDeviceSpeechRequestDeviceSpeechList extends $tea.Model {
   }
 }
 
+export class DeleteShareTaskDeviceResponseBodyData extends $tea.Model {
+  progress?: number;
+  progressId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      progressId: 'ProgressId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      progressId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
   topic?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -33862,6 +35191,185 @@ export class GetDeviceTunnelShareStatusResponseBodyData extends $tea.Model {
       isOpen: 'boolean',
       password: 'string',
       shareId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponseBodyDataHeader extends $tea.Model {
+  alias?: string;
+  dimDateClass?: string;
+  fieldName?: string;
+  fieldType?: string;
+  geoClass?: string;
+  timeClass?: string;
+  typeClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      dimDateClass: 'DimDateClass',
+      fieldName: 'FieldName',
+      fieldType: 'FieldType',
+      geoClass: 'GeoClass',
+      timeClass: 'TimeClass',
+      typeClass: 'TypeClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      dimDateClass: 'string',
+      fieldName: 'string',
+      fieldType: 'string',
+      geoClass: 'string',
+      timeClass: 'string',
+      typeClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponseBodyDataQuerySettingAstExpr extends $tea.Model {
+  expr?: string;
+  exprType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expr: 'Expr',
+      exprType: 'ExprType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expr: 'string',
+      exprType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponseBodyDataQuerySettingSelectedHeaders extends $tea.Model {
+  alias?: string;
+  dimDateClass?: string;
+  fieldName?: string;
+  fieldType?: string;
+  geoClass?: string;
+  timeClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      dimDateClass: 'DimDateClass',
+      fieldName: 'FieldName',
+      fieldType: 'FieldType',
+      geoClass: 'GeoClass',
+      timeClass: 'TimeClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      dimDateClass: 'string',
+      fieldName: 'string',
+      fieldType: 'string',
+      geoClass: 'string',
+      timeClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponseBodyDataQuerySetting extends $tea.Model {
+  astExpr?: GetDownloadFileResponseBodyDataQuerySettingAstExpr[];
+  selectedHeaders?: GetDownloadFileResponseBodyDataQuerySettingSelectedHeaders[];
+  static names(): { [key: string]: string } {
+    return {
+      astExpr: 'AstExpr',
+      selectedHeaders: 'SelectedHeaders',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      astExpr: { 'type': 'array', 'itemType': GetDownloadFileResponseBodyDataQuerySettingAstExpr },
+      selectedHeaders: { 'type': 'array', 'itemType': GetDownloadFileResponseBodyDataQuerySettingSelectedHeaders },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDownloadFileResponseBodyData extends $tea.Model {
+  asyncExecute?: boolean;
+  beginTime?: number;
+  csvFileName?: string;
+  csvUrl?: string;
+  datasetId?: string;
+  endTime?: number;
+  header?: GetDownloadFileResponseBodyDataHeader[];
+  longJobId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  previewSize?: number;
+  querySetting?: GetDownloadFileResponseBodyDataQuerySetting;
+  result?: { [key: string]: any }[];
+  resultDataInString?: string;
+  status?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asyncExecute: 'AsyncExecute',
+      beginTime: 'BeginTime',
+      csvFileName: 'CsvFileName',
+      csvUrl: 'CsvUrl',
+      datasetId: 'DatasetId',
+      endTime: 'EndTime',
+      header: 'Header',
+      longJobId: 'LongJobId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      previewSize: 'PreviewSize',
+      querySetting: 'QuerySetting',
+      result: 'Result',
+      resultDataInString: 'ResultDataInString',
+      status: 'Status',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncExecute: 'boolean',
+      beginTime: 'number',
+      csvFileName: 'string',
+      csvUrl: 'string',
+      datasetId: 'string',
+      endTime: 'number',
+      header: { 'type': 'array', 'itemType': GetDownloadFileResponseBodyDataHeader },
+      longJobId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      previewSize: 'number',
+      querySetting: GetDownloadFileResponseBodyDataQuerySetting,
+      result: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      resultDataInString: 'string',
+      status: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -34608,6 +36116,31 @@ export class GetSpeechDeviceDetailResponseBodyData extends $tea.Model {
       speechListUpdateTime: 'number',
       status: 'string',
       totalSpace: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechLicenseDeviceStatisticsResponseBodyData extends $tea.Model {
+  availableQuota?: number;
+  expiredQuota?: number;
+  expiringQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableQuota: 'AvailableQuota',
+      expiredQuota: 'ExpiredQuota',
+      expiringQuota: 'ExpiringQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableQuota: 'number',
+      expiredQuota: 'number',
+      expiringQuota: 'number',
     };
   }
 
@@ -36791,6 +38324,93 @@ export class NotifyAddThingTopoResponseBodyData extends $tea.Model {
   }
 }
 
+export class PageQuerySharedSpeechOpenResponseBodyDataResultDataData extends $tea.Model {
+  audioFormat?: string;
+  bizCode?: string;
+  code?: string;
+  speechRate?: number;
+  status?: number;
+  text?: string;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      bizCode: 'BizCode',
+      code: 'Code',
+      speechRate: 'SpeechRate',
+      status: 'Status',
+      text: 'Text',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      bizCode: 'string',
+      code: 'string',
+      speechRate: 'number',
+      status: 'number',
+      text: 'string',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySharedSpeechOpenResponseBodyDataResultData extends $tea.Model {
+  data?: PageQuerySharedSpeechOpenResponseBodyDataResultDataData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': PageQuerySharedSpeechOpenResponseBodyDataResultDataData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySharedSpeechOpenResponseBodyData extends $tea.Model {
+  pageId?: number;
+  pageSize?: number;
+  resultData?: PageQuerySharedSpeechOpenResponseBodyDataResultData;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      resultData: 'ResultData',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageId: 'number',
+      pageSize: 'number',
+      resultData: PageQuerySharedSpeechOpenResponseBodyDataResultData,
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PrintByTemplateResponseBodyData extends $tea.Model {
   deviceErrorCode?: string;
   deviceErrorMessage?: string;
@@ -38852,6 +40472,28 @@ export class QueryDeviceStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDeviceSubTopicResponseBodyTopicList extends $tea.Model {
+  timestamp?: number;
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      timestamp: 'Timestamp',
+      topicName: 'TopicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timestamp: 'number',
+      topicName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceTunnelResponseBodyData extends $tea.Model {
   description?: string;
   deviceConnState?: string;
@@ -40830,6 +42472,81 @@ export class QueryProductTopicResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryProjectShareDeviceListResponseBodyDataDeviceListItems extends $tea.Model {
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  sharable?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      sharable: 'Sharable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      sharable: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryProjectShareDeviceListResponseBodyDataDeviceList extends $tea.Model {
+  items?: QueryProjectShareDeviceListResponseBodyDataDeviceListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QueryProjectShareDeviceListResponseBodyDataDeviceListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryProjectShareDeviceListResponseBodyData extends $tea.Model {
+  deviceList?: QueryProjectShareDeviceListResponseBodyDataDeviceList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: QueryProjectShareDeviceListResponseBodyDataDeviceList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySceneRuleResponseBodyDataRuleList extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
@@ -40959,6 +42676,81 @@ export class QuerySchedulePeriodListResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       list: QuerySchedulePeriodListResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareTaskDeviceListResponseBodyDataDeviceListItems extends $tea.Model {
+  deviceName?: string;
+  gmtAdded?: number;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      gmtAdded: 'GmtAdded',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      gmtAdded: 'number',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareTaskDeviceListResponseBodyDataDeviceList extends $tea.Model {
+  items?: QueryShareTaskDeviceListResponseBodyDataDeviceListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QueryShareTaskDeviceListResponseBodyDataDeviceListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShareTaskDeviceListResponseBodyData extends $tea.Model {
+  deviceList?: QueryShareTaskDeviceListResponseBodyDataDeviceList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: QueryShareTaskDeviceListResponseBodyDataDeviceList,
       pageId: 'number',
       pageSize: 'number',
       total: 'number',
@@ -41551,6 +43343,93 @@ export class QuerySpeechDeviceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       list: QuerySpeechDeviceResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseDeviceListResponseBodyDataDeviceListItem extends $tea.Model {
+  deviceName?: string;
+  deviceStatus?: string;
+  expiryTime?: number;
+  inSpecifiedGroup?: boolean;
+  iotId?: string;
+  licenseStatus?: string;
+  productKey?: string;
+  productName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      deviceStatus: 'DeviceStatus',
+      expiryTime: 'ExpiryTime',
+      inSpecifiedGroup: 'InSpecifiedGroup',
+      iotId: 'IotId',
+      licenseStatus: 'LicenseStatus',
+      productKey: 'ProductKey',
+      productName: 'ProductName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      deviceStatus: 'string',
+      expiryTime: 'number',
+      inSpecifiedGroup: 'boolean',
+      iotId: 'string',
+      licenseStatus: 'string',
+      productKey: 'string',
+      productName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseDeviceListResponseBodyDataDeviceList extends $tea.Model {
+  item?: QuerySpeechLicenseDeviceListResponseBodyDataDeviceListItem[];
+  static names(): { [key: string]: string } {
+    return {
+      item: 'item',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: { 'type': 'array', 'itemType': QuerySpeechLicenseDeviceListResponseBodyDataDeviceListItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechLicenseDeviceListResponseBodyData extends $tea.Model {
+  deviceList?: QuerySpeechLicenseDeviceListResponseBodyDataDeviceList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceList: 'DeviceList',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceList: QuerySpeechLicenseDeviceListResponseBodyDataDeviceList,
       pageId: 'number',
       pageSize: 'number',
       total: 'number',
@@ -42649,6 +44528,37 @@ export class QueryTopicRouteTableResponseBodyDstTopics extends $tea.Model {
   }
 }
 
+export class ReBindLicenseDeviceResponseBodyData extends $tea.Model {
+  checkProgressId?: string;
+  failSum?: number;
+  progress?: number;
+  resultCsvFile?: string;
+  successSum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkProgressId: 'CheckProgressId',
+      failSum: 'FailSum',
+      progress: 'Progress',
+      resultCsvFile: 'ResultCsvFile',
+      successSum: 'SuccessSum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkProgressId: 'string',
+      failSum: 'number',
+      progress: 'number',
+      resultCsvFile: 'string',
+      successSum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshStudioAppTokenOpenResponseBodyData extends $tea.Model {
   bizId?: string;
   bizType?: string;
@@ -42828,34 +44738,6 @@ export class SetupStudioAppAuthModeOpenResponseBodyData extends $tea.Model {
     return {
       authMode: 'number',
       tokenInfo: SetupStudioAppAuthModeOpenResponseBodyDataTokenInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartCpuResponseBodyData extends $tea.Model {
-  gmtCreate?: number;
-  gmtModified?: number;
-  iotInstanceId?: string;
-  timeZone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      iotInstanceId: 'IotInstanceId',
-      timeZone: 'TimeZone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      iotInstanceId: 'string',
-      timeZone: 'string',
     };
   }
 
@@ -43115,6 +44997,47 @@ export default class Client extends OpenApi {
   async addDataForApiSource(request: AddDataForApiSourceRequest): Promise<AddDataForApiSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDataForApiSourceWithOptions(request, runtime);
+  }
+
+  async addShareTaskDeviceWithOptions(request: AddShareTaskDeviceRequest, runtime: $Util.RuntimeOptions): Promise<AddShareTaskDeviceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotIdList)) {
+      body["IotIdList"] = request.iotIdList;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.shareTaskId)) {
+      body["ShareTaskId"] = request.shareTaskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddShareTaskDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddShareTaskDeviceResponse>(await this.callApi(params, req, runtime), new AddShareTaskDeviceResponse({}));
+  }
+
+  async addShareTaskDevice(request: AddShareTaskDeviceRequest): Promise<AddShareTaskDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addShareTaskDeviceWithOptions(request, runtime);
   }
 
   async attachDestinationWithOptions(request: AttachDestinationRequest, runtime: $Util.RuntimeOptions): Promise<AttachDestinationResponse> {
@@ -44563,10 +46486,6 @@ export default class Client extends OpenApi {
   async bindLicenseDeviceWithOptions(request: BindLicenseDeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindLicenseDeviceResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.iotIdList)) {
-      query["IotIdList"] = request.iotIdList;
-    }
-
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -44579,8 +46498,18 @@ export default class Client extends OpenApi {
       query["ProductKey"] = request.productKey;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceNameList)) {
+      body["DeviceNameList"] = request.deviceNameList;
+    }
+
+    if (!Util.isUnset(request.iotIdList)) {
+      body["IotIdList"] = request.iotIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BindLicenseDevice",
@@ -45538,6 +47467,71 @@ export default class Client extends OpenApi {
   async createDeviceTunnel(request: CreateDeviceTunnelRequest): Promise<CreateDeviceTunnelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeviceTunnelWithOptions(request, runtime);
+  }
+
+  async createDownloadDataJobWithOptions(tmpReq: CreateDownloadDataJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDownloadDataJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDownloadDataJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.fileConfig)) {
+      request.fileConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileConfig, "FileConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.downloadDataType)) {
+      query["DownloadDataType"] = request.downloadDataType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.fileConfigShrink)) {
+      query["FileConfig"] = request.fileConfigShrink;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDownloadDataJob",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDownloadDataJobResponse>(await this.callApi(params, req, runtime), new CreateDownloadDataJobResponse({}));
+  }
+
+  async createDownloadDataJob(request: CreateDownloadDataJobRequest): Promise<CreateDownloadDataJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDownloadDataJobWithOptions(request, runtime);
   }
 
   async createEdgeDriverWithOptions(request: CreateEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeDriverResponse> {
@@ -48366,6 +50360,43 @@ export default class Client extends OpenApi {
     return await this.deleteSchedulePeriodWithOptions(request, runtime);
   }
 
+  async deleteShareTaskDeviceWithOptions(request: DeleteShareTaskDeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShareTaskDeviceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotIdList)) {
+      body["IotIdList"] = request.iotIdList;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.shareTaskId)) {
+      body["ShareTaskId"] = request.shareTaskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteShareTaskDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteShareTaskDeviceResponse>(await this.callApi(params, req, runtime), new DeleteShareTaskDeviceResponse({}));
+  }
+
+  async deleteShareTaskDevice(request: DeleteShareTaskDeviceRequest): Promise<DeleteShareTaskDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteShareTaskDeviceWithOptions(request, runtime);
+  }
+
   async deleteSoundCodeWithOptions(request: DeleteSoundCodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSoundCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49357,6 +51388,51 @@ export default class Client extends OpenApi {
     return await this.getDeviceTunnelStatusWithOptions(request, runtime);
   }
 
+  async getDownloadFileWithOptions(tmpReq: GetDownloadFileRequest, runtime: $Util.RuntimeOptions): Promise<GetDownloadFileResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetDownloadFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.longJobId)) {
+      query["LongJobId"] = request.longJobId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDownloadFile",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDownloadFileResponse>(await this.callApi(params, req, runtime), new GetDownloadFileResponse({}));
+  }
+
+  async getDownloadFile(request: GetDownloadFileRequest): Promise<GetDownloadFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDownloadFileWithOptions(request, runtime);
+  }
+
   async getEdgeDriverVersionWithOptions(request: GetEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49740,6 +51816,47 @@ export default class Client extends OpenApi {
     return await this.getSceneRuleWithOptions(request, runtime);
   }
 
+  async getShareTaskByDeviceOpenWithOptions(request: GetShareTaskByDeviceOpenRequest, runtime: $Util.RuntimeOptions): Promise<GetShareTaskByDeviceOpenResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetShareTaskByDeviceOpen",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetShareTaskByDeviceOpenResponse>(await this.callApi(params, req, runtime), new GetShareTaskByDeviceOpenResponse({}));
+  }
+
+  async getShareTaskByDeviceOpen(request: GetShareTaskByDeviceOpenRequest): Promise<GetShareTaskByDeviceOpenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getShareTaskByDeviceOpenWithOptions(request, runtime);
+  }
+
   async getSoundCodeAudioWithOptions(request: GetSoundCodeAudioRequest, runtime: $Util.RuntimeOptions): Promise<GetSoundCodeAudioResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49837,6 +51954,35 @@ export default class Client extends OpenApi {
   async getSpeechDeviceDetail(request: GetSpeechDeviceDetailRequest): Promise<GetSpeechDeviceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSpeechDeviceDetailWithOptions(request, runtime);
+  }
+
+  async getSpeechLicenseDeviceStatisticsWithOptions(request: GetSpeechLicenseDeviceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetSpeechLicenseDeviceStatisticsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSpeechLicenseDeviceStatistics",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSpeechLicenseDeviceStatisticsResponse>(await this.callApi(params, req, runtime), new GetSpeechLicenseDeviceStatisticsResponse({}));
+  }
+
+  async getSpeechLicenseDeviceStatistics(request: GetSpeechLicenseDeviceStatisticsRequest): Promise<GetSpeechLicenseDeviceStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSpeechLicenseDeviceStatisticsWithOptions(request, runtime);
   }
 
   async getSpeechVoiceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSpeechVoiceResponse> {
@@ -51554,6 +53700,63 @@ export default class Client extends OpenApi {
   async packageSoundCodeLabelBatchAudio(request: PackageSoundCodeLabelBatchAudioRequest): Promise<PackageSoundCodeLabelBatchAudioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.packageSoundCodeLabelBatchAudioWithOptions(request, runtime);
+  }
+
+  async pageQuerySharedSpeechOpenWithOptions(request: PageQuerySharedSpeechOpenRequest, runtime: $Util.RuntimeOptions): Promise<PageQuerySharedSpeechOpenResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.shareTaskCode)) {
+      body["ShareTaskCode"] = request.shareTaskCode;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PageQuerySharedSpeechOpen",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PageQuerySharedSpeechOpenResponse>(await this.callApi(params, req, runtime), new PageQuerySharedSpeechOpenResponse({}));
+  }
+
+  async pageQuerySharedSpeechOpen(request: PageQuerySharedSpeechOpenRequest): Promise<PageQuerySharedSpeechOpenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pageQuerySharedSpeechOpenWithOptions(request, runtime);
   }
 
   async printByTemplateWithOptions(request: PrintByTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PrintByTemplateResponse> {
@@ -53548,6 +55751,43 @@ export default class Client extends OpenApi {
     return await this.queryDeviceStatisticsWithOptions(request, runtime);
   }
 
+  async queryDeviceSubTopicWithOptions(request: QueryDeviceSubTopicRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceSubTopicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceSubTopic",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceSubTopicResponse>(await this.callApi(params, req, runtime), new QueryDeviceSubTopicResponse({}));
+  }
+
+  async queryDeviceSubTopic(request: QueryDeviceSubTopicRequest): Promise<QueryDeviceSubTopicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceSubTopicWithOptions(request, runtime);
+  }
+
   async queryDeviceTunnelWithOptions(request: QueryDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceTunnelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54590,6 +56830,51 @@ export default class Client extends OpenApi {
     return await this.queryProductTopicWithOptions(request, runtime);
   }
 
+  async queryProjectShareDeviceListWithOptions(request: QueryProjectShareDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryProjectShareDeviceListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryProjectShareDeviceList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryProjectShareDeviceListResponse>(await this.callApi(params, req, runtime), new QueryProjectShareDeviceListResponse({}));
+  }
+
+  async queryProjectShareDeviceList(request: QueryProjectShareDeviceListRequest): Promise<QueryProjectShareDeviceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryProjectShareDeviceListWithOptions(request, runtime);
+  }
+
   async querySceneRuleWithOptions(request: QuerySceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<QuerySceneRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54670,6 +56955,51 @@ export default class Client extends OpenApi {
   async querySchedulePeriodList(request: QuerySchedulePeriodListRequest): Promise<QuerySchedulePeriodListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySchedulePeriodListWithOptions(request, runtime);
+  }
+
+  async queryShareTaskDeviceListWithOptions(request: QueryShareTaskDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryShareTaskDeviceListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.shareTaskId)) {
+      body["ShareTaskId"] = request.shareTaskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryShareTaskDeviceList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryShareTaskDeviceListResponse>(await this.callApi(params, req, runtime), new QueryShareTaskDeviceListResponse({}));
+  }
+
+  async queryShareTaskDeviceList(request: QueryShareTaskDeviceListRequest): Promise<QueryShareTaskDeviceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryShareTaskDeviceListWithOptions(request, runtime);
   }
 
   async querySolutionDeviceGroupPageWithOptions(request: QuerySolutionDeviceGroupPageRequest, runtime: $Util.RuntimeOptions): Promise<QuerySolutionDeviceGroupPageResponse> {
@@ -54990,6 +57320,61 @@ export default class Client extends OpenApi {
   async querySpeechDevice(request: QuerySpeechDeviceRequest): Promise<QuerySpeechDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySpeechDeviceWithOptions(request, runtime);
+  }
+
+  async querySpeechLicenseDeviceListWithOptions(request: QuerySpeechLicenseDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechLicenseDeviceListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      query["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkGroupId)) {
+      body["CheckGroupId"] = request.checkGroupId;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.licenseStatusList)) {
+      body["LicenseStatusList"] = request.licenseStatusList;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySpeechLicenseDeviceList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySpeechLicenseDeviceListResponse>(await this.callApi(params, req, runtime), new QuerySpeechLicenseDeviceListResponse({}));
+  }
+
+  async querySpeechLicenseDeviceList(request: QuerySpeechLicenseDeviceListRequest): Promise<QuerySpeechLicenseDeviceListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySpeechLicenseDeviceListWithOptions(request, runtime);
   }
 
   async querySpeechListWithOptions(request: QuerySpeechListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechListResponse> {
@@ -55807,6 +58192,49 @@ export default class Client extends OpenApi {
   async rRpc(request: RRpcRequest): Promise<RRpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rRpcWithOptions(request, runtime);
+  }
+
+  async reBindLicenseDeviceWithOptions(request: ReBindLicenseDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ReBindLicenseDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.licenseCode)) {
+      query["LicenseCode"] = request.licenseCode;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceNameList)) {
+      body["DeviceNameList"] = request.deviceNameList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReBindLicenseDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReBindLicenseDeviceResponse>(await this.callApi(params, req, runtime), new ReBindLicenseDeviceResponse({}));
+  }
+
+  async reBindLicenseDevice(request: ReBindLicenseDeviceRequest): Promise<ReBindLicenseDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reBindLicenseDeviceWithOptions(request, runtime);
   }
 
   async recognizeCarNumWithOptions(request: RecognizeCarNumRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarNumResponse> {
@@ -56741,6 +59169,59 @@ export default class Client extends OpenApi {
     return await this.setupStudioAppAuthModeOpenWithOptions(request, runtime);
   }
 
+  async shareSpeechByCombinationWithOptions(request: ShareSpeechByCombinationRequest, runtime: $Util.RuntimeOptions): Promise<ShareSpeechByCombinationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.combinationList)) {
+      body["CombinationList"] = request.combinationList;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.speechId)) {
+      body["SpeechId"] = request.speechId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ShareSpeechByCombination",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ShareSpeechByCombinationResponse>(await this.callApi(params, req, runtime), new ShareSpeechByCombinationResponse({}));
+  }
+
+  async shareSpeechByCombination(request: ShareSpeechByCombinationRequest): Promise<ShareSpeechByCombinationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.shareSpeechByCombinationWithOptions(request, runtime);
+  }
+
   async speechByCombinationWithOptions(request: SpeechByCombinationRequest, runtime: $Util.RuntimeOptions): Promise<SpeechByCombinationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -56754,6 +59235,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deviceName)) {
       body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.enforceFlag)) {
+      body["EnforceFlag"] = request.enforceFlag;
     }
 
     if (!Util.isUnset(request.iotId)) {
@@ -56857,43 +59342,6 @@ export default class Client extends OpenApi {
   async speechBySynthesis(request: SpeechBySynthesisRequest): Promise<SpeechBySynthesisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.speechBySynthesisWithOptions(request, runtime);
-  }
-
-  async startCpuWithOptions(request: StartCpuRequest, runtime: $Util.RuntimeOptions): Promise<StartCpuResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.iotId)) {
-      query["IotId"] = request.iotId;
-    }
-
-    if (!Util.isUnset(request.iotInstanceId)) {
-      query["IotInstanceId"] = request.iotInstanceId;
-    }
-
-    if (!Util.isUnset(request.targetValue)) {
-      query["TargetValue"] = request.targetValue;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "StartCpu",
-      version: "2018-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StartCpuResponse>(await this.callApi(params, req, runtime), new StartCpuResponse({}));
-  }
-
-  async startCpu(request: StartCpuRequest): Promise<StartCpuResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startCpuWithOptions(request, runtime);
   }
 
   async startParserWithOptions(request: StartParserRequest, runtime: $Util.RuntimeOptions): Promise<StartParserResponse> {
@@ -57082,6 +59530,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deviceName)) {
       body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.enforceFlag)) {
+      body["EnforceFlag"] = request.enforceFlag;
     }
 
     if (!Util.isUnset(request.iotId)) {
