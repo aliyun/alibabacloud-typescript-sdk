@@ -6824,12 +6824,10 @@ export class PutLayerACLRequest extends $tea.Model {
 export class PutLayerACLResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: string;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
-      body: 'body',
     };
   }
 
@@ -6837,7 +6835,6 @@ export class PutLayerACLResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: 'string',
     };
   }
 
@@ -11696,7 +11693,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "string",
+      bodyType: "none",
     });
     return $tea.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
   }
