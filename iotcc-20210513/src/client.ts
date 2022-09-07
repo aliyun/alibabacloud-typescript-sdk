@@ -320,15 +320,95 @@ export class AssociateVSwitchWithIoTCloudConnectorResponse extends $tea.Model {
   }
 }
 
+export class ConfirmIoTCloudConnectorRequest extends $tea.Model {
+  clientToken?: string;
+  confirmStatus?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      confirmStatus: 'ConfirmStatus',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      confirmStatus: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmIoTCloudConnectorResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfirmIoTCloudConnectorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ConfirmIoTCloudConnectorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfirmIoTCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAuthorizationRuleRequest extends $tea.Model {
   authorizationRuleDescription?: string;
   authorizationRuleName?: string;
   clientToken?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dryRun?: boolean;
   ioTCloudConnectorId?: string;
   policy?: string;
+  protocol?: string;
   regionId?: string;
   sourceCidrs?: string[];
   static names(): { [key: string]: string } {
@@ -337,10 +417,12 @@ export class CreateAuthorizationRuleRequest extends $tea.Model {
       authorizationRuleName: 'AuthorizationRuleName',
       clientToken: 'ClientToken',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dryRun: 'DryRun',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       policy: 'Policy',
+      protocol: 'Protocol',
       regionId: 'RegionId',
       sourceCidrs: 'SourceCidrs',
     };
@@ -352,10 +434,12 @@ export class CreateAuthorizationRuleRequest extends $tea.Model {
       authorizationRuleName: 'string',
       clientToken: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dryRun: 'boolean',
       ioTCloudConnectorId: 'string',
       policy: 'string',
+      protocol: 'string',
       regionId: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
     };
@@ -405,6 +489,84 @@ export class CreateAuthorizationRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAuthorizationRulesRequest extends $tea.Model {
+  authorizationRules?: CreateAuthorizationRulesRequestAuthorizationRules[];
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRules: 'AuthorizationRules',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRules: { 'type': 'array', 'itemType': CreateAuthorizationRulesRequestAuthorizationRules },
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAuthorizationRulesResponseBody extends $tea.Model {
+  authorizationRuleIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleIds: 'AuthorizationRuleIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAuthorizationRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAuthorizationRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAuthorizationRulesResponseBody,
     };
   }
 
@@ -595,10 +757,12 @@ export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
   authorizationRuleName?: string;
   clientToken?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dryRun?: boolean;
   ioTCloudConnectorGroupId?: string;
   policy?: string;
+  protocol?: string;
   regionId?: string;
   sourceCidrs?: string[];
   type?: string;
@@ -608,10 +772,12 @@ export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
       authorizationRuleName: 'AuthorizationRuleName',
       clientToken: 'ClientToken',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dryRun: 'DryRun',
       ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       policy: 'Policy',
+      protocol: 'Protocol',
       regionId: 'RegionId',
       sourceCidrs: 'SourceCidrs',
       type: 'Type',
@@ -624,10 +790,12 @@ export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
       authorizationRuleName: 'string',
       clientToken: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dryRun: 'boolean',
       ioTCloudConnectorGroupId: 'string',
       policy: 'string',
+      protocol: 'string',
       regionId: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
@@ -774,6 +942,93 @@ export class CreateGroupDNSServiceRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateGroupDNSServiceRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupIpMappingRuleRequest extends $tea.Model {
+  clientToken?: string;
+  destinationIp?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  ipMappingRuleDescription?: string;
+  ipMappingRuleName?: string;
+  mappingIp?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationIp: 'DestinationIp',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ipMappingRuleDescription: 'IpMappingRuleDescription',
+      ipMappingRuleName: 'IpMappingRuleName',
+      mappingIp: 'MappingIp',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationIp: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      ipMappingRuleDescription: 'string',
+      ipMappingRuleName: 'string',
+      mappingIp: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupIpMappingRuleResponseBody extends $tea.Model {
+  groupIpMappingRuleId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupIpMappingRuleId: 'GroupIpMappingRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupIpMappingRuleId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupIpMappingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateGroupIpMappingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGroupIpMappingRuleResponseBody,
     };
   }
 
@@ -1023,6 +1278,93 @@ export class CreateIoTCloudConnectorGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateIoTCloudConnectorGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpMappingRuleRequest extends $tea.Model {
+  clientToken?: string;
+  destinationIp?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  ipMappingRuleDescription?: string;
+  ipMappingRuleName?: string;
+  mappingIp?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationIp: 'DestinationIp',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ipMappingRuleDescription: 'IpMappingRuleDescription',
+      ipMappingRuleName: 'IpMappingRuleName',
+      mappingIp: 'MappingIp',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationIp: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      ipMappingRuleDescription: 'string',
+      ipMappingRuleName: 'string',
+      mappingIp: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpMappingRuleResponseBody extends $tea.Model {
+  ipMappingRuleId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipMappingRuleId: 'IpMappingRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipMappingRuleId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpMappingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateIpMappingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIpMappingRuleResponseBody,
     };
   }
 
@@ -1577,6 +1919,81 @@ export class DeleteGroupDNSServiceRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteGroupIpMappingRuleRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  groupIpMappingRuleId?: string;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      groupIpMappingRuleId: 'GroupIpMappingRuleId',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      groupIpMappingRuleId: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupIpMappingRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupIpMappingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteGroupIpMappingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGroupIpMappingRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIoTCloudConnectorRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -1785,6 +2202,81 @@ export class DeleteIoTCloudConnetorBackhaulRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteIoTCloudConnetorBackhaulRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpMappingRuleRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  ipMappingRuleId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ipMappingRuleId: 'IpMappingRuleId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      ipMappingRuleId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpMappingRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpMappingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteIpMappingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIpMappingRuleResponseBody,
     };
   }
 
@@ -2663,6 +3155,7 @@ export class ListAPNsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       APN: 'APN',
@@ -2670,6 +3163,7 @@ export class ListAPNsRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -2680,6 +3174,7 @@ export class ListAPNsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -2750,11 +3245,13 @@ export class ListAuthorizationRulesRequest extends $tea.Model {
   authorizationRuleStatus?: string[];
   authorizationRuleType?: string;
   destination?: string[];
+  destinationPort?: string[];
   destinationType?: string[];
   ioTCloudConnectorId?: string;
   maxResults?: number;
   nextToken?: string;
   policy?: string[];
+  protocol?: string[];
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2763,11 +3260,13 @@ export class ListAuthorizationRulesRequest extends $tea.Model {
       authorizationRuleStatus: 'AuthorizationRuleStatus',
       authorizationRuleType: 'AuthorizationRuleType',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       policy: 'Policy',
+      protocol: 'Protocol',
       regionId: 'RegionId',
     };
   }
@@ -2779,11 +3278,13 @@ export class ListAuthorizationRulesRequest extends $tea.Model {
       authorizationRuleStatus: { 'type': 'array', 'itemType': 'string' },
       authorizationRuleType: 'string',
       destination: { 'type': 'array', 'itemType': 'string' },
+      destinationPort: { 'type': 'array', 'itemType': 'string' },
       destinationType: { 'type': 'array', 'itemType': 'string' },
       ioTCloudConnectorId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       policy: { 'type': 'array', 'itemType': 'string' },
+      protocol: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
     };
   }
@@ -3322,11 +3823,13 @@ export class ListGroupAuthorizationRulesRequest extends $tea.Model {
   authorizationRuleName?: string[];
   authorizationRuleStatus?: string[];
   destination?: string[];
+  destinationPort?: string[];
   destinationType?: string[];
   ioTCloudConnectorGroupId?: string;
   maxResults?: number;
   nextToken?: string;
   policy?: string[];
+  protocol?: string[];
   regionId?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -3335,11 +3838,13 @@ export class ListGroupAuthorizationRulesRequest extends $tea.Model {
       authorizationRuleName: 'AuthorizationRuleName',
       authorizationRuleStatus: 'AuthorizationRuleStatus',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       policy: 'Policy',
+      protocol: 'Protocol',
       regionId: 'RegionId',
       type: 'Type',
     };
@@ -3351,11 +3856,13 @@ export class ListGroupAuthorizationRulesRequest extends $tea.Model {
       authorizationRuleName: { 'type': 'array', 'itemType': 'string' },
       authorizationRuleStatus: { 'type': 'array', 'itemType': 'string' },
       destination: { 'type': 'array', 'itemType': 'string' },
+      destinationPort: { 'type': 'array', 'itemType': 'string' },
       destinationType: { 'type': 'array', 'itemType': 'string' },
       ioTCloudConnectorGroupId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       policy: { 'type': 'array', 'itemType': 'string' },
+      protocol: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       type: 'string',
     };
@@ -3524,6 +4031,105 @@ export class ListGroupDNSServiceRulesResponse extends $tea.Model {
   }
 }
 
+export class ListGroupIpMappingRulesRequest extends $tea.Model {
+  destinationIps?: string[];
+  ioTCloudConnectorGroupId?: string;
+  ipMappingRuleIds?: string[];
+  ipMappingRuleNames?: string[];
+  ipMappingRuleStatuses?: string[];
+  mappingIps?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationIps: 'DestinationIps',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ipMappingRuleIds: 'IpMappingRuleIds',
+      ipMappingRuleNames: 'IpMappingRuleNames',
+      ipMappingRuleStatuses: 'IpMappingRuleStatuses',
+      mappingIps: 'MappingIps',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationIps: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorGroupId: 'string',
+      ipMappingRuleIds: { 'type': 'array', 'itemType': 'string' },
+      ipMappingRuleNames: { 'type': 'array', 'itemType': 'string' },
+      ipMappingRuleStatuses: { 'type': 'array', 'itemType': 'string' },
+      mappingIps: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupIpMappingRulesResponseBody extends $tea.Model {
+  ipMappingRules?: ListGroupIpMappingRulesResponseBodyIpMappingRules[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipMappingRules: 'IpMappingRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipMappingRules: { 'type': 'array', 'itemType': ListGroupIpMappingRulesResponseBodyIpMappingRules },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupIpMappingRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListGroupIpMappingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupIpMappingRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorAccessSessionLogsRequest extends $tea.Model {
   destinations?: string[];
   endTime?: number;
@@ -3684,6 +4290,90 @@ export class ListIoTCloudConnectorAvailableZonesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIoTCloudConnectorAvailableZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorEIPsRequest extends $tea.Model {
+  ioTCloudConnectorId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorEIPsResponseBody extends $tea.Model {
+  EIPs?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      EIPs: 'EIPs',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      EIPs: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorEIPsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIoTCloudConnectorEIPsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIoTCloudConnectorEIPsResponseBody,
     };
   }
 
@@ -3966,6 +4656,105 @@ export class ListIoTCoudConnectorBackhaulRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIoTCoudConnectorBackhaulRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpMappingRulesRequest extends $tea.Model {
+  destinationIps?: string[];
+  ioTCloudConnectorId?: string;
+  ipMappingRuleIds?: string[];
+  ipMappingRuleNames?: string[];
+  ipMappingRuleStatuses?: string[];
+  mappingIps?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationIps: 'DestinationIps',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ipMappingRuleIds: 'IpMappingRuleIds',
+      ipMappingRuleNames: 'IpMappingRuleNames',
+      ipMappingRuleStatuses: 'IpMappingRuleStatuses',
+      mappingIps: 'MappingIps',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationIps: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorId: 'string',
+      ipMappingRuleIds: { 'type': 'array', 'itemType': 'string' },
+      ipMappingRuleNames: { 'type': 'array', 'itemType': 'string' },
+      ipMappingRuleStatuses: { 'type': 'array', 'itemType': 'string' },
+      mappingIps: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpMappingRulesResponseBody extends $tea.Model {
+  ipMappingRules?: ListIpMappingRulesResponseBodyIpMappingRules[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipMappingRules: 'IpMappingRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipMappingRules: { 'type': 'array', 'itemType': ListIpMappingRulesResponseBodyIpMappingRules },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpMappingRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListIpMappingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIpMappingRulesResponseBody,
     };
   }
 
@@ -4526,6 +5315,81 @@ export class RemoveIoTCloudConnectorFromGroupResponse extends $tea.Model {
   }
 }
 
+export class RevertIoTCloudConnectorRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevertIoTCloudConnectorResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevertIoTCloudConnectorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RevertIoTCloudConnectorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevertIoTCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDiagnoseTaskForSingleCardRequest extends $tea.Model {
   beginTime?: number;
   destination?: string;
@@ -4622,10 +5486,12 @@ export class UpdateAuthorizationRuleAttributeRequest extends $tea.Model {
   authorizationRuleName?: string;
   clientToken?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dryRun?: boolean;
   ioTCloudConnectorId?: string;
   policy?: string;
+  protocol?: string;
   regionId?: string;
   sourceCidrs?: string[];
   static names(): { [key: string]: string } {
@@ -4635,10 +5501,12 @@ export class UpdateAuthorizationRuleAttributeRequest extends $tea.Model {
       authorizationRuleName: 'AuthorizationRuleName',
       clientToken: 'ClientToken',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dryRun: 'DryRun',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       policy: 'Policy',
+      protocol: 'Protocol',
       regionId: 'RegionId',
       sourceCidrs: 'SourceCidrs',
     };
@@ -4651,10 +5519,12 @@ export class UpdateAuthorizationRuleAttributeRequest extends $tea.Model {
       authorizationRuleName: 'string',
       clientToken: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dryRun: 'boolean',
       ioTCloudConnectorId: 'string',
       policy: 'string',
+      protocol: 'string',
       regionId: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
     };
@@ -4892,10 +5762,12 @@ export class UpdateGroupAuthorizationRuleAttributeRequest extends $tea.Model {
   authorizationRuleName?: string;
   clientToken?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   dryRun?: boolean;
   ioTCloudConnectorGroupId?: string;
   policy?: string;
+  protocol?: string;
   regionId?: string;
   sourceCidrs?: string[];
   static names(): { [key: string]: string } {
@@ -4905,10 +5777,12 @@ export class UpdateGroupAuthorizationRuleAttributeRequest extends $tea.Model {
       authorizationRuleName: 'AuthorizationRuleName',
       clientToken: 'ClientToken',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       dryRun: 'DryRun',
       ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       policy: 'Policy',
+      protocol: 'Protocol',
       regionId: 'RegionId',
       sourceCidrs: 'SourceCidrs',
     };
@@ -4921,10 +5795,12 @@ export class UpdateGroupAuthorizationRuleAttributeRequest extends $tea.Model {
       authorizationRuleName: 'string',
       clientToken: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       dryRun: 'boolean',
       ioTCloudConnectorGroupId: 'string',
       policy: 'string',
+      protocol: 'string',
       regionId: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
     };
@@ -5075,12 +5951,106 @@ export class UpdateGroupDNSServiceRuleAttributeResponse extends $tea.Model {
   }
 }
 
+export class UpdateGroupIpMappingRuleRequest extends $tea.Model {
+  clientToken?: string;
+  destinationIp?: string;
+  dryRun?: boolean;
+  groupIpMappingRuleId?: string;
+  ioTCloudConnectorGroupId?: string;
+  ipMappingRuleDescription?: string;
+  ipMappingRuleName?: string;
+  mappingIp?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationIp: 'DestinationIp',
+      dryRun: 'DryRun',
+      groupIpMappingRuleId: 'GroupIpMappingRuleId',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ipMappingRuleDescription: 'IpMappingRuleDescription',
+      ipMappingRuleName: 'IpMappingRuleName',
+      mappingIp: 'MappingIp',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationIp: 'string',
+      dryRun: 'boolean',
+      groupIpMappingRuleId: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      ipMappingRuleDescription: 'string',
+      ipMappingRuleName: 'string',
+      mappingIp: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupIpMappingRuleResponseBody extends $tea.Model {
+  authorizationRuleId?: string;
+  ioTCloudConnectorGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupIpMappingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateGroupIpMappingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGroupIpMappingRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIoTCloudConnectorAttributeRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
   ioTCloudConnectorDescription?: string;
   ioTCloudConnectorId?: string;
   ioTCloudConnectorName?: string;
+  mode?: string;
   regionId?: string;
   wildcardDomainEnabled?: boolean;
   static names(): { [key: string]: string } {
@@ -5090,6 +6060,7 @@ export class UpdateIoTCloudConnectorAttributeRequest extends $tea.Model {
       ioTCloudConnectorDescription: 'IoTCloudConnectorDescription',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
+      mode: 'Mode',
       regionId: 'RegionId',
       wildcardDomainEnabled: 'WildcardDomainEnabled',
     };
@@ -5102,6 +6073,7 @@ export class UpdateIoTCloudConnectorAttributeRequest extends $tea.Model {
       ioTCloudConnectorDescription: 'string',
       ioTCloudConnectorId: 'string',
       ioTCloudConnectorName: 'string',
+      mode: 'string',
       regionId: 'string',
       wildcardDomainEnabled: 'boolean',
     };
@@ -5229,6 +6201,93 @@ export class UpdateIoTCloudConnectorGroupAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateIoTCloudConnectorGroupAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpMappingRuleRequest extends $tea.Model {
+  clientToken?: string;
+  destinationIp?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  ipMappingRuleDescription?: string;
+  ipMappingRuleId?: string;
+  ipMappingRuleName?: string;
+  mappingIp?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      destinationIp: 'DestinationIp',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ipMappingRuleDescription: 'IpMappingRuleDescription',
+      ipMappingRuleId: 'IpMappingRuleId',
+      ipMappingRuleName: 'IpMappingRuleName',
+      mappingIp: 'MappingIp',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      destinationIp: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      ipMappingRuleDescription: 'string',
+      ipMappingRuleId: 'string',
+      ipMappingRuleName: 'string',
+      mappingIp: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpMappingRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpMappingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateIpMappingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateIpMappingRuleResponseBody,
     };
   }
 
@@ -5402,6 +6461,46 @@ export class UpdateServiceEntryAttributeResponse extends $tea.Model {
   }
 }
 
+export class CreateAuthorizationRulesRequestAuthorizationRules extends $tea.Model {
+  description?: string;
+  destination?: string;
+  destinationPort?: string;
+  destinationType?: string;
+  name?: string;
+  policy?: string;
+  protocol?: string;
+  sourceCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      destination: 'Destination',
+      destinationPort: 'DestinationPort',
+      destinationType: 'DestinationType',
+      name: 'Name',
+      policy: 'Policy',
+      protocol: 'Protocol',
+      sourceCidr: 'SourceCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      destination: 'string',
+      destinationPort: 'string',
+      destinationType: 'string',
+      name: 'string',
+      policy: 'string',
+      protocol: 'string',
+      sourceCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem extends $tea.Model {
   part?: string;
   status?: string;
@@ -5493,9 +6592,11 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
   authorizationRuleStatus?: string;
   authorizationRuleType?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   ioTCloudConnectorId?: string;
   policy?: string;
+  protocol?: string;
   sourceCidrs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5505,9 +6606,11 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
       authorizationRuleStatus: 'AuthorizationRuleStatus',
       authorizationRuleType: 'AuthorizationRuleType',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       policy: 'Policy',
+      protocol: 'Protocol',
       sourceCidrs: 'SourceCidrs',
     };
   }
@@ -5520,9 +6623,11 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
       authorizationRuleStatus: 'string',
       authorizationRuleType: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       ioTCloudConnectorId: 'string',
       policy: 'string',
+      protocol: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -5720,9 +6825,11 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
   authorizationRuleName?: string;
   authorizationRuleStatus?: string;
   destination?: string;
+  destinationPort?: string;
   destinationType?: string;
   ioTCloudConnectorGroupId?: string;
   policy?: string;
+  protocol?: string;
   sourceCidrs?: string[];
   type?: string;
   static names(): { [key: string]: string } {
@@ -5732,9 +6839,11 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
       authorizationRuleName: 'AuthorizationRuleName',
       authorizationRuleStatus: 'AuthorizationRuleStatus',
       destination: 'Destination',
+      destinationPort: 'DestinationPort',
       destinationType: 'DestinationType',
       ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       policy: 'Policy',
+      protocol: 'Protocol',
       sourceCidrs: 'SourceCidrs',
       type: 'Type',
     };
@@ -5747,9 +6856,11 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
       authorizationRuleName: 'string',
       authorizationRuleStatus: 'string',
       destination: 'string',
+      destinationPort: 'string',
       destinationType: 'string',
       ioTCloudConnectorGroupId: 'string',
       policy: 'string',
+      protocol: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
     };
@@ -5792,6 +6903,43 @@ export class ListGroupDNSServiceRulesResponseBodyDNSServiceRules extends $tea.Mo
       ioTCloudConnectorGroupId: 'string',
       serviceType: 'string',
       source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupIpMappingRulesResponseBodyIpMappingRules extends $tea.Model {
+  destinationIp?: string;
+  ioTCloudConnectorGroupId?: string;
+  ipMappingRuleDescription?: string;
+  ipMappingRuleId?: string;
+  ipMappingRuleName?: string;
+  ipMappingRuleStatus?: string;
+  mappingIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationIp: 'DestinationIp',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ipMappingRuleDescription: 'IpMappingRuleDescription',
+      ipMappingRuleId: 'IpMappingRuleId',
+      ipMappingRuleName: 'IpMappingRuleName',
+      ipMappingRuleStatus: 'IpMappingRuleStatus',
+      mappingIp: 'MappingIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationIp: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      ipMappingRuleDescription: 'string',
+      ipMappingRuleId: 'string',
+      ipMappingRuleName: 'string',
+      ipMappingRuleStatus: 'string',
+      mappingIp: 'string',
     };
   }
 
@@ -5848,6 +6996,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCl
   ioTCloudConnectorId?: string;
   ioTCloudConnectorName?: string;
   ioTCloudConnectorStatus?: string;
+  serviceType?: string;
   static names(): { [key: string]: string } {
     return {
       APN: 'APN',
@@ -5857,6 +7006,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCl
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
       ioTCloudConnectorStatus: 'IoTCloudConnectorStatus',
+      serviceType: 'ServiceType',
     };
   }
 
@@ -5869,6 +7019,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCl
       ioTCloudConnectorId: 'string',
       ioTCloudConnectorName: 'string',
       ioTCloudConnectorStatus: 'string',
+      serviceType: 'string',
     };
   }
 
@@ -5884,6 +7035,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
   ioTCloudConnectorGroupStatus?: string;
   ioTCloudConnectors?: ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors[];
   name?: string;
+  serviceType?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5893,6 +7045,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
       ioTCloudConnectorGroupStatus: 'IoTCloudConnectorGroupStatus',
       ioTCloudConnectors: 'IoTCloudConnectors',
       name: 'Name',
+      serviceType: 'ServiceType',
       type: 'Type',
     };
   }
@@ -5905,6 +7058,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
       ioTCloudConnectorGroupStatus: 'string',
       ioTCloudConnectors: { 'type': 'array', 'itemType': ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors },
       name: 'string',
+      serviceType: 'string',
       type: 'string',
     };
   }
@@ -5917,6 +7071,7 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups exte
 export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.Model {
   APN?: string;
   createTime?: number;
+  grantAliUid?: string;
   ISP?: string;
   ioTCloudConnectorBusinessStatus?: string;
   ioTCloudConnectorDescription?: string;
@@ -5928,6 +7083,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
   mode?: string;
   modifyTime?: number;
   rateLimit?: number;
+  serviceType?: string;
   type?: string;
   vSwitchList?: string[];
   vpcId?: string;
@@ -5936,6 +7092,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
     return {
       APN: 'APN',
       createTime: 'CreateTime',
+      grantAliUid: 'GrantAliUid',
       ISP: 'ISP',
       ioTCloudConnectorBusinessStatus: 'IoTCloudConnectorBusinessStatus',
       ioTCloudConnectorDescription: 'IoTCloudConnectorDescription',
@@ -5947,6 +7104,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       mode: 'Mode',
       modifyTime: 'ModifyTime',
       rateLimit: 'RateLimit',
+      serviceType: 'ServiceType',
       type: 'Type',
       vSwitchList: 'VSwitchList',
       vpcId: 'VpcId',
@@ -5958,6 +7116,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
     return {
       APN: 'string',
       createTime: 'number',
+      grantAliUid: 'string',
       ISP: 'string',
       ioTCloudConnectorBusinessStatus: 'string',
       ioTCloudConnectorDescription: 'string',
@@ -5969,6 +7128,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       mode: 'string',
       modifyTime: 'number',
       rateLimit: 'number',
+      serviceType: 'string',
       type: 'string',
       vSwitchList: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
@@ -6004,6 +7164,43 @@ export class ListIoTCoudConnectorBackhaulRouteResponseBodyRoutes extends $tea.Mo
       nextHopId: 'string',
       nextHopType: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpMappingRulesResponseBodyIpMappingRules extends $tea.Model {
+  destinationIp?: string;
+  ioTCloudConnectorId?: string;
+  ipMappingRuleDescription?: string;
+  ipMappingRuleId?: string;
+  ipMappingRuleName?: string;
+  ipMappingRuleStatus?: string;
+  mappingIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationIp: 'DestinationIp',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ipMappingRuleDescription: 'IpMappingRuleDescription',
+      ipMappingRuleId: 'IpMappingRuleId',
+      ipMappingRuleName: 'IpMappingRuleName',
+      ipMappingRuleStatus: 'IpMappingRuleStatus',
+      mappingIp: 'MappingIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationIp: 'string',
+      ioTCloudConnectorId: 'string',
+      ipMappingRuleDescription: 'string',
+      ipMappingRuleId: 'string',
+      ipMappingRuleName: 'string',
+      ipMappingRuleStatus: 'string',
+      mappingIp: 'string',
     };
   }
 
@@ -6324,6 +7521,51 @@ export default class Client extends OpenApi {
     return await this.associateVSwitchWithIoTCloudConnectorWithOptions(request, runtime);
   }
 
+  async confirmIoTCloudConnectorWithOptions(request: ConfirmIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmIoTCloudConnectorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.confirmStatus)) {
+      query["ConfirmStatus"] = request.confirmStatus;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConfirmIoTCloudConnector",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfirmIoTCloudConnectorResponse>(await this.callApi(params, req, runtime), new ConfirmIoTCloudConnectorResponse({}));
+  }
+
+  async confirmIoTCloudConnector(request: ConfirmIoTCloudConnectorRequest): Promise<ConfirmIoTCloudConnectorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.confirmIoTCloudConnectorWithOptions(request, runtime);
+  }
+
   async createAuthorizationRuleWithOptions(request: CreateAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6343,6 +7585,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -6357,6 +7603,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -6387,6 +7637,51 @@ export default class Client extends OpenApi {
   async createAuthorizationRule(request: CreateAuthorizationRuleRequest): Promise<CreateAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async createAuthorizationRulesWithOptions(request: CreateAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthorizationRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRules)) {
+      query["AuthorizationRules"] = request.authorizationRules;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAuthorizationRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new CreateAuthorizationRulesResponse({}));
+  }
+
+  async createAuthorizationRules(request: CreateAuthorizationRulesRequest): Promise<CreateAuthorizationRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAuthorizationRulesWithOptions(request, runtime);
   }
 
   async createConnectionPoolWithOptions(request: CreateConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionPoolResponse> {
@@ -6526,6 +7821,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -6540,6 +7839,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -6635,6 +7938,63 @@ export default class Client extends OpenApi {
   async createGroupDNSServiceRule(request: CreateGroupDNSServiceRuleRequest): Promise<CreateGroupDNSServiceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGroupDNSServiceRuleWithOptions(request, runtime);
+  }
+
+  async createGroupIpMappingRuleWithOptions(request: CreateGroupIpMappingRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupIpMappingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleDescription)) {
+      query["IpMappingRuleDescription"] = request.ipMappingRuleDescription;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleName)) {
+      query["IpMappingRuleName"] = request.ipMappingRuleName;
+    }
+
+    if (!Util.isUnset(request.mappingIp)) {
+      query["MappingIp"] = request.mappingIp;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGroupIpMappingRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGroupIpMappingRuleResponse>(await this.callApi(params, req, runtime), new CreateGroupIpMappingRuleResponse({}));
+  }
+
+  async createGroupIpMappingRule(request: CreateGroupIpMappingRuleRequest): Promise<CreateGroupIpMappingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGroupIpMappingRuleWithOptions(request, runtime);
   }
 
   async createIoTCloudConnectorWithOptions(request: CreateIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorResponse> {
@@ -6790,6 +8150,63 @@ export default class Client extends OpenApi {
   async createIoTCloudConnectorGroup(request: CreateIoTCloudConnectorGroupRequest): Promise<CreateIoTCloudConnectorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIoTCloudConnectorGroupWithOptions(request, runtime);
+  }
+
+  async createIpMappingRuleWithOptions(request: CreateIpMappingRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpMappingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleDescription)) {
+      query["IpMappingRuleDescription"] = request.ipMappingRuleDescription;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleName)) {
+      query["IpMappingRuleName"] = request.ipMappingRuleName;
+    }
+
+    if (!Util.isUnset(request.mappingIp)) {
+      query["MappingIp"] = request.mappingIp;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIpMappingRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIpMappingRuleResponse>(await this.callApi(params, req, runtime), new CreateIpMappingRuleResponse({}));
+  }
+
+  async createIpMappingRule(request: CreateIpMappingRuleRequest): Promise<CreateIpMappingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIpMappingRuleWithOptions(request, runtime);
   }
 
   async createServiceWithOptions(request: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
@@ -7127,6 +8544,51 @@ export default class Client extends OpenApi {
     return await this.deleteGroupDNSServiceRuleWithOptions(request, runtime);
   }
 
+  async deleteGroupIpMappingRuleWithOptions(request: DeleteGroupIpMappingRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupIpMappingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.groupIpMappingRuleId)) {
+      query["GroupIpMappingRuleId"] = request.groupIpMappingRuleId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGroupIpMappingRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupIpMappingRuleResponse>(await this.callApi(params, req, runtime), new DeleteGroupIpMappingRuleResponse({}));
+  }
+
+  async deleteGroupIpMappingRule(request: DeleteGroupIpMappingRuleRequest): Promise<DeleteGroupIpMappingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGroupIpMappingRuleWithOptions(request, runtime);
+  }
+
   async deleteIoTCloudConnectorWithOptions(request: DeleteIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7248,6 +8710,51 @@ export default class Client extends OpenApi {
   async deleteIoTCloudConnetorBackhaulRoute(request: DeleteIoTCloudConnetorBackhaulRouteRequest): Promise<DeleteIoTCloudConnetorBackhaulRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIoTCloudConnetorBackhaulRouteWithOptions(request, runtime);
+  }
+
+  async deleteIpMappingRuleWithOptions(request: DeleteIpMappingRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpMappingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleId)) {
+      query["IpMappingRuleId"] = request.ipMappingRuleId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIpMappingRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpMappingRuleResponse>(await this.callApi(params, req, runtime), new DeleteIpMappingRuleResponse({}));
+  }
+
+  async deleteIpMappingRule(request: DeleteIpMappingRuleRequest): Promise<DeleteIpMappingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIpMappingRuleWithOptions(request, runtime);
   }
 
   async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
@@ -7748,6 +9255,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7793,6 +9304,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -7811,6 +9326,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -8127,6 +9646,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -8145,6 +9668,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -8242,6 +9769,67 @@ export default class Client extends OpenApi {
     return await this.listGroupDNSServiceRulesWithOptions(request, runtime);
   }
 
+  async listGroupIpMappingRulesWithOptions(request: ListGroupIpMappingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupIpMappingRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationIps)) {
+      query["DestinationIps"] = request.destinationIps;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleIds)) {
+      query["IpMappingRuleIds"] = request.ipMappingRuleIds;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleNames)) {
+      query["IpMappingRuleNames"] = request.ipMappingRuleNames;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleStatuses)) {
+      query["IpMappingRuleStatuses"] = request.ipMappingRuleStatuses;
+    }
+
+    if (!Util.isUnset(request.mappingIps)) {
+      query["MappingIps"] = request.mappingIps;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroupIpMappingRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupIpMappingRulesResponse>(await this.callApi(params, req, runtime), new ListGroupIpMappingRulesResponse({}));
+  }
+
+  async listGroupIpMappingRules(request: ListGroupIpMappingRulesRequest): Promise<ListGroupIpMappingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGroupIpMappingRulesWithOptions(request, runtime);
+  }
+
   async listIoTCloudConnectorAccessSessionLogsWithOptions(request: ListIoTCloudConnectorAccessSessionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorAccessSessionLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8330,6 +9918,47 @@ export default class Client extends OpenApi {
   async listIoTCloudConnectorAvailableZones(request: ListIoTCloudConnectorAvailableZonesRequest): Promise<ListIoTCloudConnectorAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIoTCloudConnectorAvailableZonesWithOptions(request, runtime);
+  }
+
+  async listIoTCloudConnectorEIPsWithOptions(request: ListIoTCloudConnectorEIPsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorEIPsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIoTCloudConnectorEIPs",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCloudConnectorEIPsResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorEIPsResponse({}));
+  }
+
+  async listIoTCloudConnectorEIPs(request: ListIoTCloudConnectorEIPsRequest): Promise<ListIoTCloudConnectorEIPsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIoTCloudConnectorEIPsWithOptions(request, runtime);
   }
 
   async listIoTCloudConnectorGroupsWithOptions(request: ListIoTCloudConnectorGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorGroupsResponse> {
@@ -8493,6 +10122,67 @@ export default class Client extends OpenApi {
   async listIoTCoudConnectorBackhaulRoute(request: ListIoTCoudConnectorBackhaulRouteRequest): Promise<ListIoTCoudConnectorBackhaulRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIoTCoudConnectorBackhaulRouteWithOptions(request, runtime);
+  }
+
+  async listIpMappingRulesWithOptions(request: ListIpMappingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListIpMappingRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.destinationIps)) {
+      query["DestinationIps"] = request.destinationIps;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleIds)) {
+      query["IpMappingRuleIds"] = request.ipMappingRuleIds;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleNames)) {
+      query["IpMappingRuleNames"] = request.ipMappingRuleNames;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleStatuses)) {
+      query["IpMappingRuleStatuses"] = request.ipMappingRuleStatuses;
+    }
+
+    if (!Util.isUnset(request.mappingIps)) {
+      query["MappingIps"] = request.mappingIps;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIpMappingRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIpMappingRulesResponse>(await this.callApi(params, req, runtime), new ListIpMappingRulesResponse({}));
+  }
+
+  async listIpMappingRules(request: ListIpMappingRulesRequest): Promise<ListIpMappingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIpMappingRulesWithOptions(request, runtime);
   }
 
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
@@ -8810,6 +10500,47 @@ export default class Client extends OpenApi {
     return await this.removeIoTCloudConnectorFromGroupWithOptions(request, runtime);
   }
 
+  async revertIoTCloudConnectorWithOptions(request: RevertIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<RevertIoTCloudConnectorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevertIoTCloudConnector",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevertIoTCloudConnectorResponse>(await this.callApi(params, req, runtime), new RevertIoTCloudConnectorResponse({}));
+  }
+
+  async revertIoTCloudConnector(request: RevertIoTCloudConnectorRequest): Promise<RevertIoTCloudConnectorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revertIoTCloudConnectorWithOptions(request, runtime);
+  }
+
   async submitDiagnoseTaskForSingleCardWithOptions(request: SubmitDiagnoseTaskForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDiagnoseTaskForSingleCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8894,6 +10625,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -8908,6 +10643,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -9089,6 +10828,10 @@ export default class Client extends OpenApi {
       query["Destination"] = request.destination;
     }
 
+    if (!Util.isUnset(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
     if (!Util.isUnset(request.destinationType)) {
       query["DestinationType"] = request.destinationType;
     }
@@ -9103,6 +10846,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policy)) {
       query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -9200,6 +10947,67 @@ export default class Client extends OpenApi {
     return await this.updateGroupDNSServiceRuleAttributeWithOptions(request, runtime);
   }
 
+  async updateGroupIpMappingRuleWithOptions(request: UpdateGroupIpMappingRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupIpMappingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.groupIpMappingRuleId)) {
+      query["GroupIpMappingRuleId"] = request.groupIpMappingRuleId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleDescription)) {
+      query["IpMappingRuleDescription"] = request.ipMappingRuleDescription;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleName)) {
+      query["IpMappingRuleName"] = request.ipMappingRuleName;
+    }
+
+    if (!Util.isUnset(request.mappingIp)) {
+      query["MappingIp"] = request.mappingIp;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGroupIpMappingRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupIpMappingRuleResponse>(await this.callApi(params, req, runtime), new UpdateGroupIpMappingRuleResponse({}));
+  }
+
+  async updateGroupIpMappingRule(request: UpdateGroupIpMappingRuleRequest): Promise<UpdateGroupIpMappingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGroupIpMappingRuleWithOptions(request, runtime);
+  }
+
   async updateIoTCloudConnectorAttributeWithOptions(request: UpdateIoTCloudConnectorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIoTCloudConnectorAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9221,6 +11029,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioTCloudConnectorName)) {
       query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -9300,6 +11112,67 @@ export default class Client extends OpenApi {
   async updateIoTCloudConnectorGroupAttribute(request: UpdateIoTCloudConnectorGroupAttributeRequest): Promise<UpdateIoTCloudConnectorGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIoTCloudConnectorGroupAttributeWithOptions(request, runtime);
+  }
+
+  async updateIpMappingRuleWithOptions(request: UpdateIpMappingRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpMappingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleDescription)) {
+      query["IpMappingRuleDescription"] = request.ipMappingRuleDescription;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleId)) {
+      query["IpMappingRuleId"] = request.ipMappingRuleId;
+    }
+
+    if (!Util.isUnset(request.ipMappingRuleName)) {
+      query["IpMappingRuleName"] = request.ipMappingRuleName;
+    }
+
+    if (!Util.isUnset(request.mappingIp)) {
+      query["MappingIp"] = request.mappingIp;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateIpMappingRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIpMappingRuleResponse>(await this.callApi(params, req, runtime), new UpdateIpMappingRuleResponse({}));
+  }
+
+  async updateIpMappingRule(request: UpdateIpMappingRuleRequest): Promise<UpdateIpMappingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateIpMappingRuleWithOptions(request, runtime);
   }
 
   async updateServiceAttributeWithOptions(request: UpdateServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAttributeResponse> {
