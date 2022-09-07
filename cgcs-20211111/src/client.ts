@@ -1379,6 +1379,7 @@ export class GetReserveTaskDetailResponseBody extends $tea.Model {
   expectSessionCapacity?: number;
   projectId?: string;
   requestId?: string;
+  resBatchList?: GetReserveTaskDetailResponseBodyResBatchList[];
   taskId?: string;
   taskStatus?: string;
   static names(): { [key: string]: string } {
@@ -1391,6 +1392,7 @@ export class GetReserveTaskDetailResponseBody extends $tea.Model {
       expectSessionCapacity: 'ExpectSessionCapacity',
       projectId: 'ProjectId',
       requestId: 'RequestId',
+      resBatchList: 'ResBatchList',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
     };
@@ -1406,6 +1408,7 @@ export class GetReserveTaskDetailResponseBody extends $tea.Model {
       expectSessionCapacity: 'number',
       projectId: 'string',
       requestId: 'string',
+      resBatchList: { 'type': 'array', 'itemType': GetReserveTaskDetailResponseBodyResBatchList },
       taskId: 'string',
       taskStatus: 'string',
     };
@@ -1967,6 +1970,69 @@ export class ReleaseCapacityResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseCapacityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseCapacityByBatchRequest extends $tea.Model {
+  resBatchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resBatchId: 'ResBatchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resBatchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseCapacityByBatchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseCapacityByBatchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ReleaseCapacityByBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseCapacityByBatchResponseBody,
     };
   }
 
@@ -2796,6 +2862,28 @@ export class GetCapacityResponseBodyCapacities extends $tea.Model {
       appVersion: 'string',
       districtId: 'string',
       sessionCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReserveTaskDetailResponseBodyResBatchList extends $tea.Model {
+  resBatchId?: string;
+  resBatchTagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resBatchId: 'ResBatchId',
+      resBatchTagName: 'ResBatchTagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resBatchId: 'string',
+      resBatchTagName: 'string',
     };
   }
 
@@ -4000,6 +4088,35 @@ export default class Client extends OpenApi {
   async releaseCapacity(request: ReleaseCapacityRequest): Promise<ReleaseCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseCapacityWithOptions(request, runtime);
+  }
+
+  async releaseCapacityByBatchWithOptions(request: ReleaseCapacityByBatchRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCapacityByBatchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.resBatchId)) {
+      body["ResBatchId"] = request.resBatchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseCapacityByBatch",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseCapacityByBatchResponse>(await this.callApi(params, req, runtime), new ReleaseCapacityByBatchResponse({}));
+  }
+
+  async releaseCapacityByBatch(request: ReleaseCapacityByBatchRequest): Promise<ReleaseCapacityByBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseCapacityByBatchWithOptions(request, runtime);
   }
 
   async stopAppSessionWithOptions(tmpReq: StopAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<StopAppSessionResponse> {
