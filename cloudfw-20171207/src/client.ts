@@ -2368,6 +2368,7 @@ export class DescribeVpcFirewallCenListRequest extends $tea.Model {
   pageSize?: string;
   regionNo?: string;
   routeMode?: string;
+  transitRouterType?: string;
   vpcFirewallId?: string;
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
@@ -2382,6 +2383,7 @@ export class DescribeVpcFirewallCenListRequest extends $tea.Model {
       pageSize: 'PageSize',
       regionNo: 'RegionNo',
       routeMode: 'RouteMode',
+      transitRouterType: 'TransitRouterType',
       vpcFirewallId: 'VpcFirewallId',
       vpcFirewallName: 'VpcFirewallName',
     };
@@ -2399,6 +2401,7 @@ export class DescribeVpcFirewallCenListRequest extends $tea.Model {
       pageSize: 'string',
       regionNo: 'string',
       routeMode: 'string',
+      transitRouterType: 'string',
       vpcFirewallId: 'string',
       vpcFirewallName: 'string',
     };
@@ -4399,6 +4402,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   applicationId?: string;
   applicationName?: string;
   applicationNameList?: string[];
+  createTime?: number;
   description?: string;
   destPort?: string;
   destPortGroup?: string;
@@ -4414,6 +4418,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   hitLastTime?: number;
   hitTimes?: number;
   ipVersion?: number;
+  modifyTime?: number;
   order?: number;
   proto?: string;
   release?: string;
@@ -4421,6 +4426,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   sourceGroupCidrs?: string[];
   sourceGroupType?: string;
   sourceType?: string;
+  spreadCnt?: number;
   static names(): { [key: string]: string } {
     return {
       aclAction: 'AclAction',
@@ -4428,6 +4434,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       applicationId: 'ApplicationId',
       applicationName: 'ApplicationName',
       applicationNameList: 'ApplicationNameList',
+      createTime: 'CreateTime',
       description: 'Description',
       destPort: 'DestPort',
       destPortGroup: 'DestPortGroup',
@@ -4443,6 +4450,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       hitLastTime: 'HitLastTime',
       hitTimes: 'HitTimes',
       ipVersion: 'IpVersion',
+      modifyTime: 'ModifyTime',
       order: 'Order',
       proto: 'Proto',
       release: 'Release',
@@ -4450,6 +4458,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       sourceGroupCidrs: 'SourceGroupCidrs',
       sourceGroupType: 'SourceGroupType',
       sourceType: 'SourceType',
+      spreadCnt: 'SpreadCnt',
     };
   }
 
@@ -4460,6 +4469,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       applicationId: 'string',
       applicationName: 'string',
       applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'number',
       description: 'string',
       destPort: 'string',
       destPortGroup: 'string',
@@ -4475,6 +4485,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       hitLastTime: 'number',
       hitTimes: 'number',
       ipVersion: 'number',
+      modifyTime: 'number',
       order: 'number',
       proto: 'string',
       release: 'string',
@@ -4482,6 +4493,7 @@ export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
       sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       sourceGroupType: 'string',
       sourceType: 'string',
+      spreadCnt: 'number',
     };
   }
 
@@ -7470,6 +7482,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.routeMode)) {
       query["RouteMode"] = request.routeMode;
+    }
+
+    if (!Util.isUnset(request.transitRouterType)) {
+      query["TransitRouterType"] = request.transitRouterType;
     }
 
     if (!Util.isUnset(request.vpcFirewallId)) {
