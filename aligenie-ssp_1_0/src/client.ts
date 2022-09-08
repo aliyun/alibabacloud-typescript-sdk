@@ -8,6 +8,34 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class LoginStateInfo extends $tea.Model {
+  sceneCode?: string;
+  thirdUserIdentifier?: string;
+  thirdUserType?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneCode: 'SceneCode',
+      thirdUserIdentifier: 'ThirdUserIdentifier',
+      thirdUserType: 'ThirdUserType',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneCode: 'string',
+      thirdUserIdentifier: 'string',
+      thirdUserType: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAndRemoveFavoriteContentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -2347,6 +2375,106 @@ export class GetAlbumDetailByIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAlbumDetailByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAligenieUserInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAligenieUserInfoRequest extends $tea.Model {
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAligenieUserInfoResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: GetAligenieUserInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: GetAligenieUserInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAligenieUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetAligenieUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAligenieUserInfoResponseBody,
     };
   }
 
@@ -7055,6 +7183,128 @@ export class ReadMessageResponse extends $tea.Model {
   }
 }
 
+export class ScanCodeBindHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanCodeBindRequest extends $tea.Model {
+  bindReq?: ScanCodeBindRequestBindReq;
+  userInfo?: ScanCodeBindRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      bindReq: 'BindReq',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindReq: ScanCodeBindRequestBindReq,
+      userInfo: ScanCodeBindRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanCodeBindShrinkRequest extends $tea.Model {
+  bindReqShrink?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindReqShrink: 'BindReq',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindReqShrink: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanCodeBindResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: ScanCodeBindResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: ScanCodeBindResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanCodeBindResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ScanCodeBindResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScanCodeBindResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScgSearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -7550,6 +7800,103 @@ export class SetDeviceSettingResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetDeviceSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAligenieUserHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAligenieUserRequest extends $tea.Model {
+  loginStateAccessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginStateAccessToken: 'LoginStateAccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginStateAccessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAligenieUserResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindAligenieUserResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnbindAligenieUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindAligenieUserResponseBody,
     };
   }
 
@@ -9568,8 +9915,6 @@ export class GetAlarmResponseBodyResult extends $tea.Model {
   status?: number;
   triggerDateDesc?: string;
   triggerTimeDesc?: string;
-  userId?: number;
-  uuid?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9580,8 +9925,6 @@ export class GetAlarmResponseBodyResult extends $tea.Model {
       status: 'Status',
       triggerDateDesc: 'TriggerDateDesc',
       triggerTimeDesc: 'TriggerTimeDesc',
-      userId: 'UserId',
-      uuid: 'Uuid',
       volume: 'Volume',
     };
   }
@@ -9595,8 +9938,6 @@ export class GetAlarmResponseBodyResult extends $tea.Model {
       status: 'number',
       triggerDateDesc: 'string',
       triggerTimeDesc: 'string',
-      userId: 'number',
-      uuid: 'string',
       volume: 'number',
     };
   }
@@ -9792,6 +10133,31 @@ export class GetAlbumDetailByIdResponseBodyResult extends $tea.Model {
       albumDescription: 'string',
       albumId: 'string',
       albumTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAligenieUserInfoResponseBodyResult extends $tea.Model {
+  aligenieNickname?: string;
+  avatar?: string;
+  deletable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aligenieNickname: 'AligenieNickname',
+      avatar: 'Avatar',
+      deletable: 'Deletable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aligenieNickname: 'string',
+      avatar: 'string',
+      deletable: 'boolean',
     };
   }
 
@@ -11572,8 +11938,6 @@ export class ListAlarmsResponseBodyResultModel extends $tea.Model {
   status?: number;
   triggerDateDesc?: string;
   triggerTimeDesc?: string;
-  userId?: number;
-  uuid?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11584,8 +11948,6 @@ export class ListAlarmsResponseBodyResultModel extends $tea.Model {
       status: 'Status',
       triggerDateDesc: 'TriggerDateDesc',
       triggerTimeDesc: 'TriggerTimeDesc',
-      userId: 'UserId',
-      uuid: 'Uuid',
       volume: 'Volume',
     };
   }
@@ -11599,8 +11961,6 @@ export class ListAlarmsResponseBodyResultModel extends $tea.Model {
       status: 'number',
       triggerDateDesc: 'string',
       triggerTimeDesc: 'string',
-      userId: 'number',
-      uuid: 'string',
       volume: 'number',
     };
   }
@@ -14215,6 +14575,84 @@ export class ReadMessageRequestUserInfo extends $tea.Model {
   }
 }
 
+export class ScanCodeBindRequestBindReq extends $tea.Model {
+  clientId?: string;
+  code?: string;
+  extInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      code: 'Code',
+      extInfo: 'ExtInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      code: 'string',
+      extInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanCodeBindRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanCodeBindResponseBodyResult extends $tea.Model {
+  bizGroup?: string;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizGroup: 'bizGroup',
+      bizType: 'bizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizGroup: 'string',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScgSearchRequestScgFilterOffSetParam extends $tea.Model {
   limit?: number;
   offset?: number;
@@ -16239,6 +16677,50 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetAlbumDetailByIdResponse>(await this.callApi(params, req, runtime), new GetAlbumDetailByIdResponse({}));
+  }
+
+  async getAligenieUserInfo(request: GetAligenieUserInfoRequest): Promise<GetAligenieUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetAligenieUserInfoHeaders({ });
+    return await this.getAligenieUserInfoWithOptions(request, headers, runtime);
+  }
+
+  async getAligenieUserInfoWithOptions(request: GetAligenieUserInfoRequest, headers: GetAligenieUserInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetAligenieUserInfoResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.loginStateAccessToken)) {
+      query["LoginStateAccessToken"] = request.loginStateAccessToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAligenieUserInfo",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/getAligenieUserInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAligenieUserInfoResponse>(await this.callApi(params, req, runtime), new GetAligenieUserInfoResponse({}));
   }
 
   async getCodeEnhance(request: GetCodeEnhanceRequest): Promise<GetCodeEnhanceResponse> {
@@ -18535,6 +19017,64 @@ export default class Client extends OpenApi {
     return $tea.cast<ReadMessageResponse>(await this.callApi(params, req, runtime), new ReadMessageResponse({}));
   }
 
+  async scanCodeBind(request: ScanCodeBindRequest): Promise<ScanCodeBindResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ScanCodeBindHeaders({ });
+    return await this.scanCodeBindWithOptions(request, headers, runtime);
+  }
+
+  async scanCodeBindWithOptions(tmpReq: ScanCodeBindRequest, headers: ScanCodeBindHeaders, runtime: $Util.RuntimeOptions): Promise<ScanCodeBindResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ScanCodeBindShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.bindReq))) {
+      request.bindReqShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.bindReq), "BindReq", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.userInfo))) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.userInfo), "UserInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bindReqShrink)) {
+      body["BindReq"] = request.bindReqShrink;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      body["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ScanCodeBind",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/scanCode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ScanCodeBindResponse>(await this.callApi(params, req, runtime), new ScanCodeBindResponse({}));
+  }
+
   async scgSearch(request: ScgSearchRequest): Promise<ScgSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ScgSearchHeaders({ });
@@ -18769,6 +19309,50 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<SetDeviceSettingResponse>(await this.callApi(params, req, runtime), new SetDeviceSettingResponse({}));
+  }
+
+  async unbindAligenieUser(request: UnbindAligenieUserRequest): Promise<UnbindAligenieUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UnbindAligenieUserHeaders({ });
+    return await this.unbindAligenieUserWithOptions(request, headers, runtime);
+  }
+
+  async unbindAligenieUserWithOptions(request: UnbindAligenieUserRequest, headers: UnbindAligenieUserHeaders, runtime: $Util.RuntimeOptions): Promise<UnbindAligenieUserResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.loginStateAccessToken)) {
+      body["LoginStateAccessToken"] = request.loginStateAccessToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindAligenieUser",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/unbindAligenieUser`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindAligenieUserResponse>(await this.callApi(params, req, runtime), new UnbindAligenieUserResponse({}));
   }
 
   async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
