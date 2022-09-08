@@ -767,6 +767,87 @@ export class AuthorizeMenuResponse extends $tea.Model {
   }
 }
 
+export class BatchAddFeishuUsersRequest extends $tea.Model {
+  feishuUsers?: string;
+  isAdmin?: boolean;
+  isAuthAdmin?: boolean;
+  userGroupIds?: string;
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      feishuUsers: 'FeishuUsers',
+      isAdmin: 'IsAdmin',
+      isAuthAdmin: 'IsAuthAdmin',
+      userGroupIds: 'UserGroupIds',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feishuUsers: 'string',
+      isAdmin: 'boolean',
+      isAuthAdmin: 'boolean',
+      userGroupIds: 'string',
+      userType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFeishuUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: BatchAddFeishuUsersResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: BatchAddFeishuUsersResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFeishuUsersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BatchAddFeishuUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchAddFeishuUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelAuthorizationMenuRequest extends $tea.Model {
   dataPortalId?: string;
   menuIds?: string;
@@ -5750,6 +5831,75 @@ export class AddWorkspaceUsersResponseBodyResult extends $tea.Model {
   }
 }
 
+export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $tea.Model {
+  code?: string;
+  codeDesc?: string;
+  input?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      codeDesc: 'CodeDesc',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      codeDesc: 'string',
+      input: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFeishuUsersResponseBodyResultFailResults extends $tea.Model {
+  failInfos?: BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      failInfos: 'FailInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failInfos: { 'type': 'array', 'itemType': BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFeishuUsersResponseBodyResult extends $tea.Model {
+  failCount?: number;
+  failResults?: BatchAddFeishuUsersResponseBodyResultFailResults[];
+  okCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failCount: 'FailCount',
+      failResults: 'FailResults',
+      okCount: 'OkCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failCount: 'number',
+      failResults: { 'type': 'array', 'itemType': BatchAddFeishuUsersResponseBodyResultFailResults },
+      okCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserGroupInfoResponseBodyResult extends $tea.Model {
   createTime?: string;
   createUser?: string;
@@ -8358,6 +8508,51 @@ export default class Client extends OpenApi {
   async authorizeMenu(request: AuthorizeMenuRequest): Promise<AuthorizeMenuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeMenuWithOptions(request, runtime);
+  }
+
+  async batchAddFeishuUsersWithOptions(request: BatchAddFeishuUsersRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddFeishuUsersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.feishuUsers)) {
+      query["FeishuUsers"] = request.feishuUsers;
+    }
+
+    if (!Util.isUnset(request.isAdmin)) {
+      query["IsAdmin"] = request.isAdmin;
+    }
+
+    if (!Util.isUnset(request.isAuthAdmin)) {
+      query["IsAuthAdmin"] = request.isAuthAdmin;
+    }
+
+    if (!Util.isUnset(request.userGroupIds)) {
+      query["UserGroupIds"] = request.userGroupIds;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchAddFeishuUsers",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchAddFeishuUsersResponse>(await this.callApi(params, req, runtime), new BatchAddFeishuUsersResponse({}));
+  }
+
+  async batchAddFeishuUsers(request: BatchAddFeishuUsersRequest): Promise<BatchAddFeishuUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchAddFeishuUsersWithOptions(request, runtime);
   }
 
   async cancelAuthorizationMenuWithOptions(request: CancelAuthorizationMenuRequest, runtime: $Util.RuntimeOptions): Promise<CancelAuthorizationMenuResponse> {
