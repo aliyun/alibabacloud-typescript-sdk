@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ros20190910",
-  "version": "3.2.10",
+  "version": "3.2.11",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

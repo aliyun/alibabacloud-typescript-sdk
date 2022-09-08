@@ -2468,6 +2468,7 @@ export class GetStackResponseBody extends $tea.Model {
   interface?: string;
   log?: GetStackResponseBodyLog;
   notificationURLs?: string[];
+  operationInfo?: GetStackResponseBodyOperationInfo;
   outputs?: { [key: string]: any }[];
   parameters?: GetStackResponseBodyParameters[];
   parentStackId?: string;
@@ -2503,6 +2504,7 @@ export class GetStackResponseBody extends $tea.Model {
       interface: 'Interface',
       log: 'Log',
       notificationURLs: 'NotificationURLs',
+      operationInfo: 'OperationInfo',
       outputs: 'Outputs',
       parameters: 'Parameters',
       parentStackId: 'ParentStackId',
@@ -2541,6 +2543,7 @@ export class GetStackResponseBody extends $tea.Model {
       interface: 'string',
       log: GetStackResponseBodyLog,
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
+      operationInfo: GetStackResponseBodyOperationInfo,
       outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       parameters: { 'type': 'array', 'itemType': GetStackResponseBodyParameters },
       parentStackId: 'string',
@@ -7629,6 +7632,40 @@ export class GetStackResponseBodyLog extends $tea.Model {
   }
 }
 
+export class GetStackResponseBodyOperationInfo extends $tea.Model {
+  action?: string;
+  code?: string;
+  logicalResourceId?: string;
+  message?: string;
+  requestId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      code: 'Code',
+      logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      code: 'string',
+      logicalResourceId: 'string',
+      message: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStackResponseBodyParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -8957,6 +8994,40 @@ export class ListStacksRequestTag extends $tea.Model {
   }
 }
 
+export class ListStacksResponseBodyStacksOperationInfo extends $tea.Model {
+  action?: string;
+  code?: string;
+  logicalResourceId?: string;
+  message?: string;
+  requestId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      code: 'Code',
+      logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      code: 'string',
+      logicalResourceId: 'string',
+      message: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListStacksResponseBodyStacksTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -8983,6 +9054,7 @@ export class ListStacksResponseBodyStacks extends $tea.Model {
   createTime?: string;
   disableRollback?: boolean;
   driftDetectionTime?: string;
+  operationInfo?: ListStacksResponseBodyStacksOperationInfo;
   parentStackId?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -9002,6 +9074,7 @@ export class ListStacksResponseBodyStacks extends $tea.Model {
       createTime: 'CreateTime',
       disableRollback: 'DisableRollback',
       driftDetectionTime: 'DriftDetectionTime',
+      operationInfo: 'OperationInfo',
       parentStackId: 'ParentStackId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -9024,6 +9097,7 @@ export class ListStacksResponseBodyStacks extends $tea.Model {
       createTime: 'string',
       disableRollback: 'boolean',
       driftDetectionTime: 'string',
+      operationInfo: ListStacksResponseBodyStacksOperationInfo,
       parentStackId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
