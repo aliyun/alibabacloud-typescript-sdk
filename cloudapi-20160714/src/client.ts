@@ -12155,12 +12155,14 @@ export class SetDomainWebSocketStatusRequest extends $tea.Model {
   domainName?: string;
   groupId?: string;
   securityToken?: string;
+  WSSEnable?: string;
   static names(): { [key: string]: string } {
     return {
       actionValue: 'ActionValue',
       domainName: 'DomainName',
       groupId: 'GroupId',
       securityToken: 'SecurityToken',
+      WSSEnable: 'WSSEnable',
     };
   }
 
@@ -12170,6 +12172,7 @@ export class SetDomainWebSocketStatusRequest extends $tea.Model {
       domainName: 'string',
       groupId: 'string',
       securityToken: 'string',
+      WSSEnable: 'string',
     };
   }
 
@@ -17610,6 +17613,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   instanceSpecAttributes?: DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributes;
   instanceType?: string;
   internetEgressAddress?: string;
+  intranetSegments?: string;
   regionId?: string;
   status?: string;
   supportIpv6?: boolean;
@@ -17641,6 +17645,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       instanceSpecAttributes: 'InstanceSpecAttributes',
       instanceType: 'InstanceType',
       internetEgressAddress: 'InternetEgressAddress',
+      intranetSegments: 'IntranetSegments',
       regionId: 'RegionId',
       status: 'Status',
       supportIpv6: 'SupportIpv6',
@@ -17675,6 +17680,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       instanceSpecAttributes: DescribeInstancesResponseBodyInstancesInstanceAttributeInstanceSpecAttributes,
       instanceType: 'string',
       internetEgressAddress: 'string',
+      intranetSegments: 'string',
       regionId: 'string',
       status: 'string',
       supportIpv6: 'boolean',
@@ -26210,6 +26216,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.WSSEnable)) {
+      query["WSSEnable"] = request.WSSEnable;
     }
 
     let req = new $OpenApi.OpenApiRequest({
