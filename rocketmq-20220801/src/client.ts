@@ -12,13 +12,11 @@ export class CreateConsumerGroupRequest extends $tea.Model {
   consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
   deliveryOrderType?: string;
   remark?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       consumeRetryPolicy: 'consumeRetryPolicy',
       deliveryOrderType: 'deliveryOrderType',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -27,7 +25,6 @@ export class CreateConsumerGroupRequest extends $tea.Model {
       consumeRetryPolicy: CreateConsumerGroupRequestConsumeRetryPolicy,
       deliveryOrderType: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -104,12 +101,10 @@ export class CreateConsumerGroupResponse extends $tea.Model {
 export class CreateTopicRequest extends $tea.Model {
   messageType?: string;
   remark?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       messageType: 'messageType',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -117,7 +112,6 @@ export class CreateTopicRequest extends $tea.Model {
     return {
       messageType: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -585,13 +579,11 @@ export class ListConsumerGroupsRequest extends $tea.Model {
   filter?: string;
   pageNumber?: number;
   pageSize?: number;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -600,7 +592,6 @@ export class ListConsumerGroupsRequest extends $tea.Model {
       filter: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceGroupId: 'string',
     };
   }
 
@@ -678,13 +669,11 @@ export class ListInstancesRequest extends $tea.Model {
   filter?: string;
   pageNumber?: number;
   pageSize?: number;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -693,7 +682,6 @@ export class ListInstancesRequest extends $tea.Model {
       filter: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceGroupId: 'string',
     };
   }
 
@@ -771,13 +759,11 @@ export class ListTopicsRequest extends $tea.Model {
   filter?: string;
   pageNumber?: number;
   pageSize?: number;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -786,7 +772,6 @@ export class ListTopicsRequest extends $tea.Model {
       filter: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceGroupId: 'string',
     };
   }
 
@@ -864,13 +849,11 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
   consumeRetryPolicy?: UpdateConsumerGroupRequestConsumeRetryPolicy;
   deliveryOrderType?: string;
   remark?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       consumeRetryPolicy: 'consumeRetryPolicy',
       deliveryOrderType: 'deliveryOrderType',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -879,7 +862,6 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
       consumeRetryPolicy: UpdateConsumerGroupRequestConsumeRetryPolicy,
       deliveryOrderType: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -958,14 +940,12 @@ export class UpdateInstanceRequest extends $tea.Model {
   instanceName?: string;
   networkInfo?: UpdateInstanceRequestNetworkInfo;
   remark?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       extConfig: 'extConfig',
       instanceName: 'instanceName',
       networkInfo: 'networkInfo',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -975,7 +955,6 @@ export class UpdateInstanceRequest extends $tea.Model {
       instanceName: 'string',
       networkInfo: UpdateInstanceRequestNetworkInfo,
       remark: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -1051,18 +1030,15 @@ export class UpdateInstanceResponse extends $tea.Model {
 
 export class UpdateTopicRequest extends $tea.Model {
   remark?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       remark: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -1188,7 +1164,6 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
   instanceId?: string;
   regionId?: string;
   remark?: string;
-  resourceGroupId?: string;
   status?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -1200,7 +1175,6 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
       instanceId: 'instanceId',
       regionId: 'regionId',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
       status: 'status',
       updateTime: 'updateTime',
     };
@@ -1215,7 +1189,6 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
       status: 'string',
       updateTime: 'string',
     };
@@ -1227,18 +1200,15 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyDataAccountInfo extends $tea.Model {
-  password?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
-      password: 'password',
       username: 'username',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      password: 'string',
       username: 'string',
     };
   }
@@ -1395,6 +1365,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
   createTime?: string;
   expireTime?: string;
   extConfig?: GetInstanceResponseBodyDataExtConfig;
+  groupCount?: number;
   instanceId?: string;
   instanceName?: string;
   instanceQuotas?: GetInstanceResponseBodyDataInstanceQuotas[];
@@ -1403,12 +1374,12 @@ export class GetInstanceResponseBodyData extends $tea.Model {
   regionId?: string;
   releaseTime?: string;
   remark?: string;
-  resourceGroupId?: string;
   seriesCode?: string;
   serviceCode?: string;
   startTime?: string;
   status?: string;
   subSeriesCode?: string;
+  topicCount?: number;
   updateTime?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1419,6 +1390,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       createTime: 'createTime',
       expireTime: 'expireTime',
       extConfig: 'extConfig',
+      groupCount: 'groupCount',
       instanceId: 'instanceId',
       instanceName: 'instanceName',
       instanceQuotas: 'instanceQuotas',
@@ -1427,12 +1399,12 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       regionId: 'regionId',
       releaseTime: 'releaseTime',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
       seriesCode: 'seriesCode',
       serviceCode: 'serviceCode',
       startTime: 'startTime',
       status: 'status',
       subSeriesCode: 'subSeriesCode',
+      topicCount: 'topicCount',
       updateTime: 'updateTime',
       userId: 'userId',
     };
@@ -1446,6 +1418,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       createTime: 'string',
       expireTime: 'string',
       extConfig: GetInstanceResponseBodyDataExtConfig,
+      groupCount: 'number',
       instanceId: 'string',
       instanceName: 'string',
       instanceQuotas: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataInstanceQuotas },
@@ -1454,12 +1427,12 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       regionId: 'string',
       releaseTime: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
       seriesCode: 'string',
       serviceCode: 'string',
       startTime: 'string',
       status: 'string',
       subSeriesCode: 'string',
+      topicCount: 'number',
       updateTime: 'string',
       userId: 'string',
     };
@@ -1476,7 +1449,6 @@ export class GetTopicResponseBodyData extends $tea.Model {
   messageType?: string;
   regionId?: string;
   remark?: string;
-  resourceGroupId?: string;
   status?: string;
   topicName?: string;
   updateTime?: string;
@@ -1487,7 +1459,6 @@ export class GetTopicResponseBodyData extends $tea.Model {
       messageType: 'messageType',
       regionId: 'regionId',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
       status: 'status',
       topicName: 'topicName',
       updateTime: 'updateTime',
@@ -1501,7 +1472,6 @@ export class GetTopicResponseBodyData extends $tea.Model {
       messageType: 'string',
       regionId: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
       status: 'string',
       topicName: 'string',
       updateTime: 'string',
@@ -1519,7 +1489,6 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
   instanceId?: string;
   regionId?: string;
   remark?: string;
-  resourceGroupId?: string;
   status?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -1529,7 +1498,6 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
       instanceId: 'instanceId',
       regionId: 'regionId',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
       status: 'status',
       updateTime: 'updateTime',
     };
@@ -1542,7 +1510,6 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
       status: 'string',
       updateTime: 'string',
     };
@@ -1592,7 +1559,6 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
   regionId?: string;
   releaseTime?: string;
   remark?: string;
-  resourceGroupId?: string;
   seriesCode?: string;
   serviceCode?: string;
   startTime?: string;
@@ -1613,7 +1579,6 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
       regionId: 'regionId',
       releaseTime: 'releaseTime',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
       seriesCode: 'seriesCode',
       serviceCode: 'serviceCode',
       startTime: 'startTime',
@@ -1637,7 +1602,6 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
       regionId: 'string',
       releaseTime: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
       seriesCode: 'string',
       serviceCode: 'string',
       startTime: 'string',
@@ -1688,7 +1652,6 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
   messageType?: string;
   regionId?: string;
   remark?: string;
-  resourceGroupId?: string;
   status?: string;
   topicName?: string;
   updateTime?: string;
@@ -1699,7 +1662,6 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
       messageType: 'messageType',
       regionId: 'regionId',
       remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
       status: 'status',
       topicName: 'topicName',
       updateTime: 'updateTime',
@@ -1713,7 +1675,6 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
       messageType: 'string',
       regionId: 'string',
       remark: 'string',
-      resourceGroupId: 'string',
       status: 'string',
       topicName: 'string',
       updateTime: 'string',
@@ -1872,8 +1833,6 @@ export default class Client extends OpenApi {
 
   async createConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    consumerGroupId = OpenApiUtil.getEncodeParam(consumerGroupId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.consumeRetryPolicy))) {
       body["consumeRetryPolicy"] = request.consumeRetryPolicy;
@@ -1887,10 +1846,6 @@ export default class Client extends OpenApi {
       body["remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      body["resourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1899,7 +1854,7 @@ export default class Client extends OpenApi {
       action: "CreateConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/consumerGroups/${consumerGroupId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -1917,8 +1872,6 @@ export default class Client extends OpenApi {
 
   async createTopicWithOptions(instanceId: string, topicName: string, request: CreateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    topicName = OpenApiUtil.getEncodeParam(topicName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.messageType)) {
       body["messageType"] = request.messageType;
@@ -1926,10 +1879,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.remark)) {
       body["remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      body["resourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1940,7 +1889,7 @@ export default class Client extends OpenApi {
       action: "CreateTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/topics/${topicName}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -1957,8 +1906,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    consumerGroupId = OpenApiUtil.getEncodeParam(consumerGroupId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1966,7 +1913,7 @@ export default class Client extends OpenApi {
       action: "DeleteConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/consumerGroups/${consumerGroupId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -1983,7 +1930,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1991,7 +1937,7 @@ export default class Client extends OpenApi {
       action: "DeleteInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -2008,8 +1954,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    topicName = OpenApiUtil.getEncodeParam(topicName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -2017,7 +1961,7 @@ export default class Client extends OpenApi {
       action: "DeleteTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/topics/${topicName}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -2034,8 +1978,6 @@ export default class Client extends OpenApi {
   }
 
   async getConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerGroupResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    consumerGroupId = OpenApiUtil.getEncodeParam(consumerGroupId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -2043,7 +1985,7 @@ export default class Client extends OpenApi {
       action: "GetConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/consumerGroups/${consumerGroupId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -2060,7 +2002,6 @@ export default class Client extends OpenApi {
   }
 
   async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -2068,7 +2009,7 @@ export default class Client extends OpenApi {
       action: "GetInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -2085,8 +2026,6 @@ export default class Client extends OpenApi {
   }
 
   async getTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    topicName = OpenApiUtil.getEncodeParam(topicName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -2094,7 +2033,7 @@ export default class Client extends OpenApi {
       action: "GetTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/topics/${topicName}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -2112,7 +2051,6 @@ export default class Client extends OpenApi {
 
   async listConsumerGroupsWithOptions(instanceId: string, request: ListConsumerGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupsResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.filter)) {
       query["filter"] = request.filter;
@@ -2126,10 +2064,6 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["resourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2138,7 +2072,7 @@ export default class Client extends OpenApi {
       action: "ListConsumerGroups",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/consumerGroups`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -2169,10 +2103,6 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["resourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2199,7 +2129,6 @@ export default class Client extends OpenApi {
 
   async listTopicsWithOptions(instanceId: string, request: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.filter)) {
       query["filter"] = request.filter;
@@ -2213,10 +2142,6 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["resourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2225,7 +2150,7 @@ export default class Client extends OpenApi {
       action: "ListTopics",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/topics`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -2243,8 +2168,6 @@ export default class Client extends OpenApi {
 
   async updateConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    consumerGroupId = OpenApiUtil.getEncodeParam(consumerGroupId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.consumeRetryPolicy))) {
       body["consumeRetryPolicy"] = request.consumeRetryPolicy;
@@ -2258,10 +2181,6 @@ export default class Client extends OpenApi {
       body["remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      body["resourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2270,7 +2189,7 @@ export default class Client extends OpenApi {
       action: "UpdateConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/consumerGroups/${consumerGroupId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
@@ -2288,7 +2207,6 @@ export default class Client extends OpenApi {
 
   async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.extConfig))) {
       body["extConfig"] = request.extConfig;
@@ -2306,10 +2224,6 @@ export default class Client extends OpenApi {
       body["remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      body["resourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2318,7 +2232,7 @@ export default class Client extends OpenApi {
       action: "UpdateInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
@@ -2336,15 +2250,9 @@ export default class Client extends OpenApi {
 
   async updateTopicWithOptions(instanceId: string, topicName: string, request: UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTopicResponse> {
     Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    topicName = OpenApiUtil.getEncodeParam(topicName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.remark)) {
       body["remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      body["resourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2355,7 +2263,7 @@ export default class Client extends OpenApi {
       action: "UpdateTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${instanceId}/topics/${topicName}`,
+      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
