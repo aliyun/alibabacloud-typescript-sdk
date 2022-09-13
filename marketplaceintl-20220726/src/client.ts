@@ -1504,7 +1504,7 @@ export class AddIntlImageProductVersionRequestImageConstraintBaseConfig extends 
 
 export class AddIntlImageProductVersionRequestImageConstraint extends $tea.Model {
   baseConfig?: AddIntlImageProductVersionRequestImageConstraintBaseConfig;
-  customizeFamilyConstraints?: { [key: string]: any };
+  customizeFamilyConstraints?: { [key: string]: string[] };
   supportMoreNetworkCards?: boolean;
   tcpPortRange?: string[];
   udpPortRange?: string[];
@@ -1521,7 +1521,7 @@ export class AddIntlImageProductVersionRequestImageConstraint extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       baseConfig: AddIntlImageProductVersionRequestImageConstraintBaseConfig,
-      customizeFamilyConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      customizeFamilyConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       supportMoreNetworkCards: 'boolean',
       tcpPortRange: { 'type': 'array', 'itemType': 'string' },
       udpPortRange: { 'type': 'array', 'itemType': 'string' },
@@ -1637,7 +1637,7 @@ export class CreateOrUpdateIntlImageRequestAccessInfoImageConstraintBaseConfig e
 
 export class CreateOrUpdateIntlImageRequestAccessInfoImageConstraint extends $tea.Model {
   baseConfig?: CreateOrUpdateIntlImageRequestAccessInfoImageConstraintBaseConfig;
-  customizeFamilyConstraints?: { [key: string]: any };
+  customizeFamilyConstraints?: { [key: string]: string[] };
   supportMoreNetworkCards?: boolean;
   tcpPortRange?: string[];
   udpPortRange?: string[];
@@ -1654,7 +1654,7 @@ export class CreateOrUpdateIntlImageRequestAccessInfoImageConstraint extends $te
   static types(): { [key: string]: any } {
     return {
       baseConfig: CreateOrUpdateIntlImageRequestAccessInfoImageConstraintBaseConfig,
-      customizeFamilyConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      customizeFamilyConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       supportMoreNetworkCards: 'boolean',
       tcpPortRange: { 'type': 'array', 'itemType': 'string' },
       udpPortRange: { 'type': 'array', 'itemType': 'string' },
