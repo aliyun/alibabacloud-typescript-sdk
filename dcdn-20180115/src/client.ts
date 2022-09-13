@@ -3347,78 +3347,6 @@ export class DescribeDcdnDdosServiceResponse extends $tea.Model {
   }
 }
 
-export class DescribeDcdnDdosSpecInfoRequest extends $tea.Model {
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDdosSpecInfoResponseBody extends $tea.Model {
-  edition?: string;
-  enable?: string;
-  requestId?: string;
-  specInfos?: DescribeDcdnDdosSpecInfoResponseBodySpecInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      edition: 'Edition',
-      enable: 'Enable',
-      requestId: 'RequestId',
-      specInfos: 'SpecInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      edition: 'string',
-      enable: 'string',
-      requestId: 'string',
-      specInfos: { 'type': 'array', 'itemType': DescribeDcdnDdosSpecInfoResponseBodySpecInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDdosSpecInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDcdnDdosSpecInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDcdnDdosSpecInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDcdnDeletedDomainsRequest extends $tea.Model {
   ownerId?: number;
   pageNumber?: number;
@@ -7994,20 +7922,17 @@ export class DescribeDcdnIpaUserDomainsResponse extends $tea.Model {
   }
 }
 
-export class DescribeDcdnL2VipsByDomainRequest extends $tea.Model {
+export class DescribeDcdnL2VipsRequest extends $tea.Model {
   domainName?: string;
-  ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      ownerId: 'OwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      ownerId: 'number',
     };
   }
 
@@ -8016,7 +7941,7 @@ export class DescribeDcdnL2VipsByDomainRequest extends $tea.Model {
   }
 }
 
-export class DescribeDcdnL2VipsByDomainResponseBody extends $tea.Model {
+export class DescribeDcdnL2VipsResponseBody extends $tea.Model {
   domainName?: string;
   requestId?: string;
   vips?: string[];
@@ -8041,10 +7966,10 @@ export class DescribeDcdnL2VipsByDomainResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeDcdnL2VipsByDomainResponse extends $tea.Model {
+export class DescribeDcdnL2VipsResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
-  body: DescribeDcdnL2VipsByDomainResponseBody;
+  body: DescribeDcdnL2VipsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8057,7 +7982,7 @@ export class DescribeDcdnL2VipsByDomainResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DescribeDcdnL2VipsByDomainResponseBody,
+      body: DescribeDcdnL2VipsResponseBody,
     };
   }
 
@@ -15434,53 +15359,6 @@ export class DescribeDcdnCertificateListResponseBodyCertificateListModel extends
   }
 }
 
-export class DescribeDcdnDdosSpecInfoResponseBodySpecInfosConfigs extends $tea.Model {
-  config?: string;
-  expr?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      expr: 'Expr',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      expr: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDdosSpecInfoResponseBodySpecInfos extends $tea.Model {
-  configs?: DescribeDcdnDdosSpecInfoResponseBodySpecInfosConfigs[];
-  rule?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      rule: 'Rule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: { 'type': 'array', 'itemType': DescribeDcdnDdosSpecInfoResponseBodySpecInfosConfigs },
-      rule: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDcdnDeletedDomainsResponseBodyDomainsPageData extends $tea.Model {
   domainName?: string;
   gmtModified?: string;
@@ -15969,7 +15847,6 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetailSources extends $te
 }
 
 export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model {
-  certName?: string;
   cname?: string;
   description?: string;
   domainName?: string;
@@ -15983,7 +15860,6 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
   sources?: DescribeDcdnDomainDetailResponseBodyDomainDetailSources;
   static names(): { [key: string]: string } {
     return {
-      certName: 'CertName',
       cname: 'Cname',
       description: 'Description',
       domainName: 'DomainName',
@@ -16000,7 +15876,6 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
-      certName: 'string',
       cname: 'string',
       description: 'string',
       domainName: 'string',
@@ -16152,7 +16027,7 @@ export class DescribeDcdnDomainHttpCodeDataResponseBodyDataPerInterval extends $
 export class DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataIntervalDataModule extends $tea.Model {
   timeStamp?: string;
   totalValue?: string;
-  value?: string;
+  value?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       timeStamp: 'TimeStamp',
@@ -16165,7 +16040,7 @@ export class DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterv
     return {
       timeStamp: 'string',
       totalValue: 'string',
-      value: 'string',
+      value: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -22451,35 +22326,6 @@ export default class Client extends OpenApi {
     return await this.describeDcdnDdosServiceWithOptions(request, runtime);
   }
 
-  async describeDcdnDdosSpecInfoWithOptions(request: DescribeDcdnDdosSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDdosSpecInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDcdnDdosSpecInfo",
-      version: "2018-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDcdnDdosSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDdosSpecInfoResponse({}));
-  }
-
-  async describeDcdnDdosSpecInfo(request: DescribeDcdnDdosSpecInfoRequest): Promise<DescribeDcdnDdosSpecInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDcdnDdosSpecInfoWithOptions(request, runtime);
-  }
-
   async describeDcdnDeletedDomainsWithOptions(request: DescribeDcdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeletedDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24789,22 +24635,18 @@ export default class Client extends OpenApi {
     return await this.describeDcdnIpaUserDomainsWithOptions(request, runtime);
   }
 
-  async describeDcdnL2VipsByDomainWithOptions(request: DescribeDcdnL2VipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnL2VipsByDomainResponse> {
+  async describeDcdnL2VipsWithOptions(request: DescribeDcdnL2VipsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnL2VipsResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DescribeDcdnL2VipsByDomain",
+      action: "DescribeDcdnL2Vips",
       version: "2018-01-15",
       protocol: "HTTPS",
       pathname: "/",
@@ -24814,12 +24656,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDcdnL2VipsByDomainResponse>(await this.callApi(params, req, runtime), new DescribeDcdnL2VipsByDomainResponse({}));
+    return $tea.cast<DescribeDcdnL2VipsResponse>(await this.callApi(params, req, runtime), new DescribeDcdnL2VipsResponse({}));
   }
 
-  async describeDcdnL2VipsByDomain(request: DescribeDcdnL2VipsByDomainRequest): Promise<DescribeDcdnL2VipsByDomainResponse> {
+  async describeDcdnL2Vips(request: DescribeDcdnL2VipsRequest): Promise<DescribeDcdnL2VipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDcdnL2VipsByDomainWithOptions(request, runtime);
+    return await this.describeDcdnL2VipsWithOptions(request, runtime);
   }
 
   async describeDcdnRealTimeDeliveryFieldWithOptions(request: DescribeDcdnRealTimeDeliveryFieldRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRealTimeDeliveryFieldResponse> {
