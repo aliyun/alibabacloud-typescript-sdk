@@ -54,6 +54,46 @@ export class AddIntlImageProductVersionRequest extends $tea.Model {
   }
 }
 
+export class AddIntlImageProductVersionShrinkRequest extends $tea.Model {
+  accessDetail?: AddIntlImageProductVersionShrinkRequestAccessDetail;
+  ak?: string;
+  commodityCode?: string;
+  imageConstraintShrink?: string;
+  releaseRegion?: string;
+  requestId?: string;
+  secret?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDetail: 'AccessDetail',
+      ak: 'Ak',
+      commodityCode: 'CommodityCode',
+      imageConstraintShrink: 'ImageConstraint',
+      releaseRegion: 'ReleaseRegion',
+      requestId: 'RequestId',
+      secret: 'Secret',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDetail: AddIntlImageProductVersionShrinkRequestAccessDetail,
+      ak: 'string',
+      commodityCode: 'string',
+      imageConstraintShrink: 'string',
+      releaseRegion: 'string',
+      requestId: 'string',
+      secret: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddIntlImageProductVersionResponseBody extends $tea.Model {
   code?: number;
   data?: AddIntlImageProductVersionResponseBodyData;
@@ -152,6 +192,55 @@ export class CreateOrUpdateIntlImageRequest extends $tea.Model {
       protocolInfo: CreateOrUpdateIntlImageRequestProtocolInfo,
       requestId: 'string',
       saleInfo: CreateOrUpdateIntlImageRequestSaleInfo,
+      secret: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequest extends $tea.Model {
+  accessInfoShrink?: string;
+  ak?: string;
+  basicInfo?: CreateOrUpdateIntlImageShrinkRequestBasicInfo;
+  bussinessInfo?: CreateOrUpdateIntlImageShrinkRequestBussinessInfo;
+  callBackUrl?: string;
+  commodityCode?: string;
+  protocolInfo?: CreateOrUpdateIntlImageShrinkRequestProtocolInfo;
+  requestId?: string;
+  saleInfo?: CreateOrUpdateIntlImageShrinkRequestSaleInfo;
+  secret?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessInfoShrink: 'AccessInfo',
+      ak: 'Ak',
+      basicInfo: 'BasicInfo',
+      bussinessInfo: 'BussinessInfo',
+      callBackUrl: 'CallBackUrl',
+      commodityCode: 'CommodityCode',
+      protocolInfo: 'ProtocolInfo',
+      requestId: 'RequestId',
+      saleInfo: 'SaleInfo',
+      secret: 'Secret',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessInfoShrink: 'string',
+      ak: 'string',
+      basicInfo: CreateOrUpdateIntlImageShrinkRequestBasicInfo,
+      bussinessInfo: CreateOrUpdateIntlImageShrinkRequestBussinessInfo,
+      callBackUrl: 'string',
+      commodityCode: 'string',
+      protocolInfo: CreateOrUpdateIntlImageShrinkRequestProtocolInfo,
+      requestId: 'string',
+      saleInfo: CreateOrUpdateIntlImageShrinkRequestSaleInfo,
       secret: 'string',
       uid: 'string',
     };
@@ -1533,6 +1622,49 @@ export class AddIntlImageProductVersionRequestImageConstraint extends $tea.Model
   }
 }
 
+export class AddIntlImageProductVersionShrinkRequestAccessDetail extends $tea.Model {
+  ak?: string;
+  autoPublish?: boolean;
+  imageId?: string;
+  imageName?: string;
+  imageVersion?: string;
+  region?: string;
+  releaseNote?: string;
+  releaseRegionOption?: string;
+  secret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ak: 'Ak',
+      autoPublish: 'AutoPublish',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageVersion: 'ImageVersion',
+      region: 'Region',
+      releaseNote: 'ReleaseNote',
+      releaseRegionOption: 'ReleaseRegionOption',
+      secret: 'Secret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ak: 'string',
+      autoPublish: 'boolean',
+      imageId: 'string',
+      imageName: 'string',
+      imageVersion: 'string',
+      region: 'string',
+      releaseNote: 'string',
+      releaseRegionOption: 'string',
+      secret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddIntlImageProductVersionResponseBodyData extends $tea.Model {
   commodityCode?: string;
   trackId?: string;
@@ -1987,6 +2119,299 @@ export class CreateOrUpdateIntlImageRequestSaleInfo extends $tea.Model {
       commodityFrontShow: 'string',
       postpaidPrice: CreateOrUpdateIntlImageRequestSaleInfoPostpaidPrice,
       prepaymentPrice: CreateOrUpdateIntlImageRequestSaleInfoPrepaymentPrice,
+      pricingPlan: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestBasicInfo extends $tea.Model {
+  commodityAfterSale?: string;
+  commodityDetail?: string;
+  commodityFeature?: string;
+  commodityIntroduction?: string;
+  commodityPicture?: string;
+  commodityPictureName?: string;
+  commodityPictureStream?: string;
+  commodityQualification?: string[];
+  commodityRefundPolicy?: string;
+  commodityUserGuide?: string;
+  commodityVideoName?: string;
+  commodityVideoStream?: string;
+  commodityVideoUrl?: string;
+  videoSelect?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityAfterSale: 'CommodityAfterSale',
+      commodityDetail: 'CommodityDetail',
+      commodityFeature: 'CommodityFeature',
+      commodityIntroduction: 'CommodityIntroduction',
+      commodityPicture: 'CommodityPicture',
+      commodityPictureName: 'CommodityPictureName',
+      commodityPictureStream: 'CommodityPictureStream',
+      commodityQualification: 'CommodityQualification',
+      commodityRefundPolicy: 'CommodityRefundPolicy',
+      commodityUserGuide: 'CommodityUserGuide',
+      commodityVideoName: 'CommodityVideoName',
+      commodityVideoStream: 'CommodityVideoStream',
+      commodityVideoUrl: 'CommodityVideoUrl',
+      videoSelect: 'VideoSelect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityAfterSale: 'string',
+      commodityDetail: 'string',
+      commodityFeature: 'string',
+      commodityIntroduction: 'string',
+      commodityPicture: 'string',
+      commodityPictureName: 'string',
+      commodityPictureStream: 'string',
+      commodityQualification: { 'type': 'array', 'itemType': 'string' },
+      commodityRefundPolicy: 'string',
+      commodityUserGuide: 'string',
+      commodityVideoName: 'string',
+      commodityVideoStream: 'string',
+      commodityVideoUrl: 'string',
+      videoSelect: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestBussinessInfo extends $tea.Model {
+  categoryId?: string;
+  pipCode?: string;
+  seoDescription?: string;
+  seoKeywords?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      pipCode: 'PipCode',
+      seoDescription: 'SeoDescription',
+      seoKeywords: 'SeoKeywords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      pipCode: 'string',
+      seoDescription: 'string',
+      seoKeywords: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestProtocolInfo extends $tea.Model {
+  agentName?: string;
+  customsTarifNumber?: string;
+  earControlled?: string;
+  eccnCode?: string;
+  finalUserProtocol?: string;
+  identificationMethod?: string;
+  license?: string;
+  licenseException?: string;
+  localExportControlClassificationNumber?: string;
+  officialIdentificationNumber?: string;
+  productCryType?: string;
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentName: 'AgentName',
+      customsTarifNumber: 'CustomsTarifNumber',
+      earControlled: 'EarControlled',
+      eccnCode: 'EccnCode',
+      finalUserProtocol: 'FinalUserProtocol',
+      identificationMethod: 'IdentificationMethod',
+      license: 'License',
+      licenseException: 'LicenseException',
+      localExportControlClassificationNumber: 'LocalExportControlClassificationNumber',
+      officialIdentificationNumber: 'OfficialIdentificationNumber',
+      productCryType: 'ProductCryType',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentName: 'string',
+      customsTarifNumber: 'string',
+      earControlled: 'string',
+      eccnCode: 'string',
+      finalUserProtocol: 'string',
+      identificationMethod: 'string',
+      license: 'string',
+      licenseException: 'string',
+      localExportControlClassificationNumber: 'string',
+      officialIdentificationNumber: 'string',
+      productCryType: 'string',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestSaleInfoPostpaidPricePostpaidPriceList extends $tea.Model {
+  basePrice?: string;
+  currency?: string;
+  excelUrl?: string;
+  instanceType?: string;
+  priceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basePrice: 'BasePrice',
+      currency: 'Currency',
+      excelUrl: 'ExcelUrl',
+      instanceType: 'InstanceType',
+      priceType: 'PriceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basePrice: 'string',
+      currency: 'string',
+      excelUrl: 'string',
+      instanceType: 'string',
+      priceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestSaleInfoPostpaidPrice extends $tea.Model {
+  hourPrice?: string;
+  postpaidPriceList?: CreateOrUpdateIntlImageShrinkRequestSaleInfoPostpaidPricePostpaidPriceList[];
+  unifiedPrice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      hourPrice: 'HourPrice',
+      postpaidPriceList: 'PostpaidPriceList',
+      unifiedPrice: 'UnifiedPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hourPrice: 'string',
+      postpaidPriceList: { 'type': 'array', 'itemType': CreateOrUpdateIntlImageShrinkRequestSaleInfoPostpaidPricePostpaidPriceList },
+      unifiedPrice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestSaleInfoPrepaymentPricePrepaymentPriceList extends $tea.Model {
+  basePrice?: string;
+  currency?: string;
+  excelUrl?: string;
+  instanceType?: string;
+  priceType?: string;
+  tradeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basePrice: 'BasePrice',
+      currency: 'Currency',
+      excelUrl: 'ExcelUrl',
+      instanceType: 'InstanceType',
+      priceType: 'PriceType',
+      tradeType: 'TradeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basePrice: 'string',
+      currency: 'string',
+      excelUrl: 'string',
+      instanceType: 'string',
+      priceType: 'string',
+      tradeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestSaleInfoPrepaymentPrice extends $tea.Model {
+  monthPrice?: string;
+  monthRenewPrice?: string;
+  prepaymentPriceList?: CreateOrUpdateIntlImageShrinkRequestSaleInfoPrepaymentPricePrepaymentPriceList[];
+  unifiedPrice?: boolean;
+  yearPrice?: string;
+  yearRenewPrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      monthPrice: 'MonthPrice',
+      monthRenewPrice: 'MonthRenewPrice',
+      prepaymentPriceList: 'PrepaymentPriceList',
+      unifiedPrice: 'UnifiedPrice',
+      yearPrice: 'YearPrice',
+      yearRenewPrice: 'YearRenewPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monthPrice: 'string',
+      monthRenewPrice: 'string',
+      prepaymentPriceList: { 'type': 'array', 'itemType': CreateOrUpdateIntlImageShrinkRequestSaleInfoPrepaymentPricePrepaymentPriceList },
+      unifiedPrice: 'boolean',
+      yearPrice: 'string',
+      yearRenewPrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateIntlImageShrinkRequestSaleInfo extends $tea.Model {
+  billingMethods?: number;
+  commodityFrontShow?: string;
+  postpaidPrice?: CreateOrUpdateIntlImageShrinkRequestSaleInfoPostpaidPrice;
+  prepaymentPrice?: CreateOrUpdateIntlImageShrinkRequestSaleInfoPrepaymentPrice;
+  pricingPlan?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingMethods: 'BillingMethods',
+      commodityFrontShow: 'CommodityFrontShow',
+      postpaidPrice: 'PostpaidPrice',
+      prepaymentPrice: 'PrepaymentPrice',
+      pricingPlan: 'PricingPlan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingMethods: 'number',
+      commodityFrontShow: 'string',
+      postpaidPrice: CreateOrUpdateIntlImageShrinkRequestSaleInfoPostpaidPrice,
+      prepaymentPrice: CreateOrUpdateIntlImageShrinkRequestSaleInfoPrepaymentPrice,
       pricingPlan: 'string',
     };
   }
@@ -3018,8 +3443,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addIntlImageProductVersionWithOptions(request: AddIntlImageProductVersionRequest, runtime: $Util.RuntimeOptions): Promise<AddIntlImageProductVersionResponse> {
-    Util.validateModel(request);
+  async addIntlImageProductVersionWithOptions(tmpReq: AddIntlImageProductVersionRequest, runtime: $Util.RuntimeOptions): Promise<AddIntlImageProductVersionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddIntlImageProductVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.imageConstraint))) {
+      request.imageConstraintShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.imageConstraint), "ImageConstraint", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.accessDetail))) {
@@ -3034,8 +3465,8 @@ export default class Client extends OpenApi {
       body["CommodityCode"] = request.commodityCode;
     }
 
-    if (!Util.isUnset($tea.toMap(request.imageConstraint))) {
-      bodyFlat["ImageConstraint"] = request.imageConstraint;
+    if (!Util.isUnset(request.imageConstraintShrink)) {
+      body["ImageConstraint"] = request.imageConstraintShrink;
     }
 
     if (!Util.isUnset(request.releaseRegion)) {
@@ -3080,18 +3511,24 @@ export default class Client extends OpenApi {
     return await this.addIntlImageProductVersionWithOptions(request, runtime);
   }
 
-  async createOrUpdateIntlImageWithOptions(request: CreateOrUpdateIntlImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateIntlImageResponse> {
-    Util.validateModel(request);
+  async createOrUpdateIntlImageWithOptions(tmpReq: CreateOrUpdateIntlImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateIntlImageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateOrUpdateIntlImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.accessInfo))) {
+      request.accessInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.accessInfo), "AccessInfo", "json");
+    }
+
     let body : {[key: string ]: any} = { };
-    let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset($tea.toMap(request.accessInfo))) {
-      bodyFlat["AccessInfo"] = request.accessInfo;
+    if (!Util.isUnset(request.accessInfoShrink)) {
+      body["AccessInfo"] = request.accessInfoShrink;
     }
 
     if (!Util.isUnset(request.ak)) {
       body["Ak"] = request.ak;
     }
 
+    let bodyFlat : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.basicInfo))) {
       bodyFlat["BasicInfo"] = request.basicInfo;
     }
