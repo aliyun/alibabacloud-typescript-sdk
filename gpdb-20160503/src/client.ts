@@ -316,6 +316,7 @@ export class CreateAccountResponse extends $tea.Model {
 
 export class CreateDBInstanceRequest extends $tea.Model {
   clientToken?: string;
+  createSampleData?: boolean;
   DBInstanceCategory?: string;
   DBInstanceClass?: string;
   DBInstanceDescription?: string;
@@ -344,6 +345,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      createSampleData: 'CreateSampleData',
       DBInstanceCategory: 'DBInstanceCategory',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
@@ -375,6 +377,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      createSampleData: 'boolean',
       DBInstanceCategory: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
@@ -708,6 +711,81 @@ export class CreateECSDBInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateECSDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSampleDataRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSampleDataResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  errorMessage?: string;
+  requestId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSampleDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateSampleDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSampleDataResponseBody,
     };
   }
 
@@ -4575,6 +4653,81 @@ export class DescribeSQLLogsOnSliceResponse extends $tea.Model {
   }
 }
 
+export class DescribeSampleDataRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSampleDataResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  errorMessage?: string;
+  hasSampleData?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      errorMessage: 'ErrorMessage',
+      hasSampleData: 'HasSampleData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      errorMessage: 'string',
+      hasSampleData: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSampleDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSampleDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSampleDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSlowLogRecordsRequest extends $tea.Model {
   DBInstanceId?: string;
   DBName?: string;
@@ -6815,6 +6968,81 @@ export class TagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadSampleDataRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadSampleDataResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  errorMessage?: string;
+  requestId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnloadSampleDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnloadSampleDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnloadSampleDataResponseBody,
     };
   }
 
@@ -10406,6 +10634,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.createSampleData)) {
+      query["CreateSampleData"] = request.createSampleData;
+    }
+
     if (!Util.isUnset(request.DBInstanceCategory)) {
       query["DBInstanceCategory"] = request.DBInstanceCategory;
     }
@@ -10720,6 +10952,39 @@ export default class Client extends OpenApi {
   async createECSDBInstance(request: CreateECSDBInstanceRequest): Promise<CreateECSDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createECSDBInstanceWithOptions(request, runtime);
+  }
+
+  async createSampleDataWithOptions(request: CreateSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateSampleDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSampleData",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSampleDataResponse>(await this.callApi(params, req, runtime), new CreateSampleDataResponse({}));
+  }
+
+  async createSampleData(request: CreateSampleDataRequest): Promise<CreateSampleDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSampleDataWithOptions(request, runtime);
   }
 
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
@@ -12742,6 +13007,39 @@ export default class Client extends OpenApi {
     return await this.describeSQLLogsOnSliceWithOptions(request, runtime);
   }
 
+  async describeSampleDataWithOptions(request: DescribeSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSampleDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSampleData",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSampleDataResponse>(await this.callApi(params, req, runtime), new DescribeSampleDataResponse({}));
+  }
+
+  async describeSampleData(request: DescribeSampleDataRequest): Promise<DescribeSampleDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSampleDataWithOptions(request, runtime);
+  }
+
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13999,6 +14297,39 @@ export default class Client extends OpenApi {
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async unloadSampleDataWithOptions(request: UnloadSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<UnloadSampleDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnloadSampleData",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnloadSampleDataResponse>(await this.callApi(params, req, runtime), new UnloadSampleDataResponse({}));
+  }
+
+  async unloadSampleData(request: UnloadSampleDataRequest): Promise<UnloadSampleDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unloadSampleDataWithOptions(request, runtime);
   }
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
