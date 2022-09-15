@@ -84,6 +84,34 @@ export class EncryptUserCmkConf extends $tea.Model {
   }
 }
 
+export class Histogram extends $tea.Model {
+  count?: number;
+  from?: number;
+  progress?: string;
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      from: 'from',
+      progress: 'progress',
+      to: 'to',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      from: 'number',
+      progress: 'string',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LogtailConfig extends $tea.Model {
   configName?: string;
   createTime?: number;
@@ -310,6 +338,46 @@ export class ExternalStore extends $tea.Model {
   }
 }
 
+export class Index extends $tea.Model {
+  keys?: { [key: string]: IndexKeysValue };
+  lastModifyTime?: number;
+  line?: IndexLine;
+  logReduce?: boolean;
+  logReduceBlackList?: string[];
+  logReduceWhiteList?: string[];
+  maxTextLen?: number;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'keys',
+      lastModifyTime: 'lastModifyTime',
+      line: 'line',
+      logReduce: 'log_reduce',
+      logReduceBlackList: 'log_reduce_black_list',
+      logReduceWhiteList: 'log_reduce_white_list',
+      maxTextLen: 'max_text_len',
+      ttl: 'ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKeysValue },
+      lastModifyTime: 'number',
+      line: IndexLine,
+      logReduce: 'boolean',
+      logReduceBlackList: { 'type': 'array', 'itemType': 'string' },
+      logReduceWhiteList: { 'type': 'array', 'itemType': 'string' },
+      maxTextLen: 'number',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Logging extends $tea.Model {
   loggingDetails?: LoggingLoggingDetails[];
   loggingProject?: string;
@@ -342,6 +410,7 @@ export class Logstore extends $tea.Model {
   lastModifyTime?: number;
   logstoreName?: string;
   maxSplitShard?: number;
+  mode?: string;
   shardCount?: number;
   telemetryType?: string;
   ttl?: number;
@@ -356,6 +425,7 @@ export class Logstore extends $tea.Model {
       lastModifyTime: 'lastModifyTime',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
+      mode: 'mode',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
@@ -373,6 +443,7 @@ export class Logstore extends $tea.Model {
       lastModifyTime: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
+      mode: 'string',
       shardCount: 'number',
       telemetryType: 'string',
       ttl: 'number',
@@ -503,6 +574,74 @@ export class Shard extends $tea.Model {
       inclusiveBeginKey: 'string',
       shardID: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IndexKeysValue extends $tea.Model {
+  chn?: boolean;
+  caseSensitive?: boolean;
+  token?: string[];
+  alias?: string;
+  type?: string;
+  docValue?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      chn: 'chn',
+      caseSensitive: 'caseSensitive',
+      token: 'token',
+      alias: 'alias',
+      type: 'type',
+      docValue: 'doc_value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chn: 'boolean',
+      caseSensitive: 'boolean',
+      token: { 'type': 'array', 'itemType': 'string' },
+      alias: 'string',
+      type: 'string',
+      docValue: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KeysValue extends $tea.Model {
+  caseSensitive?: boolean;
+  chn?: boolean;
+  type?: string;
+  alias?: string;
+  token?: string[];
+  docValue?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      caseSensitive: 'caseSensitive',
+      chn: 'chn',
+      type: 'type',
+      alias: 'alias',
+      token: 'token',
+      docValue: 'doc_value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseSensitive: 'boolean',
+      chn: 'boolean',
+      type: 'string',
+      alias: 'string',
+      token: { 'type': 'array', 'itemType': 'string' },
+      docValue: 'boolean',
     };
   }
 
@@ -756,6 +895,65 @@ export class CreateDomainResponse extends $tea.Model {
   }
 }
 
+export class CreateEtlJobRequest extends $tea.Model {
+  enable?: boolean;
+  etlJobName?: string;
+  functionConfig?: CreateEtlJobRequestFunctionConfig;
+  functionParameter?: { [key: string]: any };
+  logConfig?: CreateEtlJobRequestLogConfig;
+  sourceConfig?: CreateEtlJobRequestSourceConfig;
+  triggerConfig?: CreateEtlJobRequestTriggerConfig;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      etlJobName: 'etlJobName',
+      functionConfig: 'functionConfig',
+      functionParameter: 'functionParameter',
+      logConfig: 'logConfig',
+      sourceConfig: 'sourceConfig',
+      triggerConfig: 'triggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      etlJobName: 'string',
+      functionConfig: CreateEtlJobRequestFunctionConfig,
+      functionParameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      logConfig: CreateEtlJobRequestLogConfig,
+      sourceConfig: CreateEtlJobRequestSourceConfig,
+      triggerConfig: CreateEtlJobRequestTriggerConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEtlMetaRequest extends $tea.Model {
   enable?: boolean;
   etlMetaKey?: string;
@@ -876,6 +1074,7 @@ export class CreateLogStoreRequest extends $tea.Model {
   hotTtl?: number;
   logstoreName?: string;
   maxSplitShard?: number;
+  mode?: string;
   shardCount?: number;
   telemetryType?: string;
   ttl?: number;
@@ -888,6 +1087,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       hotTtl: 'hot_ttl',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
+      mode: 'mode',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
@@ -903,6 +1103,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       hotTtl: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
+      mode: 'string',
       shardCount: 'number',
       telemetryType: 'string',
       ttl: 'number',
@@ -1341,6 +1542,28 @@ export class DeleteConsumerGroupResponse extends $tea.Model {
 }
 
 export class DeleteDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEtlJobResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
   static names(): { [key: string]: string } {
@@ -1942,22 +2165,47 @@ export class GetCursorTimeResponse extends $tea.Model {
   }
 }
 
+export class GetEtlJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: EtlJob;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EtlJob,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEtlMetaRequest extends $tea.Model {
-  elMetaName?: string;
   etlMetaKey?: string;
+  etlMetaName?: string;
   etlMetaTag?: string;
   static names(): { [key: string]: string } {
     return {
-      elMetaName: 'elMetaName',
       etlMetaKey: 'etlMetaKey',
+      etlMetaName: 'etlMetaName',
       etlMetaTag: 'etlMetaTag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      elMetaName: 'string',
       etlMetaKey: 'string',
+      etlMetaName: 'string',
       etlMetaTag: 'string',
     };
   }
@@ -2044,14 +2292,12 @@ export class GetHistogramsRequest extends $tea.Model {
   query?: string;
   to?: number;
   topic?: string;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
       from: 'from',
       query: 'query',
       to: 'to',
       topic: 'topic',
-      type: 'type',
     };
   }
 
@@ -2061,7 +2307,6 @@ export class GetHistogramsRequest extends $tea.Model {
       query: 'string',
       to: 'number',
       topic: 'string',
-      type: 'string',
     };
   }
 
@@ -2225,7 +2470,6 @@ export class GetLogsRequest extends $tea.Model {
   reverse?: boolean;
   to?: number;
   topic?: string;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
       from: 'from',
@@ -2236,7 +2480,6 @@ export class GetLogsRequest extends $tea.Model {
       reverse: 'reverse',
       to: 'to',
       topic: 'topic',
-      type: 'type',
     };
   }
 
@@ -2250,7 +2493,6 @@ export class GetLogsRequest extends $tea.Model {
       reverse: 'boolean',
       to: 'number',
       topic: 'string',
-      type: 'string',
     };
   }
 
@@ -2646,6 +2888,78 @@ export class ListDomainsResponse extends $tea.Model {
   }
 }
 
+export class ListEtlJobRequest extends $tea.Model {
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlJobResponseBody extends $tea.Model {
+  count?: number;
+  etlJobNameList?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      etlJobNameList: 'etlJobNameList',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      etlJobNameList: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEtlJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListEtlJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEtlJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEtlMetaRequest extends $tea.Model {
   etlMetaKey?: string;
   etlMetaName?: string;
@@ -2873,12 +3187,14 @@ export class ListExternalStoreResponse extends $tea.Model {
 
 export class ListLogStoresRequest extends $tea.Model {
   logstoreName?: string;
+  mode?: string;
   offset?: number;
   size?: number;
   telemetryType?: string;
   static names(): { [key: string]: string } {
     return {
       logstoreName: 'logstoreName',
+      mode: 'mode',
       offset: 'offset',
       size: 'size',
       telemetryType: 'telemetryType',
@@ -2888,6 +3204,7 @@ export class ListLogStoresRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       logstoreName: 'string',
+      mode: 'string',
       offset: 'number',
       size: 'number',
       telemetryType: 'string',
@@ -3722,6 +4039,65 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class UpdateEtlJobRequest extends $tea.Model {
+  enable?: boolean;
+  etlJobName?: string;
+  functionConfig?: UpdateEtlJobRequestFunctionConfig;
+  functionParameter?: { [key: string]: any };
+  logConfig?: UpdateEtlJobRequestLogConfig;
+  sourceConfig?: UpdateEtlJobRequestSourceConfig;
+  triggerConfig?: UpdateEtlJobRequestTriggerConfig;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      etlJobName: 'etlJobName',
+      functionConfig: 'functionConfig',
+      functionParameter: 'functionParameter',
+      logConfig: 'logConfig',
+      sourceConfig: 'sourceConfig',
+      triggerConfig: 'triggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      etlJobName: 'string',
+      functionConfig: UpdateEtlJobRequestFunctionConfig,
+      functionParameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      logConfig: UpdateEtlJobRequestLogConfig,
+      sourceConfig: UpdateEtlJobRequestSourceConfig,
+      triggerConfig: UpdateEtlJobRequestTriggerConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEtlJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEtlMetaRequest extends $tea.Model {
   enable?: boolean;
   etlMetaKey?: string;
@@ -3842,6 +4218,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
   hotTtl?: number;
   logstoreName?: string;
   maxSplitShard?: number;
+  mode?: string;
   shardCount?: number;
   telemetryType?: string;
   ttl?: number;
@@ -3854,6 +4231,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       hotTtl: 'hot_ttl',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
+      mode: 'mode',
       shardCount: 'shardCount',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
@@ -3869,6 +4247,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       hotTtl: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
+      mode: 'string',
       shardCount: 'number',
       telemetryType: 'string',
       ttl: 'number',
@@ -4281,40 +4660,6 @@ export class UpdateSavedSearchResponse extends $tea.Model {
   }
 }
 
-export class KeysValue extends $tea.Model {
-  caseSensitive?: boolean;
-  chn?: boolean;
-  type?: string;
-  alias?: string;
-  token?: string[];
-  docValue?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      caseSensitive: 'caseSensitive',
-      chn: 'chn',
-      type: 'type',
-      alias: 'alias',
-      token: 'token',
-      docValue: 'doc_value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseSensitive: 'boolean',
-      chn: 'boolean',
-      type: 'string',
-      alias: 'string',
-      token: { 'type': 'array', 'itemType': 'string' },
-      docValue: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class LogtailConfigOutputDetail extends $tea.Model {
   endpoint?: string;
   logstoreName?: string;
@@ -4452,6 +4797,37 @@ export class EtlJobTriggerConfig extends $tea.Model {
   }
 }
 
+export class IndexLine extends $tea.Model {
+  caseSensitive?: boolean;
+  chn?: boolean;
+  excludeKeys?: string[];
+  includeKeys?: string[];
+  token?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      caseSensitive: 'caseSensitive',
+      chn: 'chn',
+      excludeKeys: 'exclude_keys',
+      includeKeys: 'include_keys',
+      token: 'token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseSensitive: 'boolean',
+      chn: 'boolean',
+      excludeKeys: { 'type': 'array', 'itemType': 'string' },
+      includeKeys: { 'type': 'array', 'itemType': 'string' },
+      token: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LoggingLoggingDetails extends $tea.Model {
   logstore?: string;
   type?: string;
@@ -4550,6 +4926,118 @@ export class BatchUpdateEtlMetaRequestEtlMetaList extends $tea.Model {
       etlMetaName: 'string',
       etlMetaTag: 'string',
       etlMetaValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlJobRequestFunctionConfig extends $tea.Model {
+  accountId?: string;
+  endpoint?: string;
+  functionName?: string;
+  functionProvider?: string;
+  regionName?: string;
+  roleArn?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      endpoint: 'endpoint',
+      functionName: 'functionName',
+      functionProvider: 'functionProvider',
+      regionName: 'regionName',
+      roleArn: 'roleArn',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      endpoint: 'string',
+      functionName: 'string',
+      functionProvider: 'string',
+      regionName: 'string',
+      roleArn: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlJobRequestLogConfig extends $tea.Model {
+  endpoint?: string;
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      logstoreName: 'logstoreName',
+      projectName: 'projectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlJobRequestSourceConfig extends $tea.Model {
+  logstoreName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'logstoreName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEtlJobRequestTriggerConfig extends $tea.Model {
+  maxRetryTime?: number;
+  roleArn?: string;
+  startingPosition?: string;
+  startingUnixtime?: number;
+  triggerInterval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRetryTime: 'maxRetryTime',
+      roleArn: 'roleArn',
+      startingPosition: 'startingPosition',
+      startingUnixtime: 'startingUnixtime',
+      triggerInterval: 'triggerInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRetryTime: 'number',
+      roleArn: 'string',
+      startingPosition: 'string',
+      startingUnixtime: 'number',
+      triggerInterval: 'number',
     };
   }
 
@@ -5064,6 +5552,118 @@ export class TagResourcesRequestTags extends $tea.Model {
   }
 }
 
+export class UpdateEtlJobRequestFunctionConfig extends $tea.Model {
+  accountId?: string;
+  endpoint?: string;
+  functionName?: string;
+  functionProvider?: string;
+  regionName?: string;
+  roleArn?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      endpoint: 'endpoint',
+      functionName: 'functionName',
+      functionProvider: 'functionProvider',
+      regionName: 'regionName',
+      roleArn: 'roleArn',
+      serviceName: 'serviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      endpoint: 'string',
+      functionName: 'string',
+      functionProvider: 'string',
+      regionName: 'string',
+      roleArn: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEtlJobRequestLogConfig extends $tea.Model {
+  endpoint?: string;
+  logstoreName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      logstoreName: 'logstoreName',
+      projectName: 'projectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      logstoreName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEtlJobRequestSourceConfig extends $tea.Model {
+  logstoreName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstoreName: 'logstoreName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstoreName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEtlJobRequestTriggerConfig extends $tea.Model {
+  maxRetryTime?: number;
+  roleArn?: string;
+  startingPosition?: string;
+  startingUnixtime?: number;
+  triggerInterval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRetryTime: 'maxRetryTime',
+      roleArn: 'roleArn',
+      startingPosition: 'startingPosition',
+      startingUnixtime: 'startingUnixtime',
+      triggerInterval: 'triggerInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRetryTime: 'number',
+      roleArn: 'string',
+      startingPosition: 'string',
+      startingUnixtime: 'number',
+      triggerInterval: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIndexRequestLine extends $tea.Model {
   caseSensitive?: boolean;
   chn?: boolean;
@@ -5367,8 +5967,6 @@ export default class Client extends OpenApi {
   async applyConfigToMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyConfigToMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
-    configName = OpenApiUtil.getEncodeParam(configName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -5517,7 +6115,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.consumerGroup)) {
       body["consumerGroup"] = request.consumerGroup;
@@ -5584,6 +6181,64 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResponse>(await this.execute(params, req, runtime), new CreateDomainResponse({}));
   }
 
+  async createEtlJob(project: string, request: CreateEtlJobRequest): Promise<CreateEtlJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createEtlJobWithOptions(project, request, headers, runtime);
+  }
+
+  async createEtlJobWithOptions(project: string, request: CreateEtlJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEtlJobResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.etlJobName)) {
+      body["etlJobName"] = request.etlJobName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.functionConfig))) {
+      body["functionConfig"] = request.functionConfig;
+    }
+
+    if (!Util.isUnset(request.functionParameter)) {
+      body["functionParameter"] = request.functionParameter;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.logConfig))) {
+      body["logConfig"] = request.logConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.sourceConfig))) {
+      body["sourceConfig"] = request.sourceConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.triggerConfig))) {
+      body["triggerConfig"] = request.triggerConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEtlJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etljobs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateEtlJobResponse>(await this.execute(params, req, runtime), new CreateEtlJobResponse({}));
+  }
+
   async createEtlMeta(project: string, request: CreateEtlMetaRequest): Promise<CreateEtlMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5644,7 +6299,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.keys)) {
       body["keys"] = request.keys;
@@ -5730,6 +6384,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxSplitShard)) {
       body["maxSplitShard"] = request.maxSplitShard;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["mode"] = request.mode;
     }
 
     if (!Util.isUnset(request.shardCount)) {
@@ -5861,7 +6519,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.shipperName)) {
       body["shipperName"] = request.shipperName;
@@ -5946,7 +6603,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.shipperName)) {
       body["shipperName"] = request.shipperName;
@@ -6115,8 +6771,6 @@ export default class Client extends OpenApi {
   async deleteConsumerGroupWithOptions(project: string, logstore: string, consumerGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    consumerGroup = OpenApiUtil.getEncodeParam(consumerGroup);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6144,7 +6798,6 @@ export default class Client extends OpenApi {
   async deleteDomainWithOptions(project: string, domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    domainName = OpenApiUtil.getEncodeParam(domainName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6161,6 +6814,33 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<DeleteDomainResponse>(await this.execute(params, req, runtime), new DeleteDomainResponse({}));
+  }
+
+  async deleteEtlJob(project: string, etlJobName: string): Promise<DeleteEtlJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteEtlJobWithOptions(project, etlJobName, headers, runtime);
+  }
+
+  async deleteEtlJobWithOptions(project: string, etlJobName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEtlJobResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEtlJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etljobs/${etlJobName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteEtlJobResponse>(await this.execute(params, req, runtime), new DeleteEtlJobResponse({}));
   }
 
   async deleteEtlMeta(project: string, request: DeleteEtlMetaRequest): Promise<DeleteEtlMetaResponse> {
@@ -6214,7 +6894,6 @@ export default class Client extends OpenApi {
   async deleteExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExternalStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6242,7 +6921,6 @@ export default class Client extends OpenApi {
   async deleteIndexWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6270,7 +6948,6 @@ export default class Client extends OpenApi {
   async deleteLogStoreWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLogStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6325,7 +7002,6 @@ export default class Client extends OpenApi {
   async deleteMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6380,7 +7056,6 @@ export default class Client extends OpenApi {
   async deleteSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSavedSearchResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    savedsearchName = OpenApiUtil.getEncodeParam(savedsearchName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6408,8 +7083,6 @@ export default class Client extends OpenApi {
   async deleteShipperWithOptions(project: string, logstore: string, shipperName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteShipperResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shipperName = OpenApiUtil.getEncodeParam(shipperName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6437,7 +7110,6 @@ export default class Client extends OpenApi {
   async getAppliedConfigsWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedConfigsResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6465,7 +7137,6 @@ export default class Client extends OpenApi {
   async getAppliedMachineGroupsWithOptions(project: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppliedMachineGroupsResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    configName = OpenApiUtil.getEncodeParam(configName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6494,8 +7165,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    consumerGroup = OpenApiUtil.getEncodeParam(consumerGroup);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.shard)) {
       query["shard"] = request.shard;
@@ -6530,7 +7199,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.backLines)) {
       query["back_lines"] = request.backLines;
@@ -6581,8 +7249,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shardId = OpenApiUtil.getEncodeParam(shardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.from)) {
       query["from"] = request.from;
@@ -6621,8 +7287,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shardId = OpenApiUtil.getEncodeParam(shardId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cursor)) {
       query["cursor"] = request.cursor;
@@ -6651,6 +7315,33 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCursorTimeResponse>(await this.execute(params, req, runtime), new GetCursorTimeResponse({}));
   }
 
+  async getEtlJob(project: string, etlJobName: string): Promise<GetEtlJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEtlJobWithOptions(project, etlJobName, headers, runtime);
+  }
+
+  async getEtlJobWithOptions(project: string, etlJobName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEtlJobResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEtlJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etljobs/${etlJobName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEtlJobResponse>(await this.execute(params, req, runtime), new GetEtlJobResponse({}));
+  }
+
   async getEtlMeta(project: string, request: GetEtlMetaRequest): Promise<GetEtlMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6662,12 +7353,12 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.elMetaName)) {
-      query["elMetaName"] = request.elMetaName;
-    }
-
     if (!Util.isUnset(request.etlMetaKey)) {
       query["etlMetaKey"] = request.etlMetaKey;
+    }
+
+    if (!Util.isUnset(request.etlMetaName)) {
+      query["etlMetaName"] = request.etlMetaName;
     }
 
     if (!Util.isUnset(request.etlMetaTag)) {
@@ -6702,7 +7393,6 @@ export default class Client extends OpenApi {
   async getExternalStoreWithOptions(project: string, externalStoreName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExternalStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6731,7 +7421,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.from)) {
       query["from"] = request.from;
@@ -6749,10 +7438,6 @@ export default class Client extends OpenApi {
       query["topic"] = request.topic;
     }
 
-    if (!Util.isUnset(request.type)) {
-      query["type"] = request.type;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6762,7 +7447,7 @@ export default class Client extends OpenApi {
       action: "GetHistograms",
       version: "2020-12-30",
       protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/index`,
+      pathname: `/logstores/${logstore}/index?type=histogram`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -6781,7 +7466,6 @@ export default class Client extends OpenApi {
   async getIndexWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6809,7 +7493,6 @@ export default class Client extends OpenApi {
   async getLogStoreWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLogStoreResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6865,7 +7548,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.from)) {
       query["from"] = request.from;
@@ -6899,10 +7581,6 @@ export default class Client extends OpenApi {
       query["topic"] = request.topic;
     }
 
-    if (!Util.isUnset(request.type)) {
-      query["type"] = request.type;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -6912,7 +7590,7 @@ export default class Client extends OpenApi {
       action: "GetLogs",
       version: "2020-12-30",
       protocol: "HTTPS",
-      pathname: `/logstores/${logstore}/index`,
+      pathname: `/logstores/${logstore}?type=log`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -6931,7 +7609,6 @@ export default class Client extends OpenApi {
   async getMachineGroupWithOptions(project: string, machineGroup: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7024,7 +7701,6 @@ export default class Client extends OpenApi {
   async getSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSavedSearchResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    savedsearchName = OpenApiUtil.getEncodeParam(savedsearchName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7052,8 +7728,6 @@ export default class Client extends OpenApi {
   async getShipperConfigWithOptions(project: string, logstore: string, shipperName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShipperConfigResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shipperName = OpenApiUtil.getEncodeParam(shipperName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7082,8 +7756,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shipperName = OpenApiUtil.getEncodeParam(shipperName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.from)) {
       query["from"] = request.from;
@@ -7133,7 +7805,6 @@ export default class Client extends OpenApi {
   async listConsumerGroupWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7192,6 +7863,44 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListDomainsResponse>(await this.execute(params, req, runtime), new ListDomainsResponse({}));
+  }
+
+  async listEtlJob(project: string, request: ListEtlJobRequest): Promise<ListEtlJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEtlJobWithOptions(project, request, headers, runtime);
+  }
+
+  async listEtlJobWithOptions(project: string, request: ListEtlJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEtlJobResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEtlJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etljobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEtlJobResponse>(await this.execute(params, req, runtime), new ListEtlJobResponse({}));
   }
 
   async listEtlMeta(project: string, request: ListEtlMetaRequest): Promise<ListEtlMetaResponse> {
@@ -7339,6 +8048,10 @@ export default class Client extends OpenApi {
       query["logstoreName"] = request.logstoreName;
     }
 
+    if (!Util.isUnset(request.mode)) {
+      query["mode"] = request.mode;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
@@ -7422,7 +8135,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
@@ -7537,7 +8249,6 @@ export default class Client extends OpenApi {
   async listShardsWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShardsResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7565,7 +8276,6 @@ export default class Client extends OpenApi {
   async listShipperWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShipperResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7643,8 +8353,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shardID = OpenApiUtil.getEncodeParam(shardID);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.action)) {
       query["action"] = request.action;
@@ -7678,8 +8386,6 @@ export default class Client extends OpenApi {
   async removeConfigFromMachineGroupWithOptions(project: string, machineGroup: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveConfigFromMachineGroupResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    machineGroup = OpenApiUtil.getEncodeParam(machineGroup);
-    configName = OpenApiUtil.getEncodeParam(configName);
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -7708,8 +8414,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shardID = OpenApiUtil.getEncodeParam(shardID);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.action)) {
       query["action"] = request.action;
@@ -7834,8 +8538,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    consumerGroup = OpenApiUtil.getEncodeParam(consumerGroup);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.consumer)) {
       query["consumer"] = request.consumer;
@@ -7888,8 +8590,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    consumerGroup = OpenApiUtil.getEncodeParam(consumerGroup);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.order)) {
       body["order"] = request.order;
@@ -7916,6 +8616,64 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<UpdateConsumerGroupResponse>(await this.execute(params, req, runtime), new UpdateConsumerGroupResponse({}));
+  }
+
+  async updateEtlJob(project: string, etlJobName: string, request: UpdateEtlJobRequest): Promise<UpdateEtlJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateEtlJobWithOptions(project, etlJobName, request, headers, runtime);
+  }
+
+  async updateEtlJobWithOptions(project: string, etlJobName: string, request: UpdateEtlJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateEtlJobResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.etlJobName)) {
+      body["etlJobName"] = request.etlJobName;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.functionConfig))) {
+      body["functionConfig"] = request.functionConfig;
+    }
+
+    if (!Util.isUnset(request.functionParameter)) {
+      body["functionParameter"] = request.functionParameter;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.logConfig))) {
+      body["logConfig"] = request.logConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.sourceConfig))) {
+      body["sourceConfig"] = request.sourceConfig;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.triggerConfig))) {
+      body["triggerConfig"] = request.triggerConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEtlJob",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/etljobs/${etlJobName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateEtlJobResponse>(await this.execute(params, req, runtime), new UpdateEtlJobResponse({}));
   }
 
   async updateEtlMeta(project: string, request: UpdateEtlMetaRequest): Promise<UpdateEtlMetaResponse> {
@@ -7978,7 +8736,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.keys)) {
       body["keys"] = request.keys;
@@ -8037,7 +8794,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appendMeta)) {
       body["appendMeta"] = request.appendMeta;
@@ -8065,6 +8821,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxSplitShard)) {
       body["maxSplitShard"] = request.maxSplitShard;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["mode"] = request.mode;
     }
 
     if (!Util.isUnset(request.shardCount)) {
@@ -8146,7 +8906,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    groupName = OpenApiUtil.getEncodeParam(groupName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.groupAttribute))) {
       body["groupAttribute"] = request.groupAttribute;
@@ -8197,8 +8956,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shipperName = OpenApiUtil.getEncodeParam(shipperName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.shipperName)) {
       body["shipperName"] = request.shipperName;
@@ -8241,7 +8998,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.externalStoreName)) {
       body["externalStoreName"] = request.externalStoreName;
@@ -8284,8 +9040,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    logstore = OpenApiUtil.getEncodeParam(logstore);
-    shipperName = OpenApiUtil.getEncodeParam(shipperName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.shipperName)) {
       body["shipperName"] = request.shipperName;
@@ -8362,7 +9116,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    externalStoreName = OpenApiUtil.getEncodeParam(externalStoreName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.externalStoreName)) {
       body["externalStoreName"] = request.externalStoreName;
@@ -8405,7 +9158,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
-    savedsearchName = OpenApiUtil.getEncodeParam(savedsearchName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.displayName)) {
       body["displayName"] = request.displayName;
