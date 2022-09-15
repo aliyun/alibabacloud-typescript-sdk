@@ -2699,7 +2699,7 @@ export class DescribeImageCommodityInfoResponseBodyDataAccessInfoImageConstraint
 
 export class DescribeImageCommodityInfoResponseBodyDataAccessInfoImageConstraint extends $tea.Model {
   baseConfig?: DescribeImageCommodityInfoResponseBodyDataAccessInfoImageConstraintBaseConfig;
-  customizeFamilyConstraints?: { [key: string]: any };
+  customizeFamilyConstraints?: { [key: string]: string[] };
   supportMoreNetworkCards?: boolean;
   tcpPortRange?: string[];
   udpPortRange?: string[];
@@ -2716,7 +2716,7 @@ export class DescribeImageCommodityInfoResponseBodyDataAccessInfoImageConstraint
   static types(): { [key: string]: any } {
     return {
       baseConfig: DescribeImageCommodityInfoResponseBodyDataAccessInfoImageConstraintBaseConfig,
-      customizeFamilyConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      customizeFamilyConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       supportMoreNetworkCards: 'boolean',
       tcpPortRange: { 'type': 'array', 'itemType': 'string' },
       udpPortRange: { 'type': 'array', 'itemType': 'string' },
