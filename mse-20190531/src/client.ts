@@ -152,6 +152,7 @@ export class AddAuthResourceRequest extends $tea.Model {
   authId?: number;
   domainId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,6 +160,7 @@ export class AddAuthResourceRequest extends $tea.Model {
       authId: 'AuthId',
       domainId: 'DomainId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       path: 'Path',
     };
   }
@@ -169,6 +171,7 @@ export class AddAuthResourceRequest extends $tea.Model {
       authId: 'number',
       domainId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       path: 'string',
     };
   }
@@ -242,6 +245,7 @@ export class AddBlackWhiteListRequest extends $tea.Model {
   content?: string;
   gatewayUniqueId?: string;
   isWhite?: boolean;
+  mseSessionId?: string;
   resourceType?: string;
   status?: string;
   type?: string;
@@ -251,6 +255,7 @@ export class AddBlackWhiteListRequest extends $tea.Model {
       content: 'Content',
       gatewayUniqueId: 'GatewayUniqueId',
       isWhite: 'IsWhite',
+      mseSessionId: 'MseSessionId',
       resourceType: 'ResourceType',
       status: 'Status',
       type: 'Type',
@@ -263,6 +268,7 @@ export class AddBlackWhiteListRequest extends $tea.Model {
       content: 'string',
       gatewayUniqueId: 'string',
       isWhite: 'boolean',
+      mseSessionId: 'string',
       resourceType: 'string',
       status: 'string',
       type: 'string',
@@ -340,6 +346,7 @@ export class AddGatewayRequest extends $tea.Model {
   enableXtrace?: boolean;
   enterpriseSecurityGroup?: boolean;
   internetSlbSpec?: string;
+  mseSessionId?: string;
   name?: string;
   region?: string;
   replica?: number;
@@ -357,6 +364,7 @@ export class AddGatewayRequest extends $tea.Model {
       enableXtrace: 'EnableXtrace',
       enterpriseSecurityGroup: 'EnterpriseSecurityGroup',
       internetSlbSpec: 'InternetSlbSpec',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       region: 'Region',
       replica: 'Replica',
@@ -377,6 +385,7 @@ export class AddGatewayRequest extends $tea.Model {
       enableXtrace: 'boolean',
       enterpriseSecurityGroup: 'boolean',
       internetSlbSpec: 'string',
+      mseSessionId: 'string',
       name: 'string',
       region: 'string',
       replica: 'number',
@@ -457,17 +466,25 @@ export class AddGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   certIdentifier?: string;
   gatewayUniqueId?: string;
+  http2?: string;
+  mseSessionId?: string;
   mustHttps?: boolean;
   name?: string;
   protocol?: string;
+  tlsMax?: string;
+  tlsMin?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       certIdentifier: 'CertIdentifier',
       gatewayUniqueId: 'GatewayUniqueId',
+      http2: 'Http2',
+      mseSessionId: 'MseSessionId',
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
+      tlsMax: 'TlsMax',
+      tlsMin: 'TlsMin',
     };
   }
 
@@ -476,9 +493,13 @@ export class AddGatewayDomainRequest extends $tea.Model {
       acceptLanguage: 'string',
       certIdentifier: 'string',
       gatewayUniqueId: 'string',
+      http2: 'string',
+      mseSessionId: 'string',
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',
+      tlsMax: 'string',
+      tlsMin: 'string',
     };
   }
 
@@ -553,8 +574,11 @@ export class AddGatewayRouteRequest extends $tea.Model {
   domainId?: number;
   domainIdListJSON?: string;
   enableWaf?: boolean;
+  fallback?: boolean;
+  fallbackServices?: AddGatewayRouteRequestFallbackServices[];
   gatewayId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   name?: string;
   predicates?: AddGatewayRouteRequestPredicates;
   redirectJSON?: AddGatewayRouteRequestRedirectJSON;
@@ -568,8 +592,11 @@ export class AddGatewayRouteRequest extends $tea.Model {
       domainId: 'DomainId',
       domainIdListJSON: 'DomainIdListJSON',
       enableWaf: 'EnableWaf',
+      fallback: 'Fallback',
+      fallbackServices: 'FallbackServices',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       predicates: 'Predicates',
       redirectJSON: 'RedirectJSON',
@@ -586,8 +613,11 @@ export class AddGatewayRouteRequest extends $tea.Model {
       domainId: 'number',
       domainIdListJSON: 'string',
       enableWaf: 'boolean',
+      fallback: 'boolean',
+      fallbackServices: { 'type': 'array', 'itemType': AddGatewayRouteRequestFallbackServices },
       gatewayId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       name: 'string',
       predicates: AddGatewayRouteRequestPredicates,
       redirectJSON: AddGatewayRouteRequestRedirectJSON,
@@ -608,8 +638,11 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
   domainId?: number;
   domainIdListJSON?: string;
   enableWaf?: boolean;
+  fallback?: boolean;
+  fallbackServicesShrink?: string;
   gatewayId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   name?: string;
   predicatesShrink?: string;
   redirectJSONShrink?: string;
@@ -623,8 +656,11 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
       domainId: 'DomainId',
       domainIdListJSON: 'DomainIdListJSON',
       enableWaf: 'EnableWaf',
+      fallback: 'Fallback',
+      fallbackServicesShrink: 'FallbackServices',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       predicatesShrink: 'Predicates',
       redirectJSONShrink: 'RedirectJSON',
@@ -641,8 +677,11 @@ export class AddGatewayRouteShrinkRequest extends $tea.Model {
       domainId: 'number',
       domainIdListJSON: 'string',
       enableWaf: 'boolean',
+      fallback: 'boolean',
+      fallbackServicesShrink: 'string',
       gatewayId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       name: 'string',
       predicatesShrink: 'string',
       redirectJSONShrink: 'string',
@@ -718,12 +757,14 @@ export class AddGatewayRouteResponse extends $tea.Model {
 export class AddGatewayServiceVersionRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: number;
   serviceVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
     };
@@ -733,6 +774,7 @@ export class AddGatewayServiceVersionRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'number',
       serviceVersion: 'string',
     };
@@ -805,14 +847,26 @@ export class AddGatewayServiceVersionResponse extends $tea.Model {
 export class AddGatewaySlbRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  httpPort?: number;
+  httpsPort?: number;
+  httpsVServerGroupId?: string;
+  mseSessionId?: string;
+  serviceWeight?: number;
   slbId?: string;
   type?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      httpPort: 'HttpPort',
+      httpsPort: 'HttpsPort',
+      httpsVServerGroupId: 'HttpsVServerGroupId',
+      mseSessionId: 'MseSessionId',
+      serviceWeight: 'ServiceWeight',
       slbId: 'SlbId',
       type: 'Type',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
@@ -820,8 +874,14 @@ export class AddGatewaySlbRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      httpPort: 'number',
+      httpsPort: 'number',
+      httpsVServerGroupId: 'string',
+      mseSessionId: 'string',
+      serviceWeight: 'number',
       slbId: 'string',
       type: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -896,6 +956,7 @@ export class AddMockRuleRequest extends $tea.Model {
   enable?: boolean;
   extraJson?: string;
   mockType?: number;
+  mseSessionId?: string;
   name?: string;
   providerAppId?: string;
   providerAppName?: string;
@@ -910,6 +971,7 @@ export class AddMockRuleRequest extends $tea.Model {
       enable: 'Enable',
       extraJson: 'ExtraJson',
       mockType: 'MockType',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       providerAppId: 'ProviderAppId',
       providerAppName: 'ProviderAppName',
@@ -927,6 +989,7 @@ export class AddMockRuleRequest extends $tea.Model {
       enable: 'boolean',
       extraJson: 'string',
       mockType: 'number',
+      mseSessionId: 'string',
       name: 'string',
       providerAppId: 'string',
       providerAppName: 'string',
@@ -1005,12 +1068,14 @@ export class AddSSLCertRequest extends $tea.Model {
   certIdentifier?: string;
   domainId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       certIdentifier: 'CertIdentifier',
       domainId: 'DomainId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -1020,6 +1085,7 @@ export class AddSSLCertRequest extends $tea.Model {
       certIdentifier: 'string',
       domainId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -1091,6 +1157,7 @@ export class AddSecurityGroupRuleRequest extends $tea.Model {
   acceptLanguage?: string;
   description?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   portRange?: string;
   securityGroupId?: string;
   static names(): { [key: string]: string } {
@@ -1098,6 +1165,7 @@ export class AddSecurityGroupRuleRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       description: 'Description',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       portRange: 'PortRange',
       securityGroupId: 'SecurityGroupId',
     };
@@ -1108,6 +1176,7 @@ export class AddSecurityGroupRuleRequest extends $tea.Model {
       acceptLanguage: 'string',
       description: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       portRange: 'string',
       securityGroupId: 'string',
     };
@@ -1181,7 +1250,9 @@ export class AddServiceSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   address?: string;
   gatewayUniqueId?: string;
+  groupList?: string[];
   ingressOptionsRequest?: AddServiceSourceRequestIngressOptionsRequest;
+  mseSessionId?: string;
   name?: string;
   source?: string;
   type?: string;
@@ -1190,7 +1261,9 @@ export class AddServiceSourceRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       address: 'Address',
       gatewayUniqueId: 'GatewayUniqueId',
+      groupList: 'GroupList',
       ingressOptionsRequest: 'IngressOptionsRequest',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       source: 'Source',
       type: 'Type',
@@ -1202,7 +1275,9 @@ export class AddServiceSourceRequest extends $tea.Model {
       acceptLanguage: 'string',
       address: 'string',
       gatewayUniqueId: 'string',
+      groupList: { 'type': 'array', 'itemType': 'string' },
       ingressOptionsRequest: AddServiceSourceRequestIngressOptionsRequest,
+      mseSessionId: 'string',
       name: 'string',
       source: 'string',
       type: 'string',
@@ -1218,7 +1293,9 @@ export class AddServiceSourceShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   address?: string;
   gatewayUniqueId?: string;
+  groupListShrink?: string;
   ingressOptionsRequestShrink?: string;
+  mseSessionId?: string;
   name?: string;
   source?: string;
   type?: string;
@@ -1227,7 +1304,9 @@ export class AddServiceSourceShrinkRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       address: 'Address',
       gatewayUniqueId: 'GatewayUniqueId',
+      groupListShrink: 'GroupList',
       ingressOptionsRequestShrink: 'IngressOptionsRequest',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       source: 'Source',
       type: 'Type',
@@ -1239,7 +1318,9 @@ export class AddServiceSourceShrinkRequest extends $tea.Model {
       acceptLanguage: 'string',
       address: 'string',
       gatewayUniqueId: 'string',
+      groupListShrink: 'string',
       ingressOptionsRequestShrink: 'string',
+      mseSessionId: 'string',
       name: 'string',
       source: 'string',
       type: 'string',
@@ -1313,11 +1394,13 @@ export class AddServiceSourceResponse extends $tea.Model {
 export class ApplyGatewayRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       routeId: 'RouteId',
     };
   }
@@ -1326,6 +1409,7 @@ export class ApplyGatewayRouteRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       routeId: 'string',
     };
   }
@@ -1398,6 +1482,7 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
   enable?: boolean;
+  mseSessionId?: string;
   namespaceId?: string;
   region?: string;
   rules?: string;
@@ -1407,6 +1492,7 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
       enable: 'Enable',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       region: 'Region',
       rules: 'Rules',
@@ -1419,6 +1505,7 @@ export class ApplyTagPoliciesRequest extends $tea.Model {
       acceptLanguage: 'string',
       appId: 'string',
       enable: 'boolean',
+      mseSessionId: 'string',
       namespaceId: 'string',
       region: 'string',
       rules: 'string',
@@ -1494,6 +1581,7 @@ export class CloneNacosConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   ids?: string;
   instanceId?: string;
+  mseSessionId?: string;
   originNamespaceId?: string;
   policy?: string;
   targetNamespaceId?: string;
@@ -1502,6 +1590,7 @@ export class CloneNacosConfigRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       ids: 'Ids',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       originNamespaceId: 'OriginNamespaceId',
       policy: 'Policy',
       targetNamespaceId: 'TargetNamespaceId',
@@ -1513,6 +1602,7 @@ export class CloneNacosConfigRequest extends $tea.Model {
       acceptLanguage: 'string',
       ids: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       originNamespaceId: 'string',
       policy: 'string',
       targetNamespaceId: 'string',
@@ -1594,6 +1684,7 @@ export class CreateApplicationRequest extends $tea.Model {
   appName?: string;
   extraInfo?: string;
   language?: string;
+  mseSessionId?: string;
   region?: string;
   sentinelEnable?: string;
   source?: string;
@@ -1604,6 +1695,7 @@ export class CreateApplicationRequest extends $tea.Model {
       appName: 'AppName',
       extraInfo: 'ExtraInfo',
       language: 'Language',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
       sentinelEnable: 'SentinelEnable',
       source: 'Source',
@@ -1617,6 +1709,7 @@ export class CreateApplicationRequest extends $tea.Model {
       appName: 'string',
       extraInfo: 'string',
       language: 'string',
+      mseSessionId: 'string',
       region: 'string',
       sentinelEnable: 'string',
       source: 'string',
@@ -1696,6 +1789,8 @@ export class CreateClusterRequest extends $tea.Model {
   connectionType?: string;
   diskType?: string;
   instanceCount?: number;
+  instanceName?: string;
+  mseSessionId?: string;
   mseVersion?: string;
   netType?: string;
   privateSlbSpecification?: string;
@@ -1703,6 +1798,7 @@ export class CreateClusterRequest extends $tea.Model {
   pubSlbSpecification?: string;
   region?: string;
   requestPars?: string;
+  resourceGroupId?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -1714,6 +1810,8 @@ export class CreateClusterRequest extends $tea.Model {
       connectionType: 'ConnectionType',
       diskType: 'DiskType',
       instanceCount: 'InstanceCount',
+      instanceName: 'InstanceName',
+      mseSessionId: 'MseSessionId',
       mseVersion: 'MseVersion',
       netType: 'NetType',
       privateSlbSpecification: 'PrivateSlbSpecification',
@@ -1721,6 +1819,7 @@ export class CreateClusterRequest extends $tea.Model {
       pubSlbSpecification: 'PubSlbSpecification',
       region: 'Region',
       requestPars: 'RequestPars',
+      resourceGroupId: 'ResourceGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -1735,6 +1834,8 @@ export class CreateClusterRequest extends $tea.Model {
       connectionType: 'string',
       diskType: 'string',
       instanceCount: 'number',
+      instanceName: 'string',
+      mseSessionId: 'string',
       mseVersion: 'string',
       netType: 'string',
       privateSlbSpecification: 'string',
@@ -1742,6 +1843,7 @@ export class CreateClusterRequest extends $tea.Model {
       pubSlbSpecification: 'string',
       region: 'string',
       requestPars: 'string',
+      resourceGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -1817,6 +1919,7 @@ export class CreateEngineNamespaceRequest extends $tea.Model {
   desc?: string;
   id?: string;
   instanceId?: string;
+  mseSessionId?: string;
   name?: string;
   serviceCount?: number;
   static names(): { [key: string]: string } {
@@ -1826,6 +1929,7 @@ export class CreateEngineNamespaceRequest extends $tea.Model {
       desc: 'Desc',
       id: 'Id',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       serviceCount: 'ServiceCount',
     };
@@ -1838,6 +1942,7 @@ export class CreateEngineNamespaceRequest extends $tea.Model {
       desc: 'string',
       id: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       name: 'string',
       serviceCount: 'number',
     };
@@ -1912,6 +2017,8 @@ export class CreateMseServiceApplicationRequest extends $tea.Model {
   appName?: string;
   extraInfo?: string;
   language?: string;
+  mseSessionId?: string;
+  mseVersion?: string;
   region?: string;
   sentinelEnable?: string;
   source?: string;
@@ -1922,6 +2029,8 @@ export class CreateMseServiceApplicationRequest extends $tea.Model {
       appName: 'AppName',
       extraInfo: 'ExtraInfo',
       language: 'Language',
+      mseSessionId: 'MseSessionId',
+      mseVersion: 'MseVersion',
       region: 'Region',
       sentinelEnable: 'SentinelEnable',
       source: 'Source',
@@ -1935,6 +2044,8 @@ export class CreateMseServiceApplicationRequest extends $tea.Model {
       appName: 'string',
       extraInfo: 'string',
       language: 'string',
+      mseSessionId: 'string',
+      mseVersion: 'string',
       region: 'string',
       sentinelEnable: 'string',
       source: 'string',
@@ -2015,6 +2126,7 @@ export class CreateNacosConfigRequest extends $tea.Model {
   desc?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   tags?: string;
   type?: string;
@@ -2028,6 +2140,7 @@ export class CreateNacosConfigRequest extends $tea.Model {
       desc: 'Desc',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       tags: 'Tags',
       type: 'Type',
@@ -2044,6 +2157,7 @@ export class CreateNacosConfigRequest extends $tea.Model {
       desc: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       tags: 'string',
       type: 'string',
@@ -2123,6 +2237,7 @@ export class CreateNacosInstanceRequest extends $tea.Model {
   instanceId?: string;
   ip?: string;
   metadata?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   port?: number;
   serviceName?: string;
@@ -2137,6 +2252,7 @@ export class CreateNacosInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ip: 'Ip',
       metadata: 'Metadata',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       port: 'Port',
       serviceName: 'ServiceName',
@@ -2154,6 +2270,7 @@ export class CreateNacosInstanceRequest extends $tea.Model {
       instanceId: 'string',
       ip: 'string',
       metadata: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       port: 'number',
       serviceName: 'string',
@@ -2231,6 +2348,7 @@ export class CreateNacosServiceRequest extends $tea.Model {
   ephemeral?: boolean;
   groupName?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   protectThreshold?: string;
   serviceName?: string;
@@ -2241,6 +2359,7 @@ export class CreateNacosServiceRequest extends $tea.Model {
       ephemeral: 'Ephemeral',
       groupName: 'GroupName',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       protectThreshold: 'ProtectThreshold',
       serviceName: 'ServiceName',
@@ -2254,6 +2373,7 @@ export class CreateNacosServiceRequest extends $tea.Model {
       ephemeral: 'boolean',
       groupName: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       protectThreshold: 'string',
       serviceName: 'string',
@@ -2335,6 +2455,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
   groupId?: number;
   id?: number;
   licenseKey?: string;
+  mseSessionId?: string;
   name?: string;
   regionId?: string;
   source?: string;
@@ -2353,6 +2474,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       groupId: 'GroupId',
       id: 'Id',
       licenseKey: 'LicenseKey',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       regionId: 'RegionId',
       source: 'Source',
@@ -2374,6 +2496,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
       groupId: 'number',
       id: 'number',
       licenseKey: 'string',
+      mseSessionId: 'string',
       name: 'string',
       regionId: 'string',
       source: 'string',
@@ -2462,6 +2585,9 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
   gmtModified?: string;
   id?: number;
   licenseKey?: string;
+  messageQueueFilterSide?: string;
+  messageQueueGrayEnable?: boolean;
+  mseSessionId?: string;
   name?: string;
   region?: string;
   source?: string;
@@ -2477,6 +2603,9 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       gmtModified: 'GmtModified',
       id: 'Id',
       licenseKey: 'LicenseKey',
+      messageQueueFilterSide: 'MessageQueueFilterSide',
+      messageQueueGrayEnable: 'MessageQueueGrayEnable',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       region: 'Region',
       source: 'Source',
@@ -2495,6 +2624,9 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $tea.Model {
       gmtModified: 'string',
       id: 'number',
       licenseKey: 'string',
+      messageQueueFilterSide: 'string',
+      messageQueueGrayEnable: 'boolean',
+      mseSessionId: 'string',
       name: 'string',
       region: 'string',
       source: 'string',
@@ -2577,12 +2709,14 @@ export class CreateZnodeRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
   data?: string;
+  mseSessionId?: string;
   path?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       data: 'Data',
+      mseSessionId: 'MseSessionId',
       path: 'Path',
     };
   }
@@ -2592,6 +2726,7 @@ export class CreateZnodeRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterId: 'string',
       data: 'string',
+      mseSessionId: 'string',
       path: 'string',
     };
   }
@@ -2664,11 +2799,13 @@ export class DeleteAuthResourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -2677,6 +2814,7 @@ export class DeleteAuthResourceRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -2747,10 +2885,12 @@ export class DeleteAuthResourceResponse extends $tea.Model {
 export class DeleteClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -2758,6 +2898,7 @@ export class DeleteClusterRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -2827,12 +2968,14 @@ export class DeleteEngineNamespaceRequest extends $tea.Model {
   clusterId?: string;
   id?: string;
   instanceId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       id: 'Id',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -2842,6 +2985,7 @@ export class DeleteEngineNamespaceRequest extends $tea.Model {
       clusterId: 'string',
       id: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -2910,11 +3054,13 @@ export class DeleteGatewayRequest extends $tea.Model {
   acceptLanguage?: string;
   deleteSlb?: boolean;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       deleteSlb: 'DeleteSlb',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -2923,6 +3069,7 @@ export class DeleteGatewayRequest extends $tea.Model {
       acceptLanguage: 'string',
       deleteSlb: 'boolean',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -2994,11 +3141,13 @@ export class DeleteGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
   id?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -3007,6 +3156,7 @@ export class DeleteGatewayDomainRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       id: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -3077,11 +3227,13 @@ export class DeleteGatewayDomainResponse extends $tea.Model {
 export class DeleteGatewayRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       routeId: 'RouteId',
     };
   }
@@ -3090,6 +3242,7 @@ export class DeleteGatewayRouteRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       routeId: 'string',
     };
   }
@@ -3162,12 +3315,14 @@ export class DeleteGatewayServiceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
     };
   }
@@ -3177,6 +3332,7 @@ export class DeleteGatewayServiceRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'string',
     };
   }
@@ -3248,12 +3404,14 @@ export class DeleteGatewayServiceResponse extends $tea.Model {
 export class DeleteGatewayServiceVersionRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: number;
   serviceVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
     };
@@ -3263,6 +3421,7 @@ export class DeleteGatewayServiceVersionRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'number',
       serviceVersion: 'string',
     };
@@ -3337,12 +3496,14 @@ export class DeleteGatewaySlbRequest extends $tea.Model {
   deleteSlb?: boolean;
   gatewayUniqueId?: string;
   id?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       deleteSlb: 'DeleteSlb',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -3352,6 +3513,7 @@ export class DeleteGatewaySlbRequest extends $tea.Model {
       deleteSlb: 'boolean',
       gatewayUniqueId: 'string',
       id: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -3425,6 +3587,7 @@ export class DeleteNacosConfigRequest extends $tea.Model {
   dataId?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3433,6 +3596,7 @@ export class DeleteNacosConfigRequest extends $tea.Model {
       dataId: 'DataId',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
     };
   }
@@ -3444,6 +3608,7 @@ export class DeleteNacosConfigRequest extends $tea.Model {
       dataId: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
     };
   }
@@ -3516,12 +3681,14 @@ export class DeleteNacosConfigsRequest extends $tea.Model {
   acceptLanguage?: string;
   ids?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       ids: 'Ids',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
     };
   }
@@ -3531,6 +3698,7 @@ export class DeleteNacosConfigsRequest extends $tea.Model {
       acceptLanguage: 'string',
       ids: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
     };
   }
@@ -3606,6 +3774,7 @@ export class DeleteNacosInstanceRequest extends $tea.Model {
   groupName?: string;
   instanceId?: string;
   ip?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   port?: number;
   serviceName?: string;
@@ -3617,6 +3786,7 @@ export class DeleteNacosInstanceRequest extends $tea.Model {
       groupName: 'GroupName',
       instanceId: 'InstanceId',
       ip: 'Ip',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       port: 'Port',
       serviceName: 'ServiceName',
@@ -3631,6 +3801,7 @@ export class DeleteNacosInstanceRequest extends $tea.Model {
       groupName: 'string',
       instanceId: 'string',
       ip: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       port: 'number',
       serviceName: 'string',
@@ -3711,6 +3882,7 @@ export class DeleteNacosServiceRequest extends $tea.Model {
   acceptLanguage?: string;
   groupName?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -3718,6 +3890,7 @@ export class DeleteNacosServiceRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       groupName: 'GroupName',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       serviceName: 'ServiceName',
     };
@@ -3728,6 +3901,7 @@ export class DeleteNacosServiceRequest extends $tea.Model {
       acceptLanguage: 'string',
       groupName: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       serviceName: 'string',
     };
@@ -3801,11 +3975,13 @@ export class DeleteSecurityGroupRuleRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -3814,6 +3990,7 @@ export class DeleteSecurityGroupRuleRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -3884,11 +4061,13 @@ export class DeleteSecurityGroupRuleResponse extends $tea.Model {
 export class DeleteServiceSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   sourceId?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       sourceId: 'SourceId',
     };
   }
@@ -3897,6 +4076,7 @@ export class DeleteServiceSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       sourceId: 'number',
     };
   }
@@ -3965,10 +4145,12 @@ export class DeleteServiceSourceResponse extends $tea.Model {
 export class DeleteSwimmingLaneRequest extends $tea.Model {
   acceptLanguage?: string;
   laneId?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       laneId: 'LaneId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -3976,6 +4158,7 @@ export class DeleteSwimmingLaneRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       laneId: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -4052,10 +4235,12 @@ export class DeleteSwimmingLaneResponse extends $tea.Model {
 export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       groupId: 'GroupId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -4063,6 +4248,7 @@ export class DeleteSwimmingLaneGroupRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       groupId: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -4139,12 +4325,14 @@ export class DeleteSwimmingLaneGroupResponse extends $tea.Model {
 export class DeleteZnodeRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   path?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       path: 'Path',
       requestPars: 'RequestPars',
     };
@@ -4154,6 +4342,7 @@ export class DeleteZnodeRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       path: 'string',
       requestPars: 'string',
     };
@@ -4230,6 +4419,7 @@ export class ExportNacosConfigRequest extends $tea.Model {
   group?: string;
   ids?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4239,6 +4429,7 @@ export class ExportNacosConfigRequest extends $tea.Model {
       group: 'Group',
       ids: 'Ids',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
     };
   }
@@ -4251,6 +4442,7 @@ export class ExportNacosConfigRequest extends $tea.Model {
       group: 'string',
       ids: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
     };
   }
@@ -4328,11 +4520,13 @@ export class ExportNacosConfigResponse extends $tea.Model {
 export class GetAppMessageQueueRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
+  mseSessionId?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
     };
   }
@@ -4341,6 +4535,7 @@ export class GetAppMessageQueueRouteRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       appId: 'string',
+      mseSessionId: 'string',
       region: 'string',
     };
   }
@@ -4414,6 +4609,7 @@ export class GetApplicationListRequest extends $tea.Model {
   appId?: string;
   appName?: string;
   language?: string;
+  mseSessionId?: string;
   pageNumber?: number;
   pageSize?: number;
   region?: string;
@@ -4426,6 +4622,7 @@ export class GetApplicationListRequest extends $tea.Model {
       appId: 'AppId',
       appName: 'AppName',
       language: 'Language',
+      mseSessionId: 'MseSessionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
@@ -4441,6 +4638,7 @@ export class GetApplicationListRequest extends $tea.Model {
       appId: 'string',
       appName: 'string',
       language: 'string',
+      mseSessionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
@@ -4518,6 +4716,7 @@ export class GetBlackWhiteListRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
   isWhite?: boolean;
+  mseSessionId?: string;
   resourceType?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -4525,6 +4724,7 @@ export class GetBlackWhiteListRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       isWhite: 'IsWhite',
+      mseSessionId: 'MseSessionId',
       resourceType: 'ResourceType',
       type: 'Type',
     };
@@ -4535,6 +4735,7 @@ export class GetBlackWhiteListRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       isWhite: 'boolean',
+      mseSessionId: 'string',
       resourceType: 'string',
       type: 'string',
     };
@@ -4609,12 +4810,14 @@ export class GetEngineNamepaceRequest extends $tea.Model {
   clusterId?: string;
   id?: string;
   instanceId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       id: 'Id',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -4624,6 +4827,7 @@ export class GetEngineNamepaceRequest extends $tea.Model {
       clusterId: 'string',
       id: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -4709,10 +4913,12 @@ export class GetEngineNamepaceResponse extends $tea.Model {
 export class GetGatewayRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -4720,6 +4926,7 @@ export class GetGatewayRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -4791,11 +4998,13 @@ export class GetGatewayDomainDetailRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
   id?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -4804,6 +5013,7 @@ export class GetGatewayDomainDetailRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       id: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -4875,11 +5085,13 @@ export class GetGatewayOptionRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -4888,6 +5100,7 @@ export class GetGatewayOptionRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -4958,11 +5171,13 @@ export class GetGatewayOptionResponse extends $tea.Model {
 export class GetGatewayRouteDetailRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   routeId?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       routeId: 'RouteId',
     };
   }
@@ -4971,6 +5186,7 @@ export class GetGatewayRouteDetailRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       routeId: 'number',
     };
   }
@@ -5042,11 +5258,13 @@ export class GetGatewayRouteDetailResponse extends $tea.Model {
 export class GetGatewayServiceDetailRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
     };
   }
@@ -5055,6 +5273,7 @@ export class GetGatewayServiceDetailRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'number',
     };
   }
@@ -5126,11 +5345,13 @@ export class GetGatewayServiceDetailResponse extends $tea.Model {
 export class GetGovernanceKubernetesClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       regionId: 'RegionId',
     };
   }
@@ -5139,6 +5360,7 @@ export class GetGovernanceKubernetesClusterRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       regionId: 'string',
     };
   }
@@ -5209,10 +5431,12 @@ export class GetGovernanceKubernetesClusterResponse extends $tea.Model {
 
 export class GetImageRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
       versionCode: 'VersionCode',
     };
   }
@@ -5220,6 +5444,7 @@ export class GetImageRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
       versionCode: 'string',
     };
   }
@@ -5292,12 +5517,14 @@ export class GetImportFileUrlRequest extends $tea.Model {
   acceptLanguage?: string;
   contentType?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       contentType: 'ContentType',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
     };
   }
@@ -5307,6 +5534,7 @@ export class GetImportFileUrlRequest extends $tea.Model {
       acceptLanguage: 'string',
       contentType: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
     };
   }
@@ -5384,10 +5612,12 @@ export class GetImportFileUrlResponse extends $tea.Model {
 export class GetKubernetesSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -5395,6 +5625,7 @@ export class GetKubernetesSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -5464,15 +5695,18 @@ export class GetKubernetesSourceResponse extends $tea.Model {
 
 export class GetMseFeatureSwitchRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -5540,10 +5774,14 @@ export class GetMseFeatureSwitchResponse extends $tea.Model {
 export class GetMseSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
+      type: 'Type',
     };
   }
 
@@ -5551,6 +5789,8 @@ export class GetMseSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
+      type: 'string',
     };
   }
 
@@ -5624,6 +5864,7 @@ export class GetNacosConfigRequest extends $tea.Model {
   dataId?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5632,6 +5873,7 @@ export class GetNacosConfigRequest extends $tea.Model {
       dataId: 'DataId',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
     };
   }
@@ -5643,6 +5885,7 @@ export class GetNacosConfigRequest extends $tea.Model {
       dataId: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
     };
   }
@@ -5713,6 +5956,7 @@ export class GetNacosHistoryConfigRequest extends $tea.Model {
   dataId?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   nid?: string;
   static names(): { [key: string]: string } {
@@ -5721,6 +5965,7 @@ export class GetNacosHistoryConfigRequest extends $tea.Model {
       dataId: 'DataId',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       nid: 'Nid',
     };
@@ -5732,6 +5977,7 @@ export class GetNacosHistoryConfigRequest extends $tea.Model {
       dataId: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       nid: 'string',
     };
@@ -5800,11 +6046,13 @@ export class GetNacosHistoryConfigResponse extends $tea.Model {
 
 export class GetOverviewRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   period?: number;
   region?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
       period: 'Period',
       region: 'Region',
     };
@@ -5813,6 +6061,7 @@ export class GetOverviewRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
       period: 'number',
       region: 'string',
     };
@@ -5882,10 +6131,209 @@ export class GetOverviewResponse extends $tea.Model {
   }
 }
 
+export class GetPluginConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  mseSessionId?: string;
+  pluginId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
+      pluginId: 'PluginId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      mseSessionId: 'string',
+      pluginId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginConfigResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetPluginConfigResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetPluginConfigResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPluginConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPluginConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  category?: number;
+  enableOnly?: boolean;
+  gatewayUniqueId?: string;
+  mseSessionId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      category: 'Category',
+      enableOnly: 'EnableOnly',
+      gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      category: 'number',
+      enableOnly: 'boolean',
+      gatewayUniqueId: 'string',
+      mseSessionId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginsResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetPluginsResponseBodyData[];
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetPluginsResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetPluginsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPluginsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceListRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
   ip?: string;
+  mseSessionId?: string;
   region?: string;
   serviceName?: string;
   serviceType?: string;
@@ -5894,6 +6342,7 @@ export class GetServiceListRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
       ip: 'Ip',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
       serviceName: 'ServiceName',
       serviceType: 'ServiceType',
@@ -5905,6 +6354,7 @@ export class GetServiceListRequest extends $tea.Model {
       acceptLanguage: 'string',
       appId: 'string',
       ip: 'string',
+      mseSessionId: 'string',
       region: 'string',
       serviceName: 'string',
       serviceType: 'string',
@@ -5975,13 +6425,138 @@ export class GetServiceListResponse extends $tea.Model {
   }
 }
 
+export class GetServiceListenersRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clusterId?: string;
+  clusterName?: string;
+  groupName?: string;
+  hasIpCount?: string;
+  instanceId?: string;
+  mseSessionId?: string;
+  namespaceId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  regionId?: string;
+  requestPars?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      groupName: 'GroupName',
+      hasIpCount: 'HasIpCount',
+      instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
+      namespaceId: 'NamespaceId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clusterId: 'string',
+      clusterName: 'string',
+      groupName: 'string',
+      hasIpCount: 'string',
+      instanceId: 'string',
+      mseSessionId: 'string',
+      namespaceId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      requestPars: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceListenersResponseBody extends $tea.Model {
+  data?: GetServiceListenersResponseBodyData[];
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetServiceListenersResponseBodyData },
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceListenersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetServiceListenersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceListenersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTagsBySwimmingLaneGroupIdRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       groupId: 'GroupId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -5989,6 +6564,7 @@ export class GetTagsBySwimmingLaneGroupIdRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       groupId: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -6066,6 +6642,7 @@ export class ImportNacosConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   fileUrl?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   policy?: string;
   static names(): { [key: string]: string } {
@@ -6073,6 +6650,7 @@ export class ImportNacosConfigRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       fileUrl: 'FileUrl',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       policy: 'Policy',
     };
@@ -6083,6 +6661,7 @@ export class ImportNacosConfigRequest extends $tea.Model {
       acceptLanguage: 'string',
       fileUrl: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       policy: 'string',
     };
@@ -6161,16 +6740,18 @@ export class ImportNacosConfigResponse extends $tea.Model {
 export class ImportServicesRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceList?: ImportServicesRequestServiceList[];
-  sourceId?: string;
   sourceType?: string;
+  tlsSetting?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceList: 'ServiceList',
-      sourceId: 'SourceId',
       sourceType: 'SourceType',
+      tlsSetting: 'TlsSetting',
     };
   }
 
@@ -6178,9 +6759,10 @@ export class ImportServicesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceList: { 'type': 'array', 'itemType': ImportServicesRequestServiceList },
-      sourceId: 'string',
       sourceType: 'string',
+      tlsSetting: 'string',
     };
   }
 
@@ -6192,16 +6774,18 @@ export class ImportServicesRequest extends $tea.Model {
 export class ImportServicesShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceListShrink?: string;
-  sourceId?: string;
   sourceType?: string;
+  tlsSetting?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceListShrink: 'ServiceList',
-      sourceId: 'SourceId',
       sourceType: 'SourceType',
+      tlsSetting: 'TlsSetting',
     };
   }
 
@@ -6209,9 +6793,10 @@ export class ImportServicesShrinkRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceListShrink: 'string',
-      sourceId: 'string',
       sourceType: 'string',
+      tlsSetting: 'string',
     };
   }
 
@@ -6285,6 +6870,7 @@ export class ListAnsInstancesRequest extends $tea.Model {
   clusterName?: string;
   groupName?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
@@ -6297,6 +6883,7 @@ export class ListAnsInstancesRequest extends $tea.Model {
       clusterName: 'ClusterName',
       groupName: 'GroupName',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -6312,6 +6899,7 @@ export class ListAnsInstancesRequest extends $tea.Model {
       clusterName: 'string',
       groupName: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -6399,6 +6987,7 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
   clusterName?: string;
   groupName?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
@@ -6411,6 +7000,7 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
       clusterName: 'ClusterName',
       groupName: 'GroupName',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -6426,6 +7016,7 @@ export class ListAnsServiceClustersRequest extends $tea.Model {
       clusterName: 'string',
       groupName: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -6501,6 +7092,7 @@ export class ListAnsServicesRequest extends $tea.Model {
   groupName?: string;
   hasIpCount?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
@@ -6513,6 +7105,7 @@ export class ListAnsServicesRequest extends $tea.Model {
       groupName: 'GroupName',
       hasIpCount: 'HasIpCount',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -6528,6 +7121,7 @@ export class ListAnsServicesRequest extends $tea.Model {
       groupName: 'string',
       hasIpCount: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -6612,11 +7206,13 @@ export class ListAnsServicesResponse extends $tea.Model {
 export class ListAppBySwimmingLaneGroupTagRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
+  mseSessionId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       groupId: 'GroupId',
+      mseSessionId: 'MseSessionId',
       tag: 'Tag',
     };
   }
@@ -6625,6 +7221,7 @@ export class ListAppBySwimmingLaneGroupTagRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       groupId: 'number',
+      mseSessionId: 'string',
       tag: 'string',
     };
   }
@@ -6703,6 +7300,7 @@ export class ListApplicationsWithTagRulesRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
   appName?: string;
+  mseSessionId?: string;
   pageNumber?: number;
   pageSize?: number;
   region?: string;
@@ -6712,6 +7310,7 @@ export class ListApplicationsWithTagRulesRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
       appName: 'AppName',
+      mseSessionId: 'MseSessionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
@@ -6724,6 +7323,7 @@ export class ListApplicationsWithTagRulesRequest extends $tea.Model {
       acceptLanguage: 'string',
       appId: 'string',
       appName: 'string',
+      mseSessionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
@@ -6797,15 +7397,18 @@ export class ListApplicationsWithTagRulesResponse extends $tea.Model {
 
 export class ListClusterConnectionTypesRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -6882,11 +7485,13 @@ export class ListClusterConnectionTypesResponse extends $tea.Model {
 export class ListClusterTypesRequest extends $tea.Model {
   acceptLanguage?: string;
   connectType?: string;
+  mseSessionId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       connectType: 'ConnectType',
+      mseSessionId: 'MseSessionId',
       regionId: 'RegionId',
     };
   }
@@ -6895,6 +7500,7 @@ export class ListClusterTypesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       connectType: 'string',
+      mseSessionId: 'string',
       regionId: 'string',
     };
   }
@@ -6972,10 +7578,12 @@ export class ListClusterTypesResponse extends $tea.Model {
 export class ListClusterVersionsRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterType?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterType: 'ClusterType',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -6983,6 +7591,7 @@ export class ListClusterVersionsRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterType: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -7059,18 +7668,24 @@ export class ListClusterVersionsResponse extends $tea.Model {
 export class ListClustersRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterAliasName?: string;
+  mseSessionId?: string;
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
   requestPars?: string;
+  resourceGroupId?: string;
+  tag?: ListClustersRequestTag[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterAliasName: 'ClusterAliasName',
+      mseSessionId: 'MseSessionId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
       requestPars: 'RequestPars',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -7078,10 +7693,13 @@ export class ListClustersRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterAliasName: 'string',
+      mseSessionId: 'string',
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
       requestPars: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListClustersRequestTag },
     };
   }
 
@@ -7161,10 +7779,12 @@ export class ListClustersResponse extends $tea.Model {
 export class ListEngineNamespacesRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -7172,6 +7792,7 @@ export class ListEngineNamespacesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -7251,6 +7872,7 @@ export class ListEngineNamespacesResponse extends $tea.Model {
 export class ListEurekaInstancesRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   pageNum?: number;
   pageSize?: number;
   requestPars?: string;
@@ -7259,6 +7881,7 @@ export class ListEurekaInstancesRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestPars: 'RequestPars',
@@ -7270,6 +7893,7 @@ export class ListEurekaInstancesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       pageNum: 'number',
       pageSize: 'number',
       requestPars: 'string',
@@ -7353,6 +7977,7 @@ export class ListEurekaInstancesResponse extends $tea.Model {
 export class ListEurekaServicesRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
@@ -7361,6 +7986,7 @@ export class ListEurekaServicesRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -7372,6 +7998,7 @@ export class ListEurekaServicesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -7456,6 +8083,7 @@ export class ListGatewayRequest extends $tea.Model {
   acceptLanguage?: string;
   descSort?: boolean;
   filterParams?: ListGatewayRequestFilterParams;
+  mseSessionId?: string;
   orderItem?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -7464,6 +8092,7 @@ export class ListGatewayRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       descSort: 'DescSort',
       filterParams: 'FilterParams',
+      mseSessionId: 'MseSessionId',
       orderItem: 'OrderItem',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -7475,6 +8104,7 @@ export class ListGatewayRequest extends $tea.Model {
       acceptLanguage: 'string',
       descSort: 'boolean',
       filterParams: ListGatewayRequestFilterParams,
+      mseSessionId: 'string',
       orderItem: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7490,6 +8120,7 @@ export class ListGatewayShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   descSort?: boolean;
   filterParamsShrink?: string;
+  mseSessionId?: string;
   orderItem?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -7498,6 +8129,7 @@ export class ListGatewayShrinkRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       descSort: 'DescSort',
       filterParamsShrink: 'FilterParams',
+      mseSessionId: 'MseSessionId',
       orderItem: 'OrderItem',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -7509,6 +8141,7 @@ export class ListGatewayShrinkRequest extends $tea.Model {
       acceptLanguage: 'string',
       descSort: 'boolean',
       filterParamsShrink: 'string',
+      mseSessionId: 'string',
       orderItem: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7582,11 +8215,13 @@ export class ListGatewayResponse extends $tea.Model {
 export class ListGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       type: 'Type',
     };
   }
@@ -7595,6 +8230,7 @@ export class ListGatewayDomainRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       type: 'string',
     };
   }
@@ -7667,6 +8303,7 @@ export class ListGatewayRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   descSort?: boolean;
   filterParams?: ListGatewayRouteRequestFilterParams;
+  mseSessionId?: string;
   orderItem?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -7675,6 +8312,7 @@ export class ListGatewayRouteRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       descSort: 'DescSort',
       filterParams: 'FilterParams',
+      mseSessionId: 'MseSessionId',
       orderItem: 'OrderItem',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -7686,6 +8324,7 @@ export class ListGatewayRouteRequest extends $tea.Model {
       acceptLanguage: 'string',
       descSort: 'boolean',
       filterParams: ListGatewayRouteRequestFilterParams,
+      mseSessionId: 'string',
       orderItem: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7701,6 +8340,7 @@ export class ListGatewayRouteShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   descSort?: boolean;
   filterParamsShrink?: string;
+  mseSessionId?: string;
   orderItem?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -7709,6 +8349,7 @@ export class ListGatewayRouteShrinkRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       descSort: 'DescSort',
       filterParamsShrink: 'FilterParams',
+      mseSessionId: 'MseSessionId',
       orderItem: 'OrderItem',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -7720,6 +8361,7 @@ export class ListGatewayRouteShrinkRequest extends $tea.Model {
       acceptLanguage: 'string',
       descSort: 'boolean',
       filterParamsShrink: 'string',
+      mseSessionId: 'string',
       orderItem: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7794,6 +8436,7 @@ export class ListGatewayServiceRequest extends $tea.Model {
   acceptLanguage?: string;
   descSort?: boolean;
   filterParams?: ListGatewayServiceRequestFilterParams;
+  mseSessionId?: string;
   orderItem?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -7802,6 +8445,7 @@ export class ListGatewayServiceRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       descSort: 'DescSort',
       filterParams: 'FilterParams',
+      mseSessionId: 'MseSessionId',
       orderItem: 'OrderItem',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -7813,6 +8457,7 @@ export class ListGatewayServiceRequest extends $tea.Model {
       acceptLanguage: 'string',
       descSort: 'boolean',
       filterParams: ListGatewayServiceRequestFilterParams,
+      mseSessionId: 'string',
       orderItem: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7828,6 +8473,7 @@ export class ListGatewayServiceShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   descSort?: boolean;
   filterParamsShrink?: string;
+  mseSessionId?: string;
   orderItem?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -7836,6 +8482,7 @@ export class ListGatewayServiceShrinkRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       descSort: 'DescSort',
       filterParamsShrink: 'FilterParams',
+      mseSessionId: 'MseSessionId',
       orderItem: 'OrderItem',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -7847,6 +8494,7 @@ export class ListGatewayServiceShrinkRequest extends $tea.Model {
       acceptLanguage: 'string',
       descSort: 'boolean',
       filterParamsShrink: 'string',
+      mseSessionId: 'string',
       orderItem: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -7920,10 +8568,12 @@ export class ListGatewayServiceResponse extends $tea.Model {
 export class ListGatewaySlbRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -7931,6 +8581,7 @@ export class ListGatewaySlbRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -8000,11 +8651,13 @@ export class ListGatewaySlbResponse extends $tea.Model {
 
 export class ListInstancesRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   region?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
       userId: 'UserId',
     };
@@ -8013,6 +8666,7 @@ export class ListInstancesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
       region: 'string',
       userId: 'string',
     };
@@ -8087,6 +8741,7 @@ export class ListListenersByConfigRequest extends $tea.Model {
   dataId?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
@@ -8095,6 +8750,7 @@ export class ListListenersByConfigRequest extends $tea.Model {
       dataId: 'DataId',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       requestPars: 'RequestPars',
     };
@@ -8106,6 +8762,7 @@ export class ListListenersByConfigRequest extends $tea.Model {
       dataId: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       requestPars: 'string',
     };
@@ -8188,6 +8845,7 @@ export class ListListenersByIpRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
   ip?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
@@ -8195,6 +8853,7 @@ export class ListListenersByIpRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       instanceId: 'InstanceId',
       ip: 'Ip',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       requestPars: 'RequestPars',
     };
@@ -8205,6 +8864,7 @@ export class ListListenersByIpRequest extends $tea.Model {
       acceptLanguage: 'string',
       instanceId: 'string',
       ip: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       requestPars: 'string',
     };
@@ -8289,6 +8949,7 @@ export class ListNacosConfigsRequest extends $tea.Model {
   dataId?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
@@ -8302,6 +8963,7 @@ export class ListNacosConfigsRequest extends $tea.Model {
       dataId: 'DataId',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -8318,6 +8980,7 @@ export class ListNacosConfigsRequest extends $tea.Model {
       dataId: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -8408,6 +9071,7 @@ export class ListNacosHistoryConfigsRequest extends $tea.Model {
   dataId?: string;
   group?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   pageNum?: number;
   pageSize?: number;
@@ -8419,6 +9083,7 @@ export class ListNacosHistoryConfigsRequest extends $tea.Model {
       dataId: 'DataId',
       group: 'Group',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -8433,6 +9098,7 @@ export class ListNacosHistoryConfigsRequest extends $tea.Model {
       dataId: 'string',
       group: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -8517,10 +9183,12 @@ export class ListNacosHistoryConfigsResponse extends $tea.Model {
 export class ListSSLCertRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -8528,6 +9196,7 @@ export class ListSSLCertRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -8598,10 +9267,12 @@ export class ListSSLCertResponse extends $tea.Model {
 export class ListSecurityGroupRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -8609,6 +9280,7 @@ export class ListSecurityGroupRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -8679,10 +9351,12 @@ export class ListSecurityGroupResponse extends $tea.Model {
 export class ListSecurityGroupRuleRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -8690,6 +9364,7 @@ export class ListSecurityGroupRuleRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -8760,10 +9435,12 @@ export class ListSecurityGroupRuleResponse extends $tea.Model {
 export class ListServiceSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -8771,6 +9448,7 @@ export class ListServiceSourceRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -8838,13 +9516,111 @@ export class ListServiceSourceResponse extends $tea.Model {
   }
 }
 
-export class ListVgroupsRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      mseSessionId: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  errorCode?: string;
+  message?: string;
+  nextToken?: string;
+  requestId?: string;
+  success?: boolean;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserInstancesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  mseSessionId?: string;
   region?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
       userId: 'UserId',
     };
@@ -8853,6 +9629,94 @@ export class ListVgroupsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
+      region: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserInstancesResponseBody extends $tea.Model {
+  code?: number;
+  data?: ListUserInstancesResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListUserInstancesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUserInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVgroupsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  mseSessionId?: string;
+  region?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
+      region: 'Region',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      mseSessionId: 'string',
       region: 'string',
       userId: 'string',
     };
@@ -8925,11 +9789,13 @@ export class ListVgroupsResponse extends $tea.Model {
 export class ListZnodeChildrenRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   path?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       path: 'Path',
     };
   }
@@ -8938,6 +9804,7 @@ export class ListZnodeChildrenRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       path: 'string',
     };
   }
@@ -9006,12 +9873,14 @@ export class ListZnodeChildrenResponse extends $tea.Model {
 export class ModifyGovernanceKubernetesClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   namespaceInfos?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       namespaceInfos: 'NamespaceInfos',
       regionId: 'RegionId',
     };
@@ -9021,6 +9890,7 @@ export class ModifyGovernanceKubernetesClusterRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       namespaceInfos: 'string',
       regionId: 'string',
     };
@@ -9090,14 +9960,127 @@ export class ModifyGovernanceKubernetesClusterResponse extends $tea.Model {
   }
 }
 
+export class ModifyLosslessRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  aligned?: boolean;
+  appId?: string;
+  appName?: string;
+  delayTime?: number;
+  enable?: boolean;
+  funcType?: number;
+  mseSessionId?: string;
+  regionId?: string;
+  related?: boolean;
+  shutdownWaitSeconds?: number;
+  source?: string;
+  warmupTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      aligned: 'Aligned',
+      appId: 'AppId',
+      appName: 'AppName',
+      delayTime: 'DelayTime',
+      enable: 'Enable',
+      funcType: 'FuncType',
+      mseSessionId: 'MseSessionId',
+      regionId: 'RegionId',
+      related: 'Related',
+      shutdownWaitSeconds: 'ShutdownWaitSeconds',
+      source: 'Source',
+      warmupTime: 'WarmupTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      aligned: 'boolean',
+      appId: 'string',
+      appName: 'string',
+      delayTime: 'number',
+      enable: 'boolean',
+      funcType: 'number',
+      mseSessionId: 'string',
+      regionId: 'string',
+      related: 'boolean',
+      shutdownWaitSeconds: 'number',
+      source: 'string',
+      warmupTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLosslessRuleResponseBody extends $tea.Model {
+  errorCode?: string;
+  httpCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      httpCode: 'HttpCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      httpCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLosslessRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyLosslessRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyLosslessRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OfflineGatewayRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   routeId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       routeId: 'RouteId',
     };
   }
@@ -9106,6 +10089,7 @@ export class OfflineGatewayRouteRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       routeId: 'string',
     };
   }
@@ -9177,11 +10161,15 @@ export class OfflineGatewayRouteResponse extends $tea.Model {
 export class PullServicesRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
+  namespace?: string;
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
+      namespace: 'Namespace',
       sourceType: 'SourceType',
     };
   }
@@ -9190,6 +10178,8 @@ export class PullServicesRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
+      namespace: 'string',
       sourceType: 'string',
     };
   }
@@ -9261,10 +10251,12 @@ export class PullServicesResponse extends $tea.Model {
 export class QueryAllSwimmingLaneRequest extends $tea.Model {
   acceptLanguage?: string;
   groupId?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       groupId: 'GroupId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -9272,6 +10264,7 @@ export class QueryAllSwimmingLaneRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       groupId: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -9347,15 +10340,18 @@ export class QueryAllSwimmingLaneResponse extends $tea.Model {
 
 export class QueryAllSwimmingLaneGroupRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -9431,15 +10427,18 @@ export class QueryAllSwimmingLaneGroupResponse extends $tea.Model {
 
 export class QueryBusinessLocationsRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -9508,12 +10507,14 @@ export class QueryClusterDetailRequest extends $tea.Model {
   acceptLanguage?: string;
   aclSwitch?: boolean;
   instanceId?: string;
+  mseSessionId?: string;
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       aclSwitch: 'AclSwitch',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       orderId: 'OrderId',
     };
   }
@@ -9523,6 +10524,7 @@ export class QueryClusterDetailRequest extends $tea.Model {
       acceptLanguage: 'string',
       aclSwitch: 'boolean',
       instanceId: 'string',
+      mseSessionId: 'string',
       orderId: 'string',
     };
   }
@@ -9591,10 +10593,12 @@ export class QueryClusterDetailResponse extends $tea.Model {
 export class QueryClusterDiskSpecificationRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterType?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterType: 'ClusterType',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -9602,6 +10606,7 @@ export class QueryClusterDiskSpecificationRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterType: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -9678,10 +10683,12 @@ export class QueryClusterDiskSpecificationResponse extends $tea.Model {
 export class QueryClusterSpecificationRequest extends $tea.Model {
   acceptLanguage?: string;
   connectType?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       connectType: 'ConnectType',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -9689,6 +10696,7 @@ export class QueryClusterSpecificationRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       connectType: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -9764,6 +10772,7 @@ export class QueryConfigRequest extends $tea.Model {
   clusterId?: string;
   configType?: string;
   instanceId?: string;
+  mseSessionId?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9771,6 +10780,7 @@ export class QueryConfigRequest extends $tea.Model {
       clusterId: 'ClusterId',
       configType: 'ConfigType',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       requestPars: 'RequestPars',
     };
   }
@@ -9781,6 +10791,7 @@ export class QueryConfigRequest extends $tea.Model {
       clusterId: 'string',
       configType: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       requestPars: 'string',
     };
   }
@@ -9851,15 +10862,18 @@ export class QueryConfigResponse extends $tea.Model {
 
 export class QueryGatewayRegionRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -9929,15 +10943,18 @@ export class QueryGatewayRegionResponse extends $tea.Model {
 
 export class QueryGatewayTypeRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -10009,6 +11026,7 @@ export class QueryGovernanceKubernetesClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
   clusterName?: string;
+  mseSessionId?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
@@ -10016,6 +11034,7 @@ export class QueryGovernanceKubernetesClusterRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
+      mseSessionId: 'MseSessionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -10026,6 +11045,7 @@ export class QueryGovernanceKubernetesClusterRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterId: 'string',
       clusterName: 'string',
+      mseSessionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -10100,6 +11120,7 @@ export class QueryMonitorRequest extends $tea.Model {
   endTime?: number;
   instanceId?: string;
   monitorType?: string;
+  mseSessionId?: string;
   requestPars?: string;
   startTime?: number;
   step?: number;
@@ -10109,6 +11130,7 @@ export class QueryMonitorRequest extends $tea.Model {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
       monitorType: 'MonitorType',
+      mseSessionId: 'MseSessionId',
       requestPars: 'RequestPars',
       startTime: 'StartTime',
       step: 'Step',
@@ -10121,6 +11143,7 @@ export class QueryMonitorRequest extends $tea.Model {
       endTime: 'number',
       instanceId: 'string',
       monitorType: 'string',
+      mseSessionId: 'string',
       requestPars: 'string',
       startTime: 'number',
       step: 'number',
@@ -10190,15 +11213,18 @@ export class QueryMonitorResponse extends $tea.Model {
 
 export class QuerySlbSpecRequest extends $tea.Model {
   acceptLanguage?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -10269,10 +11295,12 @@ export class QuerySlbSpecResponse extends $tea.Model {
 export class QuerySwimmingLaneByIdRequest extends $tea.Model {
   acceptLanguage?: string;
   laneId?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       laneId: 'LaneId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -10280,6 +11308,7 @@ export class QuerySwimmingLaneByIdRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       laneId: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -10357,6 +11386,7 @@ export class QueryZnodeDetailRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
   instanceId?: string;
+  mseSessionId?: string;
   path?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
@@ -10364,6 +11394,7 @@ export class QueryZnodeDetailRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       path: 'Path',
       requestPars: 'RequestPars',
     };
@@ -10374,6 +11405,7 @@ export class QueryZnodeDetailRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterId: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       path: 'string',
       requestPars: 'string',
     };
@@ -10444,6 +11476,7 @@ export class RestartClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
   instanceId?: string;
+  mseSessionId?: string;
   podNameList?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
@@ -10451,6 +11484,7 @@ export class RestartClusterRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       podNameList: 'PodNameList',
       requestPars: 'RequestPars',
     };
@@ -10461,6 +11495,7 @@ export class RestartClusterRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterId: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       podNameList: 'string',
       requestPars: 'string',
     };
@@ -10527,11 +11562,13 @@ export class RestartClusterResponse extends $tea.Model {
 export class RetryClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
+  mseSessionId?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       requestPars: 'RequestPars',
     };
   }
@@ -10540,6 +11577,7 @@ export class RetryClusterRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       requestPars: 'string',
     };
   }
@@ -10605,12 +11643,14 @@ export class RetryClusterResponse extends $tea.Model {
 export class SelectGatewaySlbRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   name?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       type: 'Type',
     };
@@ -10620,6 +11660,7 @@ export class SelectGatewaySlbRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       name: 'string',
       type: 'string',
     };
@@ -10689,15 +11730,194 @@ export class SelectGatewaySlbResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  mseSessionId?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      mseSessionId: 'MseSessionId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      mseSessionId: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  all?: boolean;
+  mseSessionId?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      all: 'All',
+      mseSessionId: 'MseSessionId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      all: 'boolean',
+      mseSessionId: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAclRequest extends $tea.Model {
   acceptLanguage?: string;
   aclEntryList?: string;
   instanceId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       aclEntryList: 'AclEntryList',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -10706,6 +11926,7 @@ export class UpdateAclRequest extends $tea.Model {
       acceptLanguage: 'string',
       aclEntryList: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -10773,6 +11994,7 @@ export class UpdateBlackWhiteListRequest extends $tea.Model {
   gatewayUniqueId?: string;
   id?: number;
   isWhite?: boolean;
+  mseSessionId?: string;
   resourceType?: string;
   status?: string;
   type?: string;
@@ -10783,6 +12005,7 @@ export class UpdateBlackWhiteListRequest extends $tea.Model {
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
       isWhite: 'IsWhite',
+      mseSessionId: 'MseSessionId',
       resourceType: 'ResourceType',
       status: 'Status',
       type: 'Type',
@@ -10796,6 +12019,7 @@ export class UpdateBlackWhiteListRequest extends $tea.Model {
       gatewayUniqueId: 'string',
       id: 'number',
       isWhite: 'boolean',
+      mseSessionId: 'string',
       resourceType: 'string',
       status: 'string',
       type: 'string',
@@ -10870,12 +12094,14 @@ export class UpdateClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterAliasName?: string;
   instanceId?: string;
+  mseSessionId?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterAliasName: 'ClusterAliasName',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       requestPars: 'RequestPars',
     };
   }
@@ -10885,6 +12111,7 @@ export class UpdateClusterRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterAliasName: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       requestPars: 'string',
     };
   }
@@ -10953,6 +12180,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
   clusterSpecification?: string;
   instanceCount?: number;
   instanceId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -10960,6 +12188,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
       clusterSpecification: 'ClusterSpecification',
       instanceCount: 'InstanceCount',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -10970,6 +12199,7 @@ export class UpdateClusterSpecRequest extends $tea.Model {
       clusterSpecification: 'string',
       instanceCount: 'number',
       instanceId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -11052,9 +12282,12 @@ export class UpdateConfigRequest extends $tea.Model {
   maxClientCnxns?: string;
   maxSessionTimeout?: string;
   minSessionTimeout?: string;
+  mseSessionId?: string;
+  namingAuthEnabled?: boolean;
   openSuperAcl?: string;
   passWord?: string;
   requestPars?: string;
+  snapshotCount?: string;
   syncLimit?: string;
   tickTime?: string;
   userName?: string;
@@ -11074,9 +12307,12 @@ export class UpdateConfigRequest extends $tea.Model {
       maxClientCnxns: 'MaxClientCnxns',
       maxSessionTimeout: 'MaxSessionTimeout',
       minSessionTimeout: 'MinSessionTimeout',
+      mseSessionId: 'MseSessionId',
+      namingAuthEnabled: 'NamingAuthEnabled',
       openSuperAcl: 'OpenSuperAcl',
       passWord: 'PassWord',
       requestPars: 'RequestPars',
+      snapshotCount: 'SnapshotCount',
       syncLimit: 'SyncLimit',
       tickTime: 'TickTime',
       userName: 'UserName',
@@ -11099,9 +12335,12 @@ export class UpdateConfigRequest extends $tea.Model {
       maxClientCnxns: 'string',
       maxSessionTimeout: 'string',
       minSessionTimeout: 'string',
+      mseSessionId: 'string',
+      namingAuthEnabled: 'boolean',
       openSuperAcl: 'string',
       passWord: 'string',
       requestPars: 'string',
+      snapshotCount: 'string',
       syncLimit: 'string',
       tickTime: 'string',
       userName: 'string',
@@ -11175,6 +12414,7 @@ export class UpdateEngineNamespaceRequest extends $tea.Model {
   desc?: string;
   id?: string;
   instanceId?: string;
+  mseSessionId?: string;
   name?: string;
   serviceCount?: number;
   static names(): { [key: string]: string } {
@@ -11184,6 +12424,7 @@ export class UpdateEngineNamespaceRequest extends $tea.Model {
       desc: 'Desc',
       id: 'Id',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       serviceCount: 'ServiceCount',
     };
@@ -11196,6 +12437,7 @@ export class UpdateEngineNamespaceRequest extends $tea.Model {
       desc: 'string',
       id: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       name: 'string',
       serviceCount: 'number',
     };
@@ -11266,17 +12508,25 @@ export class UpdateGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   certIdentifier?: string;
   gatewayUniqueId?: string;
+  http2?: string;
   id?: number;
+  mseSessionId?: string;
   mustHttps?: boolean;
   protocol?: string;
+  tlsMax?: string;
+  tlsMin?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       certIdentifier: 'CertIdentifier',
       gatewayUniqueId: 'GatewayUniqueId',
+      http2: 'Http2',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       mustHttps: 'MustHttps',
       protocol: 'Protocol',
+      tlsMax: 'TlsMax',
+      tlsMin: 'TlsMin',
     };
   }
 
@@ -11285,9 +12535,13 @@ export class UpdateGatewayDomainRequest extends $tea.Model {
       acceptLanguage: 'string',
       certIdentifier: 'string',
       gatewayUniqueId: 'string',
+      http2: 'string',
       id: 'number',
+      mseSessionId: 'string',
       mustHttps: 'boolean',
       protocol: 'string',
+      tlsMax: 'string',
+      tlsMin: 'string',
     };
   }
 
@@ -11358,11 +12612,13 @@ export class UpdateGatewayDomainResponse extends $tea.Model {
 export class UpdateGatewayNameRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
     };
   }
@@ -11371,6 +12627,7 @@ export class UpdateGatewayNameRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       name: 'string',
     };
   }
@@ -11444,12 +12701,14 @@ export class UpdateGatewayOptionRequest extends $tea.Model {
   gatewayId?: number;
   gatewayOption?: GatewayOption;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayId: 'GatewayId',
       gatewayOption: 'GatewayOption',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -11459,6 +12718,7 @@ export class UpdateGatewayOptionRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayOption: GatewayOption,
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -11472,12 +12732,14 @@ export class UpdateGatewayOptionShrinkRequest extends $tea.Model {
   gatewayId?: number;
   gatewayOptionShrink?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayId: 'GatewayId',
       gatewayOptionShrink: 'GatewayOption',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -11487,6 +12749,7 @@ export class UpdateGatewayOptionShrinkRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayOptionShrink: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -11560,9 +12823,12 @@ export class UpdateGatewayRouteRequest extends $tea.Model {
   directResponseJSON?: UpdateGatewayRouteRequestDirectResponseJSON;
   domainIdListJSON?: string;
   enableWaf?: boolean;
+  fallback?: boolean;
+  fallbackServices?: UpdateGatewayRouteRequestFallbackServices[];
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   name?: string;
   predicates?: UpdateGatewayRouteRequestPredicates;
   redirectJSON?: UpdateGatewayRouteRequestRedirectJSON;
@@ -11575,9 +12841,12 @@ export class UpdateGatewayRouteRequest extends $tea.Model {
       directResponseJSON: 'DirectResponseJSON',
       domainIdListJSON: 'DomainIdListJSON',
       enableWaf: 'EnableWaf',
+      fallback: 'Fallback',
+      fallbackServices: 'FallbackServices',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       predicates: 'Predicates',
       redirectJSON: 'RedirectJSON',
@@ -11593,9 +12862,12 @@ export class UpdateGatewayRouteRequest extends $tea.Model {
       directResponseJSON: UpdateGatewayRouteRequestDirectResponseJSON,
       domainIdListJSON: 'string',
       enableWaf: 'boolean',
+      fallback: 'boolean',
+      fallbackServices: { 'type': 'array', 'itemType': UpdateGatewayRouteRequestFallbackServices },
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
       name: 'string',
       predicates: UpdateGatewayRouteRequestPredicates,
       redirectJSON: UpdateGatewayRouteRequestRedirectJSON,
@@ -11615,9 +12887,12 @@ export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
   directResponseJSONShrink?: string;
   domainIdListJSON?: string;
   enableWaf?: boolean;
+  fallback?: boolean;
+  fallbackServicesShrink?: string;
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   name?: string;
   predicatesShrink?: string;
   redirectJSONShrink?: string;
@@ -11630,9 +12905,12 @@ export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
       directResponseJSONShrink: 'DirectResponseJSON',
       domainIdListJSON: 'DomainIdListJSON',
       enableWaf: 'EnableWaf',
+      fallback: 'Fallback',
+      fallbackServicesShrink: 'FallbackServices',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       predicatesShrink: 'Predicates',
       redirectJSONShrink: 'RedirectJSON',
@@ -11648,9 +12926,12 @@ export class UpdateGatewayRouteShrinkRequest extends $tea.Model {
       directResponseJSONShrink: 'string',
       domainIdListJSON: 'string',
       enableWaf: 'boolean',
+      fallback: 'boolean',
+      fallbackServicesShrink: 'string',
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
       name: 'string',
       predicatesShrink: 'string',
       redirectJSONShrink: 'string',
@@ -11729,6 +13010,7 @@ export class UpdateGatewayRouteCORSRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -11736,6 +13018,7 @@ export class UpdateGatewayRouteCORSRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -11746,6 +13029,7 @@ export class UpdateGatewayRouteCORSRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -11760,6 +13044,7 @@ export class UpdateGatewayRouteCORSShrinkRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -11767,6 +13052,7 @@ export class UpdateGatewayRouteCORSShrinkRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -11777,6 +13063,7 @@ export class UpdateGatewayRouteCORSShrinkRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -11850,6 +13137,7 @@ export class UpdateGatewayRouteHTTPRewriteRequest extends $tea.Model {
   gatewayUniqueId?: string;
   httpRewriteJSON?: string;
   id?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -11857,6 +13145,7 @@ export class UpdateGatewayRouteHTTPRewriteRequest extends $tea.Model {
       gatewayUniqueId: 'GatewayUniqueId',
       httpRewriteJSON: 'HttpRewriteJSON',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -11867,6 +13156,7 @@ export class UpdateGatewayRouteHTTPRewriteRequest extends $tea.Model {
       gatewayUniqueId: 'string',
       httpRewriteJSON: 'string',
       id: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -11940,6 +13230,7 @@ export class UpdateGatewayRouteHeaderOpRequest extends $tea.Model {
   gatewayUniqueId?: string;
   headerOpJSON?: string;
   id?: number;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -11947,6 +13238,7 @@ export class UpdateGatewayRouteHeaderOpRequest extends $tea.Model {
       gatewayUniqueId: 'GatewayUniqueId',
       headerOpJSON: 'HeaderOpJSON',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -11957,6 +13249,7 @@ export class UpdateGatewayRouteHeaderOpRequest extends $tea.Model {
       gatewayUniqueId: 'string',
       headerOpJSON: 'string',
       id: 'number',
+      mseSessionId: 'string',
     };
   }
 
@@ -12029,6 +13322,7 @@ export class UpdateGatewayRouteRetryRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   retryJSON?: UpdateGatewayRouteRetryRequestRetryJSON;
   static names(): { [key: string]: string } {
     return {
@@ -12036,6 +13330,7 @@ export class UpdateGatewayRouteRetryRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       retryJSON: 'RetryJSON',
     };
   }
@@ -12046,6 +13341,7 @@ export class UpdateGatewayRouteRetryRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
       retryJSON: UpdateGatewayRouteRetryRequestRetryJSON,
     };
   }
@@ -12060,6 +13356,7 @@ export class UpdateGatewayRouteRetryShrinkRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   retryJSONShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12067,6 +13364,7 @@ export class UpdateGatewayRouteRetryShrinkRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       retryJSONShrink: 'RetryJSON',
     };
   }
@@ -12077,6 +13375,7 @@ export class UpdateGatewayRouteRetryShrinkRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
       retryJSONShrink: 'string',
     };
   }
@@ -12150,6 +13449,7 @@ export class UpdateGatewayRouteTimeoutRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   timeoutJSON?: UpdateGatewayRouteTimeoutRequestTimeoutJSON;
   static names(): { [key: string]: string } {
     return {
@@ -12157,6 +13457,7 @@ export class UpdateGatewayRouteTimeoutRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       timeoutJSON: 'TimeoutJSON',
     };
   }
@@ -12167,6 +13468,7 @@ export class UpdateGatewayRouteTimeoutRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
       timeoutJSON: UpdateGatewayRouteTimeoutRequestTimeoutJSON,
     };
   }
@@ -12181,6 +13483,7 @@ export class UpdateGatewayRouteTimeoutShrinkRequest extends $tea.Model {
   gatewayId?: number;
   gatewayUniqueId?: string;
   id?: number;
+  mseSessionId?: string;
   timeoutJSONShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12188,6 +13491,7 @@ export class UpdateGatewayRouteTimeoutShrinkRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
+      mseSessionId: 'MseSessionId',
       timeoutJSONShrink: 'TimeoutJSON',
     };
   }
@@ -12198,6 +13502,7 @@ export class UpdateGatewayRouteTimeoutShrinkRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'number',
+      mseSessionId: 'string',
       timeoutJSONShrink: 'string',
     };
   }
@@ -12270,12 +13575,14 @@ export class UpdateGatewayRouteWafStatusRequest extends $tea.Model {
   acceptLanguage?: string;
   enableWaf?: boolean;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   routeId?: number;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       enableWaf: 'EnableWaf',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       routeId: 'RouteId',
     };
   }
@@ -12285,6 +13592,7 @@ export class UpdateGatewayRouteWafStatusRequest extends $tea.Model {
       acceptLanguage: 'string',
       enableWaf: 'boolean',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       routeId: 'number',
     };
   }
@@ -12358,6 +13666,7 @@ export class UpdateGatewayServiceTrafficPolicyRequest extends $tea.Model {
   gatewayId?: number;
   gatewayTrafficPolicy?: TrafficPolicy;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12365,6 +13674,7 @@ export class UpdateGatewayServiceTrafficPolicyRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayTrafficPolicy: 'GatewayTrafficPolicy',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
     };
   }
@@ -12375,6 +13685,7 @@ export class UpdateGatewayServiceTrafficPolicyRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayTrafficPolicy: TrafficPolicy,
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'number',
     };
   }
@@ -12389,6 +13700,7 @@ export class UpdateGatewayServiceTrafficPolicyShrinkRequest extends $tea.Model {
   gatewayId?: number;
   gatewayTrafficPolicyShrink?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12396,6 +13708,7 @@ export class UpdateGatewayServiceTrafficPolicyShrinkRequest extends $tea.Model {
       gatewayId: 'GatewayId',
       gatewayTrafficPolicyShrink: 'GatewayTrafficPolicy',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
     };
   }
@@ -12406,6 +13719,7 @@ export class UpdateGatewayServiceTrafficPolicyShrinkRequest extends $tea.Model {
       gatewayId: 'number',
       gatewayTrafficPolicyShrink: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'number',
     };
   }
@@ -12477,12 +13791,14 @@ export class UpdateGatewayServiceTrafficPolicyResponse extends $tea.Model {
 export class UpdateGatewayServiceVersionRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   serviceId?: number;
   serviceVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
     };
@@ -12492,6 +13808,7 @@ export class UpdateGatewayServiceVersionRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       serviceId: 'number',
       serviceVersion: 'string',
     };
@@ -12564,12 +13881,14 @@ export class UpdateGatewayServiceVersionResponse extends $tea.Model {
 export class UpdateGatewaySpecRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   replica?: number;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
       replica: 'Replica',
       spec: 'Spec',
     };
@@ -12579,6 +13898,7 @@ export class UpdateGatewaySpecRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
       replica: 'number',
       spec: 'string',
     };
@@ -12651,11 +13971,13 @@ export class UpdateGatewaySpecResponse extends $tea.Model {
 export class UpdateImageRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
+  mseSessionId?: string;
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
+      mseSessionId: 'MseSessionId',
       versionCode: 'VersionCode',
     };
   }
@@ -12664,6 +13986,7 @@ export class UpdateImageRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       clusterId: 'string',
+      mseSessionId: 'string',
       versionCode: 'string',
     };
   }
@@ -12730,6 +14053,8 @@ export class UpdateMessageQueueRouteRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
   enable?: boolean;
+  filterSide?: string;
+  mseSessionId?: string;
   region?: string;
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -12737,6 +14062,8 @@ export class UpdateMessageQueueRouteRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
       enable: 'Enable',
+      filterSide: 'FilterSide',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
       tags: 'Tags',
     };
@@ -12747,6 +14074,8 @@ export class UpdateMessageQueueRouteRequest extends $tea.Model {
       acceptLanguage: 'string',
       appId: 'string',
       enable: 'boolean',
+      filterSide: 'string',
+      mseSessionId: 'string',
       region: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
     };
@@ -12761,6 +14090,8 @@ export class UpdateMessageQueueRouteShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
   enable?: boolean;
+  filterSide?: string;
+  mseSessionId?: string;
   region?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -12768,6 +14099,8 @@ export class UpdateMessageQueueRouteShrinkRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       appId: 'AppId',
       enable: 'Enable',
+      filterSide: 'FilterSide',
+      mseSessionId: 'MseSessionId',
       region: 'Region',
       tagsShrink: 'Tags',
     };
@@ -12778,6 +14111,8 @@ export class UpdateMessageQueueRouteShrinkRequest extends $tea.Model {
       acceptLanguage: 'string',
       appId: 'string',
       enable: 'boolean',
+      filterSide: 'string',
+      mseSessionId: 'string',
       region: 'string',
       tagsShrink: 'string',
     };
@@ -12854,6 +14189,7 @@ export class UpdateNacosClusterRequest extends $tea.Model {
   groupName?: string;
   healthChecker?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   serviceName?: string;
   useInstancePortForCheck?: boolean;
@@ -12865,6 +14201,7 @@ export class UpdateNacosClusterRequest extends $tea.Model {
       groupName: 'GroupName',
       healthChecker: 'HealthChecker',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       serviceName: 'ServiceName',
       useInstancePortForCheck: 'UseInstancePortForCheck',
@@ -12879,6 +14216,7 @@ export class UpdateNacosClusterRequest extends $tea.Model {
       groupName: 'string',
       healthChecker: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       serviceName: 'string',
       useInstancePortForCheck: 'boolean',
@@ -12960,6 +14298,7 @@ export class UpdateNacosConfigRequest extends $tea.Model {
   group?: string;
   instanceId?: string;
   md5?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   tags?: string;
   type?: string;
@@ -12975,6 +14314,7 @@ export class UpdateNacosConfigRequest extends $tea.Model {
       group: 'Group',
       instanceId: 'InstanceId',
       md5: 'Md5',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       tags: 'Tags',
       type: 'Type',
@@ -12993,6 +14333,7 @@ export class UpdateNacosConfigRequest extends $tea.Model {
       group: 'string',
       instanceId: 'string',
       md5: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       tags: 'string',
       type: 'string',
@@ -13069,6 +14410,7 @@ export class UpdateNacosInstanceRequest extends $tea.Model {
   instanceId?: string;
   ip?: string;
   metadata?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   port?: number;
   serviceName?: string;
@@ -13083,6 +14425,7 @@ export class UpdateNacosInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ip: 'Ip',
       metadata: 'Metadata',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       port: 'Port',
       serviceName: 'ServiceName',
@@ -13100,6 +14443,7 @@ export class UpdateNacosInstanceRequest extends $tea.Model {
       instanceId: 'string',
       ip: 'string',
       metadata: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       port: 'number',
       serviceName: 'string',
@@ -13176,6 +14520,7 @@ export class UpdateNacosServiceRequest extends $tea.Model {
   clusterId?: string;
   groupName?: string;
   instanceId?: string;
+  mseSessionId?: string;
   namespaceId?: string;
   protectThreshold?: string;
   serviceName?: string;
@@ -13185,6 +14530,7 @@ export class UpdateNacosServiceRequest extends $tea.Model {
       clusterId: 'ClusterId',
       groupName: 'GroupName',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       namespaceId: 'NamespaceId',
       protectThreshold: 'ProtectThreshold',
       serviceName: 'ServiceName',
@@ -13197,6 +14543,7 @@ export class UpdateNacosServiceRequest extends $tea.Model {
       clusterId: 'string',
       groupName: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       namespaceId: 'string',
       protectThreshold: 'string',
       serviceName: 'string',
@@ -13267,17 +14614,133 @@ export class UpdateNacosServiceResponse extends $tea.Model {
   }
 }
 
+export class UpdatePluginConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  config?: string;
+  configLevel?: number;
+  enable?: boolean;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  mseSessionId?: string;
+  pluginId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      config: 'Config',
+      configLevel: 'ConfigLevel',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      mseSessionId: 'MseSessionId',
+      pluginId: 'PluginId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      config: 'string',
+      configLevel: 'number',
+      enable: 'boolean',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      mseSessionId: 'string',
+      pluginId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePluginConfigResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePluginConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdatePluginConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePluginConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSSLCertRequest extends $tea.Model {
   acceptLanguage?: string;
   certIdentifier?: string;
   domainId?: number;
   gatewayUniqueId?: string;
+  mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       certIdentifier: 'CertIdentifier',
       domainId: 'DomainId',
       gatewayUniqueId: 'GatewayUniqueId',
+      mseSessionId: 'MseSessionId',
     };
   }
 
@@ -13287,6 +14750,7 @@ export class UpdateSSLCertRequest extends $tea.Model {
       certIdentifier: 'string',
       domainId: 'number',
       gatewayUniqueId: 'string',
+      mseSessionId: 'string',
     };
   }
 
@@ -13361,6 +14825,7 @@ export class UpdateServiceSourceRequest extends $tea.Model {
   gatewayUniqueId?: string;
   id?: number;
   ingressOptionsRequest?: UpdateServiceSourceRequestIngressOptionsRequest;
+  mseSessionId?: string;
   name?: string;
   source?: string;
   type?: string;
@@ -13372,6 +14837,7 @@ export class UpdateServiceSourceRequest extends $tea.Model {
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
       ingressOptionsRequest: 'IngressOptionsRequest',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       source: 'Source',
       type: 'Type',
@@ -13386,6 +14852,7 @@ export class UpdateServiceSourceRequest extends $tea.Model {
       gatewayUniqueId: 'string',
       id: 'number',
       ingressOptionsRequest: UpdateServiceSourceRequestIngressOptionsRequest,
+      mseSessionId: 'string',
       name: 'string',
       source: 'string',
       type: 'string',
@@ -13404,6 +14871,7 @@ export class UpdateServiceSourceShrinkRequest extends $tea.Model {
   gatewayUniqueId?: string;
   id?: number;
   ingressOptionsRequestShrink?: string;
+  mseSessionId?: string;
   name?: string;
   source?: string;
   type?: string;
@@ -13415,6 +14883,7 @@ export class UpdateServiceSourceShrinkRequest extends $tea.Model {
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
       ingressOptionsRequestShrink: 'IngressOptionsRequest',
+      mseSessionId: 'MseSessionId',
       name: 'Name',
       source: 'Source',
       type: 'Type',
@@ -13429,6 +14898,7 @@ export class UpdateServiceSourceShrinkRequest extends $tea.Model {
       gatewayUniqueId: 'string',
       id: 'number',
       ingressOptionsRequestShrink: 'string',
+      mseSessionId: 'string',
       name: 'string',
       source: 'string',
       type: 'string',
@@ -13503,6 +14973,7 @@ export class UpdateZnodeRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
   data?: string;
+  mseSessionId?: string;
   path?: string;
   requestPars?: string;
   static names(): { [key: string]: string } {
@@ -13510,6 +14981,7 @@ export class UpdateZnodeRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       clusterId: 'ClusterId',
       data: 'Data',
+      mseSessionId: 'MseSessionId',
       path: 'Path',
       requestPars: 'RequestPars',
     };
@@ -13520,6 +14992,7 @@ export class UpdateZnodeRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterId: 'string',
       data: 'string',
+      mseSessionId: 'string',
       path: 'string',
       requestPars: 'string',
     };
@@ -13586,12 +15059,14 @@ export class UpdateZnodeResponse extends $tea.Model {
 export class UpgradeClusterRequest extends $tea.Model {
   acceptLanguage?: string;
   instanceId?: string;
+  mseSessionId?: string;
   requestPars?: string;
   upgradeVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       instanceId: 'InstanceId',
+      mseSessionId: 'MseSessionId',
       requestPars: 'RequestPars',
       upgradeVersion: 'UpgradeVersion',
     };
@@ -13601,6 +15076,7 @@ export class UpgradeClusterRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       instanceId: 'string',
+      mseSessionId: 'string',
       requestPars: 'string',
       upgradeVersion: 'string',
     };
@@ -13858,6 +15334,49 @@ export class AddGatewayRouteRequestDirectResponseJSON extends $tea.Model {
   }
 }
 
+export class AddGatewayRouteRequestFallbackServices extends $tea.Model {
+  agreementType?: string;
+  groupName?: string;
+  name?: string;
+  namespace?: string;
+  percent?: number;
+  serviceId?: number;
+  servicePort?: number;
+  sourceType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agreementType: 'AgreementType',
+      groupName: 'GroupName',
+      name: 'Name',
+      namespace: 'Namespace',
+      percent: 'Percent',
+      serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
+      sourceType: 'SourceType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreementType: 'string',
+      groupName: 'string',
+      name: 'string',
+      namespace: 'string',
+      percent: 'number',
+      serviceId: 'number',
+      servicePort: 'number',
+      sourceType: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewayRouteRequestPredicatesHeaderPredicates extends $tea.Model {
   key?: string;
   type?: string;
@@ -13986,21 +15505,111 @@ export class AddGatewayRouteRequestRedirectJSON extends $tea.Model {
   }
 }
 
+export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList extends $tea.Model {
+  extractKey?: string;
+  extractKeySpec?: string;
+  mappingType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extractKey: 'ExtractKey',
+      extractKeySpec: 'ExtractKeySpec',
+      mappingType: 'MappingType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extractKey: 'string',
+      extractKeySpec: 'string',
+      mappingType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList extends $tea.Model {
+  dubboMothedName?: string;
+  httpMothed?: string;
+  mothedpath?: string;
+  paramMapsList?: AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList[];
+  passThroughAllHeaders?: string;
+  passThroughList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dubboMothedName: 'DubboMothedName',
+      httpMothed: 'HttpMothed',
+      mothedpath: 'Mothedpath',
+      paramMapsList: 'ParamMapsList',
+      passThroughAllHeaders: 'PassThroughAllHeaders',
+      passThroughList: 'PassThroughList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubboMothedName: 'string',
+      httpMothed: 'string',
+      mothedpath: 'string',
+      paramMapsList: { 'type': 'array', 'itemType': AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList },
+      passThroughAllHeaders: 'string',
+      passThroughList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $tea.Model {
+  dubboServiceName?: string;
+  dubboServiceVersion?: string;
+  mothedMapList?: AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList[];
+  static names(): { [key: string]: string } {
+    return {
+      dubboServiceName: 'DubboServiceName',
+      dubboServiceVersion: 'DubboServiceVersion',
+      mothedMapList: 'MothedMapList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubboServiceName: 'string',
+      dubboServiceVersion: 'string',
+      mothedMapList: { 'type': 'array', 'itemType': AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewayRouteRequestServices extends $tea.Model {
+  agreementType?: string;
   groupName?: string;
+  httpDubboTranscoder?: AddGatewayRouteRequestServicesHttpDubboTranscoder;
   name?: string;
   namespace?: string;
   percent?: number;
   serviceId?: number;
+  servicePort?: number;
   sourceType?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      agreementType: 'AgreementType',
       groupName: 'GroupName',
+      httpDubboTranscoder: 'HttpDubboTranscoder',
       name: 'Name',
       namespace: 'Namespace',
       percent: 'Percent',
       serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
       sourceType: 'SourceType',
       version: 'Version',
     };
@@ -14008,11 +15617,14 @@ export class AddGatewayRouteRequestServices extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agreementType: 'string',
       groupName: 'string',
+      httpDubboTranscoder: AddGatewayRouteRequestServicesHttpDubboTranscoder,
       name: 'string',
       namespace: 'string',
       percent: 'number',
       serviceId: 'number',
+      servicePort: 'number',
       sourceType: 'string',
       version: 'string',
     };
@@ -14412,6 +16024,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
   condition?: string;
   enable?: boolean;
   path?: string;
+  paths?: string[];
   priority?: number;
   restItems?: CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems[];
   static names(): { [key: string]: string } {
@@ -14419,6 +16032,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
       condition: 'Condition',
       enable: 'Enable',
       path: 'Path',
+      paths: 'Paths',
       priority: 'Priority',
       restItems: 'RestItems',
     };
@@ -14429,6 +16043,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $tea.Model {
       condition: 'string',
       enable: 'boolean',
       path: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
       priority: 'number',
       restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems },
     };
@@ -14805,12 +16420,14 @@ export class ExportNacosConfigResponseBodyData extends $tea.Model {
 export class GetAppMessageQueueRouteResponseBodyData extends $tea.Model {
   appId?: string;
   enable?: boolean;
+  filterSide?: string;
   region?: string;
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       enable: 'Enable',
+      filterSide: 'FilterSide',
       region: 'Region',
       tags: 'Tags',
     };
@@ -14820,6 +16437,7 @@ export class GetAppMessageQueueRouteResponseBodyData extends $tea.Model {
     return {
       appId: 'string',
       enable: 'boolean',
+      filterSide: 'string',
       region: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
     };
@@ -15089,12 +16707,15 @@ export class GetGatewayDomainDetailResponseBodyData extends $tea.Model {
   gmtBefore?: string;
   gmtCreate?: string;
   gmtModified?: string;
+  http2?: string;
   id?: number;
   issuer?: string;
   mustHttps?: boolean;
   name?: string;
   protocol?: string;
   sans?: string;
+  tlsMax?: string;
+  tlsMin?: string;
   static names(): { [key: string]: string } {
     return {
       afterDate: 'AfterDate',
@@ -15109,12 +16730,15 @@ export class GetGatewayDomainDetailResponseBodyData extends $tea.Model {
       gmtBefore: 'GmtBefore',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      http2: 'Http2',
       id: 'Id',
       issuer: 'Issuer',
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
       sans: 'Sans',
+      tlsMax: 'TlsMax',
+      tlsMin: 'TlsMin',
     };
   }
 
@@ -15132,12 +16756,15 @@ export class GetGatewayDomainDetailResponseBodyData extends $tea.Model {
       gmtBefore: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      http2: 'string',
       id: 'number',
       issuer: 'string',
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',
       sans: 'string',
+      tlsMax: 'string',
+      tlsMin: 'string',
     };
   }
 
@@ -15200,6 +16827,49 @@ export class GetGatewayRouteDetailResponseBodyDataDirectResponse extends $tea.Mo
     return {
       body: 'string',
       code: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $tea.Model {
+  agreementType?: string;
+  groupName?: string;
+  name?: string;
+  namespace?: string;
+  percent?: number;
+  serviceId?: number;
+  serviceName?: string;
+  sourceType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agreementType: 'AgreementType',
+      groupName: 'GroupName',
+      name: 'Name',
+      namespace: 'Namespace',
+      percent: 'Percent',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      sourceType: 'SourceType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreementType: 'string',
+      groupName: 'string',
+      name: 'string',
+      namespace: 'string',
+      percent: 'number',
+      serviceId: 'number',
+      serviceName: 'string',
+      sourceType: 'string',
+      version: 'string',
     };
   }
 
@@ -15449,6 +17119,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicates extends $tea.M
 }
 
 export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Model {
+  agreementType?: string;
   groupName?: string;
   name?: string;
   namespace?: string;
@@ -15459,6 +17130,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      agreementType: 'AgreementType',
       groupName: 'GroupName',
       name: 'Name',
       namespace: 'Namespace',
@@ -15472,6 +17144,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      agreementType: 'string',
       groupName: 'string',
       name: 'string',
       namespace: 'string',
@@ -15525,6 +17198,8 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
   domainName?: string;
   domainNameList?: string[];
   enableWaf?: boolean;
+  fallback?: boolean;
+  fallbackServices?: GetGatewayRouteDetailResponseBodyDataFallbackServices[];
   gatewayId?: number;
   gatewayUniqueId?: string;
   gmtCreate?: string;
@@ -15555,6 +17230,8 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       domainName: 'DomainName',
       domainNameList: 'DomainNameList',
       enableWaf: 'EnableWaf',
+      fallback: 'Fallback',
+      fallbackServices: 'FallbackServices',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       gmtCreate: 'GmtCreate',
@@ -15588,6 +17265,8 @@ export class GetGatewayRouteDetailResponseBodyData extends $tea.Model {
       domainName: 'string',
       domainNameList: { 'type': 'array', 'itemType': 'string' },
       enableWaf: 'boolean',
+      fallback: 'boolean',
+      fallbackServices: { 'type': 'array', 'itemType': GetGatewayRouteDetailResponseBodyDataFallbackServices },
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       gmtCreate: 'string',
@@ -15736,6 +17415,8 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
   gmtCreate?: string;
   gmtModified?: string;
   groupName?: string;
+  healthCheck?: string;
+  healthStatus?: string;
   id?: number;
   ips?: string[];
   labelDetails?: GetGatewayServiceDetailResponseBodyDataLabelDetails[];
@@ -15743,6 +17424,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
   name?: string;
   namespace?: string;
   serviceNameInRegistry?: string;
+  serviceProtocol?: string;
   sourceId?: number;
   sourceType?: string;
   versionDetails?: GetGatewayServiceDetailResponseBodyDataVersionDetails[];
@@ -15755,6 +17437,8 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       groupName: 'GroupName',
+      healthCheck: 'HealthCheck',
+      healthStatus: 'HealthStatus',
       id: 'Id',
       ips: 'Ips',
       labelDetails: 'LabelDetails',
@@ -15762,6 +17446,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       name: 'Name',
       namespace: 'Namespace',
       serviceNameInRegistry: 'ServiceNameInRegistry',
+      serviceProtocol: 'ServiceProtocol',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
       versionDetails: 'VersionDetails',
@@ -15777,6 +17462,8 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       gmtCreate: 'string',
       gmtModified: 'string',
       groupName: 'string',
+      healthCheck: 'string',
+      healthStatus: 'string',
       id: 'number',
       ips: { 'type': 'array', 'itemType': 'string' },
       labelDetails: { 'type': 'array', 'itemType': GetGatewayServiceDetailResponseBodyDataLabelDetails },
@@ -15784,6 +17471,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       name: 'string',
       namespace: 'string',
       serviceNameInRegistry: 'string',
+      serviceProtocol: 'string',
       sourceId: 'number',
       sourceType: 'string',
       versionDetails: { 'type': 'array', 'itemType': GetGatewayServiceDetailResponseBodyDataVersionDetails },
@@ -16041,6 +17729,174 @@ export class GetNacosHistoryConfigResponseBodyConfiguration extends $tea.Model {
   }
 }
 
+export class GetPluginConfigResponseBodyDataGatewayConfigList extends $tea.Model {
+  config?: string;
+  configLevel?: number;
+  enable?: boolean;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  pluginId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      configLevel: 'ConfigLevel',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      pluginId: 'PluginId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      configLevel: 'number',
+      enable: 'boolean',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      pluginId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginConfigResponseBodyData extends $tea.Model {
+  category?: number;
+  configCheck?: string;
+  gatewayConfigList?: GetPluginConfigResponseBodyDataGatewayConfigList[];
+  id?: number;
+  imageName?: string;
+  mode?: number;
+  name?: string;
+  phase?: number;
+  primaryUser?: string;
+  priority?: number;
+  publishState?: number;
+  readme?: string;
+  readmeEn?: string;
+  status?: string;
+  summary?: string;
+  type?: number;
+  version?: string;
+  wasmLang?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      configCheck: 'ConfigCheck',
+      gatewayConfigList: 'GatewayConfigList',
+      id: 'Id',
+      imageName: 'ImageName',
+      mode: 'Mode',
+      name: 'Name',
+      phase: 'Phase',
+      primaryUser: 'PrimaryUser',
+      priority: 'Priority',
+      publishState: 'PublishState',
+      readme: 'Readme',
+      readmeEn: 'ReadmeEn',
+      status: 'Status',
+      summary: 'Summary',
+      type: 'Type',
+      version: 'Version',
+      wasmLang: 'WasmLang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      configCheck: 'string',
+      gatewayConfigList: { 'type': 'array', 'itemType': GetPluginConfigResponseBodyDataGatewayConfigList },
+      id: 'number',
+      imageName: 'string',
+      mode: 'number',
+      name: 'string',
+      phase: 'number',
+      primaryUser: 'string',
+      priority: 'number',
+      publishState: 'number',
+      readme: 'string',
+      readmeEn: 'string',
+      status: 'string',
+      summary: 'string',
+      type: 'number',
+      version: 'string',
+      wasmLang: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPluginsResponseBodyData extends $tea.Model {
+  category?: number;
+  configCheck?: string;
+  id?: number;
+  name?: string;
+  phase?: number;
+  primaryUser?: string;
+  priority?: number;
+  publishState?: number;
+  status?: string;
+  summary?: string;
+  version?: string;
+  wasmFile?: string;
+  wasmLang?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      configCheck: 'ConfigCheck',
+      id: 'Id',
+      name: 'Name',
+      phase: 'Phase',
+      primaryUser: 'PrimaryUser',
+      priority: 'Priority',
+      publishState: 'PublishState',
+      status: 'Status',
+      summary: 'Summary',
+      version: 'Version',
+      wasmFile: 'WasmFile',
+      wasmLang: 'WasmLang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      configCheck: 'string',
+      id: 'number',
+      name: 'string',
+      phase: 'number',
+      primaryUser: 'string',
+      priority: 'number',
+      publishState: 'number',
+      status: 'string',
+      summary: 'string',
+      version: 'string',
+      wasmFile: 'string',
+      wasmLang: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceListResponseBodyDataMethods extends $tea.Model {
   methodController?: string;
   name?: string;
@@ -16113,6 +17969,46 @@ export class GetServiceListResponseBodyData extends $tea.Model {
       serviceType: 'string',
       springApplicationName: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceListenersResponseBodyData extends $tea.Model {
+  addr?: string;
+  agent?: string;
+  app?: string;
+  cluster?: string;
+  IP?: string;
+  namespaceId?: string;
+  port?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+      agent: 'Agent',
+      app: 'App',
+      cluster: 'Cluster',
+      IP: 'IP',
+      namespaceId: 'NamespaceId',
+      port: 'Port',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: 'string',
+      agent: 'string',
+      app: 'string',
+      cluster: 'string',
+      IP: 'string',
+      namespaceId: 'string',
+      port: 'string',
+      serviceName: 'string',
     };
   }
 
@@ -16576,6 +18472,28 @@ export class ListClusterVersionsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListClustersRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClustersResponseBodyData extends $tea.Model {
   appVersion?: string;
   canUpdate?: boolean;
@@ -16593,6 +18511,8 @@ export class ListClustersResponseBodyData extends $tea.Model {
   intranetAddress?: string;
   intranetDomain?: string;
   mseVersion?: string;
+  resourceGroupId?: string;
+  tags?: { [key: string]: any };
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16612,6 +18532,8 @@ export class ListClustersResponseBodyData extends $tea.Model {
       intranetAddress: 'IntranetAddress',
       intranetDomain: 'IntranetDomain',
       mseVersion: 'MseVersion',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       versionCode: 'VersionCode',
     };
   }
@@ -16634,6 +18556,8 @@ export class ListClustersResponseBodyData extends $tea.Model {
       intranetAddress: 'string',
       intranetDomain: 'string',
       mseVersion: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       versionCode: 'string',
     };
   }
@@ -17059,11 +18983,14 @@ export class ListGatewayDomainResponseBodyData extends $tea.Model {
   gatewayId?: number;
   gmtCreate?: string;
   gmtModified?: string;
+  http2?: string;
   id?: number;
   mustHttps?: boolean;
   name?: string;
   protocol?: string;
   status?: number;
+  tlsMax?: string;
+  tlsMin?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17073,11 +19000,14 @@ export class ListGatewayDomainResponseBodyData extends $tea.Model {
       gatewayId: 'GatewayId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      http2: 'Http2',
       id: 'Id',
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
       status: 'Status',
+      tlsMax: 'TlsMax',
+      tlsMin: 'TlsMin',
       type: 'Type',
     };
   }
@@ -17090,11 +19020,14 @@ export class ListGatewayDomainResponseBodyData extends $tea.Model {
       gatewayId: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
+      http2: 'string',
       id: 'number',
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',
       status: 'number',
+      tlsMax: 'string',
+      tlsMin: 'string',
       type: 'string',
     };
   }
@@ -17177,6 +19110,49 @@ export class ListGatewayRouteResponseBodyDataResultDirectResponse extends $tea.M
     return {
       body: 'string',
       code: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $tea.Model {
+  agreementType?: string;
+  groupName?: string;
+  name?: string;
+  namespace?: string;
+  percent?: number;
+  serviceId?: number;
+  serviceName?: string;
+  sourceType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agreementType: 'AgreementType',
+      groupName: 'GroupName',
+      name: 'Name',
+      namespace: 'Namespace',
+      percent: 'Percent',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      sourceType: 'SourceType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreementType: 'string',
+      groupName: 'string',
+      name: 'string',
+      namespace: 'string',
+      percent: 'number',
+      serviceId: 'number',
+      serviceName: 'string',
+      sourceType: 'string',
+      version: 'string',
     };
   }
 
@@ -17313,8 +19289,94 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicates extends $tea.
   }
 }
 
+export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapListParamMapsList extends $tea.Model {
+  extractKey?: string;
+  extractKeySpec?: string;
+  mappingType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extractKey: 'ExtractKey',
+      extractKeySpec: 'ExtractKeySpec',
+      mappingType: 'MappingType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extractKey: 'string',
+      extractKeySpec: 'string',
+      mappingType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList extends $tea.Model {
+  dubboMothedName?: string;
+  httpMothed?: string;
+  mothedpath?: string;
+  paramMapsList?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapListParamMapsList[];
+  passThroughAllHeaders?: string;
+  passThroughList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dubboMothedName: 'DubboMothedName',
+      httpMothed: 'HttpMothed',
+      mothedpath: 'Mothedpath',
+      paramMapsList: 'ParamMapsList',
+      passThroughAllHeaders: 'PassThroughAllHeaders',
+      passThroughList: 'PassThroughList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubboMothedName: 'string',
+      httpMothed: 'string',
+      mothedpath: 'string',
+      paramMapsList: { 'type': 'array', 'itemType': ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapListParamMapsList },
+      passThroughAllHeaders: 'string',
+      passThroughList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder extends $tea.Model {
+  dubboServiceName?: string;
+  dubboServiceVersion?: string;
+  mothedMapList?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList[];
+  static names(): { [key: string]: string } {
+    return {
+      dubboServiceName: 'DubboServiceName',
+      dubboServiceVersion: 'DubboServiceVersion',
+      mothedMapList: 'MothedMapList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubboServiceName: 'string',
+      dubboServiceVersion: 'string',
+      mothedMapList: { 'type': 'array', 'itemType': ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Model {
+  agreementType?: string;
   groupName?: string;
+  httpDubboTranscoder?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder;
   name?: string;
   namespace?: string;
   percent?: number;
@@ -17324,7 +19386,9 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      agreementType: 'AgreementType',
       groupName: 'GroupName',
+      httpDubboTranscoder: 'HttpDubboTranscoder',
       name: 'Name',
       namespace: 'Namespace',
       percent: 'Percent',
@@ -17337,7 +19401,9 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      agreementType: 'string',
       groupName: 'string',
+      httpDubboTranscoder: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder,
       name: 'string',
       namespace: 'string',
       percent: 'number',
@@ -17364,6 +19430,8 @@ export class ListGatewayRouteResponseBodyDataResult extends $tea.Model {
   domainName?: string;
   domainNameList?: string[];
   enableWaf?: string;
+  fallback?: boolean;
+  fallbackServices?: ListGatewayRouteResponseBodyDataResultFallbackServices[];
   gatewayId?: number;
   gatewayUniqueId?: string;
   gmtCreate?: string;
@@ -17390,6 +19458,8 @@ export class ListGatewayRouteResponseBodyDataResult extends $tea.Model {
       domainName: 'DomainName',
       domainNameList: 'DomainNameList',
       enableWaf: 'EnableWaf',
+      fallback: 'Fallback',
+      fallbackServices: 'FallbackServices',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       gmtCreate: 'GmtCreate',
@@ -17419,6 +19489,8 @@ export class ListGatewayRouteResponseBodyDataResult extends $tea.Model {
       domainName: 'string',
       domainNameList: { 'type': 'array', 'itemType': 'string' },
       enableWaf: 'string',
+      fallback: 'boolean',
+      fallbackServices: { 'type': 'array', 'itemType': ListGatewayRouteResponseBodyDataResultFallbackServices },
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       gmtCreate: 'string',
@@ -17474,6 +19546,7 @@ export class ListGatewayServiceRequestFilterParams extends $tea.Model {
   groupName?: string;
   name?: string;
   namespace?: string;
+  serviceProtocol?: string;
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17481,6 +19554,7 @@ export class ListGatewayServiceRequestFilterParams extends $tea.Model {
       groupName: 'GroupName',
       name: 'Name',
       namespace: 'Namespace',
+      serviceProtocol: 'ServiceProtocol',
       sourceType: 'SourceType',
     };
   }
@@ -17491,7 +19565,185 @@ export class ListGatewayServiceRequestFilterParams extends $tea.Model {
       groupName: 'string',
       name: 'string',
       namespace: 'string',
+      serviceProtocol: 'string',
       sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfigHttpCookie extends $tea.Model {
+  name?: string;
+  path?: string;
+  ttl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      path: 'Path',
+      ttl: 'Ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      path: 'string',
+      ttl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfig extends $tea.Model {
+  consistentHashLBType?: string;
+  httpCookie?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfigHttpCookie;
+  minimumRingSize?: number;
+  parameterName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consistentHashLBType: 'ConsistentHashLBType',
+      httpCookie: 'HttpCookie',
+      minimumRingSize: 'MinimumRingSize',
+      parameterName: 'ParameterName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consistentHashLBType: 'string',
+      httpCookie: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfigHttpCookie,
+      minimumRingSize: 'number',
+      parameterName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettings extends $tea.Model {
+  consistentHashLBConfig?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfig;
+  loadbalancerType?: string;
+  warmupDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      consistentHashLBConfig: 'ConsistentHashLBConfig',
+      loadbalancerType: 'LoadbalancerType',
+      warmupDuration: 'WarmupDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consistentHashLBConfig: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfig,
+      loadbalancerType: 'string',
+      warmupDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls extends $tea.Model {
+  caCertContent?: string;
+  caCertId?: string;
+  certId?: string;
+  mode?: string;
+  sni?: string;
+  subjectAltNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      caCertContent: 'CaCertContent',
+      caCertId: 'CaCertId',
+      certId: 'CertId',
+      mode: 'Mode',
+      sni: 'Sni',
+      subjectAltNames: 'SubjectAltNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caCertContent: 'string',
+      caCertId: 'string',
+      certId: 'string',
+      mode: 'string',
+      sni: 'string',
+      subjectAltNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicy extends $tea.Model {
+  loadBalancerSettings?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettings;
+  tls?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerSettings: 'LoadBalancerSettings',
+      tls: 'Tls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerSettings: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettings,
+      tls: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $tea.Model {
+  check?: boolean;
+  expectedStatuses?: number[];
+  healthyThreshold?: number;
+  httpHost?: string;
+  httpPath?: string;
+  interval?: number;
+  protocol?: string;
+  timeout?: number;
+  unhealthyThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      check: 'Check',
+      expectedStatuses: 'ExpectedStatuses',
+      healthyThreshold: 'HealthyThreshold',
+      httpHost: 'HttpHost',
+      httpPath: 'HttpPath',
+      interval: 'Interval',
+      protocol: 'Protocol',
+      timeout: 'Timeout',
+      unhealthyThreshold: 'UnhealthyThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      check: 'boolean',
+      expectedStatuses: { 'type': 'array', 'itemType': 'number' },
+      healthyThreshold: 'number',
+      httpHost: 'string',
+      httpPath: 'string',
+      interval: 'number',
+      protocol: 'string',
+      timeout: 'number',
+      unhealthyThreshold: 'number',
     };
   }
 
@@ -17521,11 +19773,15 @@ export class ListGatewayServiceResponseBodyDataResultVersions extends $tea.Model
 
 export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
   gatewayId?: number;
+  gatewayTrafficPolicy?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicy;
   gatewayUniqueId?: string;
   gmtCreate?: string;
   gmtModified?: string;
   groupName?: string;
   healehStatus?: string;
+  healthCheck?: boolean;
+  healthCheckInfo?: ListGatewayServiceResponseBodyDataResultHealthCheckInfo;
+  healthStatus?: string;
   id?: number;
   ips?: string[];
   metaInfo?: string;
@@ -17536,15 +19792,20 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
   serviceProtocol?: string;
   sourceId?: number;
   sourceType?: string;
+  unhealthyEndpoints?: string[];
   versions?: ListGatewayServiceResponseBodyDataResultVersions[];
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'GatewayId',
+      gatewayTrafficPolicy: 'GatewayTrafficPolicy',
       gatewayUniqueId: 'GatewayUniqueId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       groupName: 'GroupName',
       healehStatus: 'HealehStatus',
+      healthCheck: 'HealthCheck',
+      healthCheckInfo: 'HealthCheckInfo',
+      healthStatus: 'HealthStatus',
       id: 'Id',
       ips: 'Ips',
       metaInfo: 'MetaInfo',
@@ -17555,6 +19816,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
       serviceProtocol: 'ServiceProtocol',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
+      unhealthyEndpoints: 'UnhealthyEndpoints',
       versions: 'Versions',
     };
   }
@@ -17562,11 +19824,15 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       gatewayId: 'number',
+      gatewayTrafficPolicy: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicy,
       gatewayUniqueId: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       groupName: 'string',
       healehStatus: 'string',
+      healthCheck: 'boolean',
+      healthCheckInfo: ListGatewayServiceResponseBodyDataResultHealthCheckInfo,
+      healthStatus: 'string',
       id: 'number',
       ips: { 'type': 'array', 'itemType': 'string' },
       metaInfo: 'string',
@@ -17577,6 +19843,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
       serviceProtocol: 'string',
       sourceId: 'number',
       sourceType: 'string',
+      unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
       versions: { 'type': 'array', 'itemType': ListGatewayServiceResponseBodyDataResultVersions },
     };
   }
@@ -17615,43 +19882,61 @@ export class ListGatewayServiceResponseBodyData extends $tea.Model {
 }
 
 export class ListGatewaySlbResponseBodyData extends $tea.Model {
+  editEnable?: boolean;
   gatewayId?: string;
   gatewaySlbMode?: string;
   gatewaySlbStatus?: string;
   gmtCreate?: string;
+  httpPort?: number;
+  httpsPort?: number;
+  httpsVServerGroupId?: string;
   id?: string;
+  serviceWeight?: number;
   slbId?: string;
   slbIp?: string;
   slbPort?: string;
   statusDesc?: string;
   type?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      editEnable: 'EditEnable',
       gatewayId: 'GatewayId',
       gatewaySlbMode: 'GatewaySlbMode',
       gatewaySlbStatus: 'GatewaySlbStatus',
       gmtCreate: 'GmtCreate',
+      httpPort: 'HttpPort',
+      httpsPort: 'HttpsPort',
+      httpsVServerGroupId: 'HttpsVServerGroupId',
       id: 'Id',
+      serviceWeight: 'ServiceWeight',
       slbId: 'SlbId',
       slbIp: 'SlbIp',
       slbPort: 'SlbPort',
       statusDesc: 'StatusDesc',
       type: 'Type',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      editEnable: 'boolean',
       gatewayId: 'string',
       gatewaySlbMode: 'string',
       gatewaySlbStatus: 'string',
       gmtCreate: 'string',
+      httpPort: 'number',
+      httpsPort: 'number',
+      httpsVServerGroupId: 'string',
       id: 'string',
+      serviceWeight: 'number',
       slbId: 'string',
       slbIp: 'string',
       slbPort: 'string',
       statusDesc: 'string',
       type: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -17666,7 +19951,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
   dbPassword?: string;
   dbUrl?: string;
   dbUserName?: string;
-  endDate?: number;
+  endDate?: string;
   environmentId?: number;
   gmtCreate?: string;
   gmtModified?: string;
@@ -17739,7 +20024,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       dbPassword: 'string',
       dbUrl: 'string',
       dbUserName: 'string',
-      endDate: 'number',
+      endDate: 'string',
       environmentId: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -18078,6 +20363,184 @@ export class ListServiceSourceResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserInstancesResponseBodyData extends $tea.Model {
+  appClusterId?: string;
+  appVersion?: string;
+  dbPassword?: string;
+  dbUrl?: string;
+  dbUserName?: string;
+  endDate?: string;
+  environmentId?: number;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  imageVersion?: string;
+  instanceId?: string;
+  isCreatedRedis?: boolean;
+  k8sResourceId?: number;
+  name?: string;
+  nameServer?: string;
+  orderId?: string;
+  podCidr?: string;
+  primaryUser?: string;
+  region?: string;
+  replica?: number;
+  seataServerUniqueId?: string;
+  securityGroup?: string;
+  spec?: string;
+  startDate?: string;
+  status?: number;
+  statusDesc?: string;
+  storeMode?: string;
+  vpc?: string;
+  vswitch?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appClusterId: 'AppClusterId',
+      appVersion: 'AppVersion',
+      dbPassword: 'DbPassword',
+      dbUrl: 'DbUrl',
+      dbUserName: 'DbUserName',
+      endDate: 'EndDate',
+      environmentId: 'EnvironmentId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      imageVersion: 'ImageVersion',
+      instanceId: 'InstanceId',
+      isCreatedRedis: 'IsCreatedRedis',
+      k8sResourceId: 'K8sResourceId',
+      name: 'Name',
+      nameServer: 'NameServer',
+      orderId: 'OrderId',
+      podCidr: 'PodCidr',
+      primaryUser: 'PrimaryUser',
+      region: 'Region',
+      replica: 'Replica',
+      seataServerUniqueId: 'SeataServerUniqueId',
+      securityGroup: 'SecurityGroup',
+      spec: 'Spec',
+      startDate: 'StartDate',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+      storeMode: 'StoreMode',
+      vpc: 'Vpc',
+      vswitch: 'Vswitch',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appClusterId: 'string',
+      appVersion: 'string',
+      dbPassword: 'string',
+      dbUrl: 'string',
+      dbUserName: 'string',
+      endDate: 'string',
+      environmentId: 'number',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      imageVersion: 'string',
+      instanceId: 'string',
+      isCreatedRedis: 'boolean',
+      k8sResourceId: 'number',
+      name: 'string',
+      nameServer: 'string',
+      orderId: 'string',
+      podCidr: 'string',
+      primaryUser: 'string',
+      region: 'string',
+      replica: 'number',
+      seataServerUniqueId: 'string',
+      securityGroup: 'string',
+      spec: 'string',
+      startDate: 'string',
+      status: 'number',
+      statusDesc: 'string',
+      storeMode: 'string',
+      vpc: 'string',
+      vswitch: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVgroupsResponseBodyData extends $tea.Model {
   gmtCreate?: string;
   gmtModified?: string;
@@ -18334,6 +20797,8 @@ export class QueryClusterDetailResponseBodyData extends $tea.Model {
   payInfo?: string;
   pubNetworkFlow?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  tags?: { [key: string]: any };
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -18371,6 +20836,8 @@ export class QueryClusterDetailResponseBodyData extends $tea.Model {
       payInfo: 'PayInfo',
       pubNetworkFlow: 'PubNetworkFlow',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -18411,6 +20878,8 @@ export class QueryClusterDetailResponseBodyData extends $tea.Model {
       payInfo: 'string',
       pubNetworkFlow: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -18499,10 +20968,13 @@ export class QueryConfigResponseBodyData extends $tea.Model {
   maxClientCnxns?: string;
   maxSessionTimeout?: string;
   minSessionTimeout?: string;
+  namingAuthEnabled?: boolean;
+  namingAuthSupported?: boolean;
   namingCreateServiceSupported?: boolean;
   openSuperAcl?: boolean;
   passWord?: string;
   restartFlag?: boolean;
+  snapshotCount?: string;
   syncLimit?: string;
   tickTime?: string;
   userName?: string;
@@ -18523,10 +20995,13 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       maxClientCnxns: 'MaxClientCnxns',
       maxSessionTimeout: 'MaxSessionTimeout',
       minSessionTimeout: 'MinSessionTimeout',
+      namingAuthEnabled: 'NamingAuthEnabled',
+      namingAuthSupported: 'NamingAuthSupported',
       namingCreateServiceSupported: 'NamingCreateServiceSupported',
       openSuperAcl: 'OpenSuperAcl',
       passWord: 'PassWord',
       restartFlag: 'RestartFlag',
+      snapshotCount: 'SnapshotCount',
       syncLimit: 'SyncLimit',
       tickTime: 'TickTime',
       userName: 'UserName',
@@ -18550,10 +21025,13 @@ export class QueryConfigResponseBodyData extends $tea.Model {
       maxClientCnxns: 'string',
       maxSessionTimeout: 'string',
       minSessionTimeout: 'string',
+      namingAuthEnabled: 'boolean',
+      namingAuthSupported: 'boolean',
       namingCreateServiceSupported: 'boolean',
       openSuperAcl: 'boolean',
       passWord: 'string',
       restartFlag: 'boolean',
+      snapshotCount: 'string',
       syncLimit: 'string',
       tickTime: 'string',
       userName: 'string',
@@ -18736,6 +21214,28 @@ export class SelectGatewaySlbResponseBodyData extends $tea.Model {
   }
 }
 
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEngineNamespaceResponseBodyData extends $tea.Model {
   configCount?: number;
   namespace?: string;
@@ -18784,6 +21284,49 @@ export class UpdateGatewayRouteRequestDirectResponseJSON extends $tea.Model {
     return {
       body: 'string',
       code: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayRouteRequestFallbackServices extends $tea.Model {
+  agreementType?: string;
+  groupName?: string;
+  name?: string;
+  namespace?: string;
+  percent?: number;
+  serviceId?: number;
+  servicePort?: number;
+  sourceType?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agreementType: 'AgreementType',
+      groupName: 'GroupName',
+      name: 'Name',
+      namespace: 'Namespace',
+      percent: 'Percent',
+      serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
+      sourceType: 'SourceType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreementType: 'string',
+      groupName: 'string',
+      name: 'string',
+      namespace: 'string',
+      percent: 'number',
+      serviceId: 'number',
+      servicePort: 'number',
+      sourceType: 'string',
+      version: 'string',
     };
   }
 
@@ -18920,21 +21463,111 @@ export class UpdateGatewayRouteRequestRedirectJSON extends $tea.Model {
   }
 }
 
+export class UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList extends $tea.Model {
+  extractKey?: string;
+  extractKeySpec?: string;
+  mappingType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extractKey: 'ExtractKey',
+      extractKeySpec: 'ExtractKeySpec',
+      mappingType: 'MappingType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extractKey: 'string',
+      extractKeySpec: 'string',
+      mappingType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList extends $tea.Model {
+  dubboMothedName?: string;
+  httpMothed?: string;
+  mothedpath?: string;
+  paramMapsList?: UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList[];
+  passThroughAllHeaders?: string;
+  passThroughList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dubboMothedName: 'DubboMothedName',
+      httpMothed: 'HttpMothed',
+      mothedpath: 'Mothedpath',
+      paramMapsList: 'ParamMapsList',
+      passThroughAllHeaders: 'PassThroughAllHeaders',
+      passThroughList: 'PassThroughList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubboMothedName: 'string',
+      httpMothed: 'string',
+      mothedpath: 'string',
+      paramMapsList: { 'type': 'array', 'itemType': UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList },
+      passThroughAllHeaders: 'string',
+      passThroughList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayRouteRequestServicesHttpDubboTranscoder extends $tea.Model {
+  dubboServiceName?: string;
+  dubboServiceVersion?: string;
+  mothedMapList?: UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList[];
+  static names(): { [key: string]: string } {
+    return {
+      dubboServiceName: 'DubboServiceName',
+      dubboServiceVersion: 'DubboServiceVersion',
+      mothedMapList: 'MothedMapList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dubboServiceName: 'string',
+      dubboServiceVersion: 'string',
+      mothedMapList: { 'type': 'array', 'itemType': UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGatewayRouteRequestServices extends $tea.Model {
+  agreementType?: string;
   groupName?: string;
+  httpDubboTranscoder?: UpdateGatewayRouteRequestServicesHttpDubboTranscoder;
   name?: string;
   namespace?: string;
   percent?: number;
   serviceId?: number;
+  servicePort?: number;
   sourceType?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      agreementType: 'AgreementType',
       groupName: 'GroupName',
+      httpDubboTranscoder: 'HttpDubboTranscoder',
       name: 'Name',
       namespace: 'Namespace',
       percent: 'Percent',
       serviceId: 'ServiceId',
+      servicePort: 'ServicePort',
       sourceType: 'SourceType',
       version: 'Version',
     };
@@ -18942,11 +21575,14 @@ export class UpdateGatewayRouteRequestServices extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agreementType: 'string',
       groupName: 'string',
+      httpDubboTranscoder: UpdateGatewayRouteRequestServicesHttpDubboTranscoder,
       name: 'string',
       namespace: 'string',
       percent: 'number',
       serviceId: 'number',
+      servicePort: 'number',
       sourceType: 'string',
       version: 'string',
     };
@@ -19582,6 +22218,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.path)) {
       query["Path"] = request.path;
     }
@@ -19625,6 +22265,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.isWhite)) {
       query["IsWhite"] = request.isWhite;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.resourceType)) {
@@ -19686,6 +22330,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.internetSlbSpec)) {
       query["InternetSlbSpec"] = request.internetSlbSpec;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -19761,6 +22409,14 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.http2)) {
+      query["Http2"] = request.http2;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.mustHttps)) {
       query["MustHttps"] = request.mustHttps;
     }
@@ -19771,6 +22427,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.protocol)) {
       query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.tlsMax)) {
+      query["TlsMax"] = request.tlsMax;
+    }
+
+    if (!Util.isUnset(request.tlsMin)) {
+      query["TlsMin"] = request.tlsMin;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -19801,6 +22465,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
       request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.fallbackServices)) {
+      request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
     if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
@@ -19840,12 +22508,24 @@ export default class Client extends OpenApi {
       query["EnableWaf"] = request.enableWaf;
     }
 
+    if (!Util.isUnset(request.fallback)) {
+      query["Fallback"] = request.fallback;
+    }
+
+    if (!Util.isUnset(request.fallbackServicesShrink)) {
+      query["FallbackServices"] = request.fallbackServicesShrink;
+    }
+
     if (!Util.isUnset(request.gatewayId)) {
       query["GatewayId"] = request.gatewayId;
     }
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -19901,6 +22581,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -19942,12 +22626,36 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.httpPort)) {
+      query["HttpPort"] = request.httpPort;
+    }
+
+    if (!Util.isUnset(request.httpsPort)) {
+      query["HttpsPort"] = request.httpsPort;
+    }
+
+    if (!Util.isUnset(request.httpsVServerGroupId)) {
+      query["HttpsVServerGroupId"] = request.httpsVServerGroupId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.serviceWeight)) {
+      query["ServiceWeight"] = request.serviceWeight;
+    }
+
     if (!Util.isUnset(request.slbId)) {
       query["SlbId"] = request.slbId;
     }
 
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -19997,6 +22705,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mockType)) {
       query["MockType"] = request.mockType;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -20064,6 +22776,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20101,6 +22817,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.portRange)) {
       query["PortRange"] = request.portRange;
     }
@@ -20135,6 +22855,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new AddServiceSourceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.groupList)) {
+      request.groupListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupList, "GroupList", "json");
+    }
+
     if (!Util.isUnset($tea.toMap(tmpReq.ingressOptionsRequest))) {
       request.ingressOptionsRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ingressOptionsRequest), "IngressOptionsRequest", "json");
     }
@@ -20152,8 +22876,16 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.groupListShrink)) {
+      query["GroupList"] = request.groupListShrink;
+    }
+
     if (!Util.isUnset(request.ingressOptionsRequestShrink)) {
       query["IngressOptionsRequest"] = request.ingressOptionsRequestShrink;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -20201,6 +22933,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.routeId)) {
       query["RouteId"] = request.routeId;
     }
@@ -20240,6 +22976,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enable)) {
       query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -20295,6 +23035,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.originNamespaceId)) {
       query["OriginNamespaceId"] = request.originNamespaceId;
     }
@@ -20346,6 +23090,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -20417,6 +23165,14 @@ export default class Client extends OpenApi {
       query["InstanceCount"] = request.instanceCount;
     }
 
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.mseVersion)) {
       query["MseVersion"] = request.mseVersion;
     }
@@ -20443,6 +23199,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -20498,6 +23258,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -20545,6 +23309,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.mseVersion)) {
+      query["MseVersion"] = request.mseVersion;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -20620,6 +23392,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -20683,6 +23459,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ip)) {
       query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -20750,6 +23530,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -20827,6 +23611,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.licenseKey)) {
       query["LicenseKey"] = request.licenseKey;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -20910,6 +23698,18 @@ export default class Client extends OpenApi {
       query["LicenseKey"] = request.licenseKey;
     }
 
+    if (!Util.isUnset(request.messageQueueFilterSide)) {
+      query["MessageQueueFilterSide"] = request.messageQueueFilterSide;
+    }
+
+    if (!Util.isUnset(request.messageQueueGrayEnable)) {
+      query["MessageQueueGrayEnable"] = request.messageQueueGrayEnable;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -20967,6 +23767,10 @@ export default class Client extends OpenApi {
       query["Data"] = request.data;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.path)) {
       query["Path"] = request.path;
     }
@@ -21008,6 +23812,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21039,6 +23847,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21082,6 +23894,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21117,6 +23933,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21156,6 +23976,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21187,6 +24011,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.routeId)) {
@@ -21230,6 +24058,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -21265,6 +24097,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.serviceId)) {
@@ -21316,6 +24152,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21361,6 +24201,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -21400,6 +24244,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -21455,6 +24303,10 @@ export default class Client extends OpenApi {
       query["Ip"] = request.ip;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -21504,6 +24356,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -21549,6 +24405,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21580,6 +24440,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.sourceId)) {
@@ -21619,6 +24483,10 @@ export default class Client extends OpenApi {
       query["LaneId"] = request.laneId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21652,6 +24520,10 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21683,6 +24555,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.path)) {
@@ -21742,6 +24618,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -21777,6 +24657,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -21822,6 +24706,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
@@ -21885,6 +24773,10 @@ export default class Client extends OpenApi {
       query["IsWhite"] = request.isWhite;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
@@ -21934,6 +24826,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21965,6 +24861,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22004,6 +24904,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22041,6 +24945,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22072,6 +24980,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.routeId)) {
@@ -22111,6 +25023,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -22148,6 +25064,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -22179,6 +25099,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.versionCode)) {
@@ -22222,6 +25146,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -22259,6 +25187,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22286,6 +25218,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22319,6 +25255,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22366,6 +25310,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -22411,6 +25359,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -22448,6 +25400,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
     }
@@ -22478,6 +25434,96 @@ export default class Client extends OpenApi {
     return await this.getOverviewWithOptions(request, runtime);
   }
 
+  async getPluginConfigWithOptions(request: GetPluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPluginConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPluginConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPluginConfigResponse>(await this.callApi(params, req, runtime), new GetPluginConfigResponse({}));
+  }
+
+  async getPluginConfig(request: GetPluginConfigRequest): Promise<GetPluginConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPluginConfigWithOptions(request, runtime);
+  }
+
+  async getPluginsWithOptions(request: GetPluginsRequest, runtime: $Util.RuntimeOptions): Promise<GetPluginsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.enableOnly)) {
+      query["EnableOnly"] = request.enableOnly;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPlugins",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPluginsResponse>(await this.callApi(params, req, runtime), new GetPluginsResponse({}));
+  }
+
+  async getPlugins(request: GetPluginsRequest): Promise<GetPluginsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPluginsWithOptions(request, runtime);
+  }
+
   async getServiceListWithOptions(request: GetServiceListRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22491,6 +25537,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ip)) {
       query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -22527,6 +25577,83 @@ export default class Client extends OpenApi {
     return await this.getServiceListWithOptions(request, runtime);
   }
 
+  async getServiceListenersWithOptions(request: GetServiceListenersRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceListenersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.hasIpCount)) {
+      query["HasIpCount"] = request.hasIpCount;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetServiceListeners",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceListenersResponse>(await this.callApi(params, req, runtime), new GetServiceListenersResponse({}));
+  }
+
+  async getServiceListeners(request: GetServiceListenersRequest): Promise<GetServiceListenersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceListenersWithOptions(request, runtime);
+  }
+
   async getTagsBySwimmingLaneGroupIdWithOptions(request: GetTagsBySwimmingLaneGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<GetTagsBySwimmingLaneGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22536,6 +25663,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22573,6 +25704,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -22622,16 +25757,20 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.serviceListShrink)) {
       query["ServiceList"] = request.serviceListShrink;
     }
 
-    if (!Util.isUnset(request.sourceId)) {
-      query["SourceId"] = request.sourceId;
-    }
-
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.tlsSetting)) {
+      query["TlsSetting"] = request.tlsSetting;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22742,6 +25881,10 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -22800,6 +25943,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22831,6 +25978,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.connectType)) {
       query["ConnectType"] = request.connectType;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -22868,6 +26019,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterType)) {
       query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23013,6 +26168,10 @@ export default class Client extends OpenApi {
       query["FilterParams"] = request.filterParamsShrink;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.orderItem)) {
       query["OrderItem"] = request.orderItem;
     }
@@ -23056,6 +26215,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -23103,6 +26266,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.filterParamsShrink)) {
       query["FilterParams"] = request.filterParamsShrink;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.orderItem)) {
@@ -23160,6 +26327,10 @@ export default class Client extends OpenApi {
       query["FilterParams"] = request.filterParamsShrink;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.orderItem)) {
       query["OrderItem"] = request.orderItem;
     }
@@ -23203,6 +26374,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23271,6 +26446,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -23314,6 +26493,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ip)) {
       query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -23367,6 +26550,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -23434,6 +26621,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -23487,6 +26678,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23518,6 +26713,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23553,6 +26752,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23586,6 +26789,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23606,6 +26813,84 @@ export default class Client extends OpenApi {
   async listServiceSource(request: ListServiceSourceRequest): Promise<ListServiceSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceSourceWithOptions(request, runtime);
+  }
+
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async listUserInstancesWithOptions(request: ListUserInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserInstances",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserInstancesResponse>(await this.callApi(params, req, runtime), new ListUserInstancesResponse({}));
+  }
+
+  async listUserInstances(request: ListUserInstancesRequest): Promise<ListUserInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserInstancesWithOptions(request, runtime);
   }
 
   async listVgroupsWithOptions(request: ListVgroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListVgroupsResponse> {
@@ -23669,6 +26954,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceInfos)) {
       query["NamespaceInfos"] = request.namespaceInfos;
     }
@@ -23699,6 +26988,83 @@ export default class Client extends OpenApi {
     return await this.modifyGovernanceKubernetesClusterWithOptions(request, runtime);
   }
 
+  async modifyLosslessRuleWithOptions(request: ModifyLosslessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLosslessRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.aligned)) {
+      query["Aligned"] = request.aligned;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.delayTime)) {
+      query["DelayTime"] = request.delayTime;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.funcType)) {
+      query["FuncType"] = request.funcType;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.related)) {
+      query["Related"] = request.related;
+    }
+
+    if (!Util.isUnset(request.shutdownWaitSeconds)) {
+      query["ShutdownWaitSeconds"] = request.shutdownWaitSeconds;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.warmupTime)) {
+      query["WarmupTime"] = request.warmupTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyLosslessRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLosslessRuleResponse>(await this.callApi(params, req, runtime), new ModifyLosslessRuleResponse({}));
+  }
+
+  async modifyLosslessRule(request: ModifyLosslessRuleRequest): Promise<ModifyLosslessRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyLosslessRuleWithOptions(request, runtime);
+  }
+
   async offlineGatewayRouteWithOptions(request: OfflineGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<OfflineGatewayRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23708,6 +27074,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.routeId)) {
@@ -23747,6 +27117,14 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
     }
@@ -23784,6 +27162,10 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23811,6 +27193,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23875,6 +27261,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.orderId)) {
       query["OrderId"] = request.orderId;
     }
@@ -23912,6 +27302,10 @@ export default class Client extends OpenApi {
       query["ClusterType"] = request.clusterType;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23943,6 +27337,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.connectType)) {
       query["ConnectType"] = request.connectType;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23999,6 +27397,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24026,6 +27428,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24136,6 +27542,10 @@ export default class Client extends OpenApi {
       query["LaneId"] = request.laneId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24198,6 +27608,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.podNameList)) {
       query["PodNameList"] = request.podNameList;
     }
@@ -24239,6 +27653,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
     }
@@ -24276,6 +27694,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -24306,6 +27728,108 @@ export default class Client extends OpenApi {
     return await this.selectGatewaySlbWithOptions(request, runtime);
   }
 
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
   async updateAclWithOptions(request: UpdateAclRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24319,6 +27843,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24364,6 +27892,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.isWhite)) {
       query["IsWhite"] = request.isWhite;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.resourceType)) {
@@ -24415,6 +27947,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
     }
@@ -24462,6 +27998,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24545,12 +28085,24 @@ export default class Client extends OpenApi {
       query["MinSessionTimeout"] = request.minSessionTimeout;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.namingAuthEnabled)) {
+      query["NamingAuthEnabled"] = request.namingAuthEnabled;
+    }
+
     if (!Util.isUnset(request.passWord)) {
       query["PassWord"] = request.passWord;
     }
 
     if (!Util.isUnset(request.requestPars)) {
       query["RequestPars"] = request.requestPars;
+    }
+
+    if (!Util.isUnset(request.snapshotCount)) {
+      query["SnapshotCount"] = request.snapshotCount;
     }
 
     if (!Util.isUnset(request.syncLimit)) {
@@ -24616,6 +28168,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -24661,8 +28217,16 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.http2)) {
+      query["Http2"] = request.http2;
+    }
+
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.mustHttps)) {
@@ -24671,6 +28235,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.protocol)) {
       query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.tlsMax)) {
+      query["TlsMax"] = request.tlsMax;
+    }
+
+    if (!Util.isUnset(request.tlsMin)) {
+      query["TlsMin"] = request.tlsMin;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24704,6 +28276,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -24757,6 +28333,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24785,6 +28365,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset($tea.toMap(tmpReq.directResponseJSON))) {
       request.directResponseJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.directResponseJSON), "DirectResponseJSON", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.fallbackServices)) {
+      request.fallbackServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fallbackServices, "FallbackServices", "json");
     }
 
     if (!Util.isUnset($tea.toMap(tmpReq.predicates))) {
@@ -24820,6 +28404,14 @@ export default class Client extends OpenApi {
       query["EnableWaf"] = request.enableWaf;
     }
 
+    if (!Util.isUnset(request.fallback)) {
+      query["Fallback"] = request.fallback;
+    }
+
+    if (!Util.isUnset(request.fallbackServicesShrink)) {
+      query["FallbackServices"] = request.fallbackServicesShrink;
+    }
+
     if (!Util.isUnset(request.gatewayId)) {
       query["GatewayId"] = request.gatewayId;
     }
@@ -24830,6 +28422,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -24903,6 +28499,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24946,6 +28546,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24993,6 +28597,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25038,6 +28646,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.retryJSONShrink)) {
@@ -25091,6 +28703,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.timeoutJSONShrink)) {
       query["TimeoutJSON"] = request.timeoutJSONShrink;
     }
@@ -25130,6 +28746,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.routeId)) {
@@ -25183,6 +28803,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -25218,6 +28842,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.serviceId)) {
@@ -25261,6 +28889,10 @@ export default class Client extends OpenApi {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.replica)) {
       query["Replica"] = request.replica;
     }
@@ -25300,6 +28932,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.versionCode)) {
@@ -25347,6 +28983,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enable)) {
       query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.filterSide)) {
+      query["FilterSide"] = request.filterSide;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.region)) {
@@ -25404,6 +29048,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.namespaceId)) {
@@ -25483,6 +29131,10 @@ export default class Client extends OpenApi {
       query["Md5"] = request.md5;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -25548,6 +29200,10 @@ export default class Client extends OpenApi {
       query["Ip"] = request.ip;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -25611,6 +29267,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
     }
@@ -25645,6 +29305,75 @@ export default class Client extends OpenApi {
     return await this.updateNacosServiceWithOptions(request, runtime);
   }
 
+  async updatePluginConfigWithOptions(request: UpdatePluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePluginConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.configLevel)) {
+      query["ConfigLevel"] = request.configLevel;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.gmtCreate)) {
+      query["GmtCreate"] = request.gmtCreate;
+    }
+
+    if (!Util.isUnset(request.gmtModified)) {
+      query["GmtModified"] = request.gmtModified;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePluginConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePluginConfigResponse>(await this.callApi(params, req, runtime), new UpdatePluginConfigResponse({}));
+  }
+
+  async updatePluginConfig(request: UpdatePluginConfigRequest): Promise<UpdatePluginConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePluginConfigWithOptions(request, runtime);
+  }
+
   async updateSSLCertWithOptions(request: UpdateSSLCertRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSSLCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25662,6 +29391,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25719,6 +29452,10 @@ export default class Client extends OpenApi {
       query["IngressOptionsRequest"] = request.ingressOptionsRequestShrink;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -25768,6 +29505,10 @@ export default class Client extends OpenApi {
       query["Data"] = request.data;
     }
 
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
     if (!Util.isUnset(request.path)) {
       query["Path"] = request.path;
     }
@@ -25807,6 +29548,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
     }
 
     if (!Util.isUnset(request.requestPars)) {
