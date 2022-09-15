@@ -2209,27 +2209,27 @@ export class CorpTokenRequest extends $tea.Model {
 }
 
 export class CorpTokenResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
   data?: CorpTokenResponseBodyData;
   message?: string;
+  requestId?: string;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'code',
       data: 'data',
       message: 'message',
+      requestId: 'requestId',
       traceId: 'traceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
       data: CorpTokenResponseBodyData,
       message: 'string',
+      requestId: 'string',
       traceId: 'string',
     };
   }
@@ -11626,7 +11626,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("btripopen", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -11672,7 +11671,7 @@ export default class Client extends OpenApi {
       protocol: "HTTPS",
       pathname: `/btrip-open-auth/v1/access-token/action/take`,
       method: "GET",
-      authType: "Anonymous",
+      authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
