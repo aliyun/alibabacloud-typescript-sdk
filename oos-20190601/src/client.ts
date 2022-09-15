@@ -645,7 +645,7 @@ export class CreateSecretParameterRequest extends $tea.Model {
   name?: string;
   regionId?: string;
   resourceGroupId?: string;
-  tags?: string;
+  tags?: { [key: string]: any };
   type?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -672,7 +672,53 @@ export class CreateSecretParameterRequest extends $tea.Model {
       name: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
-      tags: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSecretParameterShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  constraints?: string;
+  description?: string;
+  keyId?: string;
+  name?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      constraints: 'Constraints',
+      description: 'Description',
+      keyId: 'KeyId',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      constraints: 'string',
+      description: 'string',
+      keyId: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
       type: 'string',
       value: 'string',
     };
@@ -1000,10 +1046,12 @@ export class CreateTemplateResponse extends $tea.Model {
 }
 
 export class DeleteApplicationRequest extends $tea.Model {
+  force?: boolean;
   name?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       name: 'Name',
       regionId: 'RegionId',
     };
@@ -1011,6 +1059,7 @@ export class DeleteApplicationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       name: 'string',
       regionId: 'string',
     };
@@ -2885,14 +2934,20 @@ export class ListApplicationGroupsRequest extends $tea.Model {
   deployRegionId?: string;
   maxResults?: number;
   nextToken?: string;
+  product?: string;
   regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       applicationName: 'ApplicationName',
       deployRegionId: 'DeployRegionId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      product: 'Product',
       regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -2902,7 +2957,10 @@ export class ListApplicationGroupsRequest extends $tea.Model {
       deployRegionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      product: 'string',
       regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -7004,7 +7062,7 @@ export class CreateSecretParameterResponseBodyParameter extends $tea.Model {
   parameterVersion?: number;
   resourceGroupId?: string;
   shareType?: string;
-  tags?: string;
+  tags?: { [key: string]: any };
   type?: string;
   updatedBy?: string;
   updatedDate?: string;
@@ -7039,7 +7097,7 @@ export class CreateSecretParameterResponseBodyParameter extends $tea.Model {
       parameterVersion: 'number',
       resourceGroupId: 'string',
       shareType: 'string',
-      tags: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'string',
       updatedBy: 'string',
       updatedDate: 'string',
@@ -7234,6 +7292,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
   importTagKey?: string;
   importTagValue?: string;
   name?: string;
+  progress?: string;
   status?: string;
   statusReason?: string;
   updateDate?: string;
@@ -7249,6 +7308,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
       name: 'Name',
+      progress: 'Progress',
       status: 'Status',
       statusReason: 'StatusReason',
       updateDate: 'UpdateDate',
@@ -7267,6 +7327,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
       importTagKey: 'string',
       importTagValue: 'string',
       name: 'string',
+      progress: 'string',
       status: 'string',
       statusReason: 'string',
       updateDate: 'string',
@@ -9786,8 +9847,14 @@ export default class Client extends OpenApi {
     return await this.createPatchBaselineWithOptions(request, runtime);
   }
 
-  async createSecretParameterWithOptions(request: CreateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretParameterResponse> {
-    Util.validateModel(request);
+  async createSecretParameterWithOptions(tmpReq: CreateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretParameterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSecretParameterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -9817,8 +9884,8 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tags)) {
-      query["Tags"] = request.tags;
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -9988,6 +10055,10 @@ export default class Client extends OpenApi {
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
@@ -10962,8 +11033,20 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!Util.isUnset(request.product)) {
+      query["Product"] = request.product;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
