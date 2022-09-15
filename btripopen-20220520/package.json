@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/btripopen20220520",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

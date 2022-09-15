@@ -2755,18 +2755,18 @@ export class DepartmentSaveShrinkRequest extends $tea.Model {
 }
 
 export class DepartmentSaveResponseBody extends $tea.Model {
-  requestId?: string;
+  code?: number;
+  message?: string;
   module?: string;
-  resultCode?: number;
-  resultMsg?: string;
+  requestId?: string;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      code: 'code',
+      message: 'message',
       module: 'module',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
+      requestId: 'requestId',
       success: 'success',
       traceId: 'traceId',
     };
@@ -2774,10 +2774,10 @@ export class DepartmentSaveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      code: 'number',
+      message: 'string',
       module: 'string',
-      resultCode: 'number',
-      resultMsg: 'string',
+      requestId: 'string',
       success: 'boolean',
       traceId: 'string',
     };
@@ -4842,18 +4842,18 @@ export class IsvUserSaveShrinkRequest extends $tea.Model {
 }
 
 export class IsvUserSaveResponseBody extends $tea.Model {
-  requestId?: string;
+  code?: number;
+  message?: string;
   module?: string;
-  resultCode?: number;
-  resultMsg?: string;
+  requestId?: string;
   success?: boolean;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      code: 'code',
+      message: 'message',
       module: 'module',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
+      requestId: 'requestId',
       success: 'success',
       traceId: 'traceId',
     };
@@ -4861,10 +4861,10 @@ export class IsvUserSaveResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      code: 'number',
+      message: 'string',
       module: 'string',
-      resultCode: 'number',
-      resultMsg: 'string',
+      requestId: 'string',
       success: 'boolean',
       traceId: 'string',
     };
