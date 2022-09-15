@@ -152,6 +152,7 @@ export class AddAuthResourceRequest extends $tea.Model {
   authId?: number;
   domainId?: number;
   gatewayUniqueId?: string;
+  matchType?: string;
   mseSessionId?: string;
   path?: string;
   static names(): { [key: string]: string } {
@@ -160,6 +161,7 @@ export class AddAuthResourceRequest extends $tea.Model {
       authId: 'AuthId',
       domainId: 'DomainId',
       gatewayUniqueId: 'GatewayUniqueId',
+      matchType: 'MatchType',
       mseSessionId: 'MseSessionId',
       path: 'Path',
     };
@@ -171,6 +173,7 @@ export class AddAuthResourceRequest extends $tea.Model {
       authId: 'number',
       domainId: 'number',
       gatewayUniqueId: 'string',
+      matchType: 'string',
       mseSessionId: 'string',
       path: 'string',
     };
@@ -22216,6 +22219,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gatewayUniqueId)) {
       query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.matchType)) {
+      query["MatchType"] = request.matchType;
     }
 
     if (!Util.isUnset(request.mseSessionId)) {
