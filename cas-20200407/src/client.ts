@@ -48,10 +48,12 @@ export class CancelCertificateForPackageRequestResponseBody extends $tea.Model {
 
 export class CancelCertificateForPackageRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelCertificateForPackageRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -59,6 +61,7 @@ export class CancelCertificateForPackageRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelCertificateForPackageRequestResponseBody,
     };
   }
@@ -108,10 +111,12 @@ export class CancelOrderRequestResponseBody extends $tea.Model {
 
 export class CancelOrderRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CancelOrderRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -119,6 +124,7 @@ export class CancelOrderRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelOrderRequestResponseBody,
     };
   }
@@ -192,10 +198,12 @@ export class CreateCertificateForPackageRequestResponseBody extends $tea.Model {
 
 export class CreateCertificateForPackageRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCertificateForPackageRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -203,6 +211,7 @@ export class CreateCertificateForPackageRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCertificateForPackageRequestResponseBody,
     };
   }
@@ -270,10 +279,12 @@ export class CreateCertificateRequestResponseBody extends $tea.Model {
 
 export class CreateCertificateRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCertificateRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -281,6 +292,7 @@ export class CreateCertificateRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCertificateRequestResponseBody,
     };
   }
@@ -348,10 +360,12 @@ export class CreateCertificateWithCsrRequestResponseBody extends $tea.Model {
 
 export class CreateCertificateWithCsrRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateCertificateWithCsrRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -359,6 +373,7 @@ export class CreateCertificateWithCsrRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCertificateWithCsrRequestResponseBody,
     };
   }
@@ -408,10 +423,12 @@ export class DeleteCertificateRequestResponseBody extends $tea.Model {
 
 export class DeleteCertificateRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteCertificateRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -419,7 +436,71 @@ export class DeleteCertificateRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteCertificateRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePCACertRequest extends $tea.Model {
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePCACertResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePCACertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeletePCACertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePCACertResponseBody,
     };
   }
 
@@ -498,10 +579,12 @@ export class DescribeCertificateStateResponseBody extends $tea.Model {
 
 export class DescribeCertificateStateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeCertificateStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -509,6 +592,7 @@ export class DescribeCertificateStateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeCertificateStateResponseBody,
     };
   }
@@ -570,10 +654,12 @@ export class DescribePackageStateResponseBody extends $tea.Model {
 
 export class DescribePackageStateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePackageStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -581,7 +667,182 @@ export class DescribePackageStateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePackageStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertRequest extends $tea.Model {
+  currentPage?: number;
+  keyWord?: string;
+  showSize?: number;
+  status?: string;
+  warehouseId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      keyWord: 'KeyWord',
+      showSize: 'ShowSize',
+      status: 'Status',
+      warehouseId: 'WarehouseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      keyWord: 'string',
+      showSize: 'number',
+      status: 'string',
+      warehouseId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertResponseBody extends $tea.Model {
+  certList?: ListCertResponseBodyCertList[];
+  currentPage?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certList: 'CertList',
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certList: { 'type': 'array', 'itemType': ListCertResponseBodyCertList },
+      currentPage: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertWarehouseRequest extends $tea.Model {
+  currentPage?: number;
+  instanceId?: string;
+  name?: string;
+  showSize?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      showSize: 'ShowSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      instanceId: 'string',
+      name: 'string',
+      showSize: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertWarehouseResponseBody extends $tea.Model {
+  certWarehouseList?: ListCertWarehouseResponseBodyCertWarehouseList[];
+  currentPage?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certWarehouseList: 'CertWarehouseList',
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certWarehouseList: { 'type': 'array', 'itemType': ListCertWarehouseResponseBodyCertWarehouseList },
+      currentPage: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertWarehouseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCertWarehouseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCertWarehouseResponseBody,
     };
   }
 
@@ -654,10 +915,12 @@ export class ListUserCertificateOrderResponseBody extends $tea.Model {
 
 export class ListUserCertificateOrderResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUserCertificateOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -665,6 +928,7 @@ export class ListUserCertificateOrderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUserCertificateOrderResponseBody,
     };
   }
@@ -720,10 +984,12 @@ export class RenewCertificateOrderForPackageRequestResponseBody extends $tea.Mod
 
 export class RenewCertificateOrderForPackageRequestResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RenewCertificateOrderForPackageRequestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -731,7 +997,322 @@ export class RenewCertificateOrderForPackageRequestResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RenewCertificateOrderForPackageRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SignRequest extends $tea.Model {
+  certIdentifier?: string;
+  message?: string;
+  messageType?: string;
+  signingAlgorithm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certIdentifier: 'CertIdentifier',
+      message: 'Message',
+      messageType: 'MessageType',
+      signingAlgorithm: 'SigningAlgorithm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIdentifier: 'string',
+      message: 'string',
+      messageType: 'string',
+      signingAlgorithm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SignResponseBody extends $tea.Model {
+  requestId?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SignResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SignResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadPCACertRequest extends $tea.Model {
+  cert?: string;
+  name?: string;
+  privateKey?: string;
+  warehouseId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cert: 'Cert',
+      name: 'Name',
+      privateKey: 'PrivateKey',
+      warehouseId: 'WarehouseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cert: 'string',
+      name: 'string',
+      privateKey: 'string',
+      warehouseId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadPCACertResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadPCACertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UploadPCACertResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadPCACertResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyRequest extends $tea.Model {
+  identifier?: string;
+  message?: string;
+  messageType?: string;
+  signatureValue?: string;
+  signingAlgorithm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+      message: 'Message',
+      messageType: 'MessageType',
+      signatureValue: 'SignatureValue',
+      signingAlgorithm: 'SigningAlgorithm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      message: 'string',
+      messageType: 'string',
+      signatureValue: 'string',
+      signingAlgorithm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyResponseBody extends $tea.Model {
+  requestId?: string;
+  signatureValid?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      signatureValid: 'SignatureValid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      signatureValid: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: VerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertResponseBodyCertList extends $tea.Model {
+  afterDate?: number;
+  beforeDate?: number;
+  commonName?: string;
+  existPrivateKey?: boolean;
+  identifier?: string;
+  issuer?: string;
+  sans?: string;
+  sourceType?: string;
+  status?: string;
+  whId?: number;
+  whInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      afterDate: 'AfterDate',
+      beforeDate: 'BeforeDate',
+      commonName: 'CommonName',
+      existPrivateKey: 'ExistPrivateKey',
+      identifier: 'Identifier',
+      issuer: 'Issuer',
+      sans: 'Sans',
+      sourceType: 'SourceType',
+      status: 'Status',
+      whId: 'WhId',
+      whInstanceId: 'WhInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      afterDate: 'number',
+      beforeDate: 'number',
+      commonName: 'string',
+      existPrivateKey: 'boolean',
+      identifier: 'string',
+      issuer: 'string',
+      sans: 'string',
+      sourceType: 'string',
+      status: 'string',
+      whId: 'number',
+      whInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertWarehouseResponseBodyCertWarehouseList extends $tea.Model {
+  endTime?: number;
+  instanceId?: string;
+  isExpired?: boolean;
+  name?: string;
+  pcaInstanceId?: string;
+  qps?: number;
+  type?: string;
+  whId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      isExpired: 'IsExpired',
+      name: 'Name',
+      pcaInstanceId: 'PcaInstanceId',
+      qps: 'Qps',
+      type: 'Type',
+      whId: 'WhId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceId: 'string',
+      isExpired: 'boolean',
+      name: 'string',
+      pcaInstanceId: 'string',
+      qps: 'number',
+      type: 'string',
+      whId: 'number',
     };
   }
 
@@ -1129,6 +1710,35 @@ export default class Client extends OpenApi {
     return await this.deleteCertificateRequestWithOptions(request, runtime);
   }
 
+  async deletePCACertWithOptions(request: DeletePCACertRequest, runtime: $Util.RuntimeOptions): Promise<DeletePCACertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePCACert",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePCACertResponse>(await this.callApi(params, req, runtime), new DeletePCACertResponse({}));
+  }
+
+  async deletePCACert(request: DeletePCACertRequest): Promise<DeletePCACertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePCACertWithOptions(request, runtime);
+  }
+
   async describeCertificateStateWithOptions(request: DescribeCertificateStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -1185,6 +1795,96 @@ export default class Client extends OpenApi {
   async describePackageState(request: DescribePackageStateRequest): Promise<DescribePackageStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePackageStateWithOptions(request, runtime);
+  }
+
+  async listCertWithOptions(request: ListCertRequest, runtime: $Util.RuntimeOptions): Promise<ListCertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!Util.isUnset(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.warehouseId)) {
+      query["WarehouseId"] = request.warehouseId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCert",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCertResponse>(await this.callApi(params, req, runtime), new ListCertResponse({}));
+  }
+
+  async listCert(request: ListCertRequest): Promise<ListCertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCertWithOptions(request, runtime);
+  }
+
+  async listCertWarehouseWithOptions(request: ListCertWarehouseRequest, runtime: $Util.RuntimeOptions): Promise<ListCertWarehouseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCertWarehouse",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCertWarehouseResponse>(await this.callApi(params, req, runtime), new ListCertWarehouseResponse({}));
+  }
+
+  async listCertWarehouse(request: ListCertWarehouseRequest): Promise<ListCertWarehouseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCertWarehouseWithOptions(request, runtime);
   }
 
   async listUserCertificateOrderWithOptions(request: ListUserCertificateOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListUserCertificateOrderResponse> {
@@ -1263,6 +1963,133 @@ export default class Client extends OpenApi {
   async renewCertificateOrderForPackageRequest(request: RenewCertificateOrderForPackageRequestRequest): Promise<RenewCertificateOrderForPackageRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewCertificateOrderForPackageRequestWithOptions(request, runtime);
+  }
+
+  async signWithOptions(request: SignRequest, runtime: $Util.RuntimeOptions): Promise<SignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.signingAlgorithm)) {
+      query["SigningAlgorithm"] = request.signingAlgorithm;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Sign",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SignResponse>(await this.callApi(params, req, runtime), new SignResponse({}));
+  }
+
+  async sign(request: SignRequest): Promise<SignResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.signWithOptions(request, runtime);
+  }
+
+  async uploadPCACertWithOptions(request: UploadPCACertRequest, runtime: $Util.RuntimeOptions): Promise<UploadPCACertResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cert)) {
+      query["Cert"] = request.cert;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.warehouseId)) {
+      query["WarehouseId"] = request.warehouseId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadPCACert",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadPCACertResponse>(await this.callApi(params, req, runtime), new UploadPCACertResponse({}));
+  }
+
+  async uploadPCACert(request: UploadPCACertRequest): Promise<UploadPCACertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadPCACertWithOptions(request, runtime);
+  }
+
+  async verifyWithOptions(request: VerifyRequest, runtime: $Util.RuntimeOptions): Promise<VerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["Identifier"] = request.identifier;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!Util.isUnset(request.signatureValue)) {
+      query["SignatureValue"] = request.signatureValue;
+    }
+
+    if (!Util.isUnset(request.signingAlgorithm)) {
+      query["SigningAlgorithm"] = request.signingAlgorithm;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Verify",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyResponse>(await this.callApi(params, req, runtime), new VerifyResponse({}));
+  }
+
+  async verify(request: VerifyRequest): Promise<VerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyWithOptions(request, runtime);
   }
 
 }
