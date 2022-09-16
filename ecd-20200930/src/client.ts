@@ -149,6 +149,81 @@ export class AddUserToDesktopGroupResponse extends $tea.Model {
   }
 }
 
+export class ApplyCoordinatePrivilegeRequest extends $tea.Model {
+  coId?: string;
+  endUserId?: string;
+  regionId?: string;
+  userType?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coId: 'CoId',
+      endUserId: 'EndUserId',
+      regionId: 'RegionId',
+      userType: 'UserType',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coId: 'string',
+      endUserId: 'string',
+      regionId: 'string',
+      userType: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyCoordinatePrivilegeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyCoordinatePrivilegeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ApplyCoordinatePrivilegeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyCoordinatePrivilegeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyCoordinationForMonitoringRequest extends $tea.Model {
   coordinatePolicyType?: string;
   endUserId?: string;
@@ -1106,6 +1181,90 @@ export class CreateADConnectorOfficeSiteResponse extends $tea.Model {
   }
 }
 
+export class CreateAndBindNasFileSystemRequest extends $tea.Model {
+  description?: string;
+  desktopGroupId?: string;
+  encryptType?: number;
+  endUserIds?: string[];
+  fileSystemName?: string;
+  officeSiteId?: string;
+  regionId?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      desktopGroupId: 'DesktopGroupId',
+      encryptType: 'EncryptType',
+      endUserIds: 'EndUserIds',
+      fileSystemName: 'FileSystemName',
+      officeSiteId: 'OfficeSiteId',
+      regionId: 'RegionId',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      desktopGroupId: 'string',
+      encryptType: 'number',
+      endUserIds: { 'type': 'array', 'itemType': 'string' },
+      fileSystemName: 'string',
+      officeSiteId: 'string',
+      regionId: 'string',
+      storageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndBindNasFileSystemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndBindNasFileSystemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateAndBindNasFileSystemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAndBindNasFileSystemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBundleRequest extends $tea.Model {
   bundleName?: string;
   description?: string;
@@ -1215,6 +1374,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
   desktopGroupName?: string;
   directoryId?: string;
   endUserIds?: string[];
+  fileSystemId?: string;
   idleDisconnectDuration?: number;
   keepDuration?: number;
   loadPolicy?: number;
@@ -1225,6 +1385,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
   period?: number;
   periodUnit?: string;
   policyGroupId?: string;
+  profileFollowSwitch?: boolean;
   ratioThreshold?: number;
   regionId?: string;
   resetType?: number;
@@ -1250,6 +1411,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       desktopGroupName: 'DesktopGroupName',
       directoryId: 'DirectoryId',
       endUserIds: 'EndUserIds',
+      fileSystemId: 'FileSystemId',
       idleDisconnectDuration: 'IdleDisconnectDuration',
       keepDuration: 'KeepDuration',
       loadPolicy: 'LoadPolicy',
@@ -1260,6 +1422,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
+      profileFollowSwitch: 'ProfileFollowSwitch',
       ratioThreshold: 'RatioThreshold',
       regionId: 'RegionId',
       resetType: 'ResetType',
@@ -1288,6 +1451,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       desktopGroupName: 'string',
       directoryId: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
+      fileSystemId: 'string',
       idleDisconnectDuration: 'number',
       keepDuration: 'number',
       loadPolicy: 'number',
@@ -1298,6 +1462,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',
+      profileFollowSwitch: 'boolean',
       ratioThreshold: 'number',
       regionId: 'string',
       resetType: 'number',
@@ -1977,6 +2142,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
   recordingFps?: number;
   recordingStartTime?: string;
   regionId?: string;
+  remoteCoordinate?: string;
   usbRedirect?: string;
   usbSupplyRedirectRule?: CreatePolicyGroupRequestUsbSupplyRedirectRule[];
   visualQuality?: string;
@@ -2009,6 +2175,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       recordingFps: 'RecordingFps',
       recordingStartTime: 'RecordingStartTime',
       regionId: 'RegionId',
+      remoteCoordinate: 'RemoteCoordinate',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
       visualQuality: 'VisualQuality',
@@ -2044,6 +2211,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       recordingFps: 'number',
       recordingStartTime: 'string',
       regionId: 'string',
+      remoteCoordinate: 'string',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': CreatePolicyGroupRequestUsbSupplyRedirectRule },
       visualQuality: 'string',
@@ -3517,6 +3685,7 @@ export class DescribeClientEventsRequest extends $tea.Model {
   endTime?: string;
   endUserId?: string;
   eventType?: string;
+  eventTypes?: string[];
   maxResults?: number;
   nextToken?: string;
   officeSiteId?: string;
@@ -3532,6 +3701,7 @@ export class DescribeClientEventsRequest extends $tea.Model {
       endTime: 'EndTime',
       endUserId: 'EndUserId',
       eventType: 'EventType',
+      eventTypes: 'EventTypes',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       officeSiteId: 'OfficeSiteId',
@@ -3550,6 +3720,7 @@ export class DescribeClientEventsRequest extends $tea.Model {
       endTime: 'string',
       endUserId: 'string',
       eventType: 'string',
+      eventTypes: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
       officeSiteId: 'string',
@@ -3675,6 +3846,78 @@ export class DescribeCloudDrivePermissionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCloudDrivePermissionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomizedListHeadersRequest extends $tea.Model {
+  langType?: string;
+  listType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      langType: 'LangType',
+      listType: 'ListType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      langType: 'string',
+      listType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomizedListHeadersResponseBody extends $tea.Model {
+  headers?: DescribeCustomizedListHeadersResponseBodyHeaders[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'array', 'itemType': DescribeCustomizedListHeadersResponseBodyHeaders },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomizedListHeadersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeCustomizedListHeadersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCustomizedListHeadersResponseBody,
     };
   }
 
@@ -6345,6 +6588,7 @@ export class DescribeUsersInGroupRequest extends $tea.Model {
   filter?: string;
   maxResults?: number;
   nextToken?: string;
+  orgId?: string;
   queryUserDetail?: boolean;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -6355,6 +6599,7 @@ export class DescribeUsersInGroupRequest extends $tea.Model {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      orgId: 'OrgId',
       queryUserDetail: 'QueryUserDetail',
       regionId: 'RegionId',
     };
@@ -6368,6 +6613,7 @@ export class DescribeUsersInGroupRequest extends $tea.Model {
       filter: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      orgId: 'string',
       queryUserDetail: 'boolean',
       regionId: 'string',
     };
@@ -7112,6 +7358,7 @@ export class ExportClientEventsRequest extends $tea.Model {
   endTime?: string;
   endUserId?: string;
   eventType?: string;
+  eventTypes?: string[];
   maxResults?: number;
   officeSiteId?: string;
   officeSiteName?: string;
@@ -7124,6 +7371,7 @@ export class ExportClientEventsRequest extends $tea.Model {
       endTime: 'EndTime',
       endUserId: 'EndUserId',
       eventType: 'EventType',
+      eventTypes: 'EventTypes',
       maxResults: 'MaxResults',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
@@ -7139,6 +7387,7 @@ export class ExportClientEventsRequest extends $tea.Model {
       endTime: 'string',
       endUserId: 'string',
       eventType: 'string',
+      eventTypes: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       officeSiteId: 'string',
       officeSiteName: 'string',
@@ -8597,6 +8846,75 @@ export class ModifyCloudDrivePermissionResponse extends $tea.Model {
   }
 }
 
+export class ModifyCustomizedListHeadersRequest extends $tea.Model {
+  headers?: ModifyCustomizedListHeadersRequestHeaders[];
+  listType?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      listType: 'ListType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'array', 'itemType': ModifyCustomizedListHeadersRequestHeaders },
+      listType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomizedListHeadersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomizedListHeadersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyCustomizedListHeadersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCustomizedListHeadersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDesktopChargeTypeRequest extends $tea.Model {
   autoPay?: boolean;
   chargeType?: string;
@@ -8694,6 +9012,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
   desktopGroupId?: string;
   desktopGroupName?: string;
   disableSessionConfig?: boolean;
+  fileSystemId?: string;
   idleDisconnectDuration?: number;
   imageId?: string;
   keepDuration?: number;
@@ -8702,6 +9021,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
   minDesktopsCount?: number;
   ownBundleId?: string;
   policyGroupId?: string;
+  profileFollowSwitch?: boolean;
   ratioThreshold?: number;
   regionId?: string;
   resetType?: number;
@@ -8718,6 +9038,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
       desktopGroupId: 'DesktopGroupId',
       desktopGroupName: 'DesktopGroupName',
       disableSessionConfig: 'DisableSessionConfig',
+      fileSystemId: 'FileSystemId',
       idleDisconnectDuration: 'IdleDisconnectDuration',
       imageId: 'ImageId',
       keepDuration: 'KeepDuration',
@@ -8726,6 +9047,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
       minDesktopsCount: 'MinDesktopsCount',
       ownBundleId: 'OwnBundleId',
       policyGroupId: 'PolicyGroupId',
+      profileFollowSwitch: 'ProfileFollowSwitch',
       ratioThreshold: 'RatioThreshold',
       regionId: 'RegionId',
       resetType: 'ResetType',
@@ -8745,6 +9067,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
       desktopGroupId: 'string',
       desktopGroupName: 'string',
       disableSessionConfig: 'boolean',
+      fileSystemId: 'string',
       idleDisconnectDuration: 'number',
       imageId: 'string',
       keepDuration: 'number',
@@ -8753,6 +9076,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
       minDesktopsCount: 'number',
       ownBundleId: 'string',
       policyGroupId: 'string',
+      profileFollowSwitch: 'boolean',
       ratioThreshold: 'number',
       regionId: 'string',
       resetType: 'number',
@@ -9934,6 +10258,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
   recordingFps?: number;
   recordingStartTime?: string;
   regionId?: string;
+  remoteCoordinate?: string;
   revokeAccessPolicyRule?: ModifyPolicyGroupRequestRevokeAccessPolicyRule[];
   revokeSecurityPolicyRule?: ModifyPolicyGroupRequestRevokeSecurityPolicyRule[];
   usbRedirect?: string;
@@ -9969,6 +10294,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       recordingFps: 'RecordingFps',
       recordingStartTime: 'RecordingStartTime',
       regionId: 'RegionId',
+      remoteCoordinate: 'RemoteCoordinate',
       revokeAccessPolicyRule: 'RevokeAccessPolicyRule',
       revokeSecurityPolicyRule: 'RevokeSecurityPolicyRule',
       usbRedirect: 'UsbRedirect',
@@ -10007,6 +10333,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       recordingFps: 'number',
       recordingStartTime: 'string',
       regionId: 'string',
+      remoteCoordinate: 'string',
       revokeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestRevokeAccessPolicyRule },
       revokeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestRevokeSecurityPolicyRule },
       usbRedirect: 'string',
@@ -10866,6 +11193,81 @@ export class ResetSnapshotResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeCoordinatePrivilegeRequest extends $tea.Model {
+  coId?: string;
+  endUserId?: string;
+  regionId?: string;
+  userType?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coId: 'CoId',
+      endUserId: 'EndUserId',
+      regionId: 'RegionId',
+      userType: 'UserType',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coId: 'string',
+      endUserId: 'string',
+      regionId: 'string',
+      userType: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeCoordinatePrivilegeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeCoordinatePrivilegeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RevokeCoordinatePrivilegeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeCoordinatePrivilegeResponseBody,
     };
   }
 
@@ -12526,6 +12928,7 @@ export class DescribeBundlesResponseBodyBundles extends $tea.Model {
   imageName?: string;
   language?: string;
   osType?: string;
+  platform?: string;
   protocolType?: string;
   sessionType?: string;
   stockState?: string;
@@ -12546,6 +12949,7 @@ export class DescribeBundlesResponseBodyBundles extends $tea.Model {
       imageName: 'ImageName',
       language: 'Language',
       osType: 'OsType',
+      platform: 'Platform',
       protocolType: 'ProtocolType',
       sessionType: 'SessionType',
       stockState: 'StockState',
@@ -12569,6 +12973,7 @@ export class DescribeBundlesResponseBodyBundles extends $tea.Model {
       imageName: 'string',
       language: 'string',
       osType: 'string',
+      platform: 'string',
       protocolType: 'string',
       sessionType: 'string',
       stockState: 'string',
@@ -12762,6 +13167,31 @@ export class DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels
     return {
       endUsers: { 'type': 'array', 'itemType': 'string' },
       permission: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomizedListHeadersResponseBodyHeaders extends $tea.Model {
+  displayType?: string;
+  headerKey?: string;
+  headerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayType: 'DisplayType',
+      headerKey: 'HeaderKey',
+      headerName: 'HeaderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayType: 'string',
+      headerKey: 'string',
+      headerName: 'string',
     };
   }
 
@@ -14566,6 +14996,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
   recordingExpires?: number;
   recordingFps?: number;
   recordingStartTime?: string;
+  remoteCoordinate?: string;
   usbRedirect?: string;
   usbSupplyRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
   visualQuality?: string;
@@ -14602,6 +15033,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       recordingExpires: 'RecordingExpires',
       recordingFps: 'RecordingFps',
       recordingStartTime: 'RecordingStartTime',
+      remoteCoordinate: 'RemoteCoordinate',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
       visualQuality: 'VisualQuality',
@@ -14641,6 +15073,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       recordingExpires: 'number',
       recordingFps: 'number',
       recordingStartTime: 'string',
+      remoteCoordinate: 'string',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule },
       visualQuality: 'string',
@@ -15064,10 +15497,12 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $tea.Model {
   connectionStatus?: string;
   desktopId?: string;
   desktopName?: string;
+  displayName?: string;
   endUserEmail?: string;
   endUserId?: string;
   endUserName?: string;
   endUserPhone?: string;
+  endUserRemark?: string;
   endUserType?: string;
   externalInfo?: DescribeUsersInGroupResponseBodyEndUsersExternalInfo;
   userDesktopId?: string;
@@ -15077,10 +15512,12 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $tea.Model {
       connectionStatus: 'ConnectionStatus',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
+      displayName: 'DisplayName',
       endUserEmail: 'EndUserEmail',
       endUserId: 'EndUserId',
       endUserName: 'EndUserName',
       endUserPhone: 'EndUserPhone',
+      endUserRemark: 'EndUserRemark',
       endUserType: 'EndUserType',
       externalInfo: 'ExternalInfo',
       userDesktopId: 'UserDesktopId',
@@ -15093,10 +15530,12 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $tea.Model {
       connectionStatus: 'string',
       desktopId: 'string',
       desktopName: 'string',
+      displayName: 'string',
       endUserEmail: 'string',
       endUserId: 'string',
       endUserName: 'string',
       endUserPhone: 'string',
+      endUserRemark: 'string',
       endUserType: 'string',
       externalInfo: DescribeUsersInGroupResponseBodyEndUsersExternalInfo,
       userDesktopId: 'string',
@@ -15415,6 +15854,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
   maxDesktopsCount?: number;
   memory?: number;
   minDesktopsCount?: number;
+  nasFileSystemID?: string;
+  nasFileSystemName?: string;
   officeSiteId?: string;
   officeSiteName?: string;
   officeSiteType?: string;
@@ -15424,6 +15865,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
   payType?: string;
   policyGroupId?: string;
   policyGroupName?: string;
+  profileFollowSwitch?: boolean;
   ratioThreshold?: number;
   resType?: number;
   resetType?: number;
@@ -15458,6 +15900,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
       maxDesktopsCount: 'MaxDesktopsCount',
       memory: 'Memory',
       minDesktopsCount: 'MinDesktopsCount',
+      nasFileSystemID: 'NasFileSystemID',
+      nasFileSystemName: 'NasFileSystemName',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
       officeSiteType: 'OfficeSiteType',
@@ -15467,6 +15911,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
       payType: 'PayType',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
+      profileFollowSwitch: 'ProfileFollowSwitch',
       ratioThreshold: 'RatioThreshold',
       resType: 'ResType',
       resetType: 'ResetType',
@@ -15504,6 +15949,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
       maxDesktopsCount: 'number',
       memory: 'number',
       minDesktopsCount: 'number',
+      nasFileSystemID: 'string',
+      nasFileSystemName: 'string',
       officeSiteId: 'string',
       officeSiteName: 'string',
       officeSiteType: 'string',
@@ -15513,6 +15960,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
       payType: 'string',
       policyGroupId: 'string',
       policyGroupName: 'string',
+      profileFollowSwitch: 'boolean',
       ratioThreshold: 'number',
       resType: 'number',
       resetType: 'number',
@@ -15715,6 +16163,28 @@ export class ListUserAdOrganizationUnitsResponseBodyOUNames extends $tea.Model {
     return {
       OUName: 'string',
       officeSiteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomizedListHeadersRequestHeaders extends $tea.Model {
+  displayType?: string;
+  headerKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayType: 'DisplayType',
+      headerKey: 'HeaderKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayType: 'string',
+      headerKey: 'string',
     };
   }
 
@@ -16124,6 +16594,51 @@ export default class Client extends OpenApi {
   async addUserToDesktopGroup(request: AddUserToDesktopGroupRequest): Promise<AddUserToDesktopGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToDesktopGroupWithOptions(request, runtime);
+  }
+
+  async applyCoordinatePrivilegeWithOptions(request: ApplyCoordinatePrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ApplyCoordinatePrivilegeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.coId)) {
+      query["CoId"] = request.coId;
+    }
+
+    if (!Util.isUnset(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyCoordinatePrivilege",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyCoordinatePrivilegeResponse>(await this.callApi(params, req, runtime), new ApplyCoordinatePrivilegeResponse({}));
+  }
+
+  async applyCoordinatePrivilege(request: ApplyCoordinatePrivilegeRequest): Promise<ApplyCoordinatePrivilegeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyCoordinatePrivilegeWithOptions(request, runtime);
   }
 
   async applyCoordinationForMonitoringWithOptions(request: ApplyCoordinationForMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<ApplyCoordinationForMonitoringResponse> {
@@ -16714,6 +17229,63 @@ export default class Client extends OpenApi {
     return await this.createADConnectorOfficeSiteWithOptions(request, runtime);
   }
 
+  async createAndBindNasFileSystemWithOptions(request: CreateAndBindNasFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndBindNasFileSystemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.desktopGroupId)) {
+      query["DesktopGroupId"] = request.desktopGroupId;
+    }
+
+    if (!Util.isUnset(request.encryptType)) {
+      query["EncryptType"] = request.encryptType;
+    }
+
+    if (!Util.isUnset(request.endUserIds)) {
+      query["EndUserIds"] = request.endUserIds;
+    }
+
+    if (!Util.isUnset(request.fileSystemName)) {
+      query["FileSystemName"] = request.fileSystemName;
+    }
+
+    if (!Util.isUnset(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAndBindNasFileSystem",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAndBindNasFileSystemResponse>(await this.callApi(params, req, runtime), new CreateAndBindNasFileSystemResponse({}));
+  }
+
+  async createAndBindNasFileSystem(request: CreateAndBindNasFileSystemRequest): Promise<CreateAndBindNasFileSystemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAndBindNasFileSystemWithOptions(request, runtime);
+  }
+
   async createBundleWithOptions(request: CreateBundleRequest, runtime: $Util.RuntimeOptions): Promise<CreateBundleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16842,6 +17414,10 @@ export default class Client extends OpenApi {
       query["EndUserIds"] = request.endUserIds;
     }
 
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     if (!Util.isUnset(request.idleDisconnectDuration)) {
       query["IdleDisconnectDuration"] = request.idleDisconnectDuration;
     }
@@ -16880,6 +17456,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policyGroupId)) {
       query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!Util.isUnset(request.profileFollowSwitch)) {
+      query["ProfileFollowSwitch"] = request.profileFollowSwitch;
     }
 
     if (!Util.isUnset(request.ratioThreshold)) {
@@ -17427,6 +18007,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remoteCoordinate)) {
+      query["RemoteCoordinate"] = request.remoteCoordinate;
     }
 
     if (!Util.isUnset(request.usbRedirect)) {
@@ -18277,6 +18861,10 @@ export default class Client extends OpenApi {
       query["EventType"] = request.eventType;
     }
 
+    if (!Util.isUnset(request.eventTypes)) {
+      query["EventTypes"] = request.eventTypes;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -18354,6 +18942,43 @@ export default class Client extends OpenApi {
   async describeCloudDrivePermissions(request: DescribeCloudDrivePermissionsRequest): Promise<DescribeCloudDrivePermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDrivePermissionsWithOptions(request, runtime);
+  }
+
+  async describeCustomizedListHeadersWithOptions(request: DescribeCustomizedListHeadersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomizedListHeadersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.langType)) {
+      query["LangType"] = request.langType;
+    }
+
+    if (!Util.isUnset(request.listType)) {
+      query["ListType"] = request.listType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomizedListHeaders",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomizedListHeadersResponse>(await this.callApi(params, req, runtime), new DescribeCustomizedListHeadersResponse({}));
+  }
+
+  async describeCustomizedListHeaders(request: DescribeCustomizedListHeadersRequest): Promise<DescribeCustomizedListHeadersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCustomizedListHeadersWithOptions(request, runtime);
   }
 
   async describeDesktopGroupsWithOptions(request: DescribeDesktopGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopGroupsResponse> {
@@ -19906,6 +20531,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!Util.isUnset(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
     if (!Util.isUnset(request.queryUserDetail)) {
       query["QueryUserDetail"] = request.queryUserDetail;
     }
@@ -20310,6 +20939,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.eventType)) {
       query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.eventTypes)) {
+      query["EventTypes"] = request.eventTypes;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -21211,6 +21844,43 @@ export default class Client extends OpenApi {
     return await this.modifyCloudDrivePermissionWithOptions(request, runtime);
   }
 
+  async modifyCustomizedListHeadersWithOptions(request: ModifyCustomizedListHeadersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomizedListHeadersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.headers)) {
+      query["Headers"] = request.headers;
+    }
+
+    if (!Util.isUnset(request.listType)) {
+      query["ListType"] = request.listType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCustomizedListHeaders",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCustomizedListHeadersResponse>(await this.callApi(params, req, runtime), new ModifyCustomizedListHeadersResponse({}));
+  }
+
+  async modifyCustomizedListHeaders(request: ModifyCustomizedListHeadersRequest): Promise<ModifyCustomizedListHeadersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCustomizedListHeadersWithOptions(request, runtime);
+  }
+
   async modifyDesktopChargeTypeWithOptions(request: ModifyDesktopChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesktopChargeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21303,6 +21973,10 @@ export default class Client extends OpenApi {
       query["DisableSessionConfig"] = request.disableSessionConfig;
     }
 
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
     if (!Util.isUnset(request.idleDisconnectDuration)) {
       query["IdleDisconnectDuration"] = request.idleDisconnectDuration;
     }
@@ -21333,6 +22007,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.policyGroupId)) {
       query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!Util.isUnset(request.profileFollowSwitch)) {
+      query["ProfileFollowSwitch"] = request.profileFollowSwitch;
     }
 
     if (!Util.isUnset(request.ratioThreshold)) {
@@ -22103,6 +22781,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.remoteCoordinate)) {
+      query["RemoteCoordinate"] = request.remoteCoordinate;
+    }
+
     if (!Util.isUnset(request.revokeAccessPolicyRule)) {
       query["RevokeAccessPolicyRule"] = request.revokeAccessPolicyRule;
     }
@@ -22614,6 +23296,51 @@ export default class Client extends OpenApi {
   async resetSnapshot(request: ResetSnapshotRequest): Promise<ResetSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetSnapshotWithOptions(request, runtime);
+  }
+
+  async revokeCoordinatePrivilegeWithOptions(request: RevokeCoordinatePrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeCoordinatePrivilegeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.coId)) {
+      query["CoId"] = request.coId;
+    }
+
+    if (!Util.isUnset(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.userType)) {
+      query["UserType"] = request.userType;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeCoordinatePrivilege",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeCoordinatePrivilegeResponse>(await this.callApi(params, req, runtime), new RevokeCoordinatePrivilegeResponse({}));
+  }
+
+  async revokeCoordinatePrivilege(request: RevokeCoordinatePrivilegeRequest): Promise<RevokeCoordinatePrivilegeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeCoordinatePrivilegeWithOptions(request, runtime);
   }
 
   async rollbackSuspEventQuaraFileWithOptions(request: RollbackSuspEventQuaraFileRequest, runtime: $Util.RuntimeOptions): Promise<RollbackSuspEventQuaraFileResponse> {
