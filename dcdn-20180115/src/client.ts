@@ -3686,10 +3686,12 @@ export class DescribeDcdnDomainBpsDataByLayerResponse extends $tea.Model {
 export class DescribeDcdnDomainByCertificateRequest extends $tea.Model {
   ownerId?: number;
   SSLPub?: string;
+  SSLStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       SSLPub: 'SSLPub',
+      SSLStatus: 'SSLStatus',
     };
   }
 
@@ -3697,6 +3699,7 @@ export class DescribeDcdnDomainByCertificateRequest extends $tea.Model {
     return {
       ownerId: 'number',
       SSLPub: 'string',
+      SSLStatus: 'boolean',
     };
   }
 
@@ -8446,7 +8449,7 @@ export class DescribeDcdnReportRequest extends $tea.Model {
 }
 
 export class DescribeDcdnReportResponseBody extends $tea.Model {
-  content?: string;
+  content?: { [key: string]: any };
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8457,7 +8460,7 @@ export class DescribeDcdnReportResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      content: 'string',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
     };
   }
@@ -22515,6 +22518,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.SSLPub)) {
       query["SSLPub"] = request.SSLPub;
+    }
+
+    if (!Util.isUnset(request.SSLStatus)) {
+      query["SSLStatus"] = request.SSLStatus;
     }
 
     let req = new $OpenApi.OpenApiRequest({
