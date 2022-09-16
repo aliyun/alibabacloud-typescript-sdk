@@ -4416,6 +4416,87 @@ export class CopyThingModelResponse extends $tea.Model {
   }
 }
 
+export class CountSpeechBroadcastHourRequest extends $tea.Model {
+  iotInstanceId?: string;
+  queryDateTimeHour?: string;
+  shareTaskCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      queryDateTimeHour: 'QueryDateTimeHour',
+      shareTaskCode: 'ShareTaskCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      queryDateTimeHour: 'string',
+      shareTaskCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountSpeechBroadcastHourResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountSpeechBroadcastHourResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CountSpeechBroadcastHourResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CountSpeechBroadcastHourResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateConsumerGroupRequest extends $tea.Model {
   groupName?: string;
   iotInstanceId?: string;
@@ -18002,6 +18083,93 @@ export class PageQuerySharedSpeechOpenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PageQuerySharedSpeechOpenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySpeechBroadcastHourRequest extends $tea.Model {
+  iotInstanceId?: string;
+  pageSize?: number;
+  pageToken?: string;
+  queryDateTimeHour?: string;
+  shareTaskCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      pageSize: 'PageSize',
+      pageToken: 'PageToken',
+      queryDateTimeHour: 'QueryDateTimeHour',
+      shareTaskCode: 'ShareTaskCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      pageSize: 'number',
+      pageToken: 'string',
+      queryDateTimeHour: 'string',
+      shareTaskCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySpeechBroadcastHourResponseBody extends $tea.Model {
+  code?: string;
+  data?: PageQuerySpeechBroadcastHourResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: PageQuerySpeechBroadcastHourResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySpeechBroadcastHourResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: PageQuerySpeechBroadcastHourResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PageQuerySpeechBroadcastHourResponseBody,
     };
   }
 
@@ -35120,6 +35288,7 @@ export class GetDestinationResponseBodyDestination extends $tea.Model {
   destinationId?: string;
   isFailover?: boolean;
   name?: string;
+  status?: string;
   type?: string;
   utcCreated?: string;
   static names(): { [key: string]: string } {
@@ -35128,6 +35297,7 @@ export class GetDestinationResponseBodyDestination extends $tea.Model {
       destinationId: 'DestinationId',
       isFailover: 'IsFailover',
       name: 'Name',
+      status: 'Status',
       type: 'Type',
       utcCreated: 'UtcCreated',
     };
@@ -35139,6 +35309,7 @@ export class GetDestinationResponseBodyDestination extends $tea.Model {
       destinationId: 'string',
       isFailover: 'boolean',
       name: 'string',
+      status: 'string',
       type: 'string',
       utcCreated: 'string',
     };
@@ -36798,6 +36969,7 @@ export class ListDestinationResponseBodyDestinationsDestinations extends $tea.Mo
   destinationId?: number;
   isFailover?: boolean;
   name?: string;
+  status?: string;
   type?: string;
   utcCreated?: string;
   static names(): { [key: string]: string } {
@@ -36807,6 +36979,7 @@ export class ListDestinationResponseBodyDestinationsDestinations extends $tea.Mo
       destinationId: 'DestinationId',
       isFailover: 'IsFailover',
       name: 'Name',
+      status: 'Status',
       type: 'Type',
       utcCreated: 'UtcCreated',
     };
@@ -36819,6 +36992,7 @@ export class ListDestinationResponseBodyDestinationsDestinations extends $tea.Mo
       destinationId: 'number',
       isFailover: 'boolean',
       name: 'string',
+      status: 'string',
       type: 'string',
       utcCreated: 'string',
     };
@@ -38129,6 +38303,7 @@ export class ListRuleActionsResponseBodyRuleActionListRuleActionInfo extends $te
   errorActionFlag?: boolean;
   id?: number;
   ruleId?: number;
+  status?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38136,6 +38311,7 @@ export class ListRuleActionsResponseBodyRuleActionListRuleActionInfo extends $te
       errorActionFlag: 'ErrorActionFlag',
       id: 'Id',
       ruleId: 'RuleId',
+      status: 'Status',
       type: 'Type',
     };
   }
@@ -38146,6 +38322,7 @@ export class ListRuleActionsResponseBodyRuleActionListRuleActionInfo extends $te
       errorActionFlag: 'boolean',
       id: 'number',
       ruleId: 'number',
+      status: 'string',
       type: 'string',
     };
   }
@@ -38402,6 +38579,96 @@ export class PageQuerySharedSpeechOpenResponseBodyData extends $tea.Model {
       pageId: 'number',
       pageSize: 'number',
       resultData: PageQuerySharedSpeechOpenResponseBodyDataResultData,
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySpeechBroadcastHourResponseBodyDataResultDataData extends $tea.Model {
+  code?: number;
+  deviceName?: string;
+  msg?: string;
+  productKey?: string;
+  shareTaskCode?: string;
+  speechId?: string;
+  speechs?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      deviceName: 'DeviceName',
+      msg: 'Msg',
+      productKey: 'ProductKey',
+      shareTaskCode: 'ShareTaskCode',
+      speechId: 'SpeechId',
+      speechs: 'Speechs',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      deviceName: 'string',
+      msg: 'string',
+      productKey: 'string',
+      shareTaskCode: 'string',
+      speechId: 'string',
+      speechs: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySpeechBroadcastHourResponseBodyDataResultData extends $tea.Model {
+  data?: PageQuerySpeechBroadcastHourResponseBodyDataResultDataData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': PageQuerySpeechBroadcastHourResponseBodyDataResultDataData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageQuerySpeechBroadcastHourResponseBodyData extends $tea.Model {
+  pageId?: number;
+  pageSize?: number;
+  pageToken?: string;
+  resultData?: PageQuerySpeechBroadcastHourResponseBodyDataResultData;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      pageToken: 'PageToken',
+      resultData: 'ResultData',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageId: 'number',
+      pageSize: 'number',
+      pageToken: 'string',
+      resultData: PageQuerySpeechBroadcastHourResponseBodyDataResultData,
       total: 'number',
     };
   }
@@ -47064,6 +47331,45 @@ export default class Client extends OpenApi {
     return await this.copyThingModelWithOptions(request, runtime);
   }
 
+  async countSpeechBroadcastHourWithOptions(request: CountSpeechBroadcastHourRequest, runtime: $Util.RuntimeOptions): Promise<CountSpeechBroadcastHourResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryDateTimeHour)) {
+      query["QueryDateTimeHour"] = request.queryDateTimeHour;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.shareTaskCode)) {
+      body["ShareTaskCode"] = request.shareTaskCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CountSpeechBroadcastHour",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CountSpeechBroadcastHourResponse>(await this.callApi(params, req, runtime), new CountSpeechBroadcastHourResponse({}));
+  }
+
+  async countSpeechBroadcastHour(request: CountSpeechBroadcastHourRequest): Promise<CountSpeechBroadcastHourResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.countSpeechBroadcastHourWithOptions(request, runtime);
+  }
+
   async createConsumerGroupWithOptions(request: CreateConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53757,6 +54063,53 @@ export default class Client extends OpenApi {
   async pageQuerySharedSpeechOpen(request: PageQuerySharedSpeechOpenRequest): Promise<PageQuerySharedSpeechOpenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pageQuerySharedSpeechOpenWithOptions(request, runtime);
+  }
+
+  async pageQuerySpeechBroadcastHourWithOptions(request: PageQuerySpeechBroadcastHourRequest, runtime: $Util.RuntimeOptions): Promise<PageQuerySpeechBroadcastHourResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.queryDateTimeHour)) {
+      query["QueryDateTimeHour"] = request.queryDateTimeHour;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pageToken)) {
+      body["PageToken"] = request.pageToken;
+    }
+
+    if (!Util.isUnset(request.shareTaskCode)) {
+      body["ShareTaskCode"] = request.shareTaskCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PageQuerySpeechBroadcastHour",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PageQuerySpeechBroadcastHourResponse>(await this.callApi(params, req, runtime), new PageQuerySpeechBroadcastHourResponse({}));
+  }
+
+  async pageQuerySpeechBroadcastHour(request: PageQuerySpeechBroadcastHourRequest): Promise<PageQuerySpeechBroadcastHourResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pageQuerySpeechBroadcastHourWithOptions(request, runtime);
   }
 
   async printByTemplateWithOptions(request: PrintByTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PrintByTemplateResponse> {
