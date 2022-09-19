@@ -11123,16 +11123,19 @@ export class TrainOrderQueryResponseBodyModuleChangeTicketInfoList extends $tea.
   changeSeatNo?: string;
   changeSeatTypeName?: string;
   changeServiceFee?: number;
+  changeTrainNo?: string;
   changeTrainTypeName?: string;
   checkInTime?: string;
   checkOutTime?: string;
   endTime?: string;
+  fromStationName?: string;
   gmtCreate?: string;
   gmtModify?: string;
   originTicketNo?: string;
   outTicketStatus?: string;
   startTime?: string;
   ticketNo?: string;
+  toStationName?: string;
   static names(): { [key: string]: string } {
     return {
       changeCoachNo: 'change_coach_no',
@@ -11141,16 +11144,19 @@ export class TrainOrderQueryResponseBodyModuleChangeTicketInfoList extends $tea.
       changeSeatNo: 'change_seat_no',
       changeSeatTypeName: 'change_seat_type_name',
       changeServiceFee: 'change_service_fee',
+      changeTrainNo: 'change_train_no',
       changeTrainTypeName: 'change_train_type_name',
       checkInTime: 'check_in_time',
       checkOutTime: 'check_out_time',
       endTime: 'end_time',
+      fromStationName: 'from_station_name',
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
       originTicketNo: 'origin_ticket_no',
       outTicketStatus: 'out_ticket_status',
       startTime: 'start_time',
       ticketNo: 'ticket_no',
+      toStationName: 'to_station_name',
     };
   }
 
@@ -11162,16 +11168,19 @@ export class TrainOrderQueryResponseBodyModuleChangeTicketInfoList extends $tea.
       changeSeatNo: 'string',
       changeSeatTypeName: 'string',
       changeServiceFee: 'number',
+      changeTrainNo: 'string',
       changeTrainTypeName: 'string',
       checkInTime: 'string',
       checkOutTime: 'string',
       endTime: 'string',
+      fromStationName: 'string',
       gmtCreate: 'string',
       gmtModify: 'string',
       originTicketNo: 'string',
       outTicketStatus: 'string',
       startTime: 'string',
       ticketNo: 'string',
+      toStationName: 'string',
     };
   }
 
