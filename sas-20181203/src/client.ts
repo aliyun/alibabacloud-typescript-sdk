@@ -146,6 +146,105 @@ export class AddVpcHoneyPotResponse extends $tea.Model {
   }
 }
 
+export class BindAuthToMachineRequest extends $tea.Model {
+  authVersion?: number;
+  autoBind?: number;
+  bind?: string[];
+  bindAll?: boolean;
+  criteria?: string;
+  logicalExp?: string;
+  unBind?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authVersion: 'AuthVersion',
+      autoBind: 'AutoBind',
+      bind: 'Bind',
+      bindAll: 'BindAll',
+      criteria: 'Criteria',
+      logicalExp: 'LogicalExp',
+      unBind: 'UnBind',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authVersion: 'number',
+      autoBind: 'number',
+      bind: { 'type': 'array', 'itemType': 'string' },
+      bindAll: 'boolean',
+      criteria: 'string',
+      logicalExp: 'string',
+      unBind: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAuthToMachineResponseBody extends $tea.Model {
+  bindCount?: number;
+  insufficientCoreCount?: number;
+  insufficientCount?: number;
+  insufficientEcsCount?: number;
+  requestId?: string;
+  resultCode?: number;
+  unBindCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bindCount: 'BindCount',
+      insufficientCoreCount: 'InsufficientCoreCount',
+      insufficientCount: 'InsufficientCount',
+      insufficientEcsCount: 'InsufficientEcsCount',
+      requestId: 'RequestId',
+      resultCode: 'ResultCode',
+      unBindCount: 'UnBindCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindCount: 'number',
+      insufficientCoreCount: 'number',
+      insufficientCount: 'number',
+      insufficientEcsCount: 'number',
+      requestId: 'string',
+      resultCode: 'number',
+      unBindCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAuthToMachineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: BindAuthToMachineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindAuthToMachineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckQuaraFileIdRequest extends $tea.Model {
   quaraFileIds?: string[];
   uuid?: string;
@@ -2020,51 +2119,72 @@ export class DescribeAccesskeyLeakListResponse extends $tea.Model {
 
 export class DescribeAffectedMaliciousFileImagesRequest extends $tea.Model {
   clusterId?: string;
+  clusterName?: string;
+  containerId?: string;
   currentPage?: number;
+  image?: string;
   imageDigest?: string;
   imageLayer?: string;
   imageTag?: string;
   lang?: string;
+  levels?: string;
   maliciousMd5?: string;
+  namespace?: string;
   pageSize?: string;
+  pod?: string;
   repoId?: string;
   repoInstanceId?: string;
   repoName?: string;
   repoNamespace?: string;
   repoRegionId?: string;
+  scanRange?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      containerId: 'ContainerId',
       currentPage: 'CurrentPage',
+      image: 'Image',
       imageDigest: 'ImageDigest',
       imageLayer: 'ImageLayer',
       imageTag: 'ImageTag',
       lang: 'Lang',
+      levels: 'Levels',
       maliciousMd5: 'MaliciousMd5',
+      namespace: 'Namespace',
       pageSize: 'PageSize',
+      pod: 'Pod',
       repoId: 'RepoId',
       repoInstanceId: 'RepoInstanceId',
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
+      scanRange: 'ScanRange',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      clusterName: 'string',
+      containerId: 'string',
       currentPage: 'number',
+      image: 'string',
       imageDigest: 'string',
       imageLayer: 'string',
       imageTag: 'string',
       lang: 'string',
+      levels: 'string',
       maliciousMd5: 'string',
+      namespace: 'string',
       pageSize: 'string',
+      pod: 'string',
       repoId: 'string',
       repoInstanceId: 'string',
       repoName: 'string',
       repoNamespace: 'string',
       repoRegionId: 'string',
+      scanRange: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2663,15 +2783,18 @@ export class DescribeAssetDetailByUuidResponse extends $tea.Model {
 }
 
 export class DescribeAssetDetailByUuidsRequest extends $tea.Model {
+  lang?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
+      lang: 'Lang',
       uuids: 'Uuids',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      lang: 'string',
       uuids: 'string',
     };
   }
@@ -3647,6 +3770,7 @@ export class DescribeCloudCenterInstancesRequest extends $tea.Model {
   criteria?: string;
   currentPage?: number;
   importance?: number;
+  lang?: string;
   logicalExp?: string;
   machineTypes?: string;
   noGroupTrace?: boolean;
@@ -3657,6 +3781,7 @@ export class DescribeCloudCenterInstancesRequest extends $tea.Model {
       criteria: 'Criteria',
       currentPage: 'CurrentPage',
       importance: 'Importance',
+      lang: 'Lang',
       logicalExp: 'LogicalExp',
       machineTypes: 'MachineTypes',
       noGroupTrace: 'NoGroupTrace',
@@ -3670,6 +3795,7 @@ export class DescribeCloudCenterInstancesRequest extends $tea.Model {
       criteria: 'string',
       currentPage: 'number',
       importance: 'number',
+      lang: 'string',
       logicalExp: 'string',
       machineTypes: 'string',
       noGroupTrace: 'boolean',
@@ -4996,11 +5122,13 @@ export class DescribeFieldStatisticsResponse extends $tea.Model {
 
 export class DescribeFrontVulPatchListRequest extends $tea.Model {
   info?: string;
+  lang?: string;
   operateType?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       info: 'Info',
+      lang: 'Lang',
       operateType: 'OperateType',
       type: 'Type',
     };
@@ -5009,6 +5137,7 @@ export class DescribeFrontVulPatchListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       info: 'string',
+      lang: 'string',
       operateType: 'string',
       type: 'string',
     };
@@ -5252,6 +5381,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
   repoName?: string;
   repoNamespace?: string;
   repoRegionId?: string;
+  scanRange?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -5268,6 +5398,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
+      scanRange: 'ScanRange',
     };
   }
 
@@ -5287,6 +5418,7 @@ export class DescribeGroupedMaliciousFilesRequest extends $tea.Model {
       repoName: 'string',
       repoNamespace: 'string',
       repoRegionId: 'string',
+      scanRange: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5655,6 +5787,7 @@ export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
   lang?: string;
   pageSize?: number;
   riskLevel?: string;
+  scanRange?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -5664,6 +5797,7 @@ export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       riskLevel: 'RiskLevel',
+      scanRange: 'ScanRange',
     };
   }
 
@@ -5676,6 +5810,7 @@ export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
       lang: 'string',
       pageSize: 'number',
       riskLevel: 'string',
+      scanRange: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5835,6 +5970,7 @@ export class DescribeImageGroupedVulListRequest extends $tea.Model {
   repoName?: string;
   repoNamespace?: string;
   repoRegionId?: string;
+  scanRange?: string[];
   type?: string;
   uuids?: string;
   static names(): { [key: string]: string } {
@@ -5858,6 +5994,7 @@ export class DescribeImageGroupedVulListRequest extends $tea.Model {
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
+      scanRange: 'ScanRange',
       type: 'Type',
       uuids: 'Uuids',
     };
@@ -5884,6 +6021,7 @@ export class DescribeImageGroupedVulListRequest extends $tea.Model {
       repoName: 'string',
       repoNamespace: 'string',
       repoRegionId: 'string',
+      scanRange: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
       uuids: 'string',
     };
@@ -5953,28 +6091,40 @@ export class DescribeImageGroupedVulListResponse extends $tea.Model {
 export class DescribeImageListWithBaselineNameRequest extends $tea.Model {
   baselineNameKey?: string;
   clusterId?: string;
+  clusterName?: string;
+  containerId?: string;
   criteria?: string;
   criteriaType?: string;
   currentPage?: number;
+  image?: string;
   imageDigest?: string;
   lang?: string;
+  namespace?: string;
   pageSize?: number;
+  pod?: string;
   repoInstanceId?: string;
   repoName?: string;
   repoNamespace?: string;
+  scanRange?: string[];
   static names(): { [key: string]: string } {
     return {
       baselineNameKey: 'BaselineNameKey',
       clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      containerId: 'ContainerId',
       criteria: 'Criteria',
       criteriaType: 'CriteriaType',
       currentPage: 'CurrentPage',
+      image: 'Image',
       imageDigest: 'ImageDigest',
       lang: 'Lang',
+      namespace: 'Namespace',
       pageSize: 'PageSize',
+      pod: 'Pod',
       repoInstanceId: 'RepoInstanceId',
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
+      scanRange: 'ScanRange',
     };
   }
 
@@ -5982,15 +6132,21 @@ export class DescribeImageListWithBaselineNameRequest extends $tea.Model {
     return {
       baselineNameKey: 'string',
       clusterId: 'string',
+      clusterName: 'string',
+      containerId: 'string',
       criteria: 'string',
       criteriaType: 'string',
       currentPage: 'number',
+      image: 'string',
       imageDigest: 'string',
       lang: 'string',
+      namespace: 'string',
       pageSize: 'number',
+      pod: 'string',
       repoInstanceId: 'string',
       repoName: 'string',
       repoNamespace: 'string',
+      scanRange: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6149,20 +6305,26 @@ export class DescribeImageStatisticsResponse extends $tea.Model {
 export class DescribeImageVulListRequest extends $tea.Model {
   aliasName?: string;
   clusterId?: string;
+  clusterName?: string;
+  containerId?: string;
   currentPage?: number;
   dealed?: string;
   digest?: string;
+  image?: string;
   instanceId?: string;
   lang?: string;
   name?: string;
+  namespace?: string;
   necessity?: string;
   pageSize?: number;
+  pod?: string;
   regionId?: string;
   repoId?: string;
   repoInstanceId?: string;
   repoName?: string;
   repoNamespace?: string;
   repoRegionId?: string;
+  scanRange?: string[];
   statusList?: string;
   tag?: string;
   type?: string;
@@ -6171,20 +6333,26 @@ export class DescribeImageVulListRequest extends $tea.Model {
     return {
       aliasName: 'AliasName',
       clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      containerId: 'ContainerId',
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       digest: 'Digest',
+      image: 'Image',
       instanceId: 'InstanceId',
       lang: 'Lang',
       name: 'Name',
+      namespace: 'Namespace',
       necessity: 'Necessity',
       pageSize: 'PageSize',
+      pod: 'Pod',
       regionId: 'RegionId',
       repoId: 'RepoId',
       repoInstanceId: 'RepoInstanceId',
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
       repoRegionId: 'RepoRegionId',
+      scanRange: 'ScanRange',
       statusList: 'StatusList',
       tag: 'Tag',
       type: 'Type',
@@ -6196,20 +6364,26 @@ export class DescribeImageVulListRequest extends $tea.Model {
     return {
       aliasName: 'string',
       clusterId: 'string',
+      clusterName: 'string',
+      containerId: 'string',
       currentPage: 'number',
       dealed: 'string',
       digest: 'string',
+      image: 'string',
       instanceId: 'string',
       lang: 'string',
       name: 'string',
+      namespace: 'string',
       necessity: 'string',
       pageSize: 'number',
+      pod: 'string',
       regionId: 'string',
       repoId: 'string',
       repoInstanceId: 'string',
       repoName: 'string',
       repoNamespace: 'string',
       repoRegionId: 'string',
+      scanRange: { 'type': 'array', 'itemType': 'string' },
       statusList: 'string',
       tag: 'string',
       type: 'string',
@@ -6401,11 +6575,15 @@ export class DescribeInstallCodesResponse extends $tea.Model {
 }
 
 export class DescribeInstanceAntiBruteForceRulesRequest extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
   resourceOwnerId?: number;
   sourceIp?: string;
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
       resourceOwnerId: 'ResourceOwnerId',
       sourceIp: 'SourceIp',
       uuidList: 'UuidList',
@@ -6414,6 +6592,8 @@ export class DescribeInstanceAntiBruteForceRulesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      currentPage: 'number',
+      pageSize: 'number',
       resourceOwnerId: 'number',
       sourceIp: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
@@ -11139,6 +11319,53 @@ export class DescribeVulExportInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeVulFixStatisticsResponseBody extends $tea.Model {
+  fixStat?: DescribeVulFixStatisticsResponseBodyFixStat[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fixStat: 'FixStat',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fixStat: { 'type': 'array', 'itemType': DescribeVulFixStatisticsResponseBodyFixStat },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulFixStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeVulFixStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVulFixStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVulListRequest extends $tea.Model {
   aliasName?: string;
   attachTypes?: string;
@@ -12882,6 +13109,87 @@ export class InstallCloudMonitorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InstallCloudMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableHoneypotRequest extends $tea.Model {
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableHoneypotResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: ListAvailableHoneypotResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': ListAvailableHoneypotResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableHoneypotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListAvailableHoneypotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAvailableHoneypotResponseBody,
     };
   }
 
@@ -16721,15 +17029,21 @@ export class RebootMachineResponse extends $tea.Model {
 
 export class RefreshAssetsRequest extends $tea.Model {
   assetType?: string;
+  cloudAssetSubType?: number;
+  cloudAssetType?: number;
   static names(): { [key: string]: string } {
     return {
       assetType: 'AssetType',
+      cloudAssetSubType: 'CloudAssetSubType',
+      cloudAssetType: 'CloudAssetType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       assetType: 'string',
+      cloudAssetSubType: 'number',
+      cloudAssetType: 'number',
     };
   }
 
@@ -17618,18 +17932,24 @@ export class DescribeAccesskeyLeakListResponseBodyAccessKeyLeakList extends $tea
 }
 
 export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFileImagesResponse extends $tea.Model {
+  clusterId?: string;
+  clusterName?: string;
+  containerId?: string;
   digest?: string;
   downloadUrl?: string;
   filePath?: string;
   firstScanTimestamp?: number;
   highLight?: string;
+  image?: string;
   imageUuid?: string;
   latestScanTimestamp?: number;
   latestVerifyTimestamp?: number;
   layer?: string;
   level?: string;
   maliciousMd5?: string;
+  maliciousSource?: string;
   namespace?: string;
+  pod?: string;
   repoId?: string;
   repoInstanceId?: string;
   repoName?: string;
@@ -17638,18 +17958,24 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
   tag?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      containerId: 'ContainerId',
       digest: 'Digest',
       downloadUrl: 'DownloadUrl',
       filePath: 'FilePath',
       firstScanTimestamp: 'FirstScanTimestamp',
       highLight: 'HighLight',
+      image: 'Image',
       imageUuid: 'ImageUuid',
       latestScanTimestamp: 'LatestScanTimestamp',
       latestVerifyTimestamp: 'LatestVerifyTimestamp',
       layer: 'Layer',
       level: 'Level',
       maliciousMd5: 'MaliciousMd5',
+      maliciousSource: 'MaliciousSource',
       namespace: 'Namespace',
+      pod: 'Pod',
       repoId: 'RepoId',
       repoInstanceId: 'RepoInstanceId',
       repoName: 'RepoName',
@@ -17661,18 +17987,24 @@ export class DescribeAffectedMaliciousFileImagesResponseBodyAffectedMaliciousFil
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
+      clusterName: 'string',
+      containerId: 'string',
       digest: 'string',
       downloadUrl: 'string',
       filePath: 'string',
       firstScanTimestamp: 'number',
       highLight: 'string',
+      image: 'string',
       imageUuid: 'string',
       latestScanTimestamp: 'number',
       latestVerifyTimestamp: 'number',
       layer: 'string',
       level: 'string',
       maliciousMd5: 'string',
+      maliciousSource: 'string',
       namespace: 'string',
+      pod: 'string',
       repoId: 'string',
       repoInstanceId: 'string',
       repoName: 'string',
@@ -20142,8 +20474,13 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $tea
 }
 
 export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $tea.Model {
+  baselineType?: string;
+  clusterId?: string;
+  clusterName?: string;
+  containerId?: string;
   digest?: string;
   highRiskImage?: number;
+  image?: string;
   imageCreate?: number;
   imageId?: string;
   imageSize?: number;
@@ -20151,7 +20488,9 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
   instanceId?: string;
   lowRiskImage?: number;
   middleRiskImage?: number;
+  namespace?: string;
   noRiskImage?: number;
+  pod?: string;
   regionId?: string;
   repoId?: string;
   repoName?: string;
@@ -20163,8 +20502,13 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      baselineType: 'BaselineType',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      containerId: 'ContainerId',
       digest: 'Digest',
       highRiskImage: 'HighRiskImage',
+      image: 'Image',
       imageCreate: 'ImageCreate',
       imageId: 'ImageId',
       imageSize: 'ImageSize',
@@ -20172,7 +20516,9 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       instanceId: 'InstanceId',
       lowRiskImage: 'LowRiskImage',
       middleRiskImage: 'MiddleRiskImage',
+      namespace: 'Namespace',
       noRiskImage: 'NoRiskImage',
+      pod: 'Pod',
       regionId: 'RegionId',
       repoId: 'RepoId',
       repoName: 'RepoName',
@@ -20187,8 +20533,13 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
 
   static types(): { [key: string]: any } {
     return {
+      baselineType: 'string',
+      clusterId: 'string',
+      clusterName: 'string',
+      containerId: 'string',
       digest: 'string',
       highRiskImage: 'number',
+      image: 'string',
       imageCreate: 'number',
       imageId: 'string',
       imageSize: 'number',
@@ -20196,7 +20547,9 @@ export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $te
       instanceId: 'string',
       lowRiskImage: 'number',
       middleRiskImage: 'number',
+      namespace: 'string',
       noRiskImage: 'number',
+      pod: 'string',
       regionId: 'string',
       repoId: 'string',
       repoName: 'string',
@@ -20336,14 +20689,20 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
   aliasName?: string;
   canFix?: string;
   canUpdate?: boolean;
+  clusterId?: string;
+  clusterName?: string;
+  containerId?: string;
   extendContentJson?: DescribeImageVulListResponseBodyVulRecordsExtendContentJson;
   firstTs?: number;
+  image?: string;
   imageDigest?: string;
   lastTs?: number;
   layers?: string[];
   modifyTs?: number;
   name?: string;
+  namespace?: string;
   necessity?: string;
+  pod?: string;
   primaryId?: number;
   related?: string;
   repoName?: string;
@@ -20357,14 +20716,20 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
       aliasName: 'AliasName',
       canFix: 'CanFix',
       canUpdate: 'CanUpdate',
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      containerId: 'ContainerId',
       extendContentJson: 'ExtendContentJson',
       firstTs: 'FirstTs',
+      image: 'Image',
       imageDigest: 'ImageDigest',
       lastTs: 'LastTs',
       layers: 'Layers',
       modifyTs: 'ModifyTs',
       name: 'Name',
+      namespace: 'Namespace',
       necessity: 'Necessity',
+      pod: 'Pod',
       primaryId: 'PrimaryId',
       related: 'Related',
       repoName: 'RepoName',
@@ -20381,14 +20746,20 @@ export class DescribeImageVulListResponseBodyVulRecords extends $tea.Model {
       aliasName: 'string',
       canFix: 'string',
       canUpdate: 'boolean',
+      clusterId: 'string',
+      clusterName: 'string',
+      containerId: 'string',
       extendContentJson: DescribeImageVulListResponseBodyVulRecordsExtendContentJson,
       firstTs: 'number',
+      image: 'string',
       imageDigest: 'string',
       lastTs: 'number',
       layers: { 'type': 'array', 'itemType': 'string' },
       modifyTs: 'number',
       name: 'string',
+      namespace: 'string',
       necessity: 'string',
+      pod: 'string',
       primaryId: 'number',
       related: 'string',
       repoName: 'string',
@@ -23714,6 +24085,37 @@ export class DescribeVulDetailsResponseBodyCves extends $tea.Model {
   }
 }
 
+export class DescribeVulFixStatisticsResponseBodyFixStat extends $tea.Model {
+  fixedTodayNum?: number;
+  fixedTotalNum?: number;
+  fixingNum?: number;
+  needFixNum?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fixedTodayNum: 'FixedTodayNum',
+      fixedTotalNum: 'FixedTotalNum',
+      fixingNum: 'FixingNum',
+      needFixNum: 'NeedFixNum',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fixedTodayNum: 'number',
+      fixedTotalNum: 'number',
+      fixingNum: 'number',
+      needFixNum: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity extends $tea.Model {
   assetsFactor?: string;
   cvssFactor?: string;
@@ -24374,6 +24776,49 @@ export class HandleSecurityEventsResponseBodyHandleSecurityEventsResponse extend
   }
 }
 
+export class ListAvailableHoneypotResponseBodyData extends $tea.Model {
+  honeypotImageDisplayName?: string;
+  honeypotImageId?: string;
+  honeypotImageName?: string;
+  honeypotImageType?: string;
+  honeypotImageVersion?: string;
+  multiports?: string;
+  proto?: string;
+  servicePort?: string;
+  template?: string;
+  static names(): { [key: string]: string } {
+    return {
+      honeypotImageDisplayName: 'HoneypotImageDisplayName',
+      honeypotImageId: 'HoneypotImageId',
+      honeypotImageName: 'HoneypotImageName',
+      honeypotImageType: 'HoneypotImageType',
+      honeypotImageVersion: 'HoneypotImageVersion',
+      multiports: 'Multiports',
+      proto: 'Proto',
+      servicePort: 'ServicePort',
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      honeypotImageDisplayName: 'string',
+      honeypotImageId: 'string',
+      honeypotImageName: 'string',
+      honeypotImageType: 'string',
+      honeypotImageVersion: 'string',
+      multiports: 'string',
+      proto: 'string',
+      servicePort: 'string',
+      template: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCheckInstanceResultResponseBodyBasicData extends $tea.Model {
   id?: number;
   instanceId?: string;
@@ -24789,7 +25234,6 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
   nodeId?: string;
   nodeIp?: string;
   nodeName?: string;
-  nodeVersion?: string;
   probeTotalCount?: number;
   probeUsedCount?: number;
   securityGroupProbeIpList?: string[];
@@ -24805,7 +25249,6 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
       nodeId: 'NodeId',
       nodeIp: 'NodeIp',
       nodeName: 'NodeName',
-      nodeVersion: 'NodeVersion',
       probeTotalCount: 'ProbeTotalCount',
       probeUsedCount: 'ProbeUsedCount',
       securityGroupProbeIpList: 'SecurityGroupProbeIpList',
@@ -24824,7 +25267,6 @@ export class ListHoneypotNodeResponseBodyHoneypotNodeList extends $tea.Model {
       nodeId: 'string',
       nodeIp: 'string',
       nodeName: 'string',
-      nodeVersion: 'string',
       probeTotalCount: 'number',
       probeUsedCount: 'number',
       securityGroupProbeIpList: { 'type': 'array', 'itemType': 'string' },
@@ -25372,6 +25814,59 @@ export default class Client extends OpenApi {
   async addVpcHoneyPot(request: AddVpcHoneyPotRequest): Promise<AddVpcHoneyPotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVpcHoneyPotWithOptions(request, runtime);
+  }
+
+  async bindAuthToMachineWithOptions(request: BindAuthToMachineRequest, runtime: $Util.RuntimeOptions): Promise<BindAuthToMachineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authVersion)) {
+      query["AuthVersion"] = request.authVersion;
+    }
+
+    if (!Util.isUnset(request.autoBind)) {
+      query["AutoBind"] = request.autoBind;
+    }
+
+    if (!Util.isUnset(request.bind)) {
+      query["Bind"] = request.bind;
+    }
+
+    if (!Util.isUnset(request.bindAll)) {
+      query["BindAll"] = request.bindAll;
+    }
+
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.logicalExp)) {
+      query["LogicalExp"] = request.logicalExp;
+    }
+
+    if (!Util.isUnset(request.unBind)) {
+      query["UnBind"] = request.unBind;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindAuthToMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindAuthToMachineResponse>(await this.callApi(params, req, runtime), new BindAuthToMachineResponse({}));
+  }
+
+  async bindAuthToMachine(request: BindAuthToMachineRequest): Promise<BindAuthToMachineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindAuthToMachineWithOptions(request, runtime);
   }
 
   async checkQuaraFileIdWithOptions(request: CheckQuaraFileIdRequest, runtime: $Util.RuntimeOptions): Promise<CheckQuaraFileIdResponse> {
@@ -26311,8 +26806,20 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.containerId)) {
+      query["ContainerId"] = request.containerId;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
     }
 
     if (!Util.isUnset(request.imageDigest)) {
@@ -26331,12 +26838,24 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.levels)) {
+      query["Levels"] = request.levels;
+    }
+
     if (!Util.isUnset(request.maliciousMd5)) {
       query["MaliciousMd5"] = request.maliciousMd5;
     }
 
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pod)) {
+      query["Pod"] = request.pod;
     }
 
     if (!Util.isUnset(request.repoId)) {
@@ -26357,6 +26876,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.repoRegionId)) {
       query["RepoRegionId"] = request.repoRegionId;
+    }
+
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26695,6 +27218,10 @@ export default class Client extends OpenApi {
   async describeAssetDetailByUuidsWithOptions(request: DescribeAssetDetailByUuidsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetDetailByUuidsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!Util.isUnset(request.uuids)) {
       query["Uuids"] = request.uuids;
     }
@@ -27214,6 +27741,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.importance)) {
       query["Importance"] = request.importance;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
     }
 
     if (!Util.isUnset(request.logicalExp)) {
@@ -27862,6 +28393,10 @@ export default class Client extends OpenApi {
       query["Info"] = request.info;
     }
 
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!Util.isUnset(request.operateType)) {
       query["OperateType"] = request.operateType;
     }
@@ -28051,6 +28586,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.repoRegionId)) {
       query["RepoRegionId"] = request.repoRegionId;
+    }
+
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -28262,6 +28801,10 @@ export default class Client extends OpenApi {
       query["RiskLevel"] = request.riskLevel;
     }
 
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -28408,6 +28951,10 @@ export default class Client extends OpenApi {
       query["RepoRegionId"] = request.repoRegionId;
     }
 
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
@@ -28449,6 +28996,14 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.containerId)) {
+      query["ContainerId"] = request.containerId;
+    }
+
     if (!Util.isUnset(request.criteria)) {
       query["Criteria"] = request.criteria;
     }
@@ -28461,6 +29016,10 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
+    }
+
     if (!Util.isUnset(request.imageDigest)) {
       query["ImageDigest"] = request.imageDigest;
     }
@@ -28469,8 +29028,16 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pod)) {
+      query["Pod"] = request.pod;
     }
 
     if (!Util.isUnset(request.repoInstanceId)) {
@@ -28483,6 +29050,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.repoNamespace)) {
       query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -28560,6 +29131,14 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.containerId)) {
+      query["ContainerId"] = request.containerId;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -28570,6 +29149,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.digest)) {
       query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.image)) {
+      query["Image"] = request.image;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -28584,12 +29167,20 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!Util.isUnset(request.necessity)) {
       query["Necessity"] = request.necessity;
     }
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pod)) {
+      query["Pod"] = request.pod;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -28622,6 +29213,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.repoRegionId)) {
       query["RepoRegionId"] = request.repoRegionId;
+    }
+
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
     }
 
     if (!Util.isUnset(request.statusList)) {
@@ -28723,6 +29318,14 @@ export default class Client extends OpenApi {
   async describeInstanceAntiBruteForceRulesWithOptions(request: DescribeInstanceAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
@@ -31225,6 +31828,27 @@ export default class Client extends OpenApi {
     return await this.describeVulExportInfoWithOptions(request, runtime);
   }
 
+  async describeVulFixStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVulFixStatisticsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeVulFixStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulFixStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeVulFixStatisticsResponse({}));
+  }
+
+  async describeVulFixStatistics(): Promise<DescribeVulFixStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVulFixStatisticsWithOptions(runtime);
+  }
+
   async describeVulListWithOptions(request: DescribeVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32200,6 +32824,35 @@ export default class Client extends OpenApi {
   async installCloudMonitor(request: InstallCloudMonitorRequest): Promise<InstallCloudMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installCloudMonitorWithOptions(request, runtime);
+  }
+
+  async listAvailableHoneypotWithOptions(request: ListAvailableHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableHoneypotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAvailableHoneypot",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableHoneypotResponse>(await this.callApi(params, req, runtime), new ListAvailableHoneypotResponse({}));
+  }
+
+  async listAvailableHoneypot(request: ListAvailableHoneypotRequest): Promise<ListAvailableHoneypotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAvailableHoneypotWithOptions(request, runtime);
   }
 
   async listCheckInstanceResultWithOptions(request: ListCheckInstanceResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckInstanceResultResponse> {
@@ -34360,6 +35013,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.assetType)) {
       query["AssetType"] = request.assetType;
+    }
+
+    if (!Util.isUnset(request.cloudAssetSubType)) {
+      query["CloudAssetSubType"] = request.cloudAssetSubType;
+    }
+
+    if (!Util.isUnset(request.cloudAssetType)) {
+      query["CloudAssetType"] = request.cloudAssetType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
