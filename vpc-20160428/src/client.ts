@@ -13781,6 +13781,7 @@ export class DescribeForwardTableEntriesRequest extends $tea.Model {
   internalIp?: string;
   internalPort?: string;
   ipProtocol?: string;
+  natGatewayId?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -13798,6 +13799,7 @@ export class DescribeForwardTableEntriesRequest extends $tea.Model {
       internalIp: 'InternalIp',
       internalPort: 'InternalPort',
       ipProtocol: 'IpProtocol',
+      natGatewayId: 'NatGatewayId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -13818,6 +13820,7 @@ export class DescribeForwardTableEntriesRequest extends $tea.Model {
       internalIp: 'string',
       internalPort: 'string',
       ipProtocol: 'string',
+      natGatewayId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -15598,6 +15601,7 @@ export class DescribePhysicalConnectionsRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  tags?: DescribePhysicalConnectionsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -15610,6 +15614,7 @@ export class DescribePhysicalConnectionsRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tags: 'Tags',
     };
   }
 
@@ -15625,6 +15630,7 @@ export class DescribePhysicalConnectionsRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tags: { 'type': 'array', 'itemType': DescribePhysicalConnectionsRequestTags },
     };
   }
 
@@ -16590,6 +16596,7 @@ export class DescribeServerRelatedGlobalAccelerationInstancesResponse extends $t
 }
 
 export class DescribeSnatTableEntriesRequest extends $tea.Model {
+  natGatewayId?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -16605,6 +16612,7 @@ export class DescribeSnatTableEntriesRequest extends $tea.Model {
   sourceVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      natGatewayId: 'NatGatewayId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -16623,6 +16631,7 @@ export class DescribeSnatTableEntriesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      natGatewayId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -21237,6 +21246,7 @@ export class ListFullNatEntriesRequest extends $tea.Model {
   fullNatTableId?: string;
   ipProtocol?: string;
   maxResults?: number;
+  natGatewayId?: string;
   networkInterfaceIds?: string[];
   nextToken?: string;
   ownerAccount?: string;
@@ -21252,6 +21262,7 @@ export class ListFullNatEntriesRequest extends $tea.Model {
       fullNatTableId: 'FullNatTableId',
       ipProtocol: 'IpProtocol',
       maxResults: 'MaxResults',
+      natGatewayId: 'NatGatewayId',
       networkInterfaceIds: 'NetworkInterfaceIds',
       nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
@@ -21270,6 +21281,7 @@ export class ListFullNatEntriesRequest extends $tea.Model {
       fullNatTableId: 'string',
       ipProtocol: 'string',
       maxResults: 'number',
+      natGatewayId: 'string',
       networkInterfaceIds: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
       ownerAccount: 'string',
@@ -22259,6 +22271,102 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesForExpressConnectRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: ListTagResourcesForExpressConnectRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesForExpressConnectRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesForExpressConnectResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesForExpressConnectResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesForExpressConnectResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesForExpressConnectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesForExpressConnectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesForExpressConnectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrafficMirrorFiltersRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -22475,6 +22583,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $tea.Model {
   nextToken?: string;
   physicalConnectionId?: string;
   regionId?: string;
+  tags?: ListVirtualPhysicalConnectionsRequestTags[];
   virtualPhysicalConnectionAliUids?: string[];
   virtualPhysicalConnectionBusinessStatus?: string;
   virtualPhysicalConnectionIds?: string[];
@@ -22487,6 +22596,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $tea.Model {
       nextToken: 'NextToken',
       physicalConnectionId: 'PhysicalConnectionId',
       regionId: 'RegionId',
+      tags: 'Tags',
       virtualPhysicalConnectionAliUids: 'VirtualPhysicalConnectionAliUids',
       virtualPhysicalConnectionBusinessStatus: 'VirtualPhysicalConnectionBusinessStatus',
       virtualPhysicalConnectionIds: 'VirtualPhysicalConnectionIds',
@@ -22502,6 +22612,7 @@ export class ListVirtualPhysicalConnectionsRequest extends $tea.Model {
       nextToken: 'string',
       physicalConnectionId: 'string',
       regionId: 'string',
+      tags: { 'type': 'array', 'itemType': ListVirtualPhysicalConnectionsRequestTags },
       virtualPhysicalConnectionAliUids: { 'type': 'array', 'itemType': 'string' },
       virtualPhysicalConnectionBusinessStatus: 'string',
       virtualPhysicalConnectionIds: { 'type': 'array', 'itemType': 'string' },
@@ -28922,6 +29033,90 @@ export class TagResourcesResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesForExpressConnectRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: TagResourcesForExpressConnectRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesForExpressConnectRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesForExpressConnectResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesForExpressConnectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesForExpressConnectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesForExpressConnectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TerminatePhysicalConnectionRequest extends $tea.Model {
   clientToken?: string;
   ownerAccount?: string;
@@ -29757,6 +29952,93 @@ export class UnassociateVpcCidrBlockResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UnassociateVpcCidrBlockResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesForExpressConnectRequest extends $tea.Model {
+  all?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesForExpressConnectResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesForExpressConnectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UntagResourcesForExpressConnectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesForExpressConnectResponseBody,
     };
   }
 
@@ -34423,6 +34705,28 @@ export class DescribePhysicalConnectionsRequestFilter extends $tea.Model {
   }
 }
 
+export class DescribePhysicalConnectionsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType extends $tea.Model {
   accessPointId?: string;
   accessPointType?: string;
@@ -35128,6 +35432,7 @@ export class DescribeRouterInterfacesResponseBodyRouterInterfaceSetRouterInterfa
   crossBorder?: boolean;
   description?: string;
   endTime?: string;
+  fastLinkMode?: boolean;
   hasReservationData?: string;
   hcRate?: number;
   hcThreshold?: number;
@@ -35168,6 +35473,7 @@ export class DescribeRouterInterfacesResponseBodyRouterInterfaceSetRouterInterfa
       crossBorder: 'CrossBorder',
       description: 'Description',
       endTime: 'EndTime',
+      fastLinkMode: 'FastLinkMode',
       hasReservationData: 'HasReservationData',
       hcRate: 'HcRate',
       hcThreshold: 'HcThreshold',
@@ -35211,6 +35517,7 @@ export class DescribeRouterInterfacesResponseBodyRouterInterfaceSetRouterInterfa
       crossBorder: 'boolean',
       description: 'string',
       endTime: 'string',
+      fastLinkMode: 'boolean',
       hasReservationData: 'string',
       hcRate: 'number',
       hcThreshold: 'number',
@@ -38682,6 +38989,75 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ListTagResourcesForExpressConnectRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesForExpressConnectResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules extends $tea.Model {
   action?: string;
   destinationCidrBlock?: string;
@@ -38861,6 +39237,28 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
       trafficMirrorTargetId: 'string',
       trafficMirrorTargetType: 'string',
       virtualNetworkId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualPhysicalConnectionsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -39400,6 +39798,28 @@ export class ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig extends $tea.M
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesForExpressConnectRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -49286,6 +49706,10 @@ export default class Client extends OpenApi {
       query["IpProtocol"] = request.ipProtocol;
     }
 
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -50515,6 +50939,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -51044,6 +51472,10 @@ export default class Client extends OpenApi {
   async describeSnatTableEntriesWithOptions(request: DescribeSnatTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -53771,6 +54203,10 @@ export default class Client extends OpenApi {
       query["MaxResults"] = request.maxResults;
     }
 
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
     if (!Util.isUnset(request.networkInterfaceIds)) {
       query["NetworkInterfaceIds"] = request.networkInterfaceIds;
     }
@@ -54438,6 +54874,71 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  async listTagResourcesForExpressConnectWithOptions(request: ListTagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesForExpressConnectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResourcesForExpressConnect",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesForExpressConnectResponse>(await this.callApi(params, req, runtime), new ListTagResourcesForExpressConnectResponse({}));
+  }
+
+  async listTagResourcesForExpressConnect(request: ListTagResourcesForExpressConnectRequest): Promise<ListTagResourcesForExpressConnectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesForExpressConnectWithOptions(request, runtime);
+  }
+
   async listTrafficMirrorFiltersWithOptions(request: ListTrafficMirrorFiltersRequest, runtime: $Util.RuntimeOptions): Promise<ListTrafficMirrorFiltersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54605,6 +55106,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.virtualPhysicalConnectionAliUids)) {
@@ -59053,6 +59558,63 @@ export default class Client extends OpenApi {
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  async tagResourcesForExpressConnectWithOptions(request: TagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesForExpressConnectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResourcesForExpressConnect",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesForExpressConnectResponse>(await this.callApi(params, req, runtime), new TagResourcesForExpressConnectResponse({}));
+  }
+
+  async tagResourcesForExpressConnect(request: TagResourcesForExpressConnectRequest): Promise<TagResourcesForExpressConnectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesForExpressConnectWithOptions(request, runtime);
+  }
+
   async terminatePhysicalConnectionWithOptions(request: TerminatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TerminatePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59637,6 +60199,67 @@ export default class Client extends OpenApi {
   async unassociateVpcCidrBlock(request: UnassociateVpcCidrBlockRequest): Promise<UnassociateVpcCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateVpcCidrBlockWithOptions(request, runtime);
+  }
+
+  async untagResourcesForExpressConnectWithOptions(request: UntagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesForExpressConnectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResourcesForExpressConnect",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesForExpressConnectResponse>(await this.callApi(params, req, runtime), new UntagResourcesForExpressConnectResponse({}));
+  }
+
+  async untagResourcesForExpressConnect(request: UntagResourcesForExpressConnectRequest): Promise<UntagResourcesForExpressConnectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesForExpressConnectWithOptions(request, runtime);
   }
 
   async updateDhcpOptionsSetAttributeWithOptions(request: UpdateDhcpOptionsSetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDhcpOptionsSetAttributeResponse> {
