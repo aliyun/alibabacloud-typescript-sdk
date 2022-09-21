@@ -161,6 +161,37 @@ export class Taint extends $tea.Model {
   }
 }
 
+export class StandardComponentsValue extends $tea.Model {
+  name?: string;
+  version?: string;
+  description?: string;
+  required?: string;
+  disabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      version: 'version',
+      description: 'description',
+      required: 'required',
+      disabled: 'disabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+      description: 'string',
+      required: 'string',
+      disabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachInstancesRequest extends $tea.Model {
   cpuPolicy?: string;
   formatDisk?: boolean;
@@ -5009,6 +5040,103 @@ export class RemoveClusterNodesResponse extends $tea.Model {
   }
 }
 
+export class RemoveNodePoolNodesRequest extends $tea.Model {
+  drainNode?: boolean;
+  nodes?: string[];
+  releaseNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      drainNode: 'drain_node',
+      nodes: 'nodes',
+      releaseNode: 'release_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drainNode: 'boolean',
+      nodes: { 'type': 'array', 'itemType': 'string' },
+      releaseNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveNodePoolNodesShrinkRequest extends $tea.Model {
+  drainNode?: boolean;
+  nodesShrink?: string;
+  releaseNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      drainNode: 'drain_node',
+      nodesShrink: 'nodes',
+      releaseNode: 'release_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drainNode: 'boolean',
+      nodesShrink: 'string',
+      releaseNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveNodePoolNodesResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveNodePoolNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: RemoveNodePoolNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveNodePoolNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveWorkflowResponse extends $tea.Model {
   headers: { [key: string]: string };
   statusCode: number;
@@ -5982,37 +6110,6 @@ export class UpgradeClusterAddonsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StandardComponentsValue extends $tea.Model {
-  name?: string;
-  version?: string;
-  description?: string;
-  required?: string;
-  disabled?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      version: 'version',
-      description: 'description',
-      required: 'required',
-      disabled: 'disabled',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-      description: 'string',
-      required: 'string',
-      disabled: 'boolean',
     };
   }
 
@@ -9686,7 +9783,6 @@ export default class Client extends OpenApi {
 
   async attachInstancesWithOptions(ClusterId: string, request: AttachInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachInstancesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cpuPolicy)) {
       body["cpu_policy"] = request.cpuPolicy;
@@ -9748,7 +9844,7 @@ export default class Client extends OpenApi {
       action: "AttachInstances",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/attach`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/attach`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9765,7 +9861,6 @@ export default class Client extends OpenApi {
   }
 
   async cancelClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelClusterUpgradeResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -9773,7 +9868,7 @@ export default class Client extends OpenApi {
       action: "CancelClusterUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}/upgrade/cancel`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/upgrade/cancel`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9790,8 +9885,6 @@ export default class Client extends OpenApi {
   }
 
   async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelComponentUpgradeResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    componentId = OpenApiUtil.getEncodeParam(componentId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -9799,7 +9892,7 @@ export default class Client extends OpenApi {
       action: "CancelComponentUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/components/${componentId}/cancel`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/components/${OpenApiUtil.getEncodeParam(componentId)}/cancel`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9816,7 +9909,6 @@ export default class Client extends OpenApi {
   }
 
   async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
-    taskId = OpenApiUtil.getEncodeParam(taskId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -9824,7 +9916,7 @@ export default class Client extends OpenApi {
       action: "CancelTask",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/tasks/${taskId}/cancel`,
+      pathname: `/tasks/${OpenApiUtil.getEncodeParam(taskId)}/cancel`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9842,7 +9934,6 @@ export default class Client extends OpenApi {
 
   async cancelWorkflowWithOptions(workflowName: string, request: CancelWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelWorkflowResponse> {
     Util.validateModel(request);
-    workflowName = OpenApiUtil.getEncodeParam(workflowName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.action)) {
       body["action"] = request.action;
@@ -9856,7 +9947,7 @@ export default class Client extends OpenApi {
       action: "CancelWorkflow",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/gs/workflow/${workflowName}`,
+      pathname: `/gs/workflow/${OpenApiUtil.getEncodeParam(workflowName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -9874,7 +9965,6 @@ export default class Client extends OpenApi {
 
   async createAutoscalingConfigWithOptions(ClusterId: string, request: CreateAutoscalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAutoscalingConfigResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.coolDownDuration)) {
       body["cool_down_duration"] = request.coolDownDuration;
@@ -9912,7 +10002,7 @@ export default class Client extends OpenApi {
       action: "CreateAutoscalingConfig",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/cluster/${ClusterId}/autoscale/config/`,
+      pathname: `/cluster/${OpenApiUtil.getEncodeParam(ClusterId)}/autoscale/config/`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -10305,7 +10395,6 @@ export default class Client extends OpenApi {
 
   async createClusterNodePoolWithOptions(ClusterId: string, request: CreateClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterNodePoolResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.autoScaling))) {
       body["auto_scaling"] = request.autoScaling;
@@ -10355,7 +10444,7 @@ export default class Client extends OpenApi {
       action: "CreateClusterNodePool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -10502,7 +10591,6 @@ export default class Client extends OpenApi {
 
   async createTriggerWithOptions(clusterId: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.action)) {
       body["action"] = request.action;
@@ -10528,7 +10616,7 @@ export default class Client extends OpenApi {
       action: "CreateTrigger",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/triggers`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/triggers`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -10594,7 +10682,6 @@ export default class Client extends OpenApi {
 
   async deleteClusterWithOptions(ClusterId: string, tmpReq: DeleteClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(tmpReq);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let request = new DeleteClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset(tmpReq.retainResources)) {
@@ -10622,7 +10709,7 @@ export default class Client extends OpenApi {
       action: "DeleteCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10640,8 +10727,6 @@ export default class Client extends OpenApi {
 
   async deleteClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodepoolResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.force)) {
       query["force"] = request.force;
@@ -10655,7 +10740,7 @@ export default class Client extends OpenApi {
       action: "DeleteClusterNodepool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10673,7 +10758,6 @@ export default class Client extends OpenApi {
 
   async deleteClusterNodesWithOptions(ClusterId: string, request: DeleteClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.drainNode)) {
       body["drain_node"] = request.drainNode;
@@ -10695,7 +10779,7 @@ export default class Client extends OpenApi {
       action: "DeleteClusterNodes",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodes`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodes`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -10713,7 +10797,6 @@ export default class Client extends OpenApi {
 
   async deleteEdgeMachineWithOptions(edgeMachineid: string, request: DeleteEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeMachineResponse> {
     Util.validateModel(request);
-    edgeMachineid = OpenApiUtil.getEncodeParam(edgeMachineid);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.force)) {
       query["force"] = request.force;
@@ -10727,7 +10810,7 @@ export default class Client extends OpenApi {
       action: "DeleteEdgeMachine",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/edge_machines/[edge_machineid]`,
+      pathname: `/edge_machines/%5Bedge_machineid%5D`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10744,7 +10827,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteKubernetesTriggerWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteKubernetesTriggerResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -10752,7 +10834,7 @@ export default class Client extends OpenApi {
       action: "DeleteKubernetesTrigger",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/triggers/revoke/${Id}`,
+      pathname: `/triggers/revoke/${OpenApiUtil.getEncodeParam(Id)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10770,8 +10852,6 @@ export default class Client extends OpenApi {
 
   async deletePolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    policyName = OpenApiUtil.getEncodeParam(policyName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceName)) {
       query["instance_name"] = request.instanceName;
@@ -10785,7 +10865,7 @@ export default class Client extends OpenApi {
       action: "DeletePolicyInstance",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/${policyName}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/policies/${OpenApiUtil.getEncodeParam(policyName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10802,7 +10882,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteTemplateWithOptions(TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
-    TemplateId = OpenApiUtil.getEncodeParam(TemplateId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -10810,7 +10889,7 @@ export default class Client extends OpenApi {
       action: "DeleteTemplate",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/templates/${TemplateId}`,
+      pathname: `/templates/${OpenApiUtil.getEncodeParam(TemplateId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10827,8 +10906,6 @@ export default class Client extends OpenApi {
   }
 
   async deleteTriggerWithOptions(clusterId: string, Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    Id = OpenApiUtil.getEncodeParam(Id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -10836,7 +10913,7 @@ export default class Client extends OpenApi {
       action: "DeleteTrigger",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/[cluster_id]/triggers/[Id]`,
+      pathname: `/clusters/%5Bcluster_id%5D/triggers/%5BId%5D`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -10854,8 +10931,6 @@ export default class Client extends OpenApi {
 
   async deployPolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployPolicyInstanceResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    policyName = OpenApiUtil.getEncodeParam(policyName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.action)) {
       body["action"] = request.action;
@@ -10877,7 +10952,7 @@ export default class Client extends OpenApi {
       action: "DeployPolicyInstance",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/${policyName}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/policies/${OpenApiUtil.getEncodeParam(policyName)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -10894,7 +10969,6 @@ export default class Client extends OpenApi {
   }
 
   async descirbeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescirbeWorkflowResponse> {
-    workflowName = OpenApiUtil.getEncodeParam(workflowName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -10902,7 +10976,7 @@ export default class Client extends OpenApi {
       action: "DescirbeWorkflow",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/gs/workflow/${workflowName}`,
+      pathname: `/gs/workflow/${OpenApiUtil.getEncodeParam(workflowName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10954,9 +11028,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonMetadataResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    componentId = OpenApiUtil.getEncodeParam(componentId);
-    version = OpenApiUtil.getEncodeParam(version);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -10964,7 +11035,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAddonMetadata",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/components/${componentId}/metadata`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/components/${OpenApiUtil.getEncodeParam(componentId)}/metadata`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10981,8 +11052,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterAddonUpgradeStatusWithOptions(ClusterId: string, ComponentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonUpgradeStatusResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    ComponentId = OpenApiUtil.getEncodeParam(ComponentId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -10990,7 +11059,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAddonUpgradeStatus",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/${ComponentId}/upgradestatus`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/components/${OpenApiUtil.getEncodeParam(ComponentId)}/upgradestatus`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11008,7 +11077,6 @@ export default class Client extends OpenApi {
 
   async describeClusterAddonsUpgradeStatusWithOptions(ClusterId: string, tmpReq: DescribeClusterAddonsUpgradeStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
     Util.validateModel(tmpReq);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let request = new DescribeClusterAddonsUpgradeStatusShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset(tmpReq.componentIds)) {
@@ -11028,7 +11096,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAddonsUpgradeStatus",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/upgradestatus`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/components/upgradestatus`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11045,7 +11113,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterAddonsVersionWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsVersionResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11053,7 +11120,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAddonsVersion",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/version`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/components/version`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11071,7 +11138,6 @@ export default class Client extends OpenApi {
 
   async describeClusterAttachScriptsWithOptions(ClusterId: string, request: DescribeClusterAttachScriptsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAttachScriptsResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.arch)) {
       body["arch"] = request.arch;
@@ -11105,7 +11171,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAttachScripts",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/attachscript`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/attachscript`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11122,7 +11188,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterDetailWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterDetailResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11130,7 +11195,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterDetail",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11148,7 +11213,6 @@ export default class Client extends OpenApi {
 
   async describeClusterEventsWithOptions(ClusterId: string, request: DescribeClusterEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterEventsResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageNumber)) {
       query["page_number"] = request.pageNumber;
@@ -11170,7 +11234,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterEvents",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/events`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11187,7 +11251,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterLogsWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterLogsResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11195,7 +11258,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterLogs",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/logs`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11212,8 +11275,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterNodePoolDetailWithOptions(ClusterId: string, NodepoolId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolDetailResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11221,7 +11282,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterNodePoolDetail",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11238,7 +11299,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterNodePoolsWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolsResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11246,7 +11306,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterNodePools",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11264,7 +11324,6 @@ export default class Client extends OpenApi {
 
   async describeClusterNodesWithOptions(ClusterId: string, request: DescribeClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceIds)) {
       query["instanceIds"] = request.instanceIds;
@@ -11294,7 +11353,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterNodes",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodes`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodes`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11311,7 +11370,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterResourcesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResourcesResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11319,7 +11377,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterResources",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/resources`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/resources`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11336,7 +11394,6 @@ export default class Client extends OpenApi {
   }
 
   async describeClusterTasksWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterTasksResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11344,7 +11401,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterTasks",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/tasks`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/tasks`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11362,7 +11419,6 @@ export default class Client extends OpenApi {
 
   async describeClusterUserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterUserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterUserKubeconfigResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
@@ -11380,7 +11436,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterUserKubeconfig",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/k8s/${ClusterId}/user_config`,
+      pathname: `/k8s/${OpenApiUtil.getEncodeParam(ClusterId)}/user_config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11398,7 +11454,6 @@ export default class Client extends OpenApi {
 
   async describeClusterV2UserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2UserKubeconfigResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
@@ -11412,7 +11467,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterV2UserKubeconfig",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/k8s/${ClusterId}/user_config`,
+      pathname: `/api/v2/k8s/${OpenApiUtil.getEncodeParam(ClusterId)}/user_config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11519,7 +11574,6 @@ export default class Client extends OpenApi {
   }
 
   async describeEdgeMachineActiveProcessWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineActiveProcessResponse> {
-    edgeMachineid = OpenApiUtil.getEncodeParam(edgeMachineid);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11527,7 +11581,7 @@ export default class Client extends OpenApi {
       action: "DescribeEdgeMachineActiveProcess",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/edge_machines/[edge_machineid]/activeprocess`,
+      pathname: `/edge_machines/%5Bedge_machineid%5D/activeprocess`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11568,7 +11622,6 @@ export default class Client extends OpenApi {
   }
 
   async describeEdgeMachineTunnelConfigDetailWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
-    edgeMachineid = OpenApiUtil.getEncodeParam(edgeMachineid);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11576,7 +11629,7 @@ export default class Client extends OpenApi {
       action: "DescribeEdgeMachineTunnelConfigDetail",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/edge_machines/[edge_machineid]/tunnelconfig`,
+      pathname: `/edge_machines/%5Bedge_machineid%5D/tunnelconfig`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11688,7 +11741,6 @@ export default class Client extends OpenApi {
 
   async describeExternalAgentWithOptions(ClusterId: string, request: DescribeExternalAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeExternalAgentResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
@@ -11702,7 +11754,7 @@ export default class Client extends OpenApi {
       action: "DescribeExternalAgent",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/k8s/${ClusterId}/external/agent/deployment`,
+      pathname: `/k8s/${OpenApiUtil.getEncodeParam(ClusterId)}/external/agent/deployment`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11766,8 +11818,6 @@ export default class Client extends OpenApi {
   }
 
   async describeNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNodePoolVulsResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    nodepoolId = OpenApiUtil.getEncodeParam(nodepoolId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11775,7 +11825,7 @@ export default class Client extends OpenApi {
       action: "DescribeNodePoolVuls",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/nodepools/${nodepoolId}/vuls`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/nodepools/${OpenApiUtil.getEncodeParam(nodepoolId)}/vuls`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11816,7 +11866,6 @@ export default class Client extends OpenApi {
   }
 
   async describePolicyDetailsWithOptions(policyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyDetailsResponse> {
-    policyName = OpenApiUtil.getEncodeParam(policyName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11824,7 +11873,7 @@ export default class Client extends OpenApi {
       action: "DescribePolicyDetails",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/policies/${policyName}`,
+      pathname: `/policies/${OpenApiUtil.getEncodeParam(policyName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11841,7 +11890,6 @@ export default class Client extends OpenApi {
   }
 
   async describePolicyGovernanceInClusterWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyGovernanceInClusterResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11849,7 +11897,7 @@ export default class Client extends OpenApi {
       action: "DescribePolicyGovernanceInCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policygovernance`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/policygovernance`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11867,7 +11915,6 @@ export default class Client extends OpenApi {
 
   async describePolicyInstancesWithOptions(clusterId: string, request: DescribePolicyInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceName)) {
       query["instance_name"] = request.instanceName;
@@ -11885,7 +11932,7 @@ export default class Client extends OpenApi {
       action: "DescribePolicyInstances",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/policies`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11902,7 +11949,6 @@ export default class Client extends OpenApi {
   }
 
   async describePolicyInstancesStatusWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesStatusResponse> {
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11910,7 +11956,7 @@ export default class Client extends OpenApi {
       action: "DescribePolicyInstancesStatus",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/status`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/policies/status`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11927,7 +11973,6 @@ export default class Client extends OpenApi {
   }
 
   async describeTaskInfoWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTaskInfoResponse> {
-    taskId = OpenApiUtil.getEncodeParam(taskId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -11935,7 +11980,7 @@ export default class Client extends OpenApi {
       action: "DescribeTaskInfo",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/tasks/${taskId}`,
+      pathname: `/tasks/${OpenApiUtil.getEncodeParam(taskId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -11953,7 +11998,6 @@ export default class Client extends OpenApi {
 
   async describeTemplateAttributeWithOptions(TemplateId: string, request: DescribeTemplateAttributeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAttributeResponse> {
     Util.validateModel(request);
-    TemplateId = OpenApiUtil.getEncodeParam(TemplateId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.templateType)) {
       query["template_type"] = request.templateType;
@@ -11967,7 +12011,7 @@ export default class Client extends OpenApi {
       action: "DescribeTemplateAttribute",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/templates/${TemplateId}`,
+      pathname: `/templates/${OpenApiUtil.getEncodeParam(TemplateId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12024,7 +12068,6 @@ export default class Client extends OpenApi {
 
   async describeTriggerWithOptions(clusterId: string, request: DescribeTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTriggerResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
@@ -12050,7 +12093,7 @@ export default class Client extends OpenApi {
       action: "DescribeTrigger",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/[cluster_id]/triggers`,
+      pathname: `/clusters/%5Bcluster_id%5D/triggers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12067,7 +12110,6 @@ export default class Client extends OpenApi {
   }
 
   async describeUserPermissionWithOptions(uid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserPermissionResponse> {
-    uid = OpenApiUtil.getEncodeParam(uid);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12075,7 +12117,7 @@ export default class Client extends OpenApi {
       action: "DescribeUserPermission",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/permissions/users/${uid}`,
+      pathname: `/permissions/users/${OpenApiUtil.getEncodeParam(uid)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12141,8 +12183,6 @@ export default class Client extends OpenApi {
 
   async edgeClusterAddEdgeMachineWithOptions(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EdgeClusterAddEdgeMachineResponse> {
     Util.validateModel(request);
-    clusterid = OpenApiUtil.getEncodeParam(clusterid);
-    edgeMachineid = OpenApiUtil.getEncodeParam(edgeMachineid);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.expired)) {
       body["expired"] = request.expired;
@@ -12164,7 +12204,7 @@ export default class Client extends OpenApi {
       action: "EdgeClusterAddEdgeMachine",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/[clusterid]/attachedgemachine/[edge_machineid]`,
+      pathname: `/clusters/%5Bclusterid%5D/attachedgemachine/%5Bedge_machineid%5D`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12182,8 +12222,6 @@ export default class Client extends OpenApi {
 
   async fixNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FixNodePoolVulsResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    nodepoolId = OpenApiUtil.getEncodeParam(nodepoolId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.nodes)) {
       body["nodes"] = request.nodes;
@@ -12205,7 +12243,7 @@ export default class Client extends OpenApi {
       action: "FixNodePoolVuls",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/nodepools/${nodepoolId}/vuls/fix`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/nodepools/${OpenApiUtil.getEncodeParam(nodepoolId)}/vuls/fix`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12223,7 +12261,6 @@ export default class Client extends OpenApi {
 
   async getKubernetesTriggerWithOptions(ClusterId: string, request: GetKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetKubernetesTriggerResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
@@ -12249,7 +12286,7 @@ export default class Client extends OpenApi {
       action: "GetKubernetesTrigger",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/triggers/${ClusterId}`,
+      pathname: `/triggers/${OpenApiUtil.getEncodeParam(ClusterId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12266,7 +12303,6 @@ export default class Client extends OpenApi {
   }
 
   async getUpgradeStatusWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUpgradeStatusResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12274,7 +12310,7 @@ export default class Client extends OpenApi {
       action: "GetUpgradeStatus",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}/upgrade/status`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/upgrade/status`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -12292,7 +12328,6 @@ export default class Client extends OpenApi {
 
   async grantPermissionsWithOptions(uid: string, request: GrantPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GrantPermissionsResponse> {
     Util.validateModel(request);
-    uid = OpenApiUtil.getEncodeParam(uid);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: Util.toArray(request.body),
@@ -12301,7 +12336,7 @@ export default class Client extends OpenApi {
       action: "GrantPermissions",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/permissions/users/${uid}`,
+      pathname: `/permissions/users/${OpenApiUtil.getEncodeParam(uid)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12319,7 +12354,6 @@ export default class Client extends OpenApi {
 
   async installClusterAddonsWithOptions(ClusterId: string, request: InstallClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallClusterAddonsResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: Util.toArray(request.body),
@@ -12328,7 +12362,7 @@ export default class Client extends OpenApi {
       action: "InstallClusterAddons",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/install`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/components/install`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12403,7 +12437,6 @@ export default class Client extends OpenApi {
 
   async migrateClusterWithOptions(clusterId: string, request: MigrateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateClusterResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.ossBucketEndpoint)) {
       body["oss_bucket_endpoint"] = request.ossBucketEndpoint;
@@ -12421,7 +12454,7 @@ export default class Client extends OpenApi {
       action: "MigrateCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/migrate`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/migrate`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12439,7 +12472,6 @@ export default class Client extends OpenApi {
 
   async modifyClusterWithOptions(ClusterId: string, request: ModifyClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.apiServerEip)) {
       body["api_server_eip"] = request.apiServerEip;
@@ -12485,7 +12517,7 @@ export default class Client extends OpenApi {
       action: "ModifyCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12503,8 +12535,6 @@ export default class Client extends OpenApi {
 
   async modifyClusterAddonWithOptions(clusterId: string, componentId: string, request: ModifyClusterAddonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterAddonResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    componentId = OpenApiUtil.getEncodeParam(componentId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.config)) {
       body["config"] = request.config;
@@ -12518,7 +12548,7 @@ export default class Client extends OpenApi {
       action: "ModifyClusterAddon",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/components/${componentId}/config`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/components/${OpenApiUtil.getEncodeParam(componentId)}/config`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12536,7 +12566,6 @@ export default class Client extends OpenApi {
 
   async modifyClusterConfigurationWithOptions(ClusterId: string, request: ModifyClusterConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterConfigurationResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.customizeConfig)) {
       body["customize_config"] = request.customizeConfig;
@@ -12550,7 +12579,7 @@ export default class Client extends OpenApi {
       action: "ModifyClusterConfiguration",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/configuration`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/configuration`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12568,8 +12597,6 @@ export default class Client extends OpenApi {
 
   async modifyClusterNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterNodePoolResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.autoScaling))) {
       body["auto_scaling"] = request.autoScaling;
@@ -12607,7 +12634,7 @@ export default class Client extends OpenApi {
       action: "ModifyClusterNodePool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12625,7 +12652,6 @@ export default class Client extends OpenApi {
 
   async modifyClusterTagsWithOptions(ClusterId: string, request: ModifyClusterTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterTagsResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: Util.toArray(request.body),
@@ -12634,7 +12660,7 @@ export default class Client extends OpenApi {
       action: "ModifyClusterTags",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/tags`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/tags`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12652,8 +12678,6 @@ export default class Client extends OpenApi {
 
   async modifyNodePoolNodeConfigWithOptions(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolNodeConfigResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.kubeletConfig))) {
       body["kubelet_config"] = request.kubeletConfig;
@@ -12671,7 +12695,7 @@ export default class Client extends OpenApi {
       action: "ModifyNodePoolNodeConfig",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}/node_config`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}/node_config`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12689,8 +12713,6 @@ export default class Client extends OpenApi {
 
   async modifyPolicyInstanceWithOptions(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyInstanceResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    policyName = OpenApiUtil.getEncodeParam(policyName);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.action)) {
       body["action"] = request.action;
@@ -12716,7 +12738,7 @@ export default class Client extends OpenApi {
       action: "ModifyPolicyInstance",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/${policyName}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/policies/${OpenApiUtil.getEncodeParam(policyName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -12764,7 +12786,6 @@ export default class Client extends OpenApi {
   }
 
   async pauseClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseClusterUpgradeResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12772,7 +12793,7 @@ export default class Client extends OpenApi {
       action: "PauseClusterUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}/upgrade/pause`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/upgrade/pause`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12789,8 +12810,6 @@ export default class Client extends OpenApi {
   }
 
   async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseComponentUpgradeResponse> {
-    clusterid = OpenApiUtil.getEncodeParam(clusterid);
-    componentid = OpenApiUtil.getEncodeParam(componentid);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12798,7 +12817,7 @@ export default class Client extends OpenApi {
       action: "PauseComponentUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterid}/components/${componentid}/pause`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterid)}/components/${OpenApiUtil.getEncodeParam(componentid)}/pause`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12815,7 +12834,6 @@ export default class Client extends OpenApi {
   }
 
   async pauseTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseTaskResponse> {
-    taskId = OpenApiUtil.getEncodeParam(taskId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12823,7 +12841,7 @@ export default class Client extends OpenApi {
       action: "PauseTask",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/tasks/${taskId}/pause`,
+      pathname: `/tasks/${OpenApiUtil.getEncodeParam(taskId)}/pause`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12841,7 +12859,6 @@ export default class Client extends OpenApi {
 
   async removeClusterNodesWithOptions(ClusterId: string, request: RemoveClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveClusterNodesResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.drainNode)) {
       body["drain_node"] = request.drainNode;
@@ -12863,7 +12880,7 @@ export default class Client extends OpenApi {
       action: "RemoveClusterNodes",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}/nodes/remove`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodes/remove`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12873,6 +12890,51 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveClusterNodesResponse>(await this.callApi(params, req, runtime), new RemoveClusterNodesResponse({}));
   }
 
+  async removeNodePoolNodes(ClusterId: string, NodepoolId: string, request: RemoveNodePoolNodesRequest): Promise<RemoveNodePoolNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeNodePoolNodesWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+  }
+
+  async removeNodePoolNodesWithOptions(ClusterId: string, NodepoolId: string, tmpReq: RemoveNodePoolNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveNodePoolNodesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveNodePoolNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.nodes)) {
+      request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "nodes", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.drainNode)) {
+      query["drain_node"] = request.drainNode;
+    }
+
+    if (!Util.isUnset(request.nodesShrink)) {
+      query["nodes"] = request.nodesShrink;
+    }
+
+    if (!Util.isUnset(request.releaseNode)) {
+      query["release_node"] = request.releaseNode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveNodePoolNodes",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}/nodes`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveNodePoolNodesResponse>(await this.callApi(params, req, runtime), new RemoveNodePoolNodesResponse({}));
+  }
+
   async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -12880,7 +12942,6 @@ export default class Client extends OpenApi {
   }
 
   async removeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveWorkflowResponse> {
-    workflowName = OpenApiUtil.getEncodeParam(workflowName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12888,7 +12949,7 @@ export default class Client extends OpenApi {
       action: "RemoveWorkflow",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/gs/workflow/${workflowName}`,
+      pathname: `/gs/workflow/${OpenApiUtil.getEncodeParam(workflowName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -12906,8 +12967,6 @@ export default class Client extends OpenApi {
 
   async repairClusterNodePoolWithOptions(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RepairClusterNodePoolResponse> {
     Util.validateModel(request);
-    clusterId = OpenApiUtil.getEncodeParam(clusterId);
-    nodepoolId = OpenApiUtil.getEncodeParam(nodepoolId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.nodes)) {
       body["nodes"] = request.nodes;
@@ -12921,7 +12980,7 @@ export default class Client extends OpenApi {
       action: "RepairClusterNodePool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/nodepools/${nodepoolId}/repair`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterId)}/nodepools/${OpenApiUtil.getEncodeParam(nodepoolId)}/repair`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12938,8 +12997,6 @@ export default class Client extends OpenApi {
   }
 
   async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeComponentUpgradeResponse> {
-    clusterid = OpenApiUtil.getEncodeParam(clusterid);
-    componentid = OpenApiUtil.getEncodeParam(componentid);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12947,7 +13004,7 @@ export default class Client extends OpenApi {
       action: "ResumeComponentUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterid}/components/${componentid}/resume`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterid)}/components/${OpenApiUtil.getEncodeParam(componentid)}/resume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12964,7 +13021,6 @@ export default class Client extends OpenApi {
   }
 
   async resumeTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeTaskResponse> {
-    taskId = OpenApiUtil.getEncodeParam(taskId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12972,7 +13028,7 @@ export default class Client extends OpenApi {
       action: "ResumeTask",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/tasks/${taskId}/resume`,
+      pathname: `/tasks/${OpenApiUtil.getEncodeParam(taskId)}/resume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12989,7 +13045,6 @@ export default class Client extends OpenApi {
   }
 
   async resumeUpgradeClusterWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeUpgradeClusterResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -12997,7 +13052,7 @@ export default class Client extends OpenApi {
       action: "ResumeUpgradeCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}/upgrade/resume`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/upgrade/resume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13015,7 +13070,6 @@ export default class Client extends OpenApi {
 
   async scaleClusterWithOptions(ClusterId: string, request: ScaleClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cloudMonitorFlags)) {
       body["cloud_monitor_flags"] = request.cloudMonitorFlags;
@@ -13101,7 +13155,7 @@ export default class Client extends OpenApi {
       action: "ScaleCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -13119,8 +13173,6 @@ export default class Client extends OpenApi {
 
   async scaleClusterNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterNodePoolResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    NodepoolId = OpenApiUtil.getEncodeParam(NodepoolId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.count)) {
       body["count"] = request.count;
@@ -13134,7 +13186,7 @@ export default class Client extends OpenApi {
       action: "ScaleClusterNodePool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/nodepools/${OpenApiUtil.getEncodeParam(NodepoolId)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13152,7 +13204,6 @@ export default class Client extends OpenApi {
 
   async scaleOutClusterWithOptions(ClusterId: string, request: ScaleOutClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleOutClusterResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cloudMonitorFlags)) {
       body["cloud_monitor_flags"] = request.cloudMonitorFlags;
@@ -13246,7 +13297,7 @@ export default class Client extends OpenApi {
       action: "ScaleOutCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13410,7 +13461,6 @@ export default class Client extends OpenApi {
 
   async unInstallClusterAddonsWithOptions(ClusterId: string, request: UnInstallClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnInstallClusterAddonsResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: Util.toArray(request.addons),
@@ -13419,7 +13469,7 @@ export default class Client extends OpenApi {
       action: "UnInstallClusterAddons",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/uninstall`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/components/uninstall`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13483,7 +13533,6 @@ export default class Client extends OpenApi {
   }
 
   async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -13491,7 +13540,7 @@ export default class Client extends OpenApi {
       action: "UpdateContactGroupForAlert",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/alert/${ClusterId}/alert_rule/contact_groups`,
+      pathname: `/alert/${OpenApiUtil.getEncodeParam(ClusterId)}/alert_rule/contact_groups`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13509,7 +13558,6 @@ export default class Client extends OpenApi {
 
   async updateK8sClusterUserConfigExpireWithOptions(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sClusterUserConfigExpireResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.expireHour)) {
       body["expire_hour"] = request.expireHour;
@@ -13527,7 +13575,7 @@ export default class Client extends OpenApi {
       action: "UpdateK8sClusterUserConfigExpire",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/k8s/${ClusterId}/user_config/expire`,
+      pathname: `/k8s/${OpenApiUtil.getEncodeParam(ClusterId)}/user_config/expire`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13545,7 +13593,6 @@ export default class Client extends OpenApi {
 
   async updateTemplateWithOptions(TemplateId: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
-    TemplateId = OpenApiUtil.getEncodeParam(TemplateId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
@@ -13575,7 +13622,7 @@ export default class Client extends OpenApi {
       action: "UpdateTemplate",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/templates/${TemplateId}`,
+      pathname: `/templates/${OpenApiUtil.getEncodeParam(TemplateId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -13593,7 +13640,6 @@ export default class Client extends OpenApi {
 
   async upgradeClusterWithOptions(ClusterId: string, request: UpgradeClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.componentName)) {
       body["component_name"] = request.componentName;
@@ -13615,7 +13661,7 @@ export default class Client extends OpenApi {
       action: "UpgradeCluster",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/api/v2/clusters/${ClusterId}/upgrade`,
+      pathname: `/api/v2/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/upgrade`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -13633,7 +13679,6 @@ export default class Client extends OpenApi {
 
   async upgradeClusterAddonsWithOptions(ClusterId: string, request: UpgradeClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterAddonsResponse> {
     Util.validateModel(request);
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: Util.toArray(request.body),
@@ -13642,7 +13687,7 @@ export default class Client extends OpenApi {
       action: "UpgradeClusterAddons",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/upgrade`,
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/components/upgrade`,
       method: "POST",
       authType: "AK",
       style: "ROA",
