@@ -7489,12 +7489,14 @@ export class ListClusterTypesRequest extends $tea.Model {
   acceptLanguage?: string;
   connectType?: string;
   mseSessionId?: string;
+  mseVersion?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       connectType: 'ConnectType',
       mseSessionId: 'MseSessionId',
+      mseVersion: 'MseVersion',
       regionId: 'RegionId',
     };
   }
@@ -7504,6 +7506,7 @@ export class ListClusterTypesRequest extends $tea.Model {
       acceptLanguage: 'string',
       connectType: 'string',
       mseSessionId: 'string',
+      mseVersion: 'string',
       regionId: 'string',
     };
   }
@@ -7582,11 +7585,13 @@ export class ListClusterVersionsRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterType?: string;
   mseSessionId?: string;
+  mseVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       clusterType: 'ClusterType',
       mseSessionId: 'MseSessionId',
+      mseVersion: 'MseVersion',
     };
   }
 
@@ -7595,6 +7600,7 @@ export class ListClusterVersionsRequest extends $tea.Model {
       acceptLanguage: 'string',
       clusterType: 'string',
       mseSessionId: 'string',
+      mseVersion: 'string',
     };
   }
 
@@ -15568,11 +15574,13 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList exte
 }
 
 export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $tea.Model {
+  dubboServiceGroup?: string;
   dubboServiceName?: string;
   dubboServiceVersion?: string;
   mothedMapList?: AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList[];
   static names(): { [key: string]: string } {
     return {
+      dubboServiceGroup: 'DubboServiceGroup',
       dubboServiceName: 'DubboServiceName',
       dubboServiceVersion: 'DubboServiceVersion',
       mothedMapList: 'MothedMapList',
@@ -15581,6 +15589,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      dubboServiceGroup: 'string',
       dubboServiceName: 'string',
       dubboServiceVersion: 'string',
       mothedMapList: { 'type': 'array', 'itemType': AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList },
@@ -19352,11 +19361,13 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
 }
 
 export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder extends $tea.Model {
+  dubboServiceGroup?: string;
   dubboServiceName?: string;
   dubboServiceVersion?: string;
   mothedMapList?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList[];
   static names(): { [key: string]: string } {
     return {
+      dubboServiceGroup: 'DubboServiceGroup',
       dubboServiceName: 'DubboServiceName',
       dubboServiceVersion: 'DubboServiceVersion',
       mothedMapList: 'MothedMapList',
@@ -19365,6 +19376,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
 
   static types(): { [key: string]: any } {
     return {
+      dubboServiceGroup: 'string',
       dubboServiceName: 'string',
       dubboServiceVersion: 'string',
       mothedMapList: { 'type': 'array', 'itemType': ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList },
@@ -21526,11 +21538,13 @@ export class UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList e
 }
 
 export class UpdateGatewayRouteRequestServicesHttpDubboTranscoder extends $tea.Model {
+  dubboServiceGroup?: string;
   dubboServiceName?: string;
   dubboServiceVersion?: string;
   mothedMapList?: UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList[];
   static names(): { [key: string]: string } {
     return {
+      dubboServiceGroup: 'DubboServiceGroup',
       dubboServiceName: 'DubboServiceName',
       dubboServiceVersion: 'DubboServiceVersion',
       mothedMapList: 'MothedMapList',
@@ -21539,6 +21553,7 @@ export class UpdateGatewayRouteRequestServicesHttpDubboTranscoder extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      dubboServiceGroup: 'string',
       dubboServiceName: 'string',
       dubboServiceVersion: 'string',
       mothedMapList: { 'type': 'array', 'itemType': UpdateGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList },
@@ -25991,6 +26006,10 @@ export default class Client extends OpenApi {
       query["MseSessionId"] = request.mseSessionId;
     }
 
+    if (!Util.isUnset(request.mseVersion)) {
+      query["MseVersion"] = request.mseVersion;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -26030,6 +26049,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mseSessionId)) {
       query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.mseVersion)) {
+      query["MseVersion"] = request.mseVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
