@@ -608,6 +608,96 @@ export class DescribePhoneNumberStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribePhoneTwiceTelVerifyRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneTwiceTelVerifyResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribePhoneTwiceTelVerifyResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribePhoneTwiceTelVerifyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneTwiceTelVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribePhoneTwiceTelVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePhoneTwiceTelVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvalidPhoneNumberFilterRequest extends $tea.Model {
   authCode?: string;
   inputNumber?: string;
@@ -1578,6 +1668,28 @@ export class DescribePhoneNumberStatusResponseBodyPhoneStatus extends $tea.Model
   }
 }
 
+export class DescribePhoneTwiceTelVerifyResponseBodyData extends $tea.Model {
+  carrier?: string;
+  verifyResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carrier: 'Carrier',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carrier: 'string',
+      verifyResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvalidPhoneNumberFilterResponseBodyData extends $tea.Model {
   code?: string;
   encryptedNumber?: string;
@@ -2134,6 +2246,59 @@ export default class Client extends OpenApi {
   async describePhoneNumberStatus(request: DescribePhoneNumberStatusRequest): Promise<DescribePhoneNumberStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberStatusWithOptions(request, runtime);
+  }
+
+  async describePhoneTwiceTelVerifyWithOptions(request: DescribePhoneTwiceTelVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneTwiceTelVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneTwiceTelVerify",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneTwiceTelVerifyResponse>(await this.callApi(params, req, runtime), new DescribePhoneTwiceTelVerifyResponse({}));
+  }
+
+  async describePhoneTwiceTelVerify(request: DescribePhoneTwiceTelVerifyRequest): Promise<DescribePhoneTwiceTelVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePhoneTwiceTelVerifyWithOptions(request, runtime);
   }
 
   async invalidPhoneNumberFilterWithOptions(request: InvalidPhoneNumberFilterRequest, runtime: $Util.RuntimeOptions): Promise<InvalidPhoneNumberFilterResponse> {
