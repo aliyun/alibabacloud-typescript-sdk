@@ -910,6 +910,7 @@ export class DetailSceneResponseBody extends $tea.Model {
   captures?: DetailSceneResponseBodyCaptures[];
   code?: number;
   coverUrl?: string;
+  floorPlans?: DetailSceneResponseBodyFloorPlans[];
   gmtCreate?: number;
   gmtModified?: number;
   id?: string;
@@ -929,6 +930,7 @@ export class DetailSceneResponseBody extends $tea.Model {
       captures: 'Captures',
       code: 'Code',
       coverUrl: 'CoverUrl',
+      floorPlans: 'FloorPlans',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
@@ -951,6 +953,7 @@ export class DetailSceneResponseBody extends $tea.Model {
       captures: { 'type': 'array', 'itemType': DetailSceneResponseBodyCaptures },
       code: 'number',
       coverUrl: 'string',
+      floorPlans: { 'type': 'array', 'itemType': DetailSceneResponseBodyFloorPlans },
       gmtCreate: 'number',
       gmtModified: 'number',
       id: 'string',
@@ -5598,6 +5601,34 @@ export class DetailSceneResponseBodyCaptures extends $tea.Model {
     return {
       title: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSceneResponseBodyFloorPlans extends $tea.Model {
+  colorMapUrl?: string;
+  floorLabel?: string;
+  floorName?: string;
+  miniMapUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      colorMapUrl: 'ColorMapUrl',
+      floorLabel: 'FloorLabel',
+      floorName: 'FloorName',
+      miniMapUrl: 'MiniMapUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      colorMapUrl: 'string',
+      floorLabel: 'string',
+      floorName: 'string',
+      miniMapUrl: 'string',
     };
   }
 
