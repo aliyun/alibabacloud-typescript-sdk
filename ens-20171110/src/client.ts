@@ -292,6 +292,72 @@ export class UdpConfig extends $tea.Model {
   }
 }
 
+export class AccosicateNetworkAclRequest extends $tea.Model {
+  networkAclId?: string;
+  resource?: AccosicateNetworkAclRequestResource[];
+  static names(): { [key: string]: string } {
+    return {
+      networkAclId: 'NetworkAclId',
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclId: 'string',
+      resource: { 'type': 'array', 'itemType': AccosicateNetworkAclRequestResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccosicateNetworkAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccosicateNetworkAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: AccosicateNetworkAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AccosicateNetworkAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddBackendServersRequest extends $tea.Model {
   backendServers?: AddBackendServersRequestBackendServers[];
   loadBalancerId?: string;
@@ -1613,6 +1679,97 @@ export class CreateEpnInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateFileSystemRequest extends $tea.Model {
+  orderDetails?: CreateFileSystemRequestOrderDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      orderDetails: 'OrderDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderDetails: { 'type': 'array', 'itemType': CreateFileSystemRequestOrderDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileSystemShrinkRequest extends $tea.Model {
+  orderDetailsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderDetailsShrink: 'OrderDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderDetailsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileSystemResponseBody extends $tea.Model {
+  allocationId?: string[];
+  bizStatusCode?: string;
+  requestId?: string;
+  unAllocationId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      bizStatusCode: 'BizStatusCode',
+      requestId: 'RequestId',
+      unAllocationId: 'UnAllocationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: { 'type': 'array', 'itemType': 'string' },
+      bizStatusCode: 'string',
+      requestId: 'string',
+      unAllocationId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileSystemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateFileSystemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateFileSystemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateForwardEntryRequest extends $tea.Model {
   externalIp?: string;
   externalPort?: string;
@@ -2534,6 +2691,81 @@ export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
   }
 }
 
+export class CreateMountTargetRequest extends $tea.Model {
+  ensRegionId?: string;
+  fileSystemId?: string;
+  mountTargetName?: string;
+  netWorkId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+      mountTargetName: 'MountTargetName',
+      netWorkId: 'NetWorkId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+      mountTargetName: 'string',
+      netWorkId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMountTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMountTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateMountTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNatGatewayRequest extends $tea.Model {
   ensRegionId?: string;
   instanceType?: string;
@@ -2679,6 +2911,165 @@ export class CreateNetworkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkAclRequest extends $tea.Model {
+  description?: string;
+  networkAclName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      networkAclName: 'NetworkAclName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      networkAclName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkAclResponseBody extends $tea.Model {
+  networkAclId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkAclId: 'NetworkAclId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateNetworkAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetworkAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkAclEntryRequest extends $tea.Model {
+  cidrBlock?: string;
+  description?: string;
+  direction?: string;
+  networkAclEntryName?: string;
+  networkAclId?: string;
+  policy?: string;
+  portRange?: string;
+  priority?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      description: 'Description',
+      direction: 'Direction',
+      networkAclEntryName: 'NetworkAclEntryName',
+      networkAclId: 'NetworkAclId',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      description: 'string',
+      direction: 'string',
+      networkAclEntryName: 'string',
+      networkAclId: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkAclEntryResponseBody extends $tea.Model {
+  networkAclEntryId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkAclEntryId: 'NetworkAclEntryId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclEntryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkAclEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: CreateNetworkAclEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetworkAclEntryResponseBody,
     };
   }
 
@@ -3182,6 +3573,72 @@ export class DeleteEpnInstanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteFileSystemRequest extends $tea.Model {
+  ensRegionId?: string;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileSystemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileSystemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteFileSystemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFileSystemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteForwardEntryRequest extends $tea.Model {
   forwardEntryId?: string;
   static names(): { [key: string]: string } {
@@ -3446,6 +3903,75 @@ export class DeleteLoadBalancerListenerResponse extends $tea.Model {
   }
 }
 
+export class DeleteMountTargetRequest extends $tea.Model {
+  ensRegionId?: string;
+  fileSystemId?: string;
+  mountTargetName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+      mountTargetName: 'MountTargetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+      mountTargetName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMountTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMountTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteMountTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteNatGatewayRequest extends $tea.Model {
   natGatewayId?: string;
   static names(): { [key: string]: string } {
@@ -3564,6 +4090,132 @@ export class DeleteNetworkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkAclRequest extends $tea.Model {
+  networkAclId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkAclId: 'NetworkAclId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteNetworkAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNetworkAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkAclEntryRequest extends $tea.Model {
+  networkAclEntryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkAclEntryId: 'NetworkAclEntryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclEntryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkAclEntryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkAclEntryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteNetworkAclEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNetworkAclEntryResponseBody,
     };
   }
 
@@ -4078,25 +4730,6 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAvailableResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceInfoRequest extends $tea.Model {
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: 'string',
     };
   }
 
@@ -8149,6 +8782,93 @@ export class DescribeMeasurementDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeMountTargetsRequest extends $tea.Model {
+  ensRegionId?: string;
+  fileSystemId?: string;
+  mountTargetName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+      mountTargetName: 'MountTargetName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+      mountTargetName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountTargetsResponseBody extends $tea.Model {
+  mountTargets?: DescribeMountTargetsResponseBodyMountTargets[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mountTargets: 'MountTargets',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountTargets: { 'type': 'array', 'itemType': DescribeMountTargetsResponseBodyMountTargets },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMountTargetsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeMountTargetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMountTargetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysRequest extends $tea.Model {
   ensRegionId?: string;
   name?: string;
@@ -8242,6 +8962,93 @@ export class DescribeNatGatewaysResponse extends $tea.Model {
   }
 }
 
+export class DescribeNetworkAclsRequest extends $tea.Model {
+  networkAclId?: string;
+  networkAclName?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkAclId: 'NetworkAclId',
+      networkAclName: 'NetworkAclName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclId: 'string',
+      networkAclName: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponseBody extends $tea.Model {
+  networkAcls?: DescribeNetworkAclsResponseBodyNetworkAcls[];
+  pageNumber?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkAcls: 'NetworkAcls',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAcls: { 'type': 'array', 'itemType': DescribeNetworkAclsResponseBodyNetworkAcls },
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeNetworkAclsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNetworkAclsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkAttributeRequest extends $tea.Model {
   networkId?: string;
   static names(): { [key: string]: string } {
@@ -8267,6 +9074,7 @@ export class DescribeNetworkAttributeResponseBody extends $tea.Model {
   createdTime?: string;
   description?: string;
   ensRegionId?: string;
+  networkAclId?: string;
   networkId?: string;
   networkName?: string;
   requestId?: string;
@@ -8280,6 +9088,7 @@ export class DescribeNetworkAttributeResponseBody extends $tea.Model {
       createdTime: 'CreatedTime',
       description: 'Description',
       ensRegionId: 'EnsRegionId',
+      networkAclId: 'NetworkAclId',
       networkId: 'NetworkId',
       networkName: 'NetworkName',
       requestId: 'RequestId',
@@ -8296,6 +9105,7 @@ export class DescribeNetworkAttributeResponseBody extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       ensRegionId: 'string',
+      networkAclId: 'string',
       networkId: 'string',
       networkName: 'string',
       requestId: 'string',
@@ -9033,6 +9843,84 @@ export class DescribeSecurityGroupsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSecurityGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSelfImagesRequest extends $tea.Model {
+  imageId?: string;
+  imageName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      imageName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSelfImagesResponseBody extends $tea.Model {
+  code?: number;
+  images?: DescribeSelfImagesResponseBodyImages;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      images: 'Images',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      images: DescribeSelfImagesResponseBodyImages,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSelfImagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DescribeSelfImagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSelfImagesResponseBody,
     };
   }
 
@@ -10485,6 +11373,75 @@ export class ModifyEpnInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyEpnInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFileSystemRequest extends $tea.Model {
+  description?: string;
+  ensRegionId?: string;
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFileSystemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFileSystemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ModifyFileSystemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyFileSystemResponseBody,
     };
   }
 
@@ -12648,6 +13605,75 @@ export class ResetDeviceInstanceResponse extends $tea.Model {
   }
 }
 
+export class ResizeDiskRequest extends $tea.Model {
+  diskId?: string;
+  newSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      newSize: 'NewSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      newSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeDiskResponseBody extends $tea.Model {
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeDiskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ResizeDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResizeDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RestartDeviceInstanceRequest extends $tea.Model {
   appId?: string;
   instanceId?: string;
@@ -14423,6 +15449,72 @@ export class UnassignPrivateIpAddressesResponse extends $tea.Model {
   }
 }
 
+export class UnassociateNetworkAclRequest extends $tea.Model {
+  networkAclId?: string;
+  resource?: UnassociateNetworkAclRequestResource[];
+  static names(): { [key: string]: string } {
+    return {
+      networkAclId: 'NetworkAclId',
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkAclId: 'string',
+      resource: { 'type': 'array', 'itemType': UnassociateNetworkAclRequestResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassociateNetworkAclResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassociateNetworkAclResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnassociateNetworkAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnassociateNetworkAclResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeAICInstanceImageRequest extends $tea.Model {
   imageId?: string;
   serverIds?: string[];
@@ -14586,6 +15678,28 @@ export class UpgradeApplicationResponse extends $tea.Model {
   }
 }
 
+export class AccosicateNetworkAclRequestResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddBackendServersRequestBackendServers extends $tea.Model {
   ip?: string;
   port?: number;
@@ -14681,6 +15795,46 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
     return {
       networkInterfaceId: 'string',
       privateIpSet: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileSystemRequestOrderDetails extends $tea.Model {
+  chargeType?: string;
+  ensRegionId?: string;
+  fileSystemName?: string;
+  mountTargetDomain?: string;
+  networkId?: string;
+  orderType?: string;
+  protocolType?: string;
+  storgeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      ensRegionId: 'EnsRegionId',
+      fileSystemName: 'FileSystemName',
+      mountTargetDomain: 'MountTargetDomain',
+      networkId: 'NetworkId',
+      orderType: 'OrderType',
+      protocolType: 'ProtocolType',
+      storgeType: 'StorgeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      ensRegionId: 'string',
+      fileSystemName: 'string',
+      mountTargetDomain: 'string',
+      networkId: 'string',
+      orderType: 'string',
+      protocolType: 'string',
+      storgeType: 'string',
     };
   }
 
@@ -17484,6 +18638,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
   instanceId?: string;
   instanceName?: string;
   instanceResourceType?: string;
+  instanceTypeFamily?: string;
   internetMaxBandwidthIn?: number;
   internetMaxBandwidthOut?: number;
   memory?: number;
@@ -17510,6 +18665,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceResourceType: 'InstanceResourceType',
+      instanceTypeFamily: 'InstanceTypeFamily',
       internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       memory: 'Memory',
@@ -17539,6 +18695,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       instanceResourceType: 'string',
+      instanceTypeFamily: 'string',
       internetMaxBandwidthIn: 'number',
       internetMaxBandwidthOut: 'number',
       memory: 'number',
@@ -17943,6 +19100,40 @@ export class DescribeMeasurementDataResponseBodyMeasurementDatas extends $tea.Mo
   }
 }
 
+export class DescribeMountTargetsResponseBodyMountTargets extends $tea.Model {
+  ensRegionId?: string;
+  fileSystemId?: string;
+  mountTargetDomain?: string;
+  mountTargetName?: string;
+  netWorkId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      fileSystemId: 'FileSystemId',
+      mountTargetDomain: 'MountTargetDomain',
+      mountTargetName: 'MountTargetName',
+      netWorkId: 'NetWorkId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      fileSystemId: 'string',
+      mountTargetDomain: 'string',
+      mountTargetName: 'string',
+      netWorkId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
   creationTime?: string;
   ensRegionId?: string;
@@ -17972,6 +19163,160 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $tea.Model {
       networkId: 'string',
       spec: 'string',
       vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends $tea.Model {
+  cidrBlock?: string;
+  description?: string;
+  networkAclEntryId?: string;
+  networkAclEntryName?: string;
+  policy?: string;
+  portRange?: string;
+  priority?: number;
+  protocol?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      description: 'Description',
+      networkAclEntryId: 'NetworkAclEntryId',
+      networkAclEntryName: 'NetworkAclEntryName',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      protocol: 'Protocol',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      description: 'string',
+      networkAclEntryId: 'string',
+      networkAclEntryName: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'number',
+      protocol: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends $tea.Model {
+  cidrBlock?: string;
+  description?: string;
+  networkAclEntryId?: string;
+  networkAclEntryName?: string;
+  policy?: string;
+  portRange?: string;
+  priority?: number;
+  protocol?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      description: 'Description',
+      networkAclEntryId: 'NetworkAclEntryId',
+      networkAclEntryName: 'NetworkAclEntryName',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      protocol: 'Protocol',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      description: 'string',
+      networkAclEntryId: 'string',
+      networkAclEntryName: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'number',
+      protocol: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponseBodyNetworkAclsResources extends $tea.Model {
+  ensRegionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkAclsResponseBodyNetworkAcls extends $tea.Model {
+  creationTime?: string;
+  description?: string;
+  egressAclEntries?: DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries[];
+  ingressAclEntries?: DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries[];
+  networkAclId?: string;
+  networkAclName?: string;
+  resources?: DescribeNetworkAclsResponseBodyNetworkAclsResources[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      description: 'Description',
+      egressAclEntries: 'EgressAclEntries',
+      ingressAclEntries: 'IngressAclEntries',
+      networkAclId: 'NetworkAclId',
+      networkAclName: 'NetworkAclName',
+      resources: 'Resources',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      description: 'string',
+      egressAclEntries: { 'type': 'array', 'itemType': DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries },
+      ingressAclEntries: { 'type': 'array', 'itemType': DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries },
+      networkAclId: 'string',
+      networkAclName: 'string',
+      resources: { 'type': 'array', 'itemType': DescribeNetworkAclsResponseBodyNetworkAclsResources },
+      status: 'string',
     };
   }
 
@@ -18170,6 +19515,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $tea.Model {
   createdTime?: string;
   description?: string;
   ensRegionId?: string;
+  networkAclId?: string;
   networkId?: string;
   networkName?: string;
   routerTableId?: string;
@@ -18181,6 +19527,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $tea.Model {
       createdTime: 'CreatedTime',
       description: 'Description',
       ensRegionId: 'EnsRegionId',
+      networkAclId: 'NetworkAclId',
       networkId: 'NetworkId',
       networkName: 'NetworkName',
       routerTableId: 'RouterTableId',
@@ -18195,6 +19542,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $tea.Model {
       createdTime: 'string',
       description: 'string',
       ensRegionId: 'string',
+      networkAclId: 'string',
       networkId: 'string',
       networkName: 'string',
       routerTableId: 'string',
@@ -18630,6 +19978,71 @@ export class DescribeSecurityGroupsResponseBodySecurityGroups extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       securityGroup: { 'type': 'array', 'itemType': DescribeSecurityGroupsResponseBodySecurityGroupsSecurityGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSelfImagesResponseBodyImagesImage extends $tea.Model {
+  architecture?: string;
+  creationTime?: string;
+  imageId?: string;
+  imageName?: string;
+  imageOwnerAlias?: string;
+  imageSize?: string;
+  instanceId?: string;
+  osVersion?: string;
+  platform?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      creationTime: 'CreationTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageOwnerAlias: 'ImageOwnerAlias',
+      imageSize: 'ImageSize',
+      instanceId: 'InstanceId',
+      osVersion: 'OsVersion',
+      platform: 'Platform',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      creationTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageOwnerAlias: 'string',
+      imageSize: 'string',
+      instanceId: 'string',
+      osVersion: 'string',
+      platform: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSelfImagesResponseBodyImages extends $tea.Model {
+  image?: DescribeSelfImagesResponseBodyImagesImage[];
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: { 'type': 'array', 'itemType': DescribeSelfImagesResponseBodyImagesImage },
     };
   }
 
@@ -19400,6 +20813,28 @@ export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
   }
 }
 
+export class UnassociateNetworkAclRequestResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -19421,6 +20856,39 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async accosicateNetworkAclWithOptions(request: AccosicateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<AccosicateNetworkAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkAclId)) {
+      query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AccosicateNetworkAcl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AccosicateNetworkAclResponse>(await this.callApi(params, req, runtime), new AccosicateNetworkAclResponse({}));
+  }
+
+  async accosicateNetworkAcl(request: AccosicateNetworkAclRequest): Promise<AccosicateNetworkAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.accosicateNetworkAclWithOptions(request, runtime);
   }
 
   async addBackendServersWithOptions(tmpReq: AddBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddBackendServersResponse> {
@@ -20146,6 +21614,37 @@ export default class Client extends OpenApi {
     return await this.createEpnInstanceWithOptions(request, runtime);
   }
 
+  async createFileSystemWithOptions(tmpReq: CreateFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileSystemResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateFileSystemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.orderDetails)) {
+      request.orderDetailsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderDetails, "OrderDetails", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFileSystem",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFileSystemResponse>(await this.callApi(params, req, runtime), new CreateFileSystemResponse({}));
+  }
+
+  async createFileSystem(request: CreateFileSystemRequest): Promise<CreateFileSystemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFileSystemWithOptions(request, runtime);
+  }
+
   async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20827,6 +22326,47 @@ export default class Client extends OpenApi {
     return await this.createLoadBalancerUDPListenerWithOptions(request, runtime);
   }
 
+  async createMountTargetWithOptions(request: CreateMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetName)) {
+      query["MountTargetName"] = request.mountTargetName;
+    }
+
+    if (!Util.isUnset(request.netWorkId)) {
+      query["NetWorkId"] = request.netWorkId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMountTarget",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMountTargetResponse>(await this.callApi(params, req, runtime), new CreateMountTargetResponse({}));
+  }
+
+  async createMountTarget(request: CreateMountTargetRequest): Promise<CreateMountTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createMountTargetWithOptions(request, runtime);
+  }
+
   async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20911,6 +22451,100 @@ export default class Client extends OpenApi {
   async createNetwork(request: CreateNetworkRequest): Promise<CreateNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkWithOptions(request, runtime);
+  }
+
+  async createNetworkAclWithOptions(request: CreateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.networkAclName)) {
+      query["NetworkAclName"] = request.networkAclName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNetworkAcl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNetworkAclResponse>(await this.callApi(params, req, runtime), new CreateNetworkAclResponse({}));
+  }
+
+  async createNetworkAcl(request: CreateNetworkAclRequest): Promise<CreateNetworkAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNetworkAclWithOptions(request, runtime);
+  }
+
+  async createNetworkAclEntryWithOptions(request: CreateNetworkAclEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAclEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cidrBlock)) {
+      query["CidrBlock"] = request.cidrBlock;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.networkAclEntryName)) {
+      query["NetworkAclEntryName"] = request.networkAclEntryName;
+    }
+
+    if (!Util.isUnset(request.networkAclId)) {
+      query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.portRange)) {
+      query["PortRange"] = request.portRange;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNetworkAclEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNetworkAclEntryResponse>(await this.callApi(params, req, runtime), new CreateNetworkAclEntryResponse({}));
+  }
+
+  async createNetworkAclEntry(request: CreateNetworkAclEntryRequest): Promise<CreateNetworkAclEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNetworkAclEntryWithOptions(request, runtime);
   }
 
   async createSecurityGroupWithOptions(request: CreateSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityGroupResponse> {
@@ -21160,6 +22794,31 @@ export default class Client extends OpenApi {
     return await this.deleteEpnInstanceWithOptions(request, runtime);
   }
 
+  async deleteFileSystemWithOptions(request: DeleteFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileSystemResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFileSystem",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFileSystemResponse>(await this.callApi(params, req, runtime), new DeleteFileSystemResponse({}));
+  }
+
+  async deleteFileSystem(request: DeleteFileSystemRequest): Promise<DeleteFileSystemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFileSystemWithOptions(request, runtime);
+  }
+
   async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21288,6 +22947,43 @@ export default class Client extends OpenApi {
     return await this.deleteLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  async deleteMountTargetWithOptions(request: DeleteMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMountTargetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetName)) {
+      query["MountTargetName"] = request.mountTargetName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMountTarget",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMountTargetResponse>(await this.callApi(params, req, runtime), new DeleteMountTargetResponse({}));
+  }
+
+  async deleteMountTarget(request: DeleteMountTargetRequest): Promise<DeleteMountTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMountTargetWithOptions(request, runtime);
+  }
+
   async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21344,6 +23040,64 @@ export default class Client extends OpenApi {
   async deleteNetwork(request: DeleteNetworkRequest): Promise<DeleteNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkWithOptions(request, runtime);
+  }
+
+  async deleteNetworkAclWithOptions(request: DeleteNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkAclId)) {
+      query["NetworkAclId"] = request.networkAclId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNetworkAcl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNetworkAclResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAclResponse({}));
+  }
+
+  async deleteNetworkAcl(request: DeleteNetworkAclRequest): Promise<DeleteNetworkAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNetworkAclWithOptions(request, runtime);
+  }
+
+  async deleteNetworkAclEntryWithOptions(request: DeleteNetworkAclEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkAclEntryId)) {
+      query["NetworkAclEntryId"] = request.networkAclEntryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNetworkAclEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNetworkAclEntryResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAclEntryResponse({}));
+  }
+
+  async deleteNetworkAclEntry(request: DeleteNetworkAclEntryRequest): Promise<DeleteNetworkAclEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNetworkAclEntryWithOptions(request, runtime);
   }
 
   async deleteSecurityGroupWithOptions(request: DeleteSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityGroupResponse> {
@@ -21579,16 +23333,8 @@ export default class Client extends OpenApi {
     return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
-  async describeAvailableResourceInfoWithOptions(request: DescribeAvailableResourceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async describeAvailableResourceInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DescribeAvailableResourceInfo",
       version: "2017-11-10",
@@ -21603,9 +23349,9 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceInfoResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceInfoResponse({}));
   }
 
-  async describeAvailableResourceInfo(request: DescribeAvailableResourceInfoRequest): Promise<DescribeAvailableResourceInfoResponse> {
+  async describeAvailableResourceInfo(): Promise<DescribeAvailableResourceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAvailableResourceInfoWithOptions(request, runtime);
+    return await this.describeAvailableResourceInfoWithOptions(runtime);
   }
 
   async describeBandWithdChargeTypeWithOptions(request: DescribeBandWithdChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandWithdChargeTypeResponse> {
@@ -23439,6 +25185,51 @@ export default class Client extends OpenApi {
     return await this.describeMeasurementDataWithOptions(request, runtime);
   }
 
+  async describeMountTargetsWithOptions(request: DescribeMountTargetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountTargetsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.mountTargetName)) {
+      query["MountTargetName"] = request.mountTargetName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMountTargets",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMountTargetsResponse>(await this.callApi(params, req, runtime), new DescribeMountTargetsResponse({}));
+  }
+
+  async describeMountTargets(request: DescribeMountTargetsRequest): Promise<DescribeMountTargetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMountTargetsWithOptions(request, runtime);
+  }
+
   async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -23462,6 +25253,31 @@ export default class Client extends OpenApi {
   async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatGatewaysWithOptions(request, runtime);
+  }
+
+  async describeNetworkAclsWithOptions(request: DescribeNetworkAclsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAclsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeNetworkAcls",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNetworkAclsResponse>(await this.callApi(params, req, runtime), new DescribeNetworkAclsResponse({}));
+  }
+
+  async describeNetworkAcls(request: DescribeNetworkAclsRequest): Promise<DescribeNetworkAclsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeNetworkAclsWithOptions(request, runtime);
   }
 
   async describeNetworkAttributeWithOptions(request: DescribeNetworkAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAttributeResponse> {
@@ -23825,6 +25641,47 @@ export default class Client extends OpenApi {
   async describeSecurityGroups(request: DescribeSecurityGroupsRequest): Promise<DescribeSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupsWithOptions(request, runtime);
+  }
+
+  async describeSelfImagesWithOptions(request: DescribeSelfImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSelfImagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSelfImages",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSelfImagesResponse>(await this.callApi(params, req, runtime), new DescribeSelfImagesResponse({}));
+  }
+
+  async describeSelfImages(request: DescribeSelfImagesRequest): Promise<DescribeSelfImagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSelfImagesWithOptions(request, runtime);
   }
 
   async describeServcieScheduleWithOptions(request: DescribeServcieScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServcieScheduleResponse> {
@@ -24540,6 +26397,43 @@ export default class Client extends OpenApi {
   async modifyEpnInstance(request: ModifyEpnInstanceRequest): Promise<ModifyEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEpnInstanceWithOptions(request, runtime);
+  }
+
+  async modifyFileSystemWithOptions(request: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyFileSystem",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyFileSystemResponse>(await this.callApi(params, req, runtime), new ModifyFileSystemResponse({}));
+  }
+
+  async modifyFileSystem(request: ModifyFileSystemRequest): Promise<ModifyFileSystemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyFileSystemWithOptions(request, runtime);
   }
 
   async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
@@ -25648,6 +27542,39 @@ export default class Client extends OpenApi {
     return await this.resetDeviceInstanceWithOptions(request, runtime);
   }
 
+  async resizeDiskWithOptions(request: ResizeDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.newSize)) {
+      query["NewSize"] = request.newSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResizeDisk",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResizeDiskResponse>(await this.callApi(params, req, runtime), new ResizeDiskResponse({}));
+  }
+
+  async resizeDisk(request: ResizeDiskRequest): Promise<ResizeDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resizeDiskWithOptions(request, runtime);
+  }
+
   async restartDeviceInstanceWithOptions(request: RestartDeviceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDeviceInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -26710,6 +28637,39 @@ export default class Client extends OpenApi {
   async unassignPrivateIpAddresses(request: UnassignPrivateIpAddressesRequest): Promise<UnassignPrivateIpAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassignPrivateIpAddressesWithOptions(request, runtime);
+  }
+
+  async unassociateNetworkAclWithOptions(request: UnassociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateNetworkAclResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.networkAclId)) {
+      query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnassociateNetworkAcl",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnassociateNetworkAclResponse>(await this.callApi(params, req, runtime), new UnassociateNetworkAclResponse({}));
+  }
+
+  async unassociateNetworkAcl(request: UnassociateNetworkAclRequest): Promise<UnassociateNetworkAclResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unassociateNetworkAclWithOptions(request, runtime);
   }
 
   async upgradeAICInstanceImageWithOptions(tmpReq: UpgradeAICInstanceImageRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAICInstanceImageResponse> {
