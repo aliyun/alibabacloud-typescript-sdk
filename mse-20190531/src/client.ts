@@ -8658,6 +8658,108 @@ export class ListGatewaySlbResponse extends $tea.Model {
   }
 }
 
+export class ListInstanceCountRequest extends $tea.Model {
+  acceptLanguage?: string;
+  clusterType?: string;
+  mseSessionId?: string;
+  mseVersion?: string;
+  regionId?: string;
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      clusterType: 'ClusterType',
+      mseSessionId: 'MseSessionId',
+      mseVersion: 'MseVersion',
+      regionId: 'RegionId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      clusterType: 'string',
+      mseSessionId: 'string',
+      mseVersion: 'string',
+      regionId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCountResponseBody extends $tea.Model {
+  code?: number;
+  data?: number[];
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': 'number' },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceCountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListInstanceCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesRequest extends $tea.Model {
   acceptLanguage?: string;
   mseSessionId?: string;
@@ -10693,11 +10795,13 @@ export class QueryClusterSpecificationRequest extends $tea.Model {
   acceptLanguage?: string;
   connectType?: string;
   mseSessionId?: string;
+  mseVersion?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       connectType: 'ConnectType',
       mseSessionId: 'MseSessionId',
+      mseVersion: 'MseVersion',
     };
   }
 
@@ -10706,6 +10810,7 @@ export class QueryClusterSpecificationRequest extends $tea.Model {
       acceptLanguage: 'string',
       connectType: 'string',
       mseSessionId: 'string',
+      mseVersion: 'string',
     };
   }
 
@@ -26432,6 +26537,55 @@ export default class Client extends OpenApi {
     return await this.listGatewaySlbWithOptions(request, runtime);
   }
 
+  async listInstanceCountWithOptions(request: ListInstanceCountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.mseVersion)) {
+      query["MseVersion"] = request.mseVersion;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstanceCount",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceCountResponse>(await this.callApi(params, req, runtime), new ListInstanceCountResponse({}));
+  }
+
+  async listInstanceCount(request: ListInstanceCountRequest): Promise<ListInstanceCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceCountWithOptions(request, runtime);
+  }
+
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -27371,6 +27525,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.mseSessionId)) {
       query["MseSessionId"] = request.mseSessionId;
+    }
+
+    if (!Util.isUnset(request.mseVersion)) {
+      query["MseVersion"] = request.mseVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
