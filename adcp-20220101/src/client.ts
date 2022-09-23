@@ -9,10 +9,12 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AttachClusterToHubRequest extends $tea.Model {
+  attachToMesh?: boolean;
   clusterId?: string;
   clusterIds?: string;
   static names(): { [key: string]: string } {
     return {
+      attachToMesh: 'AttachToMesh',
       clusterId: 'ClusterId',
       clusterIds: 'ClusterIds',
     };
@@ -20,6 +22,7 @@ export class AttachClusterToHubRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attachToMesh: 'boolean',
       clusterId: 'string',
       clusterIds: 'string',
     };
@@ -34,11 +37,13 @@ export class AttachClusterToHubResponseBody extends $tea.Model {
   clusterId?: string;
   managedClusterIds?: string[];
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       managedClusterIds: 'ManagedClusterIds',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -47,6 +52,7 @@ export class AttachClusterToHubResponseBody extends $tea.Model {
       clusterId: 'string',
       managedClusterIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -57,10 +63,12 @@ export class AttachClusterToHubResponseBody extends $tea.Model {
 
 export class AttachClusterToHubResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AttachClusterToHubResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -68,6 +76,7 @@ export class AttachClusterToHubResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AttachClusterToHubResponseBody,
     };
   }
@@ -80,13 +89,9 @@ export class AttachClusterToHubResponse extends $tea.Model {
 export class CreateHubClusterRequest extends $tea.Model {
   apiServerPublicEip?: boolean;
   auditLogEnabled?: boolean;
-  auditLogProject?: string;
-  auditLogStoreTTL?: string;
-  controlPlaneLogEnabled?: boolean;
-  controlPlaneLogProject?: string;
-  controlPlaneLogTTL?: string;
   isEnterpriseSecurityGroup?: boolean;
   name?: string;
+  profile?: string;
   regionId?: string;
   vSwitches?: string;
   vpcId?: string;
@@ -94,13 +99,9 @@ export class CreateHubClusterRequest extends $tea.Model {
     return {
       apiServerPublicEip: 'ApiServerPublicEip',
       auditLogEnabled: 'AuditLogEnabled',
-      auditLogProject: 'AuditLogProject',
-      auditLogStoreTTL: 'AuditLogStoreTTL',
-      controlPlaneLogEnabled: 'ControlPlaneLogEnabled',
-      controlPlaneLogProject: 'ControlPlaneLogProject',
-      controlPlaneLogTTL: 'ControlPlaneLogTTL',
       isEnterpriseSecurityGroup: 'IsEnterpriseSecurityGroup',
       name: 'Name',
+      profile: 'Profile',
       regionId: 'RegionId',
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
@@ -111,13 +112,9 @@ export class CreateHubClusterRequest extends $tea.Model {
     return {
       apiServerPublicEip: 'boolean',
       auditLogEnabled: 'boolean',
-      auditLogProject: 'string',
-      auditLogStoreTTL: 'string',
-      controlPlaneLogEnabled: 'boolean',
-      controlPlaneLogProject: 'string',
-      controlPlaneLogTTL: 'string',
       isEnterpriseSecurityGroup: 'boolean',
       name: 'string',
+      profile: 'string',
       regionId: 'string',
       vSwitches: 'string',
       vpcId: 'string',
@@ -156,10 +153,12 @@ export class CreateHubClusterResponseBody extends $tea.Model {
 
 export class CreateHubClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateHubClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -167,6 +166,7 @@ export class CreateHubClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateHubClusterResponseBody,
     };
   }
@@ -225,10 +225,12 @@ export class DeleteHubClusterResponseBody extends $tea.Model {
 
 export class DeleteHubClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteHubClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -236,6 +238,7 @@ export class DeleteHubClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteHubClusterResponseBody,
     };
   }
@@ -288,10 +291,12 @@ export class DescribeHubClusterDetailsResponseBody extends $tea.Model {
 
 export class DescribeHubClusterDetailsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHubClusterDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -299,6 +304,7 @@ export class DescribeHubClusterDetailsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHubClusterDetailsResponseBody,
     };
   }
@@ -354,10 +360,12 @@ export class DescribeHubClusterKubeconfigResponseBody extends $tea.Model {
 
 export class DescribeHubClusterKubeconfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHubClusterKubeconfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -365,6 +373,7 @@ export class DescribeHubClusterKubeconfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHubClusterKubeconfigResponseBody,
     };
   }
@@ -417,10 +426,12 @@ export class DescribeHubClusterLogsResponseBody extends $tea.Model {
 
 export class DescribeHubClusterLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHubClusterLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -428,7 +439,27 @@ export class DescribeHubClusterLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHubClusterLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHubClustersRequest extends $tea.Model {
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      profile: 'Profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      profile: 'string',
     };
   }
 
@@ -461,10 +492,12 @@ export class DescribeHubClustersResponseBody extends $tea.Model {
 
 export class DescribeHubClustersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeHubClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -472,6 +505,7 @@ export class DescribeHubClustersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeHubClustersResponseBody,
     };
   }
@@ -524,10 +558,12 @@ export class DescribeManagedClustersResponseBody extends $tea.Model {
 
 export class DescribeManagedClustersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeManagedClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -535,7 +571,27 @@ export class DescribeManagedClustersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeManagedClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  language?: string;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
     };
   }
 
@@ -568,10 +624,12 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 
 export class DescribeRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -579,6 +637,7 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
     };
   }
@@ -591,10 +650,12 @@ export class DescribeRegionsResponse extends $tea.Model {
 export class DetachClusterFromHubRequest extends $tea.Model {
   clusterId?: string;
   clusterIds?: string;
+  detachFromMesh?: boolean;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       clusterIds: 'ClusterIds',
+      detachFromMesh: 'DetachFromMesh',
     };
   }
 
@@ -602,6 +663,7 @@ export class DetachClusterFromHubRequest extends $tea.Model {
     return {
       clusterId: 'string',
       clusterIds: 'string',
+      detachFromMesh: 'boolean',
     };
   }
 
@@ -614,11 +676,13 @@ export class DetachClusterFromHubResponseBody extends $tea.Model {
   clusterId?: string;
   managedClusterIds?: string[];
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       managedClusterIds: 'ManagedClusterIds',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -627,6 +691,7 @@ export class DetachClusterFromHubResponseBody extends $tea.Model {
       clusterId: 'string',
       managedClusterIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -637,10 +702,12 @@ export class DetachClusterFromHubResponseBody extends $tea.Model {
 
 export class DetachClusterFromHubResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DetachClusterFromHubResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -648,6 +715,7 @@ export class DetachClusterFromHubResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DetachClusterFromHubResponseBody,
     };
   }
@@ -657,11 +725,97 @@ export class DetachClusterFromHubResponse extends $tea.Model {
   }
 }
 
+export class UpdateHubClusterFeatureRequest extends $tea.Model {
+  apiServerEipId?: string;
+  auditLogEnabled?: boolean;
+  clusterId?: string;
+  deletionProtection?: boolean;
+  enableArgoCD?: boolean;
+  enableMesh?: boolean;
+  name?: string;
+  publicApiServerEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      apiServerEipId: 'ApiServerEipId',
+      auditLogEnabled: 'AuditLogEnabled',
+      clusterId: 'ClusterId',
+      deletionProtection: 'DeletionProtection',
+      enableArgoCD: 'EnableArgoCD',
+      enableMesh: 'EnableMesh',
+      name: 'Name',
+      publicApiServerEnabled: 'PublicApiServerEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiServerEipId: 'string',
+      auditLogEnabled: 'boolean',
+      clusterId: 'string',
+      deletionProtection: 'boolean',
+      enableArgoCD: 'boolean',
+      enableMesh: 'boolean',
+      name: 'string',
+      publicApiServerEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHubClusterFeatureResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateHubClusterFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UpdateHubClusterFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateHubClusterFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClusterDetailsResponseBodyClusterApiServer extends $tea.Model {
+  apiServerEipId?: string;
   enabledPublic?: boolean;
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
+      apiServerEipId: 'ApiServerEipId',
       enabledPublic: 'EnabledPublic',
       loadBalancerId: 'LoadBalancerId',
     };
@@ -669,6 +823,7 @@ export class DescribeHubClusterDetailsResponseBodyClusterApiServer extends $tea.
 
   static types(): { [key: string]: any } {
     return {
+      apiServerEipId: 'string',
       enabledPublic: 'boolean',
       loadBalancerId: 'string',
     };
@@ -725,6 +880,34 @@ export class DescribeHubClusterDetailsResponseBodyClusterClusterInfo extends $te
   }
 }
 
+export class DescribeHubClusterDetailsResponseBodyClusterConditions extends $tea.Model {
+  message?: string;
+  reason?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClusterDetailsResponseBodyClusterEndpoints extends $tea.Model {
   intranetApiServerEndpoint?: string;
   publicApiServerEndpoint?: string;
@@ -739,6 +922,53 @@ export class DescribeHubClusterDetailsResponseBodyClusterEndpoints extends $tea.
     return {
       intranetApiServerEndpoint: 'string',
       publicApiServerEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHubClusterDetailsResponseBodyClusterLogConfig extends $tea.Model {
+  enableLog?: boolean;
+  logProject?: string;
+  logStoreTTL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableLog: 'EnableLog',
+      logProject: 'LogProject',
+      logStoreTTL: 'LogStoreTTL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableLog: 'boolean',
+      logProject: 'string',
+      logStoreTTL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHubClusterDetailsResponseBodyClusterMeshConfig extends $tea.Model {
+  enableMesh?: boolean;
+  meshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableMesh: 'EnableMesh',
+      meshId: 'MeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableMesh: 'boolean',
+      meshId: 'string',
     };
   }
 
@@ -781,13 +1011,19 @@ export class DescribeHubClusterDetailsResponseBodyClusterNetwork extends $tea.Mo
 export class DescribeHubClusterDetailsResponseBodyCluster extends $tea.Model {
   apiServer?: DescribeHubClusterDetailsResponseBodyClusterApiServer;
   clusterInfo?: DescribeHubClusterDetailsResponseBodyClusterClusterInfo;
+  conditions?: DescribeHubClusterDetailsResponseBodyClusterConditions[];
   endpoints?: DescribeHubClusterDetailsResponseBodyClusterEndpoints;
+  logConfig?: DescribeHubClusterDetailsResponseBodyClusterLogConfig;
+  meshConfig?: DescribeHubClusterDetailsResponseBodyClusterMeshConfig;
   network?: DescribeHubClusterDetailsResponseBodyClusterNetwork;
   static names(): { [key: string]: string } {
     return {
       apiServer: 'ApiServer',
       clusterInfo: 'ClusterInfo',
+      conditions: 'Conditions',
       endpoints: 'Endpoints',
+      logConfig: 'LogConfig',
+      meshConfig: 'MeshConfig',
       network: 'Network',
     };
   }
@@ -796,7 +1032,10 @@ export class DescribeHubClusterDetailsResponseBodyCluster extends $tea.Model {
     return {
       apiServer: DescribeHubClusterDetailsResponseBodyClusterApiServer,
       clusterInfo: DescribeHubClusterDetailsResponseBodyClusterClusterInfo,
+      conditions: { 'type': 'array', 'itemType': DescribeHubClusterDetailsResponseBodyClusterConditions },
       endpoints: DescribeHubClusterDetailsResponseBodyClusterEndpoints,
+      logConfig: DescribeHubClusterDetailsResponseBodyClusterLogConfig,
+      meshConfig: DescribeHubClusterDetailsResponseBodyClusterMeshConfig,
       network: DescribeHubClusterDetailsResponseBodyClusterNetwork,
     };
   }
@@ -835,10 +1074,12 @@ export class DescribeHubClusterLogsResponseBodyLogs extends $tea.Model {
 }
 
 export class DescribeHubClustersResponseBodyClustersApiServer extends $tea.Model {
+  apiServerEipId?: string;
   enabledPublic?: boolean;
   loadBalancerId?: string;
   static names(): { [key: string]: string } {
     return {
+      apiServerEipId: 'ApiServerEipId',
       enabledPublic: 'EnabledPublic',
       loadBalancerId: 'LoadBalancerId',
     };
@@ -846,6 +1087,7 @@ export class DescribeHubClustersResponseBodyClustersApiServer extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      apiServerEipId: 'string',
       enabledPublic: 'boolean',
       loadBalancerId: 'string',
     };
@@ -902,6 +1144,34 @@ export class DescribeHubClustersResponseBodyClustersClusterInfo extends $tea.Mod
   }
 }
 
+export class DescribeHubClustersResponseBodyClustersConditions extends $tea.Model {
+  message?: string;
+  reason?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClustersResponseBodyClustersEndpoints extends $tea.Model {
   intranetApiServerEndpoint?: string;
   publicApiServerEndpoint?: string;
@@ -916,6 +1186,53 @@ export class DescribeHubClustersResponseBodyClustersEndpoints extends $tea.Model
     return {
       intranetApiServerEndpoint: 'string',
       publicApiServerEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHubClustersResponseBodyClustersLogConfig extends $tea.Model {
+  enableLog?: boolean;
+  logProject?: string;
+  logStoreTTL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableLog: 'EnableLog',
+      logProject: 'LogProject',
+      logStoreTTL: 'LogStoreTTL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableLog: 'boolean',
+      logProject: 'string',
+      logStoreTTL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHubClustersResponseBodyClustersMeshConfig extends $tea.Model {
+  enableMesh?: boolean;
+  meshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableMesh: 'EnableMesh',
+      meshId: 'MeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableMesh: 'boolean',
+      meshId: 'string',
     };
   }
 
@@ -955,13 +1272,19 @@ export class DescribeHubClustersResponseBodyClustersNetwork extends $tea.Model {
 export class DescribeHubClustersResponseBodyClusters extends $tea.Model {
   apiServer?: DescribeHubClustersResponseBodyClustersApiServer;
   clusterInfo?: DescribeHubClustersResponseBodyClustersClusterInfo;
+  conditions?: DescribeHubClustersResponseBodyClustersConditions[];
   endpoints?: DescribeHubClustersResponseBodyClustersEndpoints;
+  logConfig?: DescribeHubClustersResponseBodyClustersLogConfig;
+  meshConfig?: DescribeHubClustersResponseBodyClustersMeshConfig;
   network?: DescribeHubClustersResponseBodyClustersNetwork;
   static names(): { [key: string]: string } {
     return {
       apiServer: 'ApiServer',
       clusterInfo: 'ClusterInfo',
+      conditions: 'Conditions',
       endpoints: 'Endpoints',
+      logConfig: 'LogConfig',
+      meshConfig: 'MeshConfig',
       network: 'Network',
     };
   }
@@ -970,7 +1293,10 @@ export class DescribeHubClustersResponseBodyClusters extends $tea.Model {
     return {
       apiServer: DescribeHubClustersResponseBodyClustersApiServer,
       clusterInfo: DescribeHubClustersResponseBodyClustersClusterInfo,
+      conditions: { 'type': 'array', 'itemType': DescribeHubClustersResponseBodyClustersConditions },
       endpoints: DescribeHubClustersResponseBodyClustersEndpoints,
+      logConfig: DescribeHubClustersResponseBodyClustersLogConfig,
+      meshConfig: DescribeHubClustersResponseBodyClustersMeshConfig,
       network: DescribeHubClustersResponseBodyClustersNetwork,
     };
   }
@@ -1038,6 +1364,25 @@ export class DescribeManagedClustersResponseBodyClustersCluster extends $tea.Mod
   }
 }
 
+export class DescribeManagedClustersResponseBodyClustersMeshStatus extends $tea.Model {
+  inMesh?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      inMesh: 'InMesh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inMesh: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeManagedClustersResponseBodyClustersStatus extends $tea.Model {
   message?: string;
   state?: string;
@@ -1062,10 +1407,12 @@ export class DescribeManagedClustersResponseBodyClustersStatus extends $tea.Mode
 
 export class DescribeManagedClustersResponseBodyClusters extends $tea.Model {
   cluster?: DescribeManagedClustersResponseBodyClustersCluster;
+  meshStatus?: DescribeManagedClustersResponseBodyClustersMeshStatus;
   status?: DescribeManagedClustersResponseBodyClustersStatus;
   static names(): { [key: string]: string } {
     return {
       cluster: 'Cluster',
+      meshStatus: 'MeshStatus',
       status: 'Status',
     };
   }
@@ -1073,6 +1420,7 @@ export class DescribeManagedClustersResponseBodyClusters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cluster: DescribeManagedClustersResponseBodyClustersCluster,
+      meshStatus: DescribeManagedClustersResponseBodyClustersMeshStatus,
       status: DescribeManagedClustersResponseBodyClustersStatus,
     };
   }
@@ -1084,24 +1432,18 @@ export class DescribeManagedClustersResponseBodyClusters extends $tea.Model {
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   localName?: string;
-  regionEndpoint?: string;
   regionId?: string;
-  regionVpcEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
       localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
       regionId: 'RegionId',
-      regionVpcEndpoint: 'RegionVpcEndpoint',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       localName: 'string',
-      regionEndpoint: 'string',
       regionId: 'string',
-      regionVpcEndpoint: 'string',
     };
   }
 
@@ -1115,7 +1457,33 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
+    this._endpointMap = {
+      'cn-beijing': "adcp.cn-beijing.aliyuncs.com",
+      'cn-zhangjiakou': "adcp.cn-zhangjiakou.aliyuncs.com",
+      'cn-hangzhou': "adcp.cn-hangzhou.aliyuncs.com",
+      'cn-shanghai': "adcp.cn-shanghai.aliyuncs.com",
+      'cn-shenzhen': "adcp.cn-shenzhen.aliyuncs.com",
+      'cn-heyuan': "adcp.cn-heyuan.aliyuncs.com",
+      'cn-hongkong': "adcp.cn-hongkong.aliyuncs.com",
+      'ap-northeast-1': "adcp.ap-northeast-1.aliyuncs.com",
+      'ap-southeast-1': "adcp.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-5': "adcp.ap-southeast-5.aliyuncs.com",
+      'ap-south-1': "adcp.ap-south-1.aliyuncs.com",
+      'ap-southeast-2': "adcp.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-3': "adcp.ap-southeast-3.aliyuncs.com",
+      'cn-chengdu': "adcp-vpc.cn-chengdu.aliyuncs.com",
+      'cn-huhehaote': "adcp.cn-huhehaote.aliyuncs.com",
+      'cn-qingdao': "adcp.cn-qingdao.aliyuncs.com",
+      'cn-shanghai-finance-1': "adcp-vpc.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-wulanchabu': "adcp.cn-wulanchabu.aliyuncs.com",
+      'eu-central-1': "adcp.eu-central-1.aliyuncs.com",
+      'eu-west-1': "adcp-vpc.eu-west-1.aliyuncs.com",
+      'me-east-1': "adcp.me-east-1.aliyuncs.com",
+      'us-east-1': "adcp.us-east-1.aliyuncs.com",
+      'us-west-1': "adcp.us-west-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adcp", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1136,6 +1504,10 @@ export default class Client extends OpenApi {
   async attachClusterToHubWithOptions(request: AttachClusterToHubRequest, runtime: $Util.RuntimeOptions): Promise<AttachClusterToHubResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.attachToMesh)) {
+      query["AttachToMesh"] = request.attachToMesh;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
@@ -1179,32 +1551,16 @@ export default class Client extends OpenApi {
       body["AuditLogEnabled"] = request.auditLogEnabled;
     }
 
-    if (!Util.isUnset(request.auditLogProject)) {
-      body["AuditLogProject"] = request.auditLogProject;
-    }
-
-    if (!Util.isUnset(request.auditLogStoreTTL)) {
-      body["AuditLogStoreTTL"] = request.auditLogStoreTTL;
-    }
-
-    if (!Util.isUnset(request.controlPlaneLogEnabled)) {
-      body["ControlPlaneLogEnabled"] = request.controlPlaneLogEnabled;
-    }
-
-    if (!Util.isUnset(request.controlPlaneLogProject)) {
-      body["ControlPlaneLogProject"] = request.controlPlaneLogProject;
-    }
-
-    if (!Util.isUnset(request.controlPlaneLogTTL)) {
-      body["ControlPlaneLogTTL"] = request.controlPlaneLogTTL;
-    }
-
     if (!Util.isUnset(request.isEnterpriseSecurityGroup)) {
       body["IsEnterpriseSecurityGroup"] = request.isEnterpriseSecurityGroup;
     }
 
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.profile)) {
+      body["Profile"] = request.profile;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -1365,8 +1721,16 @@ export default class Client extends OpenApi {
     return await this.describeHubClusterLogsWithOptions(request, runtime);
   }
 
-  async describeHubClustersWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeHubClustersResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async describeHubClustersWithOptions(request: DescribeHubClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClustersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.profile)) {
+      query["Profile"] = request.profile;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "DescribeHubClusters",
       version: "2022-01-01",
@@ -1381,9 +1745,9 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHubClustersResponse>(await this.callApi(params, req, runtime), new DescribeHubClustersResponse({}));
   }
 
-  async describeHubClusters(): Promise<DescribeHubClustersResponse> {
+  async describeHubClusters(request: DescribeHubClustersRequest): Promise<DescribeHubClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeHubClustersWithOptions(runtime);
+    return await this.describeHubClustersWithOptions(request, runtime);
   }
 
   async describeManagedClustersWithOptions(request: DescribeManagedClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeManagedClustersResponse> {
@@ -1415,8 +1779,12 @@ export default class Client extends OpenApi {
     return await this.describeManagedClustersWithOptions(request, runtime);
   }
 
-  async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
       version: "2022-01-01",
@@ -1431,9 +1799,9 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
-  async describeRegions(): Promise<DescribeRegionsResponse> {
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(runtime);
+    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   async detachClusterFromHubWithOptions(request: DetachClusterFromHubRequest, runtime: $Util.RuntimeOptions): Promise<DetachClusterFromHubResponse> {
@@ -1441,6 +1809,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.detachFromMesh)) {
+      query["DetachFromMesh"] = request.detachFromMesh;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1469,6 +1841,63 @@ export default class Client extends OpenApi {
   async detachClusterFromHub(request: DetachClusterFromHubRequest): Promise<DetachClusterFromHubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachClusterFromHubWithOptions(request, runtime);
+  }
+
+  async updateHubClusterFeatureWithOptions(request: UpdateHubClusterFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHubClusterFeatureResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiServerEipId)) {
+      query["ApiServerEipId"] = request.apiServerEipId;
+    }
+
+    if (!Util.isUnset(request.auditLogEnabled)) {
+      query["AuditLogEnabled"] = request.auditLogEnabled;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!Util.isUnset(request.enableArgoCD)) {
+      query["EnableArgoCD"] = request.enableArgoCD;
+    }
+
+    if (!Util.isUnset(request.enableMesh)) {
+      query["EnableMesh"] = request.enableMesh;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.publicApiServerEnabled)) {
+      query["PublicApiServerEnabled"] = request.publicApiServerEnabled;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateHubClusterFeature",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateHubClusterFeatureResponse>(await this.callApi(params, req, runtime), new UpdateHubClusterFeatureResponse({}));
+  }
+
+  async updateHubClusterFeature(request: UpdateHubClusterFeatureRequest): Promise<UpdateHubClusterFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateHubClusterFeatureWithOptions(request, runtime);
   }
 
 }
