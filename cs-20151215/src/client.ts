@@ -484,6 +484,7 @@ export class CreateClusterRequest extends $tea.Model {
   imageId?: string;
   imageType?: string;
   instances?: string[];
+  ipStack?: string;
   isEnterpriseSecurityGroup?: boolean;
   keepInstanceName?: boolean;
   keyPair?: string;
@@ -573,6 +574,7 @@ export class CreateClusterRequest extends $tea.Model {
       imageId: 'image_id',
       imageType: 'image_type',
       instances: 'instances',
+      ipStack: 'ip_stack',
       isEnterpriseSecurityGroup: 'is_enterprise_security_group',
       keepInstanceName: 'keep_instance_name',
       keyPair: 'key_pair',
@@ -665,6 +667,7 @@ export class CreateClusterRequest extends $tea.Model {
       imageId: 'string',
       imageType: 'string',
       instances: { 'type': 'array', 'itemType': 'string' },
+      ipStack: 'string',
       isEnterpriseSecurityGroup: 'boolean',
       keepInstanceName: 'boolean',
       keyPair: 'string',
@@ -10111,6 +10114,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instances)) {
       body["instances"] = request.instances;
+    }
+
+    if (!Util.isUnset(request.ipStack)) {
+      body["ip_stack"] = request.ipStack;
     }
 
     if (!Util.isUnset(request.isEnterpriseSecurityGroup)) {
