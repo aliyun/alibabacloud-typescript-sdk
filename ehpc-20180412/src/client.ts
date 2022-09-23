@@ -63,10 +63,12 @@ export class AddContainerAppResponseBody extends $tea.Model {
 
 export class AddContainerAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddContainerAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -74,6 +76,7 @@ export class AddContainerAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddContainerAppResponseBody,
     };
   }
@@ -84,7 +87,6 @@ export class AddContainerAppResponse extends $tea.Model {
 }
 
 export class AddExistedNodesRequest extends $tea.Model {
-  clientToken?: string;
   clusterId?: string;
   imageId?: string;
   imageOwnerAlias?: string;
@@ -92,7 +94,6 @@ export class AddExistedNodesRequest extends $tea.Model {
   jobQueue?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       clusterId: 'ClusterId',
       imageId: 'ImageId',
       imageOwnerAlias: 'ImageOwnerAlias',
@@ -103,7 +104,6 @@ export class AddExistedNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       clusterId: 'string',
       imageId: 'string',
       imageOwnerAlias: 'string',
@@ -141,10 +141,12 @@ export class AddExistedNodesResponseBody extends $tea.Model {
 
 export class AddExistedNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddExistedNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -152,6 +154,7 @@ export class AddExistedNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddExistedNodesResponseBody,
     };
   }
@@ -164,10 +167,12 @@ export class AddExistedNodesResponse extends $tea.Model {
 export class AddLocalNodesRequest extends $tea.Model {
   clusterId?: string;
   nodes?: string;
+  queue?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       nodes: 'Nodes',
+      queue: 'Queue',
     };
   }
 
@@ -175,6 +180,7 @@ export class AddLocalNodesRequest extends $tea.Model {
     return {
       clusterId: 'string',
       nodes: 'string',
+      queue: 'string',
     };
   }
 
@@ -207,10 +213,12 @@ export class AddLocalNodesResponseBody extends $tea.Model {
 
 export class AddLocalNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddLocalNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -218,6 +226,7 @@ export class AddLocalNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddLocalNodesResponseBody,
     };
   }
@@ -360,10 +369,12 @@ export class AddNodesResponseBody extends $tea.Model {
 
 export class AddNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -371,6 +382,7 @@ export class AddNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddNodesResponseBody,
     };
   }
@@ -423,10 +435,12 @@ export class AddQueueResponseBody extends $tea.Model {
 
 export class AddQueueResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -434,6 +448,7 @@ export class AddQueueResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddQueueResponseBody,
     };
   }
@@ -489,10 +504,12 @@ export class AddSecurityGroupResponseBody extends $tea.Model {
 
 export class AddSecurityGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -500,6 +517,7 @@ export class AddSecurityGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddSecurityGroupResponseBody,
     };
   }
@@ -552,10 +570,12 @@ export class AddUsersResponseBody extends $tea.Model {
 
 export class AddUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: AddUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -563,6 +583,7 @@ export class AddUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddUsersResponseBody,
     };
   }
@@ -702,10 +723,12 @@ export class ApplyNodesResponseBody extends $tea.Model {
 
 export class ApplyNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ApplyNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -713,6 +736,7 @@ export class ApplyNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ApplyNodesResponseBody,
     };
   }
@@ -766,6 +790,7 @@ export class CreateClusterRequest extends $tea.Model {
   systemDiskLevel?: string;
   systemDiskSize?: number;
   systemDiskType?: string;
+  tag?: CreateClusterRequestTag[];
   vSwitchId?: string;
   volumeId?: string;
   volumeMountOption?: string;
@@ -821,6 +846,7 @@ export class CreateClusterRequest extends $tea.Model {
       systemDiskLevel: 'SystemDiskLevel',
       systemDiskSize: 'SystemDiskSize',
       systemDiskType: 'SystemDiskType',
+      tag: 'Tag',
       vSwitchId: 'VSwitchId',
       volumeId: 'VolumeId',
       volumeMountOption: 'VolumeMountOption',
@@ -879,6 +905,7 @@ export class CreateClusterRequest extends $tea.Model {
       systemDiskLevel: 'string',
       systemDiskSize: 'number',
       systemDiskType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
       vSwitchId: 'string',
       volumeId: 'string',
       volumeMountOption: 'string',
@@ -924,10 +951,12 @@ export class CreateClusterResponseBody extends $tea.Model {
 
 export class CreateClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -935,6 +964,7 @@ export class CreateClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateClusterResponseBody,
     };
   }
@@ -996,10 +1026,12 @@ export class CreateGWSClusterResponseBody extends $tea.Model {
 
 export class CreateGWSClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGWSClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1007,6 +1039,7 @@ export class CreateGWSClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGWSClusterResponseBody,
     };
   }
@@ -1062,10 +1095,12 @@ export class CreateGWSImageResponseBody extends $tea.Model {
 
 export class CreateGWSImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGWSImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1073,6 +1108,7 @@ export class CreateGWSImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGWSImageResponseBody,
     };
   }
@@ -1173,10 +1209,12 @@ export class CreateGWSInstanceResponseBody extends $tea.Model {
 
 export class CreateGWSInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateGWSInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1184,6 +1222,7 @@ export class CreateGWSInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateGWSInstanceResponseBody,
     };
   }
@@ -1344,10 +1383,12 @@ export class CreateHybridClusterResponseBody extends $tea.Model {
 
 export class CreateHybridClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateHybridClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1355,6 +1396,7 @@ export class CreateHybridClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateHybridClusterResponseBody,
     };
   }
@@ -1416,10 +1458,12 @@ export class CreateJobFileResponseBody extends $tea.Model {
 
 export class CreateJobFileResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateJobFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1427,6 +1471,7 @@ export class CreateJobFileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateJobFileResponseBody,
     };
   }
@@ -1536,10 +1581,12 @@ export class CreateJobTemplateResponseBody extends $tea.Model {
 
 export class CreateJobTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: CreateJobTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1547,6 +1594,7 @@ export class CreateJobTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateJobTemplateResponseBody,
     };
   }
@@ -1602,10 +1650,12 @@ export class DeleteClusterResponseBody extends $tea.Model {
 
 export class DeleteClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1613,6 +1663,7 @@ export class DeleteClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteClusterResponseBody,
     };
   }
@@ -1662,10 +1713,12 @@ export class DeleteContainerAppsResponseBody extends $tea.Model {
 
 export class DeleteContainerAppsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteContainerAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1673,6 +1726,7 @@ export class DeleteContainerAppsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteContainerAppsResponseBody,
     };
   }
@@ -1722,10 +1776,12 @@ export class DeleteGWSClusterResponseBody extends $tea.Model {
 
 export class DeleteGWSClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGWSClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1733,6 +1789,7 @@ export class DeleteGWSClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGWSClusterResponseBody,
     };
   }
@@ -1782,10 +1839,12 @@ export class DeleteGWSInstanceResponseBody extends $tea.Model {
 
 export class DeleteGWSInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteGWSInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1793,6 +1852,7 @@ export class DeleteGWSInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteGWSInstanceResponseBody,
     };
   }
@@ -1851,10 +1911,12 @@ export class DeleteImageResponseBody extends $tea.Model {
 
 export class DeleteImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1862,6 +1924,7 @@ export class DeleteImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteImageResponseBody,
     };
   }
@@ -1911,10 +1974,12 @@ export class DeleteJobTemplatesResponseBody extends $tea.Model {
 
 export class DeleteJobTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteJobTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1922,6 +1987,7 @@ export class DeleteJobTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteJobTemplatesResponseBody,
     };
   }
@@ -1974,10 +2040,12 @@ export class DeleteJobsResponseBody extends $tea.Model {
 
 export class DeleteJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1985,7 +2053,77 @@ export class DeleteJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLocalImageRequest extends $tea.Model {
+  clusterId?: string;
+  containerType?: string;
+  imageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containerType: 'ContainerType',
+      imageName: 'ImageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containerType: 'string',
+      imageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLocalImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLocalImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: DeleteLocalImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLocalImageResponseBody,
     };
   }
 
@@ -2046,10 +2184,12 @@ export class DeleteNodesResponseBody extends $tea.Model {
 
 export class DeleteNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2057,6 +2197,7 @@ export class DeleteNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteNodesResponseBody,
     };
   }
@@ -2109,10 +2250,12 @@ export class DeleteQueueResponseBody extends $tea.Model {
 
 export class DeleteQueueResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2120,6 +2263,7 @@ export class DeleteQueueResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteQueueResponseBody,
     };
   }
@@ -2172,10 +2316,12 @@ export class DeleteSecurityGroupResponseBody extends $tea.Model {
 
 export class DeleteSecurityGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteSecurityGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2183,6 +2329,7 @@ export class DeleteSecurityGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteSecurityGroupResponseBody,
     };
   }
@@ -2235,10 +2382,12 @@ export class DeleteUsersResponseBody extends $tea.Model {
 
 export class DeleteUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DeleteUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2246,6 +2395,7 @@ export class DeleteUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteUsersResponseBody,
     };
   }
@@ -2340,10 +2490,12 @@ export class DescribeAutoScaleConfigResponseBody extends $tea.Model {
 
 export class DescribeAutoScaleConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeAutoScaleConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2351,6 +2503,7 @@ export class DescribeAutoScaleConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeAutoScaleConfigResponseBody,
     };
   }
@@ -2403,10 +2556,12 @@ export class DescribeClusterResponseBody extends $tea.Model {
 
 export class DescribeClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2414,6 +2569,7 @@ export class DescribeClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeClusterResponseBody,
     };
   }
@@ -2466,10 +2622,12 @@ export class DescribeContainerAppResponseBody extends $tea.Model {
 
 export class DescribeContainerAppResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeContainerAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2477,6 +2635,7 @@ export class DescribeContainerAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeContainerAppResponseBody,
     };
   }
@@ -2486,26 +2645,20 @@ export class DescribeContainerAppResponse extends $tea.Model {
   }
 }
 
-export class DescribeDeployProcessRequest extends $tea.Model {
-  clusterId?: string;
-  hostName?: string;
-  regionId?: string;
-  role?: string;
+export class DescribeEstackImageRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
-      hostName: 'HostName',
-      regionId: 'RegionId',
-      role: 'Role',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      hostName: 'string',
-      regionId: 'string',
-      role: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -2514,23 +2667,29 @@ export class DescribeDeployProcessRequest extends $tea.Model {
   }
 }
 
-export class DescribeDeployProcessResponseBody extends $tea.Model {
-  deployProcess?: string;
+export class DescribeEstackImageResponseBody extends $tea.Model {
+  imageList?: DescribeEstackImageResponseBodyImageList;
+  pageNumber?: number;
+  pageSize?: number;
   requestId?: string;
-  success?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      deployProcess: 'DeployProcess',
+      imageList: 'ImageList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
-      success: 'Success',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deployProcess: 'string',
+      imageList: DescribeEstackImageResponseBodyImageList,
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
-      success: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2539,12 +2698,14 @@ export class DescribeDeployProcessResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeDeployProcessResponse extends $tea.Model {
+export class DescribeEstackImageResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeDeployProcessResponseBody;
+  statusCode: number;
+  body: DescribeEstackImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2552,7 +2713,8 @@ export class DescribeDeployProcessResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDeployProcessResponseBody,
+      statusCode: 'number',
+      body: DescribeEstackImageResponseBody,
     };
   }
 
@@ -2619,10 +2781,12 @@ export class DescribeGWSClusterPolicyResponseBody extends $tea.Model {
 
 export class DescribeGWSClusterPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGWSClusterPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2630,6 +2794,7 @@ export class DescribeGWSClusterPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGWSClusterPolicyResponseBody,
     };
   }
@@ -2700,10 +2865,12 @@ export class DescribeGWSClustersResponseBody extends $tea.Model {
 
 export class DescribeGWSClustersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGWSClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2711,6 +2878,7 @@ export class DescribeGWSClustersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGWSClustersResponseBody,
     };
   }
@@ -2775,10 +2943,12 @@ export class DescribeGWSImagesResponseBody extends $tea.Model {
 
 export class DescribeGWSImagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGWSImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2786,6 +2956,7 @@ export class DescribeGWSImagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGWSImagesResponseBody,
     };
   }
@@ -2862,10 +3033,12 @@ export class DescribeGWSInstancesResponseBody extends $tea.Model {
 
 export class DescribeGWSInstancesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeGWSInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2873,6 +3046,7 @@ export class DescribeGWSInstancesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeGWSInstancesResponseBody,
     };
   }
@@ -2934,10 +3108,12 @@ export class DescribeImageResponseBody extends $tea.Model {
 
 export class DescribeImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2945,6 +3121,7 @@ export class DescribeImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeImageResponseBody,
     };
   }
@@ -2997,10 +3174,12 @@ export class DescribeImageGatewayConfigResponseBody extends $tea.Model {
 
 export class DescribeImageGatewayConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeImageGatewayConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3008,6 +3187,7 @@ export class DescribeImageGatewayConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeImageGatewayConfigResponseBody,
     };
   }
@@ -3087,10 +3267,12 @@ export class DescribeImagePriceResponseBody extends $tea.Model {
 
 export class DescribeImagePriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeImagePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3098,6 +3280,7 @@ export class DescribeImagePriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeImagePriceResponseBody,
     };
   }
@@ -3153,10 +3336,12 @@ export class DescribeJobResponseBody extends $tea.Model {
 
 export class DescribeJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3164,6 +3349,7 @@ export class DescribeJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeJobResponseBody,
     };
   }
@@ -3219,10 +3405,12 @@ export class DescribeNFSClientStatusResponseBody extends $tea.Model {
 
 export class DescribeNFSClientStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribeNFSClientStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3230,6 +3418,7 @@ export class DescribeNFSClientStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeNFSClientStatusResponseBody,
     };
   }
@@ -3294,10 +3483,12 @@ export class DescribePriceResponseBody extends $tea.Model {
 
 export class DescribePriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: DescribePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3305,6 +3496,7 @@ export class DescribePriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribePriceResponseBody,
     };
   }
@@ -3417,10 +3609,12 @@ export class EditJobTemplateResponseBody extends $tea.Model {
 
 export class EditJobTemplateResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: EditJobTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3428,6 +3622,7 @@ export class EditJobTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: EditJobTemplateResponseBody,
     };
   }
@@ -3519,10 +3714,12 @@ export class GetAccountingReportResponseBody extends $tea.Model {
 
 export class GetAccountingReportResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAccountingReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3530,6 +3727,7 @@ export class GetAccountingReportResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccountingReportResponseBody,
     };
   }
@@ -3630,10 +3828,12 @@ export class GetAutoScaleConfigResponseBody extends $tea.Model {
 
 export class GetAutoScaleConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetAutoScaleConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3641,6 +3841,7 @@ export class GetAutoScaleConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAutoScaleConfigResponseBody,
     };
   }
@@ -3717,10 +3918,12 @@ export class GetCloudMetricLogsResponseBody extends $tea.Model {
 
 export class GetCloudMetricLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCloudMetricLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3728,6 +3931,7 @@ export class GetCloudMetricLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCloudMetricLogsResponseBody,
     };
   }
@@ -3786,10 +3990,12 @@ export class GetCloudMetricProfilingResponseBody extends $tea.Model {
 
 export class GetCloudMetricProfilingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetCloudMetricProfilingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3797,6 +4003,7 @@ export class GetCloudMetricProfilingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetCloudMetricProfilingResponseBody,
     };
   }
@@ -3852,10 +4059,12 @@ export class GetClusterVolumesResponseBody extends $tea.Model {
 
 export class GetClusterVolumesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetClusterVolumesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3863,7 +4072,80 @@ export class GetClusterVolumesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetClusterVolumesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommonImageRequest extends $tea.Model {
+  clusterId?: string;
+  containType?: string;
+  imageName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containType: 'ContainType',
+      imageName: 'ImageName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containType: 'string',
+      imageName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommonImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommonImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetCommonImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCommonImageResponseBody,
     };
   }
 
@@ -3918,10 +4200,12 @@ export class GetGWSConnectTicketResponseBody extends $tea.Model {
 
 export class GetGWSConnectTicketResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetGWSConnectTicketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3929,6 +4213,7 @@ export class GetGWSConnectTicketResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetGWSConnectTicketResponseBody,
     };
   }
@@ -3984,10 +4269,12 @@ export class GetHybridClusterConfigResponseBody extends $tea.Model {
 
 export class GetHybridClusterConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetHybridClusterConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3995,6 +4282,7 @@ export class GetHybridClusterConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetHybridClusterConfigResponseBody,
     };
   }
@@ -4053,10 +4341,12 @@ export class GetIfEcsTypeSupportHtConfigResponseBody extends $tea.Model {
 
 export class GetIfEcsTypeSupportHtConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetIfEcsTypeSupportHtConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4064,6 +4354,7 @@ export class GetIfEcsTypeSupportHtConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetIfEcsTypeSupportHtConfigResponseBody,
     };
   }
@@ -4119,10 +4410,12 @@ export class GetPostScriptsResponseBody extends $tea.Model {
 
 export class GetPostScriptsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetPostScriptsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4130,76 +4423,8 @@ export class GetPostScriptsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetPostScriptsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfRequest extends $tea.Model {
-  clusterId?: string;
-  queues?: GetQueueConfRequestQueues[];
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      queues: 'Queues',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      queues: { 'type': 'array', 'itemType': GetQueueConfRequestQueues },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfResponseBody extends $tea.Model {
-  queuesConf?: GetQueueConfResponseBodyQueuesConf[];
-  requestId?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queuesConf: 'QueuesConf',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queuesConf: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConf },
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetQueueConfResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetQueueConfResponseBody,
     };
   }
 
@@ -4257,10 +4482,12 @@ export class GetSchedulerInfoResponseBody extends $tea.Model {
 
 export class GetSchedulerInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetSchedulerInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4268,7 +4495,86 @@ export class GetSchedulerInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetSchedulerInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserImageRequest extends $tea.Model {
+  clusterId?: string;
+  containerType?: string;
+  imageName?: string;
+  imagePath?: string;
+  OSSBucket?: string;
+  OSSEndPoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containerType: 'ContainerType',
+      imageName: 'ImageName',
+      imagePath: 'ImagePath',
+      OSSBucket: 'OSSBucket',
+      OSSEndPoint: 'OSSEndPoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containerType: 'string',
+      imageName: 'string',
+      imagePath: 'string',
+      OSSBucket: 'string',
+      OSSEndPoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserImageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: GetUserImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserImageResponseBody,
     };
   }
 
@@ -4320,10 +4626,12 @@ export class GetVisualServiceStatusResponseBody extends $tea.Model {
 
 export class GetVisualServiceStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: GetVisualServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4331,6 +4639,7 @@ export class GetVisualServiceStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetVisualServiceStatusResponseBody,
     };
   }
@@ -4380,10 +4689,12 @@ export class InitializeEHPCResponseBody extends $tea.Model {
 
 export class InitializeEHPCResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: InitializeEHPCResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4391,7 +4702,80 @@ export class InitializeEHPCResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: InitializeEHPCResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InspectImageRequest extends $tea.Model {
+  clusterId?: string;
+  containerType?: string;
+  imageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containerType: 'ContainerType',
+      imageName: 'ImageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containerType: 'string',
+      imageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InspectImageResponseBody extends $tea.Model {
+  imageStatus?: InspectImageResponseBodyImageStatus;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageStatus: 'ImageStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageStatus: InspectImageResponseBodyImageStatus,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InspectImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: InspectImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InspectImageResponseBody,
     };
   }
 
@@ -4443,10 +4827,12 @@ export class InstallSoftwareResponseBody extends $tea.Model {
 
 export class InstallSoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: InstallSoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4454,6 +4840,7 @@ export class InstallSoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: InstallSoftwareResponseBody,
     };
   }
@@ -4521,10 +4908,12 @@ export class InvokeShellCommandResponseBody extends $tea.Model {
 
 export class InvokeShellCommandResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: InvokeShellCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4532,6 +4921,7 @@ export class InvokeShellCommandResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: InvokeShellCommandResponseBody,
     };
   }
@@ -4596,10 +4986,12 @@ export class ListAvailableEcsTypesResponseBody extends $tea.Model {
 
 export class ListAvailableEcsTypesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListAvailableEcsTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4607,6 +4999,7 @@ export class ListAvailableEcsTypesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAvailableEcsTypesResponseBody,
     };
   }
@@ -4677,10 +5070,12 @@ export class ListCloudMetricProfilingsResponseBody extends $tea.Model {
 
 export class ListCloudMetricProfilingsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCloudMetricProfilingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4688,6 +5083,7 @@ export class ListCloudMetricProfilingsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCloudMetricProfilingsResponseBody,
     };
   }
@@ -4758,10 +5154,12 @@ export class ListClusterLogsResponseBody extends $tea.Model {
 
 export class ListClusterLogsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListClusterLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4769,6 +5167,7 @@ export class ListClusterLogsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListClusterLogsResponseBody,
     };
   }
@@ -4833,10 +5232,12 @@ export class ListClustersResponseBody extends $tea.Model {
 
 export class ListClustersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4844,6 +5245,7 @@ export class ListClustersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListClustersResponseBody,
     };
   }
@@ -4908,10 +5310,12 @@ export class ListClustersMetaResponseBody extends $tea.Model {
 
 export class ListClustersMetaResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListClustersMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -4919,6 +5323,7 @@ export class ListClustersMetaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListClustersMetaResponseBody,
     };
   }
@@ -4989,10 +5394,12 @@ export class ListCommandsResponseBody extends $tea.Model {
 
 export class ListCommandsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCommandsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5000,7 +5407,80 @@ export class ListCommandsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCommandsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommunityImagesRequest extends $tea.Model {
+  baseOsTag?: string;
+  clusterId?: string;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseOsTag: 'BaseOsTag',
+      clusterId: 'ClusterId',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseOsTag: 'string',
+      clusterId: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommunityImagesResponseBody extends $tea.Model {
+  images?: ListCommunityImagesResponseBodyImages;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: ListCommunityImagesResponseBodyImages,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommunityImagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListCommunityImagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCommunityImagesResponseBody,
     };
   }
 
@@ -5064,10 +5544,12 @@ export class ListContainerAppsResponseBody extends $tea.Model {
 
 export class ListContainerAppsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListContainerAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5075,6 +5557,7 @@ export class ListContainerAppsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListContainerAppsResponseBody,
     };
   }
@@ -5148,10 +5631,12 @@ export class ListContainerImagesResponseBody extends $tea.Model {
 
 export class ListContainerImagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListContainerImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5159,6 +5644,7 @@ export class ListContainerImagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListContainerImagesResponseBody,
     };
   }
@@ -5226,10 +5712,12 @@ export class ListCpfsFileSystemsResponseBody extends $tea.Model {
 
 export class ListCpfsFileSystemsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCpfsFileSystemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5237,6 +5725,7 @@ export class ListCpfsFileSystemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCpfsFileSystemsResponseBody,
     };
   }
@@ -5270,10 +5759,12 @@ export class ListCurrentClientVersionResponseBody extends $tea.Model {
 
 export class ListCurrentClientVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCurrentClientVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5281,6 +5772,7 @@ export class ListCurrentClientVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCurrentClientVersionResponseBody,
     };
   }
@@ -5342,10 +5834,12 @@ export class ListCustomImagesResponseBody extends $tea.Model {
 
 export class ListCustomImagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListCustomImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5353,6 +5847,7 @@ export class ListCustomImagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCustomImagesResponseBody,
     };
   }
@@ -5417,10 +5912,12 @@ export class ListFileSystemWithMountTargetsResponseBody extends $tea.Model {
 
 export class ListFileSystemWithMountTargetsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListFileSystemWithMountTargetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5428,6 +5925,7 @@ export class ListFileSystemWithMountTargetsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListFileSystemWithMountTargetsResponseBody,
     };
   }
@@ -5483,10 +5981,12 @@ export class ListImagesResponseBody extends $tea.Model {
 
 export class ListImagesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListImagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5494,6 +5994,7 @@ export class ListImagesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListImagesResponseBody,
     };
   }
@@ -5546,10 +6047,12 @@ export class ListInstalledSoftwareResponseBody extends $tea.Model {
 
 export class ListInstalledSoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListInstalledSoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5557,6 +6060,7 @@ export class ListInstalledSoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListInstalledSoftwareResponseBody,
     };
   }
@@ -5633,10 +6137,12 @@ export class ListInvocationResultsResponseBody extends $tea.Model {
 
 export class ListInvocationResultsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListInvocationResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5644,6 +6150,7 @@ export class ListInvocationResultsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListInvocationResultsResponseBody,
     };
   }
@@ -5705,10 +6212,12 @@ export class ListInvocationStatusResponseBody extends $tea.Model {
 
 export class ListInvocationStatusResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListInvocationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5716,6 +6225,7 @@ export class ListInvocationStatusResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListInvocationStatusResponseBody,
     };
   }
@@ -5783,10 +6293,12 @@ export class ListJobTemplatesResponseBody extends $tea.Model {
 
 export class ListJobTemplatesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListJobTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5794,6 +6306,7 @@ export class ListJobTemplatesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListJobTemplatesResponseBody,
     };
   }
@@ -5870,10 +6383,12 @@ export class ListJobsResponseBody extends $tea.Model {
 
 export class ListJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5881,6 +6396,7 @@ export class ListJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListJobsResponseBody,
     };
   }
@@ -5984,10 +6500,12 @@ export class ListJobsWithFiltersResponseBody extends $tea.Model {
 
 export class ListJobsWithFiltersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListJobsWithFiltersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -5995,6 +6513,7 @@ export class ListJobsWithFiltersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListJobsWithFiltersResponseBody,
     };
   }
@@ -6086,10 +6605,12 @@ export class ListNodesResponseBody extends $tea.Model {
 
 export class ListNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6097,6 +6618,7 @@ export class ListNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListNodesResponseBody,
     };
   }
@@ -6167,10 +6689,12 @@ export class ListNodesByQueueResponseBody extends $tea.Model {
 
 export class ListNodesByQueueResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListNodesByQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6178,6 +6702,7 @@ export class ListNodesByQueueResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListNodesByQueueResponseBody,
     };
   }
@@ -6239,10 +6764,12 @@ export class ListNodesNoPagingResponseBody extends $tea.Model {
 
 export class ListNodesNoPagingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListNodesNoPagingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6250,6 +6777,7 @@ export class ListNodesNoPagingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListNodesNoPagingResponseBody,
     };
   }
@@ -6311,10 +6839,12 @@ export class ListPreferredEcsTypesResponseBody extends $tea.Model {
 
 export class ListPreferredEcsTypesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListPreferredEcsTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6322,6 +6852,7 @@ export class ListPreferredEcsTypesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListPreferredEcsTypesResponseBody,
     };
   }
@@ -6374,10 +6905,12 @@ export class ListQueuesResponseBody extends $tea.Model {
 
 export class ListQueuesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListQueuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6385,6 +6918,7 @@ export class ListQueuesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListQueuesResponseBody,
     };
   }
@@ -6418,10 +6952,12 @@ export class ListRegionsResponseBody extends $tea.Model {
 
 export class ListRegionsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6429,6 +6965,7 @@ export class ListRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListRegionsResponseBody,
     };
   }
@@ -6484,10 +7021,12 @@ export class ListSecurityGroupsResponseBody extends $tea.Model {
 
 export class ListSecurityGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSecurityGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6495,6 +7034,7 @@ export class ListSecurityGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSecurityGroupsResponseBody,
     };
   }
@@ -6550,10 +7090,12 @@ export class ListSoftwaresResponseBody extends $tea.Model {
 
 export class ListSoftwaresResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListSoftwaresResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6561,7 +7103,89 @@ export class ListSoftwaresResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListSoftwaresResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -6634,10 +7258,12 @@ export class ListTasksResponseBody extends $tea.Model {
 
 export class ListTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6645,7 +7271,83 @@ export class ListTasksResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpgradeClientsRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpgradeClientsResponseBody extends $tea.Model {
+  clientRecords?: ListUpgradeClientsResponseBodyClientRecords[];
+  currentVersion?: string;
+  latestVersion?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientRecords: 'ClientRecords',
+      currentVersion: 'CurrentVersion',
+      latestVersion: 'LatestVersion',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientRecords: { 'type': 'array', 'itemType': ListUpgradeClientsResponseBodyClientRecords },
+      currentVersion: 'string',
+      latestVersion: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpgradeClientsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: ListUpgradeClientsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUpgradeClientsResponseBody,
     };
   }
 
@@ -6712,10 +7414,12 @@ export class ListUsersResponseBody extends $tea.Model {
 
 export class ListUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6723,6 +7427,7 @@ export class ListUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUsersResponseBody,
     };
   }
@@ -6787,10 +7492,12 @@ export class ListVolumesResponseBody extends $tea.Model {
 
 export class ListVolumesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ListVolumesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6798,6 +7505,7 @@ export class ListVolumesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListVolumesResponseBody,
     };
   }
@@ -6859,10 +7567,12 @@ export class ModifyClusterAttributesResponseBody extends $tea.Model {
 
 export class ModifyClusterAttributesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyClusterAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6870,6 +7580,7 @@ export class ModifyClusterAttributesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyClusterAttributesResponseBody,
     };
   }
@@ -6922,10 +7633,12 @@ export class ModifyContainerAppAttributesResponseBody extends $tea.Model {
 
 export class ModifyContainerAppAttributesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyContainerAppAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -6933,6 +7646,7 @@ export class ModifyContainerAppAttributesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyContainerAppAttributesResponseBody,
     };
   }
@@ -7006,10 +7720,12 @@ export class ModifyImageGatewayConfigResponseBody extends $tea.Model {
 
 export class ModifyImageGatewayConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyImageGatewayConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7017,6 +7733,7 @@ export class ModifyImageGatewayConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyImageGatewayConfigResponseBody,
     };
   }
@@ -7069,10 +7786,12 @@ export class ModifyUserGroupsResponseBody extends $tea.Model {
 
 export class ModifyUserGroupsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyUserGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7080,6 +7799,7 @@ export class ModifyUserGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyUserGroupsResponseBody,
     };
   }
@@ -7132,10 +7852,12 @@ export class ModifyUserPasswordsResponseBody extends $tea.Model {
 
 export class ModifyUserPasswordsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyUserPasswordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7143,6 +7865,7 @@ export class ModifyUserPasswordsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyUserPasswordsResponseBody,
     };
   }
@@ -7204,10 +7927,12 @@ export class ModifyVisualServicePasswdResponseBody extends $tea.Model {
 
 export class ModifyVisualServicePasswdResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ModifyVisualServicePasswdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7215,6 +7940,7 @@ export class ModifyVisualServicePasswdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyVisualServicePasswdResponseBody,
     };
   }
@@ -7279,10 +8005,12 @@ export class MountNFSResponseBody extends $tea.Model {
 
 export class MountNFSResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: MountNFSResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7290,6 +8018,7 @@ export class MountNFSResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: MountNFSResponseBody,
     };
   }
@@ -7348,10 +8077,12 @@ export class PullImageResponseBody extends $tea.Model {
 
 export class PullImageResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: PullImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7359,6 +8090,7 @@ export class PullImageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: PullImageResponseBody,
     };
   }
@@ -7413,10 +8145,12 @@ export class QueryServicePackAndPriceResponseBody extends $tea.Model {
 
 export class QueryServicePackAndPriceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: QueryServicePackAndPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7424,6 +8158,7 @@ export class QueryServicePackAndPriceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryServicePackAndPriceResponseBody,
     };
   }
@@ -7494,10 +8229,12 @@ export class RecoverClusterResponseBody extends $tea.Model {
 
 export class RecoverClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RecoverClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7505,6 +8242,7 @@ export class RecoverClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecoverClusterResponseBody,
     };
   }
@@ -7557,10 +8295,12 @@ export class RerunJobsResponseBody extends $tea.Model {
 
 export class RerunJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RerunJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7568,6 +8308,7 @@ export class RerunJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RerunJobsResponseBody,
     };
   }
@@ -7623,10 +8364,12 @@ export class ResetNodesResponseBody extends $tea.Model {
 
 export class ResetNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: ResetNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7634,6 +8377,7 @@ export class ResetNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ResetNodesResponseBody,
     };
   }
@@ -7698,10 +8442,12 @@ export class RunCloudMetricProfilingResponseBody extends $tea.Model {
 
 export class RunCloudMetricProfilingResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: RunCloudMetricProfilingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7709,6 +8455,7 @@ export class RunCloudMetricProfilingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RunCloudMetricProfilingResponseBody,
     };
   }
@@ -7800,10 +8547,12 @@ export class SetAutoScaleConfigResponseBody extends $tea.Model {
 
 export class SetAutoScaleConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetAutoScaleConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7811,6 +8560,7 @@ export class SetAutoScaleConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetAutoScaleConfigResponseBody,
     };
   }
@@ -7878,10 +8628,12 @@ export class SetGWSClusterPolicyResponseBody extends $tea.Model {
 
 export class SetGWSClusterPolicyResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetGWSClusterPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7889,6 +8641,7 @@ export class SetGWSClusterPolicyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetGWSClusterPolicyResponseBody,
     };
   }
@@ -7941,10 +8694,12 @@ export class SetGWSInstanceNameResponseBody extends $tea.Model {
 
 export class SetGWSInstanceNameResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetGWSInstanceNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -7952,6 +8707,7 @@ export class SetGWSInstanceNameResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetGWSInstanceNameResponseBody,
     };
   }
@@ -8007,10 +8763,12 @@ export class SetGWSInstanceUserResponseBody extends $tea.Model {
 
 export class SetGWSInstanceUserResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetGWSInstanceUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8018,6 +8776,7 @@ export class SetGWSInstanceUserResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetGWSInstanceUserResponseBody,
     };
   }
@@ -8073,10 +8832,12 @@ export class SetPostScriptsResponseBody extends $tea.Model {
 
 export class SetPostScriptsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetPostScriptsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8084,6 +8845,7 @@ export class SetPostScriptsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetPostScriptsResponseBody,
     };
   }
@@ -8139,10 +8901,12 @@ export class SetQueueResponseBody extends $tea.Model {
 
 export class SetQueueResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8150,6 +8914,7 @@ export class SetQueueResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetQueueResponseBody,
     };
   }
@@ -8214,10 +8979,12 @@ export class SetSchedulerInfoResponseBody extends $tea.Model {
 
 export class SetSchedulerInfoResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SetSchedulerInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8225,6 +8992,7 @@ export class SetSchedulerInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetSchedulerInfoResponseBody,
     };
   }
@@ -8277,10 +9045,12 @@ export class StartClusterResponseBody extends $tea.Model {
 
 export class StartClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8288,6 +9058,7 @@ export class StartClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartClusterResponseBody,
     };
   }
@@ -8337,10 +9108,12 @@ export class StartGWSInstanceResponseBody extends $tea.Model {
 
 export class StartGWSInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartGWSInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8348,6 +9121,7 @@ export class StartGWSInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartGWSInstanceResponseBody,
     };
   }
@@ -8406,10 +9180,12 @@ export class StartNodesResponseBody extends $tea.Model {
 
 export class StartNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8417,6 +9193,7 @@ export class StartNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartNodesResponseBody,
     };
   }
@@ -8475,10 +9252,12 @@ export class StartVisualServiceResponseBody extends $tea.Model {
 
 export class StartVisualServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StartVisualServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8486,6 +9265,7 @@ export class StartVisualServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartVisualServiceResponseBody,
     };
   }
@@ -8538,10 +9318,12 @@ export class StopClusterResponseBody extends $tea.Model {
 
 export class StopClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8549,6 +9331,7 @@ export class StopClusterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopClusterResponseBody,
     };
   }
@@ -8598,10 +9381,12 @@ export class StopGWSInstanceResponseBody extends $tea.Model {
 
 export class StopGWSInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopGWSInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8609,6 +9394,7 @@ export class StopGWSInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopGWSInstanceResponseBody,
     };
   }
@@ -8661,10 +9447,12 @@ export class StopJobsResponseBody extends $tea.Model {
 
 export class StopJobsResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8672,6 +9460,7 @@ export class StopJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopJobsResponseBody,
     };
   }
@@ -8730,10 +9519,12 @@ export class StopNodesResponseBody extends $tea.Model {
 
 export class StopNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8741,6 +9532,7 @@ export class StopNodesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopNodesResponseBody,
     };
   }
@@ -8799,10 +9591,12 @@ export class StopVisualServiceResponseBody extends $tea.Model {
 
 export class StopVisualServiceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: StopVisualServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8810,6 +9604,7 @@ export class StopVisualServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopVisualServiceResponseBody,
     };
   }
@@ -8928,10 +9723,12 @@ export class SubmitJobResponseBody extends $tea.Model {
 
 export class SubmitJobResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SubmitJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -8939,7 +9736,149 @@ export class SubmitJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryImagesRequest extends $tea.Model {
+  clusterId?: string;
+  containerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containerType: 'ContainerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryImagesResponseBody extends $tea.Model {
+  imagesName?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imagesName: 'ImagesName',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imagesName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryImagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SummaryImagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SummaryImagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryImagesInfoRequest extends $tea.Model {
+  clusterId?: string;
+  containerType?: string;
+  imageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containerType: 'ContainerType',
+      imageName: 'ImageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containerType: 'string',
+      imageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryImagesInfoResponseBody extends $tea.Model {
+  imagesInfo?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imagesInfo: 'ImagesInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imagesInfo: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryImagesInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: SummaryImagesInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SummaryImagesInfoResponseBody,
     };
   }
 
@@ -8991,10 +9930,12 @@ export class SyncUsersResponseBody extends $tea.Model {
 
 export class SyncUsersResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: SyncUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9002,7 +9943,155 @@ export class SyncUsersResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SyncUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnTagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnTagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  statusCode: number;
+  body: UnTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnTagResourcesResponseBody,
     };
   }
 
@@ -9054,10 +10143,12 @@ export class UninstallSoftwareResponseBody extends $tea.Model {
 
 export class UninstallSoftwareResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UninstallSoftwareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9065,6 +10156,7 @@ export class UninstallSoftwareResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UninstallSoftwareResponseBody,
     };
   }
@@ -9117,10 +10209,12 @@ export class UpdateClusterVolumesResponseBody extends $tea.Model {
 
 export class UpdateClusterVolumesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateClusterVolumesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9128,6 +10222,7 @@ export class UpdateClusterVolumesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateClusterVolumesResponseBody,
     };
   }
@@ -9186,10 +10281,12 @@ export class UpdateQueueConfigResponseBody extends $tea.Model {
 
 export class UpdateQueueConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpdateQueueConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9197,6 +10294,7 @@ export class UpdateQueueConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpdateQueueConfigResponseBody,
     };
   }
@@ -9249,10 +10347,12 @@ export class UpgradeClientResponseBody extends $tea.Model {
 
 export class UpgradeClientResponse extends $tea.Model {
   headers: { [key: string]: string };
+  statusCode: number;
   body: UpgradeClientResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -9260,6 +10360,7 @@ export class UpgradeClientResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UpgradeClientResponseBody,
     };
   }
@@ -9689,7 +10790,48 @@ export class CreateClusterRequestPostInstallScript extends $tea.Model {
   }
 }
 
+export class CreateClusterRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHybridClusterRequestEcsOrderCompute extends $tea.Model {
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHybridClusterRequestEcsOrderManager extends $tea.Model {
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9710,15 +10852,18 @@ export class CreateHybridClusterRequestEcsOrderCompute extends $tea.Model {
 
 export class CreateHybridClusterRequestEcsOrder extends $tea.Model {
   compute: CreateHybridClusterRequestEcsOrderCompute;
+  manager: CreateHybridClusterRequestEcsOrderManager;
   static names(): { [key: string]: string } {
     return {
       compute: 'Compute',
+      manager: 'Manager',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       compute: CreateHybridClusterRequestEcsOrderCompute,
+      manager: CreateHybridClusterRequestEcsOrderManager,
     };
   }
 
@@ -10245,6 +11390,56 @@ export class DescribeContainerAppResponseBodyContainerAppInfo extends $tea.Model
       name: 'string',
       repository: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEstackImageResponseBodyImageListImageListInfo extends $tea.Model {
+  imageName?: string;
+  imageSize?: number;
+  imageType?: string;
+  imageUrl?: string;
+  recentUpdateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageName: 'ImageName',
+      imageSize: 'ImageSize',
+      imageType: 'ImageType',
+      imageUrl: 'ImageUrl',
+      recentUpdateTime: 'RecentUpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageName: 'string',
+      imageSize: 'number',
+      imageType: 'string',
+      imageUrl: 'string',
+      recentUpdateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEstackImageResponseBodyImageList extends $tea.Model {
+  imageListInfo?: DescribeEstackImageResponseBodyImageListImageListInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      imageListInfo: 'ImageListInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageListInfo: { 'type': 'array', 'itemType': DescribeEstackImageResponseBodyImageListImageListInfo },
     };
   }
 
@@ -11199,197 +12394,6 @@ export class GetPostScriptsResponseBodyPostInstallScripts extends $tea.Model {
   }
 }
 
-export class GetQueueConfRequestQueues extends $tea.Model {
-  queueName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queueName: 'QueueName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queueName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfResponseBodyQueuesConfDataDisks extends $tea.Model {
-  dataDiskCategory?: string;
-  dataDiskDeleteWithInstance?: boolean;
-  dataDiskEncrypted?: boolean;
-  dataDiskKMSKeyId?: string;
-  dataDiskPerformanceLevel?: string;
-  dataDiskSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dataDiskCategory: 'DataDiskCategory',
-      dataDiskDeleteWithInstance: 'DataDiskDeleteWithInstance',
-      dataDiskEncrypted: 'DataDiskEncrypted',
-      dataDiskKMSKeyId: 'DataDiskKMSKeyId',
-      dataDiskPerformanceLevel: 'DataDiskPerformanceLevel',
-      dataDiskSize: 'DataDiskSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataDiskCategory: 'string',
-      dataDiskDeleteWithInstance: 'boolean',
-      dataDiskEncrypted: 'boolean',
-      dataDiskKMSKeyId: 'string',
-      dataDiskPerformanceLevel: 'string',
-      dataDiskSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfResponseBodyQueuesConfInstanceTypes extends $tea.Model {
-  instanceType?: string;
-  spotPriceLimit?: number;
-  spotStrategy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceType: 'InstanceType',
-      spotPriceLimit: 'SpotPriceLimit',
-      spotStrategy: 'SpotStrategy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceType: 'string',
-      spotPriceLimit: 'number',
-      spotStrategy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfResponseBodyQueuesConfZones extends $tea.Model {
-  vSwitchIds?: string[];
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vSwitchIds: 'VSwitchIds',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueConfResponseBodyQueuesConf extends $tea.Model {
-  dataDisks?: GetQueueConfResponseBodyQueuesConfDataDisks[];
-  enableAutoGrow?: boolean;
-  enableAutoShrink?: boolean;
-  growIntervallnMinutes?: number;
-  growTimeoutInMinutes?: number;
-  hostNamePrefix?: string;
-  hostNameSuffix?: string;
-  imageId?: string;
-  imageType?: string;
-  instanceTypes?: GetQueueConfResponseBodyQueuesConfInstanceTypes[];
-  internetChargeType?: string;
-  internetMaxBandwidthOut?: number;
-  maxNodes?: number;
-  minNodes?: number;
-  osTag?: string;
-  queueName?: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  securityGroupId?: string;
-  shrinkIntervallnMinutes?: number;
-  shrinkidleTimes?: number;
-  systemDiskCategory?: string;
-  systemDiskPerformanceLevel?: string;
-  systemDiskSize?: number;
-  zones?: GetQueueConfResponseBodyQueuesConfZones[];
-  static names(): { [key: string]: string } {
-    return {
-      dataDisks: 'DataDisks',
-      enableAutoGrow: 'EnableAutoGrow',
-      enableAutoShrink: 'EnableAutoShrink',
-      growIntervallnMinutes: 'GrowIntervallnMinutes',
-      growTimeoutInMinutes: 'GrowTimeoutInMinutes',
-      hostNamePrefix: 'HostNamePrefix',
-      hostNameSuffix: 'HostNameSuffix',
-      imageId: 'ImageId',
-      imageType: 'ImageType',
-      instanceTypes: 'InstanceTypes',
-      internetChargeType: 'InternetChargeType',
-      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
-      maxNodes: 'MaxNodes',
-      minNodes: 'MinNodes',
-      osTag: 'OsTag',
-      queueName: 'QueueName',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      shrinkIntervallnMinutes: 'ShrinkIntervallnMinutes',
-      shrinkidleTimes: 'ShrinkidleTimes',
-      systemDiskCategory: 'SystemDiskCategory',
-      systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
-      systemDiskSize: 'SystemDiskSize',
-      zones: 'Zones',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataDisks: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConfDataDisks },
-      enableAutoGrow: 'boolean',
-      enableAutoShrink: 'boolean',
-      growIntervallnMinutes: 'number',
-      growTimeoutInMinutes: 'number',
-      hostNamePrefix: 'string',
-      hostNameSuffix: 'string',
-      imageId: 'string',
-      imageType: 'string',
-      instanceTypes: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConfInstanceTypes },
-      internetChargeType: 'string',
-      internetMaxBandwidthOut: 'number',
-      maxNodes: 'number',
-      minNodes: 'number',
-      osTag: 'string',
-      queueName: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      shrinkIntervallnMinutes: 'number',
-      shrinkidleTimes: 'number',
-      systemDiskCategory: 'string',
-      systemDiskPerformanceLevel: 'string',
-      systemDiskSize: 'number',
-      zones: { 'type': 'array', 'itemType': GetQueueConfResponseBodyQueuesConfZones },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetSchedulerInfoRequestScheduler extends $tea.Model {
   schedName?: string;
   static names(): { [key: string]: string } {
@@ -11423,6 +12427,59 @@ export class GetSchedulerInfoResponseBodySchedInfo extends $tea.Model {
     return {
       configuration: 'string',
       schedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InspectImageResponseBodyImageStatusImageInspectInfo extends $tea.Model {
+  bootStrap?: string;
+  buildArch?: string;
+  buildDate?: string;
+  containerVersion?: string;
+  defFrom?: string;
+  schemaVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootStrap: 'BootStrap',
+      buildArch: 'BuildArch',
+      buildDate: 'BuildDate',
+      containerVersion: 'ContainerVersion',
+      defFrom: 'DefFrom',
+      schemaVersion: 'SchemaVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootStrap: 'string',
+      buildArch: 'string',
+      buildDate: 'string',
+      containerVersion: 'string',
+      defFrom: 'string',
+      schemaVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InspectImageResponseBodyImageStatus extends $tea.Model {
+  imageInspectInfo?: InspectImageResponseBodyImageStatusImageInspectInfo;
+  static names(): { [key: string]: string } {
+    return {
+      imageInspectInfo: 'ImageInspectInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageInspectInfo: InspectImageResponseBodyImageStatusImageInspectInfo,
     };
   }
 
@@ -12073,6 +13130,139 @@ export class ListCommandsResponseBodyCommands extends $tea.Model {
   }
 }
 
+export class ListCommunityImagesResponseBodyImagesImageInfoBaseOsTag extends $tea.Model {
+  architecture?: string;
+  osTag?: string;
+  platform?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      osTag: 'OsTag',
+      platform: 'Platform',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      osTag: 'string',
+      platform: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommunityImagesResponseBodyImagesImageInfoOsTag extends $tea.Model {
+  architecture?: string;
+  baseOsTag?: string;
+  osTag?: string;
+  platform?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      baseOsTag: 'BaseOsTag',
+      osTag: 'OsTag',
+      platform: 'Platform',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      baseOsTag: 'string',
+      osTag: 'string',
+      platform: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommunityImagesResponseBodyImagesImageInfo extends $tea.Model {
+  baseOsTag?: ListCommunityImagesResponseBodyImagesImageInfoBaseOsTag;
+  description?: string;
+  imageId?: string;
+  imageName?: string;
+  imageOwnerAlias?: string;
+  osTag?: ListCommunityImagesResponseBodyImagesImageInfoOsTag;
+  postInstallScript?: string;
+  pricingCycle?: string;
+  productCode?: string;
+  size?: number;
+  skuCode?: string;
+  status?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseOsTag: 'BaseOsTag',
+      description: 'Description',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageOwnerAlias: 'ImageOwnerAlias',
+      osTag: 'OsTag',
+      postInstallScript: 'PostInstallScript',
+      pricingCycle: 'PricingCycle',
+      productCode: 'ProductCode',
+      size: 'Size',
+      skuCode: 'SkuCode',
+      status: 'Status',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseOsTag: ListCommunityImagesResponseBodyImagesImageInfoBaseOsTag,
+      description: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageOwnerAlias: 'string',
+      osTag: ListCommunityImagesResponseBodyImagesImageInfoOsTag,
+      postInstallScript: 'string',
+      pricingCycle: 'string',
+      productCode: 'string',
+      size: 'number',
+      skuCode: 'string',
+      status: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommunityImagesResponseBodyImages extends $tea.Model {
+  imageInfo?: ListCommunityImagesResponseBodyImagesImageInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      imageInfo: 'ImageInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageInfo: { 'type': 'array', 'itemType': ListCommunityImagesResponseBodyImagesImageInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListContainerAppsResponseBodyContainerAppsContainerApps extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -12533,6 +13723,7 @@ export class ListFileSystemWithMountTargetsResponseBodyFileSystemListFileSystems
   regionId?: string;
   status?: string;
   storageType?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       bandWidth: 'BandWidth',
@@ -12549,6 +13740,7 @@ export class ListFileSystemWithMountTargetsResponseBodyFileSystemListFileSystems
       regionId: 'RegionId',
       status: 'Status',
       storageType: 'StorageType',
+      vpcId: 'VpcId',
     };
   }
 
@@ -12568,6 +13760,7 @@ export class ListFileSystemWithMountTargetsResponseBodyFileSystemListFileSystems
       regionId: 'string',
       status: 'string',
       storageType: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -13043,6 +14236,7 @@ export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
   owner?: string;
   priority?: string;
   queue?: string;
+  rerunable?: boolean;
   resources?: ListJobsWithFiltersResponseBodyJobsResources;
   shellPath?: string;
   startTime?: string;
@@ -13050,6 +14244,7 @@ export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
   stderr?: string;
   stdout?: string;
   submitTime?: string;
+  variableList?: string;
   static names(): { [key: string]: string } {
     return {
       arrayRequest: 'ArrayRequest',
@@ -13061,6 +14256,7 @@ export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
       owner: 'Owner',
       priority: 'Priority',
       queue: 'Queue',
+      rerunable: 'Rerunable',
       resources: 'Resources',
       shellPath: 'ShellPath',
       startTime: 'StartTime',
@@ -13068,6 +14264,7 @@ export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
       stderr: 'Stderr',
       stdout: 'Stdout',
       submitTime: 'SubmitTime',
+      variableList: 'VariableList',
     };
   }
 
@@ -13082,6 +14279,7 @@ export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
       owner: 'string',
       priority: 'string',
       queue: 'string',
+      rerunable: 'boolean',
       resources: ListJobsWithFiltersResponseBodyJobsResources,
       shellPath: 'string',
       startTime: 'string',
@@ -13089,6 +14287,7 @@ export class ListJobsWithFiltersResponseBodyJobs extends $tea.Model {
       stderr: 'string',
       stdout: 'string',
       submitTime: 'string',
+      variableList: 'string',
     };
   }
 
@@ -13900,6 +15099,75 @@ export class ListSoftwaresResponseBodySoftwares extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTasksResponseBodyTasks extends $tea.Model {
   clusterId?: string;
   currentStep?: number;
@@ -13935,6 +15203,34 @@ export class ListTasksResponseBodyTasks extends $tea.Model {
       taskId: 'string',
       taskType: 'string',
       totalSteps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpgradeClientsResponseBodyClientRecords extends $tea.Model {
+  newVersion?: string;
+  oldVersion?: string;
+  subUid?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newVersion: 'NewVersion',
+      oldVersion: 'OldVersion',
+      subUid: 'SubUid',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newVersion: 'string',
+      oldVersion: 'string',
+      subUid: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -14446,6 +15742,7 @@ export class SetSchedulerInfoRequestPbsInfoAclLimit extends $tea.Model {
 
 export class SetSchedulerInfoRequestPbsInfoResourceLimit extends $tea.Model {
   cpus?: number;
+  maxJobs?: number;
   mem?: string;
   nodes?: number;
   queue?: string;
@@ -14453,6 +15750,7 @@ export class SetSchedulerInfoRequestPbsInfoResourceLimit extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       cpus: 'Cpus',
+      maxJobs: 'MaxJobs',
       mem: 'Mem',
       nodes: 'Nodes',
       queue: 'Queue',
@@ -14463,6 +15761,7 @@ export class SetSchedulerInfoRequestPbsInfoResourceLimit extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cpus: 'number',
+      maxJobs: 'number',
       mem: 'string',
       nodes: 'number',
       queue: 'string',
@@ -14480,12 +15779,16 @@ export class SetSchedulerInfoRequestPbsInfo extends $tea.Model {
   jobHistoryDuration?: number;
   resourceLimit?: SetSchedulerInfoRequestPbsInfoResourceLimit[];
   schedInterval?: number;
+  schedMaxJobs?: number;
+  schedMaxQueuedJobs?: number;
   static names(): { [key: string]: string } {
     return {
       aclLimit: 'AclLimit',
       jobHistoryDuration: 'JobHistoryDuration',
       resourceLimit: 'ResourceLimit',
       schedInterval: 'SchedInterval',
+      schedMaxJobs: 'SchedMaxJobs',
+      schedMaxQueuedJobs: 'SchedMaxQueuedJobs',
     };
   }
 
@@ -14495,6 +15798,8 @@ export class SetSchedulerInfoRequestPbsInfo extends $tea.Model {
       jobHistoryDuration: 'number',
       resourceLimit: { 'type': 'array', 'itemType': SetSchedulerInfoRequestPbsInfoResourceLimit },
       schedInterval: 'number',
+      schedMaxJobs: 'number',
+      schedMaxQueuedJobs: 'number',
     };
   }
 
@@ -14574,6 +15879,28 @@ export class StopNodesRequestInstance extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -15217,6 +16544,31 @@ export default class Client extends OpenApi {
     return await this.deleteJobsWithOptions(request, runtime);
   }
 
+  async deleteLocalImageWithOptions(request: DeleteLocalImageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLocalImageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteLocalImage",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLocalImageResponse>(await this.callApi(params, req, runtime), new DeleteLocalImageResponse({}));
+  }
+
+  async deleteLocalImage(request: DeleteLocalImageRequest): Promise<DeleteLocalImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLocalImageWithOptions(request, runtime);
+  }
+
   async deleteNodesWithOptions(request: DeleteNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNodesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -15392,14 +16744,14 @@ export default class Client extends OpenApi {
     return await this.describeContainerAppWithOptions(request, runtime);
   }
 
-  async describeDeployProcessWithOptions(request: DescribeDeployProcessRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployProcessResponse> {
+  async describeEstackImageWithOptions(request: DescribeEstackImageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEstackImageResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DescribeDeployProcess",
+      action: "DescribeEstackImage",
       version: "2018-04-12",
       protocol: "HTTPS",
       pathname: "/",
@@ -15409,12 +16761,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDeployProcessResponse>(await this.callApi(params, req, runtime), new DescribeDeployProcessResponse({}));
+    return $tea.cast<DescribeEstackImageResponse>(await this.callApi(params, req, runtime), new DescribeEstackImageResponse({}));
   }
 
-  async describeDeployProcess(request: DescribeDeployProcessRequest): Promise<DescribeDeployProcessResponse> {
+  async describeEstackImage(request: DescribeEstackImageRequest): Promise<DescribeEstackImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDeployProcessWithOptions(request, runtime);
+    return await this.describeEstackImageWithOptions(request, runtime);
   }
 
   async describeGWSClusterPolicyWithOptions(request: DescribeGWSClusterPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGWSClusterPolicyResponse> {
@@ -15829,6 +17181,31 @@ export default class Client extends OpenApi {
     return await this.getClusterVolumesWithOptions(request, runtime);
   }
 
+  async getCommonImageWithOptions(request: GetCommonImageRequest, runtime: $Util.RuntimeOptions): Promise<GetCommonImageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCommonImage",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCommonImageResponse>(await this.callApi(params, req, runtime), new GetCommonImageResponse({}));
+  }
+
+  async getCommonImage(request: GetCommonImageRequest): Promise<GetCommonImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCommonImageWithOptions(request, runtime);
+  }
+
   async getGWSConnectTicketWithOptions(request: GetGWSConnectTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetGWSConnectTicketResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -15929,31 +17306,6 @@ export default class Client extends OpenApi {
     return await this.getPostScriptsWithOptions(request, runtime);
   }
 
-  async getQueueConfWithOptions(request: GetQueueConfRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueConfResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetQueueConf",
-      version: "2018-04-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetQueueConfResponse>(await this.callApi(params, req, runtime), new GetQueueConfResponse({}));
-  }
-
-  async getQueueConf(request: GetQueueConfRequest): Promise<GetQueueConfResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getQueueConfWithOptions(request, runtime);
-  }
-
   async getSchedulerInfoWithOptions(request: GetSchedulerInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetSchedulerInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -15977,6 +17329,31 @@ export default class Client extends OpenApi {
   async getSchedulerInfo(request: GetSchedulerInfoRequest): Promise<GetSchedulerInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSchedulerInfoWithOptions(request, runtime);
+  }
+
+  async getUserImageWithOptions(request: GetUserImageRequest, runtime: $Util.RuntimeOptions): Promise<GetUserImageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserImage",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserImageResponse>(await this.callApi(params, req, runtime), new GetUserImageResponse({}));
+  }
+
+  async getUserImage(request: GetUserImageRequest): Promise<GetUserImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserImageWithOptions(request, runtime);
   }
 
   async getVisualServiceStatusWithOptions(request: GetVisualServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetVisualServiceStatusResponse> {
@@ -16027,6 +17404,31 @@ export default class Client extends OpenApi {
   async initializeEHPC(request: InitializeEHPCRequest): Promise<InitializeEHPCResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initializeEHPCWithOptions(request, runtime);
+  }
+
+  async inspectImageWithOptions(request: InspectImageRequest, runtime: $Util.RuntimeOptions): Promise<InspectImageResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InspectImage",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InspectImageResponse>(await this.callApi(params, req, runtime), new InspectImageResponse({}));
+  }
+
+  async inspectImage(request: InspectImageRequest): Promise<InspectImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.inspectImageWithOptions(request, runtime);
   }
 
   async installSoftwareWithOptions(request: InstallSoftwareRequest, runtime: $Util.RuntimeOptions): Promise<InstallSoftwareResponse> {
@@ -16227,6 +17629,31 @@ export default class Client extends OpenApi {
   async listCommands(request: ListCommandsRequest): Promise<ListCommandsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCommandsWithOptions(request, runtime);
+  }
+
+  async listCommunityImagesWithOptions(request: ListCommunityImagesRequest, runtime: $Util.RuntimeOptions): Promise<ListCommunityImagesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCommunityImages",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommunityImagesResponse>(await this.callApi(params, req, runtime), new ListCommunityImagesResponse({}));
+  }
+
+  async listCommunityImages(request: ListCommunityImagesRequest): Promise<ListCommunityImagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCommunityImagesWithOptions(request, runtime);
   }
 
   async listContainerAppsWithOptions(request: ListContainerAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListContainerAppsResponse> {
@@ -16746,6 +18173,51 @@ export default class Client extends OpenApi {
     return await this.listSoftwaresWithOptions(request, runtime);
   }
 
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
   async listTasksWithOptions(request: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16769,6 +18241,31 @@ export default class Client extends OpenApi {
   async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTasksWithOptions(request, runtime);
+  }
+
+  async listUpgradeClientsWithOptions(request: ListUpgradeClientsRequest, runtime: $Util.RuntimeOptions): Promise<ListUpgradeClientsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUpgradeClients",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUpgradeClientsResponse>(await this.callApi(params, req, runtime), new ListUpgradeClientsResponse({}));
+  }
+
+  async listUpgradeClients(request: ListUpgradeClientsRequest): Promise<ListUpgradeClientsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUpgradeClientsWithOptions(request, runtime);
   }
 
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
@@ -17595,6 +19092,56 @@ export default class Client extends OpenApi {
     return await this.submitJobWithOptions(request, runtime);
   }
 
+  async summaryImagesWithOptions(request: SummaryImagesRequest, runtime: $Util.RuntimeOptions): Promise<SummaryImagesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SummaryImages",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SummaryImagesResponse>(await this.callApi(params, req, runtime), new SummaryImagesResponse({}));
+  }
+
+  async summaryImages(request: SummaryImagesRequest): Promise<SummaryImagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.summaryImagesWithOptions(request, runtime);
+  }
+
+  async summaryImagesInfoWithOptions(request: SummaryImagesInfoRequest, runtime: $Util.RuntimeOptions): Promise<SummaryImagesInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SummaryImagesInfo",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SummaryImagesInfoResponse>(await this.callApi(params, req, runtime), new SummaryImagesInfoResponse({}));
+  }
+
+  async summaryImagesInfo(request: SummaryImagesInfoRequest): Promise<SummaryImagesInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.summaryImagesInfoWithOptions(request, runtime);
+  }
+
   async syncUsersWithOptions(request: SyncUsersRequest, runtime: $Util.RuntimeOptions): Promise<SyncUsersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17618,6 +19165,92 @@ export default class Client extends OpenApi {
   async syncUsers(request: SyncUsersRequest): Promise<SyncUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncUsersWithOptions(request, runtime);
+  }
+
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnTagResources",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
+  }
+
+  async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unTagResourcesWithOptions(request, runtime);
   }
 
   async uninstallSoftwareWithOptions(request: UninstallSoftwareRequest, runtime: $Util.RuntimeOptions): Promise<UninstallSoftwareResponse> {
