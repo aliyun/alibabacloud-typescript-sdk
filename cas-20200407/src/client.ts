@@ -1155,14 +1155,14 @@ export class UploadPCACertResponse extends $tea.Model {
 }
 
 export class VerifyRequest extends $tea.Model {
-  identifier?: string;
+  certIdentifier?: string;
   message?: string;
   messageType?: string;
   signatureValue?: string;
   signingAlgorithm?: string;
   static names(): { [key: string]: string } {
     return {
-      identifier: 'Identifier',
+      certIdentifier: 'CertIdentifier',
       message: 'Message',
       messageType: 'MessageType',
       signatureValue: 'SignatureValue',
@@ -1172,7 +1172,7 @@ export class VerifyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      identifier: 'string',
+      certIdentifier: 'string',
       message: 'string',
       messageType: 'string',
       signatureValue: 'string',
@@ -2050,8 +2050,8 @@ export default class Client extends OpenApi {
   async verifyWithOptions(request: VerifyRequest, runtime: $Util.RuntimeOptions): Promise<VerifyResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.identifier)) {
-      query["Identifier"] = request.identifier;
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
     }
 
     if (!Util.isUnset(request.message)) {
